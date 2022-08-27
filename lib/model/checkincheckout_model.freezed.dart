@@ -1,0 +1,192 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+
+part of 'checkincheckout_model.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+CheckinCheckoutModel _$CheckinCheckoutModelFromJson(Map<String, dynamic> json) {
+  return _CheckinCheckoutModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$CheckinCheckoutModel {
+  String get address => throw _privateConstructorUsedError;
+  String get punchin => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CheckinCheckoutModelCopyWith<CheckinCheckoutModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CheckinCheckoutModelCopyWith<$Res> {
+  factory $CheckinCheckoutModelCopyWith(CheckinCheckoutModel value,
+          $Res Function(CheckinCheckoutModel) then) =
+      _$CheckinCheckoutModelCopyWithImpl<$Res>;
+  $Res call({String address, String punchin, String message});
+}
+
+/// @nodoc
+class _$CheckinCheckoutModelCopyWithImpl<$Res>
+    implements $CheckinCheckoutModelCopyWith<$Res> {
+  _$CheckinCheckoutModelCopyWithImpl(this._value, this._then);
+
+  final CheckinCheckoutModel _value;
+  // ignore: unused_field
+  final $Res Function(CheckinCheckoutModel) _then;
+
+  @override
+  $Res call({
+    Object? address = freezed,
+    Object? punchin = freezed,
+    Object? message = freezed,
+  }) {
+    return _then(_value.copyWith(
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+      punchin: punchin == freezed
+          ? _value.punchin
+          : punchin // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_CheckinCheckoutModelCopyWith<$Res>
+    implements $CheckinCheckoutModelCopyWith<$Res> {
+  factory _$$_CheckinCheckoutModelCopyWith(_$_CheckinCheckoutModel value,
+          $Res Function(_$_CheckinCheckoutModel) then) =
+      __$$_CheckinCheckoutModelCopyWithImpl<$Res>;
+  @override
+  $Res call({String address, String punchin, String message});
+}
+
+/// @nodoc
+class __$$_CheckinCheckoutModelCopyWithImpl<$Res>
+    extends _$CheckinCheckoutModelCopyWithImpl<$Res>
+    implements _$$_CheckinCheckoutModelCopyWith<$Res> {
+  __$$_CheckinCheckoutModelCopyWithImpl(_$_CheckinCheckoutModel _value,
+      $Res Function(_$_CheckinCheckoutModel) _then)
+      : super(_value, (v) => _then(v as _$_CheckinCheckoutModel));
+
+  @override
+  _$_CheckinCheckoutModel get _value => super._value as _$_CheckinCheckoutModel;
+
+  @override
+  $Res call({
+    Object? address = freezed,
+    Object? punchin = freezed,
+    Object? message = freezed,
+  }) {
+    return _then(_$_CheckinCheckoutModel(
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+      punchin: punchin == freezed
+          ? _value.punchin
+          : punchin // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_CheckinCheckoutModel implements _CheckinCheckoutModel {
+  const _$_CheckinCheckoutModel(
+      {this.address = '', this.punchin = '', this.message = ''});
+
+  factory _$_CheckinCheckoutModel.fromJson(Map<String, dynamic> json) =>
+      _$$_CheckinCheckoutModelFromJson(json);
+
+  @override
+  @JsonKey()
+  final String address;
+  @override
+  @JsonKey()
+  final String punchin;
+  @override
+  @JsonKey()
+  final String message;
+
+  @override
+  String toString() {
+    return 'CheckinCheckoutModel(address: $address, punchin: $punchin, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CheckinCheckoutModel &&
+            const DeepCollectionEquality().equals(other.address, address) &&
+            const DeepCollectionEquality().equals(other.punchin, punchin) &&
+            const DeepCollectionEquality().equals(other.message, message));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(address),
+      const DeepCollectionEquality().hash(punchin),
+      const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_CheckinCheckoutModelCopyWith<_$_CheckinCheckoutModel> get copyWith =>
+      __$$_CheckinCheckoutModelCopyWithImpl<_$_CheckinCheckoutModel>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_CheckinCheckoutModelToJson(
+      this,
+    );
+  }
+}
+
+abstract class _CheckinCheckoutModel implements CheckinCheckoutModel {
+  const factory _CheckinCheckoutModel(
+      {final String address,
+      final String punchin,
+      final String message}) = _$_CheckinCheckoutModel;
+
+  factory _CheckinCheckoutModel.fromJson(Map<String, dynamic> json) =
+      _$_CheckinCheckoutModel.fromJson;
+
+  @override
+  String get address;
+  @override
+  String get punchin;
+  @override
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CheckinCheckoutModelCopyWith<_$_CheckinCheckoutModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}

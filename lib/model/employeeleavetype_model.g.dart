@@ -1,0 +1,39 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'employeeleavetype_model.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$_EmployeeLeavetypeModel _$$_EmployeeLeavetypeModelFromJson(
+        Map<String, dynamic> json) =>
+    _$_EmployeeLeavetypeModel(
+      balanceLeave: (json['balance_leave'] as num?)?.toDouble() ?? 0.0,
+      leaveTaken: (json['leave_taken'] as num?)?.toDouble() ?? 0.0,
+      emp_leave_list: (json['emp_leave_list'] as List<dynamic>?)
+              ?.map(
+                  (e) => EmployeeLeaveModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <EmployeeLeaveModel>[],
+      leave_list: (json['leave_list'] as List<dynamic>?)
+              ?.map((e) =>
+                  EmployeeleaveListModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <EmployeeleaveListModel>[],
+      result: (json['result'] as List<dynamic>?)
+              ?.map(
+                  (e) => ApprovedLeaveModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <ApprovedLeaveModel>[],
+    );
+
+Map<String, dynamic> _$$_EmployeeLeavetypeModelToJson(
+        _$_EmployeeLeavetypeModel instance) =>
+    <String, dynamic>{
+      'balance_leave': instance.balanceLeave,
+      'leave_taken': instance.leaveTaken,
+      'emp_leave_list': instance.emp_leave_list,
+      'leave_list': instance.leave_list,
+      'result': instance.result,
+    };
