@@ -16,44 +16,38 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AttendanceDetailState {
-  List<AttendanceDetailModel> get attendanceDetailModel =>
+  AttendanceDetailSuppModel get attendanceDetailModel =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<AttendanceDetailModel> attendanceDetailModel)
+    required TResult Function(AttendanceDetailSuppModel attendanceDetailModel)
         loading,
-    required TResult Function(List<AttendanceDetailModel> attendanceDetailModel)
+    required TResult Function(AttendanceDetailSuppModel attendanceDetailModel)
         content,
-    required TResult Function(List<AttendanceDetailModel> attendanceDetailModel)
+    required TResult Function(AttendanceDetailSuppModel attendanceDetailModel)
         success,
     required TResult Function(
-            List<AttendanceDetailModel> attendanceDetailModel, dynamic message)
+            AttendanceDetailSuppModel attendanceDetailModel, dynamic message)
         failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        loading,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        content,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        success,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? loading,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? content,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? success,
     TResult Function(
-            List<AttendanceDetailModel> attendanceDetailModel, dynamic message)?
+            AttendanceDetailSuppModel attendanceDetailModel, dynamic message)?
         failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        loading,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        content,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        success,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? loading,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? content,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? success,
     TResult Function(
-            List<AttendanceDetailModel> attendanceDetailModel, dynamic message)?
+            AttendanceDetailSuppModel attendanceDetailModel, dynamic message)?
         failed,
     required TResult orElse(),
   }) =>
@@ -94,7 +88,9 @@ abstract class $AttendanceDetailStateCopyWith<$Res> {
   factory $AttendanceDetailStateCopyWith(AttendanceDetailState value,
           $Res Function(AttendanceDetailState) then) =
       _$AttendanceDetailStateCopyWithImpl<$Res>;
-  $Res call({List<AttendanceDetailModel> attendanceDetailModel});
+  $Res call({AttendanceDetailSuppModel attendanceDetailModel});
+
+  $AttendanceDetailSuppModelCopyWith<$Res> get attendanceDetailModel;
 }
 
 /// @nodoc
@@ -114,8 +110,16 @@ class _$AttendanceDetailStateCopyWithImpl<$Res>
       attendanceDetailModel: attendanceDetailModel == freezed
           ? _value.attendanceDetailModel
           : attendanceDetailModel // ignore: cast_nullable_to_non_nullable
-              as List<AttendanceDetailModel>,
+              as AttendanceDetailSuppModel,
     ));
+  }
+
+  @override
+  $AttendanceDetailSuppModelCopyWith<$Res> get attendanceDetailModel {
+    return $AttendanceDetailSuppModelCopyWith<$Res>(
+        _value.attendanceDetailModel, (value) {
+      return _then(_value.copyWith(attendanceDetailModel: value));
+    });
   }
 }
 
@@ -126,7 +130,10 @@ abstract class _$$_LoadingCopyWith<$Res>
           _$_Loading value, $Res Function(_$_Loading) then) =
       __$$_LoadingCopyWithImpl<$Res>;
   @override
-  $Res call({List<AttendanceDetailModel> attendanceDetailModel});
+  $Res call({AttendanceDetailSuppModel attendanceDetailModel});
+
+  @override
+  $AttendanceDetailSuppModelCopyWith<$Res> get attendanceDetailModel;
 }
 
 /// @nodoc
@@ -145,9 +152,9 @@ class __$$_LoadingCopyWithImpl<$Res>
   }) {
     return _then(_$_Loading(
       attendanceDetailModel == freezed
-          ? _value._attendanceDetailModel
+          ? _value.attendanceDetailModel
           : attendanceDetailModel // ignore: cast_nullable_to_non_nullable
-              as List<AttendanceDetailModel>,
+              as AttendanceDetailSuppModel,
     ));
   }
 }
@@ -155,15 +162,10 @@ class __$$_LoadingCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loading implements _Loading {
-  const _$_Loading(final List<AttendanceDetailModel> attendanceDetailModel)
-      : _attendanceDetailModel = attendanceDetailModel;
+  const _$_Loading(this.attendanceDetailModel);
 
-  final List<AttendanceDetailModel> _attendanceDetailModel;
   @override
-  List<AttendanceDetailModel> get attendanceDetailModel {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_attendanceDetailModel);
-  }
+  final AttendanceDetailSuppModel attendanceDetailModel;
 
   @override
   String toString() {
@@ -176,12 +178,12 @@ class _$_Loading implements _Loading {
         (other.runtimeType == runtimeType &&
             other is _$_Loading &&
             const DeepCollectionEquality()
-                .equals(other._attendanceDetailModel, _attendanceDetailModel));
+                .equals(other.attendanceDetailModel, attendanceDetailModel));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_attendanceDetailModel));
+      runtimeType, const DeepCollectionEquality().hash(attendanceDetailModel));
 
   @JsonKey(ignore: true)
   @override
@@ -191,14 +193,14 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<AttendanceDetailModel> attendanceDetailModel)
+    required TResult Function(AttendanceDetailSuppModel attendanceDetailModel)
         loading,
-    required TResult Function(List<AttendanceDetailModel> attendanceDetailModel)
+    required TResult Function(AttendanceDetailSuppModel attendanceDetailModel)
         content,
-    required TResult Function(List<AttendanceDetailModel> attendanceDetailModel)
+    required TResult Function(AttendanceDetailSuppModel attendanceDetailModel)
         success,
     required TResult Function(
-            List<AttendanceDetailModel> attendanceDetailModel, dynamic message)
+            AttendanceDetailSuppModel attendanceDetailModel, dynamic message)
         failed,
   }) {
     return loading(attendanceDetailModel);
@@ -207,14 +209,11 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        loading,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        content,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        success,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? loading,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? content,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? success,
     TResult Function(
-            List<AttendanceDetailModel> attendanceDetailModel, dynamic message)?
+            AttendanceDetailSuppModel attendanceDetailModel, dynamic message)?
         failed,
   }) {
     return loading?.call(attendanceDetailModel);
@@ -223,14 +222,11 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        loading,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        content,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        success,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? loading,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? content,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? success,
     TResult Function(
-            List<AttendanceDetailModel> attendanceDetailModel, dynamic message)?
+            AttendanceDetailSuppModel attendanceDetailModel, dynamic message)?
         failed,
     required TResult orElse(),
   }) {
@@ -280,10 +276,10 @@ class _$_Loading implements _Loading {
 
 abstract class _Loading implements AttendanceDetailState {
   const factory _Loading(
-      final List<AttendanceDetailModel> attendanceDetailModel) = _$_Loading;
+      final AttendanceDetailSuppModel attendanceDetailModel) = _$_Loading;
 
   @override
-  List<AttendanceDetailModel> get attendanceDetailModel;
+  AttendanceDetailSuppModel get attendanceDetailModel;
   @override
   @JsonKey(ignore: true)
   _$$_LoadingCopyWith<_$_Loading> get copyWith =>
@@ -297,7 +293,10 @@ abstract class _$$_ContentCopyWith<$Res>
           _$_Content value, $Res Function(_$_Content) then) =
       __$$_ContentCopyWithImpl<$Res>;
   @override
-  $Res call({List<AttendanceDetailModel> attendanceDetailModel});
+  $Res call({AttendanceDetailSuppModel attendanceDetailModel});
+
+  @override
+  $AttendanceDetailSuppModelCopyWith<$Res> get attendanceDetailModel;
 }
 
 /// @nodoc
@@ -316,9 +315,9 @@ class __$$_ContentCopyWithImpl<$Res>
   }) {
     return _then(_$_Content(
       attendanceDetailModel == freezed
-          ? _value._attendanceDetailModel
+          ? _value.attendanceDetailModel
           : attendanceDetailModel // ignore: cast_nullable_to_non_nullable
-              as List<AttendanceDetailModel>,
+              as AttendanceDetailSuppModel,
     ));
   }
 }
@@ -326,15 +325,10 @@ class __$$_ContentCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Content implements _Content {
-  const _$_Content(final List<AttendanceDetailModel> attendanceDetailModel)
-      : _attendanceDetailModel = attendanceDetailModel;
+  const _$_Content(this.attendanceDetailModel);
 
-  final List<AttendanceDetailModel> _attendanceDetailModel;
   @override
-  List<AttendanceDetailModel> get attendanceDetailModel {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_attendanceDetailModel);
-  }
+  final AttendanceDetailSuppModel attendanceDetailModel;
 
   @override
   String toString() {
@@ -347,12 +341,12 @@ class _$_Content implements _Content {
         (other.runtimeType == runtimeType &&
             other is _$_Content &&
             const DeepCollectionEquality()
-                .equals(other._attendanceDetailModel, _attendanceDetailModel));
+                .equals(other.attendanceDetailModel, attendanceDetailModel));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_attendanceDetailModel));
+      runtimeType, const DeepCollectionEquality().hash(attendanceDetailModel));
 
   @JsonKey(ignore: true)
   @override
@@ -362,14 +356,14 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<AttendanceDetailModel> attendanceDetailModel)
+    required TResult Function(AttendanceDetailSuppModel attendanceDetailModel)
         loading,
-    required TResult Function(List<AttendanceDetailModel> attendanceDetailModel)
+    required TResult Function(AttendanceDetailSuppModel attendanceDetailModel)
         content,
-    required TResult Function(List<AttendanceDetailModel> attendanceDetailModel)
+    required TResult Function(AttendanceDetailSuppModel attendanceDetailModel)
         success,
     required TResult Function(
-            List<AttendanceDetailModel> attendanceDetailModel, dynamic message)
+            AttendanceDetailSuppModel attendanceDetailModel, dynamic message)
         failed,
   }) {
     return content(attendanceDetailModel);
@@ -378,14 +372,11 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        loading,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        content,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        success,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? loading,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? content,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? success,
     TResult Function(
-            List<AttendanceDetailModel> attendanceDetailModel, dynamic message)?
+            AttendanceDetailSuppModel attendanceDetailModel, dynamic message)?
         failed,
   }) {
     return content?.call(attendanceDetailModel);
@@ -394,14 +385,11 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        loading,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        content,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        success,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? loading,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? content,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? success,
     TResult Function(
-            List<AttendanceDetailModel> attendanceDetailModel, dynamic message)?
+            AttendanceDetailSuppModel attendanceDetailModel, dynamic message)?
         failed,
     required TResult orElse(),
   }) {
@@ -451,10 +439,10 @@ class _$_Content implements _Content {
 
 abstract class _Content implements AttendanceDetailState {
   const factory _Content(
-      final List<AttendanceDetailModel> attendanceDetailModel) = _$_Content;
+      final AttendanceDetailSuppModel attendanceDetailModel) = _$_Content;
 
   @override
-  List<AttendanceDetailModel> get attendanceDetailModel;
+  AttendanceDetailSuppModel get attendanceDetailModel;
   @override
   @JsonKey(ignore: true)
   _$$_ContentCopyWith<_$_Content> get copyWith =>
@@ -468,7 +456,10 @@ abstract class _$$_SuccessCopyWith<$Res>
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @override
-  $Res call({List<AttendanceDetailModel> attendanceDetailModel});
+  $Res call({AttendanceDetailSuppModel attendanceDetailModel});
+
+  @override
+  $AttendanceDetailSuppModelCopyWith<$Res> get attendanceDetailModel;
 }
 
 /// @nodoc
@@ -487,9 +478,9 @@ class __$$_SuccessCopyWithImpl<$Res>
   }) {
     return _then(_$_Success(
       attendanceDetailModel == freezed
-          ? _value._attendanceDetailModel
+          ? _value.attendanceDetailModel
           : attendanceDetailModel // ignore: cast_nullable_to_non_nullable
-              as List<AttendanceDetailModel>,
+              as AttendanceDetailSuppModel,
     ));
   }
 }
@@ -497,15 +488,10 @@ class __$$_SuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success(final List<AttendanceDetailModel> attendanceDetailModel)
-      : _attendanceDetailModel = attendanceDetailModel;
+  const _$_Success(this.attendanceDetailModel);
 
-  final List<AttendanceDetailModel> _attendanceDetailModel;
   @override
-  List<AttendanceDetailModel> get attendanceDetailModel {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_attendanceDetailModel);
-  }
+  final AttendanceDetailSuppModel attendanceDetailModel;
 
   @override
   String toString() {
@@ -518,12 +504,12 @@ class _$_Success implements _Success {
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
             const DeepCollectionEquality()
-                .equals(other._attendanceDetailModel, _attendanceDetailModel));
+                .equals(other.attendanceDetailModel, attendanceDetailModel));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_attendanceDetailModel));
+      runtimeType, const DeepCollectionEquality().hash(attendanceDetailModel));
 
   @JsonKey(ignore: true)
   @override
@@ -533,14 +519,14 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<AttendanceDetailModel> attendanceDetailModel)
+    required TResult Function(AttendanceDetailSuppModel attendanceDetailModel)
         loading,
-    required TResult Function(List<AttendanceDetailModel> attendanceDetailModel)
+    required TResult Function(AttendanceDetailSuppModel attendanceDetailModel)
         content,
-    required TResult Function(List<AttendanceDetailModel> attendanceDetailModel)
+    required TResult Function(AttendanceDetailSuppModel attendanceDetailModel)
         success,
     required TResult Function(
-            List<AttendanceDetailModel> attendanceDetailModel, dynamic message)
+            AttendanceDetailSuppModel attendanceDetailModel, dynamic message)
         failed,
   }) {
     return success(attendanceDetailModel);
@@ -549,14 +535,11 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        loading,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        content,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        success,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? loading,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? content,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? success,
     TResult Function(
-            List<AttendanceDetailModel> attendanceDetailModel, dynamic message)?
+            AttendanceDetailSuppModel attendanceDetailModel, dynamic message)?
         failed,
   }) {
     return success?.call(attendanceDetailModel);
@@ -565,14 +548,11 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        loading,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        content,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        success,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? loading,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? content,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? success,
     TResult Function(
-            List<AttendanceDetailModel> attendanceDetailModel, dynamic message)?
+            AttendanceDetailSuppModel attendanceDetailModel, dynamic message)?
         failed,
     required TResult orElse(),
   }) {
@@ -622,10 +602,10 @@ class _$_Success implements _Success {
 
 abstract class _Success implements AttendanceDetailState {
   const factory _Success(
-      final List<AttendanceDetailModel> attendanceDetailModel) = _$_Success;
+      final AttendanceDetailSuppModel attendanceDetailModel) = _$_Success;
 
   @override
-  List<AttendanceDetailModel> get attendanceDetailModel;
+  AttendanceDetailSuppModel get attendanceDetailModel;
   @override
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
@@ -638,8 +618,10 @@ abstract class _$$_FailedCopyWith<$Res>
   factory _$$_FailedCopyWith(_$_Failed value, $Res Function(_$_Failed) then) =
       __$$_FailedCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {List<AttendanceDetailModel> attendanceDetailModel, dynamic message});
+  $Res call({AttendanceDetailSuppModel attendanceDetailModel, dynamic message});
+
+  @override
+  $AttendanceDetailSuppModelCopyWith<$Res> get attendanceDetailModel;
 }
 
 /// @nodoc
@@ -659,9 +641,9 @@ class __$$_FailedCopyWithImpl<$Res>
   }) {
     return _then(_$_Failed(
       attendanceDetailModel == freezed
-          ? _value._attendanceDetailModel
+          ? _value.attendanceDetailModel
           : attendanceDetailModel // ignore: cast_nullable_to_non_nullable
-              as List<AttendanceDetailModel>,
+              as AttendanceDetailSuppModel,
       message == freezed ? _value.message : message,
     ));
   }
@@ -670,17 +652,10 @@ class __$$_FailedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Failed implements _Failed {
-  const _$_Failed(
-      final List<AttendanceDetailModel> attendanceDetailModel, this.message)
-      : _attendanceDetailModel = attendanceDetailModel;
+  const _$_Failed(this.attendanceDetailModel, this.message);
 
-  final List<AttendanceDetailModel> _attendanceDetailModel;
   @override
-  List<AttendanceDetailModel> get attendanceDetailModel {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_attendanceDetailModel);
-  }
-
+  final AttendanceDetailSuppModel attendanceDetailModel;
   @override
   final dynamic message;
 
@@ -695,14 +670,14 @@ class _$_Failed implements _Failed {
         (other.runtimeType == runtimeType &&
             other is _$_Failed &&
             const DeepCollectionEquality()
-                .equals(other._attendanceDetailModel, _attendanceDetailModel) &&
+                .equals(other.attendanceDetailModel, attendanceDetailModel) &&
             const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_attendanceDetailModel),
+      const DeepCollectionEquality().hash(attendanceDetailModel),
       const DeepCollectionEquality().hash(message));
 
   @JsonKey(ignore: true)
@@ -713,14 +688,14 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<AttendanceDetailModel> attendanceDetailModel)
+    required TResult Function(AttendanceDetailSuppModel attendanceDetailModel)
         loading,
-    required TResult Function(List<AttendanceDetailModel> attendanceDetailModel)
+    required TResult Function(AttendanceDetailSuppModel attendanceDetailModel)
         content,
-    required TResult Function(List<AttendanceDetailModel> attendanceDetailModel)
+    required TResult Function(AttendanceDetailSuppModel attendanceDetailModel)
         success,
     required TResult Function(
-            List<AttendanceDetailModel> attendanceDetailModel, dynamic message)
+            AttendanceDetailSuppModel attendanceDetailModel, dynamic message)
         failed,
   }) {
     return failed(attendanceDetailModel, message);
@@ -729,14 +704,11 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        loading,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        content,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        success,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? loading,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? content,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? success,
     TResult Function(
-            List<AttendanceDetailModel> attendanceDetailModel, dynamic message)?
+            AttendanceDetailSuppModel attendanceDetailModel, dynamic message)?
         failed,
   }) {
     return failed?.call(attendanceDetailModel, message);
@@ -745,14 +717,11 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        loading,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        content,
-    TResult Function(List<AttendanceDetailModel> attendanceDetailModel)?
-        success,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? loading,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? content,
+    TResult Function(AttendanceDetailSuppModel attendanceDetailModel)? success,
     TResult Function(
-            List<AttendanceDetailModel> attendanceDetailModel, dynamic message)?
+            AttendanceDetailSuppModel attendanceDetailModel, dynamic message)?
         failed,
     required TResult orElse(),
   }) {
@@ -801,11 +770,11 @@ class _$_Failed implements _Failed {
 }
 
 abstract class _Failed implements AttendanceDetailState {
-  const factory _Failed(final List<AttendanceDetailModel> attendanceDetailModel,
+  const factory _Failed(final AttendanceDetailSuppModel attendanceDetailModel,
       final dynamic message) = _$_Failed;
 
   @override
-  List<AttendanceDetailModel> get attendanceDetailModel;
+  AttendanceDetailSuppModel get attendanceDetailModel;
   dynamic get message;
   @override
   @JsonKey(ignore: true)

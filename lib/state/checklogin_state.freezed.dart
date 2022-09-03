@@ -16,29 +16,48 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CheckLoginState {
+  AttendanceAction get action => throw _privateConstructorUsedError;
   CheckLoginModelForm get form => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CheckLoginModelForm form) loading,
-    required TResult Function(CheckLoginModelForm form) content,
-    required TResult Function(CheckLoginModelForm form) success,
-    required TResult Function(CheckLoginModelForm form, String message) failed,
+    required TResult Function(AttendanceAction action, CheckLoginModelForm form)
+        loading,
+    required TResult Function(AttendanceAction action, CheckLoginModelForm form)
+        content,
+    required TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)
+        success,
+    required TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)
+        failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(CheckLoginModelForm form)? loading,
-    TResult Function(CheckLoginModelForm form)? content,
-    TResult Function(CheckLoginModelForm form)? success,
-    TResult Function(CheckLoginModelForm form, String message)? failed,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        loading,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        content,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        success,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CheckLoginModelForm form)? loading,
-    TResult Function(CheckLoginModelForm form)? content,
-    TResult Function(CheckLoginModelForm form)? success,
-    TResult Function(CheckLoginModelForm form, String message)? failed,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        loading,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        content,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        success,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        failed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -78,7 +97,7 @@ abstract class $CheckLoginStateCopyWith<$Res> {
   factory $CheckLoginStateCopyWith(
           CheckLoginState value, $Res Function(CheckLoginState) then) =
       _$CheckLoginStateCopyWithImpl<$Res>;
-  $Res call({CheckLoginModelForm form});
+  $Res call({AttendanceAction action, CheckLoginModelForm form});
 }
 
 /// @nodoc
@@ -92,9 +111,14 @@ class _$CheckLoginStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? action = freezed,
     Object? form = freezed,
   }) {
     return _then(_value.copyWith(
+      action: action == freezed
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as AttendanceAction,
       form: form == freezed
           ? _value.form
           : form // ignore: cast_nullable_to_non_nullable
@@ -110,7 +134,7 @@ abstract class _$$_LoadingCopyWith<$Res>
           _$_Loading value, $Res Function(_$_Loading) then) =
       __$$_LoadingCopyWithImpl<$Res>;
   @override
-  $Res call({CheckLoginModelForm form});
+  $Res call({AttendanceAction action, CheckLoginModelForm form});
 }
 
 /// @nodoc
@@ -124,9 +148,14 @@ class __$$_LoadingCopyWithImpl<$Res> extends _$CheckLoginStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? action = freezed,
     Object? form = freezed,
   }) {
     return _then(_$_Loading(
+      action == freezed
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as AttendanceAction,
       form == freezed
           ? _value.form
           : form // ignore: cast_nullable_to_non_nullable
@@ -138,14 +167,16 @@ class __$$_LoadingCopyWithImpl<$Res> extends _$CheckLoginStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loading implements _Loading {
-  const _$_Loading(this.form);
+  const _$_Loading(this.action, this.form);
 
+  @override
+  final AttendanceAction action;
   @override
   final CheckLoginModelForm form;
 
   @override
   String toString() {
-    return 'CheckLoginState.loading(form: $form)';
+    return 'CheckLoginState.loading(action: $action, form: $form)';
   }
 
   @override
@@ -153,12 +184,15 @@ class _$_Loading implements _Loading {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loading &&
+            const DeepCollectionEquality().equals(other.action, action) &&
             const DeepCollectionEquality().equals(other.form, form));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(form));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(action),
+      const DeepCollectionEquality().hash(form));
 
   @JsonKey(ignore: true)
   @override
@@ -168,36 +202,54 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CheckLoginModelForm form) loading,
-    required TResult Function(CheckLoginModelForm form) content,
-    required TResult Function(CheckLoginModelForm form) success,
-    required TResult Function(CheckLoginModelForm form, String message) failed,
+    required TResult Function(AttendanceAction action, CheckLoginModelForm form)
+        loading,
+    required TResult Function(AttendanceAction action, CheckLoginModelForm form)
+        content,
+    required TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)
+        success,
+    required TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)
+        failed,
   }) {
-    return loading(form);
+    return loading(action, form);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(CheckLoginModelForm form)? loading,
-    TResult Function(CheckLoginModelForm form)? content,
-    TResult Function(CheckLoginModelForm form)? success,
-    TResult Function(CheckLoginModelForm form, String message)? failed,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        loading,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        content,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        success,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        failed,
   }) {
-    return loading?.call(form);
+    return loading?.call(action, form);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CheckLoginModelForm form)? loading,
-    TResult Function(CheckLoginModelForm form)? content,
-    TResult Function(CheckLoginModelForm form)? success,
-    TResult Function(CheckLoginModelForm form, String message)? failed,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        loading,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        content,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        success,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        failed,
     required TResult orElse(),
   }) {
     if (loading != null) {
-      return loading(form);
+      return loading(action, form);
     }
     return orElse();
   }
@@ -241,8 +293,12 @@ class _$_Loading implements _Loading {
 }
 
 abstract class _Loading implements CheckLoginState {
-  const factory _Loading(final CheckLoginModelForm form) = _$_Loading;
+  const factory _Loading(
+          final AttendanceAction action, final CheckLoginModelForm form) =
+      _$_Loading;
 
+  @override
+  AttendanceAction get action;
   @override
   CheckLoginModelForm get form;
   @override
@@ -258,7 +314,7 @@ abstract class _$$_ContentCopyWith<$Res>
           _$_Content value, $Res Function(_$_Content) then) =
       __$$_ContentCopyWithImpl<$Res>;
   @override
-  $Res call({CheckLoginModelForm form});
+  $Res call({AttendanceAction action, CheckLoginModelForm form});
 }
 
 /// @nodoc
@@ -272,9 +328,14 @@ class __$$_ContentCopyWithImpl<$Res> extends _$CheckLoginStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? action = freezed,
     Object? form = freezed,
   }) {
     return _then(_$_Content(
+      action == freezed
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as AttendanceAction,
       form == freezed
           ? _value.form
           : form // ignore: cast_nullable_to_non_nullable
@@ -286,14 +347,16 @@ class __$$_ContentCopyWithImpl<$Res> extends _$CheckLoginStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Content implements _Content {
-  const _$_Content(this.form);
+  const _$_Content(this.action, this.form);
 
+  @override
+  final AttendanceAction action;
   @override
   final CheckLoginModelForm form;
 
   @override
   String toString() {
-    return 'CheckLoginState.content(form: $form)';
+    return 'CheckLoginState.content(action: $action, form: $form)';
   }
 
   @override
@@ -301,12 +364,15 @@ class _$_Content implements _Content {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Content &&
+            const DeepCollectionEquality().equals(other.action, action) &&
             const DeepCollectionEquality().equals(other.form, form));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(form));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(action),
+      const DeepCollectionEquality().hash(form));
 
   @JsonKey(ignore: true)
   @override
@@ -316,36 +382,54 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CheckLoginModelForm form) loading,
-    required TResult Function(CheckLoginModelForm form) content,
-    required TResult Function(CheckLoginModelForm form) success,
-    required TResult Function(CheckLoginModelForm form, String message) failed,
+    required TResult Function(AttendanceAction action, CheckLoginModelForm form)
+        loading,
+    required TResult Function(AttendanceAction action, CheckLoginModelForm form)
+        content,
+    required TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)
+        success,
+    required TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)
+        failed,
   }) {
-    return content(form);
+    return content(action, form);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(CheckLoginModelForm form)? loading,
-    TResult Function(CheckLoginModelForm form)? content,
-    TResult Function(CheckLoginModelForm form)? success,
-    TResult Function(CheckLoginModelForm form, String message)? failed,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        loading,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        content,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        success,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        failed,
   }) {
-    return content?.call(form);
+    return content?.call(action, form);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CheckLoginModelForm form)? loading,
-    TResult Function(CheckLoginModelForm form)? content,
-    TResult Function(CheckLoginModelForm form)? success,
-    TResult Function(CheckLoginModelForm form, String message)? failed,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        loading,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        content,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        success,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        failed,
     required TResult orElse(),
   }) {
     if (content != null) {
-      return content(form);
+      return content(action, form);
     }
     return orElse();
   }
@@ -389,8 +473,12 @@ class _$_Content implements _Content {
 }
 
 abstract class _Content implements CheckLoginState {
-  const factory _Content(final CheckLoginModelForm form) = _$_Content;
+  const factory _Content(
+          final AttendanceAction action, final CheckLoginModelForm form) =
+      _$_Content;
 
+  @override
+  AttendanceAction get action;
   @override
   CheckLoginModelForm get form;
   @override
@@ -406,7 +494,8 @@ abstract class _$$_SuccessCopyWith<$Res>
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @override
-  $Res call({CheckLoginModelForm form});
+  $Res call(
+      {AttendanceAction action, CheckLoginModelForm form, String message});
 }
 
 /// @nodoc
@@ -420,13 +509,23 @@ class __$$_SuccessCopyWithImpl<$Res> extends _$CheckLoginStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? action = freezed,
     Object? form = freezed,
+    Object? message = freezed,
   }) {
     return _then(_$_Success(
+      action == freezed
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as AttendanceAction,
       form == freezed
           ? _value.form
           : form // ignore: cast_nullable_to_non_nullable
               as CheckLoginModelForm,
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -434,14 +533,18 @@ class __$$_SuccessCopyWithImpl<$Res> extends _$CheckLoginStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success(this.form);
+  const _$_Success(this.action, this.form, this.message);
 
   @override
+  final AttendanceAction action;
+  @override
   final CheckLoginModelForm form;
+  @override
+  final String message;
 
   @override
   String toString() {
-    return 'CheckLoginState.success(form: $form)';
+    return 'CheckLoginState.success(action: $action, form: $form, message: $message)';
   }
 
   @override
@@ -449,12 +552,17 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            const DeepCollectionEquality().equals(other.form, form));
+            const DeepCollectionEquality().equals(other.action, action) &&
+            const DeepCollectionEquality().equals(other.form, form) &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(form));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(action),
+      const DeepCollectionEquality().hash(form),
+      const DeepCollectionEquality().hash(message));
 
   @JsonKey(ignore: true)
   @override
@@ -464,36 +572,54 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CheckLoginModelForm form) loading,
-    required TResult Function(CheckLoginModelForm form) content,
-    required TResult Function(CheckLoginModelForm form) success,
-    required TResult Function(CheckLoginModelForm form, String message) failed,
+    required TResult Function(AttendanceAction action, CheckLoginModelForm form)
+        loading,
+    required TResult Function(AttendanceAction action, CheckLoginModelForm form)
+        content,
+    required TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)
+        success,
+    required TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)
+        failed,
   }) {
-    return success(form);
+    return success(action, form, message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(CheckLoginModelForm form)? loading,
-    TResult Function(CheckLoginModelForm form)? content,
-    TResult Function(CheckLoginModelForm form)? success,
-    TResult Function(CheckLoginModelForm form, String message)? failed,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        loading,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        content,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        success,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        failed,
   }) {
-    return success?.call(form);
+    return success?.call(action, form, message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CheckLoginModelForm form)? loading,
-    TResult Function(CheckLoginModelForm form)? content,
-    TResult Function(CheckLoginModelForm form)? success,
-    TResult Function(CheckLoginModelForm form, String message)? failed,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        loading,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        content,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        success,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        failed,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(form);
+      return success(action, form, message);
     }
     return orElse();
   }
@@ -537,10 +663,14 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements CheckLoginState {
-  const factory _Success(final CheckLoginModelForm form) = _$_Success;
+  const factory _Success(final AttendanceAction action,
+      final CheckLoginModelForm form, final String message) = _$_Success;
 
   @override
+  AttendanceAction get action;
+  @override
   CheckLoginModelForm get form;
+  String get message;
   @override
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
@@ -553,7 +683,8 @@ abstract class _$$_FailedCopyWith<$Res>
   factory _$$_FailedCopyWith(_$_Failed value, $Res Function(_$_Failed) then) =
       __$$_FailedCopyWithImpl<$Res>;
   @override
-  $Res call({CheckLoginModelForm form, String message});
+  $Res call(
+      {AttendanceAction action, CheckLoginModelForm form, String message});
 }
 
 /// @nodoc
@@ -567,10 +698,15 @@ class __$$_FailedCopyWithImpl<$Res> extends _$CheckLoginStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? action = freezed,
     Object? form = freezed,
     Object? message = freezed,
   }) {
     return _then(_$_Failed(
+      action == freezed
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as AttendanceAction,
       form == freezed
           ? _value.form
           : form // ignore: cast_nullable_to_non_nullable
@@ -586,8 +722,10 @@ class __$$_FailedCopyWithImpl<$Res> extends _$CheckLoginStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Failed implements _Failed {
-  const _$_Failed(this.form, this.message);
+  const _$_Failed(this.action, this.form, this.message);
 
+  @override
+  final AttendanceAction action;
   @override
   final CheckLoginModelForm form;
   @override
@@ -595,7 +733,7 @@ class _$_Failed implements _Failed {
 
   @override
   String toString() {
-    return 'CheckLoginState.failed(form: $form, message: $message)';
+    return 'CheckLoginState.failed(action: $action, form: $form, message: $message)';
   }
 
   @override
@@ -603,6 +741,7 @@ class _$_Failed implements _Failed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Failed &&
+            const DeepCollectionEquality().equals(other.action, action) &&
             const DeepCollectionEquality().equals(other.form, form) &&
             const DeepCollectionEquality().equals(other.message, message));
   }
@@ -610,6 +749,7 @@ class _$_Failed implements _Failed {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(action),
       const DeepCollectionEquality().hash(form),
       const DeepCollectionEquality().hash(message));
 
@@ -621,36 +761,54 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CheckLoginModelForm form) loading,
-    required TResult Function(CheckLoginModelForm form) content,
-    required TResult Function(CheckLoginModelForm form) success,
-    required TResult Function(CheckLoginModelForm form, String message) failed,
+    required TResult Function(AttendanceAction action, CheckLoginModelForm form)
+        loading,
+    required TResult Function(AttendanceAction action, CheckLoginModelForm form)
+        content,
+    required TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)
+        success,
+    required TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)
+        failed,
   }) {
-    return failed(form, message);
+    return failed(action, form, message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(CheckLoginModelForm form)? loading,
-    TResult Function(CheckLoginModelForm form)? content,
-    TResult Function(CheckLoginModelForm form)? success,
-    TResult Function(CheckLoginModelForm form, String message)? failed,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        loading,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        content,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        success,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        failed,
   }) {
-    return failed?.call(form, message);
+    return failed?.call(action, form, message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CheckLoginModelForm form)? loading,
-    TResult Function(CheckLoginModelForm form)? content,
-    TResult Function(CheckLoginModelForm form)? success,
-    TResult Function(CheckLoginModelForm form, String message)? failed,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        loading,
+    TResult Function(AttendanceAction action, CheckLoginModelForm form)?
+        content,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        success,
+    TResult Function(
+            AttendanceAction action, CheckLoginModelForm form, String message)?
+        failed,
     required TResult orElse(),
   }) {
     if (failed != null) {
-      return failed(form, message);
+      return failed(action, form, message);
     }
     return orElse();
   }
@@ -694,9 +852,11 @@ class _$_Failed implements _Failed {
 }
 
 abstract class _Failed implements CheckLoginState {
-  const factory _Failed(final CheckLoginModelForm form, final String message) =
-      _$_Failed;
+  const factory _Failed(final AttendanceAction action,
+      final CheckLoginModelForm form, final String message) = _$_Failed;
 
+  @override
+  AttendanceAction get action;
   @override
   CheckLoginModelForm get form;
   String get message;

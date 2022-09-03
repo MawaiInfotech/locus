@@ -9,10 +9,9 @@ class ApplyyLeaveBloc extends Cubit<ApplyyLeaveState>{
   LeaveService leaveService;
 
   Future<void> applyLeave(Map<String, dynamic> data)async{
-    emit(ApplyyLeaveState.loading(state.applyyLeaveModel));
     try{
+      emit(ApplyyLeaveState.loading(state.applyyLeaveModel));
       final message = await leaveService.getApplyLeave(data);
-
       emit(ApplyyLeaveState.success(state.applyyLeaveModel, message));
     }on ApiError catch(error){
       emit(ApplyyLeaveState.failed(state.applyyLeaveModel,  error.message));

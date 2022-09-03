@@ -7,9 +7,9 @@ class AttendanceDetailBloc extends Cubit<AttendanceDetailState>{
 
   final AttendanceService attendanceService;
 
-  void init()async{
+  void init([String? selectedMonth])async{
     emit(AttendanceDetailState.loading(state.attendanceDetailModel));
-    final attendanceDetailList = await attendanceService.getAttendanceDetail();
+    final attendanceDetailList = await attendanceService.getAttendanceDetail(selectedMonth ??"");
     emit(AttendanceDetailState.content(attendanceDetailList));
   }
 

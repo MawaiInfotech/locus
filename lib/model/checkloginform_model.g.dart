@@ -17,6 +17,7 @@ CheckLoginModelForm _$CheckLoginModelFormFromJson(Map<String, dynamic> json) =>
           ? null
           : CheckLoginModel.fromJson(
               json['checkOutData'] as Map<String, dynamic>),
+      message: json['message'] as String?,
     );
 
 Map<String, dynamic> _$CheckLoginModelFormToJson(CheckLoginModelForm instance) {
@@ -31,5 +32,6 @@ Map<String, dynamic> _$CheckLoginModelFormToJson(CheckLoginModelForm instance) {
   writeNotNull('status', instance.status);
   writeNotNull('checkInData', instance.checkInData);
   writeNotNull('checkOutData', instance.checkOutData);
+  writeNotNull('message', instance.message);
   return val;
 }

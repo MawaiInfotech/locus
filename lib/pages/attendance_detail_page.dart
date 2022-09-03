@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:locus/bloc/attendance_detail_bloc.dart';
+import 'package:locus/model/attendanceDetail_month_model.dart';
 import 'package:locus/model/attendancedetail_model.dart';
 import 'package:locus/pages/misspunchrequest_page.dart';
 import 'package:locus/routes/app_routes.dart';
@@ -11,6 +12,9 @@ import 'package:locus/themes/app_colors.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_top_bar.dart';
 import 'package:provider/provider.dart';
+
+import '../model/attendance_detail_supp_model.dart';
+import '../model/teamattendance_supp_model.dart';
 
 class AttendanceDetailPage extends StatefulWidget {
   const AttendanceDetailPage({Key? key}) : super(key: key);
@@ -22,6 +26,8 @@ class AttendanceDetailPage extends StatefulWidget {
 class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
 
   late final AttendanceDetailBloc attendanceDetailBloc;
+
+  var selectedMonth = "";
 
   @override
   void initState(){
@@ -35,13 +41,7 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppTopBar(title: "Attendance Details"),
-      body: SafeArea(
-        child:Column(
-          children: [
-            _buildBody()
-          ],
-        )
-      ),
+      body: _buildBody(),
     );
   }
 
@@ -59,29 +59,39 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
     );
   }
 
-  Widget _buildLoading(List<AttendanceDetailModel> model){
+  Widget _buildLoading(AttendanceDetailSuppModel model){
     return Center(child: CircularProgressIndicator());
   }
 
-  Widget _buildContent(List<AttendanceDetailModel> attendanceDetailList){
+  Widget _buildContent(AttendanceDetailSuppModel model){
+    return Column(
+      children: [
+        _buildMonthDialogBox(model),
+        _buildList(model)
+      ],
+    );
+  }
+
+  Widget _buildList(AttendanceDetailSuppModel attendanceDetailList){
     return Expanded(
       child: ListView(
         shrinkWrap: true,
-        children: attendanceDetailList.map((model) => _buildList(model)).toList(),
+        children: attendanceDetailList.attendance.map((model) => _buildListCard(model)).toList(),
       ),
     );
   }
 
-  Widget _buildList(AttendanceDetailModel model){
+  Widget _buildListCard(AttendanceDetailModel model){
     return  Card(
-        margin: EdgeInsets.all(20.dw),
+        margin: EdgeInsets.all(10.dw),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.dw)),
         elevation: 10.dw,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _buildDate(model),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 _buildCheckIn(model),
                 _buildCheckOut(model)
@@ -89,13 +99,11 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
               ],
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                if(model.punchout.isEmpty)
-                _buildRequestButton(model),
-                _buildViewButton(),
-                if(model.punchout.isEmpty && model.punchin.isEmpty)
-                  _buildNotCheckedInandChekedOut()
+                if(model.outTime.isEmpty && model.inTime.isNotEmpty) _buildRequestButton(model),
+                if(model.outTime.isEmpty && model.inTime.isEmpty)
+                  _buildNotCheckedInandChekedOut(model)
               ],
             )
           ],
@@ -104,48 +112,61 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
 
   _buildHeadingText(String title){
     return Padding(
-      padding: EdgeInsets.all(8.0.dw),
-      child: Text(title,style: TextStyle(fontWeight: FontWeight.w400,fontSize: 18.dw),),
+      padding: EdgeInsets.all(5.0.dw),
+      child: Container(
+          width: 150.dw,
+          child: Text(title,style: TextStyle(fontWeight: FontWeight.w400,fontSize: 16.dw),)),
     );
   }
 
   _buildText(String title){
-    return Text(title, style: TextStyle(fontSize: 18.dw,
-        fontWeight: FontWeight.w200,color: AppColors.navyblue),);
+    return Container(
+      width: 150.dw,
+      margin: EdgeInsets.only(left: 10.dw,bottom: 8.dw),
+      child: Text(title,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(fontSize: 16.dw,
+          fontWeight: FontWeight.w200,color: AppColors.navyblue),),
+    );
   }
 
   _buildDate(AttendanceDetailModel model){
     return Container(
       width: ScreenSizeConfig.getFullWidth,
       decoration: BoxDecoration(
-        color: AppColors.navyblue,
+        color:AppColors.brown,
         borderRadius: BorderRadius.only(topLeft: Radius.circular(20.dh), topRight: Radius.circular(20.dh))
       ),
       child: Padding(
         padding: EdgeInsets.all(5.0.dh),
-        child: Text(model.date,
+        child: Text(model.attendanceDate,
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 18.dw, fontWeight: FontWeight.w600, color: AppColors.white),),
+          style: TextStyle(fontSize: 18.dw, fontWeight: FontWeight.w500, color: AppColors.black),),
       ),
     );
   }
 
   _buildCheckIn(AttendanceDetailModel model){
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         _buildHeadingText("First Check-In"),
-        _buildText(model.punchin),
+        _buildText(model.inTime),
+        _buildText(model.inAddress),
       ],
     );
   }
 
   _buildCheckOut(AttendanceDetailModel model){
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         _buildHeadingText("Last Check-Out"),
-        _buildText(model.punchout),
+        _buildText(model.outTime),
+        _buildText(model.outAddress),
       ],
     );
   }
@@ -154,13 +175,12 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
     return ElevatedButton(
         onPressed: (){
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => RequestMisspunchPage(model.date) ));
+              MaterialPageRoute(builder: (context) => RequestMisspunchPage(model)));
+          attendanceDetailBloc.init();
         },
         style: ElevatedButton.styleFrom(
-          //maximumSize: Size(100.dw, 50.dh),
           minimumSize: Size(100.dw, 30.dh),
           primary: AppColors.green,
-          //alignment: Alignment.center
         ),
         child:Text("Request",style: TextStyle(
           fontSize: 16.dw,
@@ -168,23 +188,93 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
         ), textAlign: TextAlign.center,));
   }
 
-  _buildViewButton(){
-    return ElevatedButton(onPressed: (){},
-        style: ElevatedButton.styleFrom(
-            maximumSize: Size(100.dw, 50.dh),
-            minimumSize: Size(100.dw, 50.dh),
-            primary: AppColors.navyblue
-        ),
-        child:Text("View"));
+  _buildMonthDialogBox(AttendanceDetailSuppModel model) {
+    int index = model.attendance.length;
+    return InkWell(
+      onTap: () async {
+        _showMonthDialogue(model);
+      },
+      child: Padding(
+        padding: EdgeInsets.all(10.0.dw),
+        child: Material(
+            elevation: 10,
+            borderRadius: BorderRadius.circular(10.0.dw),
+            child: Padding(
+              padding: EdgeInsets.all(10.dw),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(model.attendance.length == 0 ? selectedMonth : model.attendance[0].month),
+                  const Icon(Icons.arrow_drop_down)
+                ],
+              ),
+            )),
+      ),
+    );
   }
 
-  _buildNotCheckedInandChekedOut(){
-    return ElevatedButton(onPressed: (){},
-        style: ElevatedButton.styleFrom(
-            maximumSize: Size(100.dw, 50.dh),
-            minimumSize: Size(100.dw, 50.dh),
-            primary: AppColors.navyblue
-        ),
-        child:Text("Not Checked-In and Checked-Out"));
+  Future<void> _showMonthDialogue(AttendanceDetailSuppModel model) async {
+    await showDialog(
+        context: context,
+       // barrierDismissible: true,
+        builder: (context) {
+          return AlertDialog(
+            titlePadding: EdgeInsets.all(8.0.dw),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.dw),side: BorderSide(color: AppColors.black)),
+            title: SizedBox(
+              width: ScreenSizeConfig.getFullWidth,
+              height: 300.dh,
+              child: ListView.builder(
+                  itemCount: model.month.length,
+                  shrinkWrap: true,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Column(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            attendanceDetailBloc.init(model.month[index].substring(0,3).toUpperCase());
+                            selectedMonth = model.month[index].substring(0,3).toUpperCase();
+                            Navigator.pop(context);
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0.dw),
+                            child: Text(
+                              model.month[index],
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 18.dw,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(height: 1.0,width: ScreenSizeConfig.getFullWidth,color: AppColors.black,)
+                      ],
+                    );
+                  }),
+            ),
+          );
+        }) ??
+        false;
   }
+
+  _buildNotCheckedInandChekedOut(AttendanceDetailModel model){
+    return Padding(
+      padding:EdgeInsets.only(bottom: 10.dw),
+      child: ElevatedButton(onPressed: (){
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => RequestMisspunchPage(model)));
+        attendanceDetailBloc.init();
+      },
+          style: ElevatedButton.styleFrom(
+              maximumSize: Size(300.dw, 50.dh),
+              minimumSize: Size(300.dw, 50.dh),
+              primary: AppColors.navyblue
+          ),
+          child:Text("Not Checked-In and Checked-Out", style: TextStyle(
+            fontSize: 16.dw, fontWeight: FontWeight.w400
+          ),)),
+    );
+  }
+
 }

@@ -8,7 +8,7 @@ class LoginPageState with _$LoginPageState{
   const factory LoginPageState.loading(LoginForm form) = _Loading;
   const factory LoginPageState.content(LoginForm form) = _Content;
   const factory LoginPageState.success(LoginForm form) = _Success;
-  const factory LoginPageState.failed(LoginForm form, String message) = _Failed;
+  const factory LoginPageState.failed(LoginForm form, String msg) = _Failed;
 
   factory LoginPageState.initial() => LoginPageState.content(LoginForm());
 }

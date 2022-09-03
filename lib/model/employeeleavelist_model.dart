@@ -15,6 +15,7 @@ class EmployeeleaveListModel with _$EmployeeleaveListModel{
     @JsonKey(name: "leave_desc") @Default("") String leaveDescription,
     @JsonKey(name: "leave_pk_id") @Default(0) int leavePkId,
     @JsonKey(name: "leave_granted_desc") @Default("") String leaveGrantedDescription,
+    @JsonKey(name: "reason") @Default("") String reason,
 }) = _EmployeeleavelistModel;
 
   factory EmployeeleaveListModel.fromJson(Map<String, dynamic> json) => _$EmployeeleaveListModelFromJson(json);

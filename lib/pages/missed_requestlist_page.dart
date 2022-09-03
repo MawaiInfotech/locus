@@ -22,11 +22,12 @@ class MissedRequest extends StatefulWidget {
 class _MissedRequestState extends State<MissedRequest> {
 
   late MisspunchBloc misspunchBloc;
+  late LoginService loginService;
 
   @override
   void initState(){
     final misspunchService = Provider.of<MisspunchService>(context, listen: false);
-    final loginService = Provider.of<LoginService>(context, listen:  false);
+    loginService = Provider.of<LoginService>(context, listen:  false);
     misspunchBloc = MisspunchBloc(misspunchService, loginService);
     misspunchBloc.init();
     super.initState();
@@ -84,7 +85,7 @@ class _MissedRequestState extends State<MissedRequest> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            _buildName(title: "Shilpi Sharma"),
+            _buildName(title: loginService.getCurrentUser!.user_name.toString()),
             _buildRequest(title: "Request for Miss-Punch"),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,7 +102,7 @@ class _MissedRequestState extends State<MissedRequest> {
       children: [
         Text(
           title,
-          style: TextStyle(fontSize: 18.dw, fontWeight: FontWeight.w500),
+          style: TextStyle(fontSize: 16.dw, fontWeight: FontWeight.w400),
         ),
         const Text(" : ")
       ],
@@ -128,7 +129,7 @@ class _MissedRequestState extends State<MissedRequest> {
   _buildBoldText2({required String title}) {
     return Text(
       title,
-      style: TextStyle(fontSize: 18.dw, fontWeight: FontWeight.w500),
+      style: TextStyle(fontSize: 16.dw, fontWeight: FontWeight.w400),
     );
   }
 
@@ -151,21 +152,18 @@ class _MissedRequestState extends State<MissedRequest> {
 
   _buildName({required String title}) {
     return Padding(
-      padding: EdgeInsets.all(8.0.dw),
+      padding: EdgeInsets.all(1.0.dw),
       child: Text(
         title,
-        style: TextStyle(fontSize: 18.dw, fontWeight: FontWeight.w600),
+        style: TextStyle(fontSize: 16.dw, fontWeight: FontWeight.w600),
       ),
     );
   }
 
   _buildRequest({required String title}) {
-    return Padding(
-      padding: EdgeInsets.only(left: 8.dw),
-      child: Text(
-        "(" + title + ")",
-        style: TextStyle(fontSize: 16.dw, fontWeight: FontWeight.w500),
-      ),
+    return Text(
+      "(" + title + ")",
+      style: TextStyle(fontSize: 14.dw, fontWeight: FontWeight.w500),
     );
   }
 
@@ -174,18 +172,19 @@ class _MissedRequestState extends State<MissedRequest> {
       padding: EdgeInsets.all(10.0.dw),
       child: SizedBox(
         width: 200.dw,
-        height: 50.dh,
+        height: 40.dh,
         child: TextButton(
           onPressed: () {},
-          child: Text(
-            title,
-            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18.dw),
-          ),
           style: TextButton.styleFrom(
               primary: AppColors.red,
               backgroundColor: AppColors.white,
+              padding: EdgeInsets.all(5.dw),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.dw))),
+          child: Text(
+            title,
+            style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14.dw),
+          ),
         ),
       ),
     );

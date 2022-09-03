@@ -19,8 +19,25 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
   bool checkBoxValue = false;
+
   late final LoginPageBloc bloc;
+
+  TextEditingController passwordController = TextEditingController();
+
+  final textFieldFocusNode = FocusNode();
+
+  bool _obscured = false;
+
+  void _toggleObscured() {
+    setState(() {
+      _obscured = !_obscured;
+      if (textFieldFocusNode.hasPrimaryFocus) return; // If focus is on text field, dont unfocus
+      textFieldFocusNode.canRequestFocus = false;     // Prevents focus if tap on eye
+    });
+  }
+
 
   @override
   void initState(){
@@ -52,8 +69,8 @@ class _LoginPageState extends State<LoginPage> {
                   success: (_) => true,
                   orElse: () => false);
               if(isSuccess){
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar
-                  (content: Text("Login Sucessfull"), duration: Duration(milliseconds: 500),));
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar
+                  (content: Text("Login Successfull"), duration: Duration(milliseconds: 500),));
                 Navigator.popAndPushNamed(context, AppRoutes.navigationPage);
               }
               final hasFailed =  state.maybeWhen(
@@ -61,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                   orElse: () => false);
               if(hasFailed){
                 final message =  state.maybeWhen(
-                    failed: (_, m) => m,
+                    failed: (_, msg) => msg,
                     orElse: () => null);
                 _showSnackBar(message!);
               }
@@ -144,10 +161,9 @@ class _LoginPageState extends State<LoginPage> {
 
   _buildTextField(LoginForm form) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Card(
-          margin: EdgeInsets.only(left: 30.dh, bottom: 10.dh, top: 10.dh),
+          margin: EdgeInsets.only(bottom: 10.dh, top: 10.dh),
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(40.dh)),
           child: AppTextField(
@@ -158,7 +174,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
         Card(
-          margin: EdgeInsets.only(left: 30.dh, bottom: 10.dh, top: 10.dh),
+          margin: EdgeInsets.only(bottom: 5.dh, top: 10.dh),
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(40.dh)),
           child: AppTextField(
@@ -169,6 +185,7 @@ class _LoginPageState extends State<LoginPage> {
             icon: Icons.lock,
           ),
         ),
+
       ],
     );
   }
@@ -195,20 +212,35 @@ class _LoginPageState extends State<LoginPage> {
 
   _buildCheckBox(LoginForm form ) {
     return Padding(
-      padding: EdgeInsets.only(left: 40.dw, top: 20.dh),
-      child: SizedBox(
-          height: 40.dh,
-          width: 300.dw,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Checkbox(
-                onChanged: bloc.updateShouldRemeber,
-                value: form.shouldRemember,
-              ),
-              const Text("Remember Me")
-            ],
-          )),
+      padding: EdgeInsets.only(top: 10.dw),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          SizedBox(
+              height: 40.dh,
+              //width: 300.dw,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Checkbox(
+                    onChanged: bloc.updateShouldRemeber,
+                    value: form.shouldRemember,
+                  ),
+                  const Text("Remember Me")
+                ],
+              )),
+          _buildForgetPassword()
+        ],
+      ),
+    );
+  }
+  
+  _buildForgetPassword(){
+    return TextButton(
+        onPressed: (){
+          Navigator.pushNamed(context, AppRoutes.forgetpassword);
+        },
+        child: Text("Forget Password",style: TextStyle(color: AppColors.portalorange),)
     );
   }
 
@@ -246,6 +278,8 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+
+
 }
 
 

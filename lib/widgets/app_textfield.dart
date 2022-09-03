@@ -12,6 +12,7 @@ class AppTextField extends StatefulWidget {
     this.error,
     this.isPassword = false,
     this.borderColor = Colors.black,
+
     Key? key, required this.icon,
   }) : super(key: key);
 

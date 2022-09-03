@@ -18,6 +18,7 @@ _$_EmployeeleavelistModel _$$_EmployeeleavelistModelFromJson(
       leaveDescription: json['leave_desc'] as String? ?? "",
       leavePkId: json['leave_pk_id'] as int? ?? 0,
       leaveGrantedDescription: json['leave_granted_desc'] as String? ?? "",
+      reason: json['reason'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$_EmployeeleavelistModelToJson(
@@ -32,4 +33,5 @@ Map<String, dynamic> _$$_EmployeeleavelistModelToJson(
       'leave_desc': instance.leaveDescription,
       'leave_pk_id': instance.leavePkId,
       'leave_granted_desc': instance.leaveGrantedDescription,
+      'reason': instance.reason,
     };

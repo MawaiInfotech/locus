@@ -22,7 +22,7 @@ mixin _$LoginPageState {
     required TResult Function(LoginForm form) loading,
     required TResult Function(LoginForm form) content,
     required TResult Function(LoginForm form) success,
-    required TResult Function(LoginForm form, String message) failed,
+    required TResult Function(LoginForm form, String msg) failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,7 +30,7 @@ mixin _$LoginPageState {
     TResult Function(LoginForm form)? loading,
     TResult Function(LoginForm form)? content,
     TResult Function(LoginForm form)? success,
-    TResult Function(LoginForm form, String message)? failed,
+    TResult Function(LoginForm form, String msg)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,7 +38,7 @@ mixin _$LoginPageState {
     TResult Function(LoginForm form)? loading,
     TResult Function(LoginForm form)? content,
     TResult Function(LoginForm form)? success,
-    TResult Function(LoginForm form, String message)? failed,
+    TResult Function(LoginForm form, String msg)? failed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -183,7 +183,7 @@ class _$_Loading implements _Loading {
     required TResult Function(LoginForm form) loading,
     required TResult Function(LoginForm form) content,
     required TResult Function(LoginForm form) success,
-    required TResult Function(LoginForm form, String message) failed,
+    required TResult Function(LoginForm form, String msg) failed,
   }) {
     return loading(form);
   }
@@ -194,7 +194,7 @@ class _$_Loading implements _Loading {
     TResult Function(LoginForm form)? loading,
     TResult Function(LoginForm form)? content,
     TResult Function(LoginForm form)? success,
-    TResult Function(LoginForm form, String message)? failed,
+    TResult Function(LoginForm form, String msg)? failed,
   }) {
     return loading?.call(form);
   }
@@ -205,7 +205,7 @@ class _$_Loading implements _Loading {
     TResult Function(LoginForm form)? loading,
     TResult Function(LoginForm form)? content,
     TResult Function(LoginForm form)? success,
-    TResult Function(LoginForm form, String message)? failed,
+    TResult Function(LoginForm form, String msg)? failed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -334,7 +334,7 @@ class _$_Content implements _Content {
     required TResult Function(LoginForm form) loading,
     required TResult Function(LoginForm form) content,
     required TResult Function(LoginForm form) success,
-    required TResult Function(LoginForm form, String message) failed,
+    required TResult Function(LoginForm form, String msg) failed,
   }) {
     return content(form);
   }
@@ -345,7 +345,7 @@ class _$_Content implements _Content {
     TResult Function(LoginForm form)? loading,
     TResult Function(LoginForm form)? content,
     TResult Function(LoginForm form)? success,
-    TResult Function(LoginForm form, String message)? failed,
+    TResult Function(LoginForm form, String msg)? failed,
   }) {
     return content?.call(form);
   }
@@ -356,7 +356,7 @@ class _$_Content implements _Content {
     TResult Function(LoginForm form)? loading,
     TResult Function(LoginForm form)? content,
     TResult Function(LoginForm form)? success,
-    TResult Function(LoginForm form, String message)? failed,
+    TResult Function(LoginForm form, String msg)? failed,
     required TResult orElse(),
   }) {
     if (content != null) {
@@ -485,7 +485,7 @@ class _$_Success implements _Success {
     required TResult Function(LoginForm form) loading,
     required TResult Function(LoginForm form) content,
     required TResult Function(LoginForm form) success,
-    required TResult Function(LoginForm form, String message) failed,
+    required TResult Function(LoginForm form, String msg) failed,
   }) {
     return success(form);
   }
@@ -496,7 +496,7 @@ class _$_Success implements _Success {
     TResult Function(LoginForm form)? loading,
     TResult Function(LoginForm form)? content,
     TResult Function(LoginForm form)? success,
-    TResult Function(LoginForm form, String message)? failed,
+    TResult Function(LoginForm form, String msg)? failed,
   }) {
     return success?.call(form);
   }
@@ -507,7 +507,7 @@ class _$_Success implements _Success {
     TResult Function(LoginForm form)? loading,
     TResult Function(LoginForm form)? content,
     TResult Function(LoginForm form)? success,
-    TResult Function(LoginForm form, String message)? failed,
+    TResult Function(LoginForm form, String msg)? failed,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -571,7 +571,7 @@ abstract class _$$_FailedCopyWith<$Res>
   factory _$$_FailedCopyWith(_$_Failed value, $Res Function(_$_Failed) then) =
       __$$_FailedCopyWithImpl<$Res>;
   @override
-  $Res call({LoginForm form, String message});
+  $Res call({LoginForm form, String msg});
 
   @override
   $LoginFormCopyWith<$Res> get form;
@@ -589,16 +589,16 @@ class __$$_FailedCopyWithImpl<$Res> extends _$LoginPageStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? form = freezed,
-    Object? message = freezed,
+    Object? msg = freezed,
   }) {
     return _then(_$_Failed(
       form == freezed
           ? _value.form
           : form // ignore: cast_nullable_to_non_nullable
               as LoginForm,
-      message == freezed
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
+      msg == freezed
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -607,16 +607,16 @@ class __$$_FailedCopyWithImpl<$Res> extends _$LoginPageStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Failed implements _Failed {
-  const _$_Failed(this.form, this.message);
+  const _$_Failed(this.form, this.msg);
 
   @override
   final LoginForm form;
   @override
-  final String message;
+  final String msg;
 
   @override
   String toString() {
-    return 'LoginPageState.failed(form: $form, message: $message)';
+    return 'LoginPageState.failed(form: $form, msg: $msg)';
   }
 
   @override
@@ -625,14 +625,14 @@ class _$_Failed implements _Failed {
         (other.runtimeType == runtimeType &&
             other is _$_Failed &&
             const DeepCollectionEquality().equals(other.form, form) &&
-            const DeepCollectionEquality().equals(other.message, message));
+            const DeepCollectionEquality().equals(other.msg, msg));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(form),
-      const DeepCollectionEquality().hash(message));
+      const DeepCollectionEquality().hash(msg));
 
   @JsonKey(ignore: true)
   @override
@@ -645,9 +645,9 @@ class _$_Failed implements _Failed {
     required TResult Function(LoginForm form) loading,
     required TResult Function(LoginForm form) content,
     required TResult Function(LoginForm form) success,
-    required TResult Function(LoginForm form, String message) failed,
+    required TResult Function(LoginForm form, String msg) failed,
   }) {
-    return failed(form, message);
+    return failed(form, msg);
   }
 
   @override
@@ -656,9 +656,9 @@ class _$_Failed implements _Failed {
     TResult Function(LoginForm form)? loading,
     TResult Function(LoginForm form)? content,
     TResult Function(LoginForm form)? success,
-    TResult Function(LoginForm form, String message)? failed,
+    TResult Function(LoginForm form, String msg)? failed,
   }) {
-    return failed?.call(form, message);
+    return failed?.call(form, msg);
   }
 
   @override
@@ -667,11 +667,11 @@ class _$_Failed implements _Failed {
     TResult Function(LoginForm form)? loading,
     TResult Function(LoginForm form)? content,
     TResult Function(LoginForm form)? success,
-    TResult Function(LoginForm form, String message)? failed,
+    TResult Function(LoginForm form, String msg)? failed,
     required TResult orElse(),
   }) {
     if (failed != null) {
-      return failed(form, message);
+      return failed(form, msg);
     }
     return orElse();
   }
@@ -715,11 +715,11 @@ class _$_Failed implements _Failed {
 }
 
 abstract class _Failed implements LoginPageState {
-  const factory _Failed(final LoginForm form, final String message) = _$_Failed;
+  const factory _Failed(final LoginForm form, final String msg) = _$_Failed;
 
   @override
   LoginForm get form;
-  String get message;
+  String get msg;
   @override
   @JsonKey(ignore: true)
   _$$_FailedCopyWith<_$_Failed> get copyWith =>

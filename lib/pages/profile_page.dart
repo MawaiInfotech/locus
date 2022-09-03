@@ -1,6 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:locus/model/login_model.dart';
+import 'package:locus/routes/app_routes.dart';
+import 'package:locus/service/login_service.dart';
+import 'package:locus/themes/app_colors.dart';
 import 'package:locus/utils/screen_size_config.dart';
+import 'package:provider/provider.dart';
+
+import 'login_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -11,6 +18,13 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
 
+  late final LoginModel user;
+
+  @override
+  void initState() {
+    user = Provider.of<LoginService>(context, listen: false).getCurrentUser!;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +33,19 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Center(
           child: Column(
             children: [
-              Spacer(flex: 5,),
+              const Spacer(flex: 5,),
               Container(
                 height: 300.dh,
                 width: 300.dw,
+                child: Image.asset("assets/images/profile2.png", scale: 3.dw,),
                 color: Colors.grey,
               ),
-              _buildText(title: "Shilpi"),
-              _buildText(title: "SWE 254"),
-              _buildText(title: "Mobile App"),
-              _buildText(title: "shilpi@mawaimail.com"),
+              _buildText(title: user.emp_first_name.toString() + "  " + user.emp_last_name.toString()),
+              _buildText(title: user.emp_cd.toString()),
+              _buildText(title: user.company_email ?? ""),
               _buildChangepass(),
-              Spacer(flex: 10,)
+              _buildLogout(),
+              const Spacer(flex: 10,)
 
             ],
           ),
@@ -49,7 +64,63 @@ class _ProfilePageState extends State<ProfilePage> {
   _buildChangepass(){
     return Padding(
       padding:  EdgeInsets.all(20.0.dh),
-      child: ElevatedButton(onPressed: (){}, child: Text("Change Password")),
+      child: ElevatedButton(
+          onPressed: (){Navigator.pushNamed(context, AppRoutes.changepassword);},
+          style: ElevatedButton.styleFrom(
+            primary: AppColors.portalgreyBlue
+          ),
+          child: Text("Change Password",style: TextStyle(fontSize: 18.dw))),
     );
+  }
+
+  _buildLogout(){
+    return ElevatedButton(onPressed: (){showExitPopup();},
+        style: ElevatedButton.styleFrom(
+            primary: AppColors.portaldarkBlue
+        ),
+        child: Text("Logout", style: TextStyle(fontSize: 18.dw),));
+  }
+
+  Future<bool> showExitPopup() async {
+    return await showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text("Confirm"),
+            content: const Text("Do you want to exit the App ?"),
+            actions: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop(false);
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: AppColors.bloodred,
+                        minimumSize: Size(100.dw, 40.dw)
+                      ),
+                      child: const Text("No")),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                const LoginPage()),
+                                (route) => false);
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: AppColors.portalgreen,
+                          minimumSize: Size(100.dw, 40.dw)
+                      ),
+                      child: const Text("Yes"))
+                ],
+              )
+
+            ],
+          );
+        }) ??
+        false;
   }
 }

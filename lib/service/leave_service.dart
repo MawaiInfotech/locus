@@ -73,9 +73,30 @@ class LeaveService {
         return itemList.map((e) => ApprovedLeaveModel.fromJson(e)).toList();
       }
     } catch (e) {
+      print(e);
       _handleError(e);
     }
     return [];
+  }
+
+  //Team Leader Leave Approve And Rejected
+
+  Future<String?> getAprovalRejectionData(Map<String, dynamic>data) async {
+    const url = root + 'leave-approved-reject';
+    final body = data;
+    try {
+      final response = await http.post(Uri.parse(url),
+          body: json.encode(body), headers: headers);
+      final responseBody = json.decode(response.body);
+      if (responseBody['status'] == true) {
+        return responseBody ['message'];
+      } else {
+        throw ApiError.fromResponse(responseBody['message']);
+      }
+    } catch (e) {
+      print(e);
+      _handleError(e);
+    }
   }
 
 

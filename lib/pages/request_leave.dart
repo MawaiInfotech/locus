@@ -1,13 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:locus/bloc/applyleave_bloc.dart';
 import 'package:locus/bloc/request_leave_bloc.dart';
-import 'package:locus/model/leave_type_model.dart';
 import 'package:locus/model/requestleave_model.dart';
 import 'package:locus/service/leave_service.dart';
 import 'package:locus/service/login_service.dart';
+import 'package:locus/state/applyleave_state.dart';
 import 'package:locus/state/request_leave_state.dart';
 import 'package:locus/themes/app_colors.dart';
 import 'package:locus/utils/screen_size_config.dart';
@@ -22,13 +21,14 @@ class RequestLeave extends StatefulWidget {
 }
 
 class _RequestLeaveState extends State<RequestLeave> {
+
   TextEditingController reasonTextController = TextEditingController();
 
   late RequestLeaveBloc requestLeaveBloc;
 
   late ApplyyLeaveBloc applyyLeaveBloc;
 
-  late LoginService loginService = LoginService();
+  late LoginService loginService;
 
   late RequestLeaveModel requestLeaveModel = RequestLeaveModel();
 
@@ -37,19 +37,22 @@ class _RequestLeaveState extends State<RequestLeave> {
   var applyLeave;
   var leavetype;
   var ccTo;
+  var ccToCode;
   var balanceLeave;
   var leaveCode;
-  var fromDate;
-  var toDate;
+  var fromDate = "select Date ";
+  var toDate = " ";
   var difference;
   var controlCode;
   var contactNumber;
   var appliedTo;
 
+  late DateTimeRange dateTimeRange = DateTimeRange(start: DateTime.now(), end: DateTime.now());
+
   @override
   void initState() {
     final leaveService = Provider.of<LeaveService>(context, listen: false);
-    final loginService = Provider.of<LoginService>(context, listen: false);
+    loginService = Provider.of<LoginService>(context, listen: false);
     requestLeaveBloc = RequestLeaveBloc(loginService, leaveService);
     applyyLeaveBloc = ApplyyLeaveBloc(leaveService);
     requestLeaveBloc.init();
@@ -59,9 +62,10 @@ class _RequestLeaveState extends State<RequestLeave> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        key: scaffoldKey,
-        appBar: AppTopBar(title: "Request Leave"),
-        body: _buildBody());
+            key: scaffoldKey,
+            appBar: AppTopBar(title: "Request Leave"),
+            body: _buildBody());
+
   }
 
   _buildBody() {
@@ -111,7 +115,9 @@ class _RequestLeaveState extends State<RequestLeave> {
               _buildLine(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [_buildHeadingText("From Date"), _buildFromDate()],
+                children: [
+                  _buildHeadingText("From Date"),
+                  _buildFromDate()],
               ),
               _buildLine(),
               Row(
@@ -120,25 +126,31 @@ class _RequestLeaveState extends State<RequestLeave> {
               ),
               _buildLine(),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _buildHeadingText("Days :-"),
-                  _buildText(difference.toString()),
-                  _buildHeadingText("Balance :-"),
-                  _buildText(balanceLeave ?? "0")
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      _buildHeadingText("Days   :-"),
+                      _buildText(difference.toString() ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      _buildHeadingText("Balance :-"),
+                      _buildText(balanceLeave ?? "0")
+                    ],
+                  )
+
                 ],
               ),
               _buildLine(),
               _buildHeadingText("Applied To"),
-              _buildText(appliedTo = (model.reporting_to[0].employeeFirstName +
-                  "    " +
-                  model.reporting_to[0].employeeNumber)),
+              if (model.reporting_to.isEmpty) const Text(""),
+              if (model.reporting_to.isNotEmpty)_buildText(appliedTo = (model.reporting_to[0].employeeNumber)),
               _buildLine(),
               _buildHeadingText("CC To"),
               _buildCCToDialogBox(model),
-              _buildLine(),
-              _buildHeadingText("Contact Number*"),
-              _buildText(contactNumber = (model.emp_dtl[0].permamnentNumber)),
               _buildLine(),
               _buildHeadingText("Reason*"),
               _buildTextField(),
@@ -201,6 +213,12 @@ class _RequestLeaveState extends State<RequestLeave> {
                             requestLeaveBloc.init();
                             applyLeave = model.leave_type[index].meaning;
                             controlCode = model.leave_type[index].controlCode;
+                            if(controlCode == "1" || controlCode == "2"){
+                              difference = "0.5";
+                            }else if(controlCode == "3"){
+                              difference = dateTimeRange.end.difference(dateTimeRange.start).inDays + 1;
+                            }
+                            setState((){});
                             Navigator.pop(context);
                           },
                           child: Card(
@@ -345,6 +363,7 @@ class _RequestLeaveState extends State<RequestLeave> {
                           onTap: () {
                             requestLeaveBloc.init();
                             ccTo = model.cc_list[index].employeeFirstName;
+                            ccToCode = model.cc_list[index].employeeCode;
                             Navigator.pop(context);
                           },
                           child: Card(
@@ -353,13 +372,31 @@ class _RequestLeaveState extends State<RequestLeave> {
                                 borderRadius: BorderRadius.circular(10.dw)),
                             child: Padding(
                               padding: EdgeInsets.all(8.0.dw),
-                              child: Text(
-                                model.cc_list[index].employeeFirstName,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 18.dw,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  SizedBox(
+                                    width: 150.dw,
+                                    child: Text(
+                                      model.cc_list[index].employeeFirstName,
+                                      textAlign: TextAlign.center,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 18.dw,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                   "(" + model.cc_list[index].employeeCode + ")",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 18.dw,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
@@ -385,59 +422,134 @@ class _RequestLeaveState extends State<RequestLeave> {
     return Center(
       child: Padding(
         padding: EdgeInsets.all(10.0.dw),
-        child: ElevatedButton(
-            onPressed: () {
-              if (fromDate == null && toDate == null) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("Please Select Dates")));
-                return;
-              }
-              _applyLeave();
-            },
-            child: Text("Submit")),
+        child: BlocConsumer<ApplyyLeaveBloc, ApplyyLeaveState>(
+          bloc: applyyLeaveBloc,
+          listener: (_, state){
+            state.maybeWhen(
+                success: (_, message){
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message??"Something")));
+                  Navigator.pop(context);
+                },
+                failed: (_, message){
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+                }, orElse:(){});
+          },
+          builder: (context, state) {
+           return state.maybeWhen(
+               loading: (_){
+                 return CircularProgressIndicator();
+               },
+               orElse: (){return ElevatedButton(
+               style: ElevatedButton.styleFrom(
+                   primary: AppColors.portalgreyBlue
+               ),
+               onPressed: () {
+                 if (fromDate == null && toDate == null) {
+                   ScaffoldMessenger.of(context).showSnackBar(
+                       SnackBar(content: Text("Please Select Dates")));
+                   return;
+                 }
+
+                 _applyLeave();
+               },
+               child: Text("Submit"));});
+
+          }
+        ),
       ),
     );
   }
 
-  _buildFromDate() {
+ Widget _buildFromDate() {
     return Padding(
       padding: EdgeInsets.all(8.dh),
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(8.dw),
-            height: 50.dh,
-            width: MediaQuery.of(context).size.width / 2,
-            decoration: BoxDecoration(
-                border: Border(
-                    bottom: BorderSide(color: AppColors.navyblue),
-                    top: BorderSide(color: AppColors.navyblue),
-                    left: BorderSide(color: AppColors.navyblue),
-                    right: BorderSide(color: AppColors.navyblue)),
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white),
-            child: GestureDetector(
-                onTap: () async {
-                  final _myDateTime = await showDatePicker(
-                      initialDatePickerMode: DatePickerMode.day,
-                      context: context,
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime.now(),
-                      lastDate: DateTime(2025)) as DateTime;
-                  fromDate = DateFormat('yyyy-MM-dd').format(_myDateTime);
-                  setState(() {});
+              padding: EdgeInsets.all(8.dw),
+              height: 50.dh,
+              width: MediaQuery.of(context).size.width / 2,
+              decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(color: AppColors.navyblue),
+                      top: BorderSide(color: AppColors.navyblue),
+                      left: BorderSide(color: AppColors.navyblue),
+                      right: BorderSide(color: AppColors.navyblue)),
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white),
+              child: InkWell(
+                onTap: (){
+                  if(controlCode != null && leavetype != null){
+                  showDateRangePicker(
+                    context: context,
+                    builder: (context, child) {
+                      return Theme(
+                        data: Theme.of(context).copyWith(
+                          colorScheme: const ColorScheme.light(
+                            primary: Colors.blue,
+                            onPrimary: Colors.white,
+                            onSurface: Colors.black,
+                          ),
+                          textButtonTheme: TextButtonThemeData(
+                            style: TextButton.styleFrom(
+                              primary: Colors.white,
+                              backgroundColor: AppColors.brown,
+                              textStyle: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.black
+                              ),
+                            ),
+                          ),
+                        ),
+                        child: child!,
+                      );
+                    },
+                    helpText: 'Select Date',
+                    firstDate: DateTime.now(),
+                    lastDate: DateTime.now().add(Duration(days: 365)),
+                    errorFormatText: "Invalid Format",
+                    errorInvalidRangeText: "Invalid Range",
+                    fieldStartHintText: "Start Date",
+                    fieldEndHintText: "End Date"
+
+                  ).then((pickedDate) {
+                    if (pickedDate == null) {
+                      return;
+                    }
+                    setState(() {
+                      dateTimeRange = pickedDate;
+                      if(controlCode == "3"){
+                        difference = pickedDate.end.difference(pickedDate.start).inDays + 1;
+                        fromDate =  DateFormat('dd-MM-yyyy').format(pickedDate.start);
+                        toDate = DateFormat('dd-MM-yyyy').format(pickedDate.end);
+                      }else if(controlCode == "1" || controlCode == "2"){
+                        difference = "0.5";
+                        fromDate =  DateFormat('dd-MM-yyyy').format(pickedDate.start);
+                        toDate = fromDate;
+                      }
+                      setState(() {});
+                    });
+                  });} else {
+                    (
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Please select apply leave for and leave type.")))
+                  );
+                  }
                 },
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Image.asset(
                       "assets/images/from_date.png",
                       scale: 2,
                     ),
-                    Text(fromDate ?? "From Date"),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.dw),
+                      child: Text(fromDate.toString() ),
+                    ),
                   ],
-                )),
-          ),
+                ),
+              )),
         ],
       ),
     );
@@ -460,31 +572,19 @@ class _RequestLeaveState extends State<RequestLeave> {
                     right: BorderSide(color: AppColors.navyblue)),
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.white),
-            child: GestureDetector(
-                onTap: () async {
-                  final _toDate = await showDatePicker(
-                      initialDatePickerMode: DatePickerMode.day,
-                      context: context,
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime.now(),
-                      lastDate: DateTime(2025)) as DateTime;
-                  toDate = DateFormat('yyyy-MM-dd').format(_toDate);
-
-                  final date1 = DateTime.parse(fromDate);
-                  final date2 = DateTime.parse(toDate);
-                  difference = date2.difference(date1).inDays;
-                  setState(() {});
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Image.asset(
-                      "assets/images/from_date.png",
-                      scale: 2,
-                    ),
-                    Text(toDate ?? "To Date"),
-                  ],
-                )),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Image.asset(
+                  "assets/images/from_date.png",
+                  scale: 2.dw,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 10.dw),
+                  child: Text(controlCode == "1" || controlCode == "2" ? fromDate.toString() : toDate.toString()),
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -492,7 +592,6 @@ class _RequestLeaveState extends State<RequestLeave> {
   }
 
   void _applyLeave() async {
-    int index = requestLeaveModel.emp_dtl.length;
     final data = {
       'emp_cd': loginService.getUserCode,
       'unit_cd': loginService.getCurrentUser!.unit_cd,
@@ -500,26 +599,16 @@ class _RequestLeaveState extends State<RequestLeave> {
       'leave_type': leaveCode,
       'from_date': fromDate,
       'to_date': toDate,
-      'leave_days': difference,
+      'leave_days': difference.toString(),
       'balance_leave': balanceLeave,
-      'cc_to': ccTo ?? "",
+      'cc_to': ccToCode ?? "",
       'contact_no': contactNumber,
-      'fin_year': "22-23",
+      'fin_year': loginService.getCurrentUser!.default_fin_year,
       'reasons': reasonTextController.text,
       'applied_to': appliedTo,
     };
     await applyyLeaveBloc.applyLeave(data);
-    final state = applyyLeaveBloc.state;
-    state.maybeWhen(
-        success: (model, message){
-          ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(SnackBar(content: Text(message!, style: TextStyle(color: Colors.white),)));
-        },
-        failed: (model, message){
-          ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(SnackBar(content: Text(message)));
-        },
-        orElse: (){
 
-        });
   }
 
   _buildLine() {

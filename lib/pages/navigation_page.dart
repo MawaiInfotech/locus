@@ -3,6 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:locus/pages/profile_page.dart';
 import 'package:locus/utils/screen_size_config.dart';
+import 'package:provider/provider.dart';
+import '../model/login_model.dart';
+import '../service/login_service.dart';
 import '../themes/app_colors.dart';
 import '../widgets/app_top_bar.dart';
 import 'home_page.dart';
@@ -19,21 +22,17 @@ class _NavigationPageState extends State<NavigationPage> {
   int pageIndex = 0;
   late PageController pageController;
 
+  late final LoginModel user;
+
   var Items = [
     Image.asset(
       'assets/images/homePage.png',
       scale: 15,
     ),
     Image.asset(
-      'assets/images/timeliine.png',
-      scale: 15,
-    ),
-    Image.asset(
       'assets/images/profile2.png',
       scale: 15,
     ),
-
-    //Image.asset('assets/images/bar-graph.png',scale: 15,)
   ];
 
   List<Widget> tabPages = [
@@ -45,6 +44,7 @@ class _NavigationPageState extends State<NavigationPage> {
 
   @override
   void initState() {
+    user = Provider.of<LoginService>(context, listen: false).getCurrentUser!;
     super.initState();
     pageController = PageController(initialPage: pageIndex);
   }
@@ -64,7 +64,6 @@ class _NavigationPageState extends State<NavigationPage> {
 
   void onTabTapped(int index) {
     this.pageController.jumpToPage(index);
-    //this.pageController.animateToPage(index, duration: Duration(milliseconds: 500), curve: Curves.linear);
   }
 
   final double xOffset = 230;
@@ -77,8 +76,7 @@ class _NavigationPageState extends State<NavigationPage> {
       },
       child: Scaffold(
         backgroundColor: Colors.grey.shade200,
-        appBar:  AppTopBar(title: "Hello! Shilpi " ),
-        //drawer: Drawerui(),
+        appBar:  AppTopBar(title: user.emp_first_name.toString()+" "+user.emp_last_name.toString()+" - " +"("+ user.emp_cd.toString()  + ")"),
         bottomNavigationBar: CurvedNavigationBar(
           height: 60.dw,
           color: AppColors.bloodred,
@@ -105,28 +103,37 @@ class _NavigationPageState extends State<NavigationPage> {
         builder: (context) {
           return AlertDialog(
             title: const Text("Confirm"),
-            content: const Text("Do you want to exit the App"),
+            content: const Text("Do you want to exit the App ?"),
             actions: [
-              ElevatedButton(
-                  onPressed: () {
-                    // SystemNavigator.pop();
-                    //Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (BuildContext context)=> LoginPage()), (route) => false);
-                    Navigator.of(context).pop(false);
-                  },
-                  child: const Text("No")),
-              ElevatedButton(
-                  onPressed: () {
-                    //exit(0);
-                    // SystemNavigator.pop();
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                            const LoginPage()),
-                            (route) => false);
-                    //Navigator.of(context).pop(true);
-                  },
-                  child: const Text("Yes"))
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop(false);
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: AppColors.bloodred,
+                          minimumSize: Size(100.dw, 40.dw)
+                      ),
+                      child: const Text("No")),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                const LoginPage()),
+                                (route) => false);
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: AppColors.portalgreen,
+                          minimumSize: Size(100.dw, 40.dw)
+                      ),
+                      child: const Text("Yes"))
+                ],
+              )
+
             ],
           );
         }) ??

@@ -1,12 +1,17 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io' as Io;
 import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 import 'package:locus/model/checkloginform_model.dart';
+import 'package:locus/model/teamattendance_supp_model.dart';
+import 'package:locus/model/teamleader_attendanceApprove_model.dart';
 import 'package:locus/service/constant.dart';
 import 'package:http/http.dart' as http;
 import '../errors/api_error.dart';
+import '../model/attendance_detail_supp_model.dart';
 import '../model/attendancedetail_model.dart';
 import '../model/checklogin_model.dart';
 
@@ -41,19 +46,44 @@ class AttendanceService {
     }
   }
 
-  Future<CheckLoginModel?> getAttendance(String status) async {
+  Future<Map<String, dynamic>?>  getAttendance(String status, String remark, String site, file) async {
     const url = root + 'checkin-checkout';
+
+    final bytes = Io.File(file).readAsBytesSync();
+    String img64 = base64Encode(bytes);
+
+    String getBase64FileExtension(String img64) {
+      switch (img64.characters.first) {
+        case '/':
+          return 'jpeg';
+        case 'i':
+          return 'png';
+        case 'R':
+          return 'gif';
+        case 'U':
+          return 'webp';
+        case 'J':
+          return 'pdf';
+        default:
+          return 'unknown';
+      }
+    }
+   String type = getBase64FileExtension(img64);
+
     try {
       final location = await Geolocator.getCurrentPosition();
       final body = {
         "lat": location.latitude,
         "long": location.longitude,
-        "status": status
+        "status": status,
+        "remark" : remark,
+        "site" : site,
+        "image" : "data:image/"+type+";base64," + img64
       };
       final response = await http.post(Uri.parse(url),
           body: json.encode(body), headers: getHeaders());
-      final responseBody =
-          Map<String, dynamic>.from(json.decode(response.body));
+
+      final responseBody = json.decode(response.body);
       if (responseBody['status'] == false) {
         throw ApiError.fromResponse(responseBody['message']);
       }
@@ -63,37 +93,41 @@ class AttendanceService {
       if (status == "out") {
         responseBody["officepunch"] = responseBody['punchout'];
       }
-      return CheckLoginModel.fromJson(responseBody);
-    } on ApiError catch (e) {
+      return {"model":CheckLoginModel.fromJson(responseBody), "message": responseBody["message"]};
+    } catch (e) {
       print(e);
       _handleError(e);
     }
   }
 
-  Future<List<AttendanceDetailModel>> getAttendanceDetail() async {
+  Future<AttendanceDetailSuppModel> getAttendanceDetail(String month) async {
     const url = root + 'get-attendance';
+    final body = {
+      "month" : month
+    };
     try {
-      final response = await http.get(Uri.parse(url), headers: getHeaders());
+      final response = await http.post(Uri.parse(url), body: json.encode(body),headers: getHeaders());
       final responseBody = json.decode(response.body);
-      if (responseBody['status'] == true) {
-        final itemList = responseBody['data'] as List;
-        return itemList.map((e) => AttendanceDetailModel.fromJson(e)).toList();
-      }
+    return AttendanceDetailSuppModel.fromJson(responseBody["data"]);
     } catch (e) {
+      print(e);
       _handleError(e);
     }
-    return [];
+    return new AttendanceDetailSuppModel();
   }
 
   Future<String?> getRequestData(String employerCode, String unitCode,
-      String cardNumber, String reason, String missPunchDate) async {
+      String cardNumber, String reason, String missPunchDate, String missPunchType, String misspunchIn, String misspunchOut) async {
     const url = root + 'miss-punch-update';
     final body = {
       'emp_cd': employerCode,
       'unit_cd': unitCode,
       'card_no': cardNumber,
       'reason': reason,
-      'miss_punch_date': missPunchDate
+      'miss_punch_date': missPunchDate,
+      'mis_punch_type': missPunchType,
+      'miss_punch_intime': misspunchIn,
+      'miss_check_out_time': misspunchOut,
     };
     try {
       final response = await http.post(Uri.parse(url),
@@ -111,8 +145,70 @@ class AttendanceService {
     // return null;
   }
 
+
+  //Team Attendance
+
+  Future<TeamAttendanceSuppModel> getTeamAttendanceData(String employeeCode, String month)async{
+    const url = root +'serch-team-attend';
+    final body = {
+      "emp_number" : employeeCode,
+      "month" : month
+    };
+    try{
+      final response = await http.post(Uri.parse(url),
+          body: json.encode(body), headers:  getHeaders());
+      final responseBody = json.decode(response.body);
+      return TeamAttendanceSuppModel.fromJson(responseBody["data"]);
+    }catch(e){
+      print(e);
+      _handleError(e);
+    }
+    return  new TeamAttendanceSuppModel() ;
+  }
+
+  //Team Attendance Approval
+
+  Future<List<TeamLeaderAttendanceApprovelModel>> getTeamAttendanceList(String employeeCode, String unitCode) async {
+    const url = root + 'attedance-approval-list';
+    final body = {
+      "emp_cd" : employeeCode,
+      "unit_cd" : unitCode
+    };
+    try {
+      final response = await http.post(Uri.parse(url),body: json.encode(body), headers: getHeaders());
+      final responseBody = json.decode(response.body);
+      if (responseBody['status'] == true) {
+        final itemList = responseBody['data'] as List;
+        return itemList.map((e) => TeamLeaderAttendanceApprovelModel.fromJson(e)).toList();
+      }
+    } catch (e) {
+      _handleError(e);
+    }
+    return [];
+  }
+
+  //Team Attendance Approval Rejection Data
+
+  Future<String?> getAprovalRejectionData(Map<String, dynamic>data) async {
+    const url = root + 'attedance-approved-reject';
+    final body = data;
+    try {
+      final response = await http.post(Uri.parse(url),
+          body: json.encode(body), headers: headers);
+      final responseBody = json.decode(response.body);
+      if (responseBody['status'] == true) {
+        return responseBody ['message'];
+      } else {
+        throw ApiError.fromResponse(responseBody['message']);
+      }
+    } catch (e) {
+      print(e);
+      _handleError(e);
+    }
+  }
+
   _handleError(var e) {
-    if (e is String) throw e;
+    if (e is String) throw ApiError.fromResponse(e);
     if (e is SocketException) throw ApiError.internet();
     if (e is TimeoutException) throw ApiError.timeOut();
     if (e is ApiError) throw e;

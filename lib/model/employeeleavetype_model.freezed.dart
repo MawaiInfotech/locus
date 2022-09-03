@@ -29,7 +29,6 @@ mixin _$EmployeeLeavetypeModel {
       throw _privateConstructorUsedError;
   List<EmployeeleaveListModel> get leave_list =>
       throw _privateConstructorUsedError;
-  List<ApprovedLeaveModel> get result => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,8 +45,7 @@ abstract class $EmployeeLeavetypeModelCopyWith<$Res> {
       {@JsonKey(name: "balance_leave") double balanceLeave,
       @JsonKey(name: "leave_taken") double leaveTaken,
       List<EmployeeLeaveModel> emp_leave_list,
-      List<EmployeeleaveListModel> leave_list,
-      List<ApprovedLeaveModel> result});
+      List<EmployeeleaveListModel> leave_list});
 }
 
 /// @nodoc
@@ -65,7 +63,6 @@ class _$EmployeeLeavetypeModelCopyWithImpl<$Res>
     Object? leaveTaken = freezed,
     Object? emp_leave_list = freezed,
     Object? leave_list = freezed,
-    Object? result = freezed,
   }) {
     return _then(_value.copyWith(
       balanceLeave: balanceLeave == freezed
@@ -84,10 +81,6 @@ class _$EmployeeLeavetypeModelCopyWithImpl<$Res>
           ? _value.leave_list
           : leave_list // ignore: cast_nullable_to_non_nullable
               as List<EmployeeleaveListModel>,
-      result: result == freezed
-          ? _value.result
-          : result // ignore: cast_nullable_to_non_nullable
-              as List<ApprovedLeaveModel>,
     ));
   }
 }
@@ -103,8 +96,7 @@ abstract class _$$_EmployeeLeavetypeModelCopyWith<$Res>
       {@JsonKey(name: "balance_leave") double balanceLeave,
       @JsonKey(name: "leave_taken") double leaveTaken,
       List<EmployeeLeaveModel> emp_leave_list,
-      List<EmployeeleaveListModel> leave_list,
-      List<ApprovedLeaveModel> result});
+      List<EmployeeleaveListModel> leave_list});
 }
 
 /// @nodoc
@@ -125,7 +117,6 @@ class __$$_EmployeeLeavetypeModelCopyWithImpl<$Res>
     Object? leaveTaken = freezed,
     Object? emp_leave_list = freezed,
     Object? leave_list = freezed,
-    Object? result = freezed,
   }) {
     return _then(_$_EmployeeLeavetypeModel(
       balanceLeave: balanceLeave == freezed
@@ -144,10 +135,6 @@ class __$$_EmployeeLeavetypeModelCopyWithImpl<$Res>
           ? _value._leave_list
           : leave_list // ignore: cast_nullable_to_non_nullable
               as List<EmployeeleaveListModel>,
-      result: result == freezed
-          ? _value._result
-          : result // ignore: cast_nullable_to_non_nullable
-              as List<ApprovedLeaveModel>,
     ));
   }
 }
@@ -161,11 +148,9 @@ class _$_EmployeeLeavetypeModel implements _EmployeeLeavetypeModel {
       final List<EmployeeLeaveModel> emp_leave_list =
           const <EmployeeLeaveModel>[],
       final List<EmployeeleaveListModel> leave_list =
-          const <EmployeeleaveListModel>[],
-      final List<ApprovedLeaveModel> result = const <ApprovedLeaveModel>[]})
+          const <EmployeeleaveListModel>[]})
       : _emp_leave_list = emp_leave_list,
-        _leave_list = leave_list,
-        _result = result;
+        _leave_list = leave_list;
 
   factory _$_EmployeeLeavetypeModel.fromJson(Map<String, dynamic> json) =>
       _$$_EmployeeLeavetypeModelFromJson(json);
@@ -192,17 +177,9 @@ class _$_EmployeeLeavetypeModel implements _EmployeeLeavetypeModel {
     return EqualUnmodifiableListView(_leave_list);
   }
 
-  final List<ApprovedLeaveModel> _result;
-  @override
-  @JsonKey()
-  List<ApprovedLeaveModel> get result {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_result);
-  }
-
   @override
   String toString() {
-    return 'EmployeeLeavetypeModel(balanceLeave: $balanceLeave, leaveTaken: $leaveTaken, emp_leave_list: $emp_leave_list, leave_list: $leave_list, result: $result)';
+    return 'EmployeeLeavetypeModel(balanceLeave: $balanceLeave, leaveTaken: $leaveTaken, emp_leave_list: $emp_leave_list, leave_list: $leave_list)';
   }
 
   @override
@@ -217,8 +194,7 @@ class _$_EmployeeLeavetypeModel implements _EmployeeLeavetypeModel {
             const DeepCollectionEquality()
                 .equals(other._emp_leave_list, _emp_leave_list) &&
             const DeepCollectionEquality()
-                .equals(other._leave_list, _leave_list) &&
-            const DeepCollectionEquality().equals(other._result, _result));
+                .equals(other._leave_list, _leave_list));
   }
 
   @JsonKey(ignore: true)
@@ -228,8 +204,7 @@ class _$_EmployeeLeavetypeModel implements _EmployeeLeavetypeModel {
       const DeepCollectionEquality().hash(balanceLeave),
       const DeepCollectionEquality().hash(leaveTaken),
       const DeepCollectionEquality().hash(_emp_leave_list),
-      const DeepCollectionEquality().hash(_leave_list),
-      const DeepCollectionEquality().hash(_result));
+      const DeepCollectionEquality().hash(_leave_list));
 
   @JsonKey(ignore: true)
   @override
@@ -247,11 +222,11 @@ class _$_EmployeeLeavetypeModel implements _EmployeeLeavetypeModel {
 
 abstract class _EmployeeLeavetypeModel implements EmployeeLeavetypeModel {
   const factory _EmployeeLeavetypeModel(
-      {@JsonKey(name: "balance_leave") final double balanceLeave,
-      @JsonKey(name: "leave_taken") final double leaveTaken,
-      final List<EmployeeLeaveModel> emp_leave_list,
-      final List<EmployeeleaveListModel> leave_list,
-      final List<ApprovedLeaveModel> result}) = _$_EmployeeLeavetypeModel;
+          {@JsonKey(name: "balance_leave") final double balanceLeave,
+          @JsonKey(name: "leave_taken") final double leaveTaken,
+          final List<EmployeeLeaveModel> emp_leave_list,
+          final List<EmployeeleaveListModel> leave_list}) =
+      _$_EmployeeLeavetypeModel;
 
   factory _EmployeeLeavetypeModel.fromJson(Map<String, dynamic> json) =
       _$_EmployeeLeavetypeModel.fromJson;
@@ -266,8 +241,6 @@ abstract class _EmployeeLeavetypeModel implements EmployeeLeavetypeModel {
   List<EmployeeLeaveModel> get emp_leave_list;
   @override
   List<EmployeeleaveListModel> get leave_list;
-  @override
-  List<ApprovedLeaveModel> get result;
   @override
   @JsonKey(ignore: true)
   _$$_EmployeeLeavetypeModelCopyWith<_$_EmployeeLeavetypeModel> get copyWith =>

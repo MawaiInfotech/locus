@@ -13,7 +13,6 @@ class EmployeeLeavetypeModel with _$EmployeeLeavetypeModel{
     @JsonKey(name: "leave_taken") @Default(0.0) double leaveTaken,
     @Default(<EmployeeLeaveModel> []) List<EmployeeLeaveModel> emp_leave_list,
     @Default(<EmployeeleaveListModel> []) List<EmployeeleaveListModel> leave_list,
-    @Default(<ApprovedLeaveModel> []) List<ApprovedLeaveModel> result
 
 }) = _EmployeeLeavetypeModel;
   factory EmployeeLeavetypeModel.fromJson(Map<String , dynamic> json) => _$EmployeeLeavetypeModelFromJson(json);

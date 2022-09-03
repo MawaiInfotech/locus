@@ -39,6 +39,8 @@ mixin _$EmployeeleaveListModel {
   int get leavePkId => throw _privateConstructorUsedError;
   @JsonKey(name: "leave_granted_desc")
   String get leaveGrantedDescription => throw _privateConstructorUsedError;
+  @JsonKey(name: "reason")
+  String get reason => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -60,7 +62,8 @@ abstract class $EmployeeleaveListModelCopyWith<$Res> {
       @JsonKey(name: "leave_days") String leaveDays,
       @JsonKey(name: "leave_desc") String leaveDescription,
       @JsonKey(name: "leave_pk_id") int leavePkId,
-      @JsonKey(name: "leave_granted_desc") String leaveGrantedDescription});
+      @JsonKey(name: "leave_granted_desc") String leaveGrantedDescription,
+      @JsonKey(name: "reason") String reason});
 }
 
 /// @nodoc
@@ -83,6 +86,7 @@ class _$EmployeeleaveListModelCopyWithImpl<$Res>
     Object? leaveDescription = freezed,
     Object? leavePkId = freezed,
     Object? leaveGrantedDescription = freezed,
+    Object? reason = freezed,
   }) {
     return _then(_value.copyWith(
       fromDate: fromDate == freezed
@@ -121,6 +125,10 @@ class _$EmployeeleaveListModelCopyWithImpl<$Res>
           ? _value.leaveGrantedDescription
           : leaveGrantedDescription // ignore: cast_nullable_to_non_nullable
               as String,
+      reason: reason == freezed
+          ? _value.reason
+          : reason // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -141,7 +149,8 @@ abstract class _$$_EmployeeleavelistModelCopyWith<$Res>
       @JsonKey(name: "leave_days") String leaveDays,
       @JsonKey(name: "leave_desc") String leaveDescription,
       @JsonKey(name: "leave_pk_id") int leavePkId,
-      @JsonKey(name: "leave_granted_desc") String leaveGrantedDescription});
+      @JsonKey(name: "leave_granted_desc") String leaveGrantedDescription,
+      @JsonKey(name: "reason") String reason});
 }
 
 /// @nodoc
@@ -167,6 +176,7 @@ class __$$_EmployeeleavelistModelCopyWithImpl<$Res>
     Object? leaveDescription = freezed,
     Object? leavePkId = freezed,
     Object? leaveGrantedDescription = freezed,
+    Object? reason = freezed,
   }) {
     return _then(_$_EmployeeleavelistModel(
       fromDate: fromDate == freezed
@@ -205,6 +215,10 @@ class __$$_EmployeeleavelistModelCopyWithImpl<$Res>
           ? _value.leaveGrantedDescription
           : leaveGrantedDescription // ignore: cast_nullable_to_non_nullable
               as String,
+      reason: reason == freezed
+          ? _value.reason
+          : reason // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -221,7 +235,8 @@ class _$_EmployeeleavelistModel implements _EmployeeleavelistModel {
       @JsonKey(name: "leave_days") this.leaveDays = "",
       @JsonKey(name: "leave_desc") this.leaveDescription = "",
       @JsonKey(name: "leave_pk_id") this.leavePkId = 0,
-      @JsonKey(name: "leave_granted_desc") this.leaveGrantedDescription = ""});
+      @JsonKey(name: "leave_granted_desc") this.leaveGrantedDescription = "",
+      @JsonKey(name: "reason") this.reason = ""});
 
   factory _$_EmployeeleavelistModel.fromJson(Map<String, dynamic> json) =>
       _$$_EmployeeleavelistModelFromJson(json);
@@ -253,10 +268,13 @@ class _$_EmployeeleavelistModel implements _EmployeeleavelistModel {
   @override
   @JsonKey(name: "leave_granted_desc")
   final String leaveGrantedDescription;
+  @override
+  @JsonKey(name: "reason")
+  final String reason;
 
   @override
   String toString() {
-    return 'EmployeeleaveListModel(fromDate: $fromDate, endDate: $endDate, leaveType: $leaveType, employeeCode: $employeeCode, leaveGranted: $leaveGranted, leaveDays: $leaveDays, leaveDescription: $leaveDescription, leavePkId: $leavePkId, leaveGrantedDescription: $leaveGrantedDescription)';
+    return 'EmployeeleaveListModel(fromDate: $fromDate, endDate: $endDate, leaveType: $leaveType, employeeCode: $employeeCode, leaveGranted: $leaveGranted, leaveDays: $leaveDays, leaveDescription: $leaveDescription, leavePkId: $leavePkId, leaveGrantedDescription: $leaveGrantedDescription, reason: $reason)';
   }
 
   @override
@@ -276,7 +294,8 @@ class _$_EmployeeleavelistModel implements _EmployeeleavelistModel {
                 .equals(other.leaveDescription, leaveDescription) &&
             const DeepCollectionEquality().equals(other.leavePkId, leavePkId) &&
             const DeepCollectionEquality().equals(
-                other.leaveGrantedDescription, leaveGrantedDescription));
+                other.leaveGrantedDescription, leaveGrantedDescription) &&
+            const DeepCollectionEquality().equals(other.reason, reason));
   }
 
   @JsonKey(ignore: true)
@@ -291,7 +310,8 @@ class _$_EmployeeleavelistModel implements _EmployeeleavelistModel {
       const DeepCollectionEquality().hash(leaveDays),
       const DeepCollectionEquality().hash(leaveDescription),
       const DeepCollectionEquality().hash(leavePkId),
-      const DeepCollectionEquality().hash(leaveGrantedDescription));
+      const DeepCollectionEquality().hash(leaveGrantedDescription),
+      const DeepCollectionEquality().hash(reason));
 
   @JsonKey(ignore: true)
   @override
@@ -326,7 +346,9 @@ abstract class _EmployeeleavelistModel implements EmployeeleaveListModel {
       @JsonKey(name: "leave_pk_id")
           final int leavePkId,
       @JsonKey(name: "leave_granted_desc")
-          final String leaveGrantedDescription}) = _$_EmployeeleavelistModel;
+          final String leaveGrantedDescription,
+      @JsonKey(name: "reason")
+          final String reason}) = _$_EmployeeleavelistModel;
 
   factory _EmployeeleavelistModel.fromJson(Map<String, dynamic> json) =
       _$_EmployeeleavelistModel.fromJson;
@@ -358,6 +380,9 @@ abstract class _EmployeeleavelistModel implements EmployeeleaveListModel {
   @override
   @JsonKey(name: "leave_granted_desc")
   String get leaveGrantedDescription;
+  @override
+  @JsonKey(name: "reason")
+  String get reason;
   @override
   @JsonKey(ignore: true)
   _$$_EmployeeleavelistModelCopyWith<_$_EmployeeleavelistModel> get copyWith =>

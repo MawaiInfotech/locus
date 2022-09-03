@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:locus/pages/attendance_detail_page.dart';
 import 'package:locus/pages/attendance_page.dart';
+import 'package:locus/pages/changepassword_page.dart';
+import 'package:locus/pages/forgetpassword_page.dart';
+import 'package:locus/pages/getlocation.dart';
 import 'package:locus/pages/home_page.dart';
 import 'package:locus/pages/leave_page.dart';
 import 'package:locus/pages/navigation_page.dart';
 import 'package:locus/pages/onduty_page.dart';
+import 'package:locus/pages/otpverification_page.dart';
 import 'package:locus/pages/profile_page.dart';
-import 'package:locus/pages/misspunchrequest_page.dart';
 import 'package:locus/pages/request_leave.dart';
+import 'package:locus/pages/request_offduty.dart';
+import 'package:locus/pages/team_attendance_page.dart';
+import 'package:locus/pages/workfrom_home_page.dart';
 import '../pages/login_page.dart';
 
 class AppRoutes {
@@ -20,6 +26,12 @@ class AppRoutes {
   static const navigationPage = '/navigationPage';
   static const attendanceDetailPage = '/attendanceDetailPage';
   static const requestLeave = '/requestLeave';
+  static const teamattendance = '/teamattendance';
+  static const workfromHome = '/workfromHome';
+  static const forgetpassword = '/forgetPassword';
+  static const getLocation = '/getLocation';
+  static const changepassword = '/changepassword';
+  static const requestoffduty = '/requestoffduty';
 
 
   static Map<String, Widget Function(BuildContext)> getRoutes(BuildContext _) {
@@ -32,7 +44,12 @@ class AppRoutes {
       profilePage: (_) => const ProfilePage(),
       navigationPage: (_) => const NavigationPage(),
       attendanceDetailPage: (_) => const AttendanceDetailPage(),
-      requestLeave: (_) => const RequestLeave()
+      requestLeave: (_) => const RequestLeave(),
+      teamattendance: (_) => TeamAttendancePage(),
+      workfromHome: (_)=> WorkfromHome(),
+      forgetpassword: (_) => ForgetPasswordPage(),
+      changepassword: (_) => ChangePasswordPage(),
+      requestoffduty: (_) => RequestOffdutyPage()
     };
   }
 }

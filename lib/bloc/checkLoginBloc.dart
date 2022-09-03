@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:locus/errors/api_error.dart';
 import 'package:locus/model/checkloginform_model.dart';
 import 'package:locus/service/attendance_service.dart';
 import 'package:locus/state/checklogin_state.dart';
@@ -18,43 +19,49 @@ class CheckLoginBloc extends Cubit<CheckLoginState> {
   // returns true if permission is granted
   Future<bool> requestPermission() async {
     final permission = await Geolocator.requestPermission();
-    Geolocator.getServiceStatusStream().listen((event) {
-
-    });
+    Geolocator.getServiceStatusStream().listen((event) {});
     return permission.isGranted;
   }
 
+  bool get isCheckedOut => state.form.checkOutData != null;
+
   void init() async {
-    emit(CheckLoginState.loading(state.form));
+    emit(CheckLoginState.loading(state.action, state.form));
     try {
       final form = await attendanceService.getCheckLogin();
       if (form != null) {
-        emit(CheckLoginState.content(form));
+        emit(CheckLoginState.content(state.action, form));
       }
     } catch (error) {
       rethrow;
     }
   }
 
-  Future<void> checkIn() async {
-    emit(CheckLoginState.loading(state.form));
+  Future<void> checkIn(String remark, String site, file) async {
+    emit(CheckLoginState.loading(AttendanceAction.checkIn, state.form));
     try {
-      final checkInData = await attendanceService.getAttendance('in');
-      emit(CheckLoginState.content(CheckLoginModelForm(
-          checkInData: checkInData, checkOutData: state.form.checkOutData)));
-    } catch (error) {
-      rethrow;
+      final data = await attendanceService.getAttendance("in", remark, site, file);
+
+      emit(CheckLoginState.content(state.action, CheckLoginModelForm(
+          checkOutData: state.form.checkOutData,
+          checkInData: data!['model'],
+          message: data['message'])));
+    } on ApiError catch (e) {
+      emit(CheckLoginState.failed(state.action, state.form, e.message));
     }
   }
 
-  Future<void> checkOut() async {
-    emit(CheckLoginState.loading(state.form));
+  Future<void> checkOut(String remark, String site,file ) async {
+    emit(CheckLoginState.loading(AttendanceAction.checkOut, state.form));
     try {
-      final checkOutData = await attendanceService.getAttendance('out');
-      emit(CheckLoginState.content(CheckLoginModelForm(checkInData: state.form.checkInData, checkOutData: checkOutData)));
-    } catch (error) {
-      print(error);
-      rethrow;
+      final data = await attendanceService.getAttendance("out", remark, site, file);
+      emit(CheckLoginState.content(state.action, CheckLoginModelForm(
+          checkOutData: data!['model'],
+          checkInData: state.form.checkOutData,
+          message: data["message"])));
+    } on ApiError catch (e) {
+      print(e);
+      emit(CheckLoginState.failed(state.action, state.form, e.message));
     }
   }
 }

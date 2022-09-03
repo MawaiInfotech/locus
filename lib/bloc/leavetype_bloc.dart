@@ -11,7 +11,7 @@ class LeavetypeBloc extends Cubit<LeaveTypeState>{
   LeaveService leaveService;
   LoginService loginService;
 
-  void init()async{
+  Future <void> init()async{
     emit(LeaveTypeState.loading(state.model));
     try{
       final employerCode = loginService.getUserCode;

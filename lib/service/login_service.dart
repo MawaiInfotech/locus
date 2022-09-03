@@ -34,11 +34,13 @@ class LoginService{
         _loginModel = LoginModel.fromJson(body["data"]);
         if(shouldRemember)  await _box.put("user", _loginModel);
       }else{
+        //print(throw body['msg']);
         throw body['msg'];
       }
 
-    }catch(e){
-      print(e);
+    }catch(e, trace){
+      print("Error: $e");
+      print("$trace");
       _handleError(e);
     }
   }

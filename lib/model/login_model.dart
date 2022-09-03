@@ -43,6 +43,38 @@ class LoginModel{
   @JsonKey(name: 'default_fin_year')
   late final String? default_fin_year;
 
+  @HiveField(9)
+  @JsonKey(name: 'emp_last_name')
+  late final String? emp_last_name;
+
+  @HiveField(10)
+  @JsonKey(name: 'emp_first_name')
+  late final String? emp_first_name;
+
+  @HiveField(11)
+  @JsonKey(name: 'per_emailid')
+  late final String? per_emailid;
+
+  @HiveField(12)
+  @JsonKey(name: "shift")
+  late final String? shift;
+
+  @HiveField(13)
+  @JsonKey(name: 'start_time')
+  late final String? start_time;
+
+  @HiveField(14)
+  @JsonKey(name: 'end_time')
+  late final String? end_time;
+
+  @HiveField(15)
+  @JsonKey(name: "description")
+  late final String? description;
+
+  @HiveField(16)
+  @JsonKey(name: "company_email")
+  late final String? company_email;
+
   LoginModel({
     this.emp_cd = '',
     this.password = '',
@@ -52,7 +84,15 @@ class LoginModel{
     this.user_fname,
     this.emp_name,
     this.card_no,
-    this.default_fin_year
+    this.default_fin_year,
+    this.emp_first_name,
+    this.emp_last_name,
+    this.end_time,
+    this.per_emailid,
+    this.shift,
+    this.start_time,
+    this.description,
+    this.company_email
 });
 
 
