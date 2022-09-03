@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 import 'package:locus/model/checkloginform_model.dart';
+import 'package:locus/model/teamattendance_supp_model.dart';
 import 'package:locus/service/constant.dart';
 import 'package:http/http.dart' as http;
 import '../errors/api_error.dart';
@@ -86,14 +87,17 @@ class AttendanceService {
   }
 
   Future<String?> getRequestData(String employerCode, String unitCode,
-      String cardNumber, String reason, String missPunchDate) async {
+      String cardNumber, String reason, String missPunchDate, String missPunchType, String misspunchIn, String misspunchOut) async {
     const url = root + 'miss-punch-update';
     final body = {
       'emp_cd': employerCode,
       'unit_cd': unitCode,
       'card_no': cardNumber,
       'reason': reason,
-      'miss_punch_date': missPunchDate
+      'miss_punch_date': missPunchDate,
+      'mis_punch_type': missPunchType,
+      'miss_punch_intime': misspunchIn,
+      'miss_check_out_time': misspunchOut,
     };
     try {
       final response = await http.post(Uri.parse(url),
@@ -109,6 +113,27 @@ class AttendanceService {
       _handleError(e);
     }
     // return null;
+  }
+
+
+  //Team Attendance
+
+  Future<TeamAttendanceSuppModel> getTeamAttendanceData(String employeeCode, String month)async{
+    const url = root +'serch-team-attend';
+    final body = {
+      "emp_number" : employeeCode,
+      "month" : month
+    };
+    try{
+      final response = await http.post(Uri.parse(url),
+          body: json.encode(body), headers:  getHeaders());
+      final responseBody = json.decode(response.body);
+      return TeamAttendanceSuppModel.fromJson(responseBody["data"]);
+    }catch(e){
+      print(e);
+      _handleError(e);
+    }
+    return  new TeamAttendanceSuppModel() ;
   }
 
   _handleError(var e) {

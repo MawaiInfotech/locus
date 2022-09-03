@@ -11,6 +11,7 @@ import 'package:locus/model/leave_type_model.dart';
 import 'package:locus/routes/app_routes.dart';
 import 'package:locus/service/leave_service.dart';
 import 'package:locus/service/login_service.dart';
+import 'package:locus/state/approvedleave_state.dart';
 import 'package:locus/state/leavetype_state.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_top_bar.dart';
@@ -25,33 +26,23 @@ class LeavePage extends StatefulWidget {
   State<LeavePage> createState() => _LeavePageState();
 }
 
-class _LeavePageState extends State<LeavePage> with SingleTickerProviderStateMixin{
-
+class _LeavePageState extends State<LeavePage>
+    with SingleTickerProviderStateMixin {
   late TabController tabController;
 
   late PageController pageController;
+
   int currentPage = 0;
-
-  late LeavetypeBloc bloc;
-  late ApprovedleaveBloc approvedleaveBloc;
-
-  late LoginService loginService = LoginService();
-
 
   void initState() {
     tabController = TabController(length: 2, vsync: this);
-    pageController = PageController(initialPage: currentPage, viewportFraction: 0.8);
+    pageController =
+        PageController(initialPage: currentPage, viewportFraction: 0.8);
     controller.addListener(() {
       setState(() {
         currentPageValue = controller.page!;
       });
     });
-    final leaveService = Provider.of<LeaveService>(context,listen: false);
-    final loginService = Provider.of<LoginService>(context, listen: false);
-    bloc = LeavetypeBloc(leaveService, loginService);
-    approvedleaveBloc = ApprovedleaveBloc(leaveService, loginService);
-    bloc.init();
-    approvedleaveBloc.init();
     super.initState();
   }
 
@@ -68,118 +59,114 @@ class _LeavePageState extends State<LeavePage> with SingleTickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppTopBar(title: "Leave Apply"),
-      body: _buildBody()
-    );
+        appBar: const AppTopBar(title: "Leave Apply"),
+        body: Column(
+          children: [
+            SizedBox(
+              height: 120.dh,
+              child: TabBar(
+                controller: tabController,
+                indicatorColor: AppColors.navyblue,
+                indicatorWeight: 6.dw,
+                labelColor: AppColors.bloodred,
+                unselectedLabelColor: AppColors.navyblue,
+                unselectedLabelStyle: TextStyle(fontSize: 16.dh),
+                indicatorPadding: EdgeInsets.all(8.dh),
+                labelPadding: EdgeInsets.all(8),
+                labelStyle:
+                    TextStyle(fontSize: 18.dh, fontWeight: FontWeight.w600),
+                tabs: [
+                  Column(
+                    children: [
+                      Image.asset(
+                        "assets/images/leave.png",
+                        scale: 8.dw,
+                      ),
+                      const Text("My Leaves"),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Image.asset(
+                        "assets/images/leave-2.png",
+                        scale: 12.dw,
+                      ),
+                      const Text("Approved Leaves"),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+                child: TabBarView(controller: tabController, children: [
+              MyLeavesPage(),
+              ApprovedLeavesPage(),
+            ]))
+          ],
+        ));
+  }
+}
+
+class MyLeavesPage extends StatefulWidget {
+  const MyLeavesPage({Key? key}) : super(key: key);
+
+  @override
+  State<MyLeavesPage> createState() => _MyLeavesPageState();
+}
+
+class _MyLeavesPageState extends State<MyLeavesPage> {
+  late LeavetypeBloc bloc;
+  late ApprovedleaveBloc approvedleaveBloc;
+
+  late LoginService loginService = LoginService();
+
+  CarouselController carouselController = CarouselController();
+
+  @override
+  void initState() {
+    super.initState();
+    final leaveService = Provider.of<LeaveService>(context, listen: false);
+    final loginService = Provider.of<LoginService>(context, listen: false);
+    bloc = LeavetypeBloc(leaveService, loginService);
+    approvedleaveBloc = ApprovedleaveBloc(leaveService, loginService);
+    bloc.init();
+    approvedleaveBloc.init();
   }
 
-  _buildBody(){
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(body: _buildBody());
+  }
+
+  _buildBody() {
     return BlocConsumer<LeavetypeBloc, LeaveTypeState>(
       bloc: bloc,
-      listener: (_, state){},
-      builder: (_, state){
+      listener: (_, state) {},
+      builder: (_, state) {
         return state.when(
             loading: _buildLoading,
-            content: _buildContent,
-            success: _buildContent,
-            failed: (form, __) => _buildContent(form)
-        );
+            content: _buildMyLeave,
+            success: _buildMyLeave,
+            failed: (form, __) => _buildMyLeave(form));
       },
     );
   }
 
-  Widget _buildLoading(EmployeeLeavetypeModel model){
+  Widget _buildLoading(EmployeeLeavetypeModel model) {
     return Center(child: CircularProgressIndicator());
   }
 
-  Widget _buildContent(EmployeeLeavetypeModel model,List<ApprovedLeaveModel> approvedLeaveList){
+  Widget _buildMyLeave(EmployeeLeavetypeModel model) {
     return Column(
       children: [
-        SizedBox(
-          height: 120.dh,
-          child: TabBar(
-            controller: tabController,
-            indicatorColor: AppColors.navyblue,
-            indicatorWeight: 6.dw,
-            labelColor: AppColors.bloodred,
-            unselectedLabelColor: AppColors.navyblue,
-            unselectedLabelStyle: TextStyle(fontSize: 16.dh),
-            indicatorPadding: EdgeInsets.all(8.dh),
-            labelPadding: EdgeInsets.all(8),
-            labelStyle:
-            TextStyle(fontSize: 18.dh, fontWeight: FontWeight.w600),
-            tabs: [
-              Column(
-                children: [
-                  Image.asset(
-                    "assets/images/leave.png",
-                    scale: 8.dw,
-                  ),
-                  const Text("My Leaves"),
-                ],
-              ),
-              Column(
-                children: [
-                  Image.asset(
-                    "assets/images/leave-2.png",
-                    scale: 12.dw,
-                  ),
-                  const Text("Approved Leaves"),
-                ],
-              ),
-            ],
-          ),
-        ),
-        Expanded(
-            child: TabBarView(
-                controller: tabController,
-                children: [
-                  _buildMyLeave(model),
-                  _buildApprovedLeave(approvedLeaveList)]))
-
+        _buildSlider(model),
+        Expanded(child: _buildRequestLeaveCard(model)),
+        _buildRequestLeaveButton()
       ],
     );
   }
 
-  _buildMyLeave(EmployeeLeavetypeModel model) {
-    return Column(
-      children: [
-        _buildSlider(model),
-        Expanded(
-            child: _buildRequestLeaveCard(model)),
-        _buildRequestLeaveButton()],
-    );
-  }
-
-  _buildApprovedLeave(List<ApprovedLeaveModel> approvedLeaveList) {
-    return Container(
-      child: Column(
-        children: [
-          Expanded(
-              child: ListView(
-                shrinkWrap: true,
-                children: approvedLeaveList.map((model) => _buildApprovedLeaveList(model)).toList(),
-              )
-          )
-        ],
-      ),
-    );
-  }
-
-  _buildSlider(EmployeeLeavetypeModel leavetypeList) {
-    return CarouselSlider(
-      options: CarouselOptions(
-          height: 150.0.dh,
-          autoPlay: true,
-          enlargeCenterPage: true,
-          viewportFraction: 0.8,
-          aspectRatio: 4.0,
-          pageSnapping: true),
-      items: leavetypeList.emp_leave_list.map((model) {return _buildLeaveTypeCard(model);}).toList(),
-    );
-  }
-
-  Widget _buildLeaveTypeCard(EmployeeLeaveModel model){
+  Widget _buildLeaveTypeCard(EmployeeLeaveModel model) {
     return ListView(
       shrinkWrap: true,
       children: [
@@ -229,14 +216,57 @@ class _LeavePageState extends State<LeavePage> with SingleTickerProviderStateMix
     );
   }
 
-  _buildRequestLeaveCard(EmployeeLeavetypeModel leavetypeList) {
-    return ListView(
-      shrinkWrap: true,
-      children: leavetypeList.leave_list.map((model) => _buildRequesttedLeaveCard(model)).toList(),
+  _buildSlider(EmployeeLeavetypeModel leavetypeList) {
+    return Stack(
+
+      children: [
+        CarouselSlider(
+          carouselController: carouselController,
+          options: CarouselOptions(
+              height: 150.0.dh,
+              autoPlay: false,
+              enlargeCenterPage: true,
+              viewportFraction: 0.8,
+              aspectRatio: 4.0,
+              pageSnapping: true),
+          items: leavetypeList.emp_leave_list.map((model) {
+            return _buildLeaveTypeCard(model);
+          }).toList(),
+        ),
+        Positioned(
+          left: 10.dw,
+          top: 40.dw,
+          child: IconButton(
+            onPressed: () {
+              carouselController.previousPage();
+            },
+            icon: Icon(Icons.arrow_back_ios),
+          ),
+        ),
+        Positioned(
+         right: 5.dw,
+          top: 40.dw,
+          child: IconButton(
+            onPressed: () {
+              carouselController.nextPage();
+            },
+            icon: Icon(Icons.arrow_forward_ios_outlined),
+          ),
+        ),
+      ],
     );
   }
 
-  Widget _buildRequesttedLeaveCard(EmployeeleaveListModel model){
+  _buildRequestLeaveCard(EmployeeLeavetypeModel leavetypeList) {
+    return ListView(
+      shrinkWrap: true,
+      children: leavetypeList.leave_list
+          .map((model) => _buildRequesttedLeaveCard(model))
+          .toList(),
+    );
+  }
+
+  Widget _buildRequesttedLeaveCard(EmployeeleaveListModel model) {
     return Card(
       elevation: 10.dw,
       color: AppColors.lightbrown.withOpacity(0.5),
@@ -258,7 +288,7 @@ class _LeavePageState extends State<LeavePage> with SingleTickerProviderStateMix
                       fontWeight: FontWeight.w500),
                 ),
                 Text(
-                  model.leaveDescription +" - "+ model.leaveDays,
+                  model.leaveDescription + " - " + model.leaveDays,
                   style: TextStyle(
                       color: AppColors.navyblue,
                       fontSize: 14.dw,
@@ -272,97 +302,15 @@ class _LeavePageState extends State<LeavePage> with SingleTickerProviderStateMix
     );
   }
 
-  _buildRequestLeaveButton(){
-    return ElevatedButton(onPressed: (){
-      Navigator.pushNamed(context, AppRoutes.requestLeave);
-    }, child: Text("RequestLeave",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18.dw),));
-  }
-
-  Widget _buildApprovedLeaveList(ApprovedLeaveModel model){
-    return Card(
-      elevation: 8,
-      margin: EdgeInsets.all(10.dw),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-         _buildButtons(),
-          Container(
-            padding: const EdgeInsets.all(8),
-            height: 1.0,
-            color: Colors.black,
-          ),
-          Row(
-            children: [
-              _buildBoldText(title: "Name"),
-              _buildApproveText(title: loginService.getCurrentUser!.emp_name ??""),
-            ],
-          ),
-          Row(
-            children: [
-              _buildBoldText(title: "Employee Code"),
-              _buildApproveText(title:model.employeeCode),
-            ],
-          ),
-          Row(
-            children: [
-              _buildBoldText(title: "Designation"),
-              _buildApproveText(title: model.leaveGranted)
-            ],
-          ),
-          Row(
-            children: [
-              _buildBoldText(title: "Department"),
-              _buildApproveText(title: "Terms")
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildBoldText(title: "Reason"),
-              _buildApproveText(title: model.leaveDescription)
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildBoldText(title: "Leave Type"),
-              _buildApproveText(title: model.leaveDescription)
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildBoldText(title: "From Date"),
-              _buildApproveText(title: model.fromDate)
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildBoldText(title: "To Date"),
-              _buildApproveText(title: model.endDate)
-            ],
-          ),
-
-          Container(
-            padding: EdgeInsets.all(10.dw),
-            decoration: BoxDecoration(
-                color: AppColors.red,
-                borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(15.dw),
-                    bottomLeft: Radius.circular(15.dw))),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _buildDays(title: "No. of Days"),
-                _buildDays(title: model.leaveDays)
-              ],
-            ),
-          )
-        ],
-      ),
-    );
+  _buildRequestLeaveButton() {
+    return ElevatedButton(
+        onPressed: () {
+          Navigator.pushNamed(context, AppRoutes.requestLeave);
+        },
+        child: Text(
+          "Request Leave",
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18.dw),
+        ));
   }
 
   _buildText({required String title, required String title1, required Color}) {
@@ -387,13 +335,158 @@ class _LeavePageState extends State<LeavePage> with SingleTickerProviderStateMix
       ),
     );
   }
+}
+
+class ApprovedLeavesPage extends StatefulWidget {
+  const ApprovedLeavesPage({Key? key}) : super(key: key);
+
+  @override
+  State<ApprovedLeavesPage> createState() => _ApprovedLeavesPageState();
+}
+
+class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
+  late ApprovedleaveBloc approvedleaveBloc;
+
+  late LoginService loginService;
+
+  @override
+  void initState() {
+    super.initState();
+    final leaveService = Provider.of<LeaveService>(context, listen: false);
+    loginService = Provider.of<LoginService>(context, listen: false);
+    approvedleaveBloc = ApprovedleaveBloc(leaveService, loginService);
+    approvedleaveBloc.init();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _buildBody(),
+    );
+  }
+
+  _buildBody() {
+    return BlocConsumer<ApprovedleaveBloc, ApproveleaveState>(
+      bloc: approvedleaveBloc,
+      listener: (_, state) {},
+      builder: (_, state) {
+        return state.when(
+            loading: _buildLoading,
+            content: _buildApprovedLeave,
+            success: _buildApprovedLeave,
+            failed: (form, __) => _buildApprovedLeave(form));
+      },
+    );
+  }
+
+  Widget _buildLoading(List<ApprovedLeaveModel> model) {
+    return Center(child: CircularProgressIndicator());
+  }
+
+  Widget _buildApprovedLeave(List<ApprovedLeaveModel> approvedLeaveList) {
+    return Container(
+      child: Column(
+        children: [
+          Expanded(
+              child: ListView(
+            shrinkWrap: true,
+            children: approvedLeaveList
+                .map((model) => _buildApprovedLeaveList(model))
+                .toList(),
+          ))
+        ],
+      ),
+    );
+  }
+
+  Widget _buildApprovedLeaveList(ApprovedLeaveModel model) {
+    return Card(
+      elevation: 8,
+      margin: EdgeInsets.all(10.dw),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildButtons(),
+          Container(
+            padding: const EdgeInsets.all(8),
+            height: 1.0,
+            color: Colors.black,
+          ),
+          Row(
+            children: [
+              _buildBoldText(title: "Name"),
+              _buildApproveText(
+                  title: loginService.getCurrentUser!.emp_first_name ?? ""),
+            ],
+          ),
+          Row(
+            children: [
+              _buildBoldText(title: "Employee Code"),
+              _buildApproveText(title: model.employeeCode),
+            ],
+          ),
+
+          Row(
+            children: [
+              _buildBoldText(title: "Department"),
+              _buildApproveText(title: "Terms")
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildBoldText(title: "Reason"),
+              _buildApproveText(title: model.reason)
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildBoldText(title: "Leave Type"),
+              _buildApproveText(title: model.leaveType)
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildBoldText(title: "From Date"),
+              _buildApproveText(title: model.fromDate)
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildBoldText(title: "To Date"),
+              _buildApproveText(title: model.endDate)
+            ],
+          ),
+          Container(
+            padding: EdgeInsets.all(10.dw),
+            decoration: BoxDecoration(
+                color: AppColors.red,
+                borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(15.dw),
+                    bottomLeft: Radius.circular(15.dw))),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _buildDays(title: "No. of Days"),
+                _buildDays(title: model.leaveDays)
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
 
   _buildBoldText({required String title}) {
     return Container(
       width: 200.dw,
-      padding:EdgeInsets.only(left: 10.dw),
+      padding: EdgeInsets.only(left: 10.dw),
       child: Text(
-        title + "            :",
+        "$title            :",
         overflow: TextOverflow.ellipsis,
         maxLines: 4,
         style: TextStyle(fontSize: 16.dw, fontWeight: FontWeight.w500),
@@ -404,13 +497,13 @@ class _LeavePageState extends State<LeavePage> with SingleTickerProviderStateMix
   _buildApproveText({required String title}) {
     return Container(
       width: 150.dw,
-      padding:EdgeInsets.only(left: 10.dw, top: 8.dw),
+      padding: EdgeInsets.only(left: 10.dw, top: 8.dw),
       child: Text(
         title,
         //items.elementAt(index).name ?? "",
         maxLines: 12,
         overflow: TextOverflow.ellipsis,
-        style:  TextStyle(fontSize: 16.dw),
+        style: TextStyle(fontSize: 16.dw),
       ),
     );
   }
@@ -423,12 +516,12 @@ class _LeavePageState extends State<LeavePage> with SingleTickerProviderStateMix
     );
   }
 
-  _buildButtons(){
-    return  Row(
+  _buildButtons() {
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Padding(
-          padding:  EdgeInsets.all(8.0.dw),
+          padding: EdgeInsets.all(8.0.dw),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
                 primary: Colors.yellow,
@@ -461,7 +554,7 @@ class _LeavePageState extends State<LeavePage> with SingleTickerProviderStateMix
                 minimumSize: const Size(80, 45),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.dw))),
-            child:  Text(
+            child: Text(
               "Approve",
               style: TextStyle(
                   fontSize: 16.dw,

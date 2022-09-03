@@ -17,6 +17,7 @@ _$_ApprovedLeaveModel _$$_ApprovedLeaveModelFromJson(
       leaveDays: json['leave_days'] as String? ?? "",
       leaveDescription: json['leave_desc'] as String? ?? "",
       leaveId: json['leave_pk_id'] as int? ?? 0,
+      reason: json['reason'] as String? ?? "",
       leaveGrantedDescription: json['leave_granted_desc'] as String? ?? "",
     );
 
@@ -31,5 +32,6 @@ Map<String, dynamic> _$$_ApprovedLeaveModelToJson(
       'leave_days': instance.leaveDays,
       'leave_desc': instance.leaveDescription,
       'leave_pk_id': instance.leaveId,
+      'reason': instance.reason,
       'leave_granted_desc': instance.leaveGrantedDescription,
     };

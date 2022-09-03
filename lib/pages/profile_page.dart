@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:locus/model/login_model.dart';
+import 'package:locus/service/login_service.dart';
 import 'package:locus/utils/screen_size_config.dart';
+import 'package:provider/provider.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -10,6 +13,14 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+
+  late final LoginModel user;
+
+  @override
+  void initState() {
+    user = Provider.of<LoginService>(context, listen: false).getCurrentUser!;
+    super.initState();
+  }
 
 
   @override
@@ -25,10 +36,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 width: 300.dw,
                 color: Colors.grey,
               ),
-              _buildText(title: "Shilpi"),
-              _buildText(title: "SWE 254"),
-              _buildText(title: "Mobile App"),
-              _buildText(title: "shilpi@mawaimail.com"),
+              _buildText(title: user.emp_first_name.toString() + "  " + user.emp_last_name.toString()),
+              _buildText(title: user.emp_cd.toString()),
+              _buildText(title: user.per_emailid.toString() ),
               _buildChangepass(),
               Spacer(flex: 10,)
 

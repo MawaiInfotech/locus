@@ -21,11 +21,6 @@ _$_EmployeeLeavetypeModel _$$_EmployeeLeavetypeModelFromJson(
                   EmployeeleaveListModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <EmployeeleaveListModel>[],
-      result: (json['result'] as List<dynamic>?)
-              ?.map(
-                  (e) => ApprovedLeaveModel.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const <ApprovedLeaveModel>[],
     );
 
 Map<String, dynamic> _$$_EmployeeLeavetypeModelToJson(
@@ -35,5 +30,4 @@ Map<String, dynamic> _$$_EmployeeLeavetypeModelToJson(
       'leave_taken': instance.leaveTaken,
       'emp_leave_list': instance.emp_leave_list,
       'leave_list': instance.leave_list,
-      'result': instance.result,
     };

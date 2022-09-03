@@ -17,6 +17,8 @@ _$_AttendanceDetailModel _$$_AttendanceDetailModelFromJson(
       mispunchin: json['mispunchin'] as String? ?? "",
       mispunchout: json['mispunchout'] as String? ?? "",
       mispunch: json['mispunch'] as String? ?? "",
+      inaddress: json['inaddress'] as String? ?? "",
+      outaddress: json['outaddress'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$_AttendanceDetailModelToJson(
@@ -30,4 +32,6 @@ Map<String, dynamic> _$$_AttendanceDetailModelToJson(
       'mispunchin': instance.mispunchin,
       'mispunchout': instance.mispunchout,
       'mispunch': instance.mispunch,
+      'inaddress': instance.inaddress,
+      'outaddress': instance.outaddress,
     };

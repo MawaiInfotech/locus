@@ -3,6 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:locus/pages/profile_page.dart';
 import 'package:locus/utils/screen_size_config.dart';
+import 'package:provider/provider.dart';
+import '../model/login_model.dart';
+import '../service/login_service.dart';
 import '../themes/app_colors.dart';
 import '../widgets/app_top_bar.dart';
 import 'home_page.dart';
@@ -19,15 +22,17 @@ class _NavigationPageState extends State<NavigationPage> {
   int pageIndex = 0;
   late PageController pageController;
 
+  late final LoginModel user;
+
   var Items = [
     Image.asset(
       'assets/images/homePage.png',
       scale: 15,
     ),
-    Image.asset(
-      'assets/images/timeliine.png',
-      scale: 15,
-    ),
+    // Image.asset(
+    //   'assets/images/timeliine.png',
+    //   scale: 15,
+    // ),
     Image.asset(
       'assets/images/profile2.png',
       scale: 15,
@@ -45,6 +50,7 @@ class _NavigationPageState extends State<NavigationPage> {
 
   @override
   void initState() {
+    user = Provider.of<LoginService>(context, listen: false).getCurrentUser!;
     super.initState();
     pageController = PageController(initialPage: pageIndex);
   }
@@ -77,8 +83,7 @@ class _NavigationPageState extends State<NavigationPage> {
       },
       child: Scaffold(
         backgroundColor: Colors.grey.shade200,
-        appBar:  AppTopBar(title: "Hello! Shilpi " ),
-        //drawer: Drawerui(),
+        appBar:  AppTopBar(title: user.emp_first_name.toString()+" "+user.emp_last_name.toString()+" - " +"("+ user.emp_cd.toString()  + ")"),
         bottomNavigationBar: CurvedNavigationBar(
           height: 60.dw,
           color: AppColors.bloodred,

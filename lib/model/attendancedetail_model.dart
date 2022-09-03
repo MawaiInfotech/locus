@@ -14,6 +14,8 @@ class AttendanceDetailModel with _$AttendanceDetailModel{
     @Default("") String mispunchin,
     @Default("") String mispunchout,
     @Default("") String mispunch,
+    @Default("") String inaddress,
+    @Default("") String outaddress,
 
 }) = _AttendanceDetailModel;
   

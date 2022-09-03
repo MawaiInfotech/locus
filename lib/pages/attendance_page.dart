@@ -1,15 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:locus/bloc/checkLoginBloc.dart';
 import 'package:locus/routes/app_routes.dart';
+import 'package:locus/service/login_service.dart';
 import 'package:locus/state/checklogin_state.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_top_bar.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import '../model/login_model.dart';
 import '../themes/app_colors.dart';
 import 'missed_requestlist_page.dart';
+import 'package:http/http.dart' as http;
 
 class AttendancePage extends StatefulWidget {
   const AttendancePage({Key? key}) : super(key: key);
@@ -20,11 +26,23 @@ class AttendancePage extends StatefulWidget {
 
 class _AttendancePageState extends State<AttendancePage> {
 
+  late final LoginModel loginModel;
+
+  late LatLng currentPostion;
+
+  String? _currentAddress;
+  Position? _currentPosition;
+
+
   @override
   void initState() {
+    loginModel = Provider.of<LoginService>(context, listen: false).getCurrentUser!;
     context.read<CheckLoginBloc>().init();
+    _getCurrentPosition();
+    _getUserLocation();
     super.initState();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -45,16 +63,34 @@ class _AttendancePageState extends State<AttendancePage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _buildDateTime(
-              dateFormat:
-                  DateFormat("EEE, MMM- dd - yyyy").format(DateTime.now()),
-            ),
-            _buildDateTime(
-                dateFormat: DateFormat("hh:mm aaa").format(DateTime.now()))
+
+            _buildDateTime(dateFormat: DateFormat("EEE, MMM- dd - yyyy").format(DateTime.now()),),
+            _buildDateTime(dateFormat: DateFormat("hh:mm aaa").format(DateTime.now())),
           ],
         ),
         _buildInfoCard(),
-        _buildHeadingText(title: "Every Day is a fresh Start."),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                width: ScreenSizeConfig.getFullWidth/1.2,
+                child:  Text('${_currentAddress ?? ""}', maxLines: 2,style: TextStyle(fontWeight: FontWeight.w400,fontSize: 16.dw),),
+              ),
+              InkWell(
+                onTap: () async{
+                  setState((){
+                    _getCurrentPosition();
+                    print(_getCurrentPosition());
+                  });
+                },
+                child: Icon(Icons.refresh),
+              ),
+
+            ],
+          ),
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -69,27 +105,36 @@ class _AttendancePageState extends State<AttendancePage> {
             _buildCheckOutCard(),
           ],
         ),
-        _buildMissedRequest()
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            _buildMissedRequest(),
+            _buildTeamAttendanceButton()
+          ],
+        )
+
       ],
     );
   }
 
   _buildDateTime({required dateFormat}) {
     return Padding(
-      padding: EdgeInsets.all(10.dw),
+      padding: EdgeInsets.all(8.dw),
       child: Text(
         dateFormat,
         style: TextStyle(
             color: AppColors.navyblue,
-            fontSize: 18.dw,
+            fontSize: 16.dw,
             fontWeight: FontWeight.w600),
       ),
     );
+
   }
 
   _buildInfoCard() {
     return Card(
       margin: EdgeInsets.all(8.dw),
+      color: Colors.grey.shade100,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.dw)),
       child: Row(
         children: [
@@ -97,14 +142,14 @@ class _AttendancePageState extends State<AttendancePage> {
             padding: EdgeInsets.all(8.0.dw),
             child: CircleAvatar(
               foregroundImage: const AssetImage("assets/images/profile2.png"),
-              radius: 30.dw,
+              radius: 20.dw,
             ),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildText(title: "Shilpi" + "   -   " + "SWE254"),
-              _buildText(title: "Flutter Developer")
+              _buildText(title: loginModel.emp_first_name! +" "+loginModel.emp_last_name! +" - " + loginModel.emp_cd!),
+              _buildText(title: loginModel.description!)
             ],
           )
         ],
@@ -115,16 +160,16 @@ class _AttendancePageState extends State<AttendancePage> {
   _buildText({required String title}) {
     return Text(
       title,
-      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18.dh),
+      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dh),
     );
   }
 
   _buildHeadingText({required String title}) {
     return Padding(
-      padding: EdgeInsets.all(8.0.dh),
+      padding: EdgeInsets.all(5.0.dw),
       child: Text(
         title,
-        style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20.dh),
+        style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18.dh),
       ),
     );
   }
@@ -132,11 +177,11 @@ class _AttendancePageState extends State<AttendancePage> {
   _buildCheckinCard() {
     return SizedBox(
       width: ScreenSizeConfig.sWidth,
-      // height: ScreenSizeConfig.sHeight / 5.5.dh,
       child: Card(
+        color: Colors.grey.shade50,
+        elevation: 10,
         margin: EdgeInsets.only(left: 10.dw, right: 10.dw, bottom: 10.dw),
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.dw)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.dw)),
         child:
             BlocBuilder<CheckLoginBloc, CheckLoginState>(builder: (_, state) {
           final hasCheckIn = state.form.checkInData != null;
@@ -146,7 +191,7 @@ class _AttendancePageState extends State<AttendancePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                padding: EdgeInsets.all(8.dh),
+                padding: EdgeInsets.all(8.dw),
                 decoration: BoxDecoration(
                     color: AppColors.brown,
                     borderRadius: BorderRadius.only(
@@ -157,9 +202,8 @@ class _AttendancePageState extends State<AttendancePage> {
                 child: Text(
                   "First Check-In",
                   style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 18.dw),
+                      fontWeight: FontWeight.w400,
+                      fontSize: 16.dw),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -169,10 +213,10 @@ class _AttendancePageState extends State<AttendancePage> {
                         ? DateFormat("hh:mm aa").format(
                             DateFormat("yyyy-MM-dd hh:mm:ss").parse(
                                 state.form.checkInData?.officepunch ?? ""))
-                        : DateFormat("hh:mm aa").format(DateTime.now())),
+                        : "--"),
               ),
               Padding(
-                padding: EdgeInsets.all(10.dw),
+                padding: EdgeInsets.only(left: 10.dw, right: 10.dw,bottom: 5.dw),
                 child: Text(
                   address == null ? " Please check-in" : "Address : $address",
                   style: TextStyle(fontSize: 16.dw),
@@ -191,6 +235,8 @@ class _AttendancePageState extends State<AttendancePage> {
     return SizedBox(
       width: ScreenSizeConfig.sWidth,
       child: Card(
+        color: Colors.grey.shade50,
+        elevation: 10,
         margin: EdgeInsets.only(left: 10.dw, right: 10.dw, top: 10.dw),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.dw)),
         child: BlocBuilder<CheckLoginBloc, CheckLoginState>(
@@ -214,8 +260,8 @@ class _AttendancePageState extends State<AttendancePage> {
                     "First Check-Out",
                     style: TextStyle(
                         color: Colors.black,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 18.dw),
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16.dw),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -224,10 +270,10 @@ class _AttendancePageState extends State<AttendancePage> {
                   _buildDateTime(
                       dateFormat: hasCheckOut
                           ? DateFormat("hh:mm aa").format(DateFormat("yyyy-MM-dd hh:mm:ss").parse(state.form.checkOutData?.officepunch ?? ""))
-                          : DateFormat("hh:mm aa").format(DateTime.now())),
+                          : "--"),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 10.dw, bottom: 10.dh),
+                  padding: EdgeInsets.only(left: 10.dw, right: 10.dw,bottom: 5.dw),
                   child: Text(
                     checkOutAddress == null
                         ? " Please check-out"
@@ -269,7 +315,7 @@ class _AttendancePageState extends State<AttendancePage> {
 
   _buildCheckOutButton({required String title}) {
     return Padding(
-      padding: EdgeInsets.all(10.dw),
+      padding: EdgeInsets.all(8.dw),
       child: SizedBox(
         width: ScreenSizeConfig.getFullWidth / 1.2,
         child: ElevatedButton(
@@ -282,8 +328,7 @@ class _AttendancePageState extends State<AttendancePage> {
             style: ElevatedButton.styleFrom(
                 elevation: 10.dw,
                 primary: AppColors.red,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.dw))),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.dw))),
             child: Text(
               title,
               style: TextStyle(fontSize: 18.dh, fontWeight: FontWeight.w600),
@@ -294,27 +339,42 @@ class _AttendancePageState extends State<AttendancePage> {
 
   _buildMissedRequest() {
     return Padding(
-      padding: EdgeInsets.only(right: 10.dw, top: 20.dw),
-      child: SizedBox(
-        width: ScreenSizeConfig.sWidth,
-        child: Center(
-          child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => MissedRequest()));
-              },
-              style: ElevatedButton.styleFrom(
-                primary: AppColors.orange2,
-              ),
-              child: Text(
-                "Missed Request",
-                maxLines: 2,
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.visible,
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),
-              )),
-        ),
-      ),
+      padding: EdgeInsets.only(top: 20.dw),
+      child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => MissedRequest()));},
+          style: ElevatedButton.styleFrom(
+            primary: AppColors.portalorange,
+            maximumSize: Size(180.dw,60.dh),
+            minimumSize: Size(180.dw,60.dh)
+          ),
+          child: Text(
+            "View Missed Request",
+            maxLines: 2,
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.visible,
+            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14.dw),
+          )),
+    );
+  }
+
+  _buildTeamAttendanceButton(){
+    return Padding(
+      padding: EdgeInsets.only(top: 20.dw),
+      child: ElevatedButton(
+          onPressed: (){
+            Navigator.pushNamed(context, AppRoutes.teamattendance);
+          },
+          style: ElevatedButton.styleFrom(
+              primary: AppColors.portalgreyBlue,
+              maximumSize: Size(180.dw,60.dh),
+              minimumSize: Size(180.dw,60.dh)
+          ),
+          child: Text("Team Attendance",  maxLines: 2,
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.visible,
+            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.dw),)),
     );
   }
 
@@ -323,22 +383,23 @@ class _AttendancePageState extends State<AttendancePage> {
       elevation: 10,
       color: AppColors.brown,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding:  EdgeInsets.all(8.0.dw),
         child: ElevatedButton(
           onPressed: () {
             Navigator.pushNamed(context, AppRoutes.attendanceDetailPage);
           },
           style: ElevatedButton.styleFrom(
-            primary: Colors.green.shade900,
+            primary: AppColors.pastelgreen,
           ),
           child: Text(
             "Attendance Details",
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20.dw),
+            style: TextStyle(color: AppColors.black,fontWeight: FontWeight.w500, fontSize: 18.dw),
           ),
         ),
       ),
     );
   }
+  
 
   Future<bool> showConfirmationDialog() async {
     checkInCallback() async {
@@ -438,4 +499,75 @@ class _AttendancePageState extends State<AttendancePage> {
             }) ??
         false;
   }
+
+
+  void _getUserLocation() async {
+    var position = await GeolocatorPlatform.instance
+        .getCurrentPosition(locationSettings: LocationSettings(accuracy: LocationAccuracy.best));
+    setState(() async{
+      currentPostion = LatLng(position.latitude, position.longitude);
+    });
+  }
+
+  Future<bool> _handleLocationPermission() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+              'Location services are disabled. Please enable the services')));
+      return false;
+    }
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Location permissions are denied')));
+        return false;
+      }
+    }
+    if (permission == LocationPermission.deniedForever) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+              'Location permissions are permanently denied, we cannot request permissions.')));
+      return false;
+    }
+    return true;
+  }
+
+  Future<void> _getCurrentPosition() async {
+    final hasPermission = await _handleLocationPermission();
+
+    if (!hasPermission) return;
+    await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high)
+        .then((Position position) {
+      setState(() => _currentPosition = position);
+      _getAddressFromLatLng(_currentPosition!);
+      print(_getAddressFromLatLng(position));
+    }).catchError((e) {
+      debugPrint(e);
+    });
+  }
+
+  Future<void> _getAddressFromLatLng(Position position) async {
+    await placemarkFromCoordinates(
+        _currentPosition!.latitude, _currentPosition!.longitude)
+        .then((List<Placemark> placemarks) {
+      Placemark place = placemarks[0];
+      setState(() {
+        _currentAddress =
+        '${place.name},${place.street},${place.subLocality},${place.subAdministrativeArea}, ${place.postalCode}';
+     print(_currentAddress);
+
+      });
+    }).catchError((e) {
+      debugPrint(e);
+    });
+  }
 }
+
+
+

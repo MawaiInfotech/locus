@@ -26,13 +26,20 @@ class LoginModelAdapter extends TypeAdapter<LoginModel> {
       emp_name: fields[6] as String?,
       card_no: fields[7] as String?,
       default_fin_year: fields[8] as String?,
+      emp_first_name: fields[10] as String?,
+      emp_last_name: fields[9] as String?,
+      end_time: fields[14] as String?,
+      per_emailid: fields[11] as String?,
+      shift: fields[12] as String?,
+      start_time: fields[13] as String?,
+      description: fields[15] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, LoginModel obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(16)
       ..writeByte(0)
       ..write(obj.emp_cd)
       ..writeByte(1)
@@ -50,7 +57,21 @@ class LoginModelAdapter extends TypeAdapter<LoginModel> {
       ..writeByte(7)
       ..write(obj.card_no)
       ..writeByte(8)
-      ..write(obj.default_fin_year);
+      ..write(obj.default_fin_year)
+      ..writeByte(9)
+      ..write(obj.emp_last_name)
+      ..writeByte(10)
+      ..write(obj.emp_first_name)
+      ..writeByte(11)
+      ..write(obj.per_emailid)
+      ..writeByte(12)
+      ..write(obj.shift)
+      ..writeByte(13)
+      ..write(obj.start_time)
+      ..writeByte(14)
+      ..write(obj.end_time)
+      ..writeByte(15)
+      ..write(obj.description);
   }
 
   @override
@@ -78,6 +99,13 @@ LoginModel _$LoginModelFromJson(Map<String, dynamic> json) => LoginModel(
       emp_name: json['emp_name'] as String?,
       card_no: json['card_no'] as String?,
       default_fin_year: json['default_fin_year'] as String?,
+      emp_first_name: json['emp_first_name'] as String?,
+      emp_last_name: json['emp_last_name'] as String?,
+      end_time: json['end_time'] as String?,
+      per_emailid: json['per_emailid'] as String?,
+      shift: json['shift'] as String?,
+      start_time: json['start_time'] as String?,
+      description: json['description'] as String?,
     );
 
 Map<String, dynamic> _$LoginModelToJson(LoginModel instance) {
@@ -98,5 +126,12 @@ Map<String, dynamic> _$LoginModelToJson(LoginModel instance) {
   writeNotNull('emp_name', instance.emp_name);
   writeNotNull('card_no', instance.card_no);
   writeNotNull('default_fin_year', instance.default_fin_year);
+  writeNotNull('emp_last_name', instance.emp_last_name);
+  writeNotNull('emp_first_name', instance.emp_first_name);
+  writeNotNull('per_emailid', instance.per_emailid);
+  writeNotNull('shift', instance.shift);
+  writeNotNull('start_time', instance.start_time);
+  writeNotNull('end_time', instance.end_time);
+  writeNotNull('description', instance.description);
   return val;
 }

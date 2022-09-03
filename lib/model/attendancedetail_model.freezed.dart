@@ -31,6 +31,8 @@ mixin _$AttendanceDetailModel {
   String get mispunchin => throw _privateConstructorUsedError;
   String get mispunchout => throw _privateConstructorUsedError;
   String get mispunch => throw _privateConstructorUsedError;
+  String get inaddress => throw _privateConstructorUsedError;
+  String get outaddress => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +53,9 @@ abstract class $AttendanceDetailModelCopyWith<$Res> {
       @JsonKey(name: "unit_cd") String unitCode,
       String mispunchin,
       String mispunchout,
-      String mispunch});
+      String mispunch,
+      String inaddress,
+      String outaddress});
 }
 
 /// @nodoc
@@ -73,6 +77,8 @@ class _$AttendanceDetailModelCopyWithImpl<$Res>
     Object? mispunchin = freezed,
     Object? mispunchout = freezed,
     Object? mispunch = freezed,
+    Object? inaddress = freezed,
+    Object? outaddress = freezed,
   }) {
     return _then(_value.copyWith(
       employeeCode: employeeCode == freezed
@@ -107,6 +113,14 @@ class _$AttendanceDetailModelCopyWithImpl<$Res>
           ? _value.mispunch
           : mispunch // ignore: cast_nullable_to_non_nullable
               as String,
+      inaddress: inaddress == freezed
+          ? _value.inaddress
+          : inaddress // ignore: cast_nullable_to_non_nullable
+              as String,
+      outaddress: outaddress == freezed
+          ? _value.outaddress
+          : outaddress // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -126,7 +140,9 @@ abstract class _$$_AttendanceDetailModelCopyWith<$Res>
       @JsonKey(name: "unit_cd") String unitCode,
       String mispunchin,
       String mispunchout,
-      String mispunch});
+      String mispunch,
+      String inaddress,
+      String outaddress});
 }
 
 /// @nodoc
@@ -151,6 +167,8 @@ class __$$_AttendanceDetailModelCopyWithImpl<$Res>
     Object? mispunchin = freezed,
     Object? mispunchout = freezed,
     Object? mispunch = freezed,
+    Object? inaddress = freezed,
+    Object? outaddress = freezed,
   }) {
     return _then(_$_AttendanceDetailModel(
       employeeCode: employeeCode == freezed
@@ -185,6 +203,14 @@ class __$$_AttendanceDetailModelCopyWithImpl<$Res>
           ? _value.mispunch
           : mispunch // ignore: cast_nullable_to_non_nullable
               as String,
+      inaddress: inaddress == freezed
+          ? _value.inaddress
+          : inaddress // ignore: cast_nullable_to_non_nullable
+              as String,
+      outaddress: outaddress == freezed
+          ? _value.outaddress
+          : outaddress // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -200,7 +226,9 @@ class _$_AttendanceDetailModel implements _AttendanceDetailModel {
       @JsonKey(name: "unit_cd") this.unitCode = "",
       this.mispunchin = "",
       this.mispunchout = "",
-      this.mispunch = ""});
+      this.mispunch = "",
+      this.inaddress = "",
+      this.outaddress = ""});
 
   factory _$_AttendanceDetailModel.fromJson(Map<String, dynamic> json) =>
       _$$_AttendanceDetailModelFromJson(json);
@@ -229,10 +257,16 @@ class _$_AttendanceDetailModel implements _AttendanceDetailModel {
   @override
   @JsonKey()
   final String mispunch;
+  @override
+  @JsonKey()
+  final String inaddress;
+  @override
+  @JsonKey()
+  final String outaddress;
 
   @override
   String toString() {
-    return 'AttendanceDetailModel(employeeCode: $employeeCode, date: $date, punchin: $punchin, punchout: $punchout, unitCode: $unitCode, mispunchin: $mispunchin, mispunchout: $mispunchout, mispunch: $mispunch)';
+    return 'AttendanceDetailModel(employeeCode: $employeeCode, date: $date, punchin: $punchin, punchout: $punchout, unitCode: $unitCode, mispunchin: $mispunchin, mispunchout: $mispunchout, mispunch: $mispunch, inaddress: $inaddress, outaddress: $outaddress)';
   }
 
   @override
@@ -250,7 +284,10 @@ class _$_AttendanceDetailModel implements _AttendanceDetailModel {
                 .equals(other.mispunchin, mispunchin) &&
             const DeepCollectionEquality()
                 .equals(other.mispunchout, mispunchout) &&
-            const DeepCollectionEquality().equals(other.mispunch, mispunch));
+            const DeepCollectionEquality().equals(other.mispunch, mispunch) &&
+            const DeepCollectionEquality().equals(other.inaddress, inaddress) &&
+            const DeepCollectionEquality()
+                .equals(other.outaddress, outaddress));
   }
 
   @JsonKey(ignore: true)
@@ -264,7 +301,9 @@ class _$_AttendanceDetailModel implements _AttendanceDetailModel {
       const DeepCollectionEquality().hash(unitCode),
       const DeepCollectionEquality().hash(mispunchin),
       const DeepCollectionEquality().hash(mispunchout),
-      const DeepCollectionEquality().hash(mispunch));
+      const DeepCollectionEquality().hash(mispunch),
+      const DeepCollectionEquality().hash(inaddress),
+      const DeepCollectionEquality().hash(outaddress));
 
   @JsonKey(ignore: true)
   @override
@@ -289,7 +328,9 @@ abstract class _AttendanceDetailModel implements AttendanceDetailModel {
       @JsonKey(name: "unit_cd") final String unitCode,
       final String mispunchin,
       final String mispunchout,
-      final String mispunch}) = _$_AttendanceDetailModel;
+      final String mispunch,
+      final String inaddress,
+      final String outaddress}) = _$_AttendanceDetailModel;
 
   factory _AttendanceDetailModel.fromJson(Map<String, dynamic> json) =
       _$_AttendanceDetailModel.fromJson;
@@ -312,6 +353,10 @@ abstract class _AttendanceDetailModel implements AttendanceDetailModel {
   String get mispunchout;
   @override
   String get mispunch;
+  @override
+  String get inaddress;
+  @override
+  String get outaddress;
   @override
   @JsonKey(ignore: true)
   _$$_AttendanceDetailModelCopyWith<_$_AttendanceDetailModel> get copyWith =>

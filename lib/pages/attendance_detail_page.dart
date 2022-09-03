@@ -93,7 +93,7 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
               children: [
                 if(model.punchout.isEmpty)
                 _buildRequestButton(model),
-                _buildViewButton(),
+
                 if(model.punchout.isEmpty && model.punchin.isEmpty)
                   _buildNotCheckedInandChekedOut()
               ],
@@ -110,8 +110,15 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
   }
 
   _buildText(String title){
-    return Text(title, style: TextStyle(fontSize: 18.dw,
-        fontWeight: FontWeight.w200,color: AppColors.navyblue),);
+    return Container(
+      width: 150.dw,
+      margin: EdgeInsets.only(bottom: 10.dw),
+      child: Text(title,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(fontSize: 18.dw,
+          fontWeight: FontWeight.w200,color: AppColors.navyblue),),
+    );
   }
 
   _buildDate(AttendanceDetailModel model){
@@ -132,20 +139,21 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
 
   _buildCheckIn(AttendanceDetailModel model){
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         _buildHeadingText("First Check-In"),
         _buildText(model.punchin),
+        _buildText(model.inaddress),
       ],
     );
   }
+
 
   _buildCheckOut(AttendanceDetailModel model){
     return Column(
       children: [
         _buildHeadingText("Last Check-Out"),
         _buildText(model.punchout),
+        _buildText(model.outaddress),
       ],
     );
   }
@@ -154,13 +162,12 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
     return ElevatedButton(
         onPressed: (){
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => RequestMisspunchPage(model.date) ));
+              MaterialPageRoute(builder: (context) => RequestMisspunchPage(model)));
+          attendanceDetailBloc.init();
         },
         style: ElevatedButton.styleFrom(
-          //maximumSize: Size(100.dw, 50.dh),
           minimumSize: Size(100.dw, 30.dh),
           primary: AppColors.green,
-          //alignment: Alignment.center
         ),
         child:Text("Request",style: TextStyle(
           fontSize: 16.dw,
@@ -168,15 +175,6 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
         ), textAlign: TextAlign.center,));
   }
 
-  _buildViewButton(){
-    return ElevatedButton(onPressed: (){},
-        style: ElevatedButton.styleFrom(
-            maximumSize: Size(100.dw, 50.dh),
-            minimumSize: Size(100.dw, 50.dh),
-            primary: AppColors.navyblue
-        ),
-        child:Text("View"));
-  }
 
   _buildNotCheckedInandChekedOut(){
     return ElevatedButton(onPressed: (){},

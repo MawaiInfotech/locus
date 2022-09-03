@@ -10,14 +10,15 @@ class RequestBloc extends Cubit<RequestState>{
   final AttendanceService attendanceService;
   final LoginService loginService;
 
-  void UpdateRequest(String reason, String missPunchDate )async{
+
+  void UpdateRequest(String reason, String missPunchDate, String missPunchType, String inTime, String outTime)async{
     emit(RequestState.loading(state.requestModel));
     try{
       final employerCode = loginService.getUserCode;
       final unitCode = loginService.getCurrentUser?.unit_cd;
       final cardNumber = loginService.getCurrentUser!.card_no;
       final message = await attendanceService.getRequestData(employerCode!,
-          unitCode!, cardNumber!,reason , missPunchDate);
+          unitCode!, cardNumber!, reason, missPunchDate, missPunchType, inTime, outTime);
       emit(RequestState.success(state.requestModel, message));
     }on ApiError catch(error){
       emit(RequestState.failed(state.requestModel,  error.message));

@@ -6,6 +6,7 @@ import 'package:locus/state/approvedleave_state.dart';
 import 'package:locus/state/attendance_detail_state.dart';
 
 import '../errors/api_error.dart';
+import '../state/leavetype_state.dart';
 
 class ApprovedleaveBloc extends Cubit<ApproveleaveState>{
   ApprovedleaveBloc(this.leaveService, this.loginService) : super(ApproveleaveState.initial());

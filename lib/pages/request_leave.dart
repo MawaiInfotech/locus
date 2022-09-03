@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:locus/bloc/applyleave_bloc.dart';
 import 'package:locus/bloc/request_leave_bloc.dart';
-import 'package:locus/model/leave_type_model.dart';
 import 'package:locus/model/requestleave_model.dart';
 import 'package:locus/service/leave_service.dart';
 import 'package:locus/service/login_service.dart';
@@ -13,6 +12,7 @@ import 'package:locus/themes/app_colors.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_top_bar.dart';
 import 'package:provider/provider.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class RequestLeave extends StatefulWidget {
   const RequestLeave({Key? key}) : super(key: key);
@@ -22,13 +22,14 @@ class RequestLeave extends StatefulWidget {
 }
 
 class _RequestLeaveState extends State<RequestLeave> {
+
   TextEditingController reasonTextController = TextEditingController();
 
   late RequestLeaveBloc requestLeaveBloc;
 
   late ApplyyLeaveBloc applyyLeaveBloc;
 
-  late LoginService loginService = LoginService();
+  late LoginService loginService;
 
   late RequestLeaveModel requestLeaveModel = RequestLeaveModel();
 
@@ -49,7 +50,7 @@ class _RequestLeaveState extends State<RequestLeave> {
   @override
   void initState() {
     final leaveService = Provider.of<LeaveService>(context, listen: false);
-    final loginService = Provider.of<LoginService>(context, listen: false);
+    loginService = Provider.of<LoginService>(context, listen: false);
     requestLeaveBloc = RequestLeaveBloc(loginService, leaveService);
     applyyLeaveBloc = ApplyyLeaveBloc(leaveService);
     requestLeaveBloc.init();
@@ -111,7 +112,9 @@ class _RequestLeaveState extends State<RequestLeave> {
               _buildLine(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [_buildHeadingText("From Date"), _buildFromDate()],
+                children: [
+                  _buildHeadingText("From Date"),
+                  _buildFromDate()],
               ),
               _buildLine(),
               Row(
@@ -120,25 +123,30 @@ class _RequestLeaveState extends State<RequestLeave> {
               ),
               _buildLine(),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _buildHeadingText("Days :-"),
-                  _buildText(difference.toString()),
-                  _buildHeadingText("Balance :-"),
-                  _buildText(balanceLeave ?? "0")
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      _buildHeadingText("Days   :-"),
+                      _buildText(controlCode == "1" || controlCode == "2" ? "0.5" : difference.toString() ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      _buildHeadingText("Balance :-"),
+                      _buildText(balanceLeave ?? "0")
+                    ],
+                  )
+
                 ],
               ),
               _buildLine(),
               _buildHeadingText("Applied To"),
-              _buildText(appliedTo = (model.reporting_to[0].employeeFirstName +
-                  "    " +
-                  model.reporting_to[0].employeeNumber)),
+              _buildText(appliedTo = (model.reporting_to[0].employeeFirstName + "    " + model.reporting_to[0].employeeNumber)),
               _buildLine(),
               _buildHeadingText("CC To"),
               _buildCCToDialogBox(model),
-              _buildLine(),
-              _buildHeadingText("Contact Number*"),
-              _buildText(contactNumber = (model.emp_dtl[0].permamnentNumber)),
               _buildLine(),
               _buildHeadingText("Reason*"),
               _buildTextField(),
@@ -386,6 +394,9 @@ class _RequestLeaveState extends State<RequestLeave> {
       child: Padding(
         padding: EdgeInsets.all(10.0.dw),
         child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: AppColors.portalgreyBlue
+          ),
             onPressed: () {
               if (fromDate == null && toDate == null) {
                 ScaffoldMessenger.of(context).showSnackBar(
@@ -399,45 +410,88 @@ class _RequestLeaveState extends State<RequestLeave> {
     );
   }
 
-  _buildFromDate() {
+ Widget _buildFromDate() {
     return Padding(
       padding: EdgeInsets.all(8.dh),
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(8.dw),
-            height: 50.dh,
-            width: MediaQuery.of(context).size.width / 2,
-            decoration: BoxDecoration(
-                border: Border(
-                    bottom: BorderSide(color: AppColors.navyblue),
-                    top: BorderSide(color: AppColors.navyblue),
-                    left: BorderSide(color: AppColors.navyblue),
-                    right: BorderSide(color: AppColors.navyblue)),
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white),
-            child: GestureDetector(
-                onTap: () async {
-                  final _myDateTime = await showDatePicker(
-                      initialDatePickerMode: DatePickerMode.day,
-                      context: context,
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime.now(),
-                      lastDate: DateTime(2025)) as DateTime;
-                  fromDate = DateFormat('yyyy-MM-dd').format(_myDateTime);
-                  setState(() {});
+              padding: EdgeInsets.all(8.dw),
+              height: 50.dh,
+              width: MediaQuery.of(context).size.width / 2,
+              decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(color: AppColors.navyblue),
+                      top: BorderSide(color: AppColors.navyblue),
+                      left: BorderSide(color: AppColors.navyblue),
+                      right: BorderSide(color: AppColors.navyblue)),
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white),
+              child: InkWell(
+                onTap: (){
+                  showDateRangePicker(
+                    context: context,
+                    builder: (context, child) {
+                      return Theme(
+                        data: Theme.of(context).copyWith(
+                          colorScheme: ColorScheme.light(
+                            primary: Colors.blue,
+                            onPrimary: Colors.white,
+                            onSurface: Colors.black,
+                          ),
+                          textButtonTheme: TextButtonThemeData(
+                            style: TextButton.styleFrom(
+                              primary: Colors.white,
+                              backgroundColor: Colors.blue,
+                              textStyle: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        child: child!,
+                      );
+                    },
+                    helpText: 'Select Date',
+                    firstDate: DateTime.now(),
+                    lastDate: DateTime.now().add(Duration(days: 365)),
+                    errorFormatText: "Invalid Format",
+                    errorInvalidRangeText: "Invalid Range",
+                    fieldStartHintText: "Start Date",
+                    fieldEndHintText: "End Date"
+
+                  ).then((pickedDate) {
+                    if (pickedDate == null) {
+                      print(pickedDate);
+                      return;
+                    }
+                    setState(() {
+
+                      if(controlCode == "3"){
+                        difference = pickedDate.end.difference(pickedDate.start).inDays + 1;
+                        fromDate =  DateFormat('dd-MM-yyyy').format(pickedDate.start);
+                        toDate = DateFormat('dd-MM-yyyy').format(pickedDate.end);
+                      }else{
+                        difference = "0.5";
+                        fromDate =  DateFormat('dd-MM-yyyy').format(pickedDate.start);
+                        toDate = fromDate;
+                      }
+                      setState(() {});
+                    });
+                  });
                 },
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Image.asset(
                       "assets/images/from_date.png",
                       scale: 2,
                     ),
-                    Text(fromDate ?? "From Date"),
+                    Text(fromDate.toString()),
                   ],
-                )),
-          ),
+                ),
+              )),
         ],
       ),
     );
@@ -460,39 +514,24 @@ class _RequestLeaveState extends State<RequestLeave> {
                     right: BorderSide(color: AppColors.navyblue)),
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.white),
-            child: GestureDetector(
-                onTap: () async {
-                  final _toDate = await showDatePicker(
-                      initialDatePickerMode: DatePickerMode.day,
-                      context: context,
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime.now(),
-                      lastDate: DateTime(2025)) as DateTime;
-                  toDate = DateFormat('yyyy-MM-dd').format(_toDate);
-
-                  final date1 = DateTime.parse(fromDate);
-                  final date2 = DateTime.parse(toDate);
-                  difference = date2.difference(date1).inDays;
-                  setState(() {});
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Image.asset(
-                      "assets/images/from_date.png",
-                      scale: 2,
-                    ),
-                    Text(toDate ?? "To Date"),
-                  ],
-                )),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Image.asset(
+                  "assets/images/from_date.png",
+                  scale: 2,
+                ),
+                Text(controlCode == "1" || controlCode == "2" ? fromDate.toString() : toDate.toString()),
+              ],
+            ),
           ),
         ],
       ),
     );
   }
 
+
   void _applyLeave() async {
-    int index = requestLeaveModel.emp_dtl.length;
     final data = {
       'emp_cd': loginService.getUserCode,
       'unit_cd': loginService.getCurrentUser!.unit_cd,
@@ -500,26 +539,31 @@ class _RequestLeaveState extends State<RequestLeave> {
       'leave_type': leaveCode,
       'from_date': fromDate,
       'to_date': toDate,
-      'leave_days': difference,
+      'leave_days': difference.toString(),
       'balance_leave': balanceLeave,
       'cc_to': ccTo ?? "",
       'contact_no': contactNumber,
-      'fin_year': "22-23",
+      'fin_year': loginService.getCurrentUser!.default_fin_year,
       'reasons': reasonTextController.text,
       'applied_to': appliedTo,
     };
     await applyyLeaveBloc.applyLeave(data);
     final state = applyyLeaveBloc.state;
     state.maybeWhen(
-        success: (model, message){
-          ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(SnackBar(content: Text(message!, style: TextStyle(color: Colors.white),)));
+        success: (model, message) {
+          ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(
+              SnackBar(
+                  backgroundColor: AppColors.portalgreen,
+                  content: Text(message!, style: TextStyle(color: Colors.white),)));
+          Navigator.pop(context);
         },
-        failed: (model, message){
-          ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(SnackBar(content: Text(message)));
+        failed: (model, message) {
+          ScaffoldMessenger.of(scaffoldKey.currentContext!)
+              .showSnackBar(SnackBar(
+              backgroundColor: AppColors.red,
+              content: Text(message)));
         },
-        orElse: (){
-
-        });
+        orElse: () {});
   }
 
   _buildLine() {

@@ -11,14 +11,13 @@ class AppTopBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: AppColors.red,
-      //automaticallyImplyLeading: false,
+      centerTitle: true,
       title: Text(
         title,
         style: TextStyle(fontSize: 20.dw,color: AppColors.white),
       ),
     );
   }
-
 
   static final _appBar = AppBar();
 
