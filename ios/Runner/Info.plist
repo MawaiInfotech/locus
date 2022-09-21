@@ -33,7 +33,7 @@
 	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
 	<dict>
 		<key>NSLocationAlwaysUsageDescription</key>
-		<string>The example App requires temporary access to the device's precise location.</string>
+		<string>The App requires temporary access to the device's precise location so that you can check from which location you are marking your attendance..</string>
 		<key>NSLocationWhenInUseUsageDescription</key>
 		<string>We need to access your precise location to check the exact location of the place you are marking your attendance from.</string>
 	</dict>

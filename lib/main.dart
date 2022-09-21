@@ -1,5 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
@@ -17,12 +15,12 @@ import 'app.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 
 
-Future<void> main()async {
+ void main()async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  //await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  await FirebaseCrashlytics;
+ // await FirebaseCrashlytics;
 
   final directory = await path_provider.getApplicationDocumentsDirectory();
 

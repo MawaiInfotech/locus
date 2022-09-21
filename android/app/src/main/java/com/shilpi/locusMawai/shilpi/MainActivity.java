@@ -1,4 +1,4 @@
-package com.locus.locus;
+package com.shilpi.locusmawai.shilpi;
 
 import io.flutter.embedding.android.FlutterActivity;
 

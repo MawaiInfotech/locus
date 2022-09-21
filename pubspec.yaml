@@ -34,10 +34,10 @@ dependencies:
   google_maps_flutter: ^2.1.10
   syncfusion_flutter_datepicker: ^20.2.45
   image_picker: ^0.8.5+3
-  firebase_messaging: ^13.0.2
-  firebase_core: ^1.22.0
-  flutter_local_notifications: ^11.0.0
-  firebase_crashlytics: ^2.8.10
+#  firebase_messaging: ^13.0.2
+#  firebase_core: ^1.22.0
+#  flutter_local_notifications: ^11.0.0
+#  firebase_crashlytics: ^2.8.10
 
 
 dev_dependencies:
