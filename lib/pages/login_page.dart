@@ -10,6 +10,7 @@ import 'package:locus/themes/app_colors.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_textfield.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -41,10 +42,65 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void initState(){
+
     final loginService = Provider.of<LoginService>(context, listen: false);
     bloc = LoginPageBloc(loginService);
+    getData();
     bloc.init();
     super.initState();
+  }
+
+  bool permissionPopupLogin = false;
+
+  getData()async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState((){
+      permissionPopupLogin = prefs.getBool("permissionPopupLogin") ?? false;
+      if(!permissionPopupLogin){
+        _showDialog();
+      }
+    });
+    print(permissionPopupLogin);
+  }
+
+  _showDialog() async {
+    await Future.delayed(Duration(milliseconds: 50));
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text("Permission Policy\n We will be needing in this app ?"),
+            content: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text("Location Permission", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),),
+                const
+                Text("Locus needs your location coordinates for a host of activities – attendance management,to coordinate with your field teams and to make possible your travel reimbursement claims.",
+                ),
+                Text("Camera Permission", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),),
+                const Text("This is to check whether the person himself/herself is marking the attendance.\nFurther , This is to enable our users to capture and attach photos of their expense bills while submitting for reimbursement.\n It also helps them attach photos while collecting data through custom forms.",
+
+                ),
+              ],
+            ),
+            actions: [
+              Center(
+                child: ElevatedButton(
+                    onPressed: ()async {
+                      SharedPreferences prefs = await SharedPreferences.getInstance();
+                      prefs.setBool("permissionPopupLogin", true);
+                      Navigator.pop(context);
+                    },
+                    style: ElevatedButton.styleFrom(
+                        primary: AppColors.portalgreen,
+                        minimumSize: Size(150.dw, 50.dw)
+                    ),
+                    child: Text("Confirm", style: TextStyle(fontSize: 18.dw),)),
+              )
+
+            ],
+          );
+        });
   }
 
   @override
