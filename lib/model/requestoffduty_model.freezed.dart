@@ -20,14 +20,16 @@ RequestoffdutyModel _$RequestoffdutyModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RequestoffdutyModel {
-  OffdutyDataModel get od_data => throw _privateConstructorUsedError;
-  OffdutyTypeModel get od_type => throw _privateConstructorUsedError;
-  OffdutyStatusModel get gp_od_status => throw _privateConstructorUsedError;
-  OffdutyForModel get od_for => throw _privateConstructorUsedError;
-  OffdutyPurposeModel get purpose => throw _privateConstructorUsedError;
+  List<OffdutyDataModel> get od_data => throw _privateConstructorUsedError;
+  List<OffdutyTypeModel> get od_type => throw _privateConstructorUsedError;
+  List<OffdutyStatusModel> get gp_od_status =>
+      throw _privateConstructorUsedError;
+  List<OffdutyForModel> get od_for => throw _privateConstructorUsedError;
+  List<OffdutyPurposeModel> get purpose => throw _privateConstructorUsedError;
   List<OffdutyEmployeeModel> get emp_lov => throw _privateConstructorUsedError;
   List<OffdutyClientListModel> get org_list =>
       throw _privateConstructorUsedError;
+  AppliedToModel get applied_to => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,19 +43,16 @@ abstract class $RequestoffdutyModelCopyWith<$Res> {
           RequestoffdutyModel value, $Res Function(RequestoffdutyModel) then) =
       _$RequestoffdutyModelCopyWithImpl<$Res>;
   $Res call(
-      {OffdutyDataModel od_data,
-      OffdutyTypeModel od_type,
-      OffdutyStatusModel gp_od_status,
-      OffdutyForModel od_for,
-      OffdutyPurposeModel purpose,
+      {List<OffdutyDataModel> od_data,
+      List<OffdutyTypeModel> od_type,
+      List<OffdutyStatusModel> gp_od_status,
+      List<OffdutyForModel> od_for,
+      List<OffdutyPurposeModel> purpose,
       List<OffdutyEmployeeModel> emp_lov,
-      List<OffdutyClientListModel> org_list});
+      List<OffdutyClientListModel> org_list,
+      AppliedToModel applied_to});
 
-  $OffdutyDataModelCopyWith<$Res> get od_data;
-  $OffdutyTypeModelCopyWith<$Res> get od_type;
-  $OffdutyStatusModelCopyWith<$Res> get gp_od_status;
-  $OffdutyForModelCopyWith<$Res> get od_for;
-  $OffdutyPurposeModelCopyWith<$Res> get purpose;
+  $AppliedToModelCopyWith<$Res> get applied_to;
 }
 
 /// @nodoc
@@ -74,28 +73,29 @@ class _$RequestoffdutyModelCopyWithImpl<$Res>
     Object? purpose = freezed,
     Object? emp_lov = freezed,
     Object? org_list = freezed,
+    Object? applied_to = freezed,
   }) {
     return _then(_value.copyWith(
       od_data: od_data == freezed
           ? _value.od_data
           : od_data // ignore: cast_nullable_to_non_nullable
-              as OffdutyDataModel,
+              as List<OffdutyDataModel>,
       od_type: od_type == freezed
           ? _value.od_type
           : od_type // ignore: cast_nullable_to_non_nullable
-              as OffdutyTypeModel,
+              as List<OffdutyTypeModel>,
       gp_od_status: gp_od_status == freezed
           ? _value.gp_od_status
           : gp_od_status // ignore: cast_nullable_to_non_nullable
-              as OffdutyStatusModel,
+              as List<OffdutyStatusModel>,
       od_for: od_for == freezed
           ? _value.od_for
           : od_for // ignore: cast_nullable_to_non_nullable
-              as OffdutyForModel,
+              as List<OffdutyForModel>,
       purpose: purpose == freezed
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
-              as OffdutyPurposeModel,
+              as List<OffdutyPurposeModel>,
       emp_lov: emp_lov == freezed
           ? _value.emp_lov
           : emp_lov // ignore: cast_nullable_to_non_nullable
@@ -104,41 +104,17 @@ class _$RequestoffdutyModelCopyWithImpl<$Res>
           ? _value.org_list
           : org_list // ignore: cast_nullable_to_non_nullable
               as List<OffdutyClientListModel>,
+      applied_to: applied_to == freezed
+          ? _value.applied_to
+          : applied_to // ignore: cast_nullable_to_non_nullable
+              as AppliedToModel,
     ));
   }
 
   @override
-  $OffdutyDataModelCopyWith<$Res> get od_data {
-    return $OffdutyDataModelCopyWith<$Res>(_value.od_data, (value) {
-      return _then(_value.copyWith(od_data: value));
-    });
-  }
-
-  @override
-  $OffdutyTypeModelCopyWith<$Res> get od_type {
-    return $OffdutyTypeModelCopyWith<$Res>(_value.od_type, (value) {
-      return _then(_value.copyWith(od_type: value));
-    });
-  }
-
-  @override
-  $OffdutyStatusModelCopyWith<$Res> get gp_od_status {
-    return $OffdutyStatusModelCopyWith<$Res>(_value.gp_od_status, (value) {
-      return _then(_value.copyWith(gp_od_status: value));
-    });
-  }
-
-  @override
-  $OffdutyForModelCopyWith<$Res> get od_for {
-    return $OffdutyForModelCopyWith<$Res>(_value.od_for, (value) {
-      return _then(_value.copyWith(od_for: value));
-    });
-  }
-
-  @override
-  $OffdutyPurposeModelCopyWith<$Res> get purpose {
-    return $OffdutyPurposeModelCopyWith<$Res>(_value.purpose, (value) {
-      return _then(_value.copyWith(purpose: value));
+  $AppliedToModelCopyWith<$Res> get applied_to {
+    return $AppliedToModelCopyWith<$Res>(_value.applied_to, (value) {
+      return _then(_value.copyWith(applied_to: value));
     });
   }
 }
@@ -151,24 +127,17 @@ abstract class _$$_RequestoffdutyModelCopyWith<$Res>
       __$$_RequestoffdutyModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {OffdutyDataModel od_data,
-      OffdutyTypeModel od_type,
-      OffdutyStatusModel gp_od_status,
-      OffdutyForModel od_for,
-      OffdutyPurposeModel purpose,
+      {List<OffdutyDataModel> od_data,
+      List<OffdutyTypeModel> od_type,
+      List<OffdutyStatusModel> gp_od_status,
+      List<OffdutyForModel> od_for,
+      List<OffdutyPurposeModel> purpose,
       List<OffdutyEmployeeModel> emp_lov,
-      List<OffdutyClientListModel> org_list});
+      List<OffdutyClientListModel> org_list,
+      AppliedToModel applied_to});
 
   @override
-  $OffdutyDataModelCopyWith<$Res> get od_data;
-  @override
-  $OffdutyTypeModelCopyWith<$Res> get od_type;
-  @override
-  $OffdutyStatusModelCopyWith<$Res> get gp_od_status;
-  @override
-  $OffdutyForModelCopyWith<$Res> get od_for;
-  @override
-  $OffdutyPurposeModelCopyWith<$Res> get purpose;
+  $AppliedToModelCopyWith<$Res> get applied_to;
 }
 
 /// @nodoc
@@ -191,28 +160,29 @@ class __$$_RequestoffdutyModelCopyWithImpl<$Res>
     Object? purpose = freezed,
     Object? emp_lov = freezed,
     Object? org_list = freezed,
+    Object? applied_to = freezed,
   }) {
     return _then(_$_RequestoffdutyModel(
       od_data: od_data == freezed
-          ? _value.od_data
+          ? _value._od_data
           : od_data // ignore: cast_nullable_to_non_nullable
-              as OffdutyDataModel,
+              as List<OffdutyDataModel>,
       od_type: od_type == freezed
-          ? _value.od_type
+          ? _value._od_type
           : od_type // ignore: cast_nullable_to_non_nullable
-              as OffdutyTypeModel,
+              as List<OffdutyTypeModel>,
       gp_od_status: gp_od_status == freezed
-          ? _value.gp_od_status
+          ? _value._gp_od_status
           : gp_od_status // ignore: cast_nullable_to_non_nullable
-              as OffdutyStatusModel,
+              as List<OffdutyStatusModel>,
       od_for: od_for == freezed
-          ? _value.od_for
+          ? _value._od_for
           : od_for // ignore: cast_nullable_to_non_nullable
-              as OffdutyForModel,
+              as List<OffdutyForModel>,
       purpose: purpose == freezed
-          ? _value.purpose
+          ? _value._purpose
           : purpose // ignore: cast_nullable_to_non_nullable
-              as OffdutyPurposeModel,
+              as List<OffdutyPurposeModel>,
       emp_lov: emp_lov == freezed
           ? _value._emp_lov
           : emp_lov // ignore: cast_nullable_to_non_nullable
@@ -221,6 +191,10 @@ class __$$_RequestoffdutyModelCopyWithImpl<$Res>
           ? _value._org_list
           : org_list // ignore: cast_nullable_to_non_nullable
               as List<OffdutyClientListModel>,
+      applied_to: applied_to == freezed
+          ? _value.applied_to
+          : applied_to // ignore: cast_nullable_to_non_nullable
+              as AppliedToModel,
     ));
   }
 }
@@ -229,35 +203,67 @@ class __$$_RequestoffdutyModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RequestoffdutyModel implements _RequestoffdutyModel {
   const _$_RequestoffdutyModel(
-      {this.od_data = const OffdutyDataModel(),
-      this.od_type = const OffdutyTypeModel(),
-      this.gp_od_status = const OffdutyStatusModel(),
-      this.od_for = const OffdutyForModel(),
-      this.purpose = const OffdutyPurposeModel(),
+      {final List<OffdutyDataModel> od_data = const <OffdutyDataModel>[],
+      final List<OffdutyTypeModel> od_type = const <OffdutyTypeModel>[],
+      final List<OffdutyStatusModel> gp_od_status =
+          const <OffdutyStatusModel>[],
+      final List<OffdutyForModel> od_for = const <OffdutyForModel>[],
+      final List<OffdutyPurposeModel> purpose = const <OffdutyPurposeModel>[],
       final List<OffdutyEmployeeModel> emp_lov = const <OffdutyEmployeeModel>[],
       final List<OffdutyClientListModel> org_list =
-          const <OffdutyClientListModel>[]})
-      : _emp_lov = emp_lov,
+          const <OffdutyClientListModel>[],
+      this.applied_to = const AppliedToModel()})
+      : _od_data = od_data,
+        _od_type = od_type,
+        _gp_od_status = gp_od_status,
+        _od_for = od_for,
+        _purpose = purpose,
+        _emp_lov = emp_lov,
         _org_list = org_list;
 
   factory _$_RequestoffdutyModel.fromJson(Map<String, dynamic> json) =>
       _$$_RequestoffdutyModelFromJson(json);
 
+  final List<OffdutyDataModel> _od_data;
   @override
   @JsonKey()
-  final OffdutyDataModel od_data;
+  List<OffdutyDataModel> get od_data {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_od_data);
+  }
+
+  final List<OffdutyTypeModel> _od_type;
   @override
   @JsonKey()
-  final OffdutyTypeModel od_type;
+  List<OffdutyTypeModel> get od_type {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_od_type);
+  }
+
+  final List<OffdutyStatusModel> _gp_od_status;
   @override
   @JsonKey()
-  final OffdutyStatusModel gp_od_status;
+  List<OffdutyStatusModel> get gp_od_status {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_gp_od_status);
+  }
+
+  final List<OffdutyForModel> _od_for;
   @override
   @JsonKey()
-  final OffdutyForModel od_for;
+  List<OffdutyForModel> get od_for {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_od_for);
+  }
+
+  final List<OffdutyPurposeModel> _purpose;
   @override
   @JsonKey()
-  final OffdutyPurposeModel purpose;
+  List<OffdutyPurposeModel> get purpose {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_purpose);
+  }
+
   final List<OffdutyEmployeeModel> _emp_lov;
   @override
   @JsonKey()
@@ -275,8 +281,12 @@ class _$_RequestoffdutyModel implements _RequestoffdutyModel {
   }
 
   @override
+  @JsonKey()
+  final AppliedToModel applied_to;
+
+  @override
   String toString() {
-    return 'RequestoffdutyModel(od_data: $od_data, od_type: $od_type, gp_od_status: $gp_od_status, od_for: $od_for, purpose: $purpose, emp_lov: $emp_lov, org_list: $org_list)';
+    return 'RequestoffdutyModel(od_data: $od_data, od_type: $od_type, gp_od_status: $gp_od_status, od_for: $od_for, purpose: $purpose, emp_lov: $emp_lov, org_list: $org_list, applied_to: $applied_to)';
   }
 
   @override
@@ -284,27 +294,30 @@ class _$_RequestoffdutyModel implements _RequestoffdutyModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RequestoffdutyModel &&
-            const DeepCollectionEquality().equals(other.od_data, od_data) &&
-            const DeepCollectionEquality().equals(other.od_type, od_type) &&
+            const DeepCollectionEquality().equals(other._od_data, _od_data) &&
+            const DeepCollectionEquality().equals(other._od_type, _od_type) &&
             const DeepCollectionEquality()
-                .equals(other.gp_od_status, gp_od_status) &&
-            const DeepCollectionEquality().equals(other.od_for, od_for) &&
-            const DeepCollectionEquality().equals(other.purpose, purpose) &&
+                .equals(other._gp_od_status, _gp_od_status) &&
+            const DeepCollectionEquality().equals(other._od_for, _od_for) &&
+            const DeepCollectionEquality().equals(other._purpose, _purpose) &&
             const DeepCollectionEquality().equals(other._emp_lov, _emp_lov) &&
-            const DeepCollectionEquality().equals(other._org_list, _org_list));
+            const DeepCollectionEquality().equals(other._org_list, _org_list) &&
+            const DeepCollectionEquality()
+                .equals(other.applied_to, applied_to));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(od_data),
-      const DeepCollectionEquality().hash(od_type),
-      const DeepCollectionEquality().hash(gp_od_status),
-      const DeepCollectionEquality().hash(od_for),
-      const DeepCollectionEquality().hash(purpose),
+      const DeepCollectionEquality().hash(_od_data),
+      const DeepCollectionEquality().hash(_od_type),
+      const DeepCollectionEquality().hash(_gp_od_status),
+      const DeepCollectionEquality().hash(_od_for),
+      const DeepCollectionEquality().hash(_purpose),
       const DeepCollectionEquality().hash(_emp_lov),
-      const DeepCollectionEquality().hash(_org_list));
+      const DeepCollectionEquality().hash(_org_list),
+      const DeepCollectionEquality().hash(applied_to));
 
   @JsonKey(ignore: true)
   @override
@@ -322,31 +335,34 @@ class _$_RequestoffdutyModel implements _RequestoffdutyModel {
 
 abstract class _RequestoffdutyModel implements RequestoffdutyModel {
   const factory _RequestoffdutyModel(
-      {final OffdutyDataModel od_data,
-      final OffdutyTypeModel od_type,
-      final OffdutyStatusModel gp_od_status,
-      final OffdutyForModel od_for,
-      final OffdutyPurposeModel purpose,
+      {final List<OffdutyDataModel> od_data,
+      final List<OffdutyTypeModel> od_type,
+      final List<OffdutyStatusModel> gp_od_status,
+      final List<OffdutyForModel> od_for,
+      final List<OffdutyPurposeModel> purpose,
       final List<OffdutyEmployeeModel> emp_lov,
-      final List<OffdutyClientListModel> org_list}) = _$_RequestoffdutyModel;
+      final List<OffdutyClientListModel> org_list,
+      final AppliedToModel applied_to}) = _$_RequestoffdutyModel;
 
   factory _RequestoffdutyModel.fromJson(Map<String, dynamic> json) =
       _$_RequestoffdutyModel.fromJson;
 
   @override
-  OffdutyDataModel get od_data;
+  List<OffdutyDataModel> get od_data;
   @override
-  OffdutyTypeModel get od_type;
+  List<OffdutyTypeModel> get od_type;
   @override
-  OffdutyStatusModel get gp_od_status;
+  List<OffdutyStatusModel> get gp_od_status;
   @override
-  OffdutyForModel get od_for;
+  List<OffdutyForModel> get od_for;
   @override
-  OffdutyPurposeModel get purpose;
+  List<OffdutyPurposeModel> get purpose;
   @override
   List<OffdutyEmployeeModel> get emp_lov;
   @override
   List<OffdutyClientListModel> get org_list;
+  @override
+  AppliedToModel get applied_to;
   @override
   @JsonKey(ignore: true)
   _$$_RequestoffdutyModelCopyWith<_$_RequestoffdutyModel> get copyWith =>

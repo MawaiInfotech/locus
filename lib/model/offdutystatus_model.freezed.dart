@@ -20,10 +20,10 @@ OffdutyStatusModel _$OffdutyStatusModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$OffdutyStatusModel {
-  @JsonKey(name: "N")
-  String get nonReternable => throw _privateConstructorUsedError;
-  @JsonKey(name: "R")
-  String get returnable => throw _privateConstructorUsedError;
+  @JsonKey(name: "code")
+  String get code => throw _privateConstructorUsedError;
+  @JsonKey(name: "desc")
+  String get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,8 +37,8 @@ abstract class $OffdutyStatusModelCopyWith<$Res> {
           OffdutyStatusModel value, $Res Function(OffdutyStatusModel) then) =
       _$OffdutyStatusModelCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: "N") String nonReternable,
-      @JsonKey(name: "R") String returnable});
+      {@JsonKey(name: "code") String code,
+      @JsonKey(name: "desc") String description});
 }
 
 /// @nodoc
@@ -52,17 +52,17 @@ class _$OffdutyStatusModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? nonReternable = freezed,
-    Object? returnable = freezed,
+    Object? code = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
-      nonReternable: nonReternable == freezed
-          ? _value.nonReternable
-          : nonReternable // ignore: cast_nullable_to_non_nullable
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String,
-      returnable: returnable == freezed
-          ? _value.returnable
-          : returnable // ignore: cast_nullable_to_non_nullable
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -76,8 +76,8 @@ abstract class _$$_OffdutyStatusModelCopyWith<$Res>
       __$$_OffdutyStatusModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: "N") String nonReternable,
-      @JsonKey(name: "R") String returnable});
+      {@JsonKey(name: "code") String code,
+      @JsonKey(name: "desc") String description});
 }
 
 /// @nodoc
@@ -93,17 +93,17 @@ class __$$_OffdutyStatusModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? nonReternable = freezed,
-    Object? returnable = freezed,
+    Object? code = freezed,
+    Object? description = freezed,
   }) {
     return _then(_$_OffdutyStatusModel(
-      nonReternable: nonReternable == freezed
-          ? _value.nonReternable
-          : nonReternable // ignore: cast_nullable_to_non_nullable
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String,
-      returnable: returnable == freezed
-          ? _value.returnable
-          : returnable // ignore: cast_nullable_to_non_nullable
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -113,22 +113,22 @@ class __$$_OffdutyStatusModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_OffdutyStatusModel implements _OffdutyStatusModel {
   const _$_OffdutyStatusModel(
-      {@JsonKey(name: "N") this.nonReternable = "",
-      @JsonKey(name: "R") this.returnable = ""});
+      {@JsonKey(name: "code") this.code = "",
+      @JsonKey(name: "desc") this.description = ""});
 
   factory _$_OffdutyStatusModel.fromJson(Map<String, dynamic> json) =>
       _$$_OffdutyStatusModelFromJson(json);
 
   @override
-  @JsonKey(name: "N")
-  final String nonReternable;
+  @JsonKey(name: "code")
+  final String code;
   @override
-  @JsonKey(name: "R")
-  final String returnable;
+  @JsonKey(name: "desc")
+  final String description;
 
   @override
   String toString() {
-    return 'OffdutyStatusModel(nonReternable: $nonReternable, returnable: $returnable)';
+    return 'OffdutyStatusModel(code: $code, description: $description)';
   }
 
   @override
@@ -136,18 +136,17 @@ class _$_OffdutyStatusModel implements _OffdutyStatusModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OffdutyStatusModel &&
+            const DeepCollectionEquality().equals(other.code, code) &&
             const DeepCollectionEquality()
-                .equals(other.nonReternable, nonReternable) &&
-            const DeepCollectionEquality()
-                .equals(other.returnable, returnable));
+                .equals(other.description, description));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(nonReternable),
-      const DeepCollectionEquality().hash(returnable));
+      const DeepCollectionEquality().hash(code),
+      const DeepCollectionEquality().hash(description));
 
   @JsonKey(ignore: true)
   @override
@@ -165,18 +164,18 @@ class _$_OffdutyStatusModel implements _OffdutyStatusModel {
 
 abstract class _OffdutyStatusModel implements OffdutyStatusModel {
   const factory _OffdutyStatusModel(
-      {@JsonKey(name: "N") final String nonReternable,
-      @JsonKey(name: "R") final String returnable}) = _$_OffdutyStatusModel;
+      {@JsonKey(name: "code") final String code,
+      @JsonKey(name: "desc") final String description}) = _$_OffdutyStatusModel;
 
   factory _OffdutyStatusModel.fromJson(Map<String, dynamic> json) =
       _$_OffdutyStatusModel.fromJson;
 
   @override
-  @JsonKey(name: "N")
-  String get nonReternable;
+  @JsonKey(name: "code")
+  String get code;
   @override
-  @JsonKey(name: "R")
-  String get returnable;
+  @JsonKey(name: "desc")
+  String get description;
   @override
   @JsonKey(ignore: true)
   _$$_OffdutyStatusModelCopyWith<_$_OffdutyStatusModel> get copyWith =>

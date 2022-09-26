@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:locus/bloc/attendance_detail_bloc.dart';
 import 'package:locus/model/attendanceDetail_month_model.dart';
 import 'package:locus/model/attendancedetail_model.dart';
@@ -28,6 +29,8 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
   late final AttendanceDetailBloc attendanceDetailBloc;
 
   var selectedMonth = "";
+
+  final date = DateFormat("dd-MM-yyyy").format(DateTime.now());
 
   @override
   void initState(){
@@ -101,9 +104,9 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                if(model.attendanceDate == date && model.inTime.isEmpty)_buildRequestButton(model),
                 if(model.outTime.isEmpty && model.inTime.isNotEmpty) _buildRequestButton(model),
-                if(model.outTime.isEmpty && model.inTime.isEmpty)
-                  _buildNotCheckedInandChekedOut(model)
+                if(model.outTime.isEmpty && model.inTime.isEmpty && model.attendanceDate != date) _buildNotCheckedInandChekedOut(model)
               ],
             )
           ],

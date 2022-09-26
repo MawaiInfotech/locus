@@ -20,7 +20,6 @@ class _HomePageState extends State<HomePage> {
     Image.asset("assets/images/leave.jpg.png"),
   ];
 
-
   late final LoginModel user;
 
   @override
@@ -99,11 +98,47 @@ class _HomePageState extends State<HomePage> {
         //           "assets/images/file.png",
         //           scale: 10.dw,
         //         ),
-        //         _buildText(title: "Off - Duty")
+        //         _buildText(title: "On - Duty")
         //       ],
         //     ),
         //   ),
         // ),
+        InkWell(
+          onTap: (){
+            Navigator.pushNamed(context, AppRoutes.holidaypage);
+          },
+          child: Card(
+            color: Color(0xffFFECE5),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Image.asset(
+                  "assets/images/holiday.png",
+                  scale: 10.dw,
+                ),
+                _buildText(title: "Holidays")
+              ],
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: (){
+            Navigator.pushNamed(context, AppRoutes.noticeboard);
+          },
+          child: Card(
+            color: Color(0xffFFFBE5),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Image.asset(
+                  "assets/images/noticeboard.png",
+                  scale: 8.dw,
+                ),
+                _buildText(title: "Notices")
+              ],
+            ),
+          ),
+        ),
         // Card(
         //   color: Color(0xffF4EFF6),
         //   child: Column(
@@ -146,7 +181,6 @@ class _HomePageState extends State<HomePage> {
         //     ),
         //   ),
         // ),
-
       ],
     );
   }

@@ -9,13 +9,13 @@ part of 'offdutystatus_model.dart';
 _$_OffdutyStatusModel _$$_OffdutyStatusModelFromJson(
         Map<String, dynamic> json) =>
     _$_OffdutyStatusModel(
-      nonReternable: json['N'] as String? ?? "",
-      returnable: json['R'] as String? ?? "",
+      code: json['code'] as String? ?? "",
+      description: json['desc'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$_OffdutyStatusModelToJson(
         _$_OffdutyStatusModel instance) =>
     <String, dynamic>{
-      'N': instance.nonReternable,
-      'R': instance.returnable,
+      'code': instance.code,
+      'desc': instance.description,
     };

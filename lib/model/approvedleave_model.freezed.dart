@@ -42,6 +42,10 @@ mixin _$ApprovedLeaveModel {
   String get leaveGrantedDescription => throw _privateConstructorUsedError;
   @JsonKey(name: "emp_name")
   String get employeeName => throw _privateConstructorUsedError;
+  @JsonKey(name: "dept_name")
+  String get department => throw _privateConstructorUsedError;
+  @JsonKey(name: "dept_cd")
+  String get departmentCode => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -65,7 +69,9 @@ abstract class $ApprovedLeaveModelCopyWith<$Res> {
       @JsonKey(name: "leave_pk_id") int leaveId,
       @JsonKey(name: "reason") String reason,
       @JsonKey(name: "leave_granted_desc") String leaveGrantedDescription,
-      @JsonKey(name: "emp_name") String employeeName});
+      @JsonKey(name: "emp_name") String employeeName,
+      @JsonKey(name: "dept_name") String department,
+      @JsonKey(name: "dept_cd") String departmentCode});
 }
 
 /// @nodoc
@@ -90,6 +96,8 @@ class _$ApprovedLeaveModelCopyWithImpl<$Res>
     Object? reason = freezed,
     Object? leaveGrantedDescription = freezed,
     Object? employeeName = freezed,
+    Object? department = freezed,
+    Object? departmentCode = freezed,
   }) {
     return _then(_value.copyWith(
       fromDate: fromDate == freezed
@@ -136,6 +144,14 @@ class _$ApprovedLeaveModelCopyWithImpl<$Res>
           ? _value.employeeName
           : employeeName // ignore: cast_nullable_to_non_nullable
               as String,
+      department: department == freezed
+          ? _value.department
+          : department // ignore: cast_nullable_to_non_nullable
+              as String,
+      departmentCode: departmentCode == freezed
+          ? _value.departmentCode
+          : departmentCode // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -158,7 +174,9 @@ abstract class _$$_ApprovedLeaveModelCopyWith<$Res>
       @JsonKey(name: "leave_pk_id") int leaveId,
       @JsonKey(name: "reason") String reason,
       @JsonKey(name: "leave_granted_desc") String leaveGrantedDescription,
-      @JsonKey(name: "emp_name") String employeeName});
+      @JsonKey(name: "emp_name") String employeeName,
+      @JsonKey(name: "dept_name") String department,
+      @JsonKey(name: "dept_cd") String departmentCode});
 }
 
 /// @nodoc
@@ -185,6 +203,8 @@ class __$$_ApprovedLeaveModelCopyWithImpl<$Res>
     Object? reason = freezed,
     Object? leaveGrantedDescription = freezed,
     Object? employeeName = freezed,
+    Object? department = freezed,
+    Object? departmentCode = freezed,
   }) {
     return _then(_$_ApprovedLeaveModel(
       fromDate: fromDate == freezed
@@ -231,6 +251,14 @@ class __$$_ApprovedLeaveModelCopyWithImpl<$Res>
           ? _value.employeeName
           : employeeName // ignore: cast_nullable_to_non_nullable
               as String,
+      department: department == freezed
+          ? _value.department
+          : department // ignore: cast_nullable_to_non_nullable
+              as String,
+      departmentCode: departmentCode == freezed
+          ? _value.departmentCode
+          : departmentCode // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -249,7 +277,9 @@ class _$_ApprovedLeaveModel implements _ApprovedLeaveModel {
       @JsonKey(name: "leave_pk_id") this.leaveId = 0,
       @JsonKey(name: "reason") this.reason = "",
       @JsonKey(name: "leave_granted_desc") this.leaveGrantedDescription = "",
-      @JsonKey(name: "emp_name") this.employeeName = ""});
+      @JsonKey(name: "emp_name") this.employeeName = "",
+      @JsonKey(name: "dept_name") this.department = "",
+      @JsonKey(name: "dept_cd") this.departmentCode = ""});
 
   factory _$_ApprovedLeaveModel.fromJson(Map<String, dynamic> json) =>
       _$$_ApprovedLeaveModelFromJson(json);
@@ -287,10 +317,16 @@ class _$_ApprovedLeaveModel implements _ApprovedLeaveModel {
   @override
   @JsonKey(name: "emp_name")
   final String employeeName;
+  @override
+  @JsonKey(name: "dept_name")
+  final String department;
+  @override
+  @JsonKey(name: "dept_cd")
+  final String departmentCode;
 
   @override
   String toString() {
-    return 'ApprovedLeaveModel(fromDate: $fromDate, endDate: $endDate, leaveType: $leaveType, employeeCode: $employeeCode, leaveGranted: $leaveGranted, leaveDays: $leaveDays, leaveDescription: $leaveDescription, leaveId: $leaveId, reason: $reason, leaveGrantedDescription: $leaveGrantedDescription, employeeName: $employeeName)';
+    return 'ApprovedLeaveModel(fromDate: $fromDate, endDate: $endDate, leaveType: $leaveType, employeeCode: $employeeCode, leaveGranted: $leaveGranted, leaveDays: $leaveDays, leaveDescription: $leaveDescription, leaveId: $leaveId, reason: $reason, leaveGrantedDescription: $leaveGrantedDescription, employeeName: $employeeName, department: $department, departmentCode: $departmentCode)';
   }
 
   @override
@@ -313,7 +349,11 @@ class _$_ApprovedLeaveModel implements _ApprovedLeaveModel {
             const DeepCollectionEquality().equals(
                 other.leaveGrantedDescription, leaveGrantedDescription) &&
             const DeepCollectionEquality()
-                .equals(other.employeeName, employeeName));
+                .equals(other.employeeName, employeeName) &&
+            const DeepCollectionEquality()
+                .equals(other.department, department) &&
+            const DeepCollectionEquality()
+                .equals(other.departmentCode, departmentCode));
   }
 
   @JsonKey(ignore: true)
@@ -330,7 +370,9 @@ class _$_ApprovedLeaveModel implements _ApprovedLeaveModel {
       const DeepCollectionEquality().hash(leaveId),
       const DeepCollectionEquality().hash(reason),
       const DeepCollectionEquality().hash(leaveGrantedDescription),
-      const DeepCollectionEquality().hash(employeeName));
+      const DeepCollectionEquality().hash(employeeName),
+      const DeepCollectionEquality().hash(department),
+      const DeepCollectionEquality().hash(departmentCode));
 
   @JsonKey(ignore: true)
   @override
@@ -369,7 +411,11 @@ abstract class _ApprovedLeaveModel implements ApprovedLeaveModel {
       @JsonKey(name: "leave_granted_desc")
           final String leaveGrantedDescription,
       @JsonKey(name: "emp_name")
-          final String employeeName}) = _$_ApprovedLeaveModel;
+          final String employeeName,
+      @JsonKey(name: "dept_name")
+          final String department,
+      @JsonKey(name: "dept_cd")
+          final String departmentCode}) = _$_ApprovedLeaveModel;
 
   factory _ApprovedLeaveModel.fromJson(Map<String, dynamic> json) =
       _$_ApprovedLeaveModel.fromJson;
@@ -407,6 +453,12 @@ abstract class _ApprovedLeaveModel implements ApprovedLeaveModel {
   @override
   @JsonKey(name: "emp_name")
   String get employeeName;
+  @override
+  @JsonKey(name: "dept_name")
+  String get department;
+  @override
+  @JsonKey(name: "dept_cd")
+  String get departmentCode;
   @override
   @JsonKey(ignore: true)
   _$$_ApprovedLeaveModelCopyWith<_$_ApprovedLeaveModel> get copyWith =>

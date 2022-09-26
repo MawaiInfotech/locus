@@ -20,10 +20,10 @@ OffdutyPurposeModel _$OffdutyPurposeModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$OffdutyPurposeModel {
-  @JsonKey(name: "O")
-  String get official => throw _privateConstructorUsedError;
-  @JsonKey(name: "P")
-  String get personal => throw _privateConstructorUsedError;
+  @JsonKey(name: "code")
+  String get code => throw _privateConstructorUsedError;
+  @JsonKey(name: "desc")
+  String get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,8 +37,8 @@ abstract class $OffdutyPurposeModelCopyWith<$Res> {
           OffdutyPurposeModel value, $Res Function(OffdutyPurposeModel) then) =
       _$OffdutyPurposeModelCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: "O") String official,
-      @JsonKey(name: "P") String personal});
+      {@JsonKey(name: "code") String code,
+      @JsonKey(name: "desc") String description});
 }
 
 /// @nodoc
@@ -52,17 +52,17 @@ class _$OffdutyPurposeModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? official = freezed,
-    Object? personal = freezed,
+    Object? code = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
-      official: official == freezed
-          ? _value.official
-          : official // ignore: cast_nullable_to_non_nullable
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String,
-      personal: personal == freezed
-          ? _value.personal
-          : personal // ignore: cast_nullable_to_non_nullable
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -76,8 +76,8 @@ abstract class _$$_OffdutyPurposeModelCopyWith<$Res>
       __$$_OffdutyPurposeModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: "O") String official,
-      @JsonKey(name: "P") String personal});
+      {@JsonKey(name: "code") String code,
+      @JsonKey(name: "desc") String description});
 }
 
 /// @nodoc
@@ -93,17 +93,17 @@ class __$$_OffdutyPurposeModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? official = freezed,
-    Object? personal = freezed,
+    Object? code = freezed,
+    Object? description = freezed,
   }) {
     return _then(_$_OffdutyPurposeModel(
-      official: official == freezed
-          ? _value.official
-          : official // ignore: cast_nullable_to_non_nullable
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String,
-      personal: personal == freezed
-          ? _value.personal
-          : personal // ignore: cast_nullable_to_non_nullable
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -113,22 +113,22 @@ class __$$_OffdutyPurposeModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_OffdutyPurposeModel implements _OffdutyPurposeModel {
   const _$_OffdutyPurposeModel(
-      {@JsonKey(name: "O") this.official = "",
-      @JsonKey(name: "P") this.personal = ""});
+      {@JsonKey(name: "code") this.code = "",
+      @JsonKey(name: "desc") this.description = ""});
 
   factory _$_OffdutyPurposeModel.fromJson(Map<String, dynamic> json) =>
       _$$_OffdutyPurposeModelFromJson(json);
 
   @override
-  @JsonKey(name: "O")
-  final String official;
+  @JsonKey(name: "code")
+  final String code;
   @override
-  @JsonKey(name: "P")
-  final String personal;
+  @JsonKey(name: "desc")
+  final String description;
 
   @override
   String toString() {
-    return 'OffdutyPurposeModel(official: $official, personal: $personal)';
+    return 'OffdutyPurposeModel(code: $code, description: $description)';
   }
 
   @override
@@ -136,16 +136,17 @@ class _$_OffdutyPurposeModel implements _OffdutyPurposeModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OffdutyPurposeModel &&
-            const DeepCollectionEquality().equals(other.official, official) &&
-            const DeepCollectionEquality().equals(other.personal, personal));
+            const DeepCollectionEquality().equals(other.code, code) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(official),
-      const DeepCollectionEquality().hash(personal));
+      const DeepCollectionEquality().hash(code),
+      const DeepCollectionEquality().hash(description));
 
   @JsonKey(ignore: true)
   @override
@@ -163,18 +164,19 @@ class _$_OffdutyPurposeModel implements _OffdutyPurposeModel {
 
 abstract class _OffdutyPurposeModel implements OffdutyPurposeModel {
   const factory _OffdutyPurposeModel(
-      {@JsonKey(name: "O") final String official,
-      @JsonKey(name: "P") final String personal}) = _$_OffdutyPurposeModel;
+          {@JsonKey(name: "code") final String code,
+          @JsonKey(name: "desc") final String description}) =
+      _$_OffdutyPurposeModel;
 
   factory _OffdutyPurposeModel.fromJson(Map<String, dynamic> json) =
       _$_OffdutyPurposeModel.fromJson;
 
   @override
-  @JsonKey(name: "O")
-  String get official;
+  @JsonKey(name: "code")
+  String get code;
   @override
-  @JsonKey(name: "P")
-  String get personal;
+  @JsonKey(name: "desc")
+  String get description;
   @override
   @JsonKey(ignore: true)
   _$$_OffdutyPurposeModelCopyWith<_$_OffdutyPurposeModel> get copyWith =>

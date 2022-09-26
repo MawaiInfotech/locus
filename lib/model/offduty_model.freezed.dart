@@ -20,10 +20,10 @@ OffdutyDataModel _$OffdutyDataModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$OffdutyDataModel {
-  @JsonKey(name: "DH")
-  String get directFromHome => throw _privateConstructorUsedError;
-  @JsonKey(name: "FO")
-  String get fromOffice => throw _privateConstructorUsedError;
+  @JsonKey(name: "code")
+  String get code => throw _privateConstructorUsedError;
+  @JsonKey(name: "desc")
+  String get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,8 +37,8 @@ abstract class $OffdutyDataModelCopyWith<$Res> {
           OffdutyDataModel value, $Res Function(OffdutyDataModel) then) =
       _$OffdutyDataModelCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: "DH") String directFromHome,
-      @JsonKey(name: "FO") String fromOffice});
+      {@JsonKey(name: "code") String code,
+      @JsonKey(name: "desc") String description});
 }
 
 /// @nodoc
@@ -52,17 +52,17 @@ class _$OffdutyDataModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? directFromHome = freezed,
-    Object? fromOffice = freezed,
+    Object? code = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
-      directFromHome: directFromHome == freezed
-          ? _value.directFromHome
-          : directFromHome // ignore: cast_nullable_to_non_nullable
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String,
-      fromOffice: fromOffice == freezed
-          ? _value.fromOffice
-          : fromOffice // ignore: cast_nullable_to_non_nullable
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -76,8 +76,8 @@ abstract class _$$_OffdutyDataModelCopyWith<$Res>
       __$$_OffdutyDataModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: "DH") String directFromHome,
-      @JsonKey(name: "FO") String fromOffice});
+      {@JsonKey(name: "code") String code,
+      @JsonKey(name: "desc") String description});
 }
 
 /// @nodoc
@@ -93,17 +93,17 @@ class __$$_OffdutyDataModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? directFromHome = freezed,
-    Object? fromOffice = freezed,
+    Object? code = freezed,
+    Object? description = freezed,
   }) {
     return _then(_$_OffdutyDataModel(
-      directFromHome: directFromHome == freezed
-          ? _value.directFromHome
-          : directFromHome // ignore: cast_nullable_to_non_nullable
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String,
-      fromOffice: fromOffice == freezed
-          ? _value.fromOffice
-          : fromOffice // ignore: cast_nullable_to_non_nullable
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -113,22 +113,22 @@ class __$$_OffdutyDataModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_OffdutyDataModel implements _OffdutyDataModel {
   const _$_OffdutyDataModel(
-      {@JsonKey(name: "DH") this.directFromHome = "",
-      @JsonKey(name: "FO") this.fromOffice = ""});
+      {@JsonKey(name: "code") this.code = "",
+      @JsonKey(name: "desc") this.description = ""});
 
   factory _$_OffdutyDataModel.fromJson(Map<String, dynamic> json) =>
       _$$_OffdutyDataModelFromJson(json);
 
   @override
-  @JsonKey(name: "DH")
-  final String directFromHome;
+  @JsonKey(name: "code")
+  final String code;
   @override
-  @JsonKey(name: "FO")
-  final String fromOffice;
+  @JsonKey(name: "desc")
+  final String description;
 
   @override
   String toString() {
-    return 'OffdutyDataModel(directFromHome: $directFromHome, fromOffice: $fromOffice)';
+    return 'OffdutyDataModel(code: $code, description: $description)';
   }
 
   @override
@@ -136,18 +136,17 @@ class _$_OffdutyDataModel implements _OffdutyDataModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OffdutyDataModel &&
+            const DeepCollectionEquality().equals(other.code, code) &&
             const DeepCollectionEquality()
-                .equals(other.directFromHome, directFromHome) &&
-            const DeepCollectionEquality()
-                .equals(other.fromOffice, fromOffice));
+                .equals(other.description, description));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(directFromHome),
-      const DeepCollectionEquality().hash(fromOffice));
+      const DeepCollectionEquality().hash(code),
+      const DeepCollectionEquality().hash(description));
 
   @JsonKey(ignore: true)
   @override
@@ -164,18 +163,18 @@ class _$_OffdutyDataModel implements _OffdutyDataModel {
 
 abstract class _OffdutyDataModel implements OffdutyDataModel {
   const factory _OffdutyDataModel(
-      {@JsonKey(name: "DH") final String directFromHome,
-      @JsonKey(name: "FO") final String fromOffice}) = _$_OffdutyDataModel;
+      {@JsonKey(name: "code") final String code,
+      @JsonKey(name: "desc") final String description}) = _$_OffdutyDataModel;
 
   factory _OffdutyDataModel.fromJson(Map<String, dynamic> json) =
       _$_OffdutyDataModel.fromJson;
 
   @override
-  @JsonKey(name: "DH")
-  String get directFromHome;
+  @JsonKey(name: "code")
+  String get code;
   @override
-  @JsonKey(name: "FO")
-  String get fromOffice;
+  @JsonKey(name: "desc")
+  String get description;
   @override
   @JsonKey(ignore: true)
   _$$_OffdutyDataModelCopyWith<_$_OffdutyDataModel> get copyWith =>

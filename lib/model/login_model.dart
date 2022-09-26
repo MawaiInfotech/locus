@@ -75,6 +75,10 @@ class LoginModel{
   @JsonKey(name: "company_email")
   late final String? company_email;
 
+  @HiveField(17)
+  @JsonKey(name: "user_from")
+  late final String? user_from;
+
   LoginModel({
     this.emp_cd = '',
     this.password = '',
@@ -92,7 +96,8 @@ class LoginModel{
     this.shift,
     this.start_time,
     this.description,
-    this.company_email
+    this.company_email,
+    this.user_from
 });
 
 

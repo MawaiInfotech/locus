@@ -20,8 +20,10 @@ OffdutyForModel _$OffdutyForModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$OffdutyForModel {
-  @JsonKey(name: "OU")
-  String get outdoorUnit => throw _privateConstructorUsedError;
+  @JsonKey(name: "code")
+  String get code => throw _privateConstructorUsedError;
+  @JsonKey(name: "desc")
+  String get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +36,9 @@ abstract class $OffdutyForModelCopyWith<$Res> {
   factory $OffdutyForModelCopyWith(
           OffdutyForModel value, $Res Function(OffdutyForModel) then) =
       _$OffdutyForModelCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: "OU") String outdoorUnit});
+  $Res call(
+      {@JsonKey(name: "code") String code,
+      @JsonKey(name: "desc") String description});
 }
 
 /// @nodoc
@@ -48,12 +52,17 @@ class _$OffdutyForModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? outdoorUnit = freezed,
+    Object? code = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
-      outdoorUnit: outdoorUnit == freezed
-          ? _value.outdoorUnit
-          : outdoorUnit // ignore: cast_nullable_to_non_nullable
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -66,7 +75,9 @@ abstract class _$$_OffdutyForModelCopyWith<$Res>
           _$_OffdutyForModel value, $Res Function(_$_OffdutyForModel) then) =
       __$$_OffdutyForModelCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: "OU") String outdoorUnit});
+  $Res call(
+      {@JsonKey(name: "code") String code,
+      @JsonKey(name: "desc") String description});
 }
 
 /// @nodoc
@@ -82,12 +93,17 @@ class __$$_OffdutyForModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? outdoorUnit = freezed,
+    Object? code = freezed,
+    Object? description = freezed,
   }) {
     return _then(_$_OffdutyForModel(
-      outdoorUnit: outdoorUnit == freezed
-          ? _value.outdoorUnit
-          : outdoorUnit // ignore: cast_nullable_to_non_nullable
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -96,18 +112,23 @@ class __$$_OffdutyForModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_OffdutyForModel implements _OffdutyForModel {
-  const _$_OffdutyForModel({@JsonKey(name: "OU") this.outdoorUnit = ""});
+  const _$_OffdutyForModel(
+      {@JsonKey(name: "code") this.code = "",
+      @JsonKey(name: "desc") this.description = ""});
 
   factory _$_OffdutyForModel.fromJson(Map<String, dynamic> json) =>
       _$$_OffdutyForModelFromJson(json);
 
   @override
-  @JsonKey(name: "OU")
-  final String outdoorUnit;
+  @JsonKey(name: "code")
+  final String code;
+  @override
+  @JsonKey(name: "desc")
+  final String description;
 
   @override
   String toString() {
-    return 'OffdutyForModel(outdoorUnit: $outdoorUnit)';
+    return 'OffdutyForModel(code: $code, description: $description)';
   }
 
   @override
@@ -115,14 +136,17 @@ class _$_OffdutyForModel implements _OffdutyForModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OffdutyForModel &&
+            const DeepCollectionEquality().equals(other.code, code) &&
             const DeepCollectionEquality()
-                .equals(other.outdoorUnit, outdoorUnit));
+                .equals(other.description, description));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(outdoorUnit));
+      runtimeType,
+      const DeepCollectionEquality().hash(code),
+      const DeepCollectionEquality().hash(description));
 
   @JsonKey(ignore: true)
   @override
@@ -139,14 +163,18 @@ class _$_OffdutyForModel implements _OffdutyForModel {
 
 abstract class _OffdutyForModel implements OffdutyForModel {
   const factory _OffdutyForModel(
-      {@JsonKey(name: "OU") final String outdoorUnit}) = _$_OffdutyForModel;
+      {@JsonKey(name: "code") final String code,
+      @JsonKey(name: "desc") final String description}) = _$_OffdutyForModel;
 
   factory _OffdutyForModel.fromJson(Map<String, dynamic> json) =
       _$_OffdutyForModel.fromJson;
 
   @override
-  @JsonKey(name: "OU")
-  String get outdoorUnit;
+  @JsonKey(name: "code")
+  String get code;
+  @override
+  @JsonKey(name: "desc")
+  String get description;
   @override
   @JsonKey(ignore: true)
   _$$_OffdutyForModelCopyWith<_$_OffdutyForModel> get copyWith =>

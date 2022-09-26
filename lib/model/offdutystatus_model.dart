@@ -6,8 +6,8 @@ part 'offdutystatus_model.freezed.dart';
 @freezed
 class OffdutyStatusModel with _$OffdutyStatusModel{
   const factory OffdutyStatusModel({
-    @JsonKey(name: "N") @Default("") String nonReternable,
-    @JsonKey(name: "R") @Default("") String returnable,
+    @JsonKey(name: "code") @Default("") String code,
+    @JsonKey(name: "desc") @Default("") String description,
   }) = _OffdutyStatusModel;
 
   factory OffdutyStatusModel.fromJson(Map<String, dynamic> json) => _$OffdutyStatusModelFromJson(json);

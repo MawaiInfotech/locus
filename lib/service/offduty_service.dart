@@ -67,6 +67,46 @@ class OffdutyService{
     return null;
   }
 
+  //apply off duty
+
+  Future<String?> getApplyoffDuty(Map<String, dynamic>data) async {
+    const url = root + 'od-save';
+    final body = data;
+    try {
+      final response = await http.post(Uri.parse(url),
+          body: json.encode(body), headers: headers);
+      final responseBody = json.decode(response.body);
+      if (responseBody['status'] == true) {
+        return responseBody ['message'];
+      }else{
+        throw ApiError.fromResponse(responseBody['message']);
+      }
+    } catch (e) {
+      print(e);
+      _handleError(e);
+    }
+    // return null;
+  }
+
+  //Team Leader Leave Approve And Rejected
+
+  Future<String?> getAprovalRejectionData(Map<String, dynamic>data) async {
+    const url = root + 'od-state';
+    final body = data;
+    try {
+      final response = await http.post(Uri.parse(url),
+          body: json.encode(body), headers: headers);
+      final responseBody = json.decode(response.body);
+      if (responseBody['status'] == true) {
+        return responseBody ['message'];
+      } else {
+        throw ApiError.fromResponse(responseBody['message']);
+      }
+    } catch (e) {
+      print(e);
+      _handleError(e);
+    }
+  }
 
   _handleError(var e) {
     if (e is String) throw e;

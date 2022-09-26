@@ -2,6 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:locus/service/offduty_service.dart';
 import 'package:locus/state/requestoffduty_state.dart';
 import '../errors/api_error.dart';
+import '../model/offdutyclientlist_model.dart';
+import '../model/requestoffduty_model.dart';
 import '../service/login_service.dart';
 
 class RequestoffdutyBloc extends Cubit<RequestoffdutyState>{
@@ -21,4 +23,5 @@ class RequestoffdutyBloc extends Cubit<RequestoffdutyState>{
       emit(RequestoffdutyState.failed(state.requestoffdutyModel,  error.message));
     }
   }
+
 }

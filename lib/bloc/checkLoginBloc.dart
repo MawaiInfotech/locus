@@ -37,10 +37,10 @@ class CheckLoginBloc extends Cubit<CheckLoginState> {
     }
   }
 
-  Future<void> checkIn(String remark, String site, file) async {
+  Future<void> checkIn(String remark, String site, file, String address) async {
     emit(CheckLoginState.loading(AttendanceAction.checkIn, state.form));
     try {
-      final data = await attendanceService.getAttendance("in", remark, site, file);
+      final data = await attendanceService.getAttendance("in", remark, site, file, address);
 
       emit(CheckLoginState.content(state.action, CheckLoginModelForm(
           checkOutData: state.form.checkOutData,
@@ -51,10 +51,10 @@ class CheckLoginBloc extends Cubit<CheckLoginState> {
     }
   }
 
-  Future<void> checkOut(String remark, String site,file ) async {
+  Future<void> checkOut(String remark, String site,file, String address ) async {
     emit(CheckLoginState.loading(AttendanceAction.checkOut, state.form));
     try {
-      final data = await attendanceService.getAttendance("out", remark, site, file);
+      final data = await attendanceService.getAttendance("out", remark, site, file, address);
       emit(CheckLoginState.content(state.action, CheckLoginModelForm(
           checkOutData: data!['model'],
           checkInData: state.form.checkOutData,

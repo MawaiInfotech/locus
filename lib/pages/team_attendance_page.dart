@@ -300,7 +300,7 @@ class _TeamAttendancePageDetailState extends State<TeamAttendancePageDetail> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(model.team_atten.length == 0 ? selectedMonth : model.team_atten[0].month),
+                  Text(model.team_atten.length == 0 ? "Select Month" : model.team_atten[0].month),
                   const Icon(Icons.arrow_drop_down)
                 ],
               ),
@@ -479,8 +479,7 @@ class _ApproveRequestState extends State<ApproveRequest> {
     return Center(child: CircularProgressIndicator());
   }
 
-  Widget _buildTeamAttendance(
-      List<TeamLeaderAttendanceApprovelModel> attendanceDetailList) {
+  Widget _buildTeamAttendance(List<TeamLeaderAttendanceApprovelModel> attendanceDetailList) {
     return Container(
       child: Column(
         children: [

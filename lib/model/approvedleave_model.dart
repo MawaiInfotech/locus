@@ -17,6 +17,8 @@ const factory ApprovedLeaveModel({
   @JsonKey(name: "reason") @Default("") String reason,
   @JsonKey(name: "leave_granted_desc") @Default("") String leaveGrantedDescription,
   @JsonKey(name: "emp_name") @Default("") String employeeName,
+  @JsonKey(name: "dept_name") @Default("") String department,
+  @JsonKey(name: "dept_cd") @Default("") String departmentCode,
 }) = _ApprovedLeaveModel;
 
 factory ApprovedLeaveModel.fromJson(Map<String, dynamic> json) => _$ApprovedLeaveModelFromJson(json);

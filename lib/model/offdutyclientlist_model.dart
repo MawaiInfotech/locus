@@ -11,4 +11,5 @@ class OffdutyClientListModel with _$OffdutyClientListModel{
   }) = _OffdutyClientListModel;
 
   factory OffdutyClientListModel.fromJson(Map<String, dynamic> json) => _$OffdutyClientListModelFromJson(json);
+
 }

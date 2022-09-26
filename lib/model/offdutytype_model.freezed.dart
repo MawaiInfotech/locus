@@ -20,10 +20,10 @@ OffdutyTypeModel _$OffdutyTypeModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$OffdutyTypeModel {
-  @JsonKey(name: "P")
-  String get partial => throw _privateConstructorUsedError;
-  @JsonKey(name: "F")
-  String get fullDay => throw _privateConstructorUsedError;
+  @JsonKey(name: "code")
+  String get code => throw _privateConstructorUsedError;
+  @JsonKey(name: "desc")
+  String get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,8 @@ abstract class $OffdutyTypeModelCopyWith<$Res> {
           OffdutyTypeModel value, $Res Function(OffdutyTypeModel) then) =
       _$OffdutyTypeModelCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: "P") String partial, @JsonKey(name: "F") String fullDay});
+      {@JsonKey(name: "code") String code,
+      @JsonKey(name: "desc") String description});
 }
 
 /// @nodoc
@@ -51,17 +52,17 @@ class _$OffdutyTypeModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? partial = freezed,
-    Object? fullDay = freezed,
+    Object? code = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
-      partial: partial == freezed
-          ? _value.partial
-          : partial // ignore: cast_nullable_to_non_nullable
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String,
-      fullDay: fullDay == freezed
-          ? _value.fullDay
-          : fullDay // ignore: cast_nullable_to_non_nullable
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -75,7 +76,8 @@ abstract class _$$_OffdutyTypeModelCopyWith<$Res>
       __$$_OffdutyTypeModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: "P") String partial, @JsonKey(name: "F") String fullDay});
+      {@JsonKey(name: "code") String code,
+      @JsonKey(name: "desc") String description});
 }
 
 /// @nodoc
@@ -91,17 +93,17 @@ class __$$_OffdutyTypeModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? partial = freezed,
-    Object? fullDay = freezed,
+    Object? code = freezed,
+    Object? description = freezed,
   }) {
     return _then(_$_OffdutyTypeModel(
-      partial: partial == freezed
-          ? _value.partial
-          : partial // ignore: cast_nullable_to_non_nullable
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
               as String,
-      fullDay: fullDay == freezed
-          ? _value.fullDay
-          : fullDay // ignore: cast_nullable_to_non_nullable
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -111,22 +113,22 @@ class __$$_OffdutyTypeModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_OffdutyTypeModel implements _OffdutyTypeModel {
   const _$_OffdutyTypeModel(
-      {@JsonKey(name: "P") this.partial = "",
-      @JsonKey(name: "F") this.fullDay = ""});
+      {@JsonKey(name: "code") this.code = "",
+      @JsonKey(name: "desc") this.description = ""});
 
   factory _$_OffdutyTypeModel.fromJson(Map<String, dynamic> json) =>
       _$$_OffdutyTypeModelFromJson(json);
 
   @override
-  @JsonKey(name: "P")
-  final String partial;
+  @JsonKey(name: "code")
+  final String code;
   @override
-  @JsonKey(name: "F")
-  final String fullDay;
+  @JsonKey(name: "desc")
+  final String description;
 
   @override
   String toString() {
-    return 'OffdutyTypeModel(partial: $partial, fullDay: $fullDay)';
+    return 'OffdutyTypeModel(code: $code, description: $description)';
   }
 
   @override
@@ -134,16 +136,17 @@ class _$_OffdutyTypeModel implements _OffdutyTypeModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OffdutyTypeModel &&
-            const DeepCollectionEquality().equals(other.partial, partial) &&
-            const DeepCollectionEquality().equals(other.fullDay, fullDay));
+            const DeepCollectionEquality().equals(other.code, code) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(partial),
-      const DeepCollectionEquality().hash(fullDay));
+      const DeepCollectionEquality().hash(code),
+      const DeepCollectionEquality().hash(description));
 
   @JsonKey(ignore: true)
   @override
@@ -160,18 +163,18 @@ class _$_OffdutyTypeModel implements _OffdutyTypeModel {
 
 abstract class _OffdutyTypeModel implements OffdutyTypeModel {
   const factory _OffdutyTypeModel(
-      {@JsonKey(name: "P") final String partial,
-      @JsonKey(name: "F") final String fullDay}) = _$_OffdutyTypeModel;
+      {@JsonKey(name: "code") final String code,
+      @JsonKey(name: "desc") final String description}) = _$_OffdutyTypeModel;
 
   factory _OffdutyTypeModel.fromJson(Map<String, dynamic> json) =
       _$_OffdutyTypeModel.fromJson;
 
   @override
-  @JsonKey(name: "P")
-  String get partial;
+  @JsonKey(name: "code")
+  String get code;
   @override
-  @JsonKey(name: "F")
-  String get fullDay;
+  @JsonKey(name: "desc")
+  String get description;
   @override
   @JsonKey(ignore: true)
   _$$_OffdutyTypeModelCopyWith<_$_OffdutyTypeModel> get copyWith =>

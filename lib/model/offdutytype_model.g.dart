@@ -8,12 +8,12 @@ part of 'offdutytype_model.dart';
 
 _$_OffdutyTypeModel _$$_OffdutyTypeModelFromJson(Map<String, dynamic> json) =>
     _$_OffdutyTypeModel(
-      partial: json['P'] as String? ?? "",
-      fullDay: json['F'] as String? ?? "",
+      code: json['code'] as String? ?? "",
+      description: json['desc'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$_OffdutyTypeModelToJson(_$_OffdutyTypeModel instance) =>
     <String, dynamic>{
-      'P': instance.partial,
-      'F': instance.fullDay,
+      'code': instance.code,
+      'desc': instance.description,
     };

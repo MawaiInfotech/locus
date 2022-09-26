@@ -34,13 +34,14 @@ class LoginModelAdapter extends TypeAdapter<LoginModel> {
       start_time: fields[13] as String?,
       description: fields[15] as String?,
       company_email: fields[16] as String?,
+      user_from: fields[17] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, LoginModel obj) {
     writer
-      ..writeByte(17)
+      ..writeByte(18)
       ..writeByte(0)
       ..write(obj.emp_cd)
       ..writeByte(1)
@@ -74,7 +75,9 @@ class LoginModelAdapter extends TypeAdapter<LoginModel> {
       ..writeByte(15)
       ..write(obj.description)
       ..writeByte(16)
-      ..write(obj.company_email);
+      ..write(obj.company_email)
+      ..writeByte(17)
+      ..write(obj.user_from);
   }
 
   @override
@@ -110,6 +113,7 @@ LoginModel _$LoginModelFromJson(Map<String, dynamic> json) => LoginModel(
       start_time: json['start_time'] as String?,
       description: json['description'] as String?,
       company_email: json['company_email'] as String?,
+      user_from: json['user_from'] as String?,
     );
 
 Map<String, dynamic> _$LoginModelToJson(LoginModel instance) {
@@ -138,5 +142,6 @@ Map<String, dynamic> _$LoginModelToJson(LoginModel instance) {
   writeNotNull('end_time', instance.end_time);
   writeNotNull('description', instance.description);
   writeNotNull('company_email', instance.company_email);
+  writeNotNull('user_from', instance.user_from);
   return val;
 }

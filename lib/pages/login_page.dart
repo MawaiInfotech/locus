@@ -1,6 +1,9 @@
+import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
 import 'package:locus/bloc/login_bloc.dart';
 import 'package:locus/model/login_form.dart';
 import 'package:locus/routes/app_routes.dart';
@@ -9,6 +12,7 @@ import 'package:locus/state/login_state.dart';
 import 'package:locus/themes/app_colors.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_textfield.dart';
+import 'package:new_version/new_version.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -29,20 +33,8 @@ class _LoginPageState extends State<LoginPage> {
 
   final textFieldFocusNode = FocusNode();
 
-  bool _obscured = false;
-
-  void _toggleObscured() {
-    setState(() {
-      _obscured = !_obscured;
-      if (textFieldFocusNode.hasPrimaryFocus) return; // If focus is on text field, dont unfocus
-      textFieldFocusNode.canRequestFocus = false;     // Prevents focus if tap on eye
-    });
-  }
-
-
   @override
-  void initState(){
-
+  void initState() {
     final loginService = Provider.of<LoginService>(context, listen: false);
     bloc = LoginPageBloc(loginService);
     getData();
@@ -52,11 +44,11 @@ class _LoginPageState extends State<LoginPage> {
 
   bool permissionPopupLogin = false;
 
-  getData()async{
+  getData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState((){
+    setState(() {
       permissionPopupLogin = prefs.getBool("permissionPopupLogin") ?? false;
-      if(!permissionPopupLogin){
+      if (!permissionPopupLogin) {
         _showDialog();
       }
     });
@@ -69,35 +61,46 @@ class _LoginPageState extends State<LoginPage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text("Permission Policy\n We will be needing in this app ?"),
+            title: const Text(
+                "Permission Policy\n We will be needing in this app ?"),
             content: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Location Permission", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),),
-                const
-                Text("Locus needs your location coordinates for a host of activities – attendance management,to coordinate with your field teams and to make possible your travel reimbursement claims.",
+                Text(
+                  "Location Permission",
+                  style:
+                      TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),
                 ),
-                Text("Camera Permission", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),),
-                const Text("This is to check whether the person himself/herself is marking the attendance.\nFurther , This is to enable our users to capture and attach photos of their expense bills while submitting for reimbursement.\n It also helps them attach photos while collecting data through custom forms.",
-
+                const Text(
+                  "Locus needs your location coordinates for a host of activities – attendance management,to coordinate with your field teams and to make possible your travel reimbursement claims.",
+                ),
+                Text(
+                  "Camera Permission",
+                  style:
+                      TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),
+                ),
+                const Text(
+                  "This is to check whether the person himself/herself is marking the attendance.\nFurther , This is to enable our users to capture and attach photos of their expense bills while submitting for reimbursement.\n It also helps them attach photos while collecting data through custom forms.",
                 ),
               ],
             ),
             actions: [
               Center(
                 child: ElevatedButton(
-                    onPressed: ()async {
-                      SharedPreferences prefs = await SharedPreferences.getInstance();
+                    onPressed: () async {
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
                       prefs.setBool("permissionPopupLogin", true);
                       Navigator.pop(context);
                     },
                     style: ElevatedButton.styleFrom(
                         primary: AppColors.portalgreen,
-                        minimumSize: Size(150.dw, 50.dw)
-                    ),
-                    child: Text("Confirm", style: TextStyle(fontSize: 18.dw),)),
+                        minimumSize: Size(150.dw, 50.dw)),
+                    child: Text(
+                      "Confirm",
+                      style: TextStyle(fontSize: 18.dw),
+                    )),
               )
-
             ],
           );
         });
@@ -106,40 +109,44 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,
-        bottomNavigationBar:  BottomAppBar(
+        extendBody: true,
+        bottomNavigationBar: BottomAppBar(
           elevation: 0,
           color: AppColors.brown,
           child: Text(
             "© Mawai infotech Ltd. All Rights Reserved",
             textAlign: TextAlign.center,
-            style: TextStyle(fontWeight: FontWeight.w500,fontSize: 14.dw),
+            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14.dw),
           ),
         ),
         body: SafeArea(
             child: Center(
           child: BlocConsumer<LoginPageBloc, LoginPageState>(
             bloc: bloc,
-            listener: (_, state){
-              final isSuccess = state.maybeWhen(
-                  success: (_) => true,
-                  orElse: () => false);
-              if(isSuccess){
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar
-                  (content: Text("Login Successfull"), duration: Duration(milliseconds: 500),));
-                Navigator.popAndPushNamed(context, AppRoutes.navigationPage);
+            listener: (_, state) {
+              final isSuccess =
+                  state.maybeWhen(success: (_) => true, orElse: () => false);
+              if (isSuccess) {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content: Text("Login Successfull"),
+                  duration: Duration(milliseconds: 500),
+                ));
+                final userFroms = Hive.box("userFrom").get("userFrom");
+                if(userFroms=="R")
+                Navigator.popAndPushNamed(context, AppRoutes.dummyattendancepage);
+                else{
+                  Navigator.popAndPushNamed(context, AppRoutes.navigationPage);
+               }
               }
-              final hasFailed =  state.maybeWhen(
-                  failed: (_,__) => true,
-                  orElse: () => false);
-              if(hasFailed){
-                final message =  state.maybeWhen(
-                    failed: (_, msg) => msg,
-                    orElse: () => null);
+              final hasFailed =
+                  state.maybeWhen(failed: (_, __) => true, orElse: () => false);
+              if (hasFailed) {
+                final message = state.maybeWhen(
+                    failed: (_, msg) => msg, orElse: () => null);
                 _showSnackBar(message!);
               }
             },
-            builder: (_, state){
+            builder: (_, state) {
               return state.when(
                   loading: _buildLoading,
                   content: _buildContent,
@@ -147,11 +154,10 @@ class _LoginPageState extends State<LoginPage> {
                   failed: (form, _) => _buildContent(form));
             },
           ),
-        ))
-    );
+        )));
   }
 
-  Widget _buildLoading(LoginForm form){
+  Widget _buildLoading(LoginForm form) {
     return Stack(
       children: [
         _buildContent(form),
@@ -162,16 +168,37 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _buildContent(LoginForm form){
-    return  ListView(
-      //shrinkWrap: true,
-      //crossAxisAlignment: CrossAxisAlignment.start,
+  Widget _buildContent(LoginForm form) {
+    return ListView(
       children: [
         _buildTitle(),
         _buildLoginText(),
         _buildTextField(form),
         _buildCheckBox(form),
         _buildLoginButton(),
+        Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _buildText(title: "Dont have an account ?"),
+                TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, AppRoutes.dummysignuppage);
+                    },
+                    child: Text(
+                      "Signup",
+                      style: TextStyle(
+                          color: AppColors.portalorange,
+                          fontSize: 18.dw,
+                          fontWeight: FontWeight.w600),
+                    ))
+              ],
+            ),
+            Text("V 2.1.0+3", style: TextStyle(fontSize: 14.dw),)
+          ],
+        ),
+       
       ],
     );
   }
@@ -219,13 +246,13 @@ class _LoginPageState extends State<LoginPage> {
     return Column(
       children: [
         Card(
-          margin: EdgeInsets.only(bottom: 10.dh, top: 10.dh),
+          margin: EdgeInsets.only(bottom: 10.dh, top: 20.dh),
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(40.dh)),
           child: AppTextField(
             text: form.employeeCode,
             onSearchChanged: bloc.updateEmployeeCode,
-            hintText: 'Employee Code',
+            hintText: 'User Code',
             icon: Icons.person,
           ),
         ),
@@ -241,19 +268,14 @@ class _LoginPageState extends State<LoginPage> {
             icon: Icons.lock,
           ),
         ),
-
       ],
     );
   }
 
   _buildLoginText() {
     return Padding(
-      padding: EdgeInsets.only(left: 20.0.dw, top: 80.dh),
+      padding: EdgeInsets.only(left: 20.0.dw, top: 40.dh),
       child: Container(
-        child: Text(
-          "Login",
-          style: TextStyle(fontSize: 25.0.dh, fontWeight: FontWeight.w600),
-        ),
         decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [AppColors.red, Colors.white],
@@ -261,12 +283,16 @@ class _LoginPageState extends State<LoginPage> {
               end: AlignmentDirectional.topEnd,
             ),
             border:
-            Border(left: BorderSide(color: AppColors.red, width: 4.0.dw))),
+                Border(left: BorderSide(color: AppColors.red, width: 4.0.dw))),
+        child: Text(
+          "Login",
+          style: TextStyle(fontSize: 20.0.dh, fontWeight: FontWeight.w600),
+        ),
       ),
     );
   }
 
-  _buildCheckBox(LoginForm form ) {
+  _buildCheckBox(LoginForm form) {
     return Padding(
       padding: EdgeInsets.only(top: 10.dw),
       child: Row(
@@ -290,14 +316,16 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-  
-  _buildForgetPassword(){
+
+  _buildForgetPassword() {
     return TextButton(
-        onPressed: (){
+        onPressed: () {
           Navigator.pushNamed(context, AppRoutes.forgetpassword);
         },
-        child: Text("Forget Password",style: TextStyle(color: AppColors.portalorange),)
-    );
+        child: Text(
+          "Forget Password",
+          style: TextStyle(color: AppColors.portalorange),
+        ));
   }
 
   _showSnackBar(String message) {
@@ -308,7 +336,7 @@ class _LoginPageState extends State<LoginPage> {
 
   _buildLoginButton() {
     return InkWell(
-      onTap:  bloc.logIn,
+      onTap: bloc.logIn,
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -335,8 +363,15 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  _buildText({required String title}) {
+    return Text(
+      title,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+          color: AppColors.black, fontWeight: FontWeight.w400, fontSize: 14.dh),
+    );
+  }
+
+
 
 }
-
-
-

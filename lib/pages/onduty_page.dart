@@ -10,8 +10,11 @@ import 'package:locus/state/employeeoffdutylist_state.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_top_bar.dart';
 import 'package:provider/provider.dart';
+import '../bloc/odapprovereject_bloc.dart';
+import '../bloc/teamleader_leaveapprove_bloc.dart';
 import '../routes/app_routes.dart';
 import '../service/login_service.dart';
+import '../state/odapprovereject_state.dart';
 import '../themes/app_colors.dart';
 
 class OnDutyPage extends StatefulWidget {
@@ -119,6 +122,8 @@ class _MyOffDutyPageState extends State<MyOffDutyPage> {
 
   late ApproveoffdutyBloc approveoffdutyBloc;
 
+  late OdApproveRejectBloc odApproveRejectBloc;
+
   late LoginService loginService = LoginService();
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -134,12 +139,14 @@ class _MyOffDutyPageState extends State<MyOffDutyPage> {
     bloc = EmployeeoffdutyBloc(offdutyService, loginService);
     approveoffdutyBloc = ApproveoffdutyBloc(offdutyService, loginService);
     bloc.init();
+    odApproveRejectBloc = OdApproveRejectBloc(offdutyService);
     approveoffdutyBloc.init();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
         body: _buildBody());
   }
 
@@ -208,22 +215,21 @@ class _MyOffDutyPageState extends State<MyOffDutyPage> {
               ],
             ),
           ),
-          if(model.odStateName == "Pending")
-            Padding(
+          if(model.odStateName == "Pending")Padding(
               padding: EdgeInsets.only(right: 20.dw, top: 20.dw),
               child: InkWell(
                 onTap: (){
-                //  openApproveDialog(model);
+                  openApproveDialog(model);
+                  approveoffdutyBloc.init();
                 },
                 child: Image.asset("assets/images/undo-2.png", scale: 22.dw,),
               ),
             ),
-          if(model.odStateName == "Approved")(
-              Padding(
+          if(model.odStateName == "Approved")(Padding(
                 padding: EdgeInsets.only(right: 10.dw, top: 18.dw),
-                child: Image.asset("assets/images/check-mark.png", scale: 20.dw,),
+                child: Image.asset("assets/images/approved.png", scale: 12.dw,),
               )),
-          if(model.odStateName == "Reject")(Padding(
+          if(model.odStateName == "Rejected")(Padding(
                 padding: EdgeInsets.only(right: 10.dw, top: 5.dw),
                 child: Image.asset("assets/images/rejected.png", scale: 12.dw,),
               )),
@@ -238,8 +244,9 @@ class _MyOffDutyPageState extends State<MyOffDutyPage> {
 
   _buildRequestOffdutyButton() {
     return ElevatedButton(
-        onPressed: () {
-          Navigator.pushNamed(context, AppRoutes.requestoffduty);
+        onPressed: () async {
+          final shouldInit = await Navigator.pushNamed(context, AppRoutes.requestoffduty) as bool?;
+          if(shouldInit != null && shouldInit) bloc.init();
         },
         style: ElevatedButton.styleFrom(
             primary: AppColors.red
@@ -250,71 +257,109 @@ class _MyOffDutyPageState extends State<MyOffDutyPage> {
         ));
   }
 
-  // Future openApproveDialog(EmployeeleaveListModel model) => showDialog(
-  //   context: context,
-  //   builder: (context) => Dialog(
-  //     elevation: 8.0,
-  //     shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-  //     child: SingleChildScrollView(
-  //       child: SizedBox(
-  //           height: 220.dh,
-  //           child: Column(
-  //             mainAxisAlignment: MainAxisAlignment.center,
-  //             children: [
-  //               Padding(
-  //                 padding: EdgeInsets.all(8.0.dw),
-  //                 child:  Text("Are you sure you want to cancel ?", style: TextStyle(fontSize: 18.dw,fontWeight: FontWeight.w400),),
-  //               ),
-  //               Row(
-  //                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  //                 children: [
-  //                   Padding(
-  //                     padding: EdgeInsets.all(8.0.dw),
-  //                     child: ElevatedButton(
-  //                       onPressed: (){
-  //                         Navigator.pop(context);
-  //                       },
-  //                       style: ElevatedButton.styleFrom(
-  //                           primary: AppColors.red,
-  //                           minimumSize: Size(40.dw, 30.dh),
-  //                           elevation: 8.0,
-  //                           shape: RoundedRectangleBorder(
-  //                               borderRadius: BorderRadius.circular(8.0))),
-  //                       child:  Text(
-  //                         "Cancel",
-  //                         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.dw),
-  //                       ),
-  //                     ),
-  //                   ),
-  //                   Padding(
-  //                     padding: EdgeInsets.all(8.0.dw),
-  //                     child: ElevatedButton(
-  //                       onPressed: (){
-  //                         _approvalRejection(model,"C");
-  //                         Navigator.pop(context);
-  //                       },
-  //                       style: ElevatedButton.styleFrom(
-  //                           primary: Colors.lightGreen,
-  //                           minimumSize: Size(80.dw, 30.dh),
-  //                           elevation: 8.0,
-  //                           shape: RoundedRectangleBorder(
-  //                               borderRadius: BorderRadius.circular(8.0))),
-  //                       child:  Text(
-  //                         "Ok",
-  //                         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.dw),
-  //                       ),
-  //                     ),
-  //                   ),
-  //                 ],
-  //               )
-  //
-  //             ],
-  //
-  //           )
-  //       ),
-  //     ),
-  //   ),
-  // );
+  Future openApproveDialog(EmployeeoffdutyListModel model) => showDialog(
+    context: context,
+    builder: (context) => Dialog(
+      elevation: 8.0,
+      shape:
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+      child: SingleChildScrollView(
+        child: SizedBox(
+            height: 220.dh,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: Text(
+                    "Are you sure you want to cancel ?",
+                    style: TextStyle(
+                        fontSize: 18.dw, fontWeight: FontWeight.w400),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(8.0.dw),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          approveoffdutyBloc.init();
+                          Navigator.pop(context);
+                        },
+                        style: ElevatedButton.styleFrom(
+                            primary: AppColors.red,
+                            minimumSize: Size(40.dw, 30.dh),
+                            elevation: 8.0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0))),
+                        child: Text(
+                          "Cancel",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18.dw),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8.0.dw),
+                      child: BlocConsumer<OdApproveRejectBloc, OdApproveRejectState>(
+                          bloc: odApproveRejectBloc,
+                          listener: (_, state){
+                            state.maybeWhen(
+                                success: (_, message){
+                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message??"Something")));
+                                  Navigator.pop(context);
+                             bloc.init();
+                                },
+                                failed: (_, message){
+                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+                                }, orElse:(){});
+                          },
+                          builder: (context, state) {
+                            return state.maybeWhen(
+                                loading: (_){
+                                  return CircularProgressIndicator();
+                                },
+                                orElse: (){
+                                  return ElevatedButton(
+                                    onPressed: () {
+                                      _approvalRejection(model, "C");
+                                      bloc.init();
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                        primary: Colors.lightGreen,
+                                        minimumSize: Size(80.dw, 30.dh),
+                                        elevation: 8.0,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(8.0))),
+                                    child: Text(
+                                      "Ok",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold, fontSize: 18.dw),
+                                    ),
+                                  );
+                                });
+                          }
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            )),
+      ),
+    ),
+  );
+
+  void _approvalRejection(EmployeeoffdutyListModel model, String odState) async {
+    final data = {
+      "emp_cd": loginService.getCurrentUser!.emp_cd,
+      "unit_cd": loginService.getCurrentUser!.unit_cd,
+      "gate_pass_id": model.gatePassId,
+      "od_state": odState,
+    };
+    await odApproveRejectBloc.ApprovalRejectionStatus(data);
+    bloc.init();
+  }
 
 }
 
@@ -334,8 +379,9 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   TextEditingController approvalController = TextEditingController();
-
   TextEditingController rejectionController = TextEditingController();
+
+  late OdApproveRejectBloc odApproveRejectBloc;
 
   @override
   void initState() {
@@ -344,6 +390,7 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
     loginService = Provider.of<LoginService>(context, listen: false);
     approveoffdutyBloc = ApproveoffdutyBloc(offdutyService, loginService);
     approveoffdutyBloc.init();
+    odApproveRejectBloc = OdApproveRejectBloc(offdutyService);
   }
 
   @override
@@ -529,7 +576,7 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
               ],
             ),
             onPressed: () {
-             // openRejectionDialog(model);
+              openRejectionDialog(model);
 
             },
           ),
@@ -547,8 +594,8 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
                   fontWeight: FontWeight.w600,
                   color: Colors.white),),
             onPressed: () {
-             // openApproveDialog(model);
-              // _approvalRejection(model, "A");
+              openApproveDialog(model);
+              //_approvalRejection(model, "A");
             },
           ),
         ),
@@ -556,172 +603,169 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
     );
   }
 
-  // void _approvalRejection(ApproveoffdutyModel model, String grantedType, String remarks) async {
-  //   final data = {
-  //     "emp_cd" : loginService.getCurrentUser!.emp_cd,
-  //     "leave_pk_id": model.leaveId,
-  //     "leave_granted": grantedType,
-  //     "remarks": remarks,
-  //   };
-  //   await teamLeaderLeaveApproveRejectBloc.ApprovalRejectionStatus(data);
-  //   final state = teamLeaderLeaveApproveRejectBloc.state;
-  //   state.maybeWhen(
-  //       success: (model, message) {
-  //         ScaffoldMessenger.of(scaffoldKey.currentContext!)
-  //             .showSnackBar(SnackBar(
-  //             content: Text(
-  //               message!,
-  //               style: const TextStyle(color: Colors.white),
-  //             )));
-  //         approvedleaveBloc.init();
-  //       },
-  //       failed: (model, message) {
-  //         ScaffoldMessenger.of(scaffoldKey.currentContext!)
-  //             .showSnackBar(SnackBar(content: Text(message)));
-  //       },
-  //       orElse: () {});
-  // }
-  //
-  // Future openApproveDialog(ApproveoffdutyModel model) => showDialog(
-  //   context: context,
-  //   builder: (context) => Dialog(
-  //     elevation: 8.0,
-  //     shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-  //     child: SingleChildScrollView(
-  //       child: SizedBox(
-  //           height: 220.dh,
-  //           child: Column(
-  //             children: [
-  //               Padding(
-  //                 padding: EdgeInsets.all(8.0.dw),
-  //                 child:  Text("Are you sure you want to approve?", style: TextStyle(fontSize: 16.dw,fontWeight: FontWeight.w400),),
-  //               ),
-  //               Padding(
-  //                 padding: EdgeInsets.all(8.0.dw),
-  //                 child: TextField(
-  //                   maxLines: null,
-  //                   controller: approvalController,
-  //                   keyboardType: TextInputType.multiline,
-  //                   decoration: InputDecoration(
-  //                       hintText: "  Enter Your Remark Here",
-  //                       contentPadding: EdgeInsets.all(8.dw)
-  //                   ),
-  //                 ),
-  //               ),
-  //               Row(
-  //                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  //                 children: [
-  //                   ElevatedButton(
-  //                     onPressed: (){
-  //                       Navigator.pop(context);
-  //                     },
-  //                     style: ElevatedButton.styleFrom(
-  //                         primary: AppColors.red,
-  //                         minimumSize: Size(40.dw, 30.dh),
-  //                         elevation: 8.0,
-  //                         shape: RoundedRectangleBorder(
-  //                             borderRadius: BorderRadius.circular(8.0))),
-  //                     child:  Text(
-  //                       "Cancel",
-  //                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.dw),
-  //                     ),
-  //                   ),
-  //                   ElevatedButton(
-  //                     onPressed: (){
-  //                       _approvalRejection(model,"A", approvalController.text);
-  //                       Navigator.pop(context);
-  //                     },
-  //                     style: ElevatedButton.styleFrom(
-  //                         primary: Colors.lightGreen,
-  //                         minimumSize: Size(40.dw, 30.dh),
-  //                         elevation: 8.0,
-  //                         shape: RoundedRectangleBorder(
-  //                             borderRadius: BorderRadius.circular(8.0))),
-  //                     child:  Text(
-  //                       "Approve",
-  //                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.dw),
-  //                     ),
-  //                   ),
-  //                 ],
-  //               )
-  //
-  //             ],
-  //
-  //           )
-  //       ),
-  //     ),
-  //   ),
-  // );
-  //
-  // Future openRejectionDialog(ApproveoffdutyModel model) => showDialog(
-  //   context: context,
-  //   builder: (context) => Dialog(
-  //     elevation: 8.0,
-  //     shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-  //     child: SingleChildScrollView(
-  //       child: SizedBox(
-  //           height: 220.dh,
-  //           child: Column(
-  //             children: [
-  //               Padding(
-  //                 padding: EdgeInsets.all(8.0.dw),
-  //                 child:  Text("Are you sure you want to reject?", style: TextStyle(fontSize: 16.dw,fontWeight: FontWeight.w400),),
-  //               ),
-  //               Padding(
-  //                 padding: EdgeInsets.all(8.0.dw),
-  //                 child: TextField(
-  //                   maxLines: null,
-  //                   controller: approvalController,
-  //                   keyboardType: TextInputType.multiline,
-  //                   decoration: InputDecoration(
-  //                       hintText: "  Enter Your Remark Here",
-  //                       contentPadding: EdgeInsets.all(8.dw)
-  //                   ),
-  //                 ),
-  //               ),
-  //               Row(
-  //                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  //                 children: [
-  //                   ElevatedButton(
-  //                     onPressed: (){
-  //                       Navigator.pop(context);
-  //                     },
-  //                     style: ElevatedButton.styleFrom(
-  //                         primary: AppColors.red,
-  //                         minimumSize: Size(40.dw, 30.dh),
-  //                         elevation: 8.0,
-  //                         shape: RoundedRectangleBorder(
-  //                             borderRadius: BorderRadius.circular(8.0))),
-  //                     child:  Text(
-  //                       "Cancel",
-  //                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.dw),
-  //                     ),
-  //                   ),
-  //                   ElevatedButton(
-  //                     onPressed: (){
-  //                       _approvalRejection(model, "R", rejectionController.text);
-  //                       Navigator.pop(context);
-  //                     },
-  //                     style: ElevatedButton.styleFrom(
-  //                         primary: AppColors.portalgreyBlue,
-  //                         minimumSize: Size(40.dw, 30.dh),
-  //                         elevation: 8.0,
-  //                         shape: RoundedRectangleBorder(
-  //                             borderRadius: BorderRadius.circular(8.0))),
-  //                     child:  Text(
-  //                       "Reject",
-  //                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.dw),
-  //                     ),
-  //                   ),
-  //                 ],
-  //               )
-  //
-  //             ],
-  //
-  //           )
-  //       ),
-  //     ),
-  //   ),
-  // );
+  void _approvalRejection(ApproveoffdutyModel model, String odState) async {
+    final data = {
+      "emp_cd": loginService.getCurrentUser!.emp_cd,
+      "unit_cd": loginService.getCurrentUser!.unit_cd,
+      "gate_pass_id": model.gatePassId,
+      "od_state": odState,
+    };
+    await odApproveRejectBloc.ApprovalRejectionStatus(data);
+    approveoffdutyBloc.init();
+  }
+
+  Future openApproveDialog(ApproveoffdutyModel model) => showDialog(
+    context: context,
+    builder: (context) => Dialog(
+      elevation: 8.0,
+      shape:
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+      child: SingleChildScrollView(
+        child: SizedBox(
+            height: 220.dh,
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: Text(
+                    "Are you sure you want to approve?",
+                    style: TextStyle(
+                        fontSize: 16.dw, fontWeight: FontWeight.w400),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: TextField(
+                    maxLines: null,
+                    controller: approvalController,
+                    keyboardType: TextInputType.multiline,
+                    decoration: InputDecoration(
+                        hintText: "  Enter Your Remark Here",
+                        contentPadding: EdgeInsets.all(8.dw)),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        approveoffdutyBloc.init();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: AppColors.red,
+                          minimumSize: Size(40.dw, 30.dh),
+                          elevation: 8.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0))),
+                      child: Text(
+                        "Cancel",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18.dw),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        _approvalRejection(model, "A");
+                        approveoffdutyBloc.init();
+                        Navigator.pop(context);
+
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.lightGreen,
+                          minimumSize: Size(40.dw, 30.dh),
+                          elevation: 8.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0))),
+                      child: Text(
+                        "Approve",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18.dw),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            )),
+      ),
+    ),
+  );
+
+  Future openRejectionDialog(ApproveoffdutyModel model) => showDialog(
+    context: context,
+    builder: (context) => Dialog(
+      elevation: 8.0,
+      shape:
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+      child: SingleChildScrollView(
+        child: SizedBox(
+            height: 220.dh,
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: Text(
+                    "Are you sure you want to reject?",
+                    style: TextStyle(
+                        fontSize: 16.dw, fontWeight: FontWeight.w400),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: TextField(
+                    maxLines: null,
+                    controller: approvalController,
+                    keyboardType: TextInputType.multiline,
+                    decoration: InputDecoration(
+                        hintText: "  Enter Your Remark Here",
+                        contentPadding: EdgeInsets.all(8.dw)),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        approveoffdutyBloc.init();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: AppColors.red,
+                          minimumSize: Size(40.dw, 30.dh),
+                          elevation: 8.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0))),
+                      child: Text(
+                        "Cancel",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18.dw),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        _approvalRejection(model, "R");
+                        //approvedleaveBloc.init();
+                        Navigator.pop(context);
+
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: AppColors.portalgreyBlue,
+                          minimumSize: Size(40.dw, 30.dh),
+                          elevation: 8.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0))),
+                      child: Text(
+                        "Reject",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18.dw),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            )),
+      ),
+    ),
+  );
 }
 

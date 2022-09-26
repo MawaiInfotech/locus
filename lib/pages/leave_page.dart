@@ -12,6 +12,8 @@ import 'package:locus/service/leave_service.dart';
 import 'package:locus/service/login_service.dart';
 import 'package:locus/state/approvedleave_state.dart';
 import 'package:locus/state/leavetype_state.dart';
+import 'package:locus/state/teamleader_attendanceapproverejection_state.dart';
+import 'package:locus/state/teamleader_leaveApprovereject_state.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_top_bar.dart';
 import 'package:provider/provider.dart';
@@ -25,8 +27,8 @@ class LeavePage extends StatefulWidget {
   State<LeavePage> createState() => _LeavePageState();
 }
 
-class _LeavePageState extends State<LeavePage>
-    with SingleTickerProviderStateMixin {
+class _LeavePageState extends State<LeavePage> with SingleTickerProviderStateMixin {
+
   late TabController tabController;
 
   late PageController pageController;
@@ -63,18 +65,17 @@ class _LeavePageState extends State<LeavePage>
         body: Column(
           children: [
             SizedBox(
-              height: 110.dh,
+              height: 100.dh,
               child: TabBar(
                 controller: tabController,
                 indicatorColor: AppColors.navyblue,
                 indicatorWeight: 6.dw,
                 labelColor: AppColors.bloodred,
                 unselectedLabelColor: AppColors.navyblue,
-                unselectedLabelStyle: TextStyle(fontSize: 16.dh),
+                unselectedLabelStyle: TextStyle(fontSize: 14.dh),
                 indicatorPadding: EdgeInsets.all(8.dh),
-                labelPadding: const EdgeInsets.all(8),
-                labelStyle:
-                    TextStyle(fontSize: 18.dh, fontWeight: FontWeight.w600),
+                labelPadding: EdgeInsets.all(8.dw),
+                labelStyle: TextStyle(fontSize: 18.dh, fontWeight: FontWeight.w500),
                 tabs: [
                   Column(
                     children: [
@@ -91,7 +92,7 @@ class _LeavePageState extends State<LeavePage>
                         "assets/images/leave-2.png",
                         scale: 14.dw,
                       ),
-                      const Text("Approved Leaves"),
+                      Text("Pending For Approval", style: TextStyle(fontSize: 16.dw),),
                     ],
                   ),
                 ],
@@ -364,45 +365,41 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
                       fontSize: 14.dw,
                       fontWeight: FontWeight.w400),
                 ),
-                Text(
-                  "${"Reason "} - ${model.reason}",
-                  style: TextStyle(
-                      color: AppColors.navyblue,
-                      fontSize: 14.dw,
-                      fontWeight: FontWeight.w400),
+                Container(
+                  width: 180.dw,
+                  child: Text(
+                    "${"Reason "} - ${model.reason}",
+                    maxLines: 2,
+                    style: TextStyle(
+                        color: AppColors.navyblue,
+                        fontSize: 14.dw,
+                        fontWeight: FontWeight.w400),
+                  ),
                 ),
               ],
             ),
           ),
-          if (model.leaveGrantedDescription == "Pending")
-            Padding(
-              padding: EdgeInsets.only(right: 20.dw, top: 20.dw),
-              child: InkWell(
-                onTap: () {
-                  openApproveDialog(model);
+          if(model.leaveGrantedDescription == "Pending")Padding(
+            padding: EdgeInsets.only(right: 20.dw, top: 20.dw),
+            child: InkWell(
+              onTap: (){
+                openApproveDialog(model);
                 },
-                child: Image.asset(
-                  "assets/images/undo-2.png",
-                  scale: 22.dw,
-                ),
-              ),
+              child: Image.asset("assets/images/undo-2.png", scale: 22.dw,),
             ),
-          if (model.leaveGrantedDescription == "Approved")
-            (Padding(
-              padding: EdgeInsets.only(right: 10.dw, top: 18.dw),
-              child: Image.asset(
-                "assets/images/check-mark.png",
-                scale: 20.dw,
-              ),
-            )),
-          if (model.leaveGrantedDescription == "Rejected")
-            (Padding(
-              padding: EdgeInsets.only(right: 10.dw, top: 5.dw),
-              child: Image.asset(
-                "assets/images/rejected.png",
-                scale: 12.dw,
-              ),
-            ))
+          ),
+          if(model.leaveGrantedDescription == "Approved")(Padding(
+            padding: EdgeInsets.only(right: 10.dw, top: 18.dw),
+            child: Image.asset("assets/images/approved.png", scale: 12.dw,),
+          )),
+          if(model.leaveGrantedDescription == "Rejected")(Padding(
+            padding: EdgeInsets.only(right: 10.dw, top: 5.dw),
+            child: Image.asset("assets/images/rejected.png", scale: 12.dw,),
+          )),
+          if(model.leaveGrantedDescription == "Cancel")(Padding(
+            padding: EdgeInsets.only(right: 10.dw, top: 10.dw),
+            child: Image.asset("assets/images/cancelled.png", scale: 16.dw,),
+          )),
         ],
       ),
     );
@@ -412,9 +409,10 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
     return Padding(
       padding: EdgeInsets.all(10.0.dw),
       child: ElevatedButton(
-          onPressed: () {
-            Navigator.pushNamed(context, AppRoutes.requestLeave);
-            bloc.init();
+          onPressed: () async {
+            final shouldInit = await Navigator.pushNamed(context, AppRoutes.requestLeave) as bool?;
+            print(shouldInit);
+            if(shouldInit != null && shouldInit) bloc.init();
           },
           style: ElevatedButton.styleFrom(
             primary: AppColors.red,
@@ -447,6 +445,17 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
                             fontSize: 18.dw, fontWeight: FontWeight.w400),
                       ),
                     ),
+                    Padding(
+                      padding: EdgeInsets.all(8.0.dw),
+                      child: TextField(
+                        maxLines: null,
+                        controller: cancelController,
+                        keyboardType: TextInputType.multiline,
+                        decoration: InputDecoration(
+                            hintText: "  Enter Your Remark Here",
+                            contentPadding: EdgeInsets.all(8.dw)),
+                      ),
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -469,26 +478,70 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
                             ),
                           ),
                         ),
+
+                        // Padding(
+                        //   padding: EdgeInsets.all(8.0.dw),
+                        //   child: ElevatedButton(
+                        //     onPressed: () {
+                        //       _approvalRejection(model, "C");
+                        //
+                        //       Navigator.pop(context);
+                        //       bloc.init();
+                        //       approvedleaveBloc.init();
+                        //     },
+                        //     style: ElevatedButton.styleFrom(
+                        //         primary: Colors.lightGreen,
+                        //         minimumSize: Size(80.dw, 30.dh),
+                        //         elevation: 8.0,
+                        //         shape: RoundedRectangleBorder(
+                        //             borderRadius: BorderRadius.circular(8.0))),
+                        //     child: Text(
+                        //       "Ok",
+                        //       style: TextStyle(
+                        //           fontWeight: FontWeight.bold, fontSize: 18.dw),
+                        //     ),
+                        //   ),
+                        // ),
                         Padding(
                           padding: EdgeInsets.all(8.0.dw),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              _approvalRejection(model, "C");
-
-                              Navigator.pop(context);
-                              approvedleaveBloc.init();
-                            },
-                            style: ElevatedButton.styleFrom(
-                                primary: Colors.lightGreen,
-                                minimumSize: Size(80.dw, 30.dh),
-                                elevation: 8.0,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8.0))),
-                            child: Text(
-                              "Ok",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 18.dw),
-                            ),
+                          child: BlocConsumer<TeamLeaderLeaveApproveRejectBloc, TeamleaderLeaveApproveState>(
+                              bloc: teamLeaderLeaveApproveRejectBloc,
+                              listener: (_, state){
+                                state.maybeWhen(
+                                    success: (_, message){
+                                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message??"Something")));
+                                      Navigator.pop(context);
+                                      bloc.init();
+                                    },
+                                    failed: (_, message){
+                                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+                                    }, orElse:(){});
+                              },
+                              builder: (context, state) {
+                                return state.maybeWhen(
+                                    loading: (_){
+                                      return CircularProgressIndicator();
+                                    },
+                                    orElse: (){
+                                      return ElevatedButton(
+                                        onPressed: () {
+                                          _approvalRejection(model, "C", cancelController.text);
+                                          bloc.init();
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                            primary: Colors.lightGreen,
+                                            minimumSize: Size(80.dw, 30.dh),
+                                            elevation: 8.0,
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(8.0))),
+                                        child: Text(
+                                          "Ok",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold, fontSize: 18.dw),
+                                        ),
+                                      );
+                                    });
+                              }
                           ),
                         ),
                       ],
@@ -499,30 +552,32 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
         ),
       );
 
-  void _approvalRejection(EmployeeleaveListModel model, String grantedType) async {
+  void _approvalRejection(EmployeeleaveListModel model, String grantedType, String remark) async {
     final data = {
       "emp_cd": loginService.getCurrentUser!.emp_cd,
       "leave_pk_id": model.leavePkId,
       "leave_granted": grantedType,
-      "remarks": "",
+      "remarks": remark,
     };
     await teamLeaderLeaveApproveRejectBloc.ApprovalRejectionStatus(data);
-    final state = teamLeaderLeaveApproveRejectBloc.state;
-    state.maybeWhen(
-        success: (model, message) {
-          ScaffoldMessenger.of(scaffoldKey.currentContext!)
-              .showSnackBar(SnackBar(
-                  content: Text(
-            message!,
-            style: const TextStyle(color: Colors.white),
-          )));
-          approvedleaveBloc.init();
-        },
-        failed: (model, message) {
-          ScaffoldMessenger.of(scaffoldKey.currentContext!)
-              .showSnackBar(SnackBar(content: Text(message)));
-        },
-        orElse: () {});
+    bloc.init();
+    //final state = teamLeaderLeaveApproveRejectBloc.state;
+    // state.maybeWhen(
+    //     success: (model, message) {
+    //       ScaffoldMessenger.of(scaffoldKey.currentContext!)
+    //           .showSnackBar(SnackBar(
+    //               content: Text(
+    //         message!,
+    //         style: const TextStyle(color: Colors.white),
+    //       )));
+    //       approvedleaveBloc.init();
+    //       bloc.init();
+    //     },
+    //     failed: (model, message) {
+    //       ScaffoldMessenger.of(scaffoldKey.currentContext!)
+    //           .showSnackBar(SnackBar(content: Text(message)));
+    //     },
+    //     orElse: () {});
   }
 
   _buildText({required String title, required String title1, required Color}) {
@@ -650,7 +705,7 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
             children: [
               _buildBoldText(title: "Department"),
               _buildcolon(),
-              _buildApproveText(title: "Terms")
+              _buildApproveText(title: model.department + "  (" + model.departmentCode + ")")
             ],
           ),
           Row(
@@ -815,13 +870,10 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
     final state = teamLeaderLeaveApproveRejectBloc.state;
     state.maybeWhen(
         success: (model, message) {
-          ScaffoldMessenger.of(scaffoldKey.currentContext!)
-              .showSnackBar(SnackBar(
-                  content: Text(
-            message!,
-            style: const TextStyle(color: Colors.white),
-          )));
           approvedleaveBloc.init();
+          ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(SnackBar(
+              content: Text(message!, style: const TextStyle(color: Colors.white),)));
+
         },
         failed: (model, message) {
           ScaffoldMessenger.of(scaffoldKey.currentContext!)
@@ -866,6 +918,7 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
                         ElevatedButton(
                           onPressed: () {
                             Navigator.pop(context);
+                            approvedleaveBloc.init();
                           },
                           style: ElevatedButton.styleFrom(
                               primary: AppColors.red,
@@ -881,10 +934,10 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            _approvalRejection(
-                                model, "A", approvalController.text);
-                            Navigator.pop(context);
+                            _approvalRejection(model, "A", approvalController.text);
                             approvedleaveBloc.init();
+                            Navigator.pop(context);
+
                           },
                           style: ElevatedButton.styleFrom(
                               primary: Colors.lightGreen,
@@ -942,6 +995,7 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
                         ElevatedButton(
                           onPressed: () {
                             Navigator.pop(context);
+                            approvedleaveBloc.init();
                           },
                           style: ElevatedButton.styleFrom(
                               primary: AppColors.red,
@@ -957,9 +1011,10 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            _approvalRejection(
-                                model, "R", rejectionController.text);
+                            _approvalRejection(model, "R", rejectionController.text);
+                            //approvedleaveBloc.init();
                             Navigator.pop(context);
+
                           },
                           style: ElevatedButton.styleFrom(
                               primary: AppColors.portalgreyBlue,

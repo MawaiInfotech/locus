@@ -6,8 +6,8 @@ part 'offduty_model.freezed.dart';
 @freezed
 class OffdutyDataModel with _$OffdutyDataModel{
   const factory OffdutyDataModel({
-    @JsonKey(name: "DH") @Default("") String directFromHome,
-    @JsonKey(name: "FO") @Default("") String fromOffice,
+    @JsonKey(name: "code") @Default("") String code,
+    @JsonKey(name: "desc") @Default("") String description,
   }) = _OffdutyDataModel;
 
   factory OffdutyDataModel.fromJson(Map<String, dynamic> json) => _$OffdutyDataModelFromJson(json);

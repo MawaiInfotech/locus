@@ -57,11 +57,10 @@ class _AttendancePageState extends State<AttendancePage> {
     loginModel = Provider.of<LoginService>(context, listen: false).getCurrentUser!;
     context.read<CheckLoginBloc>().init();
     getData();
-
-
     initTimer();
     super.initState();
   }
+
   getData()async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState((){
@@ -70,6 +69,8 @@ class _AttendancePageState extends State<AttendancePage> {
         _showDialog();
       }
     });
+    _getCurrentPosition();
+    _getUserLocation();
     print(permissionPopup);
   }
 
@@ -478,7 +479,11 @@ class _AttendancePageState extends State<AttendancePage> {
         child: ElevatedButton(
             onPressed: () async {
               //if(context.read<CheckLoginBloc>().isCheckedOut) return;
-              final XFile? camera = await _picker.pickImage(source: ImageSource.camera, imageQuality: 100 );
+              final XFile? camera = await _picker.pickImage(source: ImageSource.camera,
+                preferredCameraDevice: CameraDevice.front,
+                maxWidth: 480,
+                maxHeight: 640,
+                imageQuality: 25,);
               // Navigator.pop(context,false);
               setState(() {
                 file = camera;
@@ -518,7 +523,7 @@ class _AttendancePageState extends State<AttendancePage> {
               maximumSize: Size(180.dw, 60.dh),
               minimumSize: Size(180.dw, 60.dh)),
           child: Text(
-            "View Missed Request",
+            "My Missed Request",
             maxLines: 2,
             textAlign: TextAlign.center,
             overflow: TextOverflow.visible,
@@ -635,7 +640,7 @@ class _AttendancePageState extends State<AttendancePage> {
   Future<bool> showConfirmationDialog(file) async {
     checkInCallback() async {
       final bloc = context.read<CheckLoginBloc>();
-      await bloc.checkIn(remarkController.text, selectedOutput, file);
+      await bloc.checkIn(remarkController.text, selectedOutput, file, _currentAddress.toString());
       bloc.state.maybeWhen(
           content: (_, form) {
             ScaffoldMessenger.of(context)
@@ -740,7 +745,7 @@ class _AttendancePageState extends State<AttendancePage> {
   Future<bool> showConfirmationCheckOutDialog(file) async {
     checkInCallback() async {
       final bloc = context.read<CheckLoginBloc>();
-      await bloc.checkOut(remarkController.text, selectedOutput, file);
+      await bloc.checkOut(remarkController.text, selectedOutput, file,  _currentAddress!);
       bloc.state.maybeWhen(
           content: (_, form) {
             ScaffoldMessenger.of(context)
@@ -889,7 +894,6 @@ class _AttendancePageState extends State<AttendancePage> {
         _getAddressFromLatLng(_currentPosition!);
       });
 
-      print(_getAddressFromLatLng(position));
     }).catchError((e) {
       debugPrint(e);
     });
@@ -903,7 +907,6 @@ class _AttendancePageState extends State<AttendancePage> {
       setState(() {
         _currentAddress =
             '${place.street},${place.subLocality},${place.locality}';
-        print(_currentAddress);
       });
     }).catchError((e) {
       debugPrint(e);

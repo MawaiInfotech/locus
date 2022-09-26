@@ -12,7 +12,6 @@ import 'package:locus/service/constant.dart';
 import 'package:http/http.dart' as http;
 import '../errors/api_error.dart';
 import '../model/attendance_detail_supp_model.dart';
-import '../model/attendancedetail_model.dart';
 import '../model/checklogin_model.dart';
 
 class AttendanceService {
@@ -41,12 +40,11 @@ class AttendanceService {
         return models;
       }
     } catch (e) {
-      print(e);
       _handleError(e);
     }
   }
 
-  Future<Map<String, dynamic>?>  getAttendance(String status, String remark, String site, file) async {
+  Future<Map<String, dynamic>?>  getAttendance(String status, String remark, String site, file, String address) async {
     const url = root + 'checkin-checkout';
 
     final bytes = Io.File(file).readAsBytesSync();
@@ -78,7 +76,8 @@ class AttendanceService {
         "status": status,
         "remark" : remark,
         "site" : site,
-        "image" : "data:image/"+type+";base64," + img64
+        "image" : "data:image/"+type+";base64," + img64,
+        "address" : address
       };
       final response = await http.post(Uri.parse(url),
           body: json.encode(body), headers: getHeaders());
@@ -95,7 +94,6 @@ class AttendanceService {
       }
       return {"model":CheckLoginModel.fromJson(responseBody), "message": responseBody["message"]};
     } catch (e) {
-      print(e);
       _handleError(e);
     }
   }
@@ -110,10 +108,9 @@ class AttendanceService {
       final responseBody = json.decode(response.body);
     return AttendanceDetailSuppModel.fromJson(responseBody["data"]);
     } catch (e) {
-      print(e);
       _handleError(e);
     }
-    return new AttendanceDetailSuppModel();
+    return const AttendanceDetailSuppModel();
   }
 
   Future<String?> getRequestData(String employerCode, String unitCode,
@@ -139,7 +136,6 @@ class AttendanceService {
         throw ApiError.fromResponse(responseBody['message']);
       }
     } catch (e) {
-      print(e);
       _handleError(e);
     }
     // return null;
@@ -160,10 +156,9 @@ class AttendanceService {
       final responseBody = json.decode(response.body);
       return TeamAttendanceSuppModel.fromJson(responseBody["data"]);
     }catch(e){
-      print(e);
       _handleError(e);
     }
-    return  new TeamAttendanceSuppModel() ;
+    return  const TeamAttendanceSuppModel() ;
   }
 
   //Team Attendance Approval
@@ -202,7 +197,6 @@ class AttendanceService {
         throw ApiError.fromResponse(responseBody['message']);
       }
     } catch (e) {
-      print(e);
       _handleError(e);
     }
   }

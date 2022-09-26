@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:locus/bloc/request_bloc.dart';
 import 'package:locus/model/request_model.dart';
 import 'package:locus/routes/app_routes.dart';
@@ -30,6 +31,7 @@ class _RequestMisspunchPageState extends State<RequestMisspunchPage> {
   TextEditingController checkInTimeTextController  = TextEditingController(text: "9:30");
 
   TextEditingController bothCheckOutTimeController = TextEditingController();
+
   TextEditingController bothCheckInTimeController = TextEditingController();
 
   late final RequestBloc bloc;
@@ -41,6 +43,8 @@ class _RequestMisspunchPageState extends State<RequestMisspunchPage> {
   var checkOutTime;
 
   var selectedTime;
+
+  final date = DateFormat("dd-MM-yyyy").format(DateTime.now());
 
   @override
   void initState() {
@@ -54,7 +58,7 @@ class _RequestMisspunchPageState extends State<RequestMisspunchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppTopBar(title: "Request Miss Check-out/Check-In"),
+      appBar: const AppTopBar(title: "Request Miss Check-out/Check-In"),
       body: SafeArea(
           child: SizedBox(
             height: 400.dw,
@@ -107,8 +111,8 @@ class _RequestMisspunchPageState extends State<RequestMisspunchPage> {
           if( widget.model.outRem == "O")  _buildHeading("Miss Punch - Out")
          else if(widget.model.inRem == "I")_buildHeading("Miss Punch - In")
          else if( widget.model.misPunch == "B") _buildHeading("Checkin/CheckOut"),
-         if(widget.model.outRem == "O")    _buildTimeFields(timeTextController.text)
-         else if (widget.model.inRem == "I") _buildTimeFields(timeTextController.text)
+         if(widget.model.outRem == "O")  _buildTimeFields(timeTextController.text)
+         else if (widget.model.inRem == "I") _buildInTime(checkInTimeTextController.text)
           else if(widget.model.misPunch =="B") _buildBothTime(timeTextController.text),
           _buildHeading("Reason"),
           _buildTextField("Reason"),
@@ -124,7 +128,6 @@ class _RequestMisspunchPageState extends State<RequestMisspunchPage> {
       child: Text(title + "*", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18.dw),),
     );
   }
-
 
   _buildTextField(String title){
     return Padding(
@@ -144,7 +147,6 @@ class _RequestMisspunchPageState extends State<RequestMisspunchPage> {
       child: TextField(
         onTap: (){
           _selectTime(context);
-         // timeTextController.text = selectedTime;
         },
         controller: timeTextController,
         decoration: InputDecoration(
@@ -220,6 +222,18 @@ class _RequestMisspunchPageState extends State<RequestMisspunchPage> {
     );
   }
 
+  _buildInTime(String title){
+    return   TextField(
+      onTap: (){
+        _selectInTime(context);
+      },
+      controller: checkInTimeTextController,
+      decoration: InputDecoration(
+          hintText: title
+      ),
+    );
+  }
+
    _buildSubmit(){
     return Padding(
       padding: EdgeInsets.only(top: 20.dw, left: 10.dw, right: 10.dw),
@@ -237,9 +251,9 @@ class _RequestMisspunchPageState extends State<RequestMisspunchPage> {
               checkInTime = widget.model.inTime;
               checkOutTime = timeTextController.text;
             }
-            else if (widget.model.inRem == "I"&& timeTextController.text.isNotEmpty && timeTextController.text.isNotEmpty && reasonTextController.text.isNotEmpty) {
-              checkOutTime = bothCheckInTimeController.text;
-              checkOutTime = bothCheckOutTimeController.text;
+            else if (widget.model.inRem == "I"&& checkInTimeTextController.text.isNotEmpty && reasonTextController.text.isNotEmpty) {
+              checkInTime = checkInTimeTextController.text;
+              checkOutTime = widget.model.outTime;
             }
             else if(widget.model.misPunch =="B"&& checkInTimeTextController.text.isNotEmpty &&
                 timeTextController.text.isNotEmpty && reasonTextController.text.isNotEmpty) {

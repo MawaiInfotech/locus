@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:locus/model/teamleader_attendanceApprovalRejection_model.dart';
-import 'package:locus/model/teamleader_leaveApprove_model.dart';
 
 part 'teamleader_attendanceapproverejection_state.freezed.dart';
 

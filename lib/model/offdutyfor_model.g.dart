@@ -8,10 +8,12 @@ part of 'offdutyfor_model.dart';
 
 _$_OffdutyForModel _$$_OffdutyForModelFromJson(Map<String, dynamic> json) =>
     _$_OffdutyForModel(
-      outdoorUnit: json['OU'] as String? ?? "",
+      code: json['code'] as String? ?? "",
+      description: json['desc'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$_OffdutyForModelToJson(_$_OffdutyForModel instance) =>
     <String, dynamic>{
-      'OU': instance.outdoorUnit,
+      'code': instance.code,
+      'desc': instance.description,
     };

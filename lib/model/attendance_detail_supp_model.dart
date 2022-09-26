@@ -1,8 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:locus/model/teamattendance_model.dart';
-import 'package:locus/model/teamemployee_model.dart';
-
-import 'attendanceDetail_month_model.dart';
 import 'attendancedetail_model.dart';
 
 part 'attendance_detail_supp_model.g.dart';

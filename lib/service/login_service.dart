@@ -10,6 +10,7 @@ import '../errors/api_error.dart';
 class LoginService{
   final _box = Hive.box('login_box');
   final _tokenBox = Hive.box("token_box");
+  final _userFrom = Hive.box("userFrom");
   LoginModel? _loginModel;
 
 
@@ -32,6 +33,7 @@ class LoginService{
         final token = body["access_token"];
         _tokenBox.put("token", token);
         _loginModel = LoginModel.fromJson(body["data"]);
+        _userFrom.put("userFrom", _loginModel?.user_from);
         if(shouldRemember)  await _box.put("user", _loginModel);
       }else{
         //print(throw body['msg']);

@@ -40,9 +40,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Image.asset("assets/images/profile2.png", scale: 3.dw,),
                 color: Colors.grey,
               ),
-              _buildText(title: user.emp_first_name.toString() + "  " + user.emp_last_name.toString()),
-              _buildText(title: user.emp_cd.toString()),
-              _buildText(title: user.company_email ?? ""),
+              _buildText(title: user.emp_first_name.toString() + "  " + user.emp_last_name.toString()  + "  "+ user.emp_cd.toString()),
+              _buildText(title: "Designation - " + user.description.toString()),
+              _buildText(title: "Email - " + user.company_email!),
               _buildChangepass(),
               _buildLogout(),
               const Spacer(flex: 10,)
