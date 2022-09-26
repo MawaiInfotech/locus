@@ -13,6 +13,7 @@ import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_top_bar.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../model/login_model.dart';
 import '../themes/app_colors.dart';
 import 'missed_requestlist_page.dart';
@@ -46,16 +47,72 @@ class _AttendancePageState extends State<AttendancePage> {
   XFile? file;
 
   late Timer timer;
+
   final secondNotifier = ValueNotifier<int>(0);
+
+  bool permissionPopup = false;
 
   @override
   void initState() {
     loginModel = Provider.of<LoginService>(context, listen: false).getCurrentUser!;
     context.read<CheckLoginBloc>().init();
-    _getCurrentPosition();
-    _getUserLocation();
+    getData();
+
+
     initTimer();
     super.initState();
+  }
+  getData()async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState((){
+      permissionPopup = prefs.getBool("permissionPopup") ?? false;
+      if(!permissionPopup){
+        _showDialog();
+      }
+    });
+    print(permissionPopup);
+  }
+
+  _showDialog() async {
+    await Future.delayed(Duration(milliseconds: 50));
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text("Permission Policy\n Why we need this ?"),
+            content: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text("Location Permission", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),),
+                const
+                Text("Locus needs your location coordinates for a host of activities – attendance management,to coordinate with your field teams and to make possible your travel reimbursement claims.",
+                ),
+                Text("Camera Permission", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),),
+                const Text("This is to check whether the person himself/herself is marking the attendance.\nFurther , This is to enable our users to capture and attach photos of their expense bills while submitting for reimbursement.\n It also helps them attach photos while collecting data through custom forms.",
+
+                ),
+              ],
+            ),
+            actions: [
+              Center(
+                child: ElevatedButton(
+                    onPressed: ()async {
+                      SharedPreferences prefs = await SharedPreferences.getInstance();
+                      prefs.setBool("permissionPopup", true);
+                      Navigator.pop(context);
+                      _getCurrentPosition();
+                      _getUserLocation();
+                    },
+                    style: ElevatedButton.styleFrom(
+                        primary: AppColors.portalgreen,
+                        minimumSize: Size(150.dw, 50.dw)
+                    ),
+                    child: Text("Confirm", style: TextStyle(fontSize: 18.dw),)),
+              )
+
+            ],
+          );
+        });
   }
 
   initTimer() {
@@ -910,4 +967,5 @@ class _AttendancePageState extends State<AttendancePage> {
           );
         });
   }
+
 }

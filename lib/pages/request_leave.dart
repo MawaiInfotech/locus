@@ -59,12 +59,22 @@ class _RequestLeaveState extends State<RequestLeave> {
     super.initState();
   }
 
+  void disposeValues(){
+    fromDate = "Select Date";
+    toDate = "";
+    difference = "";
+    leavetype = "Leave Type";
+    dateTimeRange=  DateTimeRange(start: DateTime.now(), end: DateTime.now());
+    setState((){});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
             key: scaffoldKey,
-            appBar: AppTopBar(title: "Request Leave"),
-            body: _buildBody());
+            appBar: const AppTopBar(title: "Request Leave"),
+            body: _buildBody()
+    );
 
   }
 
@@ -85,6 +95,7 @@ class _RequestLeaveState extends State<RequestLeave> {
   Widget _buildLoading(RequestLeaveModel model) {
     return Center(child: CircularProgressIndicator());
   }
+
 
   Widget _buildContent(RequestLeaveModel model) {
     return SafeArea(
@@ -147,7 +158,7 @@ class _RequestLeaveState extends State<RequestLeave> {
               _buildLine(),
               _buildHeadingText("Applied To"),
               if (model.reporting_to.isEmpty) const Text(""),
-              if (model.reporting_to.isNotEmpty)_buildText(appliedTo = (model.reporting_to[0].employeeNumber)),
+              if (model.reporting_to.isNotEmpty)_buildText(appliedTo = ( "${model.reporting_to[0].employeeFirstName} ${model.reporting_to[0].employeeLastName} - (${model.reporting_to[0].employeeNumber})")),
               _buildLine(),
               _buildHeadingText("CC To"),
               _buildCCToDialogBox(model),
@@ -176,6 +187,7 @@ class _RequestLeaveState extends State<RequestLeave> {
     return InkWell(
       onTap: () async {
         _showApplyLeaveDialogue(model);
+        disposeValues();
       },
       child: Padding(
         padding: EdgeInsets.all(10.0.dw),
@@ -218,6 +230,7 @@ class _RequestLeaveState extends State<RequestLeave> {
                             }else if(controlCode == "3"){
                               difference = dateTimeRange.end.difference(dateTimeRange.start).inDays + 1;
                             }
+
                             setState((){});
                             Navigator.pop(context);
                           },
