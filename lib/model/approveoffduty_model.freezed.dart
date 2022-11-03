@@ -62,6 +62,8 @@ mixin _$ApproveoffdutyModel {
   String get placetovisitCode => throw _privateConstructorUsedError;
   @JsonKey(name: "place_visit_name")
   String get placetovisitName => throw _privateConstructorUsedError;
+  @JsonKey(name: "od_hours")
+  String get odHours => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -95,7 +97,8 @@ abstract class $ApproveoffdutyModelCopyWith<$Res> {
       @JsonKey(name: "gate_pass_id") int gatePassId,
       @JsonKey(name: "remarks") String remark,
       @JsonKey(name: "place_of_visit") String placetovisitCode,
-      @JsonKey(name: "place_visit_name") String placetovisitName});
+      @JsonKey(name: "place_visit_name") String placetovisitName,
+      @JsonKey(name: "od_hours") String odHours});
 }
 
 /// @nodoc
@@ -130,6 +133,7 @@ class _$ApproveoffdutyModelCopyWithImpl<$Res>
     Object? remark = freezed,
     Object? placetovisitCode = freezed,
     Object? placetovisitName = freezed,
+    Object? odHours = freezed,
   }) {
     return _then(_value.copyWith(
       employeeCode: employeeCode == freezed
@@ -216,6 +220,10 @@ class _$ApproveoffdutyModelCopyWithImpl<$Res>
           ? _value.placetovisitName
           : placetovisitName // ignore: cast_nullable_to_non_nullable
               as String,
+      odHours: odHours == freezed
+          ? _value.odHours
+          : odHours // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -248,7 +256,8 @@ abstract class _$$_ApproveoffdutyModelCopyWith<$Res>
       @JsonKey(name: "gate_pass_id") int gatePassId,
       @JsonKey(name: "remarks") String remark,
       @JsonKey(name: "place_of_visit") String placetovisitCode,
-      @JsonKey(name: "place_visit_name") String placetovisitName});
+      @JsonKey(name: "place_visit_name") String placetovisitName,
+      @JsonKey(name: "od_hours") String odHours});
 }
 
 /// @nodoc
@@ -285,6 +294,7 @@ class __$$_ApproveoffdutyModelCopyWithImpl<$Res>
     Object? remark = freezed,
     Object? placetovisitCode = freezed,
     Object? placetovisitName = freezed,
+    Object? odHours = freezed,
   }) {
     return _then(_$_ApproveoffdutyModel(
       employeeCode: employeeCode == freezed
@@ -371,6 +381,10 @@ class __$$_ApproveoffdutyModelCopyWithImpl<$Res>
           ? _value.placetovisitName
           : placetovisitName // ignore: cast_nullable_to_non_nullable
               as String,
+      odHours: odHours == freezed
+          ? _value.odHours
+          : odHours // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -399,7 +413,8 @@ class _$_ApproveoffdutyModel implements _ApproveoffdutyModel {
       @JsonKey(name: "gate_pass_id") this.gatePassId = 0,
       @JsonKey(name: "remarks") this.remark = "",
       @JsonKey(name: "place_of_visit") this.placetovisitCode = "",
-      @JsonKey(name: "place_visit_name") this.placetovisitName = ""});
+      @JsonKey(name: "place_visit_name") this.placetovisitName = "",
+      @JsonKey(name: "od_hours") this.odHours = ""});
 
   factory _$_ApproveoffdutyModel.fromJson(Map<String, dynamic> json) =>
       _$$_ApproveoffdutyModelFromJson(json);
@@ -467,10 +482,13 @@ class _$_ApproveoffdutyModel implements _ApproveoffdutyModel {
   @override
   @JsonKey(name: "place_visit_name")
   final String placetovisitName;
+  @override
+  @JsonKey(name: "od_hours")
+  final String odHours;
 
   @override
   String toString() {
-    return 'ApproveoffdutyModel(employeeCode: $employeeCode, employeeName: $employeeName, appNumber: $appNumber, directFromHomeCode: $directFromHomeCode, directFromHomename: $directFromHomename, odType1: $odType1, odTypeName: $odTypeName, odStatusName: $odStatusName, odName: $odName, odStartDate: $odStartDate, odStartTime: $odStartTime, odEndDate: $odEndDate, odEndTime: $odEndTime, odState: $odState, odStateName: $odStateName, odPurpose: $odPurpose, odPurposeName: $odPurposeName, gatePassId: $gatePassId, remark: $remark, placetovisitCode: $placetovisitCode, placetovisitName: $placetovisitName)';
+    return 'ApproveoffdutyModel(employeeCode: $employeeCode, employeeName: $employeeName, appNumber: $appNumber, directFromHomeCode: $directFromHomeCode, directFromHomename: $directFromHomename, odType1: $odType1, odTypeName: $odTypeName, odStatusName: $odStatusName, odName: $odName, odStartDate: $odStartDate, odStartTime: $odStartTime, odEndDate: $odEndDate, odEndTime: $odEndTime, odState: $odState, odStateName: $odStateName, odPurpose: $odPurpose, odPurposeName: $odPurposeName, gatePassId: $gatePassId, remark: $remark, placetovisitCode: $placetovisitCode, placetovisitName: $placetovisitName, odHours: $odHours)';
   }
 
   @override
@@ -511,7 +529,8 @@ class _$_ApproveoffdutyModel implements _ApproveoffdutyModel {
             const DeepCollectionEquality()
                 .equals(other.placetovisitCode, placetovisitCode) &&
             const DeepCollectionEquality()
-                .equals(other.placetovisitName, placetovisitName));
+                .equals(other.placetovisitName, placetovisitName) &&
+            const DeepCollectionEquality().equals(other.odHours, odHours));
   }
 
   @JsonKey(ignore: true)
@@ -538,7 +557,8 @@ class _$_ApproveoffdutyModel implements _ApproveoffdutyModel {
         const DeepCollectionEquality().hash(gatePassId),
         const DeepCollectionEquality().hash(remark),
         const DeepCollectionEquality().hash(placetovisitCode),
-        const DeepCollectionEquality().hash(placetovisitName)
+        const DeepCollectionEquality().hash(placetovisitName),
+        const DeepCollectionEquality().hash(odHours)
       ]);
 
   @JsonKey(ignore: true)
@@ -577,7 +597,8 @@ abstract class _ApproveoffdutyModel implements ApproveoffdutyModel {
           @JsonKey(name: "gate_pass_id") final int gatePassId,
           @JsonKey(name: "remarks") final String remark,
           @JsonKey(name: "place_of_visit") final String placetovisitCode,
-          @JsonKey(name: "place_visit_name") final String placetovisitName}) =
+          @JsonKey(name: "place_visit_name") final String placetovisitName,
+          @JsonKey(name: "od_hours") final String odHours}) =
       _$_ApproveoffdutyModel;
 
   factory _ApproveoffdutyModel.fromJson(Map<String, dynamic> json) =
@@ -646,6 +667,9 @@ abstract class _ApproveoffdutyModel implements ApproveoffdutyModel {
   @override
   @JsonKey(name: "place_visit_name")
   String get placetovisitName;
+  @override
+  @JsonKey(name: "od_hours")
+  String get odHours;
   @override
   @JsonKey(ignore: true)
   _$$_ApproveoffdutyModelCopyWith<_$_ApproveoffdutyModel> get copyWith =>

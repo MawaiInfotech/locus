@@ -28,6 +28,7 @@ class AttendanceService {
       final responseBody = json.decode(response.body);
       final checkIN = responseBody["checkInData"];
       final checkOut = responseBody["checkOutData"];
+      print(responseBody);
       if (checkIN is String) {
         if (checkIN.isEmpty) responseBody["checkInData"] = null;
       }
@@ -40,6 +41,7 @@ class AttendanceService {
         return models;
       }
     } catch (e) {
+      print(e);
       _handleError(e);
     }
   }
@@ -189,7 +191,7 @@ class AttendanceService {
     final body = data;
     try {
       final response = await http.post(Uri.parse(url),
-          body: json.encode(body), headers: headers);
+          body: json.encode(body), headers: getHeaders());
       final responseBody = json.decode(response.body);
       if (responseBody['status'] == true) {
         return responseBody ['message'];

@@ -74,7 +74,7 @@ class OffdutyService{
     final body = data;
     try {
       final response = await http.post(Uri.parse(url),
-          body: json.encode(body), headers: headers);
+          body: json.encode(body), headers: getHeaders());
       final responseBody = json.decode(response.body);
       if (responseBody['status'] == true) {
         return responseBody ['message'];
@@ -95,7 +95,7 @@ class OffdutyService{
     final body = data;
     try {
       final response = await http.post(Uri.parse(url),
-          body: json.encode(body), headers: headers);
+          body: json.encode(body), headers: getHeaders());
       final responseBody = json.decode(response.body);
       if (responseBody['status'] == true) {
         return responseBody ['message'];

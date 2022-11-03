@@ -26,7 +26,6 @@ import 'package:path_provider/path_provider.dart' as path_provider;
   // Pass all uncaught errors from the framework to Crashlytics.
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
 
-
  //
  //  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
  // await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);

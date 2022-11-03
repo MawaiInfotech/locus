@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:locus/bloc/applyod_bloc.dart';
-import 'package:locus/bloc/request_offduty_bloc.dart';
-import 'package:locus/model/requestoffduty_model.dart';
-import 'package:locus/routes/app_routes.dart';
-import 'package:locus/service/offduty_service.dart';
-import 'package:locus/state/applyod_state.dart';
-import 'package:locus/state/requestoffduty_state.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:provider/provider.dart';
 import 'package:time_range/time_range.dart';
+import '../bloc/applyod_bloc.dart';
+import '../bloc/request_offduty_bloc.dart';
+import '../model/offdutyclientlist_model.dart';
+import '../model/requestoffduty_model.dart';
 import '../service/login_service.dart';
+import '../service/offduty_service.dart';
+import '../state/applyod_state.dart';
+import '../state/requestoffduty_state.dart';
 import '../themes/app_colors.dart';
 import '../widgets/app_top_bar.dart';
 
@@ -40,29 +40,39 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
 
   var applyOD;
   var odType;
-  var odCode;
+  var odTypeCode;
+  var odTypeCodeIndex;
   var fromDate = "Select Date ";
   var toDate = " ";
   var difference;
   var controlCode;
+  var controlCodeIndex = 0;
   var contactNumber;
   var odFor;
   var odForCode;
+  var odForCodeIndex = 0;
   var purpose;
   var purposeCode;
+  var purposeCodeIndex = 0;
   var OdStatus;
   var OdStatusCode;
+  var OdStatusCodeIndex = 0;
   var clientName;
   var clientCode;
   var fromTime;
   var toTime;
-
-
-  final _defaultTimeRange = TimeRangeResult(
-    const TimeOfDay(hour: 09, minute: 30),
-    const TimeOfDay(hour: 11, minute: 30),
-  );
+  int shiftStartTimeHour = 09;
+  var shiftStartTimeMinute = 30;
+  var shiftEndTimeHours = 10;
+  var shiftEndTimeMinute = 30;
   TimeRangeResult? _timeRange;
+  TimeOfDay now = TimeOfDay.now();
+  final _defaultTimeRange = TimeRangeResult(
+    TimeOfDay(hour: 09, minute: 30),
+    const TimeOfDay(hour: 10, minute: 30),
+  );
+
+
 
   @override
   void initState() {
@@ -103,6 +113,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
   }
 
   Widget _buildContent(RequestoffdutyModel model) {
+
     return SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -212,7 +223,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(applyOD ?? "Apply"),
+                  Text(applyOD ?? model.od_data[0].description),
                   const Icon(Icons.arrow_drop_down)
                 ],
               ),
@@ -236,8 +247,9 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
                     return InkWell(
                       onTap: () {
                         requestoffdutyBloc.init();
-                        applyOD = model.od_data[index].description;
-                        controlCode = model.od_data[index].code;
+                        applyOD =  model.od_data[index].description;
+                        controlCodeIndex = index;
+                        controlCode = model.od_data[controlCodeIndex].code;
                         if(controlCode == "P"){
                           difference = "0.5";
                         }else if(controlCode == "F"){
@@ -252,7 +264,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
                         child: Padding(
                           padding: EdgeInsets.all(8.0.dw),
                           child: Text(
-                           model.od_data[index].description,
+                            model.od_data[index].description,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 18.dw,
@@ -285,7 +297,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(odType ?? "Od Type"),
+                  Text(odType ?? model.od_type[0].description),
                   const Icon(Icons.arrow_drop_down_outlined)
                 ],
               ),
@@ -310,7 +322,9 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
                       onTap: () {
                         requestoffdutyBloc.init();
                         odType = model.od_type[index].description;
-                        odCode = model.od_type[index].code;
+                        odTypeCodeIndex = index;
+                        odTypeCode = model.od_type[odTypeCodeIndex].code;
+
                         Navigator.pop(context);
                       },
                       child: Card(
@@ -353,7 +367,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(odFor ?? "OD For"),
+                  Text(odFor ?? model.od_for[0].description),
                   const Icon(Icons.arrow_drop_down)
                 ],
               ),
@@ -378,7 +392,8 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
                       onTap: () {
                         requestoffdutyBloc.init();
                         odFor = model.od_for[index].description;
-                        odForCode = model.od_for[index].code;
+                        odForCodeIndex = index;
+                        odForCode = model.od_for[odForCodeIndex].code;
                         Navigator.pop(context);
                       },
                       child: Card(
@@ -421,7 +436,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(purpose ?? "Official"),
+                  Text(purpose ?? model.purpose[0].description),
                   const Icon(Icons.arrow_drop_down)
                 ],
               ),
@@ -446,7 +461,8 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
                       onTap: () {
                         requestoffdutyBloc.init();
                         purpose = model.purpose[index].description;
-                        purposeCode = model.purpose[index].code;
+                        purposeCodeIndex = index;
+                        purposeCode = model.purpose[purposeCodeIndex].code;
                         Navigator.pop(context);
                       },
                       child: Card(
@@ -489,7 +505,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(OdStatus ?? "OD Status"),
+                  Text(OdStatus ?? model.gp_od_status[0].description),
                   const Icon(Icons.arrow_drop_down)
                 ],
               ),
@@ -514,7 +530,8 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
                       onTap: () {
                         requestoffdutyBloc.init();
                         OdStatus = model.gp_od_status[index].description;
-                        OdStatusCode = model.gp_od_status[index].code;
+                        OdStatusCodeIndex = index;
+                        OdStatusCode = model.gp_od_status[OdStatusCodeIndex].code;
                         Navigator.pop(context);
                       },
                       child: Card(
@@ -566,60 +583,162 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
     );
   }
 
+  // Future<void> _showClient(RequestoffdutyModel model) async {
+  //   final listNotifier = SearchableListNotifier(model.org_list);
+  //   await showDialog(
+  //       context: context,
+  //       builder: (context) {
+  //         return AlertDialog(
+  //           title: SizedBox(
+  //             width: ScreenSizeConfig.getFullWidth,
+  //             height: 200.dh,
+  //             child: Column(
+  //               children: [
+  //                 SizedBox(
+  //                   height: 50.dw,
+  //                   child: TextField(
+  //                     onChanged: listNotifier.filterBasedOn,
+  //                     decoration: InputDecoration(
+  //                         border: _border(),
+  //                         focusedBorder: _border(),
+  //                         disabledBorder: _border(),
+  //                         hintText: "Search",
+  //                         contentPadding: EdgeInsets.all(5.dw),
+  //                         prefixIcon: const Icon(Icons.search)
+  //                     ),
+  //                   ),
+  //                 ),
+  //                 Expanded(
+  //                   child: ValueListenableBuilder<List<OffdutyClientListModel>>(
+  //                     valueListenable: listNotifier,
+  //                     builder: (context, list, widget){
+  //                       return ListView.builder(
+  //                           itemCount: model.org_list.length,
+  //                           shrinkWrap: true,
+  //                           itemBuilder: (BuildContext context, int index) {
+  //                             return InkWell(
+  //                               onTap: () {
+  //                                 requestoffdutyBloc.init();
+  //                                 clientName = model.org_list[index].clientName;
+  //                                 clientCode = model.org_list[index].clientCode;
+  //                                 Navigator.pop(context);
+  //                               },
+  //                               child: Card(
+  //                                 elevation: 10,
+  //                                 shape: RoundedRectangleBorder(
+  //                                     borderRadius: BorderRadius.circular(10.dw)),
+  //                                 child: Padding(
+  //                                   padding: EdgeInsets.all(8.0.dw),
+  //                                   child: Text(
+  //                                     model.org_list[index].clientName,
+  //                                     textAlign: TextAlign.center,
+  //                                     // maxLines: 1,
+  //                                     // overflow: TextOverflow.ellipsis,
+  //                                     style: TextStyle(
+  //                                       fontSize: 18.dw,
+  //                                       fontWeight: FontWeight.w500,
+  //                                     ),
+  //                                   ),
+  //                                 ),
+  //                               ),
+  //                             );
+  //                           });
+  //                     },
+  //                   )
+  //                 ),
+  //               ],
+  //             ),
+  //           ),
+  //         );
+  //       }) ??
+  //       false;
+  // }
+
   Future<void> _showClient(RequestoffdutyModel model) async {
+    final listNotifier = SearchableListNotifier(model.org_list);
     await showDialog(
         context: context,
         builder: (context) {
           return AlertDialog(
             title: SizedBox(
               width: ScreenSizeConfig.getFullWidth,
-              height: 200.dh,
-              child: ListView.builder(
-                  itemCount: model.org_list.length,
-                  shrinkWrap: true,
-                  itemBuilder: (BuildContext context, int index) {
-                    return InkWell(
-                      onTap: () {
-                        requestoffdutyBloc.init();
-                        clientName = model.org_list[index].clientName;
-                        clientCode = model.org_list[index].clientCode;
-                        Navigator.pop(context);
-                      },
-                      child: Card(
-                        elevation: 10,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.dw)),
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0.dw),
-                          child: Text(
-                            model.org_list[index].clientName,
-                            textAlign: TextAlign.center,
-                            // maxLines: 1,
-                            // overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontSize: 18.dw,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
+              height: 400.dh,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 50.dw,
+                    child: TextField(onChanged: listNotifier.filterBasedOn,
+                      decoration: InputDecoration(
+                          border: _border(),
+                          focusedBorder: _border(),
+                          disabledBorder: _border(),
+                          hintText: "Search",
+                          contentPadding: EdgeInsets.all(5.dw),
+                          prefixIcon: const Icon(Icons.search)
                       ),
-                    );
-                  }),
+                    ),
+                  ),
+                  Expanded(
+                    child: ValueListenableBuilder<List<OffdutyClientListModel>>(
+                        valueListenable: listNotifier,
+                        builder: (context, list, widget) {
+                          return ListView.builder(
+                              itemCount: list.length,
+                              shrinkWrap: true,
+                              itemBuilder:
+                                  (BuildContext context, int index) {
+                                return InkWell(
+                                  onTap: () {
+                                    requestoffdutyBloc.init();
+                                    clientName = list[index].clientName;
+                                    clientCode = list[index].clientCode;
+                                    Navigator.pop(context);
+                                  },
+                                  child: Card(
+                                    elevation: 2.dw,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10.dw),
+                                        side: BorderSide(color: AppColors.black)
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsets.all(8.0.dw),
+                                      child: SizedBox(
+                                        width: 150.dw,
+                                        child: Text(
+                                          list[index].clientName,
+                                          textAlign: TextAlign.center,
+                                          maxLines: 2,
+                                          overflow:
+                                          TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            fontSize: 18.dw,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              });
+                        }),
+                  ),
+                ],
+              ),
             ),
           );
         }) ??
         false;
   }
 
-  _buildText(String title) {
-    return Padding(
-      padding: EdgeInsets.all(8.dw),
-      child: Text(
-        title,
-        style: TextStyle(fontSize: 16.dw, fontWeight: FontWeight.w400),
-      ),
-    );
-  }
+  // _buildText(String title) {
+  //   return Padding(
+  //     padding: EdgeInsets.all(8.dw),
+  //     child: Text(
+  //       title,
+  //       style: TextStyle(fontSize: 16.dw, fontWeight: FontWeight.w400),
+  //     ),
+  //   );
+  // }
 
   _buildTextField() {
     return Padding(
@@ -650,7 +769,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
                   color: Colors.white),
               child: InkWell(
                 onTap: (){
-                  if(controlCode != null && odCode != null){
+                  if(controlCode != null && odTypeCode != null){
                     showDateRangePicker(
                         context: context,
                         builder: (context, child) {
@@ -663,8 +782,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
                               ),
                               textButtonTheme: TextButtonThemeData(
                                 style: TextButton.styleFrom(
-                                  primary: Colors.white,
-                                  backgroundColor: AppColors.brown,
+                                  foregroundColor: Colors.white, backgroundColor: AppColors.brown,
                                   textStyle: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
@@ -691,11 +809,11 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
                       }
                       setState(() {
                         dateTimeRange = pickedDate;
-                        if(odCode == "F"){
+                        if(odTypeCode == "F"){
                           difference = pickedDate.end.difference(pickedDate.start).inDays + 1;
                           fromDate =  DateFormat('dd-MM-yyyy').format(pickedDate.start);
                           toDate = DateFormat('dd-MM-yyyy').format(pickedDate.end);
-                        }else if(odCode == "P"){
+                        }else if(odTypeCode == "P"){
                           difference = "0.5";
                           fromDate =  DateFormat('dd-MM-yyyy').format(pickedDate.start);
                           toDate = fromDate;
@@ -774,7 +892,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
                   success: (_, message){
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message??"Something")));
                     Navigator.pop(context, true);
-                   // Navigator.pushNamed(context, AppRoutes.onDutyPage).then((value) => setState((){}));
+                    // Navigator.pushNamed(context, AppRoutes.onDutyPage).then((value) => setState((){}));
                   },
                   failed: (_, message){
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
@@ -787,7 +905,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
                   },
                   orElse: (){return ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.portalgreyBlue
+                          backgroundColor: AppColors.portalgreyBlue
                       ),
                       onPressed: () {
                         if (fromDate == null && fromDate.isEmpty  && toDate.isEmpty && toDate == null) {
@@ -811,9 +929,9 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
       'emp_cd': loginService.getUserCode,
       'unit_cd': loginService.getCurrentUser!.unit_cd,
       'od_starts_from': controlCode,
-      'od_type': odCode,
-      'od_date': fromDate + fromTime.toString() ,
-      'od_end_date': toDate + toTime.toString(),
+      'od_type': odTypeCode,
+      'od_date': fromDate + " "+fromTime.toString() ,
+      'od_end_date': toDate +" "+ toTime.toString(),
       'gp_od_status': OdStatusCode,
       'name_of_org': clientCode,
       'remarks': reasonTextController.text,
@@ -833,7 +951,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
     );
   }
 
-_time(){
+  _time(){
     return TimeRange(
       fromTitle: Text(
         'FROM',
@@ -867,13 +985,39 @@ _time(){
       firstTime: const TimeOfDay(hour: 8, minute: 00),
       lastTime: const TimeOfDay(hour: 23, minute: 59),
       initialRange: _timeRange,
-      timeStep: 10,
-      timeBlock: 120,
+      timeStep: 5,
+      timeBlock: 10,
       onRangeCompleted: (range){
         setState(() => _timeRange = range);
         fromTime = _timeRange?.start.format(context);
         toTime = _timeRange?.end.format(context);
       },
     );
+  }
+
+  _border() => OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10.dw),
+      borderSide:  const BorderSide(color: AppColors.black));
+
 }
+
+
+class SearchableListNotifier extends ValueNotifier<List<OffdutyClientListModel>> {
+  SearchableListNotifier(super.value) {
+    initialValue = value;
+    print("INITIAL VALUE WAS $value");
+  }
+
+  late List<OffdutyClientListModel> initialValue;
+
+  void filterBasedOn(String query) {
+    if (query.isEmpty) {
+      value = initialValue;
+    } else {
+      value = initialValue
+          .where((e) => e.clientName.toLowerCase().startsWith(query))
+          .toList();
+    }
+    notifyListeners();
+  }
 }

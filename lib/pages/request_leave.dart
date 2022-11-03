@@ -364,7 +364,6 @@ class _RequestLeaveState extends State<RequestLeave> {
 
   Future<void> _showCCToDialogue(RequestLeaveModel model) async {
     final listNotifier = SearchableListNotifier(model.cc_list);
-
     await showDialog(
             context: context,
             builder: (context) {

@@ -43,8 +43,6 @@ dependencies:
   flutter_local_notifications: ^11.0.0
   time_range: ^1.0.3
   new_version: ^0.3.1
-  url_launcher: ^6.1.6
-#  firebase_crashlytics: ^2.8.10
 
 
 dev_dependencies:

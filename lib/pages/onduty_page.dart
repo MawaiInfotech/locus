@@ -58,11 +58,12 @@ class _OnDutyPageState extends State<OnDutyPage> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-        appBar: const AppTopBar(title: "Off Duty"),
+      backgroundColor: Colors.grey.shade100,
+        appBar: const AppTopBar(title: "Outdoor Duty"),
         body: Column(
           children: [
             SizedBox(
-              height: 120.dh,
+              height: 100.dh,
               child: TabBar(
                 controller: tabController,
                 indicatorColor: AppColors.navyblue,
@@ -71,26 +72,26 @@ class _OnDutyPageState extends State<OnDutyPage> with SingleTickerProviderStateM
                 unselectedLabelColor: AppColors.navyblue,
                 unselectedLabelStyle: TextStyle(fontSize: 16.dh),
                 indicatorPadding: EdgeInsets.all(8.dh),
-                labelPadding: const EdgeInsets.all(8),
+                labelPadding:  EdgeInsets.all(8.dh),
                 labelStyle:
-                TextStyle(fontSize: 18.dh, fontWeight: FontWeight.w600),
+                TextStyle(fontSize: 16.dh, fontWeight: FontWeight.w600),
                 tabs: [
                   Column(
                     children: [
                       Image.asset(
                         "assets/images/briefcase.png",
-                        scale: 12.dw,
+                        scale: 14.dw,
                       ),
-                      const Text("My Off Duty"),
+                      const Text("My OD"),
                     ],
                   ),
                   Column(
                     children: [
                       Image.asset(
                         "assets/images/stamp.png",
-                        scale: 12.dw,
+                        scale: 14.dw,
                       ),
-                      const Text("Approved Off Duty"),
+                      const Text("Pending For Approval OD"),
                     ],
                   ),
                 ],
@@ -147,6 +148,7 @@ class _MyOffDutyPageState extends State<MyOffDutyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+        backgroundColor: Colors.grey.shade100,
         body: _buildBody());
   }
 
@@ -187,7 +189,7 @@ class _MyOffDutyPageState extends State<MyOffDutyPage> {
   Widget _buildRequesttedLeaveCard(EmployeeoffdutyListModel model) {
     return Card(
       elevation: 10.dw,
-      color: Colors.grey.shade50,
+      color: Colors.grey.shade200,
       margin: EdgeInsets.all(8.dw),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -206,7 +208,26 @@ class _MyOffDutyPageState extends State<MyOffDutyPage> {
                       fontWeight: FontWeight.w500),
                 ),
                 Text(
-                  model.remark,
+                  "${model.odStartTime}  -  ${model.odEndTime}",
+                  style: TextStyle(
+                      color: AppColors.black,
+                      fontSize: 16.dw,
+                      fontWeight: FontWeight.w400),
+                ),
+                Row(
+                  children: [
+                    _buildOdRemarks(model.remark),
+                    Text(" -  "),
+                    Text( model.odPurposeName,
+                      style: TextStyle(
+                          color: AppColors.navyblue,
+                          fontSize: 14.dw,
+                          fontWeight: FontWeight.w400),
+                    )
+                  ],
+                ),
+                Text(
+                  model.placetovisitName,
                   style: TextStyle(
                       color: AppColors.navyblue,
                       fontSize: 14.dw,
@@ -242,6 +263,10 @@ class _MyOffDutyPageState extends State<MyOffDutyPage> {
     );
   }
 
+  _buildOdRemarks(String title){
+    return Text(title);
+  }
+
   _buildRequestOffdutyButton() {
     return ElevatedButton(
         onPressed: () async {
@@ -252,7 +277,7 @@ class _MyOffDutyPageState extends State<MyOffDutyPage> {
             primary: AppColors.red
         ),
         child: Text(
-          "Request Off Duty",
+          "Request OD",
           style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18.dw),
         ));
   }
@@ -379,6 +404,7 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   TextEditingController approvalController = TextEditingController();
+
   TextEditingController rejectionController = TextEditingController();
 
   late OdApproveRejectBloc odApproveRejectBloc;
@@ -432,50 +458,60 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
   }
 
   Widget _buildApprovedLeaveList(ApproveoffdutyModel model) {
+
     return Card(
       elevation: 8,
+      color: Colors.grey.shade200,
       margin: EdgeInsets.all(10.dw),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildButtons(model),
           Container(
-            padding: const EdgeInsets.all(8),
-            height: 1.0,
-            color: Colors.black,
+            height: 10.dw,
           ),
           Row(
             children: [
-              _buildBoldText(title: "Name"),
-              _buildApproveText(
-                  title: loginService.getCurrentUser!.emp_first_name ?? ""),
+               _buildBoldText(title: "Name"),
+              _buildColon(),
+               _buildApproveText(title: loginService.getCurrentUser!.emp_first_name ?? ""),
             ],
           ),
           Row(
             children: [
               _buildBoldText(title: "Employee Code"),
+              _buildColon(),
               _buildApproveText(title: model.employeeCode),
             ],
           ),
-
           Row(
             children: [
               _buildBoldText(title: "Department"),
+              _buildColon(),
               _buildApproveText(title: "Terms")
             ],
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildBoldText(title: "Reason"),
-              _buildApproveText(title: model.remark)
+              _buildBoldText(title: "OD Purpose"),
+              _buildColon(),
+              _buildApproveText(title: model.odPurposeName)
             ],
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildBoldText(title: "Leave Type"),
+              _buildBoldText(title: "OD Name"),
+              _buildColon(),
+              _buildApproveText(title: model.odName)
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildBoldText(title: "OD TYpe"),
+              _buildColon(),
               _buildApproveText(title: model.odTypeName)
             ],
           ),
@@ -483,31 +519,40 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildBoldText(title: "From Date"),
-              _buildApproveText(title: model.odStartDate)
+              _buildColon(),
+              _buildApproveText(title: model.odStartDate + " (" + model.odStartTime + " )")
             ],
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildBoldText(title: "To Date"),
-              _buildApproveText(title: model.odEndDate)
+              _buildColon(),
+              _buildApproveText(title: model.odEndDate + " (" + model.odEndTime + ")")
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildBoldText(title: "Project"),
+              _buildColon(),
+              _buildApproveText(title: model.placetovisitName)
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildBoldText(title: "Remarks"),
+              _buildColon(),
+              _buildApproveText(title: model.remark)
             ],
           ),
           Container(
-            padding: EdgeInsets.all(10.dw),
-            decoration: BoxDecoration(
-                color: AppColors.red,
-                borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(15.dw),
-                    bottomLeft: Radius.circular(15.dw))),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _buildDays(title: "No. of Days"),
-                _buildDays(title: "2")
-              ],
-            ),
-          )
+            padding: const EdgeInsets.all(8),
+            height: 1.0,
+            color: Colors.black,
+          ),
+          _buildButtons(model),
         ],
       ),
     );
@@ -515,10 +560,23 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
 
   _buildBoldText({required String title}) {
     return Container(
-      width: 200.dw,
-      padding: EdgeInsets.only(left: 10.dw),
+      width: 150.dw,
+      padding: EdgeInsets.only(left: 10.dw,top: 10.dh),
       child: Text(
-        "$title            :",
+        "$title",
+        overflow: TextOverflow.ellipsis,
+        maxLines: 4,
+        style: TextStyle(fontSize: 16.dw, fontWeight: FontWeight.w500),
+      ),
+    );
+  }
+
+  _buildColon(){
+    return Container(
+      width: 40.dw,
+      padding: EdgeInsets.only(left: 10.dw,top: 10.dh),
+      child: Text(
+        ":",
         overflow: TextOverflow.ellipsis,
         maxLines: 4,
         style: TextStyle(fontSize: 16.dw, fontWeight: FontWeight.w500),

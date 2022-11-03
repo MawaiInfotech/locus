@@ -85,24 +85,24 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        // InkWell(
-        //   onTap: (){
-        //     Navigator.pushNamed(context, AppRoutes.onDutyPage);
-        //   },
-        //   child: Card(
-        //     color: Color(0xffE5ECFF),
-        //     child: Column(
-        //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-        //       children: [
-        //         Image.asset(
-        //           "assets/images/file.png",
-        //           scale: 10.dw,
-        //         ),
-        //         _buildText(title: "On - Duty")
-        //       ],
-        //     ),
-        //   ),
-        // ),
+        InkWell(
+          onTap: (){
+            Navigator.pushNamed(context, AppRoutes.onDutyPage);
+          },
+          child: Card(
+            color: Color(0xffE5ECFF),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Image.asset(
+                  "assets/images/file.png",
+                  scale: 10.dw,
+                ),
+                _buildText(title: "OD")
+              ],
+            ),
+          ),
+        ),
         InkWell(
           onTap: (){
             Navigator.pushNamed(context, AppRoutes.holidaypage);

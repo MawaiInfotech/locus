@@ -30,6 +30,7 @@ _$_ApproveoffdutyModel _$$_ApproveoffdutyModelFromJson(
       remark: json['remarks'] as String? ?? "",
       placetovisitCode: json['place_of_visit'] as String? ?? "",
       placetovisitName: json['place_visit_name'] as String? ?? "",
+      odHours: json['od_hours'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$_ApproveoffdutyModelToJson(
@@ -56,4 +57,5 @@ Map<String, dynamic> _$$_ApproveoffdutyModelToJson(
       'remarks': instance.remark,
       'place_of_visit': instance.placetovisitCode,
       'place_visit_name': instance.placetovisitName,
+      'od_hours': instance.odHours,
     };
