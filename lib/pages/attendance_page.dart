@@ -745,7 +745,7 @@ class _AttendancePageState extends State<AttendancePage> {
   Future<bool> showConfirmationCheckOutDialog(file) async {
     checkInCallback() async {
       final bloc = context.read<CheckLoginBloc>();
-      await bloc.checkOut(remarkController.text, selectedOutput, file,  _currentAddress!);
+      await bloc.checkOut(remarkController.text, selectedOutput, file,  _currentAddress.toString());
       bloc.state.maybeWhen(
           content: (_, form) {
             ScaffoldMessenger.of(context)

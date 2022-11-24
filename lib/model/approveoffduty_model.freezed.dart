@@ -64,6 +64,10 @@ mixin _$ApproveoffdutyModel {
   String get placetovisitName => throw _privateConstructorUsedError;
   @JsonKey(name: "od_hours")
   String get odHours => throw _privateConstructorUsedError;
+  @JsonKey(name: "dept_code")
+  String get departmentCode => throw _privateConstructorUsedError;
+  @JsonKey(name: "dept_name")
+  String get departmentName => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -98,7 +102,9 @@ abstract class $ApproveoffdutyModelCopyWith<$Res> {
       @JsonKey(name: "remarks") String remark,
       @JsonKey(name: "place_of_visit") String placetovisitCode,
       @JsonKey(name: "place_visit_name") String placetovisitName,
-      @JsonKey(name: "od_hours") String odHours});
+      @JsonKey(name: "od_hours") String odHours,
+      @JsonKey(name: "dept_code") String departmentCode,
+      @JsonKey(name: "dept_name") String departmentName});
 }
 
 /// @nodoc
@@ -134,6 +140,8 @@ class _$ApproveoffdutyModelCopyWithImpl<$Res>
     Object? placetovisitCode = freezed,
     Object? placetovisitName = freezed,
     Object? odHours = freezed,
+    Object? departmentCode = freezed,
+    Object? departmentName = freezed,
   }) {
     return _then(_value.copyWith(
       employeeCode: employeeCode == freezed
@@ -224,6 +232,14 @@ class _$ApproveoffdutyModelCopyWithImpl<$Res>
           ? _value.odHours
           : odHours // ignore: cast_nullable_to_non_nullable
               as String,
+      departmentCode: departmentCode == freezed
+          ? _value.departmentCode
+          : departmentCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      departmentName: departmentName == freezed
+          ? _value.departmentName
+          : departmentName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -257,7 +273,9 @@ abstract class _$$_ApproveoffdutyModelCopyWith<$Res>
       @JsonKey(name: "remarks") String remark,
       @JsonKey(name: "place_of_visit") String placetovisitCode,
       @JsonKey(name: "place_visit_name") String placetovisitName,
-      @JsonKey(name: "od_hours") String odHours});
+      @JsonKey(name: "od_hours") String odHours,
+      @JsonKey(name: "dept_code") String departmentCode,
+      @JsonKey(name: "dept_name") String departmentName});
 }
 
 /// @nodoc
@@ -295,6 +313,8 @@ class __$$_ApproveoffdutyModelCopyWithImpl<$Res>
     Object? placetovisitCode = freezed,
     Object? placetovisitName = freezed,
     Object? odHours = freezed,
+    Object? departmentCode = freezed,
+    Object? departmentName = freezed,
   }) {
     return _then(_$_ApproveoffdutyModel(
       employeeCode: employeeCode == freezed
@@ -385,6 +405,14 @@ class __$$_ApproveoffdutyModelCopyWithImpl<$Res>
           ? _value.odHours
           : odHours // ignore: cast_nullable_to_non_nullable
               as String,
+      departmentCode: departmentCode == freezed
+          ? _value.departmentCode
+          : departmentCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      departmentName: departmentName == freezed
+          ? _value.departmentName
+          : departmentName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -414,7 +442,9 @@ class _$_ApproveoffdutyModel implements _ApproveoffdutyModel {
       @JsonKey(name: "remarks") this.remark = "",
       @JsonKey(name: "place_of_visit") this.placetovisitCode = "",
       @JsonKey(name: "place_visit_name") this.placetovisitName = "",
-      @JsonKey(name: "od_hours") this.odHours = ""});
+      @JsonKey(name: "od_hours") this.odHours = "",
+      @JsonKey(name: "dept_code") this.departmentCode = "",
+      @JsonKey(name: "dept_name") this.departmentName = ""});
 
   factory _$_ApproveoffdutyModel.fromJson(Map<String, dynamic> json) =>
       _$$_ApproveoffdutyModelFromJson(json);
@@ -485,10 +515,16 @@ class _$_ApproveoffdutyModel implements _ApproveoffdutyModel {
   @override
   @JsonKey(name: "od_hours")
   final String odHours;
+  @override
+  @JsonKey(name: "dept_code")
+  final String departmentCode;
+  @override
+  @JsonKey(name: "dept_name")
+  final String departmentName;
 
   @override
   String toString() {
-    return 'ApproveoffdutyModel(employeeCode: $employeeCode, employeeName: $employeeName, appNumber: $appNumber, directFromHomeCode: $directFromHomeCode, directFromHomename: $directFromHomename, odType1: $odType1, odTypeName: $odTypeName, odStatusName: $odStatusName, odName: $odName, odStartDate: $odStartDate, odStartTime: $odStartTime, odEndDate: $odEndDate, odEndTime: $odEndTime, odState: $odState, odStateName: $odStateName, odPurpose: $odPurpose, odPurposeName: $odPurposeName, gatePassId: $gatePassId, remark: $remark, placetovisitCode: $placetovisitCode, placetovisitName: $placetovisitName, odHours: $odHours)';
+    return 'ApproveoffdutyModel(employeeCode: $employeeCode, employeeName: $employeeName, appNumber: $appNumber, directFromHomeCode: $directFromHomeCode, directFromHomename: $directFromHomename, odType1: $odType1, odTypeName: $odTypeName, odStatusName: $odStatusName, odName: $odName, odStartDate: $odStartDate, odStartTime: $odStartTime, odEndDate: $odEndDate, odEndTime: $odEndTime, odState: $odState, odStateName: $odStateName, odPurpose: $odPurpose, odPurposeName: $odPurposeName, gatePassId: $gatePassId, remark: $remark, placetovisitCode: $placetovisitCode, placetovisitName: $placetovisitName, odHours: $odHours, departmentCode: $departmentCode, departmentName: $departmentName)';
   }
 
   @override
@@ -530,7 +566,11 @@ class _$_ApproveoffdutyModel implements _ApproveoffdutyModel {
                 .equals(other.placetovisitCode, placetovisitCode) &&
             const DeepCollectionEquality()
                 .equals(other.placetovisitName, placetovisitName) &&
-            const DeepCollectionEquality().equals(other.odHours, odHours));
+            const DeepCollectionEquality().equals(other.odHours, odHours) &&
+            const DeepCollectionEquality()
+                .equals(other.departmentCode, departmentCode) &&
+            const DeepCollectionEquality()
+                .equals(other.departmentName, departmentName));
   }
 
   @JsonKey(ignore: true)
@@ -558,7 +598,9 @@ class _$_ApproveoffdutyModel implements _ApproveoffdutyModel {
         const DeepCollectionEquality().hash(remark),
         const DeepCollectionEquality().hash(placetovisitCode),
         const DeepCollectionEquality().hash(placetovisitName),
-        const DeepCollectionEquality().hash(odHours)
+        const DeepCollectionEquality().hash(odHours),
+        const DeepCollectionEquality().hash(departmentCode),
+        const DeepCollectionEquality().hash(departmentName)
       ]);
 
   @JsonKey(ignore: true)
@@ -598,7 +640,9 @@ abstract class _ApproveoffdutyModel implements ApproveoffdutyModel {
           @JsonKey(name: "remarks") final String remark,
           @JsonKey(name: "place_of_visit") final String placetovisitCode,
           @JsonKey(name: "place_visit_name") final String placetovisitName,
-          @JsonKey(name: "od_hours") final String odHours}) =
+          @JsonKey(name: "od_hours") final String odHours,
+          @JsonKey(name: "dept_code") final String departmentCode,
+          @JsonKey(name: "dept_name") final String departmentName}) =
       _$_ApproveoffdutyModel;
 
   factory _ApproveoffdutyModel.fromJson(Map<String, dynamic> json) =
@@ -670,6 +714,12 @@ abstract class _ApproveoffdutyModel implements ApproveoffdutyModel {
   @override
   @JsonKey(name: "od_hours")
   String get odHours;
+  @override
+  @JsonKey(name: "dept_code")
+  String get departmentCode;
+  @override
+  @JsonKey(name: "dept_name")
+  String get departmentName;
   @override
   @JsonKey(ignore: true)
   _$$_ApproveoffdutyModelCopyWith<_$_ApproveoffdutyModel> get copyWith =>

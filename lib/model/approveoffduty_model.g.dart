@@ -31,6 +31,8 @@ _$_ApproveoffdutyModel _$$_ApproveoffdutyModelFromJson(
       placetovisitCode: json['place_of_visit'] as String? ?? "",
       placetovisitName: json['place_visit_name'] as String? ?? "",
       odHours: json['od_hours'] as String? ?? "",
+      departmentCode: json['dept_code'] as String? ?? "",
+      departmentName: json['dept_name'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$_ApproveoffdutyModelToJson(
@@ -58,4 +60,6 @@ Map<String, dynamic> _$$_ApproveoffdutyModelToJson(
       'place_of_visit': instance.placetovisitCode,
       'place_visit_name': instance.placetovisitName,
       'od_hours': instance.odHours,
+      'dept_code': instance.departmentCode,
+      'dept_name': instance.departmentName,
     };

@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                   "assets/images/file.png",
                   scale: 10.dw,
                 ),
-                _buildText(title: "OD")
+                _buildText(title: "Outdoor Duty")
               ],
             ),
           ),

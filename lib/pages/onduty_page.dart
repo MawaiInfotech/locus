@@ -82,7 +82,7 @@ class _OnDutyPageState extends State<OnDutyPage> with SingleTickerProviderStateM
                         "assets/images/briefcase.png",
                         scale: 14.dw,
                       ),
-                      const Text("My OD"),
+                      const Text("My Outdoor Duty"),
                     ],
                   ),
                   Column(
@@ -458,7 +458,6 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
   }
 
   Widget _buildApprovedLeaveList(ApproveoffdutyModel model) {
-
     return Card(
       elevation: 8,
       color: Colors.grey.shade200,
@@ -488,7 +487,7 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
             children: [
               _buildBoldText(title: "Department"),
               _buildColon(),
-              _buildApproveText(title: "Terms")
+              _buildApproveText(title: model.departmentName)
             ],
           ),
           Row(

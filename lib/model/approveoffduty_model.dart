@@ -28,6 +28,8 @@ class ApproveoffdutyModel with _$ApproveoffdutyModel {
     @JsonKey(name: "place_of_visit") @Default("") String placetovisitCode,
     @JsonKey(name: "place_visit_name") @Default("") String placetovisitName,
     @JsonKey(name: "od_hours") @Default("") String odHours,
+    @JsonKey(name: "dept_code") @Default("") String departmentCode,
+    @JsonKey(name: "dept_name") @Default("") String departmentName,
   }) = _ApproveoffdutyModel;
 
   factory ApproveoffdutyModel.fromJson(Map<String, dynamic> json) => _$ApproveoffdutyModelFromJson(json);
