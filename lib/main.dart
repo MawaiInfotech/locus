@@ -53,7 +53,8 @@ import 'package:path_provider/path_provider.dart' as path_provider;
         Provider<OffdutyService>(create: (_) => OffdutyService()),
         Provider<DummySignupService>(create: (_) => DummySignupService()),
         Provider<HolidayService>(create: (_) => HolidayService()),
-        Provider<NoticeboardService>(create: (_) => NoticeboardService())
+        Provider<NoticeboardService>(create: (_) => NoticeboardService()),
+        Provider<WorkfromHomeService>(create: (_) => WorkfromHomeService())
       ],
   child: BlocProvider(create: (_) => CheckLoginBloc(attendanceService),
       child: const MyApp()

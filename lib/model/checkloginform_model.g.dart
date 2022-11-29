@@ -18,6 +18,8 @@ CheckLoginModelForm _$CheckLoginModelFormFromJson(Map<String, dynamic> json) =>
           : CheckLoginModel.fromJson(
               json['checkOutData'] as Map<String, dynamic>),
       message: json['message'] as String?,
+      allowImage: json['allowImage'] as bool?,
+      allowMuliPunchOut: json['allowMuliPunchOut'] as bool?,
     );
 
 Map<String, dynamic> _$CheckLoginModelFormToJson(CheckLoginModelForm instance) {
@@ -33,5 +35,7 @@ Map<String, dynamic> _$CheckLoginModelFormToJson(CheckLoginModelForm instance) {
   writeNotNull('checkInData', instance.checkInData);
   writeNotNull('checkOutData', instance.checkOutData);
   writeNotNull('message', instance.message);
+  writeNotNull('allowImage', instance.allowImage);
+  writeNotNull('allowMuliPunchOut', instance.allowMuliPunchOut);
   return val;
 }

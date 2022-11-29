@@ -24,6 +24,7 @@ class RequestLeave extends StatefulWidget {
 }
 
 class _RequestLeaveState extends State<RequestLeave> {
+
   TextEditingController reasonTextController = TextEditingController();
 
   late RequestLeaveBloc requestLeaveBloc;

@@ -14,6 +14,7 @@ import 'package:locus/widgets/app_top_bar.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../model/checkloginform_model.dart';
 import '../model/login_model.dart';
 import '../themes/app_colors.dart';
 import 'missed_requestlist_page.dart';
@@ -51,6 +52,8 @@ class _AttendancePageState extends State<AttendancePage> {
   final secondNotifier = ValueNotifier<int>(0);
 
   bool permissionPopup = false;
+
+  late CheckLoginModelForm checkLoginModelForm = CheckLoginModelForm();
 
   @override
   void initState() {
@@ -294,10 +297,9 @@ class _AttendancePageState extends State<AttendancePage> {
         color: Colors.grey.shade50,
         elevation: 10,
         margin: EdgeInsets.only(left: 10.dw, right: 10.dw, bottom: 10.dw),
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.dw)),
-        child:
-            BlocBuilder<CheckLoginBloc, CheckLoginState>(builder: (_, state) {
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.dw)),
+        child: BlocBuilder<CheckLoginBloc, CheckLoginState>(
+            builder: (_, state) {
           final hasCheckIn = state.form.checkInData != null;
           final address = hasCheckIn ? state.form.checkInData?.address : null;
           final isLoading = state.maybeWhen(
@@ -372,9 +374,7 @@ class _AttendancePageState extends State<AttendancePage> {
         child: BlocBuilder<CheckLoginBloc, CheckLoginState>(
           builder: (_, state) {
             final hasCheckOut = state.form.checkOutData != null;
-            final checkOutAddress =
-                hasCheckOut ? state.form.checkOutData?.address : null;
-
+            final checkOutAddress = hasCheckOut ? state.form.checkOutData?.address : null;
             final isLoading = state.maybeWhen(
                 loading: (action, _) => action == AttendanceAction.checkOut,
                 orElse: () => false);
@@ -447,14 +447,18 @@ class _AttendancePageState extends State<AttendancePage> {
         width: ScreenSizeConfig.getFullWidth / 1.1,
         child: ElevatedButton(
             onPressed: () async{
-              final XFile? camera =
-              await _picker.pickImage(source: ImageSource.camera, imageQuality: 100 );
+              if(checkLoginModelForm.allowImage == "Y"){
+                final XFile? camera =
+                await _picker.pickImage(source: ImageSource.camera, imageQuality: 100 );
 
-              setState(() {
-                file = camera;
-                if(file!.path != null);
-              });
-              showConfirmationDialog(file!.path);
+                setState(() {
+                  file = camera;
+                  if(file!.path != null);
+                });
+                showConfirmationDialog(file!.path);
+              }else{
+                showConfirmationDialog("");
+              }
             },
             style: ElevatedButton.styleFrom(
                 elevation: 10.dw,
@@ -655,7 +659,6 @@ class _AttendancePageState extends State<AttendancePage> {
           },
           orElse: () {});
     }
-
     return await showDialog(
             context: context,
             builder: (context) {

@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           _buildCard(),
@@ -99,6 +99,24 @@ class _HomePageState extends State<HomePage> {
                   scale: 10.dw,
                 ),
                 _buildText(title: "Outdoor Duty")
+              ],
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: (){
+            Navigator.pushNamed(context, AppRoutes.workfromHome);
+          },
+          child: Card(
+            color: Color(0xffE3E2DF),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Image.asset(
+                  "assets/images/workfromhome.png",
+                  scale: 1.2.dw,
+                ),
+                _buildText(title: "Workfrom Home")
               ],
             ),
           ),
@@ -244,6 +262,7 @@ class _HomePageState extends State<HomePage> {
   _buildText({required String title}) {
     return Text(
       title,
+      textAlign: TextAlign.center,
       style: TextStyle(
           color: AppColors.black, fontWeight: FontWeight.w500, fontSize: 16.dh),
     );

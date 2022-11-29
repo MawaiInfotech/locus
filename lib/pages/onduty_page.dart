@@ -89,7 +89,7 @@ class _OnDutyPageState extends State<OnDutyPage> with SingleTickerProviderStateM
                     children: [
                       Image.asset(
                         "assets/images/stamp.png",
-                        scale: 14.dw,
+                        scale: 15.dw,
                       ),
                       const Text("Pending For Approval OD"),
                     ],
@@ -473,7 +473,7 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
             children: [
                _buildBoldText(title: "Name"),
               _buildColon(),
-               _buildApproveText(title: loginService.getCurrentUser!.emp_first_name ?? ""),
+               _buildApproveText(title: model.employeeName),
             ],
           ),
           Row(
@@ -597,14 +597,6 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
     );
   }
 
-  _buildDays({required String title}) {
-    return Text(
-      title,
-      style: TextStyle(
-          fontSize: 18.dw, color: Colors.white, fontWeight: FontWeight.w500),
-    );
-  }
-
   _buildButtons(ApproveoffdutyModel model) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -724,8 +716,8 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
                     ElevatedButton(
                       onPressed: () {
                         _approvalRejection(model, "A");
-                        approveoffdutyBloc.init();
                         Navigator.pop(context);
+                        approveoffdutyBloc.init();
 
                       },
                       style: ElevatedButton.styleFrom(
@@ -803,6 +795,7 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
                         _approvalRejection(model, "R");
                         //approvedleaveBloc.init();
                         Navigator.pop(context);
+                        approveoffdutyBloc.init();
 
                       },
                       style: ElevatedButton.styleFrom(

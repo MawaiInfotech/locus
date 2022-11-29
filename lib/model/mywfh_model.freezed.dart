@@ -1,0 +1,278 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+
+part of 'mywfh_model.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+MyWorkfromHomeModel _$MyWorkfromHomeModelFromJson(Map<String, dynamic> json) {
+  return _MyWorkfromHomeModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$MyWorkfromHomeModel {
+  @JsonKey(name: "empmemb_emp_master_emp_number")
+  String get empNumber => throw _privateConstructorUsedError;
+  @JsonKey(name: "from_date")
+  String get fromDate => throw _privateConstructorUsedError;
+  @JsonKey(name: "end_date")
+  String get endDate => throw _privateConstructorUsedError;
+  @JsonKey(name: "wfh_granted")
+  String get granted => throw _privateConstructorUsedError;
+  @JsonKey(name: "wfh_days")
+  String get days => throw _privateConstructorUsedError;
+  @JsonKey(name: "reason")
+  String get reason => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $MyWorkfromHomeModelCopyWith<MyWorkfromHomeModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MyWorkfromHomeModelCopyWith<$Res> {
+  factory $MyWorkfromHomeModelCopyWith(
+          MyWorkfromHomeModel value, $Res Function(MyWorkfromHomeModel) then) =
+      _$MyWorkfromHomeModelCopyWithImpl<$Res>;
+  $Res call(
+      {@JsonKey(name: "empmemb_emp_master_emp_number") String empNumber,
+      @JsonKey(name: "from_date") String fromDate,
+      @JsonKey(name: "end_date") String endDate,
+      @JsonKey(name: "wfh_granted") String granted,
+      @JsonKey(name: "wfh_days") String days,
+      @JsonKey(name: "reason") String reason});
+}
+
+/// @nodoc
+class _$MyWorkfromHomeModelCopyWithImpl<$Res>
+    implements $MyWorkfromHomeModelCopyWith<$Res> {
+  _$MyWorkfromHomeModelCopyWithImpl(this._value, this._then);
+
+  final MyWorkfromHomeModel _value;
+  // ignore: unused_field
+  final $Res Function(MyWorkfromHomeModel) _then;
+
+  @override
+  $Res call({
+    Object? empNumber = freezed,
+    Object? fromDate = freezed,
+    Object? endDate = freezed,
+    Object? granted = freezed,
+    Object? days = freezed,
+    Object? reason = freezed,
+  }) {
+    return _then(_value.copyWith(
+      empNumber: empNumber == freezed
+          ? _value.empNumber
+          : empNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      fromDate: fromDate == freezed
+          ? _value.fromDate
+          : fromDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      endDate: endDate == freezed
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      granted: granted == freezed
+          ? _value.granted
+          : granted // ignore: cast_nullable_to_non_nullable
+              as String,
+      days: days == freezed
+          ? _value.days
+          : days // ignore: cast_nullable_to_non_nullable
+              as String,
+      reason: reason == freezed
+          ? _value.reason
+          : reason // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_MyWorkfromHomeModelCopyWith<$Res>
+    implements $MyWorkfromHomeModelCopyWith<$Res> {
+  factory _$$_MyWorkfromHomeModelCopyWith(_$_MyWorkfromHomeModel value,
+          $Res Function(_$_MyWorkfromHomeModel) then) =
+      __$$_MyWorkfromHomeModelCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@JsonKey(name: "empmemb_emp_master_emp_number") String empNumber,
+      @JsonKey(name: "from_date") String fromDate,
+      @JsonKey(name: "end_date") String endDate,
+      @JsonKey(name: "wfh_granted") String granted,
+      @JsonKey(name: "wfh_days") String days,
+      @JsonKey(name: "reason") String reason});
+}
+
+/// @nodoc
+class __$$_MyWorkfromHomeModelCopyWithImpl<$Res>
+    extends _$MyWorkfromHomeModelCopyWithImpl<$Res>
+    implements _$$_MyWorkfromHomeModelCopyWith<$Res> {
+  __$$_MyWorkfromHomeModelCopyWithImpl(_$_MyWorkfromHomeModel _value,
+      $Res Function(_$_MyWorkfromHomeModel) _then)
+      : super(_value, (v) => _then(v as _$_MyWorkfromHomeModel));
+
+  @override
+  _$_MyWorkfromHomeModel get _value => super._value as _$_MyWorkfromHomeModel;
+
+  @override
+  $Res call({
+    Object? empNumber = freezed,
+    Object? fromDate = freezed,
+    Object? endDate = freezed,
+    Object? granted = freezed,
+    Object? days = freezed,
+    Object? reason = freezed,
+  }) {
+    return _then(_$_MyWorkfromHomeModel(
+      empNumber: empNumber == freezed
+          ? _value.empNumber
+          : empNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      fromDate: fromDate == freezed
+          ? _value.fromDate
+          : fromDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      endDate: endDate == freezed
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      granted: granted == freezed
+          ? _value.granted
+          : granted // ignore: cast_nullable_to_non_nullable
+              as String,
+      days: days == freezed
+          ? _value.days
+          : days // ignore: cast_nullable_to_non_nullable
+              as String,
+      reason: reason == freezed
+          ? _value.reason
+          : reason // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_MyWorkfromHomeModel implements _MyWorkfromHomeModel {
+  const _$_MyWorkfromHomeModel(
+      {@JsonKey(name: "empmemb_emp_master_emp_number") this.empNumber = "",
+      @JsonKey(name: "from_date") this.fromDate = "",
+      @JsonKey(name: "end_date") this.endDate = "",
+      @JsonKey(name: "wfh_granted") this.granted = "",
+      @JsonKey(name: "wfh_days") this.days = "",
+      @JsonKey(name: "reason") this.reason = ""});
+
+  factory _$_MyWorkfromHomeModel.fromJson(Map<String, dynamic> json) =>
+      _$$_MyWorkfromHomeModelFromJson(json);
+
+  @override
+  @JsonKey(name: "empmemb_emp_master_emp_number")
+  final String empNumber;
+  @override
+  @JsonKey(name: "from_date")
+  final String fromDate;
+  @override
+  @JsonKey(name: "end_date")
+  final String endDate;
+  @override
+  @JsonKey(name: "wfh_granted")
+  final String granted;
+  @override
+  @JsonKey(name: "wfh_days")
+  final String days;
+  @override
+  @JsonKey(name: "reason")
+  final String reason;
+
+  @override
+  String toString() {
+    return 'MyWorkfromHomeModel(empNumber: $empNumber, fromDate: $fromDate, endDate: $endDate, granted: $granted, days: $days, reason: $reason)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_MyWorkfromHomeModel &&
+            const DeepCollectionEquality().equals(other.empNumber, empNumber) &&
+            const DeepCollectionEquality().equals(other.fromDate, fromDate) &&
+            const DeepCollectionEquality().equals(other.endDate, endDate) &&
+            const DeepCollectionEquality().equals(other.granted, granted) &&
+            const DeepCollectionEquality().equals(other.days, days) &&
+            const DeepCollectionEquality().equals(other.reason, reason));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(empNumber),
+      const DeepCollectionEquality().hash(fromDate),
+      const DeepCollectionEquality().hash(endDate),
+      const DeepCollectionEquality().hash(granted),
+      const DeepCollectionEquality().hash(days),
+      const DeepCollectionEquality().hash(reason));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_MyWorkfromHomeModelCopyWith<_$_MyWorkfromHomeModel> get copyWith =>
+      __$$_MyWorkfromHomeModelCopyWithImpl<_$_MyWorkfromHomeModel>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_MyWorkfromHomeModelToJson(
+      this,
+    );
+  }
+}
+
+abstract class _MyWorkfromHomeModel implements MyWorkfromHomeModel {
+  const factory _MyWorkfromHomeModel(
+      {@JsonKey(name: "empmemb_emp_master_emp_number") final String empNumber,
+      @JsonKey(name: "from_date") final String fromDate,
+      @JsonKey(name: "end_date") final String endDate,
+      @JsonKey(name: "wfh_granted") final String granted,
+      @JsonKey(name: "wfh_days") final String days,
+      @JsonKey(name: "reason") final String reason}) = _$_MyWorkfromHomeModel;
+
+  factory _MyWorkfromHomeModel.fromJson(Map<String, dynamic> json) =
+      _$_MyWorkfromHomeModel.fromJson;
+
+  @override
+  @JsonKey(name: "empmemb_emp_master_emp_number")
+  String get empNumber;
+  @override
+  @JsonKey(name: "from_date")
+  String get fromDate;
+  @override
+  @JsonKey(name: "end_date")
+  String get endDate;
+  @override
+  @JsonKey(name: "wfh_granted")
+  String get granted;
+  @override
+  @JsonKey(name: "wfh_days")
+  String get days;
+  @override
+  @JsonKey(name: "reason")
+  String get reason;
+  @override
+  @JsonKey(ignore: true)
+  _$$_MyWorkfromHomeModelCopyWith<_$_MyWorkfromHomeModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}

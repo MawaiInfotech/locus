@@ -19,5 +19,7 @@ class AppColors {
   static Color portaldarkOrange = Color(0xffff5757);
   static Color portalgreyBlue = Color(0xff5991ad);
   static Color portalgreen = Color(0xff55ce63);
+  static Color babyPink = Color(0xffd3e9f0);
+  static Color lightgreen = Color(0xffD0D05C);
 
 }

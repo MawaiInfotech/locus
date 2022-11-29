@@ -14,6 +14,7 @@ import 'package:locus/pages/onduty_page.dart';
 import 'package:locus/pages/profile_page.dart';
 import 'package:locus/pages/request_leave.dart';
 import 'package:locus/pages/request_offduty.dart';
+import 'package:locus/pages/request_workfromhome.dart';
 import 'package:locus/pages/team_attendance_page.dart';
 import 'package:locus/pages/workfrom_home_page.dart';
 import '../pages/login_page.dart';
@@ -39,6 +40,7 @@ class AppRoutes {
   static const dummyattendancepage = '/dummyattendancePage';
   static const holidaypage = '/holidayPage';
   static const noticeboard = '/noticeboardPage';
+  static const requestWorkfromHome = '/requestWorkfromHome';
 
 
   static Map<String, Widget Function(BuildContext)> getRoutes(BuildContext _) {
@@ -53,14 +55,15 @@ class AppRoutes {
       attendanceDetailPage: (_) => const AttendanceDetailPage(),
       requestLeave: (_) => const RequestLeave(),
       teamattendance: (_) => const TeamAttendancePage(),
-      workfromHome: (_)=> const WorkfromHome(),
+      workfromHome: (_)=> const WorkFromHomePage(),
       forgetpassword: (_) => const ForgetPasswordPage(),
       changepassword: (_) => const ChangePasswordPage(),
       requestoffduty: (_) => const RequestOffdutyPage(),
       dummysignuppage: (_) => const DummySignupPage(),
       dummyattendancepage: (_) => const DummyAttendancePage(),
       holidaypage: (_) => const HolidayPage(),
-      noticeboard: (_) => NoticeBoardPage()
+      noticeboard: (_) => NoticeBoardPage(),
+      requestWorkfromHome: (_) => RequestWorkfromHome()
     };
   }
 }

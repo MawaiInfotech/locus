@@ -65,9 +65,15 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
   var toTime;
   var toTime1 = "10:30";
   TimeRangeResult? _timeRange;
+  TimeRangeResult? _timeRange2;
   final _defaultTimeRange = TimeRangeResult(
     const TimeOfDay(hour: 09, minute: 30),
     const TimeOfDay(hour: 10, minute: 30),
+  );
+
+  final _defaultTimeRange2 = TimeRangeResult(
+  const TimeOfDay(hour: 09, minute: 30),
+  const TimeOfDay(hour: 18, minute: 30)
   );
 
   @override
@@ -78,6 +84,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
     requestoffdutyBloc.init();
     applyOdBloc = ApplyOdBloc(offdutyService);
     _timeRange = _defaultTimeRange;
+    _timeRange2 = _defaultTimeRange2;
     super.initState();
   }
 
@@ -160,7 +167,8 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
                     children: [_buildHeadingText("To Date"), _buildToDate()],
                   ),
                   _buildLine(),
-                  _time(),
+                  if(odType == "Partial") _time(),
+                  if(odType == "Full Day") _FullDaytime(),
                   _buildLine(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -640,7 +648,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
                                     elevation: 2.dw,
                                     shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(10.dw),
-                                        side: BorderSide(color: AppColors.black)
+                                        side: const BorderSide(color: AppColors.black)
                                     ),
                                     child: Padding(
                                       padding: EdgeInsets.all(8.0.dw),
@@ -727,7 +735,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
                         },
                         helpText: 'Select Date',
                         initialEntryMode: DatePickerEntryMode.calendarOnly,
-                        firstDate: DateTime.now().subtract(Duration(days: 90)),
+                        firstDate: DateTime.now().subtract(const Duration(days: 90)),
                         lastDate: DateTime.now().add(const Duration(days: 365)),
                         errorFormatText: "Invalid Format",
                         errorInvalidRangeText: "Invalid Range",
@@ -915,6 +923,50 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
         setState(() => _timeRange = range);
         fromTime = _timeRange?.start.format(context);
         toTime = _timeRange?.end.format(context);
+      },
+    );
+  }
+
+  _FullDaytime(){
+    return TimeRange(
+      fromTitle: Text(
+        'FROM',
+        style: TextStyle(
+          fontSize: 14.dw,
+          color: AppColors.black,
+          fontWeight: FontWeight.w400,
+        ),
+      ),
+      toTitle: Text(
+        'TO',
+        style: TextStyle(
+          fontSize: 14.dw,
+          color: AppColors.black,
+          fontWeight: FontWeight.w400,
+        ),
+      ),
+      titlePadding: 10.dw,
+      textStyle: const TextStyle(
+        fontWeight: FontWeight.normal,
+        color: AppColors.black,
+      ),
+      activeTextStyle: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: AppColors.red,
+      ),
+      borderColor: AppColors.black,
+      activeBorderColor: AppColors.orange2,
+      backgroundColor: Colors.transparent,
+      activeBackgroundColor: AppColors.white,
+      firstTime: const TimeOfDay(hour: 8, minute: 00),
+      lastTime: const TimeOfDay(hour: 23, minute: 59),
+      initialRange: _timeRange2,
+      timeStep: 5,
+      timeBlock: 10,
+      onRangeCompleted: (range){
+        setState(() => _timeRange2 = range);
+        fromTime = _timeRange2?.start.format(context);
+        toTime = _timeRange2?.end.format(context);
       },
     );
   }
