@@ -503,7 +503,7 @@ class _ApproveWorkfromHomePageState extends State<ApproveWorkfromHomePage> {
             children: [
               _buildBoldText(title: "Department"),
               _buildcolon(),
-              _buildApproveText(title: "")
+              _buildApproveText(title: model.departmentCode)
             ],
           ),
           Row(

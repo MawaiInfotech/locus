@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:locus/model/pendingwfh_model.dart';
+import 'package:locus/model/requestwfh_model.dart';
 import 'package:locus/model/workfromhome_model.dart';
 import 'package:http/http.dart' as http;
 import '../errors/api_error.dart';
@@ -28,6 +29,22 @@ class WorkfromHomeService{
     return [];
   }
 
+  //request Work from Home
+
+  Future<RequestWfhModel?> getWfhData() async {
+    const url = root + 'apply-conditon-wfh';
+    try {
+      final response = await http.get(Uri.parse(url), headers: getHeaders());
+      final responseBody = json.decode(response.body);
+      return RequestWfhModel.fromJson(responseBody["data"]);
+    } catch (e) {
+      print(e);
+      _handleError(e);
+    }
+    return null;
+  }
+
+
   //pending for approval work from home
 
   Future<List<PendingWfhModel>> getPendingforApproval() async {
@@ -44,19 +61,6 @@ class WorkfromHomeService{
     return [];
   }
 
-
-  Future<WorkfromHomeModel?> getWfhData() async {
-    const url = root + 'create-wfh';
-    try {
-      final response = await http.get(Uri.parse(url), headers: getHeaders());
-      final responseBody = json.decode(response.body);
-      return WorkfromHomeModel.fromJson(responseBody["data"]);
-    } catch (e) {
-      print(e);
-      _handleError(e);
-    }
-    return null;
-  }
 
   Future<String?> getApplyWFHDate(Map<String, dynamic>data) async {
     const url = root + 'wfh';

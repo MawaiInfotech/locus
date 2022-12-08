@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:locus/bloc/requestwfh_bloc.dart';
+import 'package:locus/model/requestwfh_model.dart';
+import 'package:locus/service/wfh_service.dart';
+import 'package:locus/state/requestwfh_state.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_top_bar.dart';
 import 'package:provider/provider.dart';
 import '../bloc/applyleave_bloc.dart';
-import '../bloc/request_leave_bloc.dart';
-import '../model/cc_list_model.dart';
-import '../model/requestleave_model.dart';
-import '../service/leave_service.dart';
-import '../service/login_service.dart';
+import '../model/wfhcclist_model.dart';
 import '../state/applyleave_state.dart';
-import '../state/request_leave_state.dart';
 import '../themes/app_colors.dart';
 
 class RequestWorkfromHome extends StatefulWidget {
@@ -25,22 +24,16 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
 
   TextEditingController reasonTextController = TextEditingController();
 
-  late RequestLeaveBloc requestLeaveBloc;
-
-  late ApplyyLeaveBloc applyyLeaveBloc;
-
-  late LoginService loginService;
-
-  late RequestLeaveModel requestLeaveModel = const RequestLeaveModel();
+  late RequestWfhBloc requestWfhBloc;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   var applyLeave;
-  var leavetype;
+  var workFromHomeType;
+  var workFromHomeTypeCode;
   var ccTo;
   var ccToCode;
   var balanceLeave;
-  var leaveCode;
   var fromDate = "select Date";
   var toDate = " ";
   var difference;
@@ -53,11 +46,9 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
 
   @override
   void initState() {
-    final leaveService = Provider.of<LeaveService>(context, listen: false);
-    loginService = Provider.of<LoginService>(context, listen: false);
-    requestLeaveBloc = RequestLeaveBloc(loginService, leaveService);
-    applyyLeaveBloc = ApplyyLeaveBloc(leaveService);
-    requestLeaveBloc.init();
+    final workfromHomeService = Provider.of<WorkfromHomeService>(context, listen:  false);
+    requestWfhBloc = RequestWfhBloc(workfromHomeService);
+    requestWfhBloc.init();
     super.initState();
   }
 
@@ -65,7 +56,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
     fromDate = "Select Date";
     toDate = "";
     difference = "";
-    leavetype = "Leave Type";
+    workFromHomeType = "Leave Type";
     dateTimeRange = DateTimeRange(start: DateTime.now(), end: DateTime.now());
     setState(() {});
   }
@@ -73,7 +64,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppTopBar(title: "Workfrom Home"),
+      appBar: const AppTopBar(title: "Workfrom Home"),
       body: SafeArea(
           child: SingleChildScrollView(
       child: _buildBody() ,
@@ -83,8 +74,8 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
   }
 
   _buildBody() {
-    return BlocConsumer<RequestLeaveBloc, RequestLeaveState>(
-      bloc: requestLeaveBloc,
+    return BlocConsumer<RequestWfhBloc, RequestWfhState>(
+      bloc: requestWfhBloc,
       listener: (_, state) {},
       builder: (_, state) {
         return state.when(
@@ -96,11 +87,11 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
     );
   }
 
-  Widget _buildLoading(RequestLeaveModel model) {
+  Widget _buildLoading(RequestWfhModel model) {
     return const Center(child: CircularProgressIndicator());
   }
 
-  Widget _buildContent(RequestLeaveModel model) {
+  Widget _buildContent(RequestWfhModel model) {
     return SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -123,7 +114,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       _buildWorfromHomeDialogBox(model),
-                      _buildLeaveTypeDialogBox(model)
+                      _buildWfhTypeDialogBox(model)
                     ],
                   ),
                   _buildLine(),
@@ -161,7 +152,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
                   _buildLine(),
                   _buildHeadingText("Reason*"),
                   _buildTextField(),
-                  _buildElevatedbutton()
+                  //_buildElevatedbutton()
                 ],
               ),
             ),
@@ -179,7 +170,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
     );
   }
 
-  _buildWorfromHomeDialogBox(RequestLeaveModel model) {
+  _buildWorfromHomeDialogBox(RequestWfhModel model) {
     return InkWell(
       onTap: () async {
         _showWorkfromHomeDialogue(model);
@@ -204,7 +195,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
     );
   }
 
-  Future<void> _showWorkfromHomeDialogue(RequestLeaveModel model) async {
+  Future<void> _showWorkfromHomeDialogue(RequestWfhModel model) async {
     await showDialog(
         context: context,
         builder: (context) {
@@ -213,14 +204,13 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
               width: ScreenSizeConfig.getFullWidth,
               height: 200.dh,
               child: ListView.builder(
-                  itemCount: model.leave_type.length,
+                  itemCount: model.wfh_day_type.length,
                   shrinkWrap: true,
                   itemBuilder: (BuildContext context, int index) {
                     return InkWell(
                       onTap: () {
-                        requestLeaveBloc.init();
-                        applyLeave = model.leave_type[index].meaning;
-                        controlCode = model.leave_type[index].controlCode;
+                        applyLeave = model.wfh_day_type[index].meaning;
+                        controlCode = model.wfh_day_type[index].controlCode;
                         if (controlCode == "1" || controlCode == "2") {
                           difference = "0.5";
                         } else if (controlCode == "3") {
@@ -239,7 +229,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
                         child: Padding(
                           padding: EdgeInsets.all(8.0.dw),
                           child: Text(
-                            model.leave_type[index].meaning,
+                            model.wfh_day_type[index].meaning,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 18.dw,
@@ -256,10 +246,10 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
         false;
   }
 
-  _buildLeaveTypeDialogBox(RequestLeaveModel model) {
+  _buildWfhTypeDialogBox(RequestWfhModel model) {
     return InkWell(
       onTap: () async {
-        _showLeaveType(model);
+        _showWfhType(model);
       },
       child: Padding(
         padding: EdgeInsets.all(10.0.dw),
@@ -271,7 +261,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(leavetype ?? "Workfrom Home"),
+                  Text(workFromHomeType ?? "Workfrom Home"),
                   const Icon(Icons.arrow_drop_down_outlined)
                 ],
               ),
@@ -280,7 +270,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
     );
   }
 
-  Future<void> _showLeaveType(RequestLeaveModel model) async {
+  Future<void> _showWfhType(RequestWfhModel model) async {
     await showDialog(
         context: context,
         builder: (context) {
@@ -289,15 +279,14 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
               width: ScreenSizeConfig.getFullWidth,
               height: 200.dh,
               child: ListView.builder(
-                  itemCount: model.leave_list.length,
+                  itemCount: model.wfh_condition.length,
                   shrinkWrap: true,
                   itemBuilder: (BuildContext context, int index) {
                     return InkWell(
                       onTap: () {
-                        requestLeaveBloc.init();
-                        leavetype = model.leave_list[index].description;
-                        leaveCode = model.leave_list[index].code;
-                        balanceLeave = model.leave_list[index].leaveBalance;
+                        workFromHomeType = model.wfh_condition[index].meaning;
+                        workFromHomeTypeCode = model.wfh_condition[index].controlCode;
+                        setState(() {});
                         Navigator.pop(context);
                       },
                       child: Card(
@@ -307,7 +296,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
                         child: Padding(
                           padding: EdgeInsets.all(8.0.dw),
                           child: Text(
-                            model.leave_list[index].description,
+                            model.wfh_condition[index].meaning,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 18.dw,
@@ -334,7 +323,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
     );
   }
 
-  _buildCCToDialogBox(RequestLeaveModel model) {
+  _buildCCToDialogBox(RequestWfhModel model) {
     return InkWell(
       onTap: () async {
         _showCCToDialogue(model);
@@ -358,7 +347,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
     );
   }
 
-  Future<void> _showCCToDialogue(RequestLeaveModel model) async {
+  Future<void> _showCCToDialogue(RequestWfhModel model) async {
     final listNotifier = SearchableListNotifier(model.cc_list);
     await showDialog(
         context: context,
@@ -371,7 +360,8 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
                 children: [
                   SizedBox(
                     height: 50.dw,
-                    child: TextField(onChanged: listNotifier.filterBasedOn,
+                    child: TextField(
+                      onChanged: listNotifier.filterBasedOn,
                       decoration: InputDecoration(
                           border: _border(),
                           focusedBorder: _border(),
@@ -383,7 +373,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
                     ),
                   ),
                   Expanded(
-                    child: ValueListenableBuilder<List<CClistModel>>(
+                    child: ValueListenableBuilder<List<WfhCcListModel>>(
                         valueListenable: listNotifier,
                         builder: (context, list, widget) {
                           return ListView.builder(
@@ -393,8 +383,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
                                   (BuildContext context, int index) {
                                 return InkWell(
                                   onTap: () {
-                                    requestLeaveBloc.init();
-                                    ccTo = list[index].employeeFirstName;
+                                    ccTo = list[index].name;
                                     ccToCode = list[index].employeeCode;
                                     Navigator.pop(context);
                                   },
@@ -413,7 +402,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
                                           SizedBox(
                                             width: 150.dw,
                                             child: Text(
-                                              list[index].employeeFirstName,
+                                              list[index].name,
                                               textAlign: TextAlign.center,
                                               maxLines: 2,
                                               overflow:
@@ -464,48 +453,48 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
       borderRadius: BorderRadius.circular(10.dw),
       borderSide:  const BorderSide(color: AppColors.black));
 
-  _buildElevatedbutton() {
-    return Center(
-      child: Padding(
-        padding: EdgeInsets.all(10.0.dw),
-        child: BlocConsumer<ApplyyLeaveBloc, ApplyyLeaveState>(
-            bloc: applyyLeaveBloc,
-            listener: (_, state) {
-              state.maybeWhen(
-                  success: (_, message) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(message ?? "Something")));
-                    Navigator.pop(context, true);
-                    // Navigator.pushNamed(context, AppRoutes.leaveApply);
-                  },
-                  failed: (_, message) {
-                    ScaffoldMessenger.of(context)
-                        .showSnackBar(SnackBar(content: Text(message)));
-                  },
-                  orElse: () {});
-            },
-            builder: (context, state) {
-              return state.maybeWhen(loading: (_) {
-                return const CircularProgressIndicator();
-              }, orElse: () {
-                return ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.portaldarkBlue),
-                    onPressed: () {
-                      if (fromDate == null && toDate == null) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text("Please Select Dates")));
-                        return;
-                      }
-
-                      _applyLeave();
-                    },
-                    child: const Text("Submit"));
-              });
-            }),
-      ),
-    );
-  }
+  // _buildElevatedbutton() {
+  //   return Center(
+  //     child: Padding(
+  //       padding: EdgeInsets.all(10.0.dw),
+  //       child: BlocConsumer<ApplyyLeaveBloc, ApplyyLeaveState>(
+  //           //bloc: applyyLeaveBloc,
+  //           listener: (_, state) {
+  //             state.maybeWhen(
+  //                 success: (_, message) {
+  //                   ScaffoldMessenger.of(context).showSnackBar(
+  //                       SnackBar(content: Text(message ?? "Something")));
+  //                   Navigator.pop(context, true);
+  //                   // Navigator.pushNamed(context, AppRoutes.leaveApply);
+  //                 },
+  //                 failed: (_, message) {
+  //                   ScaffoldMessenger.of(context)
+  //                       .showSnackBar(SnackBar(content: Text(message)));
+  //                 },
+  //                 orElse: () {});
+  //           },
+  //           builder: (context, state) {
+  //             return state.maybeWhen(loading: (_) {
+  //               return const CircularProgressIndicator();
+  //             }, orElse: () {
+  //               return ElevatedButton(
+  //                   style: ElevatedButton.styleFrom(
+  //                       backgroundColor: AppColors.portaldarkBlue),
+  //                   onPressed: () {
+  //                     if (fromDate == null && toDate == null) {
+  //                       ScaffoldMessenger.of(context).showSnackBar(
+  //                           const SnackBar(content: Text("Please Select Dates")));
+  //                       return;
+  //                     }
+  //
+  //                     _applyLeave();
+  //                   },
+  //                   child: const Text("Submit"));
+  //             });
+  //           }),
+  //     ),
+  //   );
+  // }
 
   Widget _buildFromDate() {
     return Padding(
@@ -526,7 +515,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
                   color: Colors.white),
               child: InkWell(
                 onTap: () {
-                  if (controlCode != null && leavetype != null) {
+                  if (controlCode != null && workFromHomeType != null) {
                     showDateRangePicker(
                         context: context,
                         builder: (context, child) {
@@ -644,21 +633,18 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
 
   void _applyLeave() async {
     final data = {
-      'emp_cd': loginService.getUserCode,
-      'unit_cd': loginService.getCurrentUser!.unit_cd,
       'apply_leave_for': controlCode,
-      'leave_type': leaveCode,
+      'leave_type': workFromHomeTypeCode,
       'from_date': fromDate,
       'to_date': toDate,
       'leave_days': difference.toString(),
       'balance_leave': balanceLeave,
       'cc_to': ccToCode ?? "",
       'contact_no': contactNumber,
-      'fin_year': loginService.getCurrentUser!.default_fin_year,
       'reasons': reasonTextController.text,
       'applied_to': appliedTo,
     };
-    await applyyLeaveBloc.applyLeave(data);
+    //await applyyLeaveBloc.applyLeave(data);
   }
 
   _buildLine() {
@@ -674,21 +660,19 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
 }
 
 
-class SearchableListNotifier extends ValueNotifier<List<CClistModel>> {
+class SearchableListNotifier extends ValueNotifier<List<WfhCcListModel>> {
   SearchableListNotifier(super.value) {
     initialValue = value;
     print("INITIAL VALUE WAS $value");
   }
 
-  late List<CClistModel> initialValue;
+  late List<WfhCcListModel> initialValue;
 
   void filterBasedOn(String query) {
     if (query.isEmpty) {
       value = initialValue;
     } else {
-      value = initialValue
-          .where((e) => e.employeeFirstName.toLowerCase().startsWith(query))
-          .toList();
+      value = initialValue.where((e) => e.name.toLowerCase().startsWith(query)).toList();
     }
     notifyListeners();
   }
