@@ -267,4 +267,5 @@ class _HomePageState extends State<HomePage> {
           color: AppColors.black, fontWeight: FontWeight.w500, fontSize: 16.dh),
     );
   }
+
 }

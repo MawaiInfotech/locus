@@ -21,9 +21,7 @@ class AttendanceService {
     final body = {"sysdate": date};
     const url = root + "checklogin";
 
-    final response = await http.post(Uri.parse(url),
-        body: json.encode(body), headers: getHeaders());
-
+    final response = await http.post(Uri.parse(url), body: json.encode(body), headers: getHeaders());
     try {
       final responseBody = json.decode(response.body);
       final checkIN = responseBody["checkInData"];

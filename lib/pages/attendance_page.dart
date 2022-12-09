@@ -447,7 +447,6 @@ class _AttendancePageState extends State<AttendancePage> {
         width: ScreenSizeConfig.getFullWidth / 1.1,
         child: ElevatedButton(
             onPressed: () async{
-              if(checkLoginModelForm.allowImage == "Y"){
                 final XFile? camera =
                 await _picker.pickImage(source: ImageSource.camera, imageQuality: 100 );
 
@@ -456,9 +455,6 @@ class _AttendancePageState extends State<AttendancePage> {
                   if(file!.path != null);
                 });
                 showConfirmationDialog(file!.path);
-              }else{
-                showConfirmationDialog("");
-              }
             },
             style: ElevatedButton.styleFrom(
                 elevation: 10.dw,

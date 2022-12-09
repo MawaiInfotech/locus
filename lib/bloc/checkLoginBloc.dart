@@ -32,8 +32,8 @@ class CheckLoginBloc extends Cubit<CheckLoginState> {
       if (form != null) {
         emit(CheckLoginState.content(state.action, form));
       }
-    } catch (error) {
-      rethrow;
+    } on ApiError catch (e) {
+      emit(CheckLoginState.failed(state.action, state.form, e.message));
     }
   }
 
