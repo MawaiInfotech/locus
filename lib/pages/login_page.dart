@@ -12,20 +12,8 @@ import 'package:locus/state/login_state.dart';
 import 'package:locus/themes/app_colors.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_textfield.dart';
-import 'package:new_version/new_version.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:package_info_plus/package_info_plus.dart';
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io' show Platform;
-import 'package:collection/collection.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:html/parser.dart' show parse;
-import 'package:http/http.dart' as http;
-import 'package:package_info_plus/package_info_plus.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -54,29 +42,29 @@ class _LoginPageState extends State<LoginPage> {
     //checkVersion();
   }
 
-  void checkVersion() async{
-
-    // Instantiate NewVersion manager object (Using GCP Console app as example)
-    final newVersion = NewVersion(
-      iOSId: 'com.shilpi.locusmawai.shilpi',
-      androidId: 'com.shilpi.locusmawai.shilpi',
-    );
-    final status = await newVersion.getVersionStatus();
-    newVersion.showUpdateDialog(
-      context: context,
-      versionStatus: status!,
-      dialogTitle: "UPDATE!!!",
-      dialogText: "Please update the app from  ${status.localVersion} to ${status.storeVersion}",
-      dismissAction: (){
-        SystemNavigator.pop();
-      },
-      updateButtonText: "Update Now",
-      dismissButtonText: "",
-
-    );
-    print("DEVICE ==> " +status.localVersion);
-    print("STORE ==> " +status.storeVersion);
-  }
+  // void checkVersion() async{
+  //
+  //   // Instantiate NewVersion manager object (Using GCP Console app as example)
+  //   final newVersion = NewVersion(
+  //     iOSId: 'com.shilpi.locusmawai.shilpi',
+  //     androidId: 'com.shilpi.locusmawai.shilpi',
+  //   );
+  //   final status = await newVersion.getVersionStatus();
+  //   newVersion.showUpdateDialog(
+  //     context: context,
+  //     versionStatus: status!,
+  //     dialogTitle: "UPDATE!!!",
+  //     dialogText: "Please update the app from  ${status.localVersion} to ${status.storeVersion}",
+  //     dismissAction: (){
+  //       SystemNavigator.pop();
+  //     },
+  //     updateButtonText: "Update Now",
+  //     dismissButtonText: "",
+  //
+  //   );
+  //   print("DEVICE ==> " +status.localVersion);
+  //   print("STORE ==> " +status.storeVersion);
+  // }
 
   bool permissionPopupLogin = false;
 
@@ -190,7 +178,8 @@ class _LoginPageState extends State<LoginPage> {
                   failed: (form, _) => _buildContent(form));
             },
           ),
-        )));
+        ))
+    );
   }
 
   Widget _buildLoading(LoginForm form) {
@@ -231,7 +220,7 @@ class _LoginPageState extends State<LoginPage> {
                     ))
               ],
             ),
-            Text("V 2.1.0+3", style: TextStyle(fontSize: 14.dw),)
+            Text("V 2.2.0+4", style: TextStyle(fontSize: 14.dw),)
           ],
         ),
        

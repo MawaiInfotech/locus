@@ -61,13 +61,14 @@ class WorkfromHomeService{
     return [];
   }
 
+  //apply work from home
 
   Future<String?> getApplyWFHDate(Map<String, dynamic>data) async {
     const url = root + 'wfh';
     final body = data;
     try {
       final response = await http.post(Uri.parse(url),
-          body: json.encode(body), headers: headers);
+          body: json.encode(body), headers: getHeaders());
       final responseBody = json.decode(response.body);
       if (responseBody['status'] == true) {
         return responseBody ['message'];

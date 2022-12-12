@@ -1,22 +1,21 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:locus/service/leave_service.dart';
 import 'package:locus/service/wfh_service.dart';
-import 'package:locus/state/applyleave_state.dart';
+import 'package:locus/state/apply_wfh_state.dart';
 import '../errors/api_error.dart';
 
-class ApplyWfhBloc extends Cubit<ApplyyLeaveState>{
-  ApplyWfhBloc(this.workfromHomeService): super(ApplyyLeaveState.initial());
+class ApplyWfhBloc extends Cubit<ApplyWfhState>{
+  ApplyWfhBloc(this.workfromHomeService): super(ApplyWfhState.initial());
 
   WorkfromHomeService workfromHomeService;
 
   Future<void> applyWfh(Map<String, dynamic> data)async{
-    emit(ApplyyLeaveState.loading(state.applyyLeaveModel));
+    emit(ApplyWfhState.loading(state.applyWfhModel));
     try{
       final message = await workfromHomeService.getApplyWFHDate(data);
 
-      emit(ApplyyLeaveState.success(state.applyyLeaveModel, message));
+      emit(ApplyWfhState.success(state.applyWfhModel, message));
     }on ApiError catch(error){
-      emit(ApplyyLeaveState.failed(state.applyyLeaveModel,  error.message));
+      emit(ApplyWfhState.failed(state.applyWfhModel,  error.message));
     }
   }
 

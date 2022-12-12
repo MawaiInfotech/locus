@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:locus/bloc/applyWfh_bloc.dart';
 import 'package:locus/bloc/requestwfh_bloc.dart';
 import 'package:locus/model/requestwfh_model.dart';
 import 'package:locus/service/wfh_service.dart';
+import 'package:locus/state/apply_wfh_state.dart';
 import 'package:locus/state/requestwfh_state.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_top_bar.dart';
@@ -25,6 +27,8 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
   TextEditingController reasonTextController = TextEditingController();
 
   late RequestWfhBloc requestWfhBloc;
+
+  late ApplyWfhBloc applyWfhBloc;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -48,6 +52,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
   void initState() {
     final workfromHomeService = Provider.of<WorkfromHomeService>(context, listen:  false);
     requestWfhBloc = RequestWfhBloc(workfromHomeService);
+    applyWfhBloc = ApplyWfhBloc(workfromHomeService);
     requestWfhBloc.init();
     super.initState();
   }
@@ -152,7 +157,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
                   _buildLine(),
                   _buildHeadingText("Reason*"),
                   _buildTextField(),
-                  //_buildElevatedbutton()
+                  _buildElevatedbutton()
                 ],
               ),
             ),
@@ -385,6 +390,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
                                   onTap: () {
                                     ccTo = list[index].name;
                                     ccToCode = list[index].employeeCode;
+                                    setState(() {});
                                     Navigator.pop(context);
                                   },
                                   child: Card(
@@ -453,48 +459,48 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
       borderRadius: BorderRadius.circular(10.dw),
       borderSide:  const BorderSide(color: AppColors.black));
 
-  // _buildElevatedbutton() {
-  //   return Center(
-  //     child: Padding(
-  //       padding: EdgeInsets.all(10.0.dw),
-  //       child: BlocConsumer<ApplyyLeaveBloc, ApplyyLeaveState>(
-  //           //bloc: applyyLeaveBloc,
-  //           listener: (_, state) {
-  //             state.maybeWhen(
-  //                 success: (_, message) {
-  //                   ScaffoldMessenger.of(context).showSnackBar(
-  //                       SnackBar(content: Text(message ?? "Something")));
-  //                   Navigator.pop(context, true);
-  //                   // Navigator.pushNamed(context, AppRoutes.leaveApply);
-  //                 },
-  //                 failed: (_, message) {
-  //                   ScaffoldMessenger.of(context)
-  //                       .showSnackBar(SnackBar(content: Text(message)));
-  //                 },
-  //                 orElse: () {});
-  //           },
-  //           builder: (context, state) {
-  //             return state.maybeWhen(loading: (_) {
-  //               return const CircularProgressIndicator();
-  //             }, orElse: () {
-  //               return ElevatedButton(
-  //                   style: ElevatedButton.styleFrom(
-  //                       backgroundColor: AppColors.portaldarkBlue),
-  //                   onPressed: () {
-  //                     if (fromDate == null && toDate == null) {
-  //                       ScaffoldMessenger.of(context).showSnackBar(
-  //                           const SnackBar(content: Text("Please Select Dates")));
-  //                       return;
-  //                     }
-  //
-  //                     _applyLeave();
-  //                   },
-  //                   child: const Text("Submit"));
-  //             });
-  //           }),
-  //     ),
-  //   );
-  // }
+  _buildElevatedbutton() {
+    return Center(
+      child: Padding(
+        padding: EdgeInsets.all(10.0.dw),
+        child: BlocConsumer<ApplyWfhBloc, ApplyWfhState>(
+            bloc: applyWfhBloc,
+            listener: (_, state) {
+              state.maybeWhen(
+                  success: (_, message) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(message ?? "Something")));
+                    Navigator.pop(context, true);
+                    // Navigator.pushNamed(context, AppRoutes.leaveApply);
+                  },
+                  failed: (_, message) {
+                    ScaffoldMessenger.of(context)
+                        .showSnackBar(SnackBar(content: Text(message)));
+                  },
+                  orElse: () {});
+            },
+            builder: (context, state) {
+              return state.maybeWhen(loading: (_) {
+                return const CircularProgressIndicator();
+              }, orElse: () {
+                return ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.portaldarkBlue),
+                    onPressed: () {
+                      if (fromDate == null && toDate == null) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("Please Select Dates")));
+                        return;
+                      }
+
+                      _applywfh();
+                    },
+                    child: const Text("Submit"));
+              });
+            }),
+      ),
+    );
+  }
 
   Widget _buildFromDate() {
     return Padding(
@@ -631,20 +637,18 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
     );
   }
 
-  void _applyLeave() async {
+  void _applywfh() async {
     final data = {
-      'apply_leave_for': controlCode,
-      'leave_type': workFromHomeTypeCode,
+      'wfh_desc': controlCode,
+      'wfh_type': "WF",
       'from_date': fromDate,
-      'to_date': toDate,
-      'leave_days': difference.toString(),
-      'balance_leave': balanceLeave,
+      'wfh_days': difference.toString(),
+      'wfh_reason': reasonTextController.text,
       'cc_to': ccToCode ?? "",
-      'contact_no': contactNumber,
-      'reasons': reasonTextController.text,
-      'applied_to': appliedTo,
+      'end_date': toDate,
+      "wfh_condition": workFromHomeTypeCode
     };
-    //await applyyLeaveBloc.applyLeave(data);
+    await applyWfhBloc.applyWfh(data);
   }
 
   _buildLine() {

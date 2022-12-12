@@ -848,7 +848,7 @@ class _AttendancePageState extends State<AttendancePage> {
     var position = await GeolocatorPlatform.instance.getCurrentPosition(
         locationSettings:
             const LocationSettings(accuracy: LocationAccuracy.best));
-    setState(() async {
+    setState(() {
       currentPostion = LatLng(position.latitude, position.longitude);
     });
   }
@@ -860,8 +860,7 @@ class _AttendancePageState extends State<AttendancePage> {
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text(
-              'Location services are disabled. Please enable the services')));
+          content: Text('Location services are disabled. Please enable the services')));
       return false;
     }
     permission = await Geolocator.checkPermission();
@@ -899,13 +898,10 @@ class _AttendancePageState extends State<AttendancePage> {
   }
 
   Future<void> _getAddressFromLatLng(Position position) async {
-    await placemarkFromCoordinates(
-            _currentPosition!.latitude, _currentPosition!.longitude)
-        .then((List<Placemark> placemarks) {
+    await placemarkFromCoordinates(_currentPosition!.latitude, _currentPosition!.longitude).then((List<Placemark> placemarks) {
       Placemark place = placemarks[0];
       setState(() {
-        _currentAddress =
-            '${place.street},${place.subLocality},${place.locality}';
+        _currentAddress = '${place.street},${place.subLocality},${place.locality}';
       });
     }).catchError((e) {
       debugPrint(e);

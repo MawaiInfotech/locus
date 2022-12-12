@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'package:locus/model/holiday_model.dart';
 import 'package:locus/model/noticeboard_model.dart';
 import 'package:locus/service/constant.dart';
 import 'package:http/http.dart' as http;

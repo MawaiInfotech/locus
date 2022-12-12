@@ -36,7 +36,7 @@ class LoginService{
         _userFrom.put("userFrom", _loginModel?.user_from);
         if(shouldRemember)  await _box.put("user", _loginModel);
       }else{
-        throw ApiError.fromResponse(body['message']);
+        throw ApiError.fromResponse(body['msg']);
         //print(throw body['msg']);
        // throw body['msg'];
       }
