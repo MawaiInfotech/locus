@@ -8,7 +8,6 @@ import 'package:locus/state/dummysignup_state.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_top_bar.dart';
 import 'package:provider/provider.dart';
-
 import '../themes/app_colors.dart';
 
 class DummySignupPage extends StatefulWidget {
@@ -22,7 +21,6 @@ class _DummySignupPageState extends State<DummySignupPage> {
 
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController mobileController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController passwordConfirmationController = TextEditingController();
 
@@ -53,7 +51,6 @@ class _DummySignupPageState extends State<DummySignupPage> {
                 Text("Please fill the following details.", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18.dw),),
                 _buildTextField("Name", "Name", Icons.person, nameController),
                 _buildTextField("Registered Email", "Registered Email", Icons.mail, emailController),
-                _buildTextField("Mobile Number", "Mobile Number", Icons.mobile_friendly, mobileController),
                 _buildTextField("Password", "Password", Icons.mobile_friendly, passwordController),
                 _buildTextField("Password Confirmation", "Password Confirmation", Icons.mobile_friendly, passwordConfirmationController),
                 _buildSignupButton()
@@ -127,7 +124,6 @@ class _DummySignupPageState extends State<DummySignupPage> {
     final data = {
       'name': nameController.text,
       'reg_email_id': emailController.text,
-      'mob_number': mobileController.text,
       'password': passwordController.text,
       'password_confirmation': passwordConfirmationController.text,
     };

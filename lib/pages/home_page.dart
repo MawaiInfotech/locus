@@ -103,24 +103,24 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        // InkWell(
-        //   onTap: (){
-        //     Navigator.pushNamed(context, AppRoutes.workfromHome);
-        //   },
-        //   child: Card(
-        //     color: Color(0xffE3E2DF),
-        //     child: Column(
-        //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-        //       children: [
-        //         Image.asset(
-        //           "assets/images/workfromhome.png",
-        //           scale: 1.2.dw,
-        //         ),
-        //         _buildText(title: "Workfrom Home")
-        //       ],
-        //     ),
-        //   ),
-        // ),
+        InkWell(
+          onTap: (){
+            Navigator.pushNamed(context, AppRoutes.workfromHome);
+          },
+          child: Card(
+            color: Color(0xffE3E2DF),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Image.asset(
+                  "assets/images/workfromhome.png",
+                  scale: 1.2.dw,
+                ),
+                _buildText(title: "Workfrom Home")
+              ],
+            ),
+          ),
+        ),
         InkWell(
           onTap: (){
             Navigator.pushNamed(context, AppRoutes.holidaypage);

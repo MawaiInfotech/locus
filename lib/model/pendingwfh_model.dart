@@ -15,6 +15,7 @@ class PendingWfhModel with _$PendingWfhModel{
     @JsonKey(name: "name") @Default("") String name,
     @JsonKey(name: "reporting_to") @Default("") String reportingTo,
     @JsonKey(name: "area_mast_department_code") @Default("") String departmentCode,
+    @JsonKey(name: "app_no") @Default("") String appNumber,
 
   }) = _PendingWfhModel;
 

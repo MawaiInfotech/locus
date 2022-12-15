@@ -15,6 +15,7 @@ _$_MyWorkfromHomeModel _$$_MyWorkfromHomeModelFromJson(
       granted: json['wfh_granted'] as String? ?? "",
       days: json['wfh_days'] as String? ?? "",
       reason: json['reason'] as String? ?? "",
+      appNumber: json['app_no'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$_MyWorkfromHomeModelToJson(
@@ -26,4 +27,5 @@ Map<String, dynamic> _$$_MyWorkfromHomeModelToJson(
       'wfh_granted': instance.granted,
       'wfh_days': instance.days,
       'reason': instance.reason,
+      'app_no': instance.appNumber,
     };

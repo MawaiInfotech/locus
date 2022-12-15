@@ -17,6 +17,7 @@ _$_PendingWfhModel _$$_PendingWfhModelFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String? ?? "",
       reportingTo: json['reporting_to'] as String? ?? "",
       departmentCode: json['area_mast_department_code'] as String? ?? "",
+      appNumber: json['app_no'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$_PendingWfhModelToJson(_$_PendingWfhModel instance) =>
@@ -30,4 +31,5 @@ Map<String, dynamic> _$$_PendingWfhModelToJson(_$_PendingWfhModel instance) =>
       'name': instance.name,
       'reporting_to': instance.reportingTo,
       'area_mast_department_code': instance.departmentCode,
+      'app_no': instance.appNumber,
     };

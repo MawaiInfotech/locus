@@ -38,6 +38,8 @@ mixin _$PendingWfhModel {
   String get reportingTo => throw _privateConstructorUsedError;
   @JsonKey(name: "area_mast_department_code")
   String get departmentCode => throw _privateConstructorUsedError;
+  @JsonKey(name: "app_no")
+  String get appNumber => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -59,7 +61,8 @@ abstract class $PendingWfhModelCopyWith<$Res> {
       @JsonKey(name: "reason") String reason,
       @JsonKey(name: "name") String name,
       @JsonKey(name: "reporting_to") String reportingTo,
-      @JsonKey(name: "area_mast_department_code") String departmentCode});
+      @JsonKey(name: "area_mast_department_code") String departmentCode,
+      @JsonKey(name: "app_no") String appNumber});
 }
 
 /// @nodoc
@@ -82,6 +85,7 @@ class _$PendingWfhModelCopyWithImpl<$Res>
     Object? name = freezed,
     Object? reportingTo = freezed,
     Object? departmentCode = freezed,
+    Object? appNumber = freezed,
   }) {
     return _then(_value.copyWith(
       empNumber: empNumber == freezed
@@ -120,6 +124,10 @@ class _$PendingWfhModelCopyWithImpl<$Res>
           ? _value.departmentCode
           : departmentCode // ignore: cast_nullable_to_non_nullable
               as String,
+      appNumber: appNumber == freezed
+          ? _value.appNumber
+          : appNumber // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -140,7 +148,8 @@ abstract class _$$_PendingWfhModelCopyWith<$Res>
       @JsonKey(name: "reason") String reason,
       @JsonKey(name: "name") String name,
       @JsonKey(name: "reporting_to") String reportingTo,
-      @JsonKey(name: "area_mast_department_code") String departmentCode});
+      @JsonKey(name: "area_mast_department_code") String departmentCode,
+      @JsonKey(name: "app_no") String appNumber});
 }
 
 /// @nodoc
@@ -165,6 +174,7 @@ class __$$_PendingWfhModelCopyWithImpl<$Res>
     Object? name = freezed,
     Object? reportingTo = freezed,
     Object? departmentCode = freezed,
+    Object? appNumber = freezed,
   }) {
     return _then(_$_PendingWfhModel(
       empNumber: empNumber == freezed
@@ -203,6 +213,10 @@ class __$$_PendingWfhModelCopyWithImpl<$Res>
           ? _value.departmentCode
           : departmentCode // ignore: cast_nullable_to_non_nullable
               as String,
+      appNumber: appNumber == freezed
+          ? _value.appNumber
+          : appNumber // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -219,7 +233,8 @@ class _$_PendingWfhModel implements _PendingWfhModel {
       @JsonKey(name: "reason") this.reason = "",
       @JsonKey(name: "name") this.name = "",
       @JsonKey(name: "reporting_to") this.reportingTo = "",
-      @JsonKey(name: "area_mast_department_code") this.departmentCode = ""});
+      @JsonKey(name: "area_mast_department_code") this.departmentCode = "",
+      @JsonKey(name: "app_no") this.appNumber = ""});
 
   factory _$_PendingWfhModel.fromJson(Map<String, dynamic> json) =>
       _$$_PendingWfhModelFromJson(json);
@@ -251,10 +266,13 @@ class _$_PendingWfhModel implements _PendingWfhModel {
   @override
   @JsonKey(name: "area_mast_department_code")
   final String departmentCode;
+  @override
+  @JsonKey(name: "app_no")
+  final String appNumber;
 
   @override
   String toString() {
-    return 'PendingWfhModel(empNumber: $empNumber, fromDate: $fromDate, endDate: $endDate, granted: $granted, days: $days, reason: $reason, name: $name, reportingTo: $reportingTo, departmentCode: $departmentCode)';
+    return 'PendingWfhModel(empNumber: $empNumber, fromDate: $fromDate, endDate: $endDate, granted: $granted, days: $days, reason: $reason, name: $name, reportingTo: $reportingTo, departmentCode: $departmentCode, appNumber: $appNumber)';
   }
 
   @override
@@ -272,7 +290,8 @@ class _$_PendingWfhModel implements _PendingWfhModel {
             const DeepCollectionEquality()
                 .equals(other.reportingTo, reportingTo) &&
             const DeepCollectionEquality()
-                .equals(other.departmentCode, departmentCode));
+                .equals(other.departmentCode, departmentCode) &&
+            const DeepCollectionEquality().equals(other.appNumber, appNumber));
   }
 
   @JsonKey(ignore: true)
@@ -287,7 +306,8 @@ class _$_PendingWfhModel implements _PendingWfhModel {
       const DeepCollectionEquality().hash(reason),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(reportingTo),
-      const DeepCollectionEquality().hash(departmentCode));
+      const DeepCollectionEquality().hash(departmentCode),
+      const DeepCollectionEquality().hash(appNumber));
 
   @JsonKey(ignore: true)
   @override
@@ -304,24 +324,16 @@ class _$_PendingWfhModel implements _PendingWfhModel {
 
 abstract class _PendingWfhModel implements PendingWfhModel {
   const factory _PendingWfhModel(
-      {@JsonKey(name: "empmemb_emp_master_emp_number")
-          final String empNumber,
-      @JsonKey(name: "from_date")
-          final String fromDate,
-      @JsonKey(name: "end_date")
-          final String endDate,
-      @JsonKey(name: "wfh_granted")
-          final String granted,
-      @JsonKey(name: "wfh_days")
-          final String days,
-      @JsonKey(name: "reason")
-          final String reason,
-      @JsonKey(name: "name")
-          final String name,
-      @JsonKey(name: "reporting_to")
-          final String reportingTo,
-      @JsonKey(name: "area_mast_department_code")
-          final String departmentCode}) = _$_PendingWfhModel;
+      {@JsonKey(name: "empmemb_emp_master_emp_number") final String empNumber,
+      @JsonKey(name: "from_date") final String fromDate,
+      @JsonKey(name: "end_date") final String endDate,
+      @JsonKey(name: "wfh_granted") final String granted,
+      @JsonKey(name: "wfh_days") final String days,
+      @JsonKey(name: "reason") final String reason,
+      @JsonKey(name: "name") final String name,
+      @JsonKey(name: "reporting_to") final String reportingTo,
+      @JsonKey(name: "area_mast_department_code") final String departmentCode,
+      @JsonKey(name: "app_no") final String appNumber}) = _$_PendingWfhModel;
 
   factory _PendingWfhModel.fromJson(Map<String, dynamic> json) =
       _$_PendingWfhModel.fromJson;
@@ -353,6 +365,9 @@ abstract class _PendingWfhModel implements PendingWfhModel {
   @override
   @JsonKey(name: "area_mast_department_code")
   String get departmentCode;
+  @override
+  @JsonKey(name: "app_no")
+  String get appNumber;
   @override
   @JsonKey(ignore: true)
   _$$_PendingWfhModelCopyWith<_$_PendingWfhModel> get copyWith =>

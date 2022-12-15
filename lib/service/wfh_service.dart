@@ -82,6 +82,26 @@ class WorkfromHomeService{
     // return null;
   }
 
+  //approve work from home
+
+  Future<String?> getApprovealWfh(Map<String, dynamic>data) async {
+    const url = root + 'status-wfh';
+    final body = data;
+    try {
+      final response = await http.post(Uri.parse(url), body: json.encode(body), headers: getHeaders());
+      final responseBody = json.decode(response.body);
+      if (responseBody['status'] == true) {
+        return responseBody ['message'];
+      } else {
+        throw ApiError.fromResponse(responseBody['message']);
+      }
+    } catch (e) {
+      print(e);
+      _handleError(e);
+    }
+  }
+
+
   _handleError(var e) {
     if (e is String) throw e;
     if (e is SocketException) throw ApiError.internet();

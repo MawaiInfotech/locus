@@ -142,8 +142,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
     approvedleaveBloc = ApprovedleaveBloc(leaveService, loginService);
     bloc.init();
     approvedleaveBloc.init();
-    teamLeaderLeaveApproveRejectBloc =
-        TeamLeaderLeaveApproveRejectBloc(leaveService);
+    teamLeaderLeaveApproveRejectBloc = TeamLeaderLeaveApproveRejectBloc(leaveService);
   }
 
   @override

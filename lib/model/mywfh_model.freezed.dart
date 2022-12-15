@@ -32,6 +32,8 @@ mixin _$MyWorkfromHomeModel {
   String get days => throw _privateConstructorUsedError;
   @JsonKey(name: "reason")
   String get reason => throw _privateConstructorUsedError;
+  @JsonKey(name: "app_no")
+  String get appNumber => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +52,8 @@ abstract class $MyWorkfromHomeModelCopyWith<$Res> {
       @JsonKey(name: "end_date") String endDate,
       @JsonKey(name: "wfh_granted") String granted,
       @JsonKey(name: "wfh_days") String days,
-      @JsonKey(name: "reason") String reason});
+      @JsonKey(name: "reason") String reason,
+      @JsonKey(name: "app_no") String appNumber});
 }
 
 /// @nodoc
@@ -70,6 +73,7 @@ class _$MyWorkfromHomeModelCopyWithImpl<$Res>
     Object? granted = freezed,
     Object? days = freezed,
     Object? reason = freezed,
+    Object? appNumber = freezed,
   }) {
     return _then(_value.copyWith(
       empNumber: empNumber == freezed
@@ -96,6 +100,10 @@ class _$MyWorkfromHomeModelCopyWithImpl<$Res>
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as String,
+      appNumber: appNumber == freezed
+          ? _value.appNumber
+          : appNumber // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -113,7 +121,8 @@ abstract class _$$_MyWorkfromHomeModelCopyWith<$Res>
       @JsonKey(name: "end_date") String endDate,
       @JsonKey(name: "wfh_granted") String granted,
       @JsonKey(name: "wfh_days") String days,
-      @JsonKey(name: "reason") String reason});
+      @JsonKey(name: "reason") String reason,
+      @JsonKey(name: "app_no") String appNumber});
 }
 
 /// @nodoc
@@ -135,6 +144,7 @@ class __$$_MyWorkfromHomeModelCopyWithImpl<$Res>
     Object? granted = freezed,
     Object? days = freezed,
     Object? reason = freezed,
+    Object? appNumber = freezed,
   }) {
     return _then(_$_MyWorkfromHomeModel(
       empNumber: empNumber == freezed
@@ -161,6 +171,10 @@ class __$$_MyWorkfromHomeModelCopyWithImpl<$Res>
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as String,
+      appNumber: appNumber == freezed
+          ? _value.appNumber
+          : appNumber // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -174,7 +188,8 @@ class _$_MyWorkfromHomeModel implements _MyWorkfromHomeModel {
       @JsonKey(name: "end_date") this.endDate = "",
       @JsonKey(name: "wfh_granted") this.granted = "",
       @JsonKey(name: "wfh_days") this.days = "",
-      @JsonKey(name: "reason") this.reason = ""});
+      @JsonKey(name: "reason") this.reason = "",
+      @JsonKey(name: "app_no") this.appNumber = ""});
 
   factory _$_MyWorkfromHomeModel.fromJson(Map<String, dynamic> json) =>
       _$$_MyWorkfromHomeModelFromJson(json);
@@ -197,10 +212,13 @@ class _$_MyWorkfromHomeModel implements _MyWorkfromHomeModel {
   @override
   @JsonKey(name: "reason")
   final String reason;
+  @override
+  @JsonKey(name: "app_no")
+  final String appNumber;
 
   @override
   String toString() {
-    return 'MyWorkfromHomeModel(empNumber: $empNumber, fromDate: $fromDate, endDate: $endDate, granted: $granted, days: $days, reason: $reason)';
+    return 'MyWorkfromHomeModel(empNumber: $empNumber, fromDate: $fromDate, endDate: $endDate, granted: $granted, days: $days, reason: $reason, appNumber: $appNumber)';
   }
 
   @override
@@ -213,7 +231,8 @@ class _$_MyWorkfromHomeModel implements _MyWorkfromHomeModel {
             const DeepCollectionEquality().equals(other.endDate, endDate) &&
             const DeepCollectionEquality().equals(other.granted, granted) &&
             const DeepCollectionEquality().equals(other.days, days) &&
-            const DeepCollectionEquality().equals(other.reason, reason));
+            const DeepCollectionEquality().equals(other.reason, reason) &&
+            const DeepCollectionEquality().equals(other.appNumber, appNumber));
   }
 
   @JsonKey(ignore: true)
@@ -225,7 +244,8 @@ class _$_MyWorkfromHomeModel implements _MyWorkfromHomeModel {
       const DeepCollectionEquality().hash(endDate),
       const DeepCollectionEquality().hash(granted),
       const DeepCollectionEquality().hash(days),
-      const DeepCollectionEquality().hash(reason));
+      const DeepCollectionEquality().hash(reason),
+      const DeepCollectionEquality().hash(appNumber));
 
   @JsonKey(ignore: true)
   @override
@@ -243,12 +263,20 @@ class _$_MyWorkfromHomeModel implements _MyWorkfromHomeModel {
 
 abstract class _MyWorkfromHomeModel implements MyWorkfromHomeModel {
   const factory _MyWorkfromHomeModel(
-      {@JsonKey(name: "empmemb_emp_master_emp_number") final String empNumber,
-      @JsonKey(name: "from_date") final String fromDate,
-      @JsonKey(name: "end_date") final String endDate,
-      @JsonKey(name: "wfh_granted") final String granted,
-      @JsonKey(name: "wfh_days") final String days,
-      @JsonKey(name: "reason") final String reason}) = _$_MyWorkfromHomeModel;
+      {@JsonKey(name: "empmemb_emp_master_emp_number")
+          final String empNumber,
+      @JsonKey(name: "from_date")
+          final String fromDate,
+      @JsonKey(name: "end_date")
+          final String endDate,
+      @JsonKey(name: "wfh_granted")
+          final String granted,
+      @JsonKey(name: "wfh_days")
+          final String days,
+      @JsonKey(name: "reason")
+          final String reason,
+      @JsonKey(name: "app_no")
+          final String appNumber}) = _$_MyWorkfromHomeModel;
 
   factory _MyWorkfromHomeModel.fromJson(Map<String, dynamic> json) =
       _$_MyWorkfromHomeModel.fromJson;
@@ -271,6 +299,9 @@ abstract class _MyWorkfromHomeModel implements MyWorkfromHomeModel {
   @override
   @JsonKey(name: "reason")
   String get reason;
+  @override
+  @JsonKey(name: "app_no")
+  String get appNumber;
   @override
   @JsonKey(ignore: true)
   _$$_MyWorkfromHomeModelCopyWith<_$_MyWorkfromHomeModel> get copyWith =>

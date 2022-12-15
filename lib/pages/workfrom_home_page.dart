@@ -2,11 +2,13 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:locus/bloc/approvedleave_bloc.dart';
+import 'package:locus/bloc/approvewfh_bloc.dart';
 import 'package:locus/bloc/leavetype_bloc.dart';
 import 'package:locus/bloc/mywfh_bloc.dart';
 import 'package:locus/bloc/pendingwfh_bloc.dart';
 import 'package:locus/bloc/teamleader_leaveapprove_bloc.dart';
 import 'package:locus/model/approvedleave_model.dart';
+import 'package:locus/model/approvewfh_model.dart';
 import 'package:locus/model/employeeleavetype_model.dart';
 import 'package:locus/model/mywfh_model.dart';
 import 'package:locus/model/pendingwfh_model.dart';
@@ -126,11 +128,20 @@ class _MyWorkfromHomePageState extends State<MyWorkfromHomePage> {
 
   late MyWorkfromHomeBloc myWorkfromHomeBloc;
 
+  late ApproveWfhBloc approveWfhBloc;
+
+  late PendingWfhBloc pendingWfhBloc;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  TextEditingController cancelController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
     final workfromHomeService = Provider.of<WorkfromHomeService>(context, listen: false);
     myWorkfromHomeBloc = MyWorkfromHomeBloc(workfromHomeService);
+    approveWfhBloc = ApproveWfhBloc(workfromHomeService);
     myWorkfromHomeBloc.init();
   }
 
@@ -224,7 +235,7 @@ class _MyWorkfromHomePageState extends State<MyWorkfromHomePage> {
             padding: EdgeInsets.only(right: 20.dw, top: 20.dw),
             child: InkWell(
               onTap: (){
-                //openApproveDialog(model);
+                openCancelDialouge(model);
               },
               child: Image.asset("assets/images/undo-2.png", scale: 22.dw,),
             ),
@@ -266,160 +277,101 @@ class _MyWorkfromHomePageState extends State<MyWorkfromHomePage> {
     );
   }
 
-  // Future openApproveDialog(EmployeeleaveListModel model) => showDialog(
-  //   context: context,
-  //   builder: (context) => Dialog(
-  //     elevation: 8.0,
-  //     shape:
-  //     RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-  //     child: SingleChildScrollView(
-  //       child: SizedBox(
-  //           height: 220.dh,
-  //           child: Column(
-  //             mainAxisAlignment: MainAxisAlignment.center,
-  //             children: [
-  //               Padding(
-  //                 padding: EdgeInsets.all(8.0.dw),
-  //                 child: Text(
-  //                   "Are you sure you want to cancel ?",
-  //                   style: TextStyle(
-  //                       fontSize: 18.dw, fontWeight: FontWeight.w400),
-  //                 ),
-  //               ),
-  //               Padding(
-  //                 padding: EdgeInsets.all(8.0.dw),
-  //                 child: TextField(
-  //                   maxLines: null,
-  //                   controller: cancelController,
-  //                   keyboardType: TextInputType.multiline,
-  //                   decoration: InputDecoration(
-  //                       hintText: "  Enter Your Remark Here",
-  //                       contentPadding: EdgeInsets.all(8.dw)),
-  //                 ),
-  //               ),
-  //               Row(
-  //                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  //                 children: [
-  //                   Padding(
-  //                     padding: EdgeInsets.all(8.0.dw),
-  //                     child: ElevatedButton(
-  //                       onPressed: () {
-  //                         Navigator.pop(context);
-  //                       },
-  //                       style: ElevatedButton.styleFrom(
-  //                           primary: AppColors.red,
-  //                           minimumSize: Size(40.dw, 30.dh),
-  //                           elevation: 8.0,
-  //                           shape: RoundedRectangleBorder(
-  //                               borderRadius: BorderRadius.circular(8.0))),
-  //                       child: Text(
-  //                         "Cancel",
-  //                         style: TextStyle(
-  //                             fontWeight: FontWeight.bold, fontSize: 18.dw),
-  //                       ),
-  //                     ),
-  //                   ),
-  //
-  //                   // Padding(
-  //                   //   padding: EdgeInsets.all(8.0.dw),
-  //                   //   child: ElevatedButton(
-  //                   //     onPressed: () {
-  //                   //       _approvalRejection(model, "C");
-  //                   //
-  //                   //       Navigator.pop(context);
-  //                   //       bloc.init();
-  //                   //       approvedleaveBloc.init();
-  //                   //     },
-  //                   //     style: ElevatedButton.styleFrom(
-  //                   //         primary: Colors.lightGreen,
-  //                   //         minimumSize: Size(80.dw, 30.dh),
-  //                   //         elevation: 8.0,
-  //                   //         shape: RoundedRectangleBorder(
-  //                   //             borderRadius: BorderRadius.circular(8.0))),
-  //                   //     child: Text(
-  //                   //       "Ok",
-  //                   //       style: TextStyle(
-  //                   //           fontWeight: FontWeight.bold, fontSize: 18.dw),
-  //                   //     ),
-  //                   //   ),
-  //                   // ),
-  //                   Padding(
-  //                     padding: EdgeInsets.all(8.0.dw),
-  //                     child: BlocConsumer<TeamLeaderLeaveApproveRejectBloc, TeamleaderLeaveApproveState>(
-  //                         bloc: teamLeaderLeaveApproveRejectBloc,
-  //                         listener: (_, state){
-  //                           state.maybeWhen(
-  //                               success: (_, message){
-  //                                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message??"Something")));
-  //                                 Navigator.pop(context);
-  //                                 bloc.init();
-  //                               },
-  //                               failed: (_, message){
-  //                                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
-  //                               }, orElse:(){});
-  //                         },
-  //                         builder: (context, state) {
-  //                           return state.maybeWhen(
-  //                               loading: (_){
-  //                                 return const CircularProgressIndicator();
-  //                               },
-  //                               orElse: (){
-  //                                 return ElevatedButton(
-  //                                   onPressed: () {
-  //                                     _approvalRejection(model, "C", cancelController.text);
-  //                                     bloc.init();
-  //                                   },
-  //                                   style: ElevatedButton.styleFrom(
-  //                                       primary: Colors.lightGreen,
-  //                                       minimumSize: Size(80.dw, 30.dh),
-  //                                       elevation: 8.0,
-  //                                       shape: RoundedRectangleBorder(
-  //                                           borderRadius: BorderRadius.circular(8.0))),
-  //                                   child: Text(
-  //                                     "Ok",
-  //                                     style: TextStyle(
-  //                                         fontWeight: FontWeight.bold, fontSize: 18.dw),
-  //                                   ),
-  //                                 );
-  //                               });
-  //                         }
-  //                     ),
-  //                   ),
-  //                 ],
-  //               )
-  //             ],
-  //           )),
-  //     ),
-  //   ),
-  // );
-  //
-  // void _approvalRejection(EmployeeleaveListModel model, String grantedType, String remark) async {
-  //   final data = {
-  //     "emp_cd": loginService.getCurrentUser!.emp_cd,
-  //     "leave_pk_id": model.leavePkId,
-  //     "leave_granted": grantedType,
-  //     "remarks": remark,
-  //   };
-  //   await teamLeaderLeaveApproveRejectBloc.ApprovalRejectionStatus(data);
-  //   bloc.init();
-  //   //final state = teamLeaderLeaveApproveRejectBloc.state;
-  //   // state.maybeWhen(
-  //   //     success: (model, message) {
-  //   //       ScaffoldMessenger.of(scaffoldKey.currentContext!)
-  //   //           .showSnackBar(SnackBar(
-  //   //               content: Text(
-  //   //         message!,
-  //   //         style: const TextStyle(color: Colors.white),
-  //   //       )));
-  //   //       approvedleaveBloc.init();
-  //   //       bloc.init();
-  //   //     },
-  //   //     failed: (model, message) {
-  //   //       ScaffoldMessenger.of(scaffoldKey.currentContext!)
-  //   //           .showSnackBar(SnackBar(content: Text(message)));
-  //   //     },
-  //   //     orElse: () {});
-  // }
+  void _approvalRejection(MyWorkfromHomeModel model, String status, String remarks) async {
+    final data = {
+      "app_no": model.appNumber,
+      "status": status,
+      "remarks": remarks,
+    };
+    await approveWfhBloc.ApprovalRejectionStatus(data);
+    final state = approveWfhBloc.state;
+    state.maybeWhen(
+        success: (model, message) {
+          ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(SnackBar(
+              content: Text(message!, style: const TextStyle(color: Colors.white),)));
+          pendingWfhBloc.init();
+        },
+        failed: (model, message) {
+          ScaffoldMessenger.of(scaffoldKey.currentContext!)
+              .showSnackBar(SnackBar(content: Text(message)));
+        },
+        orElse: () {});
+  }
+
+  Future openCancelDialouge(MyWorkfromHomeModel model) => showDialog(
+    context: context,
+    builder: (context) => Dialog(
+      elevation: 8.0,
+      shape:
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+      child: SingleChildScrollView(
+        child: SizedBox(
+            height: 180.dw,
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: Text(
+                    "Are you sure you want to cancel ?",
+                    style: TextStyle(
+                        fontSize: 16.dw, fontWeight: FontWeight.w400),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: TextField(
+                    maxLines: null,
+                    controller: cancelController,
+                    keyboardType: TextInputType.multiline,
+                    decoration: InputDecoration(
+                        hintText: "  Enter Your Remark Here",
+                        contentPadding: EdgeInsets.all(8.dw)),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        pendingWfhBloc.init();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: AppColors.red,
+                          minimumSize: Size(40.dw, 30.dh),
+                          elevation: 8.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0))),
+                      child: Text(
+                        "Back",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18.dw),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        _approvalRejection(model, "C", cancelController.text);
+                        Navigator.pop(context);
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.lightGreen,
+                          minimumSize: Size(40.dw, 30.dh),
+                          elevation: 8.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0))),
+                      child: Text(
+                        "Cancel",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18.dw),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            )),
+      ),
+    ),
+  );
 }
 
 class ApproveWorkfromHomePage extends StatefulWidget {
@@ -433,17 +385,26 @@ class _ApproveWorkfromHomePageState extends State<ApproveWorkfromHomePage> {
 
   late PendingWfhBloc pendingWfhBloc;
 
+  late ApproveWfhBloc approveWfhBloc;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  TextEditingController approvalController = TextEditingController();
+  TextEditingController rejectionController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
     final workfromHomeService = Provider.of<WorkfromHomeService>(context, listen: false);
     pendingWfhBloc = PendingWfhBloc(workfromHomeService);
+    approveWfhBloc = ApproveWfhBloc(workfromHomeService);
     pendingWfhBloc.init();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       body: _buildBody(),
     );
   }
@@ -582,7 +543,7 @@ class _ApproveWorkfromHomePageState extends State<ApproveWorkfromHomePage> {
           padding: EdgeInsets.all(8.0.dw),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-                primary: AppColors.portaldarkBlue,
+                primary: AppColors.navyblue,
                 minimumSize: const Size(80, 45),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10))),
@@ -602,7 +563,7 @@ class _ApproveWorkfromHomePageState extends State<ApproveWorkfromHomePage> {
               ],
             ),
             onPressed: () {
-              //openRejectionDialog(model);
+              openRejectionDialog(model);
             },
           ),
         ),
@@ -610,7 +571,7 @@ class _ApproveWorkfromHomePageState extends State<ApproveWorkfromHomePage> {
           padding: EdgeInsets.all(8.dw),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-                primary: AppColors.bottlegreen,
+                primary: AppColors.green,
                 minimumSize: const Size(80, 45),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.dw))),
@@ -622,8 +583,8 @@ class _ApproveWorkfromHomePageState extends State<ApproveWorkfromHomePage> {
                   color: Colors.white),
             ),
             onPressed: () {
-              //openApproveDialog(model);
-              //approvedleaveBloc.init();
+              openApproveDialog(model);
+              pendingWfhBloc.init();
               // _approvalRejection(model, "A");
             },
           ),
@@ -632,4 +593,174 @@ class _ApproveWorkfromHomePageState extends State<ApproveWorkfromHomePage> {
     );
   }
 
+  void _approvalRejection(PendingWfhModel model, String status, String remarks) async {
+    final data = {
+      "app_no": model.appNumber,
+      "status": status,
+      "remarks": remarks,
+    };
+    await approveWfhBloc.ApprovalRejectionStatus(data);
+    final state = approveWfhBloc.state;
+    state.maybeWhen(
+        success: (model, message) {
+          ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(SnackBar(
+              content: Text(message!, style: const TextStyle(color: Colors.white),)));
+          pendingWfhBloc.init();
+        },
+        failed: (model, message) {
+          ScaffoldMessenger.of(scaffoldKey.currentContext!)
+              .showSnackBar(SnackBar(content: Text(message)));
+        },
+        orElse: () {});
+  }
+
+  Future openApproveDialog(PendingWfhModel model) => showDialog(
+    context: context,
+    builder: (context) => Dialog(
+      elevation: 8.0,
+      shape:
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+      child: SingleChildScrollView(
+        child: SizedBox(
+            height: 220.dh,
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: Text(
+                    "Are you sure you want to approve?",
+                    style: TextStyle(
+                        fontSize: 16.dw, fontWeight: FontWeight.w400),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: TextField(
+                    maxLines: null,
+                    controller: approvalController,
+                    keyboardType: TextInputType.multiline,
+                    decoration: InputDecoration(
+                        hintText: "  Enter Your Remark Here",
+                        contentPadding: EdgeInsets.all(8.dw)),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        pendingWfhBloc.init();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: AppColors.red,
+                          minimumSize: Size(40.dw, 30.dh),
+                          elevation: 8.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0))),
+                      child: Text(
+                        "Cancel",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18.dw),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        _approvalRejection(model, "A", approvalController.text);
+                        Navigator.pop(context);
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.lightGreen,
+                          minimumSize: Size(40.dw, 30.dh),
+                          elevation: 8.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0))),
+                      child: Text(
+                        "Approve",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18.dw),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            )),
+      ),
+    ),
+  );
+
+  Future openRejectionDialog(PendingWfhModel model) => showDialog(
+    context: context,
+    builder: (context) => Dialog(
+      elevation: 8.0,
+      shape:
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+      child: SingleChildScrollView(
+        child: SizedBox(
+            height: 220.dh,
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: Text(
+                    "Are you sure you want to reject?",
+                    style: TextStyle(
+                        fontSize: 16.dw, fontWeight: FontWeight.w400),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: TextField(
+                    maxLines: null,
+                    controller: approvalController,
+                    keyboardType: TextInputType.multiline,
+                    decoration: InputDecoration(
+                        hintText: "  Enter Your Remark Here",
+                        contentPadding: EdgeInsets.all(8.dw)),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        pendingWfhBloc.init();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: AppColors.red,
+                          minimumSize: Size(40.dw, 30.dh),
+                          elevation: 8.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0))),
+                      child: Text(
+                        "Cancel",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18.dw),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        _approvalRejection(model, "R", rejectionController.text);
+                        Navigator.pop(context);
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: AppColors.portalgreyBlue,
+                          minimumSize: Size(40.dw, 30.dh),
+                          elevation: 8.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0))),
+                      child: Text(
+                        "Reject",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18.dw),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            )),
+      ),
+    ),
+  );
 }

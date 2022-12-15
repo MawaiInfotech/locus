@@ -12,6 +12,7 @@ class MyWorkfromHomeModel with _$MyWorkfromHomeModel{
     @JsonKey(name: "wfh_granted") @Default("") String granted,
     @JsonKey(name: "wfh_days") @Default("") String days,
     @JsonKey(name: "reason") @Default("") String reason,
+    @JsonKey(name: "app_no") @Default("") String appNumber,
 
   }) = _MyWorkfromHomeModel;
 

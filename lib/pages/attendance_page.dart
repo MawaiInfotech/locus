@@ -447,8 +447,7 @@ class _AttendancePageState extends State<AttendancePage> {
         width: ScreenSizeConfig.getFullWidth / 1.1,
         child: ElevatedButton(
             onPressed: () async{
-                final XFile? camera =
-                await _picker.pickImage(source: ImageSource.camera, imageQuality: 100 );
+                final XFile? camera = await _picker.pickImage(source: ImageSource.camera, imageQuality:20);
 
                 setState(() {
                   file = camera;
