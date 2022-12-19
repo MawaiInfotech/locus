@@ -6,6 +6,7 @@ import 'package:locus/model/login_model.dart';
 import 'package:locus/service/constant.dart';
 import 'package:http/http.dart' as http;
 import '../errors/api_error.dart';
+import 'firebasenotification_service.dart';
 
 class LoginService{
   final _box = Hive.box('login_box');
@@ -35,6 +36,8 @@ class LoginService{
         _loginModel = LoginModel.fromJson(body["data"]);
         _userFrom.put("userFrom", _loginModel?.user_from);
         if(shouldRemember)  await _box.put("user", _loginModel);
+        //Firebase Notification Service
+        await FirebaseNotificationsService.init();
       }else{
         throw ApiError.fromResponse(body['msg']);
         //print(throw body['msg']);

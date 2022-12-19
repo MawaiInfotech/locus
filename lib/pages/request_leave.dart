@@ -233,7 +233,6 @@ class _RequestLeaveState extends State<RequestLeave> {
                                       .inDays +
                                   1;
                             }
-
                             setState(() {});
                             Navigator.pop(context);
                           },

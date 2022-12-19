@@ -17,5 +17,4 @@ class ApplyyLeaveBloc extends Cubit<ApplyyLeaveState>{
       emit(ApplyyLeaveState.failed(state.applyyLeaveModel,  error.message));
     }
   }
-
 }
