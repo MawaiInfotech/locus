@@ -25,7 +25,7 @@ class CheckLoginBloc extends Cubit<CheckLoginState> {
 
   bool get isCheckedOut => state.form.checkOutData != null;
 
-  void init() async {
+  Future <void> init() async {
     emit(CheckLoginState.loading(state.action, state.form));
     try {
       final form = await attendanceService.getCheckLogin();

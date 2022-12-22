@@ -67,7 +67,7 @@ class _WorkFromHomePageState extends State<WorkFromHomePage> with SingleTickerPr
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const AppTopBar(title: "Leave Apply"),
+        appBar: const AppTopBar(title: "Workfrom Home"),
         body: Column(
           children: [
             SizedBox(
@@ -96,9 +96,9 @@ class _WorkFromHomePageState extends State<WorkFromHomePage> with SingleTickerPr
                     children: [
                       Image.asset(
                         "assets/images/pending.png",
-                        scale: 14.dw,
+                        scale: 12.dw,
                       ),
-                      Text("Pending For Approval", style: TextStyle(fontSize: 16.dw),),
+                      Text("Pending For Approval", style: TextStyle(fontSize: 14.dw),),
                     ],
                   ),
                 ],

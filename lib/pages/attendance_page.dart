@@ -55,20 +55,33 @@ class _AttendancePageState extends State<AttendancePage> {
 
   late CheckLoginModelForm checkLoginModelForm = CheckLoginModelForm();
 
+  final hasLoadedDataNotifier = ValueNotifier<bool>(false);
+
   @override
   void initState() {
     loginModel = Provider.of<LoginService>(context, listen: false).getCurrentUser!;
-    context.read<CheckLoginBloc>().init();
+    loadData();
     getData();
     initTimer();
     super.initState();
   }
 
-  getData()async{
+  loadData() async {
+    CheckLoginState getState() => context.read<CheckLoginBloc>().state;
+    await context.read<CheckLoginBloc>().init();
+    final state = getState();
+    state.maybeWhen(content: (_, __) {
+      hasLoadedDataNotifier.value = true;
+    }, orElse: () {
+      hasLoadedDataNotifier.value = false;
+    });
+  }
+
+  getData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState((){
+    setState(() {
       permissionPopup = prefs.getBool("permissionPopup") ?? false;
-      if(!permissionPopup){
+      if (!permissionPopup) {
         _showDialog();
       }
     });
@@ -87,21 +100,30 @@ class _AttendancePageState extends State<AttendancePage> {
             content: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Location Permission", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),),
-                const
-                Text("Locus needs your location coordinates for a host of activities – attendance management,to coordinate with your field teams and to make possible your travel reimbursement claims.",
+                Text(
+                  "Location Permission",
+                  style:
+                      TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),
                 ),
-                Text("Camera Permission", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),),
-                const Text("This is to check whether the person himself/herself is marking the attendance.\nFurther , This is to enable our users to capture and attach photos of their expense bills while submitting for reimbursement.\n It also helps them attach photos while collecting data through custom forms.",
-
+                const Text(
+                  "Locus needs your location coordinates for a host of activities – attendance management,to coordinate with your field teams and to make possible your travel reimbursement claims.",
+                ),
+                Text(
+                  "Camera Permission",
+                  style:
+                      TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),
+                ),
+                const Text(
+                  "This is to check whether the person himself/herself is marking the attendance.\nFurther , This is to enable our users to capture and attach photos of their expense bills while submitting for reimbursement.\n It also helps them attach photos while collecting data through custom forms.",
                 ),
               ],
             ),
             actions: [
               Center(
                 child: ElevatedButton(
-                    onPressed: ()async {
-                      SharedPreferences prefs = await SharedPreferences.getInstance();
+                    onPressed: () async {
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
                       prefs.setBool("permissionPopup", true);
                       Navigator.pop(context);
                       _getCurrentPosition();
@@ -109,11 +131,12 @@ class _AttendancePageState extends State<AttendancePage> {
                     },
                     style: ElevatedButton.styleFrom(
                         primary: AppColors.portalgreen,
-                        minimumSize: Size(150.dw, 50.dw)
-                    ),
-                    child: Text("Confirm", style: TextStyle(fontSize: 18.dw),)),
+                        minimumSize: Size(150.dw, 50.dw)),
+                    child: Text(
+                      "Confirm",
+                      style: TextStyle(fontSize: 18.dw),
+                    )),
               )
-
             ],
           );
         });
@@ -192,13 +215,18 @@ class _AttendancePageState extends State<AttendancePage> {
         ),
         _buildRadioButton(),
         _buildTextField(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (hasCheckIN) _buildCheckOutButton(title: "Check- Out"),
-            if (!hasCheckIN) _buildCheckInButton(title: "Check- In"),
-          ],
-        ),
+        ValueListenableBuilder<bool>(
+            valueListenable: hasLoadedDataNotifier,
+            builder: (context, hasLoadedData, _) {
+              if (!hasLoadedData) return Container();
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  if (hasCheckIN) _buildCheckOutButton(title: "Check- Out"),
+                  if (!hasCheckIN) _buildCheckInButton(title: "Check- In"),
+                ],
+              );
+            }),
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -274,7 +302,8 @@ class _AttendancePageState extends State<AttendancePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildText(
-                  title: "${loginModel.emp_first_name!} ${loginModel.emp_last_name!} - ${loginModel.emp_cd!}"),
+                  title:
+                      "${loginModel.emp_first_name!} ${loginModel.emp_last_name!} - ${loginModel.emp_cd!}"),
               _buildText(title: loginModel.description ?? "")
             ],
           )
@@ -297,9 +326,10 @@ class _AttendancePageState extends State<AttendancePage> {
         color: Colors.grey.shade50,
         elevation: 10,
         margin: EdgeInsets.only(left: 10.dw, right: 10.dw, bottom: 10.dw),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.dw)),
-        child: BlocBuilder<CheckLoginBloc, CheckLoginState>(
-            builder: (_, state) {
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.dw)),
+        child:
+            BlocBuilder<CheckLoginBloc, CheckLoginState>(builder: (_, state) {
           final hasCheckIn = state.form.checkInData != null;
           final address = hasCheckIn ? state.form.checkInData?.address : null;
           final isLoading = state.maybeWhen(
@@ -326,35 +356,40 @@ class _AttendancePageState extends State<AttendancePage> {
                 ),
               ),
               isLoading
-                  ?  Padding(
-                padding: EdgeInsets.all(8.0.dw),
-                child: Center(child: SizedBox(
-                    width: 20.dw,
-                    height: 20.dw,
-                    child: CircularProgressIndicator(color: AppColors.red))),
-              ): Column(
-              children: [
-                Center(
-                  child: _buildDateTime(
-                      dateFormat: hasCheckIn
-                          ? DateFormat("hh:mm aa").format(DateFormat("yyyy-MM-dd hh:mm:ss").parse(state.form.checkInData?.officepunch ?? ""))
-                          : "--"),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: 10.dw, right: 10.dw, bottom: 5.dw),
-                  child: Text(
-                    address == null
-                        ? " Please check-in"
-                        : "Address : $address",
-                    style: TextStyle(fontSize: 16.dw),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                )
-              ],
-            )
-
+                  ? Padding(
+                      padding: EdgeInsets.all(8.0.dw),
+                      child: Center(
+                          child: SizedBox(
+                              width: 20.dw,
+                              height: 20.dw,
+                              child: CircularProgressIndicator(
+                                  color: AppColors.red))),
+                    )
+                  : Column(
+                      children: [
+                        Center(
+                          child: _buildDateTime(
+                              dateFormat: hasCheckIn
+                                  ? DateFormat("hh:mm aa").format(
+                                      DateFormat("yyyy-MM-dd hh:mm:ss").parse(
+                                          state.form.checkInData?.officepunch ??
+                                              ""))
+                                  : "--"),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: 10.dw, right: 10.dw, bottom: 5.dw),
+                          child: Text(
+                            address == null
+                                ? " Please check-in"
+                                : "Address : $address",
+                            style: TextStyle(fontSize: 16.dw),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        )
+                      ],
+                    )
             ],
           );
         }),
@@ -374,12 +409,12 @@ class _AttendancePageState extends State<AttendancePage> {
         child: BlocBuilder<CheckLoginBloc, CheckLoginState>(
           builder: (_, state) {
             final hasCheckOut = state.form.checkOutData != null;
-            final checkOutAddress = hasCheckOut ? state.form.checkOutData?.address : null;
+            final checkOutAddress =
+                hasCheckOut ? state.form.checkOutData?.address : null;
             final isLoading = state.maybeWhen(
                 loading: (action, _) => action == AttendanceAction.checkOut,
                 orElse: () => false);
-            return
-              Column(
+            return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
@@ -401,37 +436,41 @@ class _AttendancePageState extends State<AttendancePage> {
                   ),
                 ),
                 isLoading
-                    ?  Padding(
-                  padding: EdgeInsets.all(8.0.dw),
-                  child: Center(child: SizedBox(
-                      width: 20.dw,
-                      height: 20.dw,
-                      child: CircularProgressIndicator(color: AppColors.red))),
-                ):   Column(
-                  children: [
-                    Center(
-                      child: _buildDateTime(
-                          dateFormat: hasCheckOut
-                              ? DateFormat("hh:mm aa").format(
-                              DateFormat("yyyy-MM-dd hh:mm:ss").parse(
-                                  state.form.checkOutData?.officepunch ?? ""))
-                              : "--"),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          left: 10.dw, right: 10.dw, bottom: 5.dw),
-                      child: Text(
-                        checkOutAddress == null
-                            ? " Please check-out"
-                            : "Address : $checkOutAddress",
-                        style: TextStyle(fontSize: 16.dw),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    )
-                  ],
-                )
-
+                    ? Padding(
+                        padding: EdgeInsets.all(8.0.dw),
+                        child: Center(
+                            child: SizedBox(
+                                width: 20.dw,
+                                height: 20.dw,
+                                child: CircularProgressIndicator(
+                                    color: AppColors.red))),
+                      )
+                    : Column(
+                        children: [
+                          Center(
+                            child: _buildDateTime(
+                                dateFormat: hasCheckOut
+                                    ? DateFormat("hh:mm aa").format(
+                                        DateFormat("yyyy-MM-dd hh:mm:ss").parse(
+                                            state.form.checkOutData
+                                                    ?.officepunch ??
+                                                ""))
+                                    : "--"),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                left: 10.dw, right: 10.dw, bottom: 5.dw),
+                            child: Text(
+                              checkOutAddress == null
+                                  ? " Please check-out"
+                                  : "Address : $checkOutAddress",
+                              style: TextStyle(fontSize: 16.dw),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          )
+                        ],
+                      )
               ],
             );
           },
@@ -446,14 +485,15 @@ class _AttendancePageState extends State<AttendancePage> {
       child: SizedBox(
         width: ScreenSizeConfig.getFullWidth / 1.1,
         child: ElevatedButton(
-            onPressed: () async{
-                final XFile? camera = await _picker.pickImage(source: ImageSource.camera, imageQuality:20);
+            onPressed: () async {
+              final XFile? camera = await _picker.pickImage(
+                  source: ImageSource.camera, imageQuality: 20);
 
-                setState(() {
-                  file = camera;
-                  if(file!.path != null);
-                });
-                showConfirmationDialog(file!.path);
+              setState(() {
+                file = camera;
+                if (file!.path != null) ;
+              });
+              showConfirmationDialog(file!.path);
             },
             style: ElevatedButton.styleFrom(
                 elevation: 10.dw,
@@ -478,25 +518,25 @@ class _AttendancePageState extends State<AttendancePage> {
         child: ElevatedButton(
             onPressed: () async {
               //if(context.read<CheckLoginBloc>().isCheckedOut) return;
-              final XFile? camera = await _picker.pickImage(source: ImageSource.camera,
+              final XFile? camera = await _picker.pickImage(
+                source: ImageSource.camera,
                 preferredCameraDevice: CameraDevice.front,
                 maxWidth: 480,
                 maxHeight: 640,
-                imageQuality: 25,);
+                imageQuality: 25,
+              );
               // Navigator.pop(context,false);
               setState(() {
                 file = camera;
-                if(file!.path != null);
-
+                if (file!.path != null) ;
               });
               showConfirmationCheckOutDialog(file!.path);
-
             },
             style: ElevatedButton.styleFrom(
                 elevation: 10.dw,
                 primary:
-                //context.read<CheckLoginBloc>().isCheckedOut ? AppColors.grey:
-                AppColors.red,
+                    //context.read<CheckLoginBloc>().isCheckedOut ? AppColors.grey:
+                    AppColors.red,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.dw))),
             child: Text(
@@ -639,7 +679,8 @@ class _AttendancePageState extends State<AttendancePage> {
   Future<bool> showConfirmationDialog(file) async {
     checkInCallback() async {
       final bloc = context.read<CheckLoginBloc>();
-      await bloc.checkIn(remarkController.text, selectedOutput, file, _currentAddress.toString());
+      await bloc.checkIn(remarkController.text, selectedOutput, file,
+          _currentAddress.toString());
       bloc.state.maybeWhen(
           content: (_, form) {
             ScaffoldMessenger.of(context)
@@ -654,6 +695,7 @@ class _AttendancePageState extends State<AttendancePage> {
           },
           orElse: () {});
     }
+
     return await showDialog(
             context: context,
             builder: (context) {
@@ -743,7 +785,8 @@ class _AttendancePageState extends State<AttendancePage> {
   Future<bool> showConfirmationCheckOutDialog(file) async {
     checkInCallback() async {
       final bloc = context.read<CheckLoginBloc>();
-      await bloc.checkOut(remarkController.text, selectedOutput, file,  _currentAddress.toString());
+      await bloc.checkOut(remarkController.text, selectedOutput, file,
+          _currentAddress.toString());
       bloc.state.maybeWhen(
           content: (_, form) {
             ScaffoldMessenger.of(context)
@@ -859,7 +902,8 @@ class _AttendancePageState extends State<AttendancePage> {
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('Location services are disabled. Please enable the services')));
+          content: Text(
+              'Location services are disabled. Please enable the services')));
       return false;
     }
     permission = await Geolocator.checkPermission();
@@ -890,17 +934,19 @@ class _AttendancePageState extends State<AttendancePage> {
       setState(() {
         _getAddressFromLatLng(_currentPosition!);
       });
-
     }).catchError((e) {
       debugPrint(e);
     });
   }
 
   Future<void> _getAddressFromLatLng(Position position) async {
-    await placemarkFromCoordinates(_currentPosition!.latitude, _currentPosition!.longitude).then((List<Placemark> placemarks) {
+    await placemarkFromCoordinates(
+            _currentPosition!.latitude, _currentPosition!.longitude)
+        .then((List<Placemark> placemarks) {
       Placemark place = placemarks[0];
       setState(() {
-        _currentAddress = '${place.street},${place.subLocality},${place.locality}';
+        _currentAddress =
+            '${place.street},${place.subLocality},${place.locality}';
       });
     }).catchError((e) {
       debugPrint(e);
@@ -964,5 +1010,4 @@ class _AttendancePageState extends State<AttendancePage> {
           );
         });
   }
-
 }

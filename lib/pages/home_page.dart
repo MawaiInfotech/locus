@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:locus/bloc/employeebirthdetail_bloc.dart';
+import 'package:locus/model/birthday_model.dart';
+import 'package:locus/model/employeebirthdetail_model.dart';
+import 'package:locus/model/newjoinee_model.dart';
 import 'package:locus/routes/app_routes.dart';
+import 'package:locus/service/homepage_service.dart';
+import 'package:locus/state/employeebirthdetail_state.dart';
 import 'package:locus/themes/app_colors.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +20,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin{
 
   List list = [
     Image.asset("assets/images/attendance.jpg"),
@@ -22,11 +29,41 @@ class _HomePageState extends State<HomePage> {
 
   late final LoginModel user;
 
+  late TabController tabController;
+
+  late PageController pageController;
+
+  late EmployeeBirthDetailBloc employeeBirthDetailBloc;
+
+  int currentPage = 0;
+
+  PageController controller = PageController(viewportFraction: 0.9);
+
+  var currentPageValue = 0.0;
+
   @override
   void initState() {
     user = Provider.of<LoginService>(context, listen: false).getCurrentUser!;
+    tabController = TabController(length: 2, vsync: this);
+    pageController = PageController(initialPage: currentPage, viewportFraction: 0.8);
+    final homePageService = Provider.of<HomePageService>(context, listen: false);
+    employeeBirthDetailBloc = EmployeeBirthDetailBloc(homePageService);
+    controller.addListener(() {
+      setState(() {
+        currentPageValue = controller.page!;
+      });
+    });
     super.initState();
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+    tabController.dispose();
+    pageController.dispose();
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +72,7 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           _buildCard(),
+          _buildBirthdayCard(),
           Expanded(
             child: _buildGrid(),
           ),
@@ -157,48 +195,6 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        // Card(
-        //   color: Color(0xffF4EFF6),
-        //   child: Column(
-        //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-        //     children: [
-        //       Image.asset(
-        //         "assets/images/wallet.png",
-        //         scale: 10.dw,
-        //       ),
-        //       _buildText(title: "Payslip")
-        //     ],
-        //   ),
-        // ),
-        // InkWell(
-        //   onTap: (){
-        //     Navigator.pushNamed(context, AppRoutes.workfromHome);
-        //   },
-        //   child: Card(
-        //     color: Color(0xffFCE9E9),
-        //     child: Column(
-        //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-        //       children: [
-        //         Image.asset(
-        //           "assets/images/workspace.png",
-        //           scale: 10.dw,
-        //         ),
-        //         _buildText(title: "Workspace")
-        //       ],
-        //     ),
-        //   ),
-        // ),
-        // InkWell(
-        //   onTap: (){
-        //     Navigator.pushNamed(context, AppRoutes.getLocation);
-        //   },
-        //   child: Card(
-        //     color: Color(0xffFCE9E9),
-        //     child: Center(
-        //       child: _buildText(title: "Get Location"),
-        //     ),
-        //   ),
-        // ),
       ],
     );
   }
@@ -247,6 +243,43 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  _buildBirthdayCard(){
+    return Container(
+      height: 250.dw,
+      child: Padding(
+        padding: EdgeInsets.all(8.0.dw),
+        child: Card(
+          color: AppColors.lightgreen,
+          child: Column(
+            children: [
+              TabBar(
+                  indicatorColor: AppColors.bottlegreen,
+                  indicatorWeight: 2.dw,
+                  overlayColor: MaterialStateProperty.all(Colors.orange),
+                  labelColor: AppColors.bloodred,
+                  unselectedLabelColor: AppColors.navyblue,
+                  unselectedLabelStyle: TextStyle(fontSize: 12.dh),
+                  indicatorPadding: EdgeInsets.all(10.dw),
+                  labelPadding: EdgeInsets.all(10.dw),
+                  labelStyle: TextStyle(fontSize: 16.dh, fontWeight: FontWeight.w400),
+                  controller: tabController,
+                  tabs: const [
+                Text("Birthdays"),
+                Text("New Joinee")
+              ]),
+              Expanded(child: TabBarView(
+                  controller: tabController,
+                  children: [
+                    Birthday(),
+                    NewJoinee()
+                  ]))
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   _buildImage(image){
     return Image.asset(image,scale: 10.dw,);
   }
@@ -269,3 +302,194 @@ class _HomePageState extends State<HomePage> {
   }
 
 }
+
+class Birthday extends StatefulWidget {
+  const Birthday({Key? key}) : super(key: key);
+
+  @override
+  State<Birthday> createState() => _BirthdayState();
+}
+
+class _BirthdayState extends State<Birthday> {
+
+  late EmployeeBirthDetailBloc employeeBirthDetailBloc;
+
+  @override
+  void initState() {
+    final homePageService = Provider.of<HomePageService>(context, listen: false);
+    employeeBirthDetailBloc = EmployeeBirthDetailBloc(homePageService);
+    employeeBirthDetailBloc.init();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.pastelgreen,
+      body: _buildBody()
+    );
+  }
+  _buildBody(){
+    return BlocConsumer<EmployeeBirthDetailBloc, EmployeeBirthDetailState>(
+      bloc: employeeBirthDetailBloc,
+      listener: (_, state){},
+      builder: (_, state){
+        return state.when(
+            loading: _buildLoading,
+            content: _buildContent,
+            success: _buildContent,
+            failed: (form, __) => _buildContent(form)
+        );
+      },
+    );
+  }
+
+  Widget _buildLoading(EmployeeBirthDetailModel model){
+    return Center(child: CircularProgressIndicator());
+  }
+
+  Widget _buildContent(EmployeeBirthDetailModel model){
+   final birthdayList = model.emp_births;
+    return ListView(
+      shrinkWrap: true,
+      scrollDirection: Axis.horizontal,
+      children: birthdayList.map((e) => _buildCard(e)).toList(),
+    );
+  }
+
+
+ Widget _buildCard(BirthdayModel model){
+    return Padding(
+      padding: EdgeInsets.all(5.0.dw),
+      child: Card(
+        child: Padding(
+          padding: EdgeInsets.all(8.0.dw),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Image.network(model.photoFile,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, exception, stackTrace){
+                    return Image.asset("assets/images/profile2.png", scale: 6.dw);
+                  },),
+              ),
+              SizedBox(
+                width: 100.dw,
+                child: Text(model.firstName + " "+ model.lastName,
+                  textAlign: TextAlign.center,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(model.bdate),
+                  Text(" "),
+                  Text(model.bmonth),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class NewJoinee extends StatefulWidget {
+  const NewJoinee({Key? key}) : super(key: key);
+
+  @override
+  State<NewJoinee> createState() => _NewJoineeState();
+}
+
+class _NewJoineeState extends State<NewJoinee> {
+
+  late EmployeeBirthDetailBloc employeeBirthDetailBloc;
+
+  @override
+  void initState() {
+    final homePageService = Provider.of<HomePageService>(context, listen: false);
+    employeeBirthDetailBloc = EmployeeBirthDetailBloc(homePageService);
+    employeeBirthDetailBloc.init();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _buildBody(),
+    );
+  }
+  _buildBody(){
+    return BlocConsumer<EmployeeBirthDetailBloc, EmployeeBirthDetailState>(
+      bloc: employeeBirthDetailBloc,
+      listener: (_, state){},
+      builder: (_, state){
+        return state.when(
+            loading: _buildLoading,
+            content: _buildContent,
+            success: _buildContent,
+            failed: (form, __) => _buildContent(form)
+        );
+      },
+    );
+  }
+
+  Widget _buildLoading(EmployeeBirthDetailModel model){
+    return Center(child: CircularProgressIndicator());
+  }
+
+  Widget _buildContent(EmployeeBirthDetailModel model){
+    final birthdayList = model.emp_newjoins;
+    return ListView(
+      scrollDirection: Axis.horizontal,
+      shrinkWrap: true,
+      children: birthdayList.map((e) => _buildCard(e)).toList(),
+    );
+  }
+
+
+  Widget _buildCard(NewJoineeModel model){
+    return Padding(
+      padding: EdgeInsets.all(5.0.dw),
+      child: Card(
+        child: Padding(
+          padding: EdgeInsets.all(8.0.dw),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Image.network(model.photo,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, exception, stackTrace){
+                    return Image.asset("assets/images/profile2.png", scale: 6.dw);
+                  },),
+              ),
+              Padding(
+                padding: EdgeInsets.all(2.0.dw),
+                child: SizedBox(
+                  width: 100.dw,
+                  child: Text(model.firstName + " "+ model.lastName,
+                    textAlign: TextAlign.center,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(model.joiningDate),
+                  Text(" "),
+                  Text(model.departName),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+

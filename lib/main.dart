@@ -9,6 +9,7 @@ import 'package:locus/service/attendance_service.dart';
 import 'package:locus/service/dummysignup_service.dart';
 import 'package:locus/service/forgetpasswrod_service.dart';
 import 'package:locus/service/holiday_service.dart';
+import 'package:locus/service/homepage_service.dart';
 import 'package:locus/service/leave_service.dart';
 import 'package:locus/service/login_service.dart';
 import 'package:locus/service/misspunch_service.dart';
@@ -49,7 +50,8 @@ import 'package:path_provider/path_provider.dart' as path_provider;
         Provider<DummySignupService>(create: (_) => DummySignupService()),
         Provider<HolidayService>(create: (_) => HolidayService()),
         Provider<NoticeboardService>(create: (_) => NoticeboardService()),
-        Provider<WorkfromHomeService>(create: (_) => WorkfromHomeService())
+        Provider<WorkfromHomeService>(create: (_) => WorkfromHomeService()),
+        Provider<HomePageService>(create: (_) => HomePageService())
       ],
   child: BlocProvider(create: (_) => CheckLoginBloc(attendanceService),
       child: const MyApp()

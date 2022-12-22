@@ -6,7 +6,6 @@ import 'package:locus/service/login_service.dart';
 import 'package:locus/themes/app_colors.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:provider/provider.dart';
-
 import 'login_page.dart';
 
 class ProfilePage extends StatefulWidget {

@@ -61,7 +61,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
     fromDate = "Select Date";
     toDate = "";
     difference = "";
-    workFromHomeType = "Leave Type";
+    workFromHomeType = "Workfrom Home Type";
     dateTimeRange = DateTimeRange(start: DateTime.now(), end: DateTime.now());
     setState(() {});
   }
@@ -69,7 +69,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppTopBar(title: "Workfrom Home"),
+      appBar: const AppTopBar(title: "Request Workfrom Home"),
       body: SafeArea(
           child: SingleChildScrollView(
       child: _buildBody() ,
@@ -143,12 +143,6 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
                           _buildText(difference.toString()),
                         ],
                       ),
-                      Row(
-                        children: [
-                          _buildHeadingText("Balance :-"),
-                          _buildText(balanceLeave ?? "0")
-                        ],
-                      )
                     ],
                   ),
                   _buildLine(),
@@ -266,7 +260,7 @@ class _RequestWorkfromHomeState extends State<RequestWorkfromHome> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(workFromHomeType ?? "Workfrom Home"),
+                  Text(workFromHomeType ?? "Type"),
                   const Icon(Icons.arrow_drop_down_outlined)
                 ],
               ),
