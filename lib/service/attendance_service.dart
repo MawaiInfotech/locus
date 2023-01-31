@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io' as Io;
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 import 'package:locus/model/checkloginform_model.dart';
@@ -13,6 +14,7 @@ import 'package:http/http.dart' as http;
 import '../errors/api_error.dart';
 import '../model/attendance_detail_supp_model.dart';
 import '../model/checklogin_model.dart';
+import '../pages/address.dart';
 
 class AttendanceService {
 
@@ -54,12 +56,11 @@ class AttendanceService {
       models1.checkOutData?.officepunch=="";
       models1.checkOutData?.address=="";
       return models1;
-      print(e);
       _handleError(e);
     }
   }
 
-  Future<Map<String, dynamic>?>  getAttendance(String status, String remark, String site, file, String address) async {
+  Future<Map<String, dynamic>?>  getAttendance(String status, String remark, String site, file) async {
     const url = root + 'checkin-checkout';
 
     final bytes = Io.File(file).readAsBytesSync();
@@ -85,6 +86,14 @@ class AttendanceService {
 
     try {
       final location = await Geolocator.getCurrentPosition();
+      final results = await placemarkFromCoordinates(location.latitude, location.longitude);
+      var address = Address();
+      if (results.isNotEmpty) {
+        final placemark = results.first;
+        print(placemark.toJson());
+        address = Address.fromJson(placemark.toJson());
+      }
+
       final body = {
         "lat": location.latitude,
         "long": location.longitude,
@@ -92,10 +101,15 @@ class AttendanceService {
         "remark" : remark,
         "site" : site,
         "image" : "data:image/"+type+";base64," + img64,
-        "address" : address
+        "address" : address.subLocality +
+            ' ' +
+            address.street +
+            " " +
+            address.name +
+            " " +
+            address.postalCode,
       };
-      final response = await http.post(Uri.parse(url),
-          body: json.encode(body), headers: getHeaders());
+      final response = await http.post(Uri.parse(url), body: json.encode(body), headers: getHeaders());
 
       final responseBody = json.decode(response.body);
       if (responseBody['status'] == false) {
@@ -224,3 +238,4 @@ class AttendanceService {
     throw ApiError.unKnown();
   }
 }
+

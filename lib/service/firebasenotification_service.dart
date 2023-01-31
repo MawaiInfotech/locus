@@ -64,8 +64,7 @@ const settings = InitializationSettings(
 );
 
 const notificationDetails = NotificationDetails(
-    android: AndroidNotificationDetails(
-        "com.shilpi.locusmawai.shilpi", "Mawai Locus Message"),
+    android: AndroidNotificationDetails("com.shilpi.locusmawai.shilpi", "Mawai Locus Message"),
     iOS: DarwinNotificationDetails(
       sound: 'default',
       presentAlert: true,

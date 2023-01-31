@@ -714,7 +714,7 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
   Future<bool> showConfirmationDialog(file) async {
     checkInCallback() async {
       final bloc = context.read<CheckLoginBloc>();
-      await bloc.checkIn(remarkController.text, selectedOutput, file, _currentAddress.toString());
+      await bloc.checkIn(remarkController.text, selectedOutput, file);
       bloc.state.maybeWhen(
           content: (_, form) {
             ScaffoldMessenger.of(context)
@@ -813,8 +813,7 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
   Future<bool> showConfirmationCheckOutDialog(file) async {
     checkInCallback() async {
       final bloc = context.read<CheckLoginBloc>();
-      await bloc.checkOut(remarkController.text, selectedOutput, file,
-          _currentAddress.toString());
+      await bloc.checkOut(remarkController.text, selectedOutput, file);
       bloc.state.maybeWhen(
           content: (_, form) {
             ScaffoldMessenger.of(context)

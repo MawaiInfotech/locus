@@ -376,18 +376,18 @@ class _BirthdayState extends State<Birthday> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                model.photoFile == "" ? SizedBox(
-                    height: 80.dw,
-                    width: 80.dw,
-                    child: Image.asset("assets/images/profile2.png")) :
+                // model.photoFile == "" ? SizedBox(
+                //     height: 80.dw,
+                //     width: 80.dw,
+                //     child: Image.asset("assets/images/profile2.png")) :
                 SizedBox(
                   height: 80.dw,
                   width: 80.dw,
                   child: Image.network(model.photoFile,
                     fit: BoxFit.cover,
-                    errorBuilder: (context, exception, stackTrace){
-                      return Image.asset("assets/images/profile2.png", scale: 6.dw);
-                    },
+                    // errorBuilder: (context, exception, stackTrace){
+                    //   return Image.asset("assets/images/profile2.png", scale: 6.dw);
+                    // },
                   ),
                 ),
                 SizedBox(
@@ -488,14 +488,15 @@ class _NewJoineeState extends State<NewJoinee> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              model.photo == "" ? SizedBox(
-                height: 80.dw,
-              width: 80.dw,
-                  child: Image.asset("assets/images/profile2.png")) :
+              // model.photo == "" ? SizedBox(
+              //   height: 80.dw,
+              // width: 80.dw,
+              //     child: Image.asset("assets/images/profile2.png")) :
               SizedBox(
                 height: 80.dw,
                 width: 80.dw,
-                child: Image.network(model.photo,
+                child: Image.network(
+                  model.photo,
                   fit: BoxFit.cover,
                   // errorBuilder: (context, exception, stackTrace){
                   //   return Image.asset("assets/images/profile2.png",scale: 6.dw);

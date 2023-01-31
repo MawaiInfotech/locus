@@ -221,7 +221,7 @@ class _LoginPageState extends State<LoginPage> {
                     ))
               ],
             ),
-            Text("V 2.4.0+6", style: TextStyle(fontSize: 14.dw),)
+            Text("V 2.5.0+7", style: TextStyle(fontSize: 14.dw),)
           ],
         ),
        
