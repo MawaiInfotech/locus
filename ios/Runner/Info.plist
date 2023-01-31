@@ -32,6 +32,10 @@
 	<string>This is to check whether the person himself/herself is marking the attendance.Further , This is to enable our users to capture and attach photos of their expense bills while submitting for reimbursement.It also helps them attach photos while collecting data through custom forms</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Locus needs your location coordinates for a host of activities – attendance management,to coordinate with your field teams and to make possible your travel reimbursement claims..</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>This is to check whether the person himself/herself is marking the attendance.Further , This is to enable our users to capture and attach photos of their expense bills while submitting for reimbursement.It also helps them attach photos while collecting data through custom forms</string>
+	<key>NSMicrophoneUsageDescription</key>
+    <string>This is to check whether the person himself/herself is marking the attendance.</string>
 	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
 	<string>Locus needs your location coordinates for a host of activities – attendance management,to coordinate with your field teams and to make possible your travel reimbursement claims..</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

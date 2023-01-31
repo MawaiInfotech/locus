@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 import 'package:time_range/time_range.dart';
 import '../bloc/applyod_bloc.dart';
 import '../bloc/request_offduty_bloc.dart';
-import '../model/offduty_model.dart';
 import '../model/offdutyclientlist_model.dart';
 import '../model/requestoffduty_model.dart';
 import '../service/login_service.dart';
@@ -64,16 +63,21 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
   var fromTime1 = "9:30";
   var toTime;
   var toTime1 = "10:30";
+  var fromFullDayTime;
+  var fromFullDayTime1 = "9:30";
+  var endFullDayTime;
+  var endFullDayTime1 = "18:30";
   TimeRangeResult? _timeRange;
   TimeRangeResult? _timeRange2;
+
   final _defaultTimeRange = TimeRangeResult(
     const TimeOfDay(hour: 09, minute: 30),
     const TimeOfDay(hour: 10, minute: 30),
   );
 
   final _defaultTimeRange2 = TimeRangeResult(
-  const TimeOfDay(hour: 09, minute: 30),
-  const TimeOfDay(hour: 18, minute: 30)
+      const TimeOfDay(hour: 09, minute: 30),
+      const TimeOfDay(hour: 18, minute: 30)
   );
 
   @override
@@ -508,7 +512,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
     //   odStatus1 = model.gp_od_status[0].description;
     //   OdStatus = odStatus1;
     // }
-   // OdStatus = model.gp_od_status[0].description;
+    // OdStatus = model.gp_od_status[0].description;
     //OdStatusCode = model.gp_od_status[0].code;
     return InkWell(
       onTap: () async {
@@ -553,7 +557,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
                         OdStatusCode = model.gp_od_status[OdStatusCodeIndex].code;
                         setState(() {});
                         Navigator.pop(context);
-                       // requestoffdutyBloc.init();
+                        // requestoffdutyBloc.init();
                       },
                       child: Card(
                         elevation: 10,
@@ -635,8 +639,7 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
                           return ListView.builder(
                               itemCount: list.length,
                               shrinkWrap: true,
-                              itemBuilder:
-                                  (BuildContext context, int index) {
+                              itemBuilder: (BuildContext context, int index) {
                                 return InkWell(
                                   onTap: () {
                                     clientName = list[index].clientName;
@@ -709,56 +712,56 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
                   color: Colors.white),
               child: InkWell(
                 onTap: (){
-                    showDateRangePicker(
-                        context: context,
-                        builder: (context, child) {
-                          return Theme(
-                            data: Theme.of(context).copyWith(
-                              colorScheme: const ColorScheme.light(
-                                primary: Colors.blue,
-                                onPrimary: Colors.white,
-                                onSurface: Colors.black,
-                              ),
-                              textButtonTheme: TextButtonThemeData(
-                                style: TextButton.styleFrom(
-                                  foregroundColor: Colors.white, backgroundColor: AppColors.brown,
-                                  textStyle: const TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: AppColors.black
-                                  ),
+                  showDateRangePicker(
+                      context: context,
+                      builder: (context, child) {
+                        return Theme(
+                          data: Theme.of(context).copyWith(
+                            colorScheme: const ColorScheme.light(
+                              primary: Colors.blue,
+                              onPrimary: Colors.white,
+                              onSurface: Colors.black,
+                            ),
+                            textButtonTheme: TextButtonThemeData(
+                              style: TextButton.styleFrom(
+                                foregroundColor: Colors.white, backgroundColor: AppColors.brown,
+                                textStyle: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: AppColors.black
                                 ),
                               ),
                             ),
-                            child: child!,
-                          );
-                        },
-                        helpText: 'Select Date',
-                        initialEntryMode: DatePickerEntryMode.calendarOnly,
-                        firstDate: DateTime.now().subtract(const Duration(days: 90)),
-                        lastDate: DateTime.now().add(const Duration(days: 365)),
-                        errorFormatText: "Invalid Format",
-                        errorInvalidRangeText: "Invalid Range",
-                        fieldStartHintText: "Start Date",
-                        fieldEndHintText: "End Date"
-                    ).then((pickedDate) {
-                      if (pickedDate == null) {
-                        return;
+                          ),
+                          child: child!,
+                        );
+                      },
+                      helpText: 'Select Date',
+                      initialEntryMode: DatePickerEntryMode.calendarOnly,
+                      firstDate: DateTime.now().subtract(const Duration(days: 90)),
+                      lastDate: DateTime.now().add(const Duration(days: 365)),
+                      errorFormatText: "Invalid Format",
+                      errorInvalidRangeText: "Invalid Range",
+                      fieldStartHintText: "Start Date",
+                      fieldEndHintText: "End Date"
+                  ).then((pickedDate) {
+                    if (pickedDate == null) {
+                      return;
+                    }
+                    setState(() {
+                      dateTimeRange = pickedDate;
+                      if(odTypeCode == "F"){
+                        difference = pickedDate.end.difference(pickedDate.start).inDays + 1;
+                        fromDate =  DateFormat('dd-MM-yyyy').format(pickedDate.start);
+                        toDate = DateFormat('dd-MM-yyyy').format(pickedDate.end);
+                      }else if(odTypeCode == "P"){
+                        difference = "0.5";
+                        fromDate =  DateFormat('dd-MM-yyyy').format(pickedDate.start);
+                        toDate = fromDate;
                       }
-                      setState(() {
-                        dateTimeRange = pickedDate;
-                        if(odTypeCode == "F"){
-                          difference = pickedDate.end.difference(pickedDate.start).inDays + 1;
-                          fromDate =  DateFormat('dd-MM-yyyy').format(pickedDate.start);
-                          toDate = DateFormat('dd-MM-yyyy').format(pickedDate.end);
-                        }else if(odTypeCode == "P"){
-                          difference = "0.5";
-                          fromDate =  DateFormat('dd-MM-yyyy').format(pickedDate.start);
-                          toDate = fromDate;
-                        }
-                        setState(() {});
-                      });
+                      setState(() {});
                     });
+                  });
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -857,13 +860,17 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
       fromTime = fromTime1;
       toTime = toTime1;
     }
+    if(fromFullDayTime == null ){
+      fromFullDayTime = fromFullDayTime1;
+      endFullDayTime = endFullDayTime1;
+    }
     final data = {
       'emp_cd': loginService.getUserCode,
       'unit_cd': loginService.getCurrentUser!.unit_cd,
       'od_starts_from': applyOdCode,
       'od_type': odTypeCode,
-      'od_date': fromDate + " "+fromTime.toString(),
-      'od_end_date': toDate +" "+ toTime.toString(),
+      'od_date':odType == "Partial" ? fromDate + " "+fromTime.toString() : fromDate+ " "+fromFullDayTime.toString() ,
+      'od_end_date': odType == "Partial" ? toDate +" "+ toTime.toString() : toDate+ " "+endFullDayTime.toString(),
       'gp_od_status': OdStatusCode,
       'name_of_org': clientCode,
       'remarks': reasonTextController.text,
@@ -965,8 +972,8 @@ class _RequestOffdutyPageState extends State<RequestOffdutyPage> {
       timeBlock: 10,
       onRangeCompleted: (range){
         setState(() => _timeRange2 = range);
-        fromTime = _timeRange2?.start.format(context);
-        toTime = _timeRange2?.end.format(context);
+        fromFullDayTime = _timeRange2?.start.format(context);
+        endFullDayTime = _timeRange2?.end.format(context);
       },
     );
   }

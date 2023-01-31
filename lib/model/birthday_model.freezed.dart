@@ -30,6 +30,8 @@ mixin _$BirthdayModel {
   String get bdate => throw _privateConstructorUsedError;
   @JsonKey(name: "b_mon")
   String get bmonth => throw _privateConstructorUsedError;
+  @JsonKey(name: "dept_name")
+  String get department => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +49,8 @@ abstract class $BirthdayModelCopyWith<$Res> {
       @JsonKey(name: "emp_last_name") String lastName,
       @JsonKey(name: "photo_file") String photoFile,
       @JsonKey(name: "b_day") String bdate,
-      @JsonKey(name: "b_mon") String bmonth});
+      @JsonKey(name: "b_mon") String bmonth,
+      @JsonKey(name: "dept_name") String department});
 }
 
 /// @nodoc
@@ -66,6 +69,7 @@ class _$BirthdayModelCopyWithImpl<$Res>
     Object? photoFile = freezed,
     Object? bdate = freezed,
     Object? bmonth = freezed,
+    Object? department = freezed,
   }) {
     return _then(_value.copyWith(
       firstName: firstName == freezed
@@ -88,6 +92,10 @@ class _$BirthdayModelCopyWithImpl<$Res>
           ? _value.bmonth
           : bmonth // ignore: cast_nullable_to_non_nullable
               as String,
+      department: department == freezed
+          ? _value.department
+          : department // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -104,7 +112,8 @@ abstract class _$$_BirthdayModelCopyWith<$Res>
       @JsonKey(name: "emp_last_name") String lastName,
       @JsonKey(name: "photo_file") String photoFile,
       @JsonKey(name: "b_day") String bdate,
-      @JsonKey(name: "b_mon") String bmonth});
+      @JsonKey(name: "b_mon") String bmonth,
+      @JsonKey(name: "dept_name") String department});
 }
 
 /// @nodoc
@@ -125,6 +134,7 @@ class __$$_BirthdayModelCopyWithImpl<$Res>
     Object? photoFile = freezed,
     Object? bdate = freezed,
     Object? bmonth = freezed,
+    Object? department = freezed,
   }) {
     return _then(_$_BirthdayModel(
       firstName: firstName == freezed
@@ -147,6 +157,10 @@ class __$$_BirthdayModelCopyWithImpl<$Res>
           ? _value.bmonth
           : bmonth // ignore: cast_nullable_to_non_nullable
               as String,
+      department: department == freezed
+          ? _value.department
+          : department // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -159,7 +173,8 @@ class _$_BirthdayModel implements _BirthdayModel {
       @JsonKey(name: "emp_last_name") this.lastName = "",
       @JsonKey(name: "photo_file") this.photoFile = "",
       @JsonKey(name: "b_day") this.bdate = "",
-      @JsonKey(name: "b_mon") this.bmonth = ""});
+      @JsonKey(name: "b_mon") this.bmonth = "",
+      @JsonKey(name: "dept_name") this.department = ""});
 
   factory _$_BirthdayModel.fromJson(Map<String, dynamic> json) =>
       _$$_BirthdayModelFromJson(json);
@@ -179,10 +194,13 @@ class _$_BirthdayModel implements _BirthdayModel {
   @override
   @JsonKey(name: "b_mon")
   final String bmonth;
+  @override
+  @JsonKey(name: "dept_name")
+  final String department;
 
   @override
   String toString() {
-    return 'BirthdayModel(firstName: $firstName, lastName: $lastName, photoFile: $photoFile, bdate: $bdate, bmonth: $bmonth)';
+    return 'BirthdayModel(firstName: $firstName, lastName: $lastName, photoFile: $photoFile, bdate: $bdate, bmonth: $bmonth, department: $department)';
   }
 
   @override
@@ -194,7 +212,9 @@ class _$_BirthdayModel implements _BirthdayModel {
             const DeepCollectionEquality().equals(other.lastName, lastName) &&
             const DeepCollectionEquality().equals(other.photoFile, photoFile) &&
             const DeepCollectionEquality().equals(other.bdate, bdate) &&
-            const DeepCollectionEquality().equals(other.bmonth, bmonth));
+            const DeepCollectionEquality().equals(other.bmonth, bmonth) &&
+            const DeepCollectionEquality()
+                .equals(other.department, department));
   }
 
   @JsonKey(ignore: true)
@@ -205,7 +225,8 @@ class _$_BirthdayModel implements _BirthdayModel {
       const DeepCollectionEquality().hash(lastName),
       const DeepCollectionEquality().hash(photoFile),
       const DeepCollectionEquality().hash(bdate),
-      const DeepCollectionEquality().hash(bmonth));
+      const DeepCollectionEquality().hash(bmonth),
+      const DeepCollectionEquality().hash(department));
 
   @JsonKey(ignore: true)
   @override
@@ -226,7 +247,8 @@ abstract class _BirthdayModel implements BirthdayModel {
       @JsonKey(name: "emp_last_name") final String lastName,
       @JsonKey(name: "photo_file") final String photoFile,
       @JsonKey(name: "b_day") final String bdate,
-      @JsonKey(name: "b_mon") final String bmonth}) = _$_BirthdayModel;
+      @JsonKey(name: "b_mon") final String bmonth,
+      @JsonKey(name: "dept_name") final String department}) = _$_BirthdayModel;
 
   factory _BirthdayModel.fromJson(Map<String, dynamic> json) =
       _$_BirthdayModel.fromJson;
@@ -246,6 +268,9 @@ abstract class _BirthdayModel implements BirthdayModel {
   @override
   @JsonKey(name: "b_mon")
   String get bmonth;
+  @override
+  @JsonKey(name: "dept_name")
+  String get department;
   @override
   @JsonKey(ignore: true)
   _$$_BirthdayModelCopyWith<_$_BirthdayModel> get copyWith =>

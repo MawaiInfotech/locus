@@ -21,17 +21,27 @@ ProfileModel _$ProfileModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ProfileModel {
   @JsonKey(name: "user_master_id")
-  String get userId => throw _privateConstructorUsedError;
+  int get userId => throw _privateConstructorUsedError;
   @JsonKey(name: "emp_cd")
   String get employeeCode => throw _privateConstructorUsedError;
   @JsonKey(name: "unit_cd")
   String get unitCode => throw _privateConstructorUsedError;
   @JsonKey(name: "user_name")
   String get userName => throw _privateConstructorUsedError;
-  @JsonKey(name: "user_fname")
-  String get userFullName => throw _privateConstructorUsedError;
   @JsonKey(name: "emp_name")
   String get employeeName => throw _privateConstructorUsedError;
+  @JsonKey(name: "emp_first_name")
+  String get employeeFirstName => throw _privateConstructorUsedError;
+  @JsonKey(name: "emp_last_name")
+  String get employeelastName => throw _privateConstructorUsedError;
+  @JsonKey(name: "photo_file")
+  String get photo => throw _privateConstructorUsedError;
+  @JsonKey(name: "company_email")
+  String get companyEmail => throw _privateConstructorUsedError;
+  @JsonKey(name: "per_emailid")
+  String get personalEmail => throw _privateConstructorUsedError;
+  @JsonKey(name: "description")
+  String get designation => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,12 +55,17 @@ abstract class $ProfileModelCopyWith<$Res> {
           ProfileModel value, $Res Function(ProfileModel) then) =
       _$ProfileModelCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: "user_master_id") String userId,
+      {@JsonKey(name: "user_master_id") int userId,
       @JsonKey(name: "emp_cd") String employeeCode,
       @JsonKey(name: "unit_cd") String unitCode,
       @JsonKey(name: "user_name") String userName,
-      @JsonKey(name: "user_fname") String userFullName,
-      @JsonKey(name: "emp_name") String employeeName});
+      @JsonKey(name: "emp_name") String employeeName,
+      @JsonKey(name: "emp_first_name") String employeeFirstName,
+      @JsonKey(name: "emp_last_name") String employeelastName,
+      @JsonKey(name: "photo_file") String photo,
+      @JsonKey(name: "company_email") String companyEmail,
+      @JsonKey(name: "per_emailid") String personalEmail,
+      @JsonKey(name: "description") String designation});
 }
 
 /// @nodoc
@@ -67,14 +82,19 @@ class _$ProfileModelCopyWithImpl<$Res> implements $ProfileModelCopyWith<$Res> {
     Object? employeeCode = freezed,
     Object? unitCode = freezed,
     Object? userName = freezed,
-    Object? userFullName = freezed,
     Object? employeeName = freezed,
+    Object? employeeFirstName = freezed,
+    Object? employeelastName = freezed,
+    Object? photo = freezed,
+    Object? companyEmail = freezed,
+    Object? personalEmail = freezed,
+    Object? designation = freezed,
   }) {
     return _then(_value.copyWith(
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       employeeCode: employeeCode == freezed
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
@@ -87,13 +107,33 @@ class _$ProfileModelCopyWithImpl<$Res> implements $ProfileModelCopyWith<$Res> {
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as String,
-      userFullName: userFullName == freezed
-          ? _value.userFullName
-          : userFullName // ignore: cast_nullable_to_non_nullable
-              as String,
       employeeName: employeeName == freezed
           ? _value.employeeName
           : employeeName // ignore: cast_nullable_to_non_nullable
+              as String,
+      employeeFirstName: employeeFirstName == freezed
+          ? _value.employeeFirstName
+          : employeeFirstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      employeelastName: employeelastName == freezed
+          ? _value.employeelastName
+          : employeelastName // ignore: cast_nullable_to_non_nullable
+              as String,
+      photo: photo == freezed
+          ? _value.photo
+          : photo // ignore: cast_nullable_to_non_nullable
+              as String,
+      companyEmail: companyEmail == freezed
+          ? _value.companyEmail
+          : companyEmail // ignore: cast_nullable_to_non_nullable
+              as String,
+      personalEmail: personalEmail == freezed
+          ? _value.personalEmail
+          : personalEmail // ignore: cast_nullable_to_non_nullable
+              as String,
+      designation: designation == freezed
+          ? _value.designation
+          : designation // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -107,12 +147,17 @@ abstract class _$$_ProfileModelCopyWith<$Res>
       __$$_ProfileModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: "user_master_id") String userId,
+      {@JsonKey(name: "user_master_id") int userId,
       @JsonKey(name: "emp_cd") String employeeCode,
       @JsonKey(name: "unit_cd") String unitCode,
       @JsonKey(name: "user_name") String userName,
-      @JsonKey(name: "user_fname") String userFullName,
-      @JsonKey(name: "emp_name") String employeeName});
+      @JsonKey(name: "emp_name") String employeeName,
+      @JsonKey(name: "emp_first_name") String employeeFirstName,
+      @JsonKey(name: "emp_last_name") String employeelastName,
+      @JsonKey(name: "photo_file") String photo,
+      @JsonKey(name: "company_email") String companyEmail,
+      @JsonKey(name: "per_emailid") String personalEmail,
+      @JsonKey(name: "description") String designation});
 }
 
 /// @nodoc
@@ -132,14 +177,19 @@ class __$$_ProfileModelCopyWithImpl<$Res>
     Object? employeeCode = freezed,
     Object? unitCode = freezed,
     Object? userName = freezed,
-    Object? userFullName = freezed,
     Object? employeeName = freezed,
+    Object? employeeFirstName = freezed,
+    Object? employeelastName = freezed,
+    Object? photo = freezed,
+    Object? companyEmail = freezed,
+    Object? personalEmail = freezed,
+    Object? designation = freezed,
   }) {
     return _then(_$_ProfileModel(
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       employeeCode: employeeCode == freezed
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
@@ -152,13 +202,33 @@ class __$$_ProfileModelCopyWithImpl<$Res>
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as String,
-      userFullName: userFullName == freezed
-          ? _value.userFullName
-          : userFullName // ignore: cast_nullable_to_non_nullable
-              as String,
       employeeName: employeeName == freezed
           ? _value.employeeName
           : employeeName // ignore: cast_nullable_to_non_nullable
+              as String,
+      employeeFirstName: employeeFirstName == freezed
+          ? _value.employeeFirstName
+          : employeeFirstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      employeelastName: employeelastName == freezed
+          ? _value.employeelastName
+          : employeelastName // ignore: cast_nullable_to_non_nullable
+              as String,
+      photo: photo == freezed
+          ? _value.photo
+          : photo // ignore: cast_nullable_to_non_nullable
+              as String,
+      companyEmail: companyEmail == freezed
+          ? _value.companyEmail
+          : companyEmail // ignore: cast_nullable_to_non_nullable
+              as String,
+      personalEmail: personalEmail == freezed
+          ? _value.personalEmail
+          : personalEmail // ignore: cast_nullable_to_non_nullable
+              as String,
+      designation: designation == freezed
+          ? _value.designation
+          : designation // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -168,19 +238,24 @@ class __$$_ProfileModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ProfileModel implements _ProfileModel {
   const _$_ProfileModel(
-      {@JsonKey(name: "user_master_id") this.userId = "",
+      {@JsonKey(name: "user_master_id") this.userId = 0,
       @JsonKey(name: "emp_cd") this.employeeCode = "",
       @JsonKey(name: "unit_cd") this.unitCode = "",
       @JsonKey(name: "user_name") this.userName = "",
-      @JsonKey(name: "user_fname") this.userFullName = "",
-      @JsonKey(name: "emp_name") this.employeeName = ""});
+      @JsonKey(name: "emp_name") this.employeeName = "",
+      @JsonKey(name: "emp_first_name") this.employeeFirstName = "",
+      @JsonKey(name: "emp_last_name") this.employeelastName = "",
+      @JsonKey(name: "photo_file") this.photo = "",
+      @JsonKey(name: "company_email") this.companyEmail = "",
+      @JsonKey(name: "per_emailid") this.personalEmail = "",
+      @JsonKey(name: "description") this.designation = ""});
 
   factory _$_ProfileModel.fromJson(Map<String, dynamic> json) =>
       _$$_ProfileModelFromJson(json);
 
   @override
   @JsonKey(name: "user_master_id")
-  final String userId;
+  final int userId;
   @override
   @JsonKey(name: "emp_cd")
   final String employeeCode;
@@ -191,15 +266,30 @@ class _$_ProfileModel implements _ProfileModel {
   @JsonKey(name: "user_name")
   final String userName;
   @override
-  @JsonKey(name: "user_fname")
-  final String userFullName;
-  @override
   @JsonKey(name: "emp_name")
   final String employeeName;
+  @override
+  @JsonKey(name: "emp_first_name")
+  final String employeeFirstName;
+  @override
+  @JsonKey(name: "emp_last_name")
+  final String employeelastName;
+  @override
+  @JsonKey(name: "photo_file")
+  final String photo;
+  @override
+  @JsonKey(name: "company_email")
+  final String companyEmail;
+  @override
+  @JsonKey(name: "per_emailid")
+  final String personalEmail;
+  @override
+  @JsonKey(name: "description")
+  final String designation;
 
   @override
   String toString() {
-    return 'ProfileModel(userId: $userId, employeeCode: $employeeCode, unitCode: $unitCode, userName: $userName, userFullName: $userFullName, employeeName: $employeeName)';
+    return 'ProfileModel(userId: $userId, employeeCode: $employeeCode, unitCode: $unitCode, userName: $userName, employeeName: $employeeName, employeeFirstName: $employeeFirstName, employeelastName: $employeelastName, photo: $photo, companyEmail: $companyEmail, personalEmail: $personalEmail, designation: $designation)';
   }
 
   @override
@@ -213,9 +303,18 @@ class _$_ProfileModel implements _ProfileModel {
             const DeepCollectionEquality().equals(other.unitCode, unitCode) &&
             const DeepCollectionEquality().equals(other.userName, userName) &&
             const DeepCollectionEquality()
-                .equals(other.userFullName, userFullName) &&
+                .equals(other.employeeName, employeeName) &&
             const DeepCollectionEquality()
-                .equals(other.employeeName, employeeName));
+                .equals(other.employeeFirstName, employeeFirstName) &&
+            const DeepCollectionEquality()
+                .equals(other.employeelastName, employeelastName) &&
+            const DeepCollectionEquality().equals(other.photo, photo) &&
+            const DeepCollectionEquality()
+                .equals(other.companyEmail, companyEmail) &&
+            const DeepCollectionEquality()
+                .equals(other.personalEmail, personalEmail) &&
+            const DeepCollectionEquality()
+                .equals(other.designation, designation));
   }
 
   @JsonKey(ignore: true)
@@ -226,8 +325,13 @@ class _$_ProfileModel implements _ProfileModel {
       const DeepCollectionEquality().hash(employeeCode),
       const DeepCollectionEquality().hash(unitCode),
       const DeepCollectionEquality().hash(userName),
-      const DeepCollectionEquality().hash(userFullName),
-      const DeepCollectionEquality().hash(employeeName));
+      const DeepCollectionEquality().hash(employeeName),
+      const DeepCollectionEquality().hash(employeeFirstName),
+      const DeepCollectionEquality().hash(employeelastName),
+      const DeepCollectionEquality().hash(photo),
+      const DeepCollectionEquality().hash(companyEmail),
+      const DeepCollectionEquality().hash(personalEmail),
+      const DeepCollectionEquality().hash(designation));
 
   @JsonKey(ignore: true)
   @override
@@ -244,19 +348,25 @@ class _$_ProfileModel implements _ProfileModel {
 
 abstract class _ProfileModel implements ProfileModel {
   const factory _ProfileModel(
-      {@JsonKey(name: "user_master_id") final String userId,
-      @JsonKey(name: "emp_cd") final String employeeCode,
-      @JsonKey(name: "unit_cd") final String unitCode,
-      @JsonKey(name: "user_name") final String userName,
-      @JsonKey(name: "user_fname") final String userFullName,
-      @JsonKey(name: "emp_name") final String employeeName}) = _$_ProfileModel;
+          {@JsonKey(name: "user_master_id") final int userId,
+          @JsonKey(name: "emp_cd") final String employeeCode,
+          @JsonKey(name: "unit_cd") final String unitCode,
+          @JsonKey(name: "user_name") final String userName,
+          @JsonKey(name: "emp_name") final String employeeName,
+          @JsonKey(name: "emp_first_name") final String employeeFirstName,
+          @JsonKey(name: "emp_last_name") final String employeelastName,
+          @JsonKey(name: "photo_file") final String photo,
+          @JsonKey(name: "company_email") final String companyEmail,
+          @JsonKey(name: "per_emailid") final String personalEmail,
+          @JsonKey(name: "description") final String designation}) =
+      _$_ProfileModel;
 
   factory _ProfileModel.fromJson(Map<String, dynamic> json) =
       _$_ProfileModel.fromJson;
 
   @override
   @JsonKey(name: "user_master_id")
-  String get userId;
+  int get userId;
   @override
   @JsonKey(name: "emp_cd")
   String get employeeCode;
@@ -267,11 +377,26 @@ abstract class _ProfileModel implements ProfileModel {
   @JsonKey(name: "user_name")
   String get userName;
   @override
-  @JsonKey(name: "user_fname")
-  String get userFullName;
-  @override
   @JsonKey(name: "emp_name")
   String get employeeName;
+  @override
+  @JsonKey(name: "emp_first_name")
+  String get employeeFirstName;
+  @override
+  @JsonKey(name: "emp_last_name")
+  String get employeelastName;
+  @override
+  @JsonKey(name: "photo_file")
+  String get photo;
+  @override
+  @JsonKey(name: "company_email")
+  String get companyEmail;
+  @override
+  @JsonKey(name: "per_emailid")
+  String get personalEmail;
+  @override
+  @JsonKey(name: "description")
+  String get designation;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileModelCopyWith<_$_ProfileModel> get copyWith =>

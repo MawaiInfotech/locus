@@ -13,6 +13,7 @@ _$_BirthdayModel _$$_BirthdayModelFromJson(Map<String, dynamic> json) =>
       photoFile: json['photo_file'] as String? ?? "",
       bdate: json['b_day'] as String? ?? "",
       bmonth: json['b_mon'] as String? ?? "",
+      department: json['dept_name'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$_BirthdayModelToJson(_$_BirthdayModel instance) =>
@@ -22,4 +23,5 @@ Map<String, dynamic> _$$_BirthdayModelToJson(_$_BirthdayModel instance) =>
       'photo_file': instance.photoFile,
       'b_day': instance.bdate,
       'b_mon': instance.bmonth,
+      'dept_name': instance.department,
     };
