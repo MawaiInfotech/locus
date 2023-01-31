@@ -1,4 +1,6 @@
 PODS:
+  - camera_avfoundation (0.0.1):
+    - Flutter
   - Firebase/CoreOnly (10.3.0):
     - FirebaseCore (= 10.3.0)
   - Firebase/Crashlytics (10.3.0):
@@ -97,6 +99,7 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - camera_avfoundation (from `.symlinks/plugins/camera_avfoundation/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_crashlytics (from `.symlinks/plugins/firebase_crashlytics/ios`)
   - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
@@ -125,6 +128,8 @@ SPEC REPOS:
     - PromisesObjC
 
 EXTERNAL SOURCES:
+  camera_avfoundation:
+    :path: ".symlinks/plugins/camera_avfoundation/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   firebase_crashlytics:
@@ -151,6 +156,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/shared_preferences_ios/ios"
 
 SPEC CHECKSUMS:
+  camera_avfoundation: 07c77549ea54ad95d8581be86617c094a46280d9
   Firebase: f92fc551ead69c94168d36c2b26188263860acd9
   firebase_core: 6f2f753e316765799d88568232ed59e300ff53db
   firebase_crashlytics: 4aecad95b85802572a72804e4ca57385357e5255
@@ -175,6 +181,6 @@ SPEC CHECKSUMS:
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
 
-PODFILE CHECKSUM: 58fcbde0a3f4bf380cfcd8df11a3ec16428b4799
+PODFILE CHECKSUM: c01bf1b714f3ecdab09919cdf88dca3f965abfea
 
 COCOAPODS: 1.11.2

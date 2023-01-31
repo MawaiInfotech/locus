@@ -37,8 +37,23 @@ class AttendanceService {
 
       if (models.status == true) {
         return models;
+      }else{
+        CheckLoginModelForm models1 = CheckLoginModelForm();
+        models1.status == true;
+        models1.checkInData?.officepunch=="";
+        models1.checkInData?.address=="";
+        models1.checkOutData?.officepunch=="";
+        models1.checkOutData?.address=="";
+        return models;
       }
     } catch (e) {
+      CheckLoginModelForm models1 = CheckLoginModelForm();
+      models1.status == true;
+      models1.checkInData?.officepunch=="";
+      models1.checkInData?.address=="";
+      models1.checkOutData?.officepunch=="";
+      models1.checkOutData?.address=="";
+      return models1;
       print(e);
       _handleError(e);
     }

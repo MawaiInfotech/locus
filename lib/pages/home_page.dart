@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         mainAxisSpacing: 20.dh,
         crossAxisSpacing: 10.dw,
-        childAspectRatio: 9.dh / 9.0.dh,
+        childAspectRatio: 10.dh / 10.0.dh,
         crossAxisCount: 3,
       ),
       children: [
@@ -134,31 +134,31 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               children: [
                 Image.asset(
                   "assets/images/file.png",
-                  scale: 10.dw,
+                  scale: 12.dw,
                 ),
                 _buildText(title: "Outdoor Duty")
               ],
             ),
           ),
         ),
-        InkWell(
-          onTap: (){
-            Navigator.pushNamed(context, AppRoutes.workfromHome);
-          },
-          child: Card(
-            color: Color(0xffE3E2DF),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Image.asset(
-                  "assets/images/workfromhome.png",
-                  scale: 1.2.dw,
-                ),
-                _buildText(title: "Workfrom Home")
-              ],
-            ),
-          ),
-        ),
+        // InkWell(
+        //   onTap: (){
+        //     Navigator.pushNamed(context, AppRoutes.workfromHome);
+        //   },
+        //   child: Card(
+        //     color: Color(0xffE3E2DF),
+        //     child: Column(
+        //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //       children: [
+        //         Image.asset(
+        //           "assets/images/workfromhome.png",
+        //           scale: 1.2.dw,
+        //         ),
+        //         _buildText(title: "Workfrom Home")
+        //       ],
+        //     ),
+        //   ),
+        // ),
         InkWell(
           onTap: (){
             Navigator.pushNamed(context, AppRoutes.holidaypage);
@@ -170,7 +170,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               children: [
                 Image.asset(
                   "assets/images/holiday.png",
-                  scale: 10.dw,
+                  scale: 12.dw,
                 ),
                 _buildText(title: "Holidays")
               ],
@@ -188,7 +188,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               children: [
                 Image.asset(
                   "assets/images/noticeboard.png",
-                  scale: 8.dw,
+                  scale: 10.dw,
                 ),
                 _buildText(title: "Notices")
               ],
@@ -244,7 +244,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   }
 
   _buildBirthdayCard(){
-    return Container(
+    return SizedBox(
       height: 250.dw,
       child: Padding(
         padding: EdgeInsets.all(8.0.dw),
@@ -254,22 +254,22 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             children: [
               TabBar(
                   indicatorColor: AppColors.bottlegreen,
-                  indicatorWeight: 2.dw,
+                  indicatorWeight: 4.dw,
                   overlayColor: MaterialStateProperty.all(Colors.orange),
                   labelColor: AppColors.bloodred,
                   unselectedLabelColor: AppColors.navyblue,
                   unselectedLabelStyle: TextStyle(fontSize: 12.dh),
                   indicatorPadding: EdgeInsets.all(10.dw),
                   labelPadding: EdgeInsets.all(10.dw),
-                  labelStyle: TextStyle(fontSize: 16.dh, fontWeight: FontWeight.w400),
+                  labelStyle: TextStyle(fontSize: 20.dh, fontWeight: FontWeight.w600),
                   controller: tabController,
-                  tabs: const [
-                Text("Birthdays"),
-                Text("New Joinee")
+                  tabs: [
+                Text("Birthdays", style: TextStyle(fontSize: 14.dw),),
+                Text("New Joinee",style: TextStyle(fontSize: 14.dw),)
               ]),
               Expanded(child: TabBarView(
                   controller: tabController,
-                  children: [
+                  children: const [
                     Birthday(),
                     NewJoinee()
                   ]))
@@ -325,8 +325,14 @@ class _BirthdayState extends State<Birthday> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.pastelgreen,
-      body: _buildBody()
+        backgroundColor: AppColors.babyPink,
+        body: Container(
+          width: ScreenSizeConfig.getFullWidth,
+          decoration: const BoxDecoration(
+              image: DecorationImage(image: AssetImage("assets/images/birthday.jpg"), fit: BoxFit.cover, opacity: 0.6)
+          ),
+          child: _buildBody(),
+        )
     );
   }
   _buildBody(){
@@ -349,7 +355,7 @@ class _BirthdayState extends State<Birthday> {
   }
 
   Widget _buildContent(EmployeeBirthDetailModel model){
-   final birthdayList = model.emp_births;
+    final birthdayList = model.emp_births;
     return ListView(
       shrinkWrap: true,
       scrollDirection: Axis.horizontal,
@@ -358,38 +364,53 @@ class _BirthdayState extends State<Birthday> {
   }
 
 
- Widget _buildCard(BirthdayModel model){
+  Widget _buildCard(BirthdayModel model){
     return Padding(
       padding: EdgeInsets.all(5.0.dw),
-      child: Card(
-        child: Padding(
-          padding: EdgeInsets.all(8.0.dw),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Image.network(model.photoFile,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, exception, stackTrace){
-                    return Image.asset("assets/images/profile2.png", scale: 6.dw);
-                  },),
-              ),
-              SizedBox(
-                width: 100.dw,
-                child: Text(model.firstName + " "+ model.lastName,
-                  textAlign: TextAlign.center,
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(model.bdate),
-                  Text(" "),
-                  Text(model.bmonth),
-                ],
-              ),
-            ],
+      child: SizedBox(
+        height: 80.dw,
+        width: 150.dw,
+        child: Card(
+          child: Padding(
+            padding: EdgeInsets.all(8.0.dw),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                model.photoFile == "" ? SizedBox(
+                    height: 80.dw,
+                    width: 80.dw,
+                    child: Image.asset("assets/images/profile2.png")) :
+                SizedBox(
+                  height: 80.dw,
+                  width: 80.dw,
+                  child: Image.network(model.photoFile,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, exception, stackTrace){
+                      return Image.asset("assets/images/profile2.png", scale: 6.dw);
+                    },
+                  ),
+                ),
+                SizedBox(
+                  width: 120.dw,
+                  child: Text(model.firstName + " "+ model.lastName,
+                    textAlign: TextAlign.center,
+                    maxLines: 3,
+                    style: TextStyle(fontSize: 14.dw),
+                    overflow: TextOverflow.ellipsis,),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(model.bdate, style: TextStyle(fontSize: 14.dw),),
+                    Text(" "),
+                    Text(model.bmonth, style: TextStyle(fontSize: 14.dw),),
+                    Text(" "),
+                    Text(model.department, style: TextStyle(fontSize: 14.dw),),
+                  ],
+                ),
+
+              ],
+            ),
           ),
         ),
       ),
@@ -419,9 +440,16 @@ class _NewJoineeState extends State<NewJoinee> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _buildBody(),
+      body: Container(
+        width: ScreenSizeConfig.getFullWidth,
+        decoration: const BoxDecoration(
+            image: DecorationImage(image: AssetImage("assets/images/welcome.jpg"), fit: BoxFit.fill, opacity: 0.6)
+        ),
+        child: _buildBody(),
+      ),
     );
   }
+
   _buildBody(){
     return BlocConsumer<EmployeeBirthDetailBloc, EmployeeBirthDetailState>(
       bloc: employeeBirthDetailBloc,
@@ -460,31 +488,32 @@ class _NewJoineeState extends State<NewJoinee> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(
+              model.photo == "" ? SizedBox(
+                height: 80.dw,
+              width: 80.dw,
+                  child: Image.asset("assets/images/profile2.png")) :
+              SizedBox(
+                height: 80.dw,
+                width: 80.dw,
                 child: Image.network(model.photo,
                   fit: BoxFit.cover,
-                  errorBuilder: (context, exception, stackTrace){
-                    return Image.asset("assets/images/profile2.png", scale: 6.dw);
-                  },),
+                  // errorBuilder: (context, exception, stackTrace){
+                  //   return Image.asset("assets/images/profile2.png",scale: 6.dw);
+                  // },
+                ),
               ),
               Padding(
                 padding: EdgeInsets.all(2.0.dw),
                 child: SizedBox(
-                  width: 100.dw,
+                  width: 120.dw,
                   child: Text(model.firstName + " "+ model.lastName,
                     textAlign: TextAlign.center,
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,),
+                    maxLines: 1,
+                    overflow: TextOverflow.fade,),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text(model.joiningDate),
-                  Text(" "),
-                  Text(model.departName),
-                ],
-              ),
+              Text(model.joiningDate, style: TextStyle(fontSize: 14.dw),),
+              Text(model.departName, style: TextStyle(fontSize: 14.dw),),
             ],
           ),
         ),

@@ -87,26 +87,28 @@ class _LoginPageState extends State<LoginPage> {
           return AlertDialog(
             title: const Text(
                 "Permission Policy\n We will be needing in this app ?"),
-            content: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  "Location Permission",
-                  style:
-                      TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),
-                ),
-                const Text(
-                  "Locus needs your location coordinates for a host of activities – attendance management,to coordinate with your field teams and to make possible your travel reimbursement claims.",
-                ),
-                Text(
-                  "Camera Permission",
-                  style:
-                      TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),
-                ),
-                const Text(
-                  "This is to check whether the person himself/herself is marking the attendance.\nFurther , This is to enable our users to capture and attach photos of their expense bills while submitting for reimbursement.\n It also helps them attach photos while collecting data through custom forms.",
-                ),
-              ],
+            content: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    "Location Permission",
+                    style:
+                        TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),
+                  ),
+                  const Text(
+                    "Locus needs your location coordinates for a host of activities – attendance management,to coordinate with your field teams and to make possible your travel reimbursement claims.",
+                  ),
+                  Text(
+                    "Camera Permission",
+                    style:
+                        TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),
+                  ),
+                  const Text(
+                    "This is to check whether the person himself/herself is marking the attendance.\nFurther , This is to enable our users to capture and attach photos of their expense bills while submitting for reimbursement.\n It also helps them attach photos while collecting data through custom forms.",
+                  ),
+                ],
+              ),
             ),
             actions: [
               Center(
@@ -148,8 +150,7 @@ class _LoginPageState extends State<LoginPage> {
           child: BlocConsumer<LoginPageBloc, LoginPageState>(
             bloc: bloc,
             listener: (_, state) {
-              final isSuccess =
-                  state.maybeWhen(success: (_) => true, orElse: () => false);
+              final isSuccess = state.maybeWhen(success: (_) => true, orElse: () => false);
               if (isSuccess) {
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                   content: Text("Login Successfull"),
@@ -220,7 +221,7 @@ class _LoginPageState extends State<LoginPage> {
                     ))
               ],
             ),
-            Text("V 2.2.0+4", style: TextStyle(fontSize: 14.dw),)
+            Text("V 2.4.0+6", style: TextStyle(fontSize: 14.dw),)
           ],
         ),
        

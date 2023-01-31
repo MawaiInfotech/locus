@@ -11,6 +11,7 @@ class BirthdayModel with _$BirthdayModel{
     @JsonKey(name: "photo_file") @Default("") String photoFile,
     @JsonKey(name: "b_day") @Default("") String bdate,
     @JsonKey(name: "b_mon") @Default("") String bmonth,
+    @JsonKey(name: "dept_name") @Default("") String department,
 
 }) = _BirthdayModel;
   factory BirthdayModel.fromJson(Map<String, dynamic> json) => _$BirthdayModelFromJson(json);

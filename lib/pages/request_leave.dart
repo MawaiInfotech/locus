@@ -13,7 +13,6 @@ import 'package:locus/themes/app_colors.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_top_bar.dart';
 import 'package:provider/provider.dart';
-
 import '../model/cc_list_model.dart';
 
 class RequestLeave extends StatefulWidget {
@@ -142,7 +141,12 @@ class _RequestLeaveState extends State<RequestLeave> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       _buildHeadingText("Days   :-"),
-                      _buildText(difference.toString()),
+                      if(leaveCode == "SH")_buildText(difference = "0"),
+                      if(leaveCode == "EL" || leaveCode == "PR" || leaveCode == "WO" || leaveCode == "AB" || leaveCode == "FO" || leaveCode == "OD" || leaveCode == "AL" || leaveCode == "CO" ||leaveCode == "RG" ||
+                          leaveCode == "HO" || leaveCode == "NH" || leaveCode == "EM" || leaveCode =="GL" || leaveCode == "CP" || leaveCode == "ML" ||  leaveCode == "LW" || leaveCode == "SL" ||
+                          leaveCode == "CL" || leaveCode =="MG" || leaveCode == "PT"
+                      )
+                        _buildText(difference.toString()),
                     ],
                   ),
                   Row(
@@ -303,6 +307,10 @@ class _RequestLeaveState extends State<RequestLeave> {
                             leaveCode = model.leave_list[index].code;
                             balanceLeave = model.leave_list[index].leaveBalance;
                             Navigator.pop(context);
+                            if(leaveCode == "SH"){
+                              difference = "0";
+                            }
+                            setState(() {});
                           },
                           child: Card(
                             elevation: 10,
@@ -570,18 +578,12 @@ class _RequestLeaveState extends State<RequestLeave> {
                       setState(() {
                         dateTimeRange = pickedDate;
                         if (controlCode == "3") {
-                          difference = pickedDate.end
-                                  .difference(pickedDate.start)
-                                  .inDays +
-                              1;
-                          fromDate =
-                              DateFormat('dd-MM-yyyy').format(pickedDate.start);
-                          toDate =
-                              DateFormat('dd-MM-yyyy').format(pickedDate.end);
+                          difference = pickedDate.end.difference(pickedDate.start).inDays + 1;
+                          fromDate = DateFormat('dd-MM-yyyy').format(pickedDate.start);
+                          toDate = DateFormat('dd-MM-yyyy').format(pickedDate.end);
                         } else if (controlCode == "1" || controlCode == "2") {
                           difference = "0.5";
-                          fromDate =
-                              DateFormat('dd-MM-yyyy').format(pickedDate.start);
+                          fromDate = DateFormat('dd-MM-yyyy').format(pickedDate.start);
                           toDate = fromDate;
                         }
                         setState(() {});
