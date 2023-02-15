@@ -125,18 +125,19 @@ packages:
     dependency: "direct main"
     description:
       name: camera
-      sha256: b7316e7861cf7a7196ef670f391a0e8d1f36eebd4e199d3077e0a23e11db2a44
+      sha256: e7ac55af24a890d20276821eb3c95857074d03b7de6f9892b99a205ee30bd179
       url: "https://pub.dev"
     source: hosted
-    version: "0.10.1"
+    version: "0.10.3"
   camera_android:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: camera_android
-      sha256: "24408d7078dd9b5e70bdb2ff35651c250b0efc9168df287e30fcb151e93ec515"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.10.2"
+      path: "packages/camera/camera_android"
+      ref: "5172b44088a4082ff0899594614c5380457d341b"
+      resolved-ref: "5172b44088a4082ff0899594614c5380457d341b"
+      url: "https://github.com/elmar001/plugins.git"
+    source: git
+    version: "0.10.0+1"
   camera_avfoundation:
     dependency: transitive
     description:

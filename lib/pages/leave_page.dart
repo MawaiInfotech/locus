@@ -867,11 +867,11 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
     };
     await teamLeaderLeaveApproveRejectBloc.ApprovalRejectionStatus(data);
     final state = teamLeaderLeaveApproveRejectBloc.state;
-    state.maybeWhen(
-        success: (model, message) {
-          approvedleaveBloc.init();
+    state.maybeWhen(success: (model, message) {
+           approvedleaveBloc.init();
           ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(SnackBar(
               content: Text(message!, style: const TextStyle(color: Colors.white),)));
+           Navigator.pop(context);
 
         },
         failed: (model, message) {
@@ -934,9 +934,7 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
                         ElevatedButton(
                           onPressed: () {
                             _approvalRejection(model, "A", approvalController.text);
-                            approvedleaveBloc.init();
-                            Navigator.pop(context);
-
+                           // approvedleaveBloc.init();
                           },
                           style: ElevatedButton.styleFrom(
                               primary: Colors.lightGreen,
