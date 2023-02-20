@@ -16,6 +16,7 @@ import 'package:locus/service/misspunch_service.dart';
 import 'package:locus/service/noticeboard_service.dart';
 import 'package:locus/service/offduty_service.dart';
 import 'package:locus/service/profile_service.dart';
+import 'package:locus/service/referral_service.dart';
 import 'package:locus/service/wfh_service.dart';
 import 'package:provider/provider.dart';
 import 'app.dart';
@@ -53,7 +54,8 @@ import 'package:path_provider/path_provider.dart' as path_provider;
         Provider<NoticeboardService>(create: (_) => NoticeboardService()),
         Provider<WorkfromHomeService>(create: (_) => WorkfromHomeService()),
         Provider<HomePageService>(create: (_) => HomePageService()),
-        Provider<ProfileService>(create: (_) => ProfileService())
+        Provider<ProfileService>(create: (_) => ProfileService()),
+        Provider<ReferralService>(create: (_) => ReferralService()),
       ],
   child: BlocProvider(create: (_) => CheckLoginBloc(attendanceService),
       child: const MyApp()

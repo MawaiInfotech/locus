@@ -9,6 +9,7 @@ import 'package:locus/service/homepage_service.dart';
 import 'package:locus/state/employeebirthdetail_state.dart';
 import 'package:locus/themes/app_colors.dart';
 import 'package:locus/utils/screen_size_config.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import '../model/login_model.dart';
 import '../service/login_service.dart';
@@ -101,7 +102,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildImage("assets/images/verification.png"),
+                Lottie.asset("assets/lottie/checking.json", height: 80.dh, width: 80.dw),
+                // _buildImage("assets/images/verification.png"),
                 _buildText(title: "Attendance")
               ],
             ),
@@ -117,7 +119,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildImage("assets/images/leave-2.png"),
+                Lottie.asset("assets/lottie/take-on-leave.json", height: 80.dh, width: 80.dw),
+                // _buildImage("assets/images/leave-2.png"),
                 _buildText(title: "Leave")
               ],
             ),
@@ -132,10 +135,9 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Image.asset(
-                  "assets/images/file.png",
-                  scale: 12.dw,
-                ),
+                Lottie.asset("assets/lottie/outdoorDuty.json", height: 80.dh, width: 80.dw),
+
+                //Image.asset("assets/images/file.png", scale: 10.dw,),
                 _buildText(title: "Outdoor Duty")
               ],
             ),
@@ -170,7 +172,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               children: [
                 Image.asset(
                   "assets/images/holiday.png",
-                  scale: 12.dw,
+                  scale: 10.dw,
                 ),
                 _buildText(title: "Holidays")
               ],
@@ -186,11 +188,31 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Image.asset(
-                  "assets/images/noticeboard.png",
-                  scale: 10.dw,
-                ),
-                _buildText(title: "Notices")
+                Lottie.asset("assets/lottie/notice.json", height: 80.dh, width: 100.dw),
+                // Image.asset(
+                //   "assets/images/noticeboard.png",
+                //   scale: 8.dw,
+                // ),
+                _buildText(title: "I B")
+              ],
+            ),
+          ),
+        ),
+        InkWell(
+          onTap: (){
+            Navigator.pushNamed(context, AppRoutes.refrralDetailsPage);
+          },
+          child: Card(
+            color: Color(0xffFFFBE5),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Lottie.asset("assets/lottie/referal.json", height: 80.dh, width: 100.dw),
+                // Image.asset(
+                //   "assets/images/collaboration.png",
+                //   scale: 8.dw,
+                // ),
+                _buildText(title: "Referral")
               ],
             ),
           ),

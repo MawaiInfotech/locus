@@ -36,7 +36,7 @@ class _NoticeBoardPageState extends State<NoticeBoardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const AppTopBar(title: "Notices"),
+        appBar: const AppTopBar(title: "Information Board"),
         body: _buildBody()
     );
   }
