@@ -107,8 +107,11 @@ class _ReferralDetailsState extends State<ReferralDetails> {
     return Padding(
       padding: EdgeInsets.all(10.0.dw),
       child: ElevatedButton(
-          onPressed: () {
-            Navigator.pushNamed(context, AppRoutes.refrralPage);
+          onPressed: ()async {
+            final shouldInit = await Navigator.pushNamed(context, AppRoutes.refrralPage) as bool?;
+            print(shouldInit);
+            if(shouldInit != null && shouldInit) referralDetailBloc.init();
+            // Navigator.pushNamed(context, AppRoutes.refrralPage);
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.red,

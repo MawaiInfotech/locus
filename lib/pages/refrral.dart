@@ -52,7 +52,7 @@ class _RefrralPageState extends State<RefrralPage> with SingleTickerProviderStat
 
   void openFiles() async {
     FilePickerResult? resultFile = await FilePicker.platform.pickFiles(
-    // allowedExtensions: ['pdf', 'doc'],
+      // allowedExtensions: ['pdf', 'doc'],
     );
     if(resultFile != null){
       PlatformFile file = resultFile.files.first;
@@ -102,7 +102,6 @@ class _RefrralPageState extends State<RefrralPage> with SingleTickerProviderStat
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Lottie.asset("assets/lottie/41448-online-team-collaboration-animation.json"),
-          _buildNameTextField("Name", nameController),
           _buildNameTextField("Candidate Name", candidateNameController),
           _buildNameTextField("Candidate Email", candidateEmailController),
           _buildJobPositionDialogBox(model),
@@ -122,7 +121,7 @@ class _RefrralPageState extends State<RefrralPage> with SingleTickerProviderStat
           ),
 
           GestureDetector(
-            child: _buildSubmit()
+              child: _buildSubmit()
           ),
         ],
       ),
@@ -150,7 +149,7 @@ class _RefrralPageState extends State<RefrralPage> with SingleTickerProviderStat
       padding: EdgeInsets.all(8.0.dw),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          minimumSize: Size(40.dw, 40.dh),
+            minimumSize: Size(40.dw, 40.dh),
             elevation: 10.dw),
         onPressed: () {
           openFiles();
@@ -396,16 +395,16 @@ class _RefrralPageState extends State<RefrralPage> with SingleTickerProviderStat
                   },
                   orElse: (){
                     return ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.orange2,
-                          elevation: 25,
-                          shadowColor: Colors.grey,
-                          shape: const StadiumBorder()
-                      ),
-                      onPressed: () {
-                        _applyReferral();
-                      },
-                      child: const Text("Submit"));});
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.orange2,
+                            elevation: 25,
+                            shadowColor: Colors.grey,
+                            shape: const StadiumBorder()
+                        ),
+                        onPressed: () {
+                          _applyReferral();
+                        },
+                        child: const Text("Submit"));});
 
             }
         ),
