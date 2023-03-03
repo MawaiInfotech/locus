@@ -182,7 +182,7 @@ class _RequestLeaveState extends State<RequestLeave> {
       padding: EdgeInsets.all(10.0.dw),
       child: Text(
         title,
-        style: TextStyle(fontSize: 18.dw, fontWeight: FontWeight.w400),
+        style: TextStyle(fontSize: 16.dw, fontWeight: FontWeight.w500),
       ),
     );
   }
@@ -600,7 +600,7 @@ class _RequestLeaveState extends State<RequestLeave> {
                   children: [
                     Image.asset(
                       "assets/images/from_date.png",
-                      scale: 2,
+                      scale: 2.dw,
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 10.dw),

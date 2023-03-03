@@ -87,7 +87,7 @@ class ReferralService{
       response.files.add(await http.MultipartFile.fromPath('doc_file', file));
       var res = await response.send();
       // print("Data");
-      // print(res);
+       print(res);
       var results = await http.Response.fromStream(res);
       var finalres = jsonDecode(results.body) as Map<String,dynamic>;
 

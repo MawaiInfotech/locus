@@ -65,7 +65,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   }
 
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -233,7 +232,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           children: [
             Padding(
               padding:  EdgeInsets.only(left: 10.dw),
-              child: Image.asset("assets/images/calender.png",scale: 20.dw,),
+              child: Image.asset("assets/images/calender.png",scale: 22.dw,),
             ),
             Padding(
               padding:  EdgeInsets.all(8.0.dw),
@@ -247,7 +246,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             ),
             Padding(
               padding:  EdgeInsets.only(left: 10.dw),
-              child: Image.asset("assets/images/calender.png",scale: 20.dh,),
+              child: Image.asset("assets/images/calender.png",scale: 22.dw,),
             ),
             Padding(
               padding:  EdgeInsets.all(8.0.dw),
@@ -310,7 +309,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     return Text(
       title,
       style: TextStyle(
-          color: AppColors.black, fontWeight: FontWeight.w500, fontSize: 18.dh),
+          color: AppColors.black, fontWeight: FontWeight.w500, fontSize: 14.dh),
     );
   }
 
@@ -319,7 +318,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       title,
       textAlign: TextAlign.center,
       style: TextStyle(
-          color: AppColors.black, fontWeight: FontWeight.w500, fontSize: 16.dh),
+          color: AppColors.black, fontWeight: FontWeight.w400, fontSize: 14.dh),
     );
   }
 
@@ -417,17 +416,17 @@ class _BirthdayState extends State<Birthday> {
                   child: Text(model.firstName + " "+ model.lastName,
                     textAlign: TextAlign.center,
                     maxLines: 3,
-                    style: TextStyle(fontSize: 14.dw),
+                    style: TextStyle(fontSize: 12.dw),
                     overflow: TextOverflow.ellipsis,),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(model.bdate, style: TextStyle(fontSize: 14.dw),),
+                    Text(model.bdate, style: TextStyle(fontSize: 12.dw),),
                     Text(" "),
-                    Text(model.bmonth, style: TextStyle(fontSize: 14.dw),),
+                    Text(model.bmonth, style: TextStyle(fontSize: 12.dw),),
                     Text(" "),
-                    Text(model.department, style: TextStyle(fontSize: 14.dw),),
+                    Text(model.department, style: TextStyle(fontSize: 12.dw),),
                   ],
                 ),
 
@@ -532,11 +531,13 @@ class _NewJoineeState extends State<NewJoinee> {
                   child: Text(model.firstName + " "+ model.lastName,
                     textAlign: TextAlign.center,
                     maxLines: 1,
-                    overflow: TextOverflow.fade,),
+                    overflow: TextOverflow.fade,
+                    style: TextStyle(fontSize: 12.dw),
+                  ),
                 ),
               ),
-              Text(model.joiningDate, style: TextStyle(fontSize: 14.dw),),
-              Text(model.departName, style: TextStyle(fontSize: 14.dw),),
+              Text(model.joiningDate, style: TextStyle(fontSize: 12.dw),),
+              Text(model.departName, style: TextStyle(fontSize: 12.dw),),
             ],
           ),
         ),

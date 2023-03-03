@@ -99,11 +99,9 @@ class _ProfilePageState extends State<ProfilePage> {
   _buildText({required String title}){
     return Padding(
       padding:  EdgeInsets.only(top: 8.dh),
-      child: Text(title, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18.dw),),
+      child: Text(title, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.dw),),
     );
   }
-
-
 
   _buildChangepass(){
     return Padding(
@@ -113,7 +111,7 @@ class _ProfilePageState extends State<ProfilePage> {
           style: ElevatedButton.styleFrom(
             primary: AppColors.portalgreyBlue
           ),
-          child: Text("Change Password",style: TextStyle(fontSize: 18.dw))),
+          child: Text("Change Password",style: TextStyle(fontSize: 16.dw))),
     );
   }
 
@@ -122,7 +120,7 @@ class _ProfilePageState extends State<ProfilePage> {
         style: ElevatedButton.styleFrom(
             primary: AppColors.portaldarkBlue
         ),
-        child: Text("Logout", style: TextStyle(fontSize: 18.dw),));
+        child: Text("Logout", style: TextStyle(fontSize: 16.dw),));
   }
 
   _buildPhotoButton(){

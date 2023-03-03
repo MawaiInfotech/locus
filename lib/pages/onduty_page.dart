@@ -63,35 +63,34 @@ class _OnDutyPageState extends State<OnDutyPage> with SingleTickerProviderStateM
         body: Column(
           children: [
             SizedBox(
-              height: 100.dh,
+              height: 80.dh,
               child: TabBar(
                 controller: tabController,
                 indicatorColor: AppColors.navyblue,
-                indicatorWeight: 6.dw,
+                indicatorWeight: 2.dw,
                 labelColor: AppColors.bloodred,
                 unselectedLabelColor: AppColors.navyblue,
-                unselectedLabelStyle: TextStyle(fontSize: 16.dh),
+                unselectedLabelStyle: TextStyle(fontSize: 14.dh),
                 indicatorPadding: EdgeInsets.all(8.dh),
                 labelPadding:  EdgeInsets.all(8.dh),
-                labelStyle:
-                TextStyle(fontSize: 16.dh, fontWeight: FontWeight.w600),
+                labelStyle: TextStyle(fontSize: 14.dh, fontWeight: FontWeight.w600),
                 tabs: [
                   Column(
                     children: [
                       Image.asset(
                         "assets/images/briefcase.png",
-                        scale: 14.dw,
+                        scale: 18.dw,
                       ),
-                      const Text("My Outdoor Duty"),
+                       Text("My Outdoor Duty", style: TextStyle(fontSize: 14.dw),),
                     ],
                   ),
                   Column(
                     children: [
                       Image.asset(
                         "assets/images/stamp.png",
-                        scale: 15.dw,
+                        scale: 18.dw,
                       ),
-                      const Text("Pending For Approval OD"),
+                      Text("Pending For Approval OD",style: TextStyle(fontSize: 14.dw)),
                     ],
                   ),
                 ],
@@ -204,24 +203,30 @@ class _MyOffDutyPageState extends State<MyOffDutyPage> {
                   "${model.odStartDate}  -  ${model.odEndDate}",
                   style: TextStyle(
                       color: AppColors.black,
-                      fontSize: 16.dw,
+                      fontSize: 14.dw,
                       fontWeight: FontWeight.w500),
                 ),
                 Text(
                   "${model.odStartTime}  -  ${model.odEndTime}",
                   style: TextStyle(
                       color: AppColors.black,
-                      fontSize: 16.dw,
+                      fontSize: 14.dw,
                       fontWeight: FontWeight.w400),
                 ),
                 Row(
                   children: [
-                    _buildOdRemarks(model.remark),
+                    Text( model.remark,
+                      style: TextStyle(
+                          color: AppColors.navyblue,
+                          fontSize: 12.dw,
+                          fontWeight: FontWeight.w400),
+                    ),
+                    // _buildOdRemarks(model.remark),
                     Text(" -  "),
                     Text( model.odPurposeName,
                       style: TextStyle(
                           color: AppColors.navyblue,
-                          fontSize: 14.dw,
+                          fontSize: 12.dw,
                           fontWeight: FontWeight.w400),
                     )
                   ],
@@ -230,7 +235,7 @@ class _MyOffDutyPageState extends State<MyOffDutyPage> {
                   model.placetovisitName,
                   style: TextStyle(
                       color: AppColors.navyblue,
-                      fontSize: 14.dw,
+                      fontSize: 12.dw,
                       fontWeight: FontWeight.w400),
                 ),
               ],

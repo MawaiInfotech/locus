@@ -27,11 +27,11 @@ class _NavigationPageState extends State<NavigationPage> {
   var Items = [
     Image.asset(
       'assets/images/homePage.png',
-      scale: 15,
+      scale: 15.dw,
     ),
     Image.asset(
       'assets/images/profile2.png',
-      scale: 15,
+      scale: 15.dw,
     ),
   ];
 

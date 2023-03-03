@@ -65,34 +65,34 @@ class _LeavePageState extends State<LeavePage> with SingleTickerProviderStateMix
         body: Column(
           children: [
             SizedBox(
-              height: 100.dh,
+              height: 80.dh,
               child: TabBar(
                 controller: tabController,
                 indicatorColor: AppColors.navyblue,
-                indicatorWeight: 6.dw,
+                indicatorWeight: 2.dw,
                 labelColor: AppColors.bloodred,
                 unselectedLabelColor: AppColors.navyblue,
                 unselectedLabelStyle: TextStyle(fontSize: 14.dh),
                 indicatorPadding: EdgeInsets.all(8.dh),
                 labelPadding: EdgeInsets.all(8.dw),
-                labelStyle: TextStyle(fontSize: 18.dh, fontWeight: FontWeight.w500),
+                labelStyle: TextStyle(fontSize: 16.dh, fontWeight: FontWeight.w500),
                 tabs: [
                   Column(
                     children: [
                       Image.asset(
                         "assets/images/leave.png",
-                        scale: 10.dw,
+                        scale: 12.dw,
                       ),
-                      const Text("My Leaves"),
+                      Text("My Leaves",style: TextStyle(fontSize: 14.dw),),
                     ],
                   ),
                   Column(
                     children: [
                       Image.asset(
                         "assets/images/leave-2.png",
-                        scale: 14.dw,
+                        scale: 18.dw,
                       ),
-                      Text("Pending For Approval", style: TextStyle(fontSize: 16.dw),),
+                      Text("Pending For Approval", style: TextStyle(fontSize: 14.dw),),
                     ],
                   ),
                 ],
@@ -205,12 +205,12 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
                     "Balance Leave",
                     style: TextStyle(
                         color: AppColors.white,
-                        fontSize: 14.dw,
-                        fontWeight: FontWeight.w500),
+                        fontSize: 12.dw,
+                        fontWeight: FontWeight.w400),
                   ),
                   Text(
                     model.balanceLeave.toString(),
-                    style: TextStyle(color: AppColors.white),
+                    style: TextStyle(color: AppColors.white,fontSize: 12.dw),
                   )
                 ],
               ),
@@ -227,12 +227,12 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
                     "Leave Taken",
                     style: TextStyle(
                         color: AppColors.white,
-                        fontSize: 14.dw,
-                        fontWeight: FontWeight.w500),
+                        fontSize: 12.dw,
+                        fontWeight: FontWeight.w400),
                   ),
                   Text(
                     model.leaveTaken.toString(),
-                    style: TextStyle(color: AppColors.white),
+                    style: TextStyle(color: AppColors.white, fontSize: 12.dw),
                   )
                 ],
               ),
@@ -247,8 +247,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
     return Container(
         alignment: Alignment.topCenter,
         margin: EdgeInsets.all(8.dw),
-        decoration: BoxDecoration(
-            color: AppColors.brown, borderRadius: BorderRadius.circular(20.dw)),
+        decoration: BoxDecoration(color: AppColors.brown, borderRadius: BorderRadius.circular(20.dw)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -257,7 +256,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
               child: Text(
                 model.description,
                 style: TextStyle(
-                    fontSize: 15.0.dw,
+                    fontSize: 14.0.dw,
                     fontWeight: FontWeight.w500,
                     color: AppColors.black),
               ),
@@ -292,7 +291,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
         CarouselSlider(
           carouselController: carouselController,
           options: CarouselOptions(
-              height: 150.0.dh,
+              height: 120.0.dh,
               autoPlay: false,
               enlargeCenterPage: true,
               viewportFraction: 0.8,
@@ -305,7 +304,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
         ),
         Positioned(
           left: 10.dw,
-          top: 40.dw,
+          top: 30.dw,
           child: IconButton(
             onPressed: () {
               carouselController.previousPage();
@@ -315,7 +314,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
         ),
         Positioned(
           right: 5.dw,
-          top: 40.dw,
+          top: 30.dw,
           child: IconButton(
             onPressed: () {
               carouselController.nextPage();
@@ -354,24 +353,24 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
                   "${model.fromDate}  -  ${model.endDate}",
                   style: TextStyle(
                       color: AppColors.black,
-                      fontSize: 16.dw,
+                      fontSize: 14.dw,
                       fontWeight: FontWeight.w500),
                 ),
                 Text(
                   "${model.leaveDescription} - ${model.leaveDays}",
                   style: TextStyle(
                       color: AppColors.navyblue,
-                      fontSize: 14.dw,
+                      fontSize: 12.dw,
                       fontWeight: FontWeight.w400),
                 ),
                 Container(
-                  width: 180.dw,
+                  width: 250.dw,
                   child: Text(
                     "${"Reason "} - ${model.reason}",
                     maxLines: 2,
                     style: TextStyle(
                         color: AppColors.navyblue,
-                        fontSize: 14.dw,
+                        fontSize: 12.dw,
                         fontWeight: FontWeight.w400),
                   ),
                 ),
@@ -588,7 +587,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
             title,
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: Color, fontSize: 14.dw, fontWeight: FontWeight.w400),
+                color: Color, fontSize: 12.dw, fontWeight: FontWeight.w400),
           ),
           Text(
             title1,

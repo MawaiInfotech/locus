@@ -216,12 +216,12 @@ class _LoginPageState extends State<LoginPage> {
                       "Signup",
                       style: TextStyle(
                           color: AppColors.portalorange,
-                          fontSize: 18.dw,
-                          fontWeight: FontWeight.w600),
+                          fontSize: 16.dw,
+                          fontWeight: FontWeight.w500),
                     ))
               ],
             ),
-            Text("V 2.7.0+12", style: TextStyle(fontSize: 14.dw),)
+            Text("V 2.7.0+12", style: TextStyle(fontSize: 12.dw),)
           ],
         ),
        
@@ -308,11 +308,10 @@ class _LoginPageState extends State<LoginPage> {
               begin: AlignmentDirectional.topStart,
               end: AlignmentDirectional.topEnd,
             ),
-            border:
-                Border(left: BorderSide(color: AppColors.red, width: 4.0.dw))),
+            border: Border(left: BorderSide(color: AppColors.red, width: 4.0.dw))),
         child: Text(
           "Login",
-          style: TextStyle(fontSize: 20.0.dh, fontWeight: FontWeight.w600),
+          style: TextStyle(fontSize: 18.0.dh, fontWeight: FontWeight.w600),
         ),
       ),
     );
@@ -334,7 +333,7 @@ class _LoginPageState extends State<LoginPage> {
                     onChanged: bloc.updateShouldRemeber,
                     value: form.shouldRemember,
                   ),
-                  const Text("Remember Me")
+                  Text("Remember Me", style: TextStyle(fontSize: 14.dw),)
                 ],
               )),
           _buildForgetPassword()
@@ -350,7 +349,7 @@ class _LoginPageState extends State<LoginPage> {
         },
         child: Text(
           "Forget Password",
-          style: TextStyle(color: AppColors.portalorange),
+          style: TextStyle(color: AppColors.portalorange,fontSize: 14.dw),
         ));
   }
 
@@ -373,15 +372,13 @@ class _LoginPageState extends State<LoginPage> {
               height: 100.dh,
             ),
           ),
-          Center(
-            child: Text(
-              "Login",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-                fontSize: 25.dw,
-              ),
+          Text(
+            "Login",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+              fontSize: 20.dw,
             ),
           )
         ],

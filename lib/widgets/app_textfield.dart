@@ -47,17 +47,18 @@ class _AppTextFieldState extends State<AppTextField> {
           child: SizedBox(
             width: ScreenSizeConfig.getFullWidth / 1.3.dw,
             child: Material(
-              elevation: 10,
+              elevation: 10.dw,
               borderRadius: BorderRadius.circular(30.dh),
               child: TextField(
                 controller: controller,
                 onChanged: widget.onSearchChanged,
                 obscureText: widget.isPassword,
+                style: TextStyle(fontSize: 16.dw),
                 decoration: InputDecoration(
                   hintText: widget.hintText,
                   fillColor: Colors.white,
                   filled: true,
-                  prefixIcon: Icon(widget.icon),
+                  prefixIcon: Icon(widget.icon,),
                   contentPadding: EdgeInsets.all(15.dw),
                   focusedBorder: _border(),
                   disabledBorder: _border(),

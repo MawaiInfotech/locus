@@ -14,7 +14,7 @@ class AppTopBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       title: Text(
         title,
-        style: TextStyle(fontSize: 20.dw,color: AppColors.white),
+        style: TextStyle(fontSize: 18.dw,color: AppColors.white),
       ),
     );
   }

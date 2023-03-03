@@ -340,7 +340,7 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
   _buildText({required String title}) {
     return Text(
       title,
-      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dh),
+      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14.dh),
     );
   }
 
