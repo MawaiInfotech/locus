@@ -38,7 +38,7 @@ dependencies:
   firebase_crashlytics: ^3.0.7
   flutter_local_notifications: ^11.0.0
   firebase_messaging: ^14.0.3
-  firebase_core: ^2.1.1
+  firebase_core: ^2.9.0
   time_range: ^1.0.3
   camera: ^0.10.0+4
   permission_handler: ^10.2.0
