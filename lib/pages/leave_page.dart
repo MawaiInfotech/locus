@@ -107,7 +107,8 @@ class _LeavePageState extends State<LeavePage> with SingleTickerProviderStateMix
             ]
                 ))
           ],
-        ));
+        )
+    );
   }
 }
 
