@@ -35,34 +35,38 @@ mixin _$AttendanceDetailSuppModel {
 abstract class $AttendanceDetailSuppModelCopyWith<$Res> {
   factory $AttendanceDetailSuppModelCopyWith(AttendanceDetailSuppModel value,
           $Res Function(AttendanceDetailSuppModel) then) =
-      _$AttendanceDetailSuppModelCopyWithImpl<$Res>;
+      _$AttendanceDetailSuppModelCopyWithImpl<$Res, AttendanceDetailSuppModel>;
+  @useResult
   $Res call({List<AttendanceDetailModel> attendance, List<String> month});
 }
 
 /// @nodoc
-class _$AttendanceDetailSuppModelCopyWithImpl<$Res>
+class _$AttendanceDetailSuppModelCopyWithImpl<$Res,
+        $Val extends AttendanceDetailSuppModel>
     implements $AttendanceDetailSuppModelCopyWith<$Res> {
   _$AttendanceDetailSuppModelCopyWithImpl(this._value, this._then);
 
-  final AttendanceDetailSuppModel _value;
   // ignore: unused_field
-  final $Res Function(AttendanceDetailSuppModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? attendance = freezed,
-    Object? month = freezed,
+    Object? attendance = null,
+    Object? month = null,
   }) {
     return _then(_value.copyWith(
-      attendance: attendance == freezed
+      attendance: null == attendance
           ? _value.attendance
           : attendance // ignore: cast_nullable_to_non_nullable
               as List<AttendanceDetailModel>,
-      month: month == freezed
+      month: null == month
           ? _value.month
           : month // ignore: cast_nullable_to_non_nullable
               as List<String>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -74,33 +78,32 @@ abstract class _$$_AttendanceDetailSuppModelCopyWith<$Res>
           $Res Function(_$_AttendanceDetailSuppModel) then) =
       __$$_AttendanceDetailSuppModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<AttendanceDetailModel> attendance, List<String> month});
 }
 
 /// @nodoc
 class __$$_AttendanceDetailSuppModelCopyWithImpl<$Res>
-    extends _$AttendanceDetailSuppModelCopyWithImpl<$Res>
+    extends _$AttendanceDetailSuppModelCopyWithImpl<$Res,
+        _$_AttendanceDetailSuppModel>
     implements _$$_AttendanceDetailSuppModelCopyWith<$Res> {
   __$$_AttendanceDetailSuppModelCopyWithImpl(
       _$_AttendanceDetailSuppModel _value,
       $Res Function(_$_AttendanceDetailSuppModel) _then)
-      : super(_value, (v) => _then(v as _$_AttendanceDetailSuppModel));
+      : super(_value, _then);
 
-  @override
-  _$_AttendanceDetailSuppModel get _value =>
-      super._value as _$_AttendanceDetailSuppModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? attendance = freezed,
-    Object? month = freezed,
+    Object? attendance = null,
+    Object? month = null,
   }) {
     return _then(_$_AttendanceDetailSuppModel(
-      attendance: attendance == freezed
+      attendance: null == attendance
           ? _value._attendance
           : attendance // ignore: cast_nullable_to_non_nullable
               as List<AttendanceDetailModel>,
-      month: month == freezed
+      month: null == month
           ? _value._month
           : month // ignore: cast_nullable_to_non_nullable
               as List<String>,
@@ -161,6 +164,7 @@ class _$_AttendanceDetailSuppModel implements _AttendanceDetailSuppModel {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AttendanceDetailSuppModelCopyWith<_$_AttendanceDetailSuppModel>
       get copyWith => __$$_AttendanceDetailSuppModelCopyWithImpl<
           _$_AttendanceDetailSuppModel>(this, _$identity);

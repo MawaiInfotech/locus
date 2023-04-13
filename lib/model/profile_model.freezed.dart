@@ -53,7 +53,8 @@ mixin _$ProfileModel {
 abstract class $ProfileModelCopyWith<$Res> {
   factory $ProfileModelCopyWith(
           ProfileModel value, $Res Function(ProfileModel) then) =
-      _$ProfileModelCopyWithImpl<$Res>;
+      _$ProfileModelCopyWithImpl<$Res, ProfileModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "user_master_id") int userId,
       @JsonKey(name: "emp_cd") String employeeCode,
@@ -69,73 +70,76 @@ abstract class $ProfileModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ProfileModelCopyWithImpl<$Res> implements $ProfileModelCopyWith<$Res> {
+class _$ProfileModelCopyWithImpl<$Res, $Val extends ProfileModel>
+    implements $ProfileModelCopyWith<$Res> {
   _$ProfileModelCopyWithImpl(this._value, this._then);
 
-  final ProfileModel _value;
   // ignore: unused_field
-  final $Res Function(ProfileModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userId = freezed,
-    Object? employeeCode = freezed,
-    Object? unitCode = freezed,
-    Object? userName = freezed,
-    Object? employeeName = freezed,
-    Object? employeeFirstName = freezed,
-    Object? employeelastName = freezed,
-    Object? photo = freezed,
-    Object? companyEmail = freezed,
-    Object? personalEmail = freezed,
-    Object? designation = freezed,
+    Object? userId = null,
+    Object? employeeCode = null,
+    Object? unitCode = null,
+    Object? userName = null,
+    Object? employeeName = null,
+    Object? employeeFirstName = null,
+    Object? employeelastName = null,
+    Object? photo = null,
+    Object? companyEmail = null,
+    Object? personalEmail = null,
+    Object? designation = null,
   }) {
     return _then(_value.copyWith(
-      userId: userId == freezed
+      userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as int,
-      employeeCode: employeeCode == freezed
+      employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      unitCode: unitCode == freezed
+      unitCode: null == unitCode
           ? _value.unitCode
           : unitCode // ignore: cast_nullable_to_non_nullable
               as String,
-      userName: userName == freezed
+      userName: null == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeName: employeeName == freezed
+      employeeName: null == employeeName
           ? _value.employeeName
           : employeeName // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeFirstName: employeeFirstName == freezed
+      employeeFirstName: null == employeeFirstName
           ? _value.employeeFirstName
           : employeeFirstName // ignore: cast_nullable_to_non_nullable
               as String,
-      employeelastName: employeelastName == freezed
+      employeelastName: null == employeelastName
           ? _value.employeelastName
           : employeelastName // ignore: cast_nullable_to_non_nullable
               as String,
-      photo: photo == freezed
+      photo: null == photo
           ? _value.photo
           : photo // ignore: cast_nullable_to_non_nullable
               as String,
-      companyEmail: companyEmail == freezed
+      companyEmail: null == companyEmail
           ? _value.companyEmail
           : companyEmail // ignore: cast_nullable_to_non_nullable
               as String,
-      personalEmail: personalEmail == freezed
+      personalEmail: null == personalEmail
           ? _value.personalEmail
           : personalEmail // ignore: cast_nullable_to_non_nullable
               as String,
-      designation: designation == freezed
+      designation: null == designation
           ? _value.designation
           : designation // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -146,6 +150,7 @@ abstract class _$$_ProfileModelCopyWith<$Res>
           _$_ProfileModel value, $Res Function(_$_ProfileModel) then) =
       __$$_ProfileModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "user_master_id") int userId,
       @JsonKey(name: "emp_cd") String employeeCode,
@@ -162,71 +167,69 @@ abstract class _$$_ProfileModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_ProfileModelCopyWithImpl<$Res>
-    extends _$ProfileModelCopyWithImpl<$Res>
+    extends _$ProfileModelCopyWithImpl<$Res, _$_ProfileModel>
     implements _$$_ProfileModelCopyWith<$Res> {
   __$$_ProfileModelCopyWithImpl(
       _$_ProfileModel _value, $Res Function(_$_ProfileModel) _then)
-      : super(_value, (v) => _then(v as _$_ProfileModel));
+      : super(_value, _then);
 
-  @override
-  _$_ProfileModel get _value => super._value as _$_ProfileModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userId = freezed,
-    Object? employeeCode = freezed,
-    Object? unitCode = freezed,
-    Object? userName = freezed,
-    Object? employeeName = freezed,
-    Object? employeeFirstName = freezed,
-    Object? employeelastName = freezed,
-    Object? photo = freezed,
-    Object? companyEmail = freezed,
-    Object? personalEmail = freezed,
-    Object? designation = freezed,
+    Object? userId = null,
+    Object? employeeCode = null,
+    Object? unitCode = null,
+    Object? userName = null,
+    Object? employeeName = null,
+    Object? employeeFirstName = null,
+    Object? employeelastName = null,
+    Object? photo = null,
+    Object? companyEmail = null,
+    Object? personalEmail = null,
+    Object? designation = null,
   }) {
     return _then(_$_ProfileModel(
-      userId: userId == freezed
+      userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as int,
-      employeeCode: employeeCode == freezed
+      employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      unitCode: unitCode == freezed
+      unitCode: null == unitCode
           ? _value.unitCode
           : unitCode // ignore: cast_nullable_to_non_nullable
               as String,
-      userName: userName == freezed
+      userName: null == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeName: employeeName == freezed
+      employeeName: null == employeeName
           ? _value.employeeName
           : employeeName // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeFirstName: employeeFirstName == freezed
+      employeeFirstName: null == employeeFirstName
           ? _value.employeeFirstName
           : employeeFirstName // ignore: cast_nullable_to_non_nullable
               as String,
-      employeelastName: employeelastName == freezed
+      employeelastName: null == employeelastName
           ? _value.employeelastName
           : employeelastName // ignore: cast_nullable_to_non_nullable
               as String,
-      photo: photo == freezed
+      photo: null == photo
           ? _value.photo
           : photo // ignore: cast_nullable_to_non_nullable
               as String,
-      companyEmail: companyEmail == freezed
+      companyEmail: null == companyEmail
           ? _value.companyEmail
           : companyEmail // ignore: cast_nullable_to_non_nullable
               as String,
-      personalEmail: personalEmail == freezed
+      personalEmail: null == personalEmail
           ? _value.personalEmail
           : personalEmail // ignore: cast_nullable_to_non_nullable
               as String,
-      designation: designation == freezed
+      designation: null == designation
           ? _value.designation
           : designation // ignore: cast_nullable_to_non_nullable
               as String,
@@ -297,44 +300,47 @@ class _$_ProfileModel implements _ProfileModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ProfileModel &&
-            const DeepCollectionEquality().equals(other.userId, userId) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeCode, employeeCode) &&
-            const DeepCollectionEquality().equals(other.unitCode, unitCode) &&
-            const DeepCollectionEquality().equals(other.userName, userName) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeName, employeeName) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeFirstName, employeeFirstName) &&
-            const DeepCollectionEquality()
-                .equals(other.employeelastName, employeelastName) &&
-            const DeepCollectionEquality().equals(other.photo, photo) &&
-            const DeepCollectionEquality()
-                .equals(other.companyEmail, companyEmail) &&
-            const DeepCollectionEquality()
-                .equals(other.personalEmail, personalEmail) &&
-            const DeepCollectionEquality()
-                .equals(other.designation, designation));
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.employeeCode, employeeCode) ||
+                other.employeeCode == employeeCode) &&
+            (identical(other.unitCode, unitCode) ||
+                other.unitCode == unitCode) &&
+            (identical(other.userName, userName) ||
+                other.userName == userName) &&
+            (identical(other.employeeName, employeeName) ||
+                other.employeeName == employeeName) &&
+            (identical(other.employeeFirstName, employeeFirstName) ||
+                other.employeeFirstName == employeeFirstName) &&
+            (identical(other.employeelastName, employeelastName) ||
+                other.employeelastName == employeelastName) &&
+            (identical(other.photo, photo) || other.photo == photo) &&
+            (identical(other.companyEmail, companyEmail) ||
+                other.companyEmail == companyEmail) &&
+            (identical(other.personalEmail, personalEmail) ||
+                other.personalEmail == personalEmail) &&
+            (identical(other.designation, designation) ||
+                other.designation == designation));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(userId),
-      const DeepCollectionEquality().hash(employeeCode),
-      const DeepCollectionEquality().hash(unitCode),
-      const DeepCollectionEquality().hash(userName),
-      const DeepCollectionEquality().hash(employeeName),
-      const DeepCollectionEquality().hash(employeeFirstName),
-      const DeepCollectionEquality().hash(employeelastName),
-      const DeepCollectionEquality().hash(photo),
-      const DeepCollectionEquality().hash(companyEmail),
-      const DeepCollectionEquality().hash(personalEmail),
-      const DeepCollectionEquality().hash(designation));
+      userId,
+      employeeCode,
+      unitCode,
+      userName,
+      employeeName,
+      employeeFirstName,
+      employeelastName,
+      photo,
+      companyEmail,
+      personalEmail,
+      designation);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ProfileModelCopyWith<_$_ProfileModel> get copyWith =>
       __$$_ProfileModelCopyWithImpl<_$_ProfileModel>(this, _$identity);
 

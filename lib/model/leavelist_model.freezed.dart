@@ -39,7 +39,8 @@ mixin _$LeavelistModel {
 abstract class $LeavelistModelCopyWith<$Res> {
   factory $LeavelistModelCopyWith(
           LeavelistModel value, $Res Function(LeavelistModel) then) =
-      _$LeavelistModelCopyWithImpl<$Res>;
+      _$LeavelistModelCopyWithImpl<$Res, LeavelistModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "code") String code,
       @JsonKey(name: "description") String description,
@@ -48,39 +49,41 @@ abstract class $LeavelistModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LeavelistModelCopyWithImpl<$Res>
+class _$LeavelistModelCopyWithImpl<$Res, $Val extends LeavelistModel>
     implements $LeavelistModelCopyWith<$Res> {
   _$LeavelistModelCopyWithImpl(this._value, this._then);
 
-  final LeavelistModel _value;
   // ignore: unused_field
-  final $Res Function(LeavelistModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
-    Object? description = freezed,
-    Object? unitCode = freezed,
-    Object? leaveBalance = freezed,
+    Object? code = null,
+    Object? description = null,
+    Object? unitCode = null,
+    Object? leaveBalance = null,
   }) {
     return _then(_value.copyWith(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      unitCode: unitCode == freezed
+      unitCode: null == unitCode
           ? _value.unitCode
           : unitCode // ignore: cast_nullable_to_non_nullable
               as String,
-      leaveBalance: leaveBalance == freezed
+      leaveBalance: null == leaveBalance
           ? _value.leaveBalance
           : leaveBalance // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -91,6 +94,7 @@ abstract class _$$_LeavelistModelCopyWith<$Res>
           _$_LeavelistModel value, $Res Function(_$_LeavelistModel) then) =
       __$$_LeavelistModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "code") String code,
       @JsonKey(name: "description") String description,
@@ -100,36 +104,34 @@ abstract class _$$_LeavelistModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_LeavelistModelCopyWithImpl<$Res>
-    extends _$LeavelistModelCopyWithImpl<$Res>
+    extends _$LeavelistModelCopyWithImpl<$Res, _$_LeavelistModel>
     implements _$$_LeavelistModelCopyWith<$Res> {
   __$$_LeavelistModelCopyWithImpl(
       _$_LeavelistModel _value, $Res Function(_$_LeavelistModel) _then)
-      : super(_value, (v) => _then(v as _$_LeavelistModel));
+      : super(_value, _then);
 
-  @override
-  _$_LeavelistModel get _value => super._value as _$_LeavelistModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
-    Object? description = freezed,
-    Object? unitCode = freezed,
-    Object? leaveBalance = freezed,
+    Object? code = null,
+    Object? description = null,
+    Object? unitCode = null,
+    Object? leaveBalance = null,
   }) {
     return _then(_$_LeavelistModel(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      unitCode: unitCode == freezed
+      unitCode: null == unitCode
           ? _value.unitCode
           : unitCode // ignore: cast_nullable_to_non_nullable
               as String,
-      leaveBalance: leaveBalance == freezed
+      leaveBalance: null == leaveBalance
           ? _value.leaveBalance
           : leaveBalance // ignore: cast_nullable_to_non_nullable
               as String,
@@ -172,25 +174,23 @@ class _$_LeavelistModel implements _LeavelistModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LeavelistModel &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.unitCode, unitCode) &&
-            const DeepCollectionEquality()
-                .equals(other.leaveBalance, leaveBalance));
+            (identical(other.code, code) || other.code == code) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.unitCode, unitCode) ||
+                other.unitCode == unitCode) &&
+            (identical(other.leaveBalance, leaveBalance) ||
+                other.leaveBalance == leaveBalance));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(unitCode),
-      const DeepCollectionEquality().hash(leaveBalance));
+  int get hashCode =>
+      Object.hash(runtimeType, code, description, unitCode, leaveBalance);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LeavelistModelCopyWith<_$_LeavelistModel> get copyWith =>
       __$$_LeavelistModelCopyWithImpl<_$_LeavelistModel>(this, _$identity);
 

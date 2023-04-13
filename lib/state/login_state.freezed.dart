@@ -27,10 +27,10 @@ mixin _$LoginPageState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(LoginForm form)? loading,
-    TResult Function(LoginForm form)? content,
-    TResult Function(LoginForm form)? success,
-    TResult Function(LoginForm form, String msg)? failed,
+    TResult? Function(LoginForm form)? loading,
+    TResult? Function(LoginForm form)? content,
+    TResult? Function(LoginForm form)? success,
+    TResult? Function(LoginForm form, String msg)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,10 +52,10 @@ mixin _$LoginPageState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,37 +77,41 @@ mixin _$LoginPageState {
 abstract class $LoginPageStateCopyWith<$Res> {
   factory $LoginPageStateCopyWith(
           LoginPageState value, $Res Function(LoginPageState) then) =
-      _$LoginPageStateCopyWithImpl<$Res>;
+      _$LoginPageStateCopyWithImpl<$Res, LoginPageState>;
+  @useResult
   $Res call({LoginForm form});
 
   $LoginFormCopyWith<$Res> get form;
 }
 
 /// @nodoc
-class _$LoginPageStateCopyWithImpl<$Res>
+class _$LoginPageStateCopyWithImpl<$Res, $Val extends LoginPageState>
     implements $LoginPageStateCopyWith<$Res> {
   _$LoginPageStateCopyWithImpl(this._value, this._then);
 
-  final LoginPageState _value;
   // ignore: unused_field
-  final $Res Function(LoginPageState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? form = freezed,
+    Object? form = null,
   }) {
     return _then(_value.copyWith(
-      form: form == freezed
+      form: null == form
           ? _value.form
           : form // ignore: cast_nullable_to_non_nullable
               as LoginForm,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $LoginFormCopyWith<$Res> get form {
     return $LoginFormCopyWith<$Res>(_value.form, (value) {
-      return _then(_value.copyWith(form: value));
+      return _then(_value.copyWith(form: value) as $Val);
     });
   }
 }
@@ -119,6 +123,7 @@ abstract class _$$_LoadingCopyWith<$Res>
           _$_Loading value, $Res Function(_$_Loading) then) =
       __$$_LoadingCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({LoginForm form});
 
   @override
@@ -126,20 +131,19 @@ abstract class _$$_LoadingCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res> extends _$LoginPageStateCopyWithImpl<$Res>
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$LoginPageStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
-      : super(_value, (v) => _then(v as _$_Loading));
+      : super(_value, _then);
 
-  @override
-  _$_Loading get _value => super._value as _$_Loading;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? form = freezed,
+    Object? form = null,
   }) {
     return _then(_$_Loading(
-      form == freezed
+      null == form
           ? _value.form
           : form // ignore: cast_nullable_to_non_nullable
               as LoginForm,
@@ -165,15 +169,15 @@ class _$_Loading implements _Loading {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loading &&
-            const DeepCollectionEquality().equals(other.form, form));
+            (identical(other.form, form) || other.form == form));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(form));
+  int get hashCode => Object.hash(runtimeType, form);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadingCopyWith<_$_Loading> get copyWith =>
       __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
 
@@ -191,10 +195,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(LoginForm form)? loading,
-    TResult Function(LoginForm form)? content,
-    TResult Function(LoginForm form)? success,
-    TResult Function(LoginForm form, String msg)? failed,
+    TResult? Function(LoginForm form)? loading,
+    TResult? Function(LoginForm form)? content,
+    TResult? Function(LoginForm form)? success,
+    TResult? Function(LoginForm form, String msg)? failed,
   }) {
     return loading?.call(form);
   }
@@ -228,10 +232,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return loading?.call(this);
   }
@@ -270,6 +274,7 @@ abstract class _$$_ContentCopyWith<$Res>
           _$_Content value, $Res Function(_$_Content) then) =
       __$$_ContentCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({LoginForm form});
 
   @override
@@ -277,20 +282,19 @@ abstract class _$$_ContentCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ContentCopyWithImpl<$Res> extends _$LoginPageStateCopyWithImpl<$Res>
+class __$$_ContentCopyWithImpl<$Res>
+    extends _$LoginPageStateCopyWithImpl<$Res, _$_Content>
     implements _$$_ContentCopyWith<$Res> {
   __$$_ContentCopyWithImpl(_$_Content _value, $Res Function(_$_Content) _then)
-      : super(_value, (v) => _then(v as _$_Content));
+      : super(_value, _then);
 
-  @override
-  _$_Content get _value => super._value as _$_Content;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? form = freezed,
+    Object? form = null,
   }) {
     return _then(_$_Content(
-      form == freezed
+      null == form
           ? _value.form
           : form // ignore: cast_nullable_to_non_nullable
               as LoginForm,
@@ -316,15 +320,15 @@ class _$_Content implements _Content {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Content &&
-            const DeepCollectionEquality().equals(other.form, form));
+            (identical(other.form, form) || other.form == form));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(form));
+  int get hashCode => Object.hash(runtimeType, form);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ContentCopyWith<_$_Content> get copyWith =>
       __$$_ContentCopyWithImpl<_$_Content>(this, _$identity);
 
@@ -342,10 +346,10 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(LoginForm form)? loading,
-    TResult Function(LoginForm form)? content,
-    TResult Function(LoginForm form)? success,
-    TResult Function(LoginForm form, String msg)? failed,
+    TResult? Function(LoginForm form)? loading,
+    TResult? Function(LoginForm form)? content,
+    TResult? Function(LoginForm form)? success,
+    TResult? Function(LoginForm form, String msg)? failed,
   }) {
     return content?.call(form);
   }
@@ -379,10 +383,10 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return content?.call(this);
   }
@@ -421,6 +425,7 @@ abstract class _$$_SuccessCopyWith<$Res>
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({LoginForm form});
 
   @override
@@ -428,20 +433,19 @@ abstract class _$$_SuccessCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res> extends _$LoginPageStateCopyWithImpl<$Res>
+class __$$_SuccessCopyWithImpl<$Res>
+    extends _$LoginPageStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
-      : super(_value, (v) => _then(v as _$_Success));
+      : super(_value, _then);
 
-  @override
-  _$_Success get _value => super._value as _$_Success;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? form = freezed,
+    Object? form = null,
   }) {
     return _then(_$_Success(
-      form == freezed
+      null == form
           ? _value.form
           : form // ignore: cast_nullable_to_non_nullable
               as LoginForm,
@@ -467,15 +471,15 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            const DeepCollectionEquality().equals(other.form, form));
+            (identical(other.form, form) || other.form == form));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(form));
+  int get hashCode => Object.hash(runtimeType, form);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
@@ -493,10 +497,10 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(LoginForm form)? loading,
-    TResult Function(LoginForm form)? content,
-    TResult Function(LoginForm form)? success,
-    TResult Function(LoginForm form, String msg)? failed,
+    TResult? Function(LoginForm form)? loading,
+    TResult? Function(LoginForm form)? content,
+    TResult? Function(LoginForm form)? success,
+    TResult? Function(LoginForm form, String msg)? failed,
   }) {
     return success?.call(form);
   }
@@ -530,10 +534,10 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return success?.call(this);
   }
@@ -571,6 +575,7 @@ abstract class _$$_FailedCopyWith<$Res>
   factory _$$_FailedCopyWith(_$_Failed value, $Res Function(_$_Failed) then) =
       __$$_FailedCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({LoginForm form, String msg});
 
   @override
@@ -578,25 +583,24 @@ abstract class _$$_FailedCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FailedCopyWithImpl<$Res> extends _$LoginPageStateCopyWithImpl<$Res>
+class __$$_FailedCopyWithImpl<$Res>
+    extends _$LoginPageStateCopyWithImpl<$Res, _$_Failed>
     implements _$$_FailedCopyWith<$Res> {
   __$$_FailedCopyWithImpl(_$_Failed _value, $Res Function(_$_Failed) _then)
-      : super(_value, (v) => _then(v as _$_Failed));
+      : super(_value, _then);
 
-  @override
-  _$_Failed get _value => super._value as _$_Failed;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? form = freezed,
-    Object? msg = freezed,
+    Object? form = null,
+    Object? msg = null,
   }) {
     return _then(_$_Failed(
-      form == freezed
+      null == form
           ? _value.form
           : form // ignore: cast_nullable_to_non_nullable
               as LoginForm,
-      msg == freezed
+      null == msg
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
               as String,
@@ -624,18 +628,16 @@ class _$_Failed implements _Failed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Failed &&
-            const DeepCollectionEquality().equals(other.form, form) &&
-            const DeepCollectionEquality().equals(other.msg, msg));
+            (identical(other.form, form) || other.form == form) &&
+            (identical(other.msg, msg) || other.msg == msg));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(form),
-      const DeepCollectionEquality().hash(msg));
+  int get hashCode => Object.hash(runtimeType, form, msg);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FailedCopyWith<_$_Failed> get copyWith =>
       __$$_FailedCopyWithImpl<_$_Failed>(this, _$identity);
 
@@ -653,10 +655,10 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(LoginForm form)? loading,
-    TResult Function(LoginForm form)? content,
-    TResult Function(LoginForm form)? success,
-    TResult Function(LoginForm form, String msg)? failed,
+    TResult? Function(LoginForm form)? loading,
+    TResult? Function(LoginForm form)? content,
+    TResult? Function(LoginForm form)? success,
+    TResult? Function(LoginForm form, String msg)? failed,
   }) {
     return failed?.call(form, msg);
   }
@@ -690,10 +692,10 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return failed?.call(this);
   }

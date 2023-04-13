@@ -34,39 +34,42 @@ mixin _$DummySignupModel {
 abstract class $DummySignupModelCopyWith<$Res> {
   factory $DummySignupModelCopyWith(
           DummySignupModel value, $Res Function(DummySignupModel) then) =
-      _$DummySignupModelCopyWithImpl<$Res>;
+      _$DummySignupModelCopyWithImpl<$Res, DummySignupModel>;
+  @useResult
   $Res call({String status, String msg, String user});
 }
 
 /// @nodoc
-class _$DummySignupModelCopyWithImpl<$Res>
+class _$DummySignupModelCopyWithImpl<$Res, $Val extends DummySignupModel>
     implements $DummySignupModelCopyWith<$Res> {
   _$DummySignupModelCopyWithImpl(this._value, this._then);
 
-  final DummySignupModel _value;
   // ignore: unused_field
-  final $Res Function(DummySignupModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? msg = freezed,
-    Object? user = freezed,
+    Object? status = null,
+    Object? msg = null,
+    Object? user = null,
   }) {
     return _then(_value.copyWith(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      msg: msg == freezed
+      msg: null == msg
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
               as String,
-      user: user == freezed
+      user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -77,36 +80,35 @@ abstract class _$$_DummySignupModelCopyWith<$Res>
           _$_DummySignupModel value, $Res Function(_$_DummySignupModel) then) =
       __$$_DummySignupModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String status, String msg, String user});
 }
 
 /// @nodoc
 class __$$_DummySignupModelCopyWithImpl<$Res>
-    extends _$DummySignupModelCopyWithImpl<$Res>
+    extends _$DummySignupModelCopyWithImpl<$Res, _$_DummySignupModel>
     implements _$$_DummySignupModelCopyWith<$Res> {
   __$$_DummySignupModelCopyWithImpl(
       _$_DummySignupModel _value, $Res Function(_$_DummySignupModel) _then)
-      : super(_value, (v) => _then(v as _$_DummySignupModel));
+      : super(_value, _then);
 
-  @override
-  _$_DummySignupModel get _value => super._value as _$_DummySignupModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? msg = freezed,
-    Object? user = freezed,
+    Object? status = null,
+    Object? msg = null,
+    Object? user = null,
   }) {
     return _then(_$_DummySignupModel(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      msg: msg == freezed
+      msg: null == msg
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
               as String,
-      user: user == freezed
+      user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as String,
@@ -142,21 +144,18 @@ class _$_DummySignupModel implements _DummySignupModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DummySignupModel &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.msg, msg) &&
-            const DeepCollectionEquality().equals(other.user, user));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.msg, msg) || other.msg == msg) &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(msg),
-      const DeepCollectionEquality().hash(user));
+  int get hashCode => Object.hash(runtimeType, status, msg, user);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DummySignupModelCopyWith<_$_DummySignupModel> get copyWith =>
       __$$_DummySignupModelCopyWithImpl<_$_DummySignupModel>(this, _$identity);
 

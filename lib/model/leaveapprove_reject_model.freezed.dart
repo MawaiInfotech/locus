@@ -38,7 +38,8 @@ mixin _$LeaveApproveRejectModel {
 abstract class $LeaveApproveRejectModelCopyWith<$Res> {
   factory $LeaveApproveRejectModelCopyWith(LeaveApproveRejectModel value,
           $Res Function(LeaveApproveRejectModel) then) =
-      _$LeaveApproveRejectModelCopyWithImpl<$Res>;
+      _$LeaveApproveRejectModelCopyWithImpl<$Res, LeaveApproveRejectModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "status") dynamic status,
       @JsonKey(name: "message") dynamic message,
@@ -46,34 +47,37 @@ abstract class $LeaveApproveRejectModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LeaveApproveRejectModelCopyWithImpl<$Res>
+class _$LeaveApproveRejectModelCopyWithImpl<$Res,
+        $Val extends LeaveApproveRejectModel>
     implements $LeaveApproveRejectModelCopyWith<$Res> {
   _$LeaveApproveRejectModelCopyWithImpl(this._value, this._then);
 
-  final LeaveApproveRejectModel _value;
   // ignore: unused_field
-  final $Res Function(LeaveApproveRejectModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
-    Object? result = freezed,
+    Object? status = null,
+    Object? message = null,
+    Object? result = null,
   }) {
     return _then(_value.copyWith(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      result: result == freezed
+      result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as dynamic,
-    ));
+    ) as $Val);
   }
 }
 
@@ -84,6 +88,7 @@ abstract class _$$_LeaveApproveRejectModelCopyWith<$Res>
           $Res Function(_$_LeaveApproveRejectModel) then) =
       __$$_LeaveApproveRejectModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "status") dynamic status,
       @JsonKey(name: "message") dynamic message,
@@ -92,26 +97,24 @@ abstract class _$$_LeaveApproveRejectModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_LeaveApproveRejectModelCopyWithImpl<$Res>
-    extends _$LeaveApproveRejectModelCopyWithImpl<$Res>
+    extends _$LeaveApproveRejectModelCopyWithImpl<$Res,
+        _$_LeaveApproveRejectModel>
     implements _$$_LeaveApproveRejectModelCopyWith<$Res> {
   __$$_LeaveApproveRejectModelCopyWithImpl(_$_LeaveApproveRejectModel _value,
       $Res Function(_$_LeaveApproveRejectModel) _then)
-      : super(_value, (v) => _then(v as _$_LeaveApproveRejectModel));
+      : super(_value, _then);
 
-  @override
-  _$_LeaveApproveRejectModel get _value =>
-      super._value as _$_LeaveApproveRejectModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
-    Object? result = freezed,
+    Object? status = null,
+    Object? message = null,
+    Object? result = null,
   }) {
     return _then(_$_LeaveApproveRejectModel(
-      status: status == freezed ? _value.status : status,
-      message: message == freezed ? _value.message : message,
-      result: result == freezed ? _value.result : result,
+      status: null == status ? _value.status : status,
+      message: null == message ? _value.message : message,
+      result: null == result ? _value.result : result,
     ));
   }
 }
@@ -162,6 +165,7 @@ class _$_LeaveApproveRejectModel implements _LeaveApproveRejectModel {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LeaveApproveRejectModelCopyWith<_$_LeaveApproveRejectModel>
       get copyWith =>
           __$$_LeaveApproveRejectModelCopyWithImpl<_$_LeaveApproveRejectModel>(

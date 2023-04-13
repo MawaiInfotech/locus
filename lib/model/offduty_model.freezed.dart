@@ -35,36 +35,39 @@ mixin _$OffdutyDataModel {
 abstract class $OffdutyDataModelCopyWith<$Res> {
   factory $OffdutyDataModelCopyWith(
           OffdutyDataModel value, $Res Function(OffdutyDataModel) then) =
-      _$OffdutyDataModelCopyWithImpl<$Res>;
+      _$OffdutyDataModelCopyWithImpl<$Res, OffdutyDataModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "code") String code,
       @JsonKey(name: "desc") String description});
 }
 
 /// @nodoc
-class _$OffdutyDataModelCopyWithImpl<$Res>
+class _$OffdutyDataModelCopyWithImpl<$Res, $Val extends OffdutyDataModel>
     implements $OffdutyDataModelCopyWith<$Res> {
   _$OffdutyDataModelCopyWithImpl(this._value, this._then);
 
-  final OffdutyDataModel _value;
   // ignore: unused_field
-  final $Res Function(OffdutyDataModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
-    Object? description = freezed,
+    Object? code = null,
+    Object? description = null,
   }) {
     return _then(_value.copyWith(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -75,6 +78,7 @@ abstract class _$$_OffdutyDataModelCopyWith<$Res>
           _$_OffdutyDataModel value, $Res Function(_$_OffdutyDataModel) then) =
       __$$_OffdutyDataModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "code") String code,
       @JsonKey(name: "desc") String description});
@@ -82,26 +86,24 @@ abstract class _$$_OffdutyDataModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_OffdutyDataModelCopyWithImpl<$Res>
-    extends _$OffdutyDataModelCopyWithImpl<$Res>
+    extends _$OffdutyDataModelCopyWithImpl<$Res, _$_OffdutyDataModel>
     implements _$$_OffdutyDataModelCopyWith<$Res> {
   __$$_OffdutyDataModelCopyWithImpl(
       _$_OffdutyDataModel _value, $Res Function(_$_OffdutyDataModel) _then)
-      : super(_value, (v) => _then(v as _$_OffdutyDataModel));
+      : super(_value, _then);
 
-  @override
-  _$_OffdutyDataModel get _value => super._value as _$_OffdutyDataModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
-    Object? description = freezed,
+    Object? code = null,
+    Object? description = null,
   }) {
     return _then(_$_OffdutyDataModel(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
@@ -136,20 +138,18 @@ class _$_OffdutyDataModel implements _OffdutyDataModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OffdutyDataModel &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description));
+            (identical(other.code, code) || other.code == code) &&
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(description));
+  int get hashCode => Object.hash(runtimeType, code, description);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_OffdutyDataModelCopyWith<_$_OffdutyDataModel> get copyWith =>
       __$$_OffdutyDataModelCopyWithImpl<_$_OffdutyDataModel>(this, _$identity);
 

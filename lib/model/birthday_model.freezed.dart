@@ -43,7 +43,8 @@ mixin _$BirthdayModel {
 abstract class $BirthdayModelCopyWith<$Res> {
   factory $BirthdayModelCopyWith(
           BirthdayModel value, $Res Function(BirthdayModel) then) =
-      _$BirthdayModelCopyWithImpl<$Res>;
+      _$BirthdayModelCopyWithImpl<$Res, BirthdayModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_first_name") String firstName,
       @JsonKey(name: "emp_last_name") String lastName,
@@ -54,49 +55,51 @@ abstract class $BirthdayModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$BirthdayModelCopyWithImpl<$Res>
+class _$BirthdayModelCopyWithImpl<$Res, $Val extends BirthdayModel>
     implements $BirthdayModelCopyWith<$Res> {
   _$BirthdayModelCopyWithImpl(this._value, this._then);
 
-  final BirthdayModel _value;
   // ignore: unused_field
-  final $Res Function(BirthdayModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? firstName = freezed,
-    Object? lastName = freezed,
-    Object? photoFile = freezed,
-    Object? bdate = freezed,
-    Object? bmonth = freezed,
-    Object? department = freezed,
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? photoFile = null,
+    Object? bdate = null,
+    Object? bmonth = null,
+    Object? department = null,
   }) {
     return _then(_value.copyWith(
-      firstName: firstName == freezed
+      firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String,
-      lastName: lastName == freezed
+      lastName: null == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
-      photoFile: photoFile == freezed
+      photoFile: null == photoFile
           ? _value.photoFile
           : photoFile // ignore: cast_nullable_to_non_nullable
               as String,
-      bdate: bdate == freezed
+      bdate: null == bdate
           ? _value.bdate
           : bdate // ignore: cast_nullable_to_non_nullable
               as String,
-      bmonth: bmonth == freezed
+      bmonth: null == bmonth
           ? _value.bmonth
           : bmonth // ignore: cast_nullable_to_non_nullable
               as String,
-      department: department == freezed
+      department: null == department
           ? _value.department
           : department // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -107,6 +110,7 @@ abstract class _$$_BirthdayModelCopyWith<$Res>
           _$_BirthdayModel value, $Res Function(_$_BirthdayModel) then) =
       __$$_BirthdayModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_first_name") String firstName,
       @JsonKey(name: "emp_last_name") String lastName,
@@ -118,46 +122,44 @@ abstract class _$$_BirthdayModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_BirthdayModelCopyWithImpl<$Res>
-    extends _$BirthdayModelCopyWithImpl<$Res>
+    extends _$BirthdayModelCopyWithImpl<$Res, _$_BirthdayModel>
     implements _$$_BirthdayModelCopyWith<$Res> {
   __$$_BirthdayModelCopyWithImpl(
       _$_BirthdayModel _value, $Res Function(_$_BirthdayModel) _then)
-      : super(_value, (v) => _then(v as _$_BirthdayModel));
+      : super(_value, _then);
 
-  @override
-  _$_BirthdayModel get _value => super._value as _$_BirthdayModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? firstName = freezed,
-    Object? lastName = freezed,
-    Object? photoFile = freezed,
-    Object? bdate = freezed,
-    Object? bmonth = freezed,
-    Object? department = freezed,
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? photoFile = null,
+    Object? bdate = null,
+    Object? bmonth = null,
+    Object? department = null,
   }) {
     return _then(_$_BirthdayModel(
-      firstName: firstName == freezed
+      firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String,
-      lastName: lastName == freezed
+      lastName: null == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
-      photoFile: photoFile == freezed
+      photoFile: null == photoFile
           ? _value.photoFile
           : photoFile // ignore: cast_nullable_to_non_nullable
               as String,
-      bdate: bdate == freezed
+      bdate: null == bdate
           ? _value.bdate
           : bdate // ignore: cast_nullable_to_non_nullable
               as String,
-      bmonth: bmonth == freezed
+      bmonth: null == bmonth
           ? _value.bmonth
           : bmonth // ignore: cast_nullable_to_non_nullable
               as String,
-      department: department == freezed
+      department: null == department
           ? _value.department
           : department // ignore: cast_nullable_to_non_nullable
               as String,
@@ -208,28 +210,26 @@ class _$_BirthdayModel implements _BirthdayModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_BirthdayModel &&
-            const DeepCollectionEquality().equals(other.firstName, firstName) &&
-            const DeepCollectionEquality().equals(other.lastName, lastName) &&
-            const DeepCollectionEquality().equals(other.photoFile, photoFile) &&
-            const DeepCollectionEquality().equals(other.bdate, bdate) &&
-            const DeepCollectionEquality().equals(other.bmonth, bmonth) &&
-            const DeepCollectionEquality()
-                .equals(other.department, department));
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
+            (identical(other.photoFile, photoFile) ||
+                other.photoFile == photoFile) &&
+            (identical(other.bdate, bdate) || other.bdate == bdate) &&
+            (identical(other.bmonth, bmonth) || other.bmonth == bmonth) &&
+            (identical(other.department, department) ||
+                other.department == department));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(firstName),
-      const DeepCollectionEquality().hash(lastName),
-      const DeepCollectionEquality().hash(photoFile),
-      const DeepCollectionEquality().hash(bdate),
-      const DeepCollectionEquality().hash(bmonth),
-      const DeepCollectionEquality().hash(department));
+      runtimeType, firstName, lastName, photoFile, bdate, bmonth, department);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_BirthdayModelCopyWith<_$_BirthdayModel> get copyWith =>
       __$$_BirthdayModelCopyWithImpl<_$_BirthdayModel>(this, _$identity);
 

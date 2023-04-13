@@ -32,11 +32,11 @@ mixin _$ApplyReferralState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ApplyReferralModel applyReferralModel)? loading,
-    TResult Function(ApplyReferralModel applyReferralModel)? content,
-    TResult Function(ApplyReferralModel applyReferralModel, String? message)?
+    TResult? Function(ApplyReferralModel applyReferralModel)? loading,
+    TResult? Function(ApplyReferralModel applyReferralModel)? content,
+    TResult? Function(ApplyReferralModel applyReferralModel, String? message)?
         success,
-    TResult Function(ApplyReferralModel applyReferralModel, String message)?
+    TResult? Function(ApplyReferralModel applyReferralModel, String message)?
         failed,
   }) =>
       throw _privateConstructorUsedError;
@@ -61,10 +61,10 @@ mixin _$ApplyReferralState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -86,38 +86,42 @@ mixin _$ApplyReferralState {
 abstract class $ApplyReferralStateCopyWith<$Res> {
   factory $ApplyReferralStateCopyWith(
           ApplyReferralState value, $Res Function(ApplyReferralState) then) =
-      _$ApplyReferralStateCopyWithImpl<$Res>;
+      _$ApplyReferralStateCopyWithImpl<$Res, ApplyReferralState>;
+  @useResult
   $Res call({ApplyReferralModel applyReferralModel});
 
   $ApplyReferralModelCopyWith<$Res> get applyReferralModel;
 }
 
 /// @nodoc
-class _$ApplyReferralStateCopyWithImpl<$Res>
+class _$ApplyReferralStateCopyWithImpl<$Res, $Val extends ApplyReferralState>
     implements $ApplyReferralStateCopyWith<$Res> {
   _$ApplyReferralStateCopyWithImpl(this._value, this._then);
 
-  final ApplyReferralState _value;
   // ignore: unused_field
-  final $Res Function(ApplyReferralState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? applyReferralModel = freezed,
+    Object? applyReferralModel = null,
   }) {
     return _then(_value.copyWith(
-      applyReferralModel: applyReferralModel == freezed
+      applyReferralModel: null == applyReferralModel
           ? _value.applyReferralModel
           : applyReferralModel // ignore: cast_nullable_to_non_nullable
               as ApplyReferralModel,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ApplyReferralModelCopyWith<$Res> get applyReferralModel {
     return $ApplyReferralModelCopyWith<$Res>(_value.applyReferralModel,
         (value) {
-      return _then(_value.copyWith(applyReferralModel: value));
+      return _then(_value.copyWith(applyReferralModel: value) as $Val);
     });
   }
 }
@@ -129,6 +133,7 @@ abstract class _$$_LoadingCopyWith<$Res>
           _$_Loading value, $Res Function(_$_Loading) then) =
       __$$_LoadingCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({ApplyReferralModel applyReferralModel});
 
   @override
@@ -137,20 +142,18 @@ abstract class _$$_LoadingCopyWith<$Res>
 
 /// @nodoc
 class __$$_LoadingCopyWithImpl<$Res>
-    extends _$ApplyReferralStateCopyWithImpl<$Res>
+    extends _$ApplyReferralStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
-      : super(_value, (v) => _then(v as _$_Loading));
+      : super(_value, _then);
 
-  @override
-  _$_Loading get _value => super._value as _$_Loading;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? applyReferralModel = freezed,
+    Object? applyReferralModel = null,
   }) {
     return _then(_$_Loading(
-      applyReferralModel == freezed
+      null == applyReferralModel
           ? _value.applyReferralModel
           : applyReferralModel // ignore: cast_nullable_to_non_nullable
               as ApplyReferralModel,
@@ -176,16 +179,16 @@ class _$_Loading implements _Loading {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loading &&
-            const DeepCollectionEquality()
-                .equals(other.applyReferralModel, applyReferralModel));
+            (identical(other.applyReferralModel, applyReferralModel) ||
+                other.applyReferralModel == applyReferralModel));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(applyReferralModel));
+  int get hashCode => Object.hash(runtimeType, applyReferralModel);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadingCopyWith<_$_Loading> get copyWith =>
       __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
 
@@ -207,11 +210,11 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ApplyReferralModel applyReferralModel)? loading,
-    TResult Function(ApplyReferralModel applyReferralModel)? content,
-    TResult Function(ApplyReferralModel applyReferralModel, String? message)?
+    TResult? Function(ApplyReferralModel applyReferralModel)? loading,
+    TResult? Function(ApplyReferralModel applyReferralModel)? content,
+    TResult? Function(ApplyReferralModel applyReferralModel, String? message)?
         success,
-    TResult Function(ApplyReferralModel applyReferralModel, String message)?
+    TResult? Function(ApplyReferralModel applyReferralModel, String message)?
         failed,
   }) {
     return loading?.call(applyReferralModel);
@@ -248,10 +251,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return loading?.call(this);
   }
@@ -291,6 +294,7 @@ abstract class _$$_ContentCopyWith<$Res>
           _$_Content value, $Res Function(_$_Content) then) =
       __$$_ContentCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({ApplyReferralModel applyReferralModel});
 
   @override
@@ -299,20 +303,18 @@ abstract class _$$_ContentCopyWith<$Res>
 
 /// @nodoc
 class __$$_ContentCopyWithImpl<$Res>
-    extends _$ApplyReferralStateCopyWithImpl<$Res>
+    extends _$ApplyReferralStateCopyWithImpl<$Res, _$_Content>
     implements _$$_ContentCopyWith<$Res> {
   __$$_ContentCopyWithImpl(_$_Content _value, $Res Function(_$_Content) _then)
-      : super(_value, (v) => _then(v as _$_Content));
+      : super(_value, _then);
 
-  @override
-  _$_Content get _value => super._value as _$_Content;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? applyReferralModel = freezed,
+    Object? applyReferralModel = null,
   }) {
     return _then(_$_Content(
-      applyReferralModel == freezed
+      null == applyReferralModel
           ? _value.applyReferralModel
           : applyReferralModel // ignore: cast_nullable_to_non_nullable
               as ApplyReferralModel,
@@ -338,16 +340,16 @@ class _$_Content implements _Content {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Content &&
-            const DeepCollectionEquality()
-                .equals(other.applyReferralModel, applyReferralModel));
+            (identical(other.applyReferralModel, applyReferralModel) ||
+                other.applyReferralModel == applyReferralModel));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(applyReferralModel));
+  int get hashCode => Object.hash(runtimeType, applyReferralModel);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ContentCopyWith<_$_Content> get copyWith =>
       __$$_ContentCopyWithImpl<_$_Content>(this, _$identity);
 
@@ -369,11 +371,11 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ApplyReferralModel applyReferralModel)? loading,
-    TResult Function(ApplyReferralModel applyReferralModel)? content,
-    TResult Function(ApplyReferralModel applyReferralModel, String? message)?
+    TResult? Function(ApplyReferralModel applyReferralModel)? loading,
+    TResult? Function(ApplyReferralModel applyReferralModel)? content,
+    TResult? Function(ApplyReferralModel applyReferralModel, String? message)?
         success,
-    TResult Function(ApplyReferralModel applyReferralModel, String message)?
+    TResult? Function(ApplyReferralModel applyReferralModel, String message)?
         failed,
   }) {
     return content?.call(applyReferralModel);
@@ -410,10 +412,10 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return content?.call(this);
   }
@@ -453,6 +455,7 @@ abstract class _$$_SuccessCopyWith<$Res>
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({ApplyReferralModel applyReferralModel, String? message});
 
   @override
@@ -461,25 +464,23 @@ abstract class _$$_SuccessCopyWith<$Res>
 
 /// @nodoc
 class __$$_SuccessCopyWithImpl<$Res>
-    extends _$ApplyReferralStateCopyWithImpl<$Res>
+    extends _$ApplyReferralStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
-      : super(_value, (v) => _then(v as _$_Success));
+      : super(_value, _then);
 
-  @override
-  _$_Success get _value => super._value as _$_Success;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? applyReferralModel = freezed,
+    Object? applyReferralModel = null,
     Object? message = freezed,
   }) {
     return _then(_$_Success(
-      applyReferralModel == freezed
+      null == applyReferralModel
           ? _value.applyReferralModel
           : applyReferralModel // ignore: cast_nullable_to_non_nullable
               as ApplyReferralModel,
-      message == freezed
+      freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -507,19 +508,17 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            const DeepCollectionEquality()
-                .equals(other.applyReferralModel, applyReferralModel) &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.applyReferralModel, applyReferralModel) ||
+                other.applyReferralModel == applyReferralModel) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(applyReferralModel),
-      const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, applyReferralModel, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
@@ -541,11 +540,11 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ApplyReferralModel applyReferralModel)? loading,
-    TResult Function(ApplyReferralModel applyReferralModel)? content,
-    TResult Function(ApplyReferralModel applyReferralModel, String? message)?
+    TResult? Function(ApplyReferralModel applyReferralModel)? loading,
+    TResult? Function(ApplyReferralModel applyReferralModel)? content,
+    TResult? Function(ApplyReferralModel applyReferralModel, String? message)?
         success,
-    TResult Function(ApplyReferralModel applyReferralModel, String message)?
+    TResult? Function(ApplyReferralModel applyReferralModel, String message)?
         failed,
   }) {
     return success?.call(applyReferralModel, message);
@@ -582,10 +581,10 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return success?.call(this);
   }
@@ -626,6 +625,7 @@ abstract class _$$_FailedCopyWith<$Res>
   factory _$$_FailedCopyWith(_$_Failed value, $Res Function(_$_Failed) then) =
       __$$_FailedCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({ApplyReferralModel applyReferralModel, String message});
 
   @override
@@ -634,25 +634,23 @@ abstract class _$$_FailedCopyWith<$Res>
 
 /// @nodoc
 class __$$_FailedCopyWithImpl<$Res>
-    extends _$ApplyReferralStateCopyWithImpl<$Res>
+    extends _$ApplyReferralStateCopyWithImpl<$Res, _$_Failed>
     implements _$$_FailedCopyWith<$Res> {
   __$$_FailedCopyWithImpl(_$_Failed _value, $Res Function(_$_Failed) _then)
-      : super(_value, (v) => _then(v as _$_Failed));
+      : super(_value, _then);
 
-  @override
-  _$_Failed get _value => super._value as _$_Failed;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? applyReferralModel = freezed,
-    Object? message = freezed,
+    Object? applyReferralModel = null,
+    Object? message = null,
   }) {
     return _then(_$_Failed(
-      applyReferralModel == freezed
+      null == applyReferralModel
           ? _value.applyReferralModel
           : applyReferralModel // ignore: cast_nullable_to_non_nullable
               as ApplyReferralModel,
-      message == freezed
+      null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -680,19 +678,17 @@ class _$_Failed implements _Failed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Failed &&
-            const DeepCollectionEquality()
-                .equals(other.applyReferralModel, applyReferralModel) &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.applyReferralModel, applyReferralModel) ||
+                other.applyReferralModel == applyReferralModel) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(applyReferralModel),
-      const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, applyReferralModel, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FailedCopyWith<_$_Failed> get copyWith =>
       __$$_FailedCopyWithImpl<_$_Failed>(this, _$identity);
 
@@ -714,11 +710,11 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ApplyReferralModel applyReferralModel)? loading,
-    TResult Function(ApplyReferralModel applyReferralModel)? content,
-    TResult Function(ApplyReferralModel applyReferralModel, String? message)?
+    TResult? Function(ApplyReferralModel applyReferralModel)? loading,
+    TResult? Function(ApplyReferralModel applyReferralModel)? content,
+    TResult? Function(ApplyReferralModel applyReferralModel, String? message)?
         success,
-    TResult Function(ApplyReferralModel applyReferralModel, String message)?
+    TResult? Function(ApplyReferralModel applyReferralModel, String message)?
         failed,
   }) {
     return failed?.call(applyReferralModel, message);
@@ -755,10 +751,10 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return failed?.call(this);
   }

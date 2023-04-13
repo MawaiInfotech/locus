@@ -34,39 +34,42 @@ mixin _$ChangepasswordModel {
 abstract class $ChangepasswordModelCopyWith<$Res> {
   factory $ChangepasswordModelCopyWith(
           ChangepasswordModel value, $Res Function(ChangepasswordModel) then) =
-      _$ChangepasswordModelCopyWithImpl<$Res>;
+      _$ChangepasswordModelCopyWithImpl<$Res, ChangepasswordModel>;
+  @useResult
   $Res call({String status, String msg, String data});
 }
 
 /// @nodoc
-class _$ChangepasswordModelCopyWithImpl<$Res>
+class _$ChangepasswordModelCopyWithImpl<$Res, $Val extends ChangepasswordModel>
     implements $ChangepasswordModelCopyWith<$Res> {
   _$ChangepasswordModelCopyWithImpl(this._value, this._then);
 
-  final ChangepasswordModel _value;
   // ignore: unused_field
-  final $Res Function(ChangepasswordModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? msg = freezed,
-    Object? data = freezed,
+    Object? status = null,
+    Object? msg = null,
+    Object? data = null,
   }) {
     return _then(_value.copyWith(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      msg: msg == freezed
+      msg: null == msg
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
               as String,
-      data: data == freezed
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -77,36 +80,35 @@ abstract class _$$_ChangepasswordModelCopyWith<$Res>
           $Res Function(_$_ChangepasswordModel) then) =
       __$$_ChangepasswordModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String status, String msg, String data});
 }
 
 /// @nodoc
 class __$$_ChangepasswordModelCopyWithImpl<$Res>
-    extends _$ChangepasswordModelCopyWithImpl<$Res>
+    extends _$ChangepasswordModelCopyWithImpl<$Res, _$_ChangepasswordModel>
     implements _$$_ChangepasswordModelCopyWith<$Res> {
   __$$_ChangepasswordModelCopyWithImpl(_$_ChangepasswordModel _value,
       $Res Function(_$_ChangepasswordModel) _then)
-      : super(_value, (v) => _then(v as _$_ChangepasswordModel));
+      : super(_value, _then);
 
-  @override
-  _$_ChangepasswordModel get _value => super._value as _$_ChangepasswordModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? msg = freezed,
-    Object? data = freezed,
+    Object? status = null,
+    Object? msg = null,
+    Object? data = null,
   }) {
     return _then(_$_ChangepasswordModel(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      msg: msg == freezed
+      msg: null == msg
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
               as String,
-      data: data == freezed
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
@@ -143,21 +145,18 @@ class _$_ChangepasswordModel implements _ChangepasswordModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ChangepasswordModel &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.msg, msg) &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.msg, msg) || other.msg == msg) &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(msg),
-      const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, status, msg, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ChangepasswordModelCopyWith<_$_ChangepasswordModel> get copyWith =>
       __$$_ChangepasswordModelCopyWithImpl<_$_ChangepasswordModel>(
           this, _$identity);

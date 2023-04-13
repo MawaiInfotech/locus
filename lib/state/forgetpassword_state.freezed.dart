@@ -32,11 +32,11 @@ mixin _$ForgetpasswordState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ForgetpasswordModel forgetpasswordModel)? loading,
-    TResult Function(ForgetpasswordModel forgetpasswordModel)? content,
-    TResult Function(ForgetpasswordModel forgetpasswordModel, String? message)?
+    TResult? Function(ForgetpasswordModel forgetpasswordModel)? loading,
+    TResult? Function(ForgetpasswordModel forgetpasswordModel)? content,
+    TResult? Function(ForgetpasswordModel forgetpasswordModel, String? message)?
         success,
-    TResult Function(ForgetpasswordModel forgetpasswordModel, String message)?
+    TResult? Function(ForgetpasswordModel forgetpasswordModel, String message)?
         failed,
   }) =>
       throw _privateConstructorUsedError;
@@ -61,10 +61,10 @@ mixin _$ForgetpasswordState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -86,38 +86,42 @@ mixin _$ForgetpasswordState {
 abstract class $ForgetpasswordStateCopyWith<$Res> {
   factory $ForgetpasswordStateCopyWith(
           ForgetpasswordState value, $Res Function(ForgetpasswordState) then) =
-      _$ForgetpasswordStateCopyWithImpl<$Res>;
+      _$ForgetpasswordStateCopyWithImpl<$Res, ForgetpasswordState>;
+  @useResult
   $Res call({ForgetpasswordModel forgetpasswordModel});
 
   $ForgetpasswordModelCopyWith<$Res> get forgetpasswordModel;
 }
 
 /// @nodoc
-class _$ForgetpasswordStateCopyWithImpl<$Res>
+class _$ForgetpasswordStateCopyWithImpl<$Res, $Val extends ForgetpasswordState>
     implements $ForgetpasswordStateCopyWith<$Res> {
   _$ForgetpasswordStateCopyWithImpl(this._value, this._then);
 
-  final ForgetpasswordState _value;
   // ignore: unused_field
-  final $Res Function(ForgetpasswordState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? forgetpasswordModel = freezed,
+    Object? forgetpasswordModel = null,
   }) {
     return _then(_value.copyWith(
-      forgetpasswordModel: forgetpasswordModel == freezed
+      forgetpasswordModel: null == forgetpasswordModel
           ? _value.forgetpasswordModel
           : forgetpasswordModel // ignore: cast_nullable_to_non_nullable
               as ForgetpasswordModel,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ForgetpasswordModelCopyWith<$Res> get forgetpasswordModel {
     return $ForgetpasswordModelCopyWith<$Res>(_value.forgetpasswordModel,
         (value) {
-      return _then(_value.copyWith(forgetpasswordModel: value));
+      return _then(_value.copyWith(forgetpasswordModel: value) as $Val);
     });
   }
 }
@@ -129,6 +133,7 @@ abstract class _$$_LoadingCopyWith<$Res>
           _$_Loading value, $Res Function(_$_Loading) then) =
       __$$_LoadingCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({ForgetpasswordModel forgetpasswordModel});
 
   @override
@@ -137,20 +142,18 @@ abstract class _$$_LoadingCopyWith<$Res>
 
 /// @nodoc
 class __$$_LoadingCopyWithImpl<$Res>
-    extends _$ForgetpasswordStateCopyWithImpl<$Res>
+    extends _$ForgetpasswordStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
-      : super(_value, (v) => _then(v as _$_Loading));
+      : super(_value, _then);
 
-  @override
-  _$_Loading get _value => super._value as _$_Loading;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? forgetpasswordModel = freezed,
+    Object? forgetpasswordModel = null,
   }) {
     return _then(_$_Loading(
-      forgetpasswordModel == freezed
+      null == forgetpasswordModel
           ? _value.forgetpasswordModel
           : forgetpasswordModel // ignore: cast_nullable_to_non_nullable
               as ForgetpasswordModel,
@@ -176,16 +179,16 @@ class _$_Loading implements _Loading {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loading &&
-            const DeepCollectionEquality()
-                .equals(other.forgetpasswordModel, forgetpasswordModel));
+            (identical(other.forgetpasswordModel, forgetpasswordModel) ||
+                other.forgetpasswordModel == forgetpasswordModel));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(forgetpasswordModel));
+  int get hashCode => Object.hash(runtimeType, forgetpasswordModel);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadingCopyWith<_$_Loading> get copyWith =>
       __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
 
@@ -207,11 +210,11 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ForgetpasswordModel forgetpasswordModel)? loading,
-    TResult Function(ForgetpasswordModel forgetpasswordModel)? content,
-    TResult Function(ForgetpasswordModel forgetpasswordModel, String? message)?
+    TResult? Function(ForgetpasswordModel forgetpasswordModel)? loading,
+    TResult? Function(ForgetpasswordModel forgetpasswordModel)? content,
+    TResult? Function(ForgetpasswordModel forgetpasswordModel, String? message)?
         success,
-    TResult Function(ForgetpasswordModel forgetpasswordModel, String message)?
+    TResult? Function(ForgetpasswordModel forgetpasswordModel, String message)?
         failed,
   }) {
     return loading?.call(forgetpasswordModel);
@@ -248,10 +251,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return loading?.call(this);
   }
@@ -291,6 +294,7 @@ abstract class _$$_ContentCopyWith<$Res>
           _$_Content value, $Res Function(_$_Content) then) =
       __$$_ContentCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({ForgetpasswordModel forgetpasswordModel});
 
   @override
@@ -299,20 +303,18 @@ abstract class _$$_ContentCopyWith<$Res>
 
 /// @nodoc
 class __$$_ContentCopyWithImpl<$Res>
-    extends _$ForgetpasswordStateCopyWithImpl<$Res>
+    extends _$ForgetpasswordStateCopyWithImpl<$Res, _$_Content>
     implements _$$_ContentCopyWith<$Res> {
   __$$_ContentCopyWithImpl(_$_Content _value, $Res Function(_$_Content) _then)
-      : super(_value, (v) => _then(v as _$_Content));
+      : super(_value, _then);
 
-  @override
-  _$_Content get _value => super._value as _$_Content;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? forgetpasswordModel = freezed,
+    Object? forgetpasswordModel = null,
   }) {
     return _then(_$_Content(
-      forgetpasswordModel == freezed
+      null == forgetpasswordModel
           ? _value.forgetpasswordModel
           : forgetpasswordModel // ignore: cast_nullable_to_non_nullable
               as ForgetpasswordModel,
@@ -338,16 +340,16 @@ class _$_Content implements _Content {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Content &&
-            const DeepCollectionEquality()
-                .equals(other.forgetpasswordModel, forgetpasswordModel));
+            (identical(other.forgetpasswordModel, forgetpasswordModel) ||
+                other.forgetpasswordModel == forgetpasswordModel));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(forgetpasswordModel));
+  int get hashCode => Object.hash(runtimeType, forgetpasswordModel);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ContentCopyWith<_$_Content> get copyWith =>
       __$$_ContentCopyWithImpl<_$_Content>(this, _$identity);
 
@@ -369,11 +371,11 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ForgetpasswordModel forgetpasswordModel)? loading,
-    TResult Function(ForgetpasswordModel forgetpasswordModel)? content,
-    TResult Function(ForgetpasswordModel forgetpasswordModel, String? message)?
+    TResult? Function(ForgetpasswordModel forgetpasswordModel)? loading,
+    TResult? Function(ForgetpasswordModel forgetpasswordModel)? content,
+    TResult? Function(ForgetpasswordModel forgetpasswordModel, String? message)?
         success,
-    TResult Function(ForgetpasswordModel forgetpasswordModel, String message)?
+    TResult? Function(ForgetpasswordModel forgetpasswordModel, String message)?
         failed,
   }) {
     return content?.call(forgetpasswordModel);
@@ -410,10 +412,10 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return content?.call(this);
   }
@@ -453,6 +455,7 @@ abstract class _$$_SuccessCopyWith<$Res>
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({ForgetpasswordModel forgetpasswordModel, String? message});
 
   @override
@@ -461,25 +464,23 @@ abstract class _$$_SuccessCopyWith<$Res>
 
 /// @nodoc
 class __$$_SuccessCopyWithImpl<$Res>
-    extends _$ForgetpasswordStateCopyWithImpl<$Res>
+    extends _$ForgetpasswordStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
-      : super(_value, (v) => _then(v as _$_Success));
+      : super(_value, _then);
 
-  @override
-  _$_Success get _value => super._value as _$_Success;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? forgetpasswordModel = freezed,
+    Object? forgetpasswordModel = null,
     Object? message = freezed,
   }) {
     return _then(_$_Success(
-      forgetpasswordModel == freezed
+      null == forgetpasswordModel
           ? _value.forgetpasswordModel
           : forgetpasswordModel // ignore: cast_nullable_to_non_nullable
               as ForgetpasswordModel,
-      message == freezed
+      freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -507,19 +508,17 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            const DeepCollectionEquality()
-                .equals(other.forgetpasswordModel, forgetpasswordModel) &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.forgetpasswordModel, forgetpasswordModel) ||
+                other.forgetpasswordModel == forgetpasswordModel) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(forgetpasswordModel),
-      const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, forgetpasswordModel, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
@@ -541,11 +540,11 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ForgetpasswordModel forgetpasswordModel)? loading,
-    TResult Function(ForgetpasswordModel forgetpasswordModel)? content,
-    TResult Function(ForgetpasswordModel forgetpasswordModel, String? message)?
+    TResult? Function(ForgetpasswordModel forgetpasswordModel)? loading,
+    TResult? Function(ForgetpasswordModel forgetpasswordModel)? content,
+    TResult? Function(ForgetpasswordModel forgetpasswordModel, String? message)?
         success,
-    TResult Function(ForgetpasswordModel forgetpasswordModel, String message)?
+    TResult? Function(ForgetpasswordModel forgetpasswordModel, String message)?
         failed,
   }) {
     return success?.call(forgetpasswordModel, message);
@@ -582,10 +581,10 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return success?.call(this);
   }
@@ -625,6 +624,7 @@ abstract class _$$_FailedCopyWith<$Res>
   factory _$$_FailedCopyWith(_$_Failed value, $Res Function(_$_Failed) then) =
       __$$_FailedCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({ForgetpasswordModel forgetpasswordModel, String message});
 
   @override
@@ -633,25 +633,23 @@ abstract class _$$_FailedCopyWith<$Res>
 
 /// @nodoc
 class __$$_FailedCopyWithImpl<$Res>
-    extends _$ForgetpasswordStateCopyWithImpl<$Res>
+    extends _$ForgetpasswordStateCopyWithImpl<$Res, _$_Failed>
     implements _$$_FailedCopyWith<$Res> {
   __$$_FailedCopyWithImpl(_$_Failed _value, $Res Function(_$_Failed) _then)
-      : super(_value, (v) => _then(v as _$_Failed));
+      : super(_value, _then);
 
-  @override
-  _$_Failed get _value => super._value as _$_Failed;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? forgetpasswordModel = freezed,
-    Object? message = freezed,
+    Object? forgetpasswordModel = null,
+    Object? message = null,
   }) {
     return _then(_$_Failed(
-      forgetpasswordModel == freezed
+      null == forgetpasswordModel
           ? _value.forgetpasswordModel
           : forgetpasswordModel // ignore: cast_nullable_to_non_nullable
               as ForgetpasswordModel,
-      message == freezed
+      null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -679,19 +677,17 @@ class _$_Failed implements _Failed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Failed &&
-            const DeepCollectionEquality()
-                .equals(other.forgetpasswordModel, forgetpasswordModel) &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.forgetpasswordModel, forgetpasswordModel) ||
+                other.forgetpasswordModel == forgetpasswordModel) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(forgetpasswordModel),
-      const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, forgetpasswordModel, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FailedCopyWith<_$_Failed> get copyWith =>
       __$$_FailedCopyWithImpl<_$_Failed>(this, _$identity);
 
@@ -713,11 +709,11 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ForgetpasswordModel forgetpasswordModel)? loading,
-    TResult Function(ForgetpasswordModel forgetpasswordModel)? content,
-    TResult Function(ForgetpasswordModel forgetpasswordModel, String? message)?
+    TResult? Function(ForgetpasswordModel forgetpasswordModel)? loading,
+    TResult? Function(ForgetpasswordModel forgetpasswordModel)? content,
+    TResult? Function(ForgetpasswordModel forgetpasswordModel, String? message)?
         success,
-    TResult Function(ForgetpasswordModel forgetpasswordModel, String message)?
+    TResult? Function(ForgetpasswordModel forgetpasswordModel, String message)?
         failed,
   }) {
     return failed?.call(forgetpasswordModel, message);
@@ -754,10 +750,10 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return failed?.call(this);
   }

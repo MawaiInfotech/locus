@@ -38,7 +38,8 @@ mixin _$WorkfromHomeCClistModel {
 abstract class $WorkfromHomeCClistModelCopyWith<$Res> {
   factory $WorkfromHomeCClistModelCopyWith(WorkfromHomeCClistModel value,
           $Res Function(WorkfromHomeCClistModel) then) =
-      _$WorkfromHomeCClistModelCopyWithImpl<$Res>;
+      _$WorkfromHomeCClistModelCopyWithImpl<$Res, WorkfromHomeCClistModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_number") String employeeCode,
       @JsonKey(name: "emp_last_name") String employeeLatsName,
@@ -46,34 +47,37 @@ abstract class $WorkfromHomeCClistModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$WorkfromHomeCClistModelCopyWithImpl<$Res>
+class _$WorkfromHomeCClistModelCopyWithImpl<$Res,
+        $Val extends WorkfromHomeCClistModel>
     implements $WorkfromHomeCClistModelCopyWith<$Res> {
   _$WorkfromHomeCClistModelCopyWithImpl(this._value, this._then);
 
-  final WorkfromHomeCClistModel _value;
   // ignore: unused_field
-  final $Res Function(WorkfromHomeCClistModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeCode = freezed,
-    Object? employeeLatsName = freezed,
-    Object? employeeFirstName = freezed,
+    Object? employeeCode = null,
+    Object? employeeLatsName = null,
+    Object? employeeFirstName = null,
   }) {
     return _then(_value.copyWith(
-      employeeCode: employeeCode == freezed
+      employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeLatsName: employeeLatsName == freezed
+      employeeLatsName: null == employeeLatsName
           ? _value.employeeLatsName
           : employeeLatsName // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeFirstName: employeeFirstName == freezed
+      employeeFirstName: null == employeeFirstName
           ? _value.employeeFirstName
           : employeeFirstName // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -84,6 +88,7 @@ abstract class _$$_WorkfromHomeCClistModelCopyWith<$Res>
           $Res Function(_$_WorkfromHomeCClistModel) then) =
       __$$_WorkfromHomeCClistModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_number") String employeeCode,
       @JsonKey(name: "emp_last_name") String employeeLatsName,
@@ -92,32 +97,30 @@ abstract class _$$_WorkfromHomeCClistModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_WorkfromHomeCClistModelCopyWithImpl<$Res>
-    extends _$WorkfromHomeCClistModelCopyWithImpl<$Res>
+    extends _$WorkfromHomeCClistModelCopyWithImpl<$Res,
+        _$_WorkfromHomeCClistModel>
     implements _$$_WorkfromHomeCClistModelCopyWith<$Res> {
   __$$_WorkfromHomeCClistModelCopyWithImpl(_$_WorkfromHomeCClistModel _value,
       $Res Function(_$_WorkfromHomeCClistModel) _then)
-      : super(_value, (v) => _then(v as _$_WorkfromHomeCClistModel));
+      : super(_value, _then);
 
-  @override
-  _$_WorkfromHomeCClistModel get _value =>
-      super._value as _$_WorkfromHomeCClistModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeCode = freezed,
-    Object? employeeLatsName = freezed,
-    Object? employeeFirstName = freezed,
+    Object? employeeCode = null,
+    Object? employeeLatsName = null,
+    Object? employeeFirstName = null,
   }) {
     return _then(_$_WorkfromHomeCClistModel(
-      employeeCode: employeeCode == freezed
+      employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeLatsName: employeeLatsName == freezed
+      employeeLatsName: null == employeeLatsName
           ? _value.employeeLatsName
           : employeeLatsName // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeFirstName: employeeFirstName == freezed
+      employeeFirstName: null == employeeFirstName
           ? _value.employeeFirstName
           : employeeFirstName // ignore: cast_nullable_to_non_nullable
               as String,
@@ -156,24 +159,22 @@ class _$_WorkfromHomeCClistModel implements _WorkfromHomeCClistModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WorkfromHomeCClistModel &&
-            const DeepCollectionEquality()
-                .equals(other.employeeCode, employeeCode) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeLatsName, employeeLatsName) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeFirstName, employeeFirstName));
+            (identical(other.employeeCode, employeeCode) ||
+                other.employeeCode == employeeCode) &&
+            (identical(other.employeeLatsName, employeeLatsName) ||
+                other.employeeLatsName == employeeLatsName) &&
+            (identical(other.employeeFirstName, employeeFirstName) ||
+                other.employeeFirstName == employeeFirstName));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(employeeCode),
-      const DeepCollectionEquality().hash(employeeLatsName),
-      const DeepCollectionEquality().hash(employeeFirstName));
+      runtimeType, employeeCode, employeeLatsName, employeeFirstName);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WorkfromHomeCClistModelCopyWith<_$_WorkfromHomeCClistModel>
       get copyWith =>
           __$$_WorkfromHomeCClistModelCopyWithImpl<_$_WorkfromHomeCClistModel>(

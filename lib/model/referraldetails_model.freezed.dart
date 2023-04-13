@@ -45,7 +45,8 @@ mixin _$ReferralDetailModel {
 abstract class $ReferralDetailModelCopyWith<$Res> {
   factory $ReferralDetailModelCopyWith(
           ReferralDetailModel value, $Res Function(ReferralDetailModel) then) =
-      _$ReferralDetailModelCopyWithImpl<$Res>;
+      _$ReferralDetailModelCopyWithImpl<$Res, ReferralDetailModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "Reference_Date") String referenceDate,
       @JsonKey(name: "candidate_name") String candidateName,
@@ -57,54 +58,56 @@ abstract class $ReferralDetailModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ReferralDetailModelCopyWithImpl<$Res>
+class _$ReferralDetailModelCopyWithImpl<$Res, $Val extends ReferralDetailModel>
     implements $ReferralDetailModelCopyWith<$Res> {
   _$ReferralDetailModelCopyWithImpl(this._value, this._then);
 
-  final ReferralDetailModel _value;
   // ignore: unused_field
-  final $Res Function(ReferralDetailModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? referenceDate = freezed,
-    Object? candidateName = freezed,
-    Object? candidateEmail = freezed,
-    Object? jobPosition = freezed,
-    Object? departmentCode = freezed,
-    Object? employeeNumber = freezed,
-    Object? fileName = freezed,
+    Object? referenceDate = null,
+    Object? candidateName = null,
+    Object? candidateEmail = null,
+    Object? jobPosition = null,
+    Object? departmentCode = null,
+    Object? employeeNumber = null,
+    Object? fileName = null,
   }) {
     return _then(_value.copyWith(
-      referenceDate: referenceDate == freezed
+      referenceDate: null == referenceDate
           ? _value.referenceDate
           : referenceDate // ignore: cast_nullable_to_non_nullable
               as String,
-      candidateName: candidateName == freezed
+      candidateName: null == candidateName
           ? _value.candidateName
           : candidateName // ignore: cast_nullable_to_non_nullable
               as String,
-      candidateEmail: candidateEmail == freezed
+      candidateEmail: null == candidateEmail
           ? _value.candidateEmail
           : candidateEmail // ignore: cast_nullable_to_non_nullable
               as String,
-      jobPosition: jobPosition == freezed
+      jobPosition: null == jobPosition
           ? _value.jobPosition
           : jobPosition // ignore: cast_nullable_to_non_nullable
               as String,
-      departmentCode: departmentCode == freezed
+      departmentCode: null == departmentCode
           ? _value.departmentCode
           : departmentCode // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeNumber: employeeNumber == freezed
+      employeeNumber: null == employeeNumber
           ? _value.employeeNumber
           : employeeNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      fileName: fileName == freezed
+      fileName: null == fileName
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -115,6 +118,7 @@ abstract class _$$_ReferralDetailModelCopyWith<$Res>
           $Res Function(_$_ReferralDetailModel) then) =
       __$$_ReferralDetailModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "Reference_Date") String referenceDate,
       @JsonKey(name: "candidate_name") String candidateName,
@@ -127,51 +131,49 @@ abstract class _$$_ReferralDetailModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_ReferralDetailModelCopyWithImpl<$Res>
-    extends _$ReferralDetailModelCopyWithImpl<$Res>
+    extends _$ReferralDetailModelCopyWithImpl<$Res, _$_ReferralDetailModel>
     implements _$$_ReferralDetailModelCopyWith<$Res> {
   __$$_ReferralDetailModelCopyWithImpl(_$_ReferralDetailModel _value,
       $Res Function(_$_ReferralDetailModel) _then)
-      : super(_value, (v) => _then(v as _$_ReferralDetailModel));
+      : super(_value, _then);
 
-  @override
-  _$_ReferralDetailModel get _value => super._value as _$_ReferralDetailModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? referenceDate = freezed,
-    Object? candidateName = freezed,
-    Object? candidateEmail = freezed,
-    Object? jobPosition = freezed,
-    Object? departmentCode = freezed,
-    Object? employeeNumber = freezed,
-    Object? fileName = freezed,
+    Object? referenceDate = null,
+    Object? candidateName = null,
+    Object? candidateEmail = null,
+    Object? jobPosition = null,
+    Object? departmentCode = null,
+    Object? employeeNumber = null,
+    Object? fileName = null,
   }) {
     return _then(_$_ReferralDetailModel(
-      referenceDate: referenceDate == freezed
+      referenceDate: null == referenceDate
           ? _value.referenceDate
           : referenceDate // ignore: cast_nullable_to_non_nullable
               as String,
-      candidateName: candidateName == freezed
+      candidateName: null == candidateName
           ? _value.candidateName
           : candidateName // ignore: cast_nullable_to_non_nullable
               as String,
-      candidateEmail: candidateEmail == freezed
+      candidateEmail: null == candidateEmail
           ? _value.candidateEmail
           : candidateEmail // ignore: cast_nullable_to_non_nullable
               as String,
-      jobPosition: jobPosition == freezed
+      jobPosition: null == jobPosition
           ? _value.jobPosition
           : jobPosition // ignore: cast_nullable_to_non_nullable
               as String,
-      departmentCode: departmentCode == freezed
+      departmentCode: null == departmentCode
           ? _value.departmentCode
           : departmentCode // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeNumber: employeeNumber == freezed
+      employeeNumber: null == employeeNumber
           ? _value.employeeNumber
           : employeeNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      fileName: fileName == freezed
+      fileName: null == fileName
           ? _value.fileName
           : fileName // ignore: cast_nullable_to_non_nullable
               as String,
@@ -226,35 +228,30 @@ class _$_ReferralDetailModel implements _ReferralDetailModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ReferralDetailModel &&
-            const DeepCollectionEquality()
-                .equals(other.referenceDate, referenceDate) &&
-            const DeepCollectionEquality()
-                .equals(other.candidateName, candidateName) &&
-            const DeepCollectionEquality()
-                .equals(other.candidateEmail, candidateEmail) &&
-            const DeepCollectionEquality()
-                .equals(other.jobPosition, jobPosition) &&
-            const DeepCollectionEquality()
-                .equals(other.departmentCode, departmentCode) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeNumber, employeeNumber) &&
-            const DeepCollectionEquality().equals(other.fileName, fileName));
+            (identical(other.referenceDate, referenceDate) ||
+                other.referenceDate == referenceDate) &&
+            (identical(other.candidateName, candidateName) ||
+                other.candidateName == candidateName) &&
+            (identical(other.candidateEmail, candidateEmail) ||
+                other.candidateEmail == candidateEmail) &&
+            (identical(other.jobPosition, jobPosition) ||
+                other.jobPosition == jobPosition) &&
+            (identical(other.departmentCode, departmentCode) ||
+                other.departmentCode == departmentCode) &&
+            (identical(other.employeeNumber, employeeNumber) ||
+                other.employeeNumber == employeeNumber) &&
+            (identical(other.fileName, fileName) ||
+                other.fileName == fileName));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(referenceDate),
-      const DeepCollectionEquality().hash(candidateName),
-      const DeepCollectionEquality().hash(candidateEmail),
-      const DeepCollectionEquality().hash(jobPosition),
-      const DeepCollectionEquality().hash(departmentCode),
-      const DeepCollectionEquality().hash(employeeNumber),
-      const DeepCollectionEquality().hash(fileName));
+  int get hashCode => Object.hash(runtimeType, referenceDate, candidateName,
+      candidateEmail, jobPosition, departmentCode, employeeNumber, fileName);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ReferralDetailModelCopyWith<_$_ReferralDetailModel> get copyWith =>
       __$$_ReferralDetailModelCopyWithImpl<_$_ReferralDetailModel>(
           this, _$identity);

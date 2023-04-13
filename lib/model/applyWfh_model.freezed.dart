@@ -33,34 +33,37 @@ mixin _$ApplyWfhModel {
 abstract class $ApplyWfhModelCopyWith<$Res> {
   factory $ApplyWfhModelCopyWith(
           ApplyWfhModel value, $Res Function(ApplyWfhModel) then) =
-      _$ApplyWfhModelCopyWithImpl<$Res>;
+      _$ApplyWfhModelCopyWithImpl<$Res, ApplyWfhModel>;
+  @useResult
   $Res call({String status, String message});
 }
 
 /// @nodoc
-class _$ApplyWfhModelCopyWithImpl<$Res>
+class _$ApplyWfhModelCopyWithImpl<$Res, $Val extends ApplyWfhModel>
     implements $ApplyWfhModelCopyWith<$Res> {
   _$ApplyWfhModelCopyWithImpl(this._value, this._then);
 
-  final ApplyWfhModel _value;
   // ignore: unused_field
-  final $Res Function(ApplyWfhModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
+    Object? status = null,
+    Object? message = null,
   }) {
     return _then(_value.copyWith(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,31 +74,30 @@ abstract class _$$_ApplyWfhModelCopyWith<$Res>
           _$_ApplyWfhModel value, $Res Function(_$_ApplyWfhModel) then) =
       __$$_ApplyWfhModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String status, String message});
 }
 
 /// @nodoc
 class __$$_ApplyWfhModelCopyWithImpl<$Res>
-    extends _$ApplyWfhModelCopyWithImpl<$Res>
+    extends _$ApplyWfhModelCopyWithImpl<$Res, _$_ApplyWfhModel>
     implements _$$_ApplyWfhModelCopyWith<$Res> {
   __$$_ApplyWfhModelCopyWithImpl(
       _$_ApplyWfhModel _value, $Res Function(_$_ApplyWfhModel) _then)
-      : super(_value, (v) => _then(v as _$_ApplyWfhModel));
+      : super(_value, _then);
 
-  @override
-  _$_ApplyWfhModel get _value => super._value as _$_ApplyWfhModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
+    Object? status = null,
+    Object? message = null,
   }) {
     return _then(_$_ApplyWfhModel(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -128,19 +130,17 @@ class _$_ApplyWfhModel implements _ApplyWfhModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ApplyWfhModel &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, status, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ApplyWfhModelCopyWith<_$_ApplyWfhModel> get copyWith =>
       __$$_ApplyWfhModelCopyWithImpl<_$_ApplyWfhModel>(this, _$identity);
 

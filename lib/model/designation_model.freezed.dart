@@ -35,36 +35,39 @@ mixin _$DesignationModel {
 abstract class $DesignationModelCopyWith<$Res> {
   factory $DesignationModelCopyWith(
           DesignationModel value, $Res Function(DesignationModel) then) =
-      _$DesignationModelCopyWithImpl<$Res>;
+      _$DesignationModelCopyWithImpl<$Res, DesignationModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "code") String code,
       @JsonKey(name: "description") String description});
 }
 
 /// @nodoc
-class _$DesignationModelCopyWithImpl<$Res>
+class _$DesignationModelCopyWithImpl<$Res, $Val extends DesignationModel>
     implements $DesignationModelCopyWith<$Res> {
   _$DesignationModelCopyWithImpl(this._value, this._then);
 
-  final DesignationModel _value;
   // ignore: unused_field
-  final $Res Function(DesignationModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
-    Object? description = freezed,
+    Object? code = null,
+    Object? description = null,
   }) {
     return _then(_value.copyWith(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -75,6 +78,7 @@ abstract class _$$_DesignationModelCopyWith<$Res>
           _$_DesignationModel value, $Res Function(_$_DesignationModel) then) =
       __$$_DesignationModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "code") String code,
       @JsonKey(name: "description") String description});
@@ -82,26 +86,24 @@ abstract class _$$_DesignationModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_DesignationModelCopyWithImpl<$Res>
-    extends _$DesignationModelCopyWithImpl<$Res>
+    extends _$DesignationModelCopyWithImpl<$Res, _$_DesignationModel>
     implements _$$_DesignationModelCopyWith<$Res> {
   __$$_DesignationModelCopyWithImpl(
       _$_DesignationModel _value, $Res Function(_$_DesignationModel) _then)
-      : super(_value, (v) => _then(v as _$_DesignationModel));
+      : super(_value, _then);
 
-  @override
-  _$_DesignationModel get _value => super._value as _$_DesignationModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
-    Object? description = freezed,
+    Object? code = null,
+    Object? description = null,
   }) {
     return _then(_$_DesignationModel(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
@@ -136,20 +138,18 @@ class _$_DesignationModel implements _DesignationModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DesignationModel &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description));
+            (identical(other.code, code) || other.code == code) &&
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(description));
+  int get hashCode => Object.hash(runtimeType, code, description);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DesignationModelCopyWith<_$_DesignationModel> get copyWith =>
       __$$_DesignationModelCopyWithImpl<_$_DesignationModel>(this, _$identity);
 

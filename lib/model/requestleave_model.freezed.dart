@@ -36,7 +36,8 @@ mixin _$RequestLeaveModel {
 abstract class $RequestLeaveModelCopyWith<$Res> {
   factory $RequestLeaveModelCopyWith(
           RequestLeaveModel value, $Res Function(RequestLeaveModel) then) =
-      _$RequestLeaveModelCopyWithImpl<$Res>;
+      _$RequestLeaveModelCopyWithImpl<$Res, RequestLeaveModel>;
+  @useResult
   $Res call(
       {List<LeavetypeModel> leave_type,
       List<CClistModel> cc_list,
@@ -46,44 +47,46 @@ abstract class $RequestLeaveModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RequestLeaveModelCopyWithImpl<$Res>
+class _$RequestLeaveModelCopyWithImpl<$Res, $Val extends RequestLeaveModel>
     implements $RequestLeaveModelCopyWith<$Res> {
   _$RequestLeaveModelCopyWithImpl(this._value, this._then);
 
-  final RequestLeaveModel _value;
   // ignore: unused_field
-  final $Res Function(RequestLeaveModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? leave_type = freezed,
-    Object? cc_list = freezed,
-    Object? emp_dtl = freezed,
-    Object? leave_list = freezed,
-    Object? reporting_to = freezed,
+    Object? leave_type = null,
+    Object? cc_list = null,
+    Object? emp_dtl = null,
+    Object? leave_list = null,
+    Object? reporting_to = null,
   }) {
     return _then(_value.copyWith(
-      leave_type: leave_type == freezed
+      leave_type: null == leave_type
           ? _value.leave_type
           : leave_type // ignore: cast_nullable_to_non_nullable
               as List<LeavetypeModel>,
-      cc_list: cc_list == freezed
+      cc_list: null == cc_list
           ? _value.cc_list
           : cc_list // ignore: cast_nullable_to_non_nullable
               as List<CClistModel>,
-      emp_dtl: emp_dtl == freezed
+      emp_dtl: null == emp_dtl
           ? _value.emp_dtl
           : emp_dtl // ignore: cast_nullable_to_non_nullable
               as List<EmployeeDetailModel>,
-      leave_list: leave_list == freezed
+      leave_list: null == leave_list
           ? _value.leave_list
           : leave_list // ignore: cast_nullable_to_non_nullable
               as List<LeavelistModel>,
-      reporting_to: reporting_to == freezed
+      reporting_to: null == reporting_to
           ? _value.reporting_to
           : reporting_to // ignore: cast_nullable_to_non_nullable
               as List<ReportingtoModel>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -94,6 +97,7 @@ abstract class _$$_RequestLeaveModelCopyWith<$Res>
           $Res Function(_$_RequestLeaveModel) then) =
       __$$_RequestLeaveModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {List<LeavetypeModel> leave_type,
       List<CClistModel> cc_list,
@@ -104,41 +108,39 @@ abstract class _$$_RequestLeaveModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_RequestLeaveModelCopyWithImpl<$Res>
-    extends _$RequestLeaveModelCopyWithImpl<$Res>
+    extends _$RequestLeaveModelCopyWithImpl<$Res, _$_RequestLeaveModel>
     implements _$$_RequestLeaveModelCopyWith<$Res> {
   __$$_RequestLeaveModelCopyWithImpl(
       _$_RequestLeaveModel _value, $Res Function(_$_RequestLeaveModel) _then)
-      : super(_value, (v) => _then(v as _$_RequestLeaveModel));
+      : super(_value, _then);
 
-  @override
-  _$_RequestLeaveModel get _value => super._value as _$_RequestLeaveModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? leave_type = freezed,
-    Object? cc_list = freezed,
-    Object? emp_dtl = freezed,
-    Object? leave_list = freezed,
-    Object? reporting_to = freezed,
+    Object? leave_type = null,
+    Object? cc_list = null,
+    Object? emp_dtl = null,
+    Object? leave_list = null,
+    Object? reporting_to = null,
   }) {
     return _then(_$_RequestLeaveModel(
-      leave_type: leave_type == freezed
+      leave_type: null == leave_type
           ? _value._leave_type
           : leave_type // ignore: cast_nullable_to_non_nullable
               as List<LeavetypeModel>,
-      cc_list: cc_list == freezed
+      cc_list: null == cc_list
           ? _value._cc_list
           : cc_list // ignore: cast_nullable_to_non_nullable
               as List<CClistModel>,
-      emp_dtl: emp_dtl == freezed
+      emp_dtl: null == emp_dtl
           ? _value._emp_dtl
           : emp_dtl // ignore: cast_nullable_to_non_nullable
               as List<EmployeeDetailModel>,
-      leave_list: leave_list == freezed
+      leave_list: null == leave_list
           ? _value._leave_list
           : leave_list // ignore: cast_nullable_to_non_nullable
               as List<LeavelistModel>,
-      reporting_to: reporting_to == freezed
+      reporting_to: null == reporting_to
           ? _value._reporting_to
           : reporting_to // ignore: cast_nullable_to_non_nullable
               as List<ReportingtoModel>,
@@ -236,6 +238,7 @@ class _$_RequestLeaveModel implements _RequestLeaveModel {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RequestLeaveModelCopyWith<_$_RequestLeaveModel> get copyWith =>
       __$$_RequestLeaveModelCopyWithImpl<_$_RequestLeaveModel>(
           this, _$identity);

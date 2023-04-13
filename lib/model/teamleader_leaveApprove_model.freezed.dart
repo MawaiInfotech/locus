@@ -35,34 +35,39 @@ abstract class $TeamLeaderLeaveApproveRejectModelCopyWith<$Res> {
   factory $TeamLeaderLeaveApproveRejectModelCopyWith(
           TeamLeaderLeaveApproveRejectModel value,
           $Res Function(TeamLeaderLeaveApproveRejectModel) then) =
-      _$TeamLeaderLeaveApproveRejectModelCopyWithImpl<$Res>;
+      _$TeamLeaderLeaveApproveRejectModelCopyWithImpl<$Res,
+          TeamLeaderLeaveApproveRejectModel>;
+  @useResult
   $Res call({String status, String message});
 }
 
 /// @nodoc
-class _$TeamLeaderLeaveApproveRejectModelCopyWithImpl<$Res>
+class _$TeamLeaderLeaveApproveRejectModelCopyWithImpl<$Res,
+        $Val extends TeamLeaderLeaveApproveRejectModel>
     implements $TeamLeaderLeaveApproveRejectModelCopyWith<$Res> {
   _$TeamLeaderLeaveApproveRejectModelCopyWithImpl(this._value, this._then);
 
-  final TeamLeaderLeaveApproveRejectModel _value;
   // ignore: unused_field
-  final $Res Function(TeamLeaderLeaveApproveRejectModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
+    Object? status = null,
+    Object? message = null,
   }) {
     return _then(_value.copyWith(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -74,33 +79,32 @@ abstract class _$$_TeamLeaderLeaveApproveRejectModelCopyWith<$Res>
           $Res Function(_$_TeamLeaderLeaveApproveRejectModel) then) =
       __$$_TeamLeaderLeaveApproveRejectModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String status, String message});
 }
 
 /// @nodoc
 class __$$_TeamLeaderLeaveApproveRejectModelCopyWithImpl<$Res>
-    extends _$TeamLeaderLeaveApproveRejectModelCopyWithImpl<$Res>
+    extends _$TeamLeaderLeaveApproveRejectModelCopyWithImpl<$Res,
+        _$_TeamLeaderLeaveApproveRejectModel>
     implements _$$_TeamLeaderLeaveApproveRejectModelCopyWith<$Res> {
   __$$_TeamLeaderLeaveApproveRejectModelCopyWithImpl(
       _$_TeamLeaderLeaveApproveRejectModel _value,
       $Res Function(_$_TeamLeaderLeaveApproveRejectModel) _then)
-      : super(_value, (v) => _then(v as _$_TeamLeaderLeaveApproveRejectModel));
+      : super(_value, _then);
 
-  @override
-  _$_TeamLeaderLeaveApproveRejectModel get _value =>
-      super._value as _$_TeamLeaderLeaveApproveRejectModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
+    Object? status = null,
+    Object? message = null,
   }) {
     return _then(_$_TeamLeaderLeaveApproveRejectModel(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -136,19 +140,17 @@ class _$_TeamLeaderLeaveApproveRejectModel
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TeamLeaderLeaveApproveRejectModel &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, status, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TeamLeaderLeaveApproveRejectModelCopyWith<
           _$_TeamLeaderLeaveApproveRejectModel>
       get copyWith => __$$_TeamLeaderLeaveApproveRejectModelCopyWithImpl<

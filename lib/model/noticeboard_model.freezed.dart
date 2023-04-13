@@ -41,7 +41,8 @@ mixin _$NoticeboardModel {
 abstract class $NoticeboardModelCopyWith<$Res> {
   factory $NoticeboardModelCopyWith(
           NoticeboardModel value, $Res Function(NoticeboardModel) then) =
-      _$NoticeboardModelCopyWithImpl<$Res>;
+      _$NoticeboardModelCopyWithImpl<$Res, NoticeboardModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "title") String title,
       @JsonKey(name: "description") String description,
@@ -51,44 +52,46 @@ abstract class $NoticeboardModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$NoticeboardModelCopyWithImpl<$Res>
+class _$NoticeboardModelCopyWithImpl<$Res, $Val extends NoticeboardModel>
     implements $NoticeboardModelCopyWith<$Res> {
   _$NoticeboardModelCopyWithImpl(this._value, this._then);
 
-  final NoticeboardModel _value;
   // ignore: unused_field
-  final $Res Function(NoticeboardModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = freezed,
-    Object? description = freezed,
-    Object? date = freezed,
-    Object? createdBy = freezed,
-    Object? department = freezed,
+    Object? title = null,
+    Object? description = null,
+    Object? date = null,
+    Object? createdBy = null,
+    Object? department = null,
   }) {
     return _then(_value.copyWith(
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      date: date == freezed
+      date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String,
-      createdBy: createdBy == freezed
+      createdBy: null == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
               as String,
-      department: department == freezed
+      department: null == department
           ? _value.department
           : department // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -99,6 +102,7 @@ abstract class _$$_NoticeboardModelCopyWith<$Res>
           _$_NoticeboardModel value, $Res Function(_$_NoticeboardModel) then) =
       __$$_NoticeboardModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "title") String title,
       @JsonKey(name: "description") String description,
@@ -109,41 +113,39 @@ abstract class _$$_NoticeboardModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_NoticeboardModelCopyWithImpl<$Res>
-    extends _$NoticeboardModelCopyWithImpl<$Res>
+    extends _$NoticeboardModelCopyWithImpl<$Res, _$_NoticeboardModel>
     implements _$$_NoticeboardModelCopyWith<$Res> {
   __$$_NoticeboardModelCopyWithImpl(
       _$_NoticeboardModel _value, $Res Function(_$_NoticeboardModel) _then)
-      : super(_value, (v) => _then(v as _$_NoticeboardModel));
+      : super(_value, _then);
 
-  @override
-  _$_NoticeboardModel get _value => super._value as _$_NoticeboardModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = freezed,
-    Object? description = freezed,
-    Object? date = freezed,
-    Object? createdBy = freezed,
-    Object? department = freezed,
+    Object? title = null,
+    Object? description = null,
+    Object? date = null,
+    Object? createdBy = null,
+    Object? department = null,
   }) {
     return _then(_$_NoticeboardModel(
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      date: date == freezed
+      date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String,
-      createdBy: createdBy == freezed
+      createdBy: null == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
               as String,
-      department: department == freezed
+      department: null == department
           ? _value.department
           : department // ignore: cast_nullable_to_non_nullable
               as String,
@@ -190,27 +192,24 @@ class _$_NoticeboardModel implements _NoticeboardModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_NoticeboardModel &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.date, date) &&
-            const DeepCollectionEquality().equals(other.createdBy, createdBy) &&
-            const DeepCollectionEquality()
-                .equals(other.department, department));
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.createdBy, createdBy) ||
+                other.createdBy == createdBy) &&
+            (identical(other.department, department) ||
+                other.department == department));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(date),
-      const DeepCollectionEquality().hash(createdBy),
-      const DeepCollectionEquality().hash(department));
+  int get hashCode =>
+      Object.hash(runtimeType, title, description, date, createdBy, department);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_NoticeboardModelCopyWith<_$_NoticeboardModel> get copyWith =>
       __$$_NoticeboardModelCopyWithImpl<_$_NoticeboardModel>(this, _$identity);
 

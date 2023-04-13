@@ -67,7 +67,9 @@ abstract class $TeamLeaderAttendanceApprovelModelCopyWith<$Res> {
   factory $TeamLeaderAttendanceApprovelModelCopyWith(
           TeamLeaderAttendanceApprovelModel value,
           $Res Function(TeamLeaderAttendanceApprovelModel) then) =
-      _$TeamLeaderAttendanceApprovelModelCopyWithImpl<$Res>;
+      _$TeamLeaderAttendanceApprovelModelCopyWithImpl<$Res,
+          TeamLeaderAttendanceApprovelModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "unit_cd") String unitCode,
       @JsonKey(name: "app_no") String appNo,
@@ -89,104 +91,107 @@ abstract class $TeamLeaderAttendanceApprovelModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TeamLeaderAttendanceApprovelModelCopyWithImpl<$Res>
+class _$TeamLeaderAttendanceApprovelModelCopyWithImpl<$Res,
+        $Val extends TeamLeaderAttendanceApprovelModel>
     implements $TeamLeaderAttendanceApprovelModelCopyWith<$Res> {
   _$TeamLeaderAttendanceApprovelModelCopyWithImpl(this._value, this._then);
 
-  final TeamLeaderAttendanceApprovelModel _value;
   // ignore: unused_field
-  final $Res Function(TeamLeaderAttendanceApprovelModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? unitCode = freezed,
-    Object? appNo = freezed,
-    Object? appDate = freezed,
-    Object? appTime = freezed,
-    Object? empNumber = freezed,
-    Object? cardNumber = freezed,
-    Object? departmentHead = freezed,
-    Object? mispunchDate = freezed,
-    Object? mispunchName = freezed,
-    Object? mispunchType = freezed,
-    Object? inTime = freezed,
-    Object? outTime = freezed,
-    Object? reason = freezed,
-    Object? status = freezed,
-    Object? statusName = freezed,
-    Object? mispunchId = freezed,
-    Object? employeeName = freezed,
+    Object? unitCode = null,
+    Object? appNo = null,
+    Object? appDate = null,
+    Object? appTime = null,
+    Object? empNumber = null,
+    Object? cardNumber = null,
+    Object? departmentHead = null,
+    Object? mispunchDate = null,
+    Object? mispunchName = null,
+    Object? mispunchType = null,
+    Object? inTime = null,
+    Object? outTime = null,
+    Object? reason = null,
+    Object? status = null,
+    Object? statusName = null,
+    Object? mispunchId = null,
+    Object? employeeName = null,
   }) {
     return _then(_value.copyWith(
-      unitCode: unitCode == freezed
+      unitCode: null == unitCode
           ? _value.unitCode
           : unitCode // ignore: cast_nullable_to_non_nullable
               as String,
-      appNo: appNo == freezed
+      appNo: null == appNo
           ? _value.appNo
           : appNo // ignore: cast_nullable_to_non_nullable
               as String,
-      appDate: appDate == freezed
+      appDate: null == appDate
           ? _value.appDate
           : appDate // ignore: cast_nullable_to_non_nullable
               as String,
-      appTime: appTime == freezed
+      appTime: null == appTime
           ? _value.appTime
           : appTime // ignore: cast_nullable_to_non_nullable
               as String,
-      empNumber: empNumber == freezed
+      empNumber: null == empNumber
           ? _value.empNumber
           : empNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      cardNumber: cardNumber == freezed
+      cardNumber: null == cardNumber
           ? _value.cardNumber
           : cardNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      departmentHead: departmentHead == freezed
+      departmentHead: null == departmentHead
           ? _value.departmentHead
           : departmentHead // ignore: cast_nullable_to_non_nullable
               as String,
-      mispunchDate: mispunchDate == freezed
+      mispunchDate: null == mispunchDate
           ? _value.mispunchDate
           : mispunchDate // ignore: cast_nullable_to_non_nullable
               as String,
-      mispunchName: mispunchName == freezed
+      mispunchName: null == mispunchName
           ? _value.mispunchName
           : mispunchName // ignore: cast_nullable_to_non_nullable
               as String,
-      mispunchType: mispunchType == freezed
+      mispunchType: null == mispunchType
           ? _value.mispunchType
           : mispunchType // ignore: cast_nullable_to_non_nullable
               as String,
-      inTime: inTime == freezed
+      inTime: null == inTime
           ? _value.inTime
           : inTime // ignore: cast_nullable_to_non_nullable
               as String,
-      outTime: outTime == freezed
+      outTime: null == outTime
           ? _value.outTime
           : outTime // ignore: cast_nullable_to_non_nullable
               as String,
-      reason: reason == freezed
+      reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as String,
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      statusName: statusName == freezed
+      statusName: null == statusName
           ? _value.statusName
           : statusName // ignore: cast_nullable_to_non_nullable
               as String,
-      mispunchId: mispunchId == freezed
+      mispunchId: null == mispunchId
           ? _value.mispunchId
           : mispunchId // ignore: cast_nullable_to_non_nullable
               as int,
-      employeeName: employeeName == freezed
+      employeeName: null == employeeName
           ? _value.employeeName
           : employeeName // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -198,6 +203,7 @@ abstract class _$$_TeamLeaderAttendanceApprovelModelCopyWith<$Res>
           $Res Function(_$_TeamLeaderAttendanceApprovelModel) then) =
       __$$_TeamLeaderAttendanceApprovelModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "unit_cd") String unitCode,
       @JsonKey(name: "app_no") String appNo,
@@ -220,103 +226,101 @@ abstract class _$$_TeamLeaderAttendanceApprovelModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_TeamLeaderAttendanceApprovelModelCopyWithImpl<$Res>
-    extends _$TeamLeaderAttendanceApprovelModelCopyWithImpl<$Res>
+    extends _$TeamLeaderAttendanceApprovelModelCopyWithImpl<$Res,
+        _$_TeamLeaderAttendanceApprovelModel>
     implements _$$_TeamLeaderAttendanceApprovelModelCopyWith<$Res> {
   __$$_TeamLeaderAttendanceApprovelModelCopyWithImpl(
       _$_TeamLeaderAttendanceApprovelModel _value,
       $Res Function(_$_TeamLeaderAttendanceApprovelModel) _then)
-      : super(_value, (v) => _then(v as _$_TeamLeaderAttendanceApprovelModel));
+      : super(_value, _then);
 
-  @override
-  _$_TeamLeaderAttendanceApprovelModel get _value =>
-      super._value as _$_TeamLeaderAttendanceApprovelModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? unitCode = freezed,
-    Object? appNo = freezed,
-    Object? appDate = freezed,
-    Object? appTime = freezed,
-    Object? empNumber = freezed,
-    Object? cardNumber = freezed,
-    Object? departmentHead = freezed,
-    Object? mispunchDate = freezed,
-    Object? mispunchName = freezed,
-    Object? mispunchType = freezed,
-    Object? inTime = freezed,
-    Object? outTime = freezed,
-    Object? reason = freezed,
-    Object? status = freezed,
-    Object? statusName = freezed,
-    Object? mispunchId = freezed,
-    Object? employeeName = freezed,
+    Object? unitCode = null,
+    Object? appNo = null,
+    Object? appDate = null,
+    Object? appTime = null,
+    Object? empNumber = null,
+    Object? cardNumber = null,
+    Object? departmentHead = null,
+    Object? mispunchDate = null,
+    Object? mispunchName = null,
+    Object? mispunchType = null,
+    Object? inTime = null,
+    Object? outTime = null,
+    Object? reason = null,
+    Object? status = null,
+    Object? statusName = null,
+    Object? mispunchId = null,
+    Object? employeeName = null,
   }) {
     return _then(_$_TeamLeaderAttendanceApprovelModel(
-      unitCode: unitCode == freezed
+      unitCode: null == unitCode
           ? _value.unitCode
           : unitCode // ignore: cast_nullable_to_non_nullable
               as String,
-      appNo: appNo == freezed
+      appNo: null == appNo
           ? _value.appNo
           : appNo // ignore: cast_nullable_to_non_nullable
               as String,
-      appDate: appDate == freezed
+      appDate: null == appDate
           ? _value.appDate
           : appDate // ignore: cast_nullable_to_non_nullable
               as String,
-      appTime: appTime == freezed
+      appTime: null == appTime
           ? _value.appTime
           : appTime // ignore: cast_nullable_to_non_nullable
               as String,
-      empNumber: empNumber == freezed
+      empNumber: null == empNumber
           ? _value.empNumber
           : empNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      cardNumber: cardNumber == freezed
+      cardNumber: null == cardNumber
           ? _value.cardNumber
           : cardNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      departmentHead: departmentHead == freezed
+      departmentHead: null == departmentHead
           ? _value.departmentHead
           : departmentHead // ignore: cast_nullable_to_non_nullable
               as String,
-      mispunchDate: mispunchDate == freezed
+      mispunchDate: null == mispunchDate
           ? _value.mispunchDate
           : mispunchDate // ignore: cast_nullable_to_non_nullable
               as String,
-      mispunchName: mispunchName == freezed
+      mispunchName: null == mispunchName
           ? _value.mispunchName
           : mispunchName // ignore: cast_nullable_to_non_nullable
               as String,
-      mispunchType: mispunchType == freezed
+      mispunchType: null == mispunchType
           ? _value.mispunchType
           : mispunchType // ignore: cast_nullable_to_non_nullable
               as String,
-      inTime: inTime == freezed
+      inTime: null == inTime
           ? _value.inTime
           : inTime // ignore: cast_nullable_to_non_nullable
               as String,
-      outTime: outTime == freezed
+      outTime: null == outTime
           ? _value.outTime
           : outTime // ignore: cast_nullable_to_non_nullable
               as String,
-      reason: reason == freezed
+      reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as String,
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      statusName: statusName == freezed
+      statusName: null == statusName
           ? _value.statusName
           : statusName // ignore: cast_nullable_to_non_nullable
               as String,
-      mispunchId: mispunchId == freezed
+      mispunchId: null == mispunchId
           ? _value.mispunchId
           : mispunchId // ignore: cast_nullable_to_non_nullable
               as int,
-      employeeName: employeeName == freezed
+      employeeName: null == employeeName
           ? _value.employeeName
           : employeeName // ignore: cast_nullable_to_non_nullable
               as String,
@@ -413,57 +417,60 @@ class _$_TeamLeaderAttendanceApprovelModel
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TeamLeaderAttendanceApprovelModel &&
-            const DeepCollectionEquality().equals(other.unitCode, unitCode) &&
-            const DeepCollectionEquality().equals(other.appNo, appNo) &&
-            const DeepCollectionEquality().equals(other.appDate, appDate) &&
-            const DeepCollectionEquality().equals(other.appTime, appTime) &&
-            const DeepCollectionEquality().equals(other.empNumber, empNumber) &&
-            const DeepCollectionEquality()
-                .equals(other.cardNumber, cardNumber) &&
-            const DeepCollectionEquality()
-                .equals(other.departmentHead, departmentHead) &&
-            const DeepCollectionEquality()
-                .equals(other.mispunchDate, mispunchDate) &&
-            const DeepCollectionEquality()
-                .equals(other.mispunchName, mispunchName) &&
-            const DeepCollectionEquality()
-                .equals(other.mispunchType, mispunchType) &&
-            const DeepCollectionEquality().equals(other.inTime, inTime) &&
-            const DeepCollectionEquality().equals(other.outTime, outTime) &&
-            const DeepCollectionEquality().equals(other.reason, reason) &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality()
-                .equals(other.statusName, statusName) &&
-            const DeepCollectionEquality()
-                .equals(other.mispunchId, mispunchId) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeName, employeeName));
+            (identical(other.unitCode, unitCode) ||
+                other.unitCode == unitCode) &&
+            (identical(other.appNo, appNo) || other.appNo == appNo) &&
+            (identical(other.appDate, appDate) || other.appDate == appDate) &&
+            (identical(other.appTime, appTime) || other.appTime == appTime) &&
+            (identical(other.empNumber, empNumber) ||
+                other.empNumber == empNumber) &&
+            (identical(other.cardNumber, cardNumber) ||
+                other.cardNumber == cardNumber) &&
+            (identical(other.departmentHead, departmentHead) ||
+                other.departmentHead == departmentHead) &&
+            (identical(other.mispunchDate, mispunchDate) ||
+                other.mispunchDate == mispunchDate) &&
+            (identical(other.mispunchName, mispunchName) ||
+                other.mispunchName == mispunchName) &&
+            (identical(other.mispunchType, mispunchType) ||
+                other.mispunchType == mispunchType) &&
+            (identical(other.inTime, inTime) || other.inTime == inTime) &&
+            (identical(other.outTime, outTime) || other.outTime == outTime) &&
+            (identical(other.reason, reason) || other.reason == reason) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.statusName, statusName) ||
+                other.statusName == statusName) &&
+            (identical(other.mispunchId, mispunchId) ||
+                other.mispunchId == mispunchId) &&
+            (identical(other.employeeName, employeeName) ||
+                other.employeeName == employeeName));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(unitCode),
-      const DeepCollectionEquality().hash(appNo),
-      const DeepCollectionEquality().hash(appDate),
-      const DeepCollectionEquality().hash(appTime),
-      const DeepCollectionEquality().hash(empNumber),
-      const DeepCollectionEquality().hash(cardNumber),
-      const DeepCollectionEquality().hash(departmentHead),
-      const DeepCollectionEquality().hash(mispunchDate),
-      const DeepCollectionEquality().hash(mispunchName),
-      const DeepCollectionEquality().hash(mispunchType),
-      const DeepCollectionEquality().hash(inTime),
-      const DeepCollectionEquality().hash(outTime),
-      const DeepCollectionEquality().hash(reason),
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(statusName),
-      const DeepCollectionEquality().hash(mispunchId),
-      const DeepCollectionEquality().hash(employeeName));
+      unitCode,
+      appNo,
+      appDate,
+      appTime,
+      empNumber,
+      cardNumber,
+      departmentHead,
+      mispunchDate,
+      mispunchName,
+      mispunchType,
+      inTime,
+      outTime,
+      reason,
+      status,
+      statusName,
+      mispunchId,
+      employeeName);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TeamLeaderAttendanceApprovelModelCopyWith<
           _$_TeamLeaderAttendanceApprovelModel>
       get copyWith => __$$_TeamLeaderAttendanceApprovelModelCopyWithImpl<

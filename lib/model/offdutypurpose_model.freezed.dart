@@ -35,36 +35,39 @@ mixin _$OffdutyPurposeModel {
 abstract class $OffdutyPurposeModelCopyWith<$Res> {
   factory $OffdutyPurposeModelCopyWith(
           OffdutyPurposeModel value, $Res Function(OffdutyPurposeModel) then) =
-      _$OffdutyPurposeModelCopyWithImpl<$Res>;
+      _$OffdutyPurposeModelCopyWithImpl<$Res, OffdutyPurposeModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "code") String code,
       @JsonKey(name: "desc") String description});
 }
 
 /// @nodoc
-class _$OffdutyPurposeModelCopyWithImpl<$Res>
+class _$OffdutyPurposeModelCopyWithImpl<$Res, $Val extends OffdutyPurposeModel>
     implements $OffdutyPurposeModelCopyWith<$Res> {
   _$OffdutyPurposeModelCopyWithImpl(this._value, this._then);
 
-  final OffdutyPurposeModel _value;
   // ignore: unused_field
-  final $Res Function(OffdutyPurposeModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
-    Object? description = freezed,
+    Object? code = null,
+    Object? description = null,
   }) {
     return _then(_value.copyWith(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -75,6 +78,7 @@ abstract class _$$_OffdutyPurposeModelCopyWith<$Res>
           $Res Function(_$_OffdutyPurposeModel) then) =
       __$$_OffdutyPurposeModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "code") String code,
       @JsonKey(name: "desc") String description});
@@ -82,26 +86,24 @@ abstract class _$$_OffdutyPurposeModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_OffdutyPurposeModelCopyWithImpl<$Res>
-    extends _$OffdutyPurposeModelCopyWithImpl<$Res>
+    extends _$OffdutyPurposeModelCopyWithImpl<$Res, _$_OffdutyPurposeModel>
     implements _$$_OffdutyPurposeModelCopyWith<$Res> {
   __$$_OffdutyPurposeModelCopyWithImpl(_$_OffdutyPurposeModel _value,
       $Res Function(_$_OffdutyPurposeModel) _then)
-      : super(_value, (v) => _then(v as _$_OffdutyPurposeModel));
+      : super(_value, _then);
 
-  @override
-  _$_OffdutyPurposeModel get _value => super._value as _$_OffdutyPurposeModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
-    Object? description = freezed,
+    Object? code = null,
+    Object? description = null,
   }) {
     return _then(_$_OffdutyPurposeModel(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
@@ -136,20 +138,18 @@ class _$_OffdutyPurposeModel implements _OffdutyPurposeModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OffdutyPurposeModel &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description));
+            (identical(other.code, code) || other.code == code) &&
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(description));
+  int get hashCode => Object.hash(runtimeType, code, description);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_OffdutyPurposeModelCopyWith<_$_OffdutyPurposeModel> get copyWith =>
       __$$_OffdutyPurposeModelCopyWithImpl<_$_OffdutyPurposeModel>(
           this, _$identity);

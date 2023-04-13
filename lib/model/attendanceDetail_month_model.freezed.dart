@@ -44,7 +44,9 @@ mixin _$AttendanceDetailMonthModel {
 abstract class $AttendanceDetailMonthModelCopyWith<$Res> {
   factory $AttendanceDetailMonthModelCopyWith(AttendanceDetailMonthModel value,
           $Res Function(AttendanceDetailMonthModel) then) =
-      _$AttendanceDetailMonthModelCopyWithImpl<$Res>;
+      _$AttendanceDetailMonthModelCopyWithImpl<$Res,
+          AttendanceDetailMonthModel>;
+  @useResult
   $Res call(
       {String January,
       String February,
@@ -61,79 +63,82 @@ abstract class $AttendanceDetailMonthModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AttendanceDetailMonthModelCopyWithImpl<$Res>
+class _$AttendanceDetailMonthModelCopyWithImpl<$Res,
+        $Val extends AttendanceDetailMonthModel>
     implements $AttendanceDetailMonthModelCopyWith<$Res> {
   _$AttendanceDetailMonthModelCopyWithImpl(this._value, this._then);
 
-  final AttendanceDetailMonthModel _value;
   // ignore: unused_field
-  final $Res Function(AttendanceDetailMonthModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? January = freezed,
-    Object? February = freezed,
-    Object? March = freezed,
-    Object? April = freezed,
-    Object? May = freezed,
-    Object? June = freezed,
-    Object? July = freezed,
-    Object? August = freezed,
-    Object? September = freezed,
-    Object? October = freezed,
-    Object? Novemebr = freezed,
-    Object? December = freezed,
+    Object? January = null,
+    Object? February = null,
+    Object? March = null,
+    Object? April = null,
+    Object? May = null,
+    Object? June = null,
+    Object? July = null,
+    Object? August = null,
+    Object? September = null,
+    Object? October = null,
+    Object? Novemebr = null,
+    Object? December = null,
   }) {
     return _then(_value.copyWith(
-      January: January == freezed
+      January: null == January
           ? _value.January
           : January // ignore: cast_nullable_to_non_nullable
               as String,
-      February: February == freezed
+      February: null == February
           ? _value.February
           : February // ignore: cast_nullable_to_non_nullable
               as String,
-      March: March == freezed
+      March: null == March
           ? _value.March
           : March // ignore: cast_nullable_to_non_nullable
               as String,
-      April: April == freezed
+      April: null == April
           ? _value.April
           : April // ignore: cast_nullable_to_non_nullable
               as String,
-      May: May == freezed
+      May: null == May
           ? _value.May
           : May // ignore: cast_nullable_to_non_nullable
               as String,
-      June: June == freezed
+      June: null == June
           ? _value.June
           : June // ignore: cast_nullable_to_non_nullable
               as String,
-      July: July == freezed
+      July: null == July
           ? _value.July
           : July // ignore: cast_nullable_to_non_nullable
               as String,
-      August: August == freezed
+      August: null == August
           ? _value.August
           : August // ignore: cast_nullable_to_non_nullable
               as String,
-      September: September == freezed
+      September: null == September
           ? _value.September
           : September // ignore: cast_nullable_to_non_nullable
               as String,
-      October: October == freezed
+      October: null == October
           ? _value.October
           : October // ignore: cast_nullable_to_non_nullable
               as String,
-      Novemebr: Novemebr == freezed
+      Novemebr: null == Novemebr
           ? _value.Novemebr
           : Novemebr // ignore: cast_nullable_to_non_nullable
               as String,
-      December: December == freezed
+      December: null == December
           ? _value.December
           : December // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -145,6 +150,7 @@ abstract class _$$_AttendanceDetailMonthModelCopyWith<$Res>
           $Res Function(_$_AttendanceDetailMonthModel) then) =
       __$$_AttendanceDetailMonthModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String January,
       String February,
@@ -162,78 +168,76 @@ abstract class _$$_AttendanceDetailMonthModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_AttendanceDetailMonthModelCopyWithImpl<$Res>
-    extends _$AttendanceDetailMonthModelCopyWithImpl<$Res>
+    extends _$AttendanceDetailMonthModelCopyWithImpl<$Res,
+        _$_AttendanceDetailMonthModel>
     implements _$$_AttendanceDetailMonthModelCopyWith<$Res> {
   __$$_AttendanceDetailMonthModelCopyWithImpl(
       _$_AttendanceDetailMonthModel _value,
       $Res Function(_$_AttendanceDetailMonthModel) _then)
-      : super(_value, (v) => _then(v as _$_AttendanceDetailMonthModel));
+      : super(_value, _then);
 
-  @override
-  _$_AttendanceDetailMonthModel get _value =>
-      super._value as _$_AttendanceDetailMonthModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? January = freezed,
-    Object? February = freezed,
-    Object? March = freezed,
-    Object? April = freezed,
-    Object? May = freezed,
-    Object? June = freezed,
-    Object? July = freezed,
-    Object? August = freezed,
-    Object? September = freezed,
-    Object? October = freezed,
-    Object? Novemebr = freezed,
-    Object? December = freezed,
+    Object? January = null,
+    Object? February = null,
+    Object? March = null,
+    Object? April = null,
+    Object? May = null,
+    Object? June = null,
+    Object? July = null,
+    Object? August = null,
+    Object? September = null,
+    Object? October = null,
+    Object? Novemebr = null,
+    Object? December = null,
   }) {
     return _then(_$_AttendanceDetailMonthModel(
-      January: January == freezed
+      January: null == January
           ? _value.January
           : January // ignore: cast_nullable_to_non_nullable
               as String,
-      February: February == freezed
+      February: null == February
           ? _value.February
           : February // ignore: cast_nullable_to_non_nullable
               as String,
-      March: March == freezed
+      March: null == March
           ? _value.March
           : March // ignore: cast_nullable_to_non_nullable
               as String,
-      April: April == freezed
+      April: null == April
           ? _value.April
           : April // ignore: cast_nullable_to_non_nullable
               as String,
-      May: May == freezed
+      May: null == May
           ? _value.May
           : May // ignore: cast_nullable_to_non_nullable
               as String,
-      June: June == freezed
+      June: null == June
           ? _value.June
           : June // ignore: cast_nullable_to_non_nullable
               as String,
-      July: July == freezed
+      July: null == July
           ? _value.July
           : July // ignore: cast_nullable_to_non_nullable
               as String,
-      August: August == freezed
+      August: null == August
           ? _value.August
           : August // ignore: cast_nullable_to_non_nullable
               as String,
-      September: September == freezed
+      September: null == September
           ? _value.September
           : September // ignore: cast_nullable_to_non_nullable
               as String,
-      October: October == freezed
+      October: null == October
           ? _value.October
           : October // ignore: cast_nullable_to_non_nullable
               as String,
-      Novemebr: Novemebr == freezed
+      Novemebr: null == Novemebr
           ? _value.Novemebr
           : Novemebr // ignore: cast_nullable_to_non_nullable
               as String,
-      December: December == freezed
+      December: null == December
           ? _value.December
           : December // ignore: cast_nullable_to_non_nullable
               as String,
@@ -308,39 +312,32 @@ class _$_AttendanceDetailMonthModel implements _AttendanceDetailMonthModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AttendanceDetailMonthModel &&
-            const DeepCollectionEquality().equals(other.January, January) &&
-            const DeepCollectionEquality().equals(other.February, February) &&
-            const DeepCollectionEquality().equals(other.March, March) &&
-            const DeepCollectionEquality().equals(other.April, April) &&
-            const DeepCollectionEquality().equals(other.May, May) &&
-            const DeepCollectionEquality().equals(other.June, June) &&
-            const DeepCollectionEquality().equals(other.July, July) &&
-            const DeepCollectionEquality().equals(other.August, August) &&
-            const DeepCollectionEquality().equals(other.September, September) &&
-            const DeepCollectionEquality().equals(other.October, October) &&
-            const DeepCollectionEquality().equals(other.Novemebr, Novemebr) &&
-            const DeepCollectionEquality().equals(other.December, December));
+            (identical(other.January, January) || other.January == January) &&
+            (identical(other.February, February) ||
+                other.February == February) &&
+            (identical(other.March, March) || other.March == March) &&
+            (identical(other.April, April) || other.April == April) &&
+            (identical(other.May, May) || other.May == May) &&
+            (identical(other.June, June) || other.June == June) &&
+            (identical(other.July, July) || other.July == July) &&
+            (identical(other.August, August) || other.August == August) &&
+            (identical(other.September, September) ||
+                other.September == September) &&
+            (identical(other.October, October) || other.October == October) &&
+            (identical(other.Novemebr, Novemebr) ||
+                other.Novemebr == Novemebr) &&
+            (identical(other.December, December) ||
+                other.December == December));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(January),
-      const DeepCollectionEquality().hash(February),
-      const DeepCollectionEquality().hash(March),
-      const DeepCollectionEquality().hash(April),
-      const DeepCollectionEquality().hash(May),
-      const DeepCollectionEquality().hash(June),
-      const DeepCollectionEquality().hash(July),
-      const DeepCollectionEquality().hash(August),
-      const DeepCollectionEquality().hash(September),
-      const DeepCollectionEquality().hash(October),
-      const DeepCollectionEquality().hash(Novemebr),
-      const DeepCollectionEquality().hash(December));
+  int get hashCode => Object.hash(runtimeType, January, February, March, April,
+      May, June, July, August, September, October, Novemebr, December);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AttendanceDetailMonthModelCopyWith<_$_AttendanceDetailMonthModel>
       get copyWith => __$$_AttendanceDetailMonthModelCopyWithImpl<
           _$_AttendanceDetailMonthModel>(this, _$identity);

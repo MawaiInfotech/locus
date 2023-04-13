@@ -41,7 +41,8 @@ mixin _$HolidayModel {
 abstract class $HolidayModelCopyWith<$Res> {
   factory $HolidayModelCopyWith(
           HolidayModel value, $Res Function(HolidayModel) then) =
-      _$HolidayModelCopyWithImpl<$Res>;
+      _$HolidayModelCopyWithImpl<$Res, HolidayModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "holiday_date") String date,
       @JsonKey(name: "description") String description,
@@ -51,43 +52,46 @@ abstract class $HolidayModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$HolidayModelCopyWithImpl<$Res> implements $HolidayModelCopyWith<$Res> {
+class _$HolidayModelCopyWithImpl<$Res, $Val extends HolidayModel>
+    implements $HolidayModelCopyWith<$Res> {
   _$HolidayModelCopyWithImpl(this._value, this._then);
 
-  final HolidayModel _value;
   // ignore: unused_field
-  final $Res Function(HolidayModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? date = freezed,
-    Object? description = freezed,
-    Object? type = freezed,
-    Object? religionType = freezed,
-    Object? day = freezed,
+    Object? date = null,
+    Object? description = null,
+    Object? type = null,
+    Object? religionType = null,
+    Object? day = null,
   }) {
     return _then(_value.copyWith(
-      date: date == freezed
+      date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      type: type == freezed
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      religionType: religionType == freezed
+      religionType: null == religionType
           ? _value.religionType
           : religionType // ignore: cast_nullable_to_non_nullable
               as String,
-      day: day == freezed
+      day: null == day
           ? _value.day
           : day // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -98,6 +102,7 @@ abstract class _$$_HolidayModelCopyWith<$Res>
           _$_HolidayModel value, $Res Function(_$_HolidayModel) then) =
       __$$_HolidayModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "holiday_date") String date,
       @JsonKey(name: "description") String description,
@@ -108,41 +113,39 @@ abstract class _$$_HolidayModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_HolidayModelCopyWithImpl<$Res>
-    extends _$HolidayModelCopyWithImpl<$Res>
+    extends _$HolidayModelCopyWithImpl<$Res, _$_HolidayModel>
     implements _$$_HolidayModelCopyWith<$Res> {
   __$$_HolidayModelCopyWithImpl(
       _$_HolidayModel _value, $Res Function(_$_HolidayModel) _then)
-      : super(_value, (v) => _then(v as _$_HolidayModel));
+      : super(_value, _then);
 
-  @override
-  _$_HolidayModel get _value => super._value as _$_HolidayModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? date = freezed,
-    Object? description = freezed,
-    Object? type = freezed,
-    Object? religionType = freezed,
-    Object? day = freezed,
+    Object? date = null,
+    Object? description = null,
+    Object? type = null,
+    Object? religionType = null,
+    Object? day = null,
   }) {
     return _then(_$_HolidayModel(
-      date: date == freezed
+      date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      type: type == freezed
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      religionType: religionType == freezed
+      religionType: null == religionType
           ? _value.religionType
           : religionType // ignore: cast_nullable_to_non_nullable
               as String,
-      day: day == freezed
+      day: null == day
           ? _value.day
           : day // ignore: cast_nullable_to_non_nullable
               as String,
@@ -189,27 +192,23 @@ class _$_HolidayModel implements _HolidayModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HolidayModel &&
-            const DeepCollectionEquality().equals(other.date, date) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality()
-                .equals(other.religionType, religionType) &&
-            const DeepCollectionEquality().equals(other.day, day));
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.religionType, religionType) ||
+                other.religionType == religionType) &&
+            (identical(other.day, day) || other.day == day));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(date),
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(religionType),
-      const DeepCollectionEquality().hash(day));
+  int get hashCode =>
+      Object.hash(runtimeType, date, description, type, religionType, day);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_HolidayModelCopyWith<_$_HolidayModel> get copyWith =>
       __$$_HolidayModelCopyWithImpl<_$_HolidayModel>(this, _$identity);
 

@@ -41,7 +41,8 @@ mixin _$NewJoineeModel {
 abstract class $NewJoineeModelCopyWith<$Res> {
   factory $NewJoineeModelCopyWith(
           NewJoineeModel value, $Res Function(NewJoineeModel) then) =
-      _$NewJoineeModelCopyWithImpl<$Res>;
+      _$NewJoineeModelCopyWithImpl<$Res, NewJoineeModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_first_name") String firstName,
       @JsonKey(name: "emp_last_name") String lastName,
@@ -51,44 +52,46 @@ abstract class $NewJoineeModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$NewJoineeModelCopyWithImpl<$Res>
+class _$NewJoineeModelCopyWithImpl<$Res, $Val extends NewJoineeModel>
     implements $NewJoineeModelCopyWith<$Res> {
   _$NewJoineeModelCopyWithImpl(this._value, this._then);
 
-  final NewJoineeModel _value;
   // ignore: unused_field
-  final $Res Function(NewJoineeModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? firstName = freezed,
-    Object? lastName = freezed,
-    Object? photo = freezed,
-    Object? joiningDate = freezed,
-    Object? departName = freezed,
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? photo = null,
+    Object? joiningDate = null,
+    Object? departName = null,
   }) {
     return _then(_value.copyWith(
-      firstName: firstName == freezed
+      firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String,
-      lastName: lastName == freezed
+      lastName: null == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
-      photo: photo == freezed
+      photo: null == photo
           ? _value.photo
           : photo // ignore: cast_nullable_to_non_nullable
               as String,
-      joiningDate: joiningDate == freezed
+      joiningDate: null == joiningDate
           ? _value.joiningDate
           : joiningDate // ignore: cast_nullable_to_non_nullable
               as String,
-      departName: departName == freezed
+      departName: null == departName
           ? _value.departName
           : departName // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -99,6 +102,7 @@ abstract class _$$_NewJoineeModelCopyWith<$Res>
           _$_NewJoineeModel value, $Res Function(_$_NewJoineeModel) then) =
       __$$_NewJoineeModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_first_name") String firstName,
       @JsonKey(name: "emp_last_name") String lastName,
@@ -109,41 +113,39 @@ abstract class _$$_NewJoineeModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_NewJoineeModelCopyWithImpl<$Res>
-    extends _$NewJoineeModelCopyWithImpl<$Res>
+    extends _$NewJoineeModelCopyWithImpl<$Res, _$_NewJoineeModel>
     implements _$$_NewJoineeModelCopyWith<$Res> {
   __$$_NewJoineeModelCopyWithImpl(
       _$_NewJoineeModel _value, $Res Function(_$_NewJoineeModel) _then)
-      : super(_value, (v) => _then(v as _$_NewJoineeModel));
+      : super(_value, _then);
 
-  @override
-  _$_NewJoineeModel get _value => super._value as _$_NewJoineeModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? firstName = freezed,
-    Object? lastName = freezed,
-    Object? photo = freezed,
-    Object? joiningDate = freezed,
-    Object? departName = freezed,
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? photo = null,
+    Object? joiningDate = null,
+    Object? departName = null,
   }) {
     return _then(_$_NewJoineeModel(
-      firstName: firstName == freezed
+      firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String,
-      lastName: lastName == freezed
+      lastName: null == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
-      photo: photo == freezed
+      photo: null == photo
           ? _value.photo
           : photo // ignore: cast_nullable_to_non_nullable
               as String,
-      joiningDate: joiningDate == freezed
+      joiningDate: null == joiningDate
           ? _value.joiningDate
           : joiningDate // ignore: cast_nullable_to_non_nullable
               as String,
-      departName: departName == freezed
+      departName: null == departName
           ? _value.departName
           : departName // ignore: cast_nullable_to_non_nullable
               as String,
@@ -190,27 +192,25 @@ class _$_NewJoineeModel implements _NewJoineeModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_NewJoineeModel &&
-            const DeepCollectionEquality().equals(other.firstName, firstName) &&
-            const DeepCollectionEquality().equals(other.lastName, lastName) &&
-            const DeepCollectionEquality().equals(other.photo, photo) &&
-            const DeepCollectionEquality()
-                .equals(other.joiningDate, joiningDate) &&
-            const DeepCollectionEquality()
-                .equals(other.departName, departName));
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
+            (identical(other.photo, photo) || other.photo == photo) &&
+            (identical(other.joiningDate, joiningDate) ||
+                other.joiningDate == joiningDate) &&
+            (identical(other.departName, departName) ||
+                other.departName == departName));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(firstName),
-      const DeepCollectionEquality().hash(lastName),
-      const DeepCollectionEquality().hash(photo),
-      const DeepCollectionEquality().hash(joiningDate),
-      const DeepCollectionEquality().hash(departName));
+      runtimeType, firstName, lastName, photo, joiningDate, departName);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_NewJoineeModelCopyWith<_$_NewJoineeModel> get copyWith =>
       __$$_NewJoineeModelCopyWithImpl<_$_NewJoineeModel>(this, _$identity);
 

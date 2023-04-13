@@ -34,39 +34,43 @@ mixin _$OTPVerificationModel {
 abstract class $OTPVerificationModelCopyWith<$Res> {
   factory $OTPVerificationModelCopyWith(OTPVerificationModel value,
           $Res Function(OTPVerificationModel) then) =
-      _$OTPVerificationModelCopyWithImpl<$Res>;
+      _$OTPVerificationModelCopyWithImpl<$Res, OTPVerificationModel>;
+  @useResult
   $Res call({String status, String msg, String data});
 }
 
 /// @nodoc
-class _$OTPVerificationModelCopyWithImpl<$Res>
+class _$OTPVerificationModelCopyWithImpl<$Res,
+        $Val extends OTPVerificationModel>
     implements $OTPVerificationModelCopyWith<$Res> {
   _$OTPVerificationModelCopyWithImpl(this._value, this._then);
 
-  final OTPVerificationModel _value;
   // ignore: unused_field
-  final $Res Function(OTPVerificationModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? msg = freezed,
-    Object? data = freezed,
+    Object? status = null,
+    Object? msg = null,
+    Object? data = null,
   }) {
     return _then(_value.copyWith(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      msg: msg == freezed
+      msg: null == msg
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
               as String,
-      data: data == freezed
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -77,36 +81,35 @@ abstract class _$$_OTPVerificationModelCopyWith<$Res>
           $Res Function(_$_OTPVerificationModel) then) =
       __$$_OTPVerificationModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String status, String msg, String data});
 }
 
 /// @nodoc
 class __$$_OTPVerificationModelCopyWithImpl<$Res>
-    extends _$OTPVerificationModelCopyWithImpl<$Res>
+    extends _$OTPVerificationModelCopyWithImpl<$Res, _$_OTPVerificationModel>
     implements _$$_OTPVerificationModelCopyWith<$Res> {
   __$$_OTPVerificationModelCopyWithImpl(_$_OTPVerificationModel _value,
       $Res Function(_$_OTPVerificationModel) _then)
-      : super(_value, (v) => _then(v as _$_OTPVerificationModel));
+      : super(_value, _then);
 
-  @override
-  _$_OTPVerificationModel get _value => super._value as _$_OTPVerificationModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? msg = freezed,
-    Object? data = freezed,
+    Object? status = null,
+    Object? msg = null,
+    Object? data = null,
   }) {
     return _then(_$_OTPVerificationModel(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      msg: msg == freezed
+      msg: null == msg
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
               as String,
-      data: data == freezed
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
@@ -143,21 +146,18 @@ class _$_OTPVerificationModel implements _OTPVerificationModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OTPVerificationModel &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.msg, msg) &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.msg, msg) || other.msg == msg) &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(msg),
-      const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, status, msg, data);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_OTPVerificationModelCopyWith<_$_OTPVerificationModel> get copyWith =>
       __$$_OTPVerificationModelCopyWithImpl<_$_OTPVerificationModel>(
           this, _$identity);

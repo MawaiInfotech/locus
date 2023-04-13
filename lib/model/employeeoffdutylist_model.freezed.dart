@@ -74,7 +74,8 @@ mixin _$EmployeeoffdutyListModel {
 abstract class $EmployeeoffdutyListModelCopyWith<$Res> {
   factory $EmployeeoffdutyListModelCopyWith(EmployeeoffdutyListModel value,
           $Res Function(EmployeeoffdutyListModel) then) =
-      _$EmployeeoffdutyListModelCopyWithImpl<$Res>;
+      _$EmployeeoffdutyListModelCopyWithImpl<$Res, EmployeeoffdutyListModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_code") String employeeCode,
       @JsonKey(name: "emp_name") String employeeName,
@@ -100,124 +101,127 @@ abstract class $EmployeeoffdutyListModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EmployeeoffdutyListModelCopyWithImpl<$Res>
+class _$EmployeeoffdutyListModelCopyWithImpl<$Res,
+        $Val extends EmployeeoffdutyListModel>
     implements $EmployeeoffdutyListModelCopyWith<$Res> {
   _$EmployeeoffdutyListModelCopyWithImpl(this._value, this._then);
 
-  final EmployeeoffdutyListModel _value;
   // ignore: unused_field
-  final $Res Function(EmployeeoffdutyListModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeCode = freezed,
-    Object? employeeName = freezed,
-    Object? appNumber = freezed,
-    Object? directFromHomeCode = freezed,
-    Object? directFromHomename = freezed,
-    Object? odType1 = freezed,
-    Object? odTypeName = freezed,
-    Object? odStatusCode = freezed,
-    Object? odStatusName = freezed,
-    Object? odStartDate = freezed,
-    Object? odStartTime = freezed,
-    Object? odEndDate = freezed,
-    Object? odEndTime = freezed,
-    Object? odState = freezed,
-    Object? odStateName = freezed,
-    Object? odPurpose = freezed,
-    Object? odPurposeName = freezed,
-    Object? remark = freezed,
-    Object? gatePassId = freezed,
-    Object? placetovisitCode = freezed,
-    Object? placetovisitName = freezed,
+    Object? employeeCode = null,
+    Object? employeeName = null,
+    Object? appNumber = null,
+    Object? directFromHomeCode = null,
+    Object? directFromHomename = null,
+    Object? odType1 = null,
+    Object? odTypeName = null,
+    Object? odStatusCode = null,
+    Object? odStatusName = null,
+    Object? odStartDate = null,
+    Object? odStartTime = null,
+    Object? odEndDate = null,
+    Object? odEndTime = null,
+    Object? odState = null,
+    Object? odStateName = null,
+    Object? odPurpose = null,
+    Object? odPurposeName = null,
+    Object? remark = null,
+    Object? gatePassId = null,
+    Object? placetovisitCode = null,
+    Object? placetovisitName = null,
   }) {
     return _then(_value.copyWith(
-      employeeCode: employeeCode == freezed
+      employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeName: employeeName == freezed
+      employeeName: null == employeeName
           ? _value.employeeName
           : employeeName // ignore: cast_nullable_to_non_nullable
               as String,
-      appNumber: appNumber == freezed
+      appNumber: null == appNumber
           ? _value.appNumber
           : appNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      directFromHomeCode: directFromHomeCode == freezed
+      directFromHomeCode: null == directFromHomeCode
           ? _value.directFromHomeCode
           : directFromHomeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      directFromHomename: directFromHomename == freezed
+      directFromHomename: null == directFromHomename
           ? _value.directFromHomename
           : directFromHomename // ignore: cast_nullable_to_non_nullable
               as String,
-      odType1: odType1 == freezed
+      odType1: null == odType1
           ? _value.odType1
           : odType1 // ignore: cast_nullable_to_non_nullable
               as String,
-      odTypeName: odTypeName == freezed
+      odTypeName: null == odTypeName
           ? _value.odTypeName
           : odTypeName // ignore: cast_nullable_to_non_nullable
               as String,
-      odStatusCode: odStatusCode == freezed
+      odStatusCode: null == odStatusCode
           ? _value.odStatusCode
           : odStatusCode // ignore: cast_nullable_to_non_nullable
               as String,
-      odStatusName: odStatusName == freezed
+      odStatusName: null == odStatusName
           ? _value.odStatusName
           : odStatusName // ignore: cast_nullable_to_non_nullable
               as String,
-      odStartDate: odStartDate == freezed
+      odStartDate: null == odStartDate
           ? _value.odStartDate
           : odStartDate // ignore: cast_nullable_to_non_nullable
               as String,
-      odStartTime: odStartTime == freezed
+      odStartTime: null == odStartTime
           ? _value.odStartTime
           : odStartTime // ignore: cast_nullable_to_non_nullable
               as String,
-      odEndDate: odEndDate == freezed
+      odEndDate: null == odEndDate
           ? _value.odEndDate
           : odEndDate // ignore: cast_nullable_to_non_nullable
               as String,
-      odEndTime: odEndTime == freezed
+      odEndTime: null == odEndTime
           ? _value.odEndTime
           : odEndTime // ignore: cast_nullable_to_non_nullable
               as String,
-      odState: odState == freezed
+      odState: null == odState
           ? _value.odState
           : odState // ignore: cast_nullable_to_non_nullable
               as String,
-      odStateName: odStateName == freezed
+      odStateName: null == odStateName
           ? _value.odStateName
           : odStateName // ignore: cast_nullable_to_non_nullable
               as String,
-      odPurpose: odPurpose == freezed
+      odPurpose: null == odPurpose
           ? _value.odPurpose
           : odPurpose // ignore: cast_nullable_to_non_nullable
               as String,
-      odPurposeName: odPurposeName == freezed
+      odPurposeName: null == odPurposeName
           ? _value.odPurposeName
           : odPurposeName // ignore: cast_nullable_to_non_nullable
               as String,
-      remark: remark == freezed
+      remark: null == remark
           ? _value.remark
           : remark // ignore: cast_nullable_to_non_nullable
               as String,
-      gatePassId: gatePassId == freezed
+      gatePassId: null == gatePassId
           ? _value.gatePassId
           : gatePassId // ignore: cast_nullable_to_non_nullable
               as int,
-      placetovisitCode: placetovisitCode == freezed
+      placetovisitCode: null == placetovisitCode
           ? _value.placetovisitCode
           : placetovisitCode // ignore: cast_nullable_to_non_nullable
               as String,
-      placetovisitName: placetovisitName == freezed
+      placetovisitName: null == placetovisitName
           ? _value.placetovisitName
           : placetovisitName // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -229,6 +233,7 @@ abstract class _$$_EmployeeoffdutyListModelCopyWith<$Res>
           $Res Function(_$_EmployeeoffdutyListModel) then) =
       __$$_EmployeeoffdutyListModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_code") String employeeCode,
       @JsonKey(name: "emp_name") String employeeName,
@@ -255,122 +260,120 @@ abstract class _$$_EmployeeoffdutyListModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_EmployeeoffdutyListModelCopyWithImpl<$Res>
-    extends _$EmployeeoffdutyListModelCopyWithImpl<$Res>
+    extends _$EmployeeoffdutyListModelCopyWithImpl<$Res,
+        _$_EmployeeoffdutyListModel>
     implements _$$_EmployeeoffdutyListModelCopyWith<$Res> {
   __$$_EmployeeoffdutyListModelCopyWithImpl(_$_EmployeeoffdutyListModel _value,
       $Res Function(_$_EmployeeoffdutyListModel) _then)
-      : super(_value, (v) => _then(v as _$_EmployeeoffdutyListModel));
+      : super(_value, _then);
 
-  @override
-  _$_EmployeeoffdutyListModel get _value =>
-      super._value as _$_EmployeeoffdutyListModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeCode = freezed,
-    Object? employeeName = freezed,
-    Object? appNumber = freezed,
-    Object? directFromHomeCode = freezed,
-    Object? directFromHomename = freezed,
-    Object? odType1 = freezed,
-    Object? odTypeName = freezed,
-    Object? odStatusCode = freezed,
-    Object? odStatusName = freezed,
-    Object? odStartDate = freezed,
-    Object? odStartTime = freezed,
-    Object? odEndDate = freezed,
-    Object? odEndTime = freezed,
-    Object? odState = freezed,
-    Object? odStateName = freezed,
-    Object? odPurpose = freezed,
-    Object? odPurposeName = freezed,
-    Object? remark = freezed,
-    Object? gatePassId = freezed,
-    Object? placetovisitCode = freezed,
-    Object? placetovisitName = freezed,
+    Object? employeeCode = null,
+    Object? employeeName = null,
+    Object? appNumber = null,
+    Object? directFromHomeCode = null,
+    Object? directFromHomename = null,
+    Object? odType1 = null,
+    Object? odTypeName = null,
+    Object? odStatusCode = null,
+    Object? odStatusName = null,
+    Object? odStartDate = null,
+    Object? odStartTime = null,
+    Object? odEndDate = null,
+    Object? odEndTime = null,
+    Object? odState = null,
+    Object? odStateName = null,
+    Object? odPurpose = null,
+    Object? odPurposeName = null,
+    Object? remark = null,
+    Object? gatePassId = null,
+    Object? placetovisitCode = null,
+    Object? placetovisitName = null,
   }) {
     return _then(_$_EmployeeoffdutyListModel(
-      employeeCode: employeeCode == freezed
+      employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeName: employeeName == freezed
+      employeeName: null == employeeName
           ? _value.employeeName
           : employeeName // ignore: cast_nullable_to_non_nullable
               as String,
-      appNumber: appNumber == freezed
+      appNumber: null == appNumber
           ? _value.appNumber
           : appNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      directFromHomeCode: directFromHomeCode == freezed
+      directFromHomeCode: null == directFromHomeCode
           ? _value.directFromHomeCode
           : directFromHomeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      directFromHomename: directFromHomename == freezed
+      directFromHomename: null == directFromHomename
           ? _value.directFromHomename
           : directFromHomename // ignore: cast_nullable_to_non_nullable
               as String,
-      odType1: odType1 == freezed
+      odType1: null == odType1
           ? _value.odType1
           : odType1 // ignore: cast_nullable_to_non_nullable
               as String,
-      odTypeName: odTypeName == freezed
+      odTypeName: null == odTypeName
           ? _value.odTypeName
           : odTypeName // ignore: cast_nullable_to_non_nullable
               as String,
-      odStatusCode: odStatusCode == freezed
+      odStatusCode: null == odStatusCode
           ? _value.odStatusCode
           : odStatusCode // ignore: cast_nullable_to_non_nullable
               as String,
-      odStatusName: odStatusName == freezed
+      odStatusName: null == odStatusName
           ? _value.odStatusName
           : odStatusName // ignore: cast_nullable_to_non_nullable
               as String,
-      odStartDate: odStartDate == freezed
+      odStartDate: null == odStartDate
           ? _value.odStartDate
           : odStartDate // ignore: cast_nullable_to_non_nullable
               as String,
-      odStartTime: odStartTime == freezed
+      odStartTime: null == odStartTime
           ? _value.odStartTime
           : odStartTime // ignore: cast_nullable_to_non_nullable
               as String,
-      odEndDate: odEndDate == freezed
+      odEndDate: null == odEndDate
           ? _value.odEndDate
           : odEndDate // ignore: cast_nullable_to_non_nullable
               as String,
-      odEndTime: odEndTime == freezed
+      odEndTime: null == odEndTime
           ? _value.odEndTime
           : odEndTime // ignore: cast_nullable_to_non_nullable
               as String,
-      odState: odState == freezed
+      odState: null == odState
           ? _value.odState
           : odState // ignore: cast_nullable_to_non_nullable
               as String,
-      odStateName: odStateName == freezed
+      odStateName: null == odStateName
           ? _value.odStateName
           : odStateName // ignore: cast_nullable_to_non_nullable
               as String,
-      odPurpose: odPurpose == freezed
+      odPurpose: null == odPurpose
           ? _value.odPurpose
           : odPurpose // ignore: cast_nullable_to_non_nullable
               as String,
-      odPurposeName: odPurposeName == freezed
+      odPurposeName: null == odPurposeName
           ? _value.odPurposeName
           : odPurposeName // ignore: cast_nullable_to_non_nullable
               as String,
-      remark: remark == freezed
+      remark: null == remark
           ? _value.remark
           : remark // ignore: cast_nullable_to_non_nullable
               as String,
-      gatePassId: gatePassId == freezed
+      gatePassId: null == gatePassId
           ? _value.gatePassId
           : gatePassId // ignore: cast_nullable_to_non_nullable
               as int,
-      placetovisitCode: placetovisitCode == freezed
+      placetovisitCode: null == placetovisitCode
           ? _value.placetovisitCode
           : placetovisitCode // ignore: cast_nullable_to_non_nullable
               as String,
-      placetovisitName: placetovisitName == freezed
+      placetovisitName: null == placetovisitName
           ? _value.placetovisitName
           : placetovisitName // ignore: cast_nullable_to_non_nullable
               as String,
@@ -481,72 +484,77 @@ class _$_EmployeeoffdutyListModel implements _EmployeeoffdutyListModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EmployeeoffdutyListModel &&
-            const DeepCollectionEquality()
-                .equals(other.employeeCode, employeeCode) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeName, employeeName) &&
-            const DeepCollectionEquality().equals(other.appNumber, appNumber) &&
-            const DeepCollectionEquality()
-                .equals(other.directFromHomeCode, directFromHomeCode) &&
-            const DeepCollectionEquality()
-                .equals(other.directFromHomename, directFromHomename) &&
-            const DeepCollectionEquality().equals(other.odType1, odType1) &&
-            const DeepCollectionEquality()
-                .equals(other.odTypeName, odTypeName) &&
-            const DeepCollectionEquality()
-                .equals(other.odStatusCode, odStatusCode) &&
-            const DeepCollectionEquality()
-                .equals(other.odStatusName, odStatusName) &&
-            const DeepCollectionEquality()
-                .equals(other.odStartDate, odStartDate) &&
-            const DeepCollectionEquality()
-                .equals(other.odStartTime, odStartTime) &&
-            const DeepCollectionEquality().equals(other.odEndDate, odEndDate) &&
-            const DeepCollectionEquality().equals(other.odEndTime, odEndTime) &&
-            const DeepCollectionEquality().equals(other.odState, odState) &&
-            const DeepCollectionEquality()
-                .equals(other.odStateName, odStateName) &&
-            const DeepCollectionEquality().equals(other.odPurpose, odPurpose) &&
-            const DeepCollectionEquality()
-                .equals(other.odPurposeName, odPurposeName) &&
-            const DeepCollectionEquality().equals(other.remark, remark) &&
-            const DeepCollectionEquality()
-                .equals(other.gatePassId, gatePassId) &&
-            const DeepCollectionEquality()
-                .equals(other.placetovisitCode, placetovisitCode) &&
-            const DeepCollectionEquality()
-                .equals(other.placetovisitName, placetovisitName));
+            (identical(other.employeeCode, employeeCode) ||
+                other.employeeCode == employeeCode) &&
+            (identical(other.employeeName, employeeName) ||
+                other.employeeName == employeeName) &&
+            (identical(other.appNumber, appNumber) ||
+                other.appNumber == appNumber) &&
+            (identical(other.directFromHomeCode, directFromHomeCode) ||
+                other.directFromHomeCode == directFromHomeCode) &&
+            (identical(other.directFromHomename, directFromHomename) ||
+                other.directFromHomename == directFromHomename) &&
+            (identical(other.odType1, odType1) || other.odType1 == odType1) &&
+            (identical(other.odTypeName, odTypeName) ||
+                other.odTypeName == odTypeName) &&
+            (identical(other.odStatusCode, odStatusCode) ||
+                other.odStatusCode == odStatusCode) &&
+            (identical(other.odStatusName, odStatusName) ||
+                other.odStatusName == odStatusName) &&
+            (identical(other.odStartDate, odStartDate) ||
+                other.odStartDate == odStartDate) &&
+            (identical(other.odStartTime, odStartTime) ||
+                other.odStartTime == odStartTime) &&
+            (identical(other.odEndDate, odEndDate) ||
+                other.odEndDate == odEndDate) &&
+            (identical(other.odEndTime, odEndTime) ||
+                other.odEndTime == odEndTime) &&
+            (identical(other.odState, odState) || other.odState == odState) &&
+            (identical(other.odStateName, odStateName) ||
+                other.odStateName == odStateName) &&
+            (identical(other.odPurpose, odPurpose) ||
+                other.odPurpose == odPurpose) &&
+            (identical(other.odPurposeName, odPurposeName) ||
+                other.odPurposeName == odPurposeName) &&
+            (identical(other.remark, remark) || other.remark == remark) &&
+            (identical(other.gatePassId, gatePassId) ||
+                other.gatePassId == gatePassId) &&
+            (identical(other.placetovisitCode, placetovisitCode) ||
+                other.placetovisitCode == placetovisitCode) &&
+            (identical(other.placetovisitName, placetovisitName) ||
+                other.placetovisitName == placetovisitName));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
-        const DeepCollectionEquality().hash(employeeCode),
-        const DeepCollectionEquality().hash(employeeName),
-        const DeepCollectionEquality().hash(appNumber),
-        const DeepCollectionEquality().hash(directFromHomeCode),
-        const DeepCollectionEquality().hash(directFromHomename),
-        const DeepCollectionEquality().hash(odType1),
-        const DeepCollectionEquality().hash(odTypeName),
-        const DeepCollectionEquality().hash(odStatusCode),
-        const DeepCollectionEquality().hash(odStatusName),
-        const DeepCollectionEquality().hash(odStartDate),
-        const DeepCollectionEquality().hash(odStartTime),
-        const DeepCollectionEquality().hash(odEndDate),
-        const DeepCollectionEquality().hash(odEndTime),
-        const DeepCollectionEquality().hash(odState),
-        const DeepCollectionEquality().hash(odStateName),
-        const DeepCollectionEquality().hash(odPurpose),
-        const DeepCollectionEquality().hash(odPurposeName),
-        const DeepCollectionEquality().hash(remark),
-        const DeepCollectionEquality().hash(gatePassId),
-        const DeepCollectionEquality().hash(placetovisitCode),
-        const DeepCollectionEquality().hash(placetovisitName)
+        employeeCode,
+        employeeName,
+        appNumber,
+        directFromHomeCode,
+        directFromHomename,
+        odType1,
+        odTypeName,
+        odStatusCode,
+        odStatusName,
+        odStartDate,
+        odStartTime,
+        odEndDate,
+        odEndTime,
+        odState,
+        odStateName,
+        odPurpose,
+        odPurposeName,
+        remark,
+        gatePassId,
+        placetovisitCode,
+        placetovisitName
       ]);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EmployeeoffdutyListModelCopyWith<_$_EmployeeoffdutyListModel>
       get copyWith => __$$_EmployeeoffdutyListModelCopyWithImpl<
           _$_EmployeeoffdutyListModel>(this, _$identity);

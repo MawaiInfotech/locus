@@ -37,7 +37,8 @@ mixin _$TeamAttendanceSuppModel {
 abstract class $TeamAttendanceSuppModelCopyWith<$Res> {
   factory $TeamAttendanceSuppModelCopyWith(TeamAttendanceSuppModel value,
           $Res Function(TeamAttendanceSuppModel) then) =
-      _$TeamAttendanceSuppModelCopyWithImpl<$Res>;
+      _$TeamAttendanceSuppModelCopyWithImpl<$Res, TeamAttendanceSuppModel>;
+  @useResult
   $Res call(
       {List<TeamAttendanceModel> team_atten,
       List<TeamEmployeeListModel> employee,
@@ -45,34 +46,37 @@ abstract class $TeamAttendanceSuppModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TeamAttendanceSuppModelCopyWithImpl<$Res>
+class _$TeamAttendanceSuppModelCopyWithImpl<$Res,
+        $Val extends TeamAttendanceSuppModel>
     implements $TeamAttendanceSuppModelCopyWith<$Res> {
   _$TeamAttendanceSuppModelCopyWithImpl(this._value, this._then);
 
-  final TeamAttendanceSuppModel _value;
   // ignore: unused_field
-  final $Res Function(TeamAttendanceSuppModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? team_atten = freezed,
-    Object? employee = freezed,
-    Object? month = freezed,
+    Object? team_atten = null,
+    Object? employee = null,
+    Object? month = null,
   }) {
     return _then(_value.copyWith(
-      team_atten: team_atten == freezed
+      team_atten: null == team_atten
           ? _value.team_atten
           : team_atten // ignore: cast_nullable_to_non_nullable
               as List<TeamAttendanceModel>,
-      employee: employee == freezed
+      employee: null == employee
           ? _value.employee
           : employee // ignore: cast_nullable_to_non_nullable
               as List<TeamEmployeeListModel>,
-      month: month == freezed
+      month: null == month
           ? _value.month
           : month // ignore: cast_nullable_to_non_nullable
               as List<String>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -83,6 +87,7 @@ abstract class _$$_TeamAttendanceSuppModelCopyWith<$Res>
           $Res Function(_$_TeamAttendanceSuppModel) then) =
       __$$_TeamAttendanceSuppModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {List<TeamAttendanceModel> team_atten,
       List<TeamEmployeeListModel> employee,
@@ -91,32 +96,30 @@ abstract class _$$_TeamAttendanceSuppModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_TeamAttendanceSuppModelCopyWithImpl<$Res>
-    extends _$TeamAttendanceSuppModelCopyWithImpl<$Res>
+    extends _$TeamAttendanceSuppModelCopyWithImpl<$Res,
+        _$_TeamAttendanceSuppModel>
     implements _$$_TeamAttendanceSuppModelCopyWith<$Res> {
   __$$_TeamAttendanceSuppModelCopyWithImpl(_$_TeamAttendanceSuppModel _value,
       $Res Function(_$_TeamAttendanceSuppModel) _then)
-      : super(_value, (v) => _then(v as _$_TeamAttendanceSuppModel));
+      : super(_value, _then);
 
-  @override
-  _$_TeamAttendanceSuppModel get _value =>
-      super._value as _$_TeamAttendanceSuppModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? team_atten = freezed,
-    Object? employee = freezed,
-    Object? month = freezed,
+    Object? team_atten = null,
+    Object? employee = null,
+    Object? month = null,
   }) {
     return _then(_$_TeamAttendanceSuppModel(
-      team_atten: team_atten == freezed
+      team_atten: null == team_atten
           ? _value._team_atten
           : team_atten // ignore: cast_nullable_to_non_nullable
               as List<TeamAttendanceModel>,
-      employee: employee == freezed
+      employee: null == employee
           ? _value._employee
           : employee // ignore: cast_nullable_to_non_nullable
               as List<TeamEmployeeListModel>,
-      month: month == freezed
+      month: null == month
           ? _value._month
           : month // ignore: cast_nullable_to_non_nullable
               as List<String>,
@@ -190,6 +193,7 @@ class _$_TeamAttendanceSuppModel implements _TeamAttendanceSuppModel {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TeamAttendanceSuppModelCopyWith<_$_TeamAttendanceSuppModel>
       get copyWith =>
           __$$_TeamAttendanceSuppModelCopyWithImpl<_$_TeamAttendanceSuppModel>(

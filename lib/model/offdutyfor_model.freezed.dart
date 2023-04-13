@@ -35,36 +35,39 @@ mixin _$OffdutyForModel {
 abstract class $OffdutyForModelCopyWith<$Res> {
   factory $OffdutyForModelCopyWith(
           OffdutyForModel value, $Res Function(OffdutyForModel) then) =
-      _$OffdutyForModelCopyWithImpl<$Res>;
+      _$OffdutyForModelCopyWithImpl<$Res, OffdutyForModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "code") String code,
       @JsonKey(name: "desc") String description});
 }
 
 /// @nodoc
-class _$OffdutyForModelCopyWithImpl<$Res>
+class _$OffdutyForModelCopyWithImpl<$Res, $Val extends OffdutyForModel>
     implements $OffdutyForModelCopyWith<$Res> {
   _$OffdutyForModelCopyWithImpl(this._value, this._then);
 
-  final OffdutyForModel _value;
   // ignore: unused_field
-  final $Res Function(OffdutyForModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
-    Object? description = freezed,
+    Object? code = null,
+    Object? description = null,
   }) {
     return _then(_value.copyWith(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -75,6 +78,7 @@ abstract class _$$_OffdutyForModelCopyWith<$Res>
           _$_OffdutyForModel value, $Res Function(_$_OffdutyForModel) then) =
       __$$_OffdutyForModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "code") String code,
       @JsonKey(name: "desc") String description});
@@ -82,26 +86,24 @@ abstract class _$$_OffdutyForModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_OffdutyForModelCopyWithImpl<$Res>
-    extends _$OffdutyForModelCopyWithImpl<$Res>
+    extends _$OffdutyForModelCopyWithImpl<$Res, _$_OffdutyForModel>
     implements _$$_OffdutyForModelCopyWith<$Res> {
   __$$_OffdutyForModelCopyWithImpl(
       _$_OffdutyForModel _value, $Res Function(_$_OffdutyForModel) _then)
-      : super(_value, (v) => _then(v as _$_OffdutyForModel));
+      : super(_value, _then);
 
-  @override
-  _$_OffdutyForModel get _value => super._value as _$_OffdutyForModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
-    Object? description = freezed,
+    Object? code = null,
+    Object? description = null,
   }) {
     return _then(_$_OffdutyForModel(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
@@ -136,20 +138,18 @@ class _$_OffdutyForModel implements _OffdutyForModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OffdutyForModel &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description));
+            (identical(other.code, code) || other.code == code) &&
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(description));
+  int get hashCode => Object.hash(runtimeType, code, description);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_OffdutyForModelCopyWith<_$_OffdutyForModel> get copyWith =>
       __$$_OffdutyForModelCopyWithImpl<_$_OffdutyForModel>(this, _$identity);
 

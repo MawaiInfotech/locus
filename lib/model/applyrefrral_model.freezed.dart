@@ -33,34 +33,37 @@ mixin _$ApplyReferralModel {
 abstract class $ApplyReferralModelCopyWith<$Res> {
   factory $ApplyReferralModelCopyWith(
           ApplyReferralModel value, $Res Function(ApplyReferralModel) then) =
-      _$ApplyReferralModelCopyWithImpl<$Res>;
+      _$ApplyReferralModelCopyWithImpl<$Res, ApplyReferralModel>;
+  @useResult
   $Res call({String status, String message});
 }
 
 /// @nodoc
-class _$ApplyReferralModelCopyWithImpl<$Res>
+class _$ApplyReferralModelCopyWithImpl<$Res, $Val extends ApplyReferralModel>
     implements $ApplyReferralModelCopyWith<$Res> {
   _$ApplyReferralModelCopyWithImpl(this._value, this._then);
 
-  final ApplyReferralModel _value;
   // ignore: unused_field
-  final $Res Function(ApplyReferralModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
+    Object? status = null,
+    Object? message = null,
   }) {
     return _then(_value.copyWith(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,31 +74,30 @@ abstract class _$$_ApplyReferralModelCopyWith<$Res>
           $Res Function(_$_ApplyReferralModel) then) =
       __$$_ApplyReferralModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String status, String message});
 }
 
 /// @nodoc
 class __$$_ApplyReferralModelCopyWithImpl<$Res>
-    extends _$ApplyReferralModelCopyWithImpl<$Res>
+    extends _$ApplyReferralModelCopyWithImpl<$Res, _$_ApplyReferralModel>
     implements _$$_ApplyReferralModelCopyWith<$Res> {
   __$$_ApplyReferralModelCopyWithImpl(
       _$_ApplyReferralModel _value, $Res Function(_$_ApplyReferralModel) _then)
-      : super(_value, (v) => _then(v as _$_ApplyReferralModel));
+      : super(_value, _then);
 
-  @override
-  _$_ApplyReferralModel get _value => super._value as _$_ApplyReferralModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
+    Object? status = null,
+    Object? message = null,
   }) {
     return _then(_$_ApplyReferralModel(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -128,19 +130,17 @@ class _$_ApplyReferralModel implements _ApplyReferralModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ApplyReferralModel &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, status, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ApplyReferralModelCopyWith<_$_ApplyReferralModel> get copyWith =>
       __$$_ApplyReferralModelCopyWithImpl<_$_ApplyReferralModel>(
           this, _$identity);

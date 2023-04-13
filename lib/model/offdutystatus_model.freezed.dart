@@ -35,36 +35,39 @@ mixin _$OffdutyStatusModel {
 abstract class $OffdutyStatusModelCopyWith<$Res> {
   factory $OffdutyStatusModelCopyWith(
           OffdutyStatusModel value, $Res Function(OffdutyStatusModel) then) =
-      _$OffdutyStatusModelCopyWithImpl<$Res>;
+      _$OffdutyStatusModelCopyWithImpl<$Res, OffdutyStatusModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "code") String code,
       @JsonKey(name: "desc") String description});
 }
 
 /// @nodoc
-class _$OffdutyStatusModelCopyWithImpl<$Res>
+class _$OffdutyStatusModelCopyWithImpl<$Res, $Val extends OffdutyStatusModel>
     implements $OffdutyStatusModelCopyWith<$Res> {
   _$OffdutyStatusModelCopyWithImpl(this._value, this._then);
 
-  final OffdutyStatusModel _value;
   // ignore: unused_field
-  final $Res Function(OffdutyStatusModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
-    Object? description = freezed,
+    Object? code = null,
+    Object? description = null,
   }) {
     return _then(_value.copyWith(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -75,6 +78,7 @@ abstract class _$$_OffdutyStatusModelCopyWith<$Res>
           $Res Function(_$_OffdutyStatusModel) then) =
       __$$_OffdutyStatusModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "code") String code,
       @JsonKey(name: "desc") String description});
@@ -82,26 +86,24 @@ abstract class _$$_OffdutyStatusModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_OffdutyStatusModelCopyWithImpl<$Res>
-    extends _$OffdutyStatusModelCopyWithImpl<$Res>
+    extends _$OffdutyStatusModelCopyWithImpl<$Res, _$_OffdutyStatusModel>
     implements _$$_OffdutyStatusModelCopyWith<$Res> {
   __$$_OffdutyStatusModelCopyWithImpl(
       _$_OffdutyStatusModel _value, $Res Function(_$_OffdutyStatusModel) _then)
-      : super(_value, (v) => _then(v as _$_OffdutyStatusModel));
+      : super(_value, _then);
 
-  @override
-  _$_OffdutyStatusModel get _value => super._value as _$_OffdutyStatusModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
-    Object? description = freezed,
+    Object? code = null,
+    Object? description = null,
   }) {
     return _then(_$_OffdutyStatusModel(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
@@ -136,20 +138,18 @@ class _$_OffdutyStatusModel implements _OffdutyStatusModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OffdutyStatusModel &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description));
+            (identical(other.code, code) || other.code == code) &&
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(description));
+  int get hashCode => Object.hash(runtimeType, code, description);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_OffdutyStatusModelCopyWith<_$_OffdutyStatusModel> get copyWith =>
       __$$_OffdutyStatusModelCopyWithImpl<_$_OffdutyStatusModel>(
           this, _$identity);

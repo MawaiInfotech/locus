@@ -35,36 +35,39 @@ mixin _$LeavetypeModel {
 abstract class $LeavetypeModelCopyWith<$Res> {
   factory $LeavetypeModelCopyWith(
           LeavetypeModel value, $Res Function(LeavetypeModel) then) =
-      _$LeavetypeModelCopyWithImpl<$Res>;
+      _$LeavetypeModelCopyWithImpl<$Res, LeavetypeModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "control_code") String controlCode,
       @JsonKey(name: "meaning") String meaning});
 }
 
 /// @nodoc
-class _$LeavetypeModelCopyWithImpl<$Res>
+class _$LeavetypeModelCopyWithImpl<$Res, $Val extends LeavetypeModel>
     implements $LeavetypeModelCopyWith<$Res> {
   _$LeavetypeModelCopyWithImpl(this._value, this._then);
 
-  final LeavetypeModel _value;
   // ignore: unused_field
-  final $Res Function(LeavetypeModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? controlCode = freezed,
-    Object? meaning = freezed,
+    Object? controlCode = null,
+    Object? meaning = null,
   }) {
     return _then(_value.copyWith(
-      controlCode: controlCode == freezed
+      controlCode: null == controlCode
           ? _value.controlCode
           : controlCode // ignore: cast_nullable_to_non_nullable
               as String,
-      meaning: meaning == freezed
+      meaning: null == meaning
           ? _value.meaning
           : meaning // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -75,6 +78,7 @@ abstract class _$$_LeavetypeModelCopyWith<$Res>
           _$_LeavetypeModel value, $Res Function(_$_LeavetypeModel) then) =
       __$$_LeavetypeModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "control_code") String controlCode,
       @JsonKey(name: "meaning") String meaning});
@@ -82,26 +86,24 @@ abstract class _$$_LeavetypeModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_LeavetypeModelCopyWithImpl<$Res>
-    extends _$LeavetypeModelCopyWithImpl<$Res>
+    extends _$LeavetypeModelCopyWithImpl<$Res, _$_LeavetypeModel>
     implements _$$_LeavetypeModelCopyWith<$Res> {
   __$$_LeavetypeModelCopyWithImpl(
       _$_LeavetypeModel _value, $Res Function(_$_LeavetypeModel) _then)
-      : super(_value, (v) => _then(v as _$_LeavetypeModel));
+      : super(_value, _then);
 
-  @override
-  _$_LeavetypeModel get _value => super._value as _$_LeavetypeModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? controlCode = freezed,
-    Object? meaning = freezed,
+    Object? controlCode = null,
+    Object? meaning = null,
   }) {
     return _then(_$_LeavetypeModel(
-      controlCode: controlCode == freezed
+      controlCode: null == controlCode
           ? _value.controlCode
           : controlCode // ignore: cast_nullable_to_non_nullable
               as String,
-      meaning: meaning == freezed
+      meaning: null == meaning
           ? _value.meaning
           : meaning // ignore: cast_nullable_to_non_nullable
               as String,
@@ -136,20 +138,18 @@ class _$_LeavetypeModel implements _LeavetypeModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LeavetypeModel &&
-            const DeepCollectionEquality()
-                .equals(other.controlCode, controlCode) &&
-            const DeepCollectionEquality().equals(other.meaning, meaning));
+            (identical(other.controlCode, controlCode) ||
+                other.controlCode == controlCode) &&
+            (identical(other.meaning, meaning) || other.meaning == meaning));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(controlCode),
-      const DeepCollectionEquality().hash(meaning));
+  int get hashCode => Object.hash(runtimeType, controlCode, meaning);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LeavetypeModelCopyWith<_$_LeavetypeModel> get copyWith =>
       __$$_LeavetypeModelCopyWithImpl<_$_LeavetypeModel>(this, _$identity);
 

@@ -45,7 +45,8 @@ mixin _$MyWorkfromHomeModel {
 abstract class $MyWorkfromHomeModelCopyWith<$Res> {
   factory $MyWorkfromHomeModelCopyWith(
           MyWorkfromHomeModel value, $Res Function(MyWorkfromHomeModel) then) =
-      _$MyWorkfromHomeModelCopyWithImpl<$Res>;
+      _$MyWorkfromHomeModelCopyWithImpl<$Res, MyWorkfromHomeModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "empmemb_emp_master_emp_number") String empNumber,
       @JsonKey(name: "from_date") String fromDate,
@@ -57,54 +58,56 @@ abstract class $MyWorkfromHomeModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MyWorkfromHomeModelCopyWithImpl<$Res>
+class _$MyWorkfromHomeModelCopyWithImpl<$Res, $Val extends MyWorkfromHomeModel>
     implements $MyWorkfromHomeModelCopyWith<$Res> {
   _$MyWorkfromHomeModelCopyWithImpl(this._value, this._then);
 
-  final MyWorkfromHomeModel _value;
   // ignore: unused_field
-  final $Res Function(MyWorkfromHomeModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? empNumber = freezed,
-    Object? fromDate = freezed,
-    Object? endDate = freezed,
-    Object? granted = freezed,
-    Object? days = freezed,
-    Object? reason = freezed,
-    Object? appNumber = freezed,
+    Object? empNumber = null,
+    Object? fromDate = null,
+    Object? endDate = null,
+    Object? granted = null,
+    Object? days = null,
+    Object? reason = null,
+    Object? appNumber = null,
   }) {
     return _then(_value.copyWith(
-      empNumber: empNumber == freezed
+      empNumber: null == empNumber
           ? _value.empNumber
           : empNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      fromDate: fromDate == freezed
+      fromDate: null == fromDate
           ? _value.fromDate
           : fromDate // ignore: cast_nullable_to_non_nullable
               as String,
-      endDate: endDate == freezed
+      endDate: null == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as String,
-      granted: granted == freezed
+      granted: null == granted
           ? _value.granted
           : granted // ignore: cast_nullable_to_non_nullable
               as String,
-      days: days == freezed
+      days: null == days
           ? _value.days
           : days // ignore: cast_nullable_to_non_nullable
               as String,
-      reason: reason == freezed
+      reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as String,
-      appNumber: appNumber == freezed
+      appNumber: null == appNumber
           ? _value.appNumber
           : appNumber // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -115,6 +118,7 @@ abstract class _$$_MyWorkfromHomeModelCopyWith<$Res>
           $Res Function(_$_MyWorkfromHomeModel) then) =
       __$$_MyWorkfromHomeModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "empmemb_emp_master_emp_number") String empNumber,
       @JsonKey(name: "from_date") String fromDate,
@@ -127,51 +131,49 @@ abstract class _$$_MyWorkfromHomeModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_MyWorkfromHomeModelCopyWithImpl<$Res>
-    extends _$MyWorkfromHomeModelCopyWithImpl<$Res>
+    extends _$MyWorkfromHomeModelCopyWithImpl<$Res, _$_MyWorkfromHomeModel>
     implements _$$_MyWorkfromHomeModelCopyWith<$Res> {
   __$$_MyWorkfromHomeModelCopyWithImpl(_$_MyWorkfromHomeModel _value,
       $Res Function(_$_MyWorkfromHomeModel) _then)
-      : super(_value, (v) => _then(v as _$_MyWorkfromHomeModel));
+      : super(_value, _then);
 
-  @override
-  _$_MyWorkfromHomeModel get _value => super._value as _$_MyWorkfromHomeModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? empNumber = freezed,
-    Object? fromDate = freezed,
-    Object? endDate = freezed,
-    Object? granted = freezed,
-    Object? days = freezed,
-    Object? reason = freezed,
-    Object? appNumber = freezed,
+    Object? empNumber = null,
+    Object? fromDate = null,
+    Object? endDate = null,
+    Object? granted = null,
+    Object? days = null,
+    Object? reason = null,
+    Object? appNumber = null,
   }) {
     return _then(_$_MyWorkfromHomeModel(
-      empNumber: empNumber == freezed
+      empNumber: null == empNumber
           ? _value.empNumber
           : empNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      fromDate: fromDate == freezed
+      fromDate: null == fromDate
           ? _value.fromDate
           : fromDate // ignore: cast_nullable_to_non_nullable
               as String,
-      endDate: endDate == freezed
+      endDate: null == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as String,
-      granted: granted == freezed
+      granted: null == granted
           ? _value.granted
           : granted // ignore: cast_nullable_to_non_nullable
               as String,
-      days: days == freezed
+      days: null == days
           ? _value.days
           : days // ignore: cast_nullable_to_non_nullable
               as String,
-      reason: reason == freezed
+      reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as String,
-      appNumber: appNumber == freezed
+      appNumber: null == appNumber
           ? _value.appNumber
           : appNumber // ignore: cast_nullable_to_non_nullable
               as String,
@@ -226,29 +228,26 @@ class _$_MyWorkfromHomeModel implements _MyWorkfromHomeModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MyWorkfromHomeModel &&
-            const DeepCollectionEquality().equals(other.empNumber, empNumber) &&
-            const DeepCollectionEquality().equals(other.fromDate, fromDate) &&
-            const DeepCollectionEquality().equals(other.endDate, endDate) &&
-            const DeepCollectionEquality().equals(other.granted, granted) &&
-            const DeepCollectionEquality().equals(other.days, days) &&
-            const DeepCollectionEquality().equals(other.reason, reason) &&
-            const DeepCollectionEquality().equals(other.appNumber, appNumber));
+            (identical(other.empNumber, empNumber) ||
+                other.empNumber == empNumber) &&
+            (identical(other.fromDate, fromDate) ||
+                other.fromDate == fromDate) &&
+            (identical(other.endDate, endDate) || other.endDate == endDate) &&
+            (identical(other.granted, granted) || other.granted == granted) &&
+            (identical(other.days, days) || other.days == days) &&
+            (identical(other.reason, reason) || other.reason == reason) &&
+            (identical(other.appNumber, appNumber) ||
+                other.appNumber == appNumber));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(empNumber),
-      const DeepCollectionEquality().hash(fromDate),
-      const DeepCollectionEquality().hash(endDate),
-      const DeepCollectionEquality().hash(granted),
-      const DeepCollectionEquality().hash(days),
-      const DeepCollectionEquality().hash(reason),
-      const DeepCollectionEquality().hash(appNumber));
+  int get hashCode => Object.hash(runtimeType, empNumber, fromDate, endDate,
+      granted, days, reason, appNumber);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MyWorkfromHomeModelCopyWith<_$_MyWorkfromHomeModel> get copyWith =>
       __$$_MyWorkfromHomeModelCopyWithImpl<_$_MyWorkfromHomeModel>(
           this, _$identity);

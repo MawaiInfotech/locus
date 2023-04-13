@@ -34,38 +34,42 @@ mixin _$RequestModel {
 abstract class $RequestModelCopyWith<$Res> {
   factory $RequestModelCopyWith(
           RequestModel value, $Res Function(RequestModel) then) =
-      _$RequestModelCopyWithImpl<$Res>;
+      _$RequestModelCopyWithImpl<$Res, RequestModel>;
+  @useResult
   $Res call({String status, String message, String result});
 }
 
 /// @nodoc
-class _$RequestModelCopyWithImpl<$Res> implements $RequestModelCopyWith<$Res> {
+class _$RequestModelCopyWithImpl<$Res, $Val extends RequestModel>
+    implements $RequestModelCopyWith<$Res> {
   _$RequestModelCopyWithImpl(this._value, this._then);
 
-  final RequestModel _value;
   // ignore: unused_field
-  final $Res Function(RequestModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
-    Object? result = freezed,
+    Object? status = null,
+    Object? message = null,
+    Object? result = null,
   }) {
     return _then(_value.copyWith(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      result: result == freezed
+      result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -76,36 +80,35 @@ abstract class _$$_RequestModelCopyWith<$Res>
           _$_RequestModel value, $Res Function(_$_RequestModel) then) =
       __$$_RequestModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String status, String message, String result});
 }
 
 /// @nodoc
 class __$$_RequestModelCopyWithImpl<$Res>
-    extends _$RequestModelCopyWithImpl<$Res>
+    extends _$RequestModelCopyWithImpl<$Res, _$_RequestModel>
     implements _$$_RequestModelCopyWith<$Res> {
   __$$_RequestModelCopyWithImpl(
       _$_RequestModel _value, $Res Function(_$_RequestModel) _then)
-      : super(_value, (v) => _then(v as _$_RequestModel));
+      : super(_value, _then);
 
-  @override
-  _$_RequestModel get _value => super._value as _$_RequestModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
-    Object? result = freezed,
+    Object? status = null,
+    Object? message = null,
+    Object? result = null,
   }) {
     return _then(_$_RequestModel(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      result: result == freezed
+      result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as String,
@@ -142,21 +145,18 @@ class _$_RequestModel implements _RequestModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RequestModel &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.message, message) &&
-            const DeepCollectionEquality().equals(other.result, result));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.result, result) || other.result == result));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(message),
-      const DeepCollectionEquality().hash(result));
+  int get hashCode => Object.hash(runtimeType, status, message, result);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RequestModelCopyWith<_$_RequestModel> get copyWith =>
       __$$_RequestModelCopyWithImpl<_$_RequestModel>(this, _$identity);
 

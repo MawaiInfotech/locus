@@ -35,36 +35,39 @@ mixin _$ApproveWfhModel {
 abstract class $ApproveWfhModelCopyWith<$Res> {
   factory $ApproveWfhModelCopyWith(
           ApproveWfhModel value, $Res Function(ApproveWfhModel) then) =
-      _$ApproveWfhModelCopyWithImpl<$Res>;
+      _$ApproveWfhModelCopyWithImpl<$Res, ApproveWfhModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "status") String status,
       @JsonKey(name: "message") String message});
 }
 
 /// @nodoc
-class _$ApproveWfhModelCopyWithImpl<$Res>
+class _$ApproveWfhModelCopyWithImpl<$Res, $Val extends ApproveWfhModel>
     implements $ApproveWfhModelCopyWith<$Res> {
   _$ApproveWfhModelCopyWithImpl(this._value, this._then);
 
-  final ApproveWfhModel _value;
   // ignore: unused_field
-  final $Res Function(ApproveWfhModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
+    Object? status = null,
+    Object? message = null,
   }) {
     return _then(_value.copyWith(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -75,6 +78,7 @@ abstract class _$$_ApproveWfhModelCopyWith<$Res>
           _$_ApproveWfhModel value, $Res Function(_$_ApproveWfhModel) then) =
       __$$_ApproveWfhModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "status") String status,
       @JsonKey(name: "message") String message});
@@ -82,26 +86,24 @@ abstract class _$$_ApproveWfhModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_ApproveWfhModelCopyWithImpl<$Res>
-    extends _$ApproveWfhModelCopyWithImpl<$Res>
+    extends _$ApproveWfhModelCopyWithImpl<$Res, _$_ApproveWfhModel>
     implements _$$_ApproveWfhModelCopyWith<$Res> {
   __$$_ApproveWfhModelCopyWithImpl(
       _$_ApproveWfhModel _value, $Res Function(_$_ApproveWfhModel) _then)
-      : super(_value, (v) => _then(v as _$_ApproveWfhModel));
+      : super(_value, _then);
 
-  @override
-  _$_ApproveWfhModel get _value => super._value as _$_ApproveWfhModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
+    Object? status = null,
+    Object? message = null,
   }) {
     return _then(_$_ApproveWfhModel(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -136,19 +138,17 @@ class _$_ApproveWfhModel implements _ApproveWfhModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ApproveWfhModel &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, status, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ApproveWfhModelCopyWith<_$_ApproveWfhModel> get copyWith =>
       __$$_ApproveWfhModelCopyWithImpl<_$_ApproveWfhModel>(this, _$identity);
 

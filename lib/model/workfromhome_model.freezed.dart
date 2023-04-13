@@ -37,7 +37,8 @@ mixin _$WorkfromHomeModel {
 abstract class $WorkfromHomeModelCopyWith<$Res> {
   factory $WorkfromHomeModelCopyWith(
           WorkfromHomeModel value, $Res Function(WorkfromHomeModel) then) =
-      _$WorkfromHomeModelCopyWithImpl<$Res>;
+      _$WorkfromHomeModelCopyWithImpl<$Res, WorkfromHomeModel>;
+  @useResult
   $Res call(
       {List<WorkfromHomeTypeModel> day_type,
       List<WorkfromHomeCClistModel> cc_list,
@@ -45,34 +46,36 @@ abstract class $WorkfromHomeModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$WorkfromHomeModelCopyWithImpl<$Res>
+class _$WorkfromHomeModelCopyWithImpl<$Res, $Val extends WorkfromHomeModel>
     implements $WorkfromHomeModelCopyWith<$Res> {
   _$WorkfromHomeModelCopyWithImpl(this._value, this._then);
 
-  final WorkfromHomeModel _value;
   // ignore: unused_field
-  final $Res Function(WorkfromHomeModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? day_type = freezed,
-    Object? cc_list = freezed,
-    Object? emp_dtl = freezed,
+    Object? day_type = null,
+    Object? cc_list = null,
+    Object? emp_dtl = null,
   }) {
     return _then(_value.copyWith(
-      day_type: day_type == freezed
+      day_type: null == day_type
           ? _value.day_type
           : day_type // ignore: cast_nullable_to_non_nullable
               as List<WorkfromHomeTypeModel>,
-      cc_list: cc_list == freezed
+      cc_list: null == cc_list
           ? _value.cc_list
           : cc_list // ignore: cast_nullable_to_non_nullable
               as List<WorkfromHomeCClistModel>,
-      emp_dtl: emp_dtl == freezed
+      emp_dtl: null == emp_dtl
           ? _value.emp_dtl
           : emp_dtl // ignore: cast_nullable_to_non_nullable
               as List<WFHEmployeeDetailModel>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -83,6 +86,7 @@ abstract class _$$_WorkfromHomeModelCopyWith<$Res>
           $Res Function(_$_WorkfromHomeModel) then) =
       __$$_WorkfromHomeModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {List<WorkfromHomeTypeModel> day_type,
       List<WorkfromHomeCClistModel> cc_list,
@@ -91,31 +95,29 @@ abstract class _$$_WorkfromHomeModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_WorkfromHomeModelCopyWithImpl<$Res>
-    extends _$WorkfromHomeModelCopyWithImpl<$Res>
+    extends _$WorkfromHomeModelCopyWithImpl<$Res, _$_WorkfromHomeModel>
     implements _$$_WorkfromHomeModelCopyWith<$Res> {
   __$$_WorkfromHomeModelCopyWithImpl(
       _$_WorkfromHomeModel _value, $Res Function(_$_WorkfromHomeModel) _then)
-      : super(_value, (v) => _then(v as _$_WorkfromHomeModel));
+      : super(_value, _then);
 
-  @override
-  _$_WorkfromHomeModel get _value => super._value as _$_WorkfromHomeModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? day_type = freezed,
-    Object? cc_list = freezed,
-    Object? emp_dtl = freezed,
+    Object? day_type = null,
+    Object? cc_list = null,
+    Object? emp_dtl = null,
   }) {
     return _then(_$_WorkfromHomeModel(
-      day_type: day_type == freezed
+      day_type: null == day_type
           ? _value._day_type
           : day_type // ignore: cast_nullable_to_non_nullable
               as List<WorkfromHomeTypeModel>,
-      cc_list: cc_list == freezed
+      cc_list: null == cc_list
           ? _value._cc_list
           : cc_list // ignore: cast_nullable_to_non_nullable
               as List<WorkfromHomeCClistModel>,
-      emp_dtl: emp_dtl == freezed
+      emp_dtl: null == emp_dtl
           ? _value._emp_dtl
           : emp_dtl // ignore: cast_nullable_to_non_nullable
               as List<WFHEmployeeDetailModel>,
@@ -189,6 +191,7 @@ class _$_WorkfromHomeModel implements _WorkfromHomeModel {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WorkfromHomeModelCopyWith<_$_WorkfromHomeModel> get copyWith =>
       __$$_WorkfromHomeModelCopyWithImpl<_$_WorkfromHomeModel>(
           this, _$identity);

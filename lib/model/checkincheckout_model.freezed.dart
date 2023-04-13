@@ -34,39 +34,43 @@ mixin _$CheckinCheckoutModel {
 abstract class $CheckinCheckoutModelCopyWith<$Res> {
   factory $CheckinCheckoutModelCopyWith(CheckinCheckoutModel value,
           $Res Function(CheckinCheckoutModel) then) =
-      _$CheckinCheckoutModelCopyWithImpl<$Res>;
+      _$CheckinCheckoutModelCopyWithImpl<$Res, CheckinCheckoutModel>;
+  @useResult
   $Res call({String address, String punchin, String message});
 }
 
 /// @nodoc
-class _$CheckinCheckoutModelCopyWithImpl<$Res>
+class _$CheckinCheckoutModelCopyWithImpl<$Res,
+        $Val extends CheckinCheckoutModel>
     implements $CheckinCheckoutModelCopyWith<$Res> {
   _$CheckinCheckoutModelCopyWithImpl(this._value, this._then);
 
-  final CheckinCheckoutModel _value;
   // ignore: unused_field
-  final $Res Function(CheckinCheckoutModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = freezed,
-    Object? punchin = freezed,
-    Object? message = freezed,
+    Object? address = null,
+    Object? punchin = null,
+    Object? message = null,
   }) {
     return _then(_value.copyWith(
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      punchin: punchin == freezed
+      punchin: null == punchin
           ? _value.punchin
           : punchin // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -77,36 +81,35 @@ abstract class _$$_CheckinCheckoutModelCopyWith<$Res>
           $Res Function(_$_CheckinCheckoutModel) then) =
       __$$_CheckinCheckoutModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String address, String punchin, String message});
 }
 
 /// @nodoc
 class __$$_CheckinCheckoutModelCopyWithImpl<$Res>
-    extends _$CheckinCheckoutModelCopyWithImpl<$Res>
+    extends _$CheckinCheckoutModelCopyWithImpl<$Res, _$_CheckinCheckoutModel>
     implements _$$_CheckinCheckoutModelCopyWith<$Res> {
   __$$_CheckinCheckoutModelCopyWithImpl(_$_CheckinCheckoutModel _value,
       $Res Function(_$_CheckinCheckoutModel) _then)
-      : super(_value, (v) => _then(v as _$_CheckinCheckoutModel));
+      : super(_value, _then);
 
-  @override
-  _$_CheckinCheckoutModel get _value => super._value as _$_CheckinCheckoutModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? address = freezed,
-    Object? punchin = freezed,
-    Object? message = freezed,
+    Object? address = null,
+    Object? punchin = null,
+    Object? message = null,
   }) {
     return _then(_$_CheckinCheckoutModel(
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      punchin: punchin == freezed
+      punchin: null == punchin
           ? _value.punchin
           : punchin // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -143,21 +146,18 @@ class _$_CheckinCheckoutModel implements _CheckinCheckoutModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CheckinCheckoutModel &&
-            const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality().equals(other.punchin, punchin) &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.punchin, punchin) || other.punchin == punchin) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(punchin),
-      const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, address, punchin, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CheckinCheckoutModelCopyWith<_$_CheckinCheckoutModel> get copyWith =>
       __$$_CheckinCheckoutModelCopyWithImpl<_$_CheckinCheckoutModel>(
           this, _$identity);

@@ -33,33 +33,37 @@ mixin _$ApplyOdModel {
 abstract class $ApplyOdModelCopyWith<$Res> {
   factory $ApplyOdModelCopyWith(
           ApplyOdModel value, $Res Function(ApplyOdModel) then) =
-      _$ApplyOdModelCopyWithImpl<$Res>;
+      _$ApplyOdModelCopyWithImpl<$Res, ApplyOdModel>;
+  @useResult
   $Res call({String status, String message});
 }
 
 /// @nodoc
-class _$ApplyOdModelCopyWithImpl<$Res> implements $ApplyOdModelCopyWith<$Res> {
+class _$ApplyOdModelCopyWithImpl<$Res, $Val extends ApplyOdModel>
+    implements $ApplyOdModelCopyWith<$Res> {
   _$ApplyOdModelCopyWithImpl(this._value, this._then);
 
-  final ApplyOdModel _value;
   // ignore: unused_field
-  final $Res Function(ApplyOdModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
+    Object? status = null,
+    Object? message = null,
   }) {
     return _then(_value.copyWith(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -70,31 +74,30 @@ abstract class _$$_ApplyOdModelCopyWith<$Res>
           _$_ApplyOdModel value, $Res Function(_$_ApplyOdModel) then) =
       __$$_ApplyOdModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String status, String message});
 }
 
 /// @nodoc
 class __$$_ApplyOdModelCopyWithImpl<$Res>
-    extends _$ApplyOdModelCopyWithImpl<$Res>
+    extends _$ApplyOdModelCopyWithImpl<$Res, _$_ApplyOdModel>
     implements _$$_ApplyOdModelCopyWith<$Res> {
   __$$_ApplyOdModelCopyWithImpl(
       _$_ApplyOdModel _value, $Res Function(_$_ApplyOdModel) _then)
-      : super(_value, (v) => _then(v as _$_ApplyOdModel));
+      : super(_value, _then);
 
-  @override
-  _$_ApplyOdModel get _value => super._value as _$_ApplyOdModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
+    Object? status = null,
+    Object? message = null,
   }) {
     return _then(_$_ApplyOdModel(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -127,19 +130,17 @@ class _$_ApplyOdModel implements _ApplyOdModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ApplyOdModel &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, status, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ApplyOdModelCopyWith<_$_ApplyOdModel> get copyWith =>
       __$$_ApplyOdModelCopyWithImpl<_$_ApplyOdModel>(this, _$identity);
 

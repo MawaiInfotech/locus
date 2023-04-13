@@ -36,36 +36,40 @@ mixin _$WorkfromHomeTypeModel {
 abstract class $WorkfromHomeTypeModelCopyWith<$Res> {
   factory $WorkfromHomeTypeModelCopyWith(WorkfromHomeTypeModel value,
           $Res Function(WorkfromHomeTypeModel) then) =
-      _$WorkfromHomeTypeModelCopyWithImpl<$Res>;
+      _$WorkfromHomeTypeModelCopyWithImpl<$Res, WorkfromHomeTypeModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "control_code") String controlCode,
       @JsonKey(name: "meaning") String meaning});
 }
 
 /// @nodoc
-class _$WorkfromHomeTypeModelCopyWithImpl<$Res>
+class _$WorkfromHomeTypeModelCopyWithImpl<$Res,
+        $Val extends WorkfromHomeTypeModel>
     implements $WorkfromHomeTypeModelCopyWith<$Res> {
   _$WorkfromHomeTypeModelCopyWithImpl(this._value, this._then);
 
-  final WorkfromHomeTypeModel _value;
   // ignore: unused_field
-  final $Res Function(WorkfromHomeTypeModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? controlCode = freezed,
-    Object? meaning = freezed,
+    Object? controlCode = null,
+    Object? meaning = null,
   }) {
     return _then(_value.copyWith(
-      controlCode: controlCode == freezed
+      controlCode: null == controlCode
           ? _value.controlCode
           : controlCode // ignore: cast_nullable_to_non_nullable
               as String,
-      meaning: meaning == freezed
+      meaning: null == meaning
           ? _value.meaning
           : meaning // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -76,6 +80,7 @@ abstract class _$$_WorkfromHomeTypeModelCopyWith<$Res>
           $Res Function(_$_WorkfromHomeTypeModel) then) =
       __$$_WorkfromHomeTypeModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "control_code") String controlCode,
       @JsonKey(name: "meaning") String meaning});
@@ -83,27 +88,24 @@ abstract class _$$_WorkfromHomeTypeModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_WorkfromHomeTypeModelCopyWithImpl<$Res>
-    extends _$WorkfromHomeTypeModelCopyWithImpl<$Res>
+    extends _$WorkfromHomeTypeModelCopyWithImpl<$Res, _$_WorkfromHomeTypeModel>
     implements _$$_WorkfromHomeTypeModelCopyWith<$Res> {
   __$$_WorkfromHomeTypeModelCopyWithImpl(_$_WorkfromHomeTypeModel _value,
       $Res Function(_$_WorkfromHomeTypeModel) _then)
-      : super(_value, (v) => _then(v as _$_WorkfromHomeTypeModel));
+      : super(_value, _then);
 
-  @override
-  _$_WorkfromHomeTypeModel get _value =>
-      super._value as _$_WorkfromHomeTypeModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? controlCode = freezed,
-    Object? meaning = freezed,
+    Object? controlCode = null,
+    Object? meaning = null,
   }) {
     return _then(_$_WorkfromHomeTypeModel(
-      controlCode: controlCode == freezed
+      controlCode: null == controlCode
           ? _value.controlCode
           : controlCode // ignore: cast_nullable_to_non_nullable
               as String,
-      meaning: meaning == freezed
+      meaning: null == meaning
           ? _value.meaning
           : meaning // ignore: cast_nullable_to_non_nullable
               as String,
@@ -138,20 +140,18 @@ class _$_WorkfromHomeTypeModel implements _WorkfromHomeTypeModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WorkfromHomeTypeModel &&
-            const DeepCollectionEquality()
-                .equals(other.controlCode, controlCode) &&
-            const DeepCollectionEquality().equals(other.meaning, meaning));
+            (identical(other.controlCode, controlCode) ||
+                other.controlCode == controlCode) &&
+            (identical(other.meaning, meaning) || other.meaning == meaning));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(controlCode),
-      const DeepCollectionEquality().hash(meaning));
+  int get hashCode => Object.hash(runtimeType, controlCode, meaning);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WorkfromHomeTypeModelCopyWith<_$_WorkfromHomeTypeModel> get copyWith =>
       __$$_WorkfromHomeTypeModelCopyWithImpl<_$_WorkfromHomeTypeModel>(
           this, _$identity);

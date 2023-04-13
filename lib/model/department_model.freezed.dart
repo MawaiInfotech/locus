@@ -35,36 +35,39 @@ mixin _$DepartmentModel {
 abstract class $DepartmentModelCopyWith<$Res> {
   factory $DepartmentModelCopyWith(
           DepartmentModel value, $Res Function(DepartmentModel) then) =
-      _$DepartmentModelCopyWithImpl<$Res>;
+      _$DepartmentModelCopyWithImpl<$Res, DepartmentModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "code") String code,
       @JsonKey(name: "name") String description});
 }
 
 /// @nodoc
-class _$DepartmentModelCopyWithImpl<$Res>
+class _$DepartmentModelCopyWithImpl<$Res, $Val extends DepartmentModel>
     implements $DepartmentModelCopyWith<$Res> {
   _$DepartmentModelCopyWithImpl(this._value, this._then);
 
-  final DepartmentModel _value;
   // ignore: unused_field
-  final $Res Function(DepartmentModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
-    Object? description = freezed,
+    Object? code = null,
+    Object? description = null,
   }) {
     return _then(_value.copyWith(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -75,6 +78,7 @@ abstract class _$$_DepartmentModelCopyWith<$Res>
           _$_DepartmentModel value, $Res Function(_$_DepartmentModel) then) =
       __$$_DepartmentModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "code") String code,
       @JsonKey(name: "name") String description});
@@ -82,26 +86,24 @@ abstract class _$$_DepartmentModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_DepartmentModelCopyWithImpl<$Res>
-    extends _$DepartmentModelCopyWithImpl<$Res>
+    extends _$DepartmentModelCopyWithImpl<$Res, _$_DepartmentModel>
     implements _$$_DepartmentModelCopyWith<$Res> {
   __$$_DepartmentModelCopyWithImpl(
       _$_DepartmentModel _value, $Res Function(_$_DepartmentModel) _then)
-      : super(_value, (v) => _then(v as _$_DepartmentModel));
+      : super(_value, _then);
 
-  @override
-  _$_DepartmentModel get _value => super._value as _$_DepartmentModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? code = freezed,
-    Object? description = freezed,
+    Object? code = null,
+    Object? description = null,
   }) {
     return _then(_$_DepartmentModel(
-      code: code == freezed
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
@@ -136,20 +138,18 @@ class _$_DepartmentModel implements _DepartmentModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DepartmentModel &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description));
+            (identical(other.code, code) || other.code == code) &&
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(description));
+  int get hashCode => Object.hash(runtimeType, code, description);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DepartmentModelCopyWith<_$_DepartmentModel> get copyWith =>
       __$$_DepartmentModelCopyWithImpl<_$_DepartmentModel>(this, _$identity);
 

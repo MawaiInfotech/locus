@@ -57,7 +57,8 @@ mixin _$ApprovedLeaveModel {
 abstract class $ApprovedLeaveModelCopyWith<$Res> {
   factory $ApprovedLeaveModelCopyWith(
           ApprovedLeaveModel value, $Res Function(ApprovedLeaveModel) then) =
-      _$ApprovedLeaveModelCopyWithImpl<$Res>;
+      _$ApprovedLeaveModelCopyWithImpl<$Res, ApprovedLeaveModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "from_date") String fromDate,
       @JsonKey(name: "end_date") String endDate,
@@ -75,84 +76,86 @@ abstract class $ApprovedLeaveModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ApprovedLeaveModelCopyWithImpl<$Res>
+class _$ApprovedLeaveModelCopyWithImpl<$Res, $Val extends ApprovedLeaveModel>
     implements $ApprovedLeaveModelCopyWith<$Res> {
   _$ApprovedLeaveModelCopyWithImpl(this._value, this._then);
 
-  final ApprovedLeaveModel _value;
   // ignore: unused_field
-  final $Res Function(ApprovedLeaveModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fromDate = freezed,
-    Object? endDate = freezed,
-    Object? leaveType = freezed,
-    Object? employeeCode = freezed,
-    Object? leaveGranted = freezed,
-    Object? leaveDays = freezed,
-    Object? leaveDescription = freezed,
-    Object? leaveId = freezed,
-    Object? reason = freezed,
-    Object? leaveGrantedDescription = freezed,
-    Object? employeeName = freezed,
-    Object? department = freezed,
-    Object? departmentCode = freezed,
+    Object? fromDate = null,
+    Object? endDate = null,
+    Object? leaveType = null,
+    Object? employeeCode = null,
+    Object? leaveGranted = null,
+    Object? leaveDays = null,
+    Object? leaveDescription = null,
+    Object? leaveId = null,
+    Object? reason = null,
+    Object? leaveGrantedDescription = null,
+    Object? employeeName = null,
+    Object? department = null,
+    Object? departmentCode = null,
   }) {
     return _then(_value.copyWith(
-      fromDate: fromDate == freezed
+      fromDate: null == fromDate
           ? _value.fromDate
           : fromDate // ignore: cast_nullable_to_non_nullable
               as String,
-      endDate: endDate == freezed
+      endDate: null == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as String,
-      leaveType: leaveType == freezed
+      leaveType: null == leaveType
           ? _value.leaveType
           : leaveType // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeCode: employeeCode == freezed
+      employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      leaveGranted: leaveGranted == freezed
+      leaveGranted: null == leaveGranted
           ? _value.leaveGranted
           : leaveGranted // ignore: cast_nullable_to_non_nullable
               as String,
-      leaveDays: leaveDays == freezed
+      leaveDays: null == leaveDays
           ? _value.leaveDays
           : leaveDays // ignore: cast_nullable_to_non_nullable
               as String,
-      leaveDescription: leaveDescription == freezed
+      leaveDescription: null == leaveDescription
           ? _value.leaveDescription
           : leaveDescription // ignore: cast_nullable_to_non_nullable
               as String,
-      leaveId: leaveId == freezed
+      leaveId: null == leaveId
           ? _value.leaveId
           : leaveId // ignore: cast_nullable_to_non_nullable
               as int,
-      reason: reason == freezed
+      reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as String,
-      leaveGrantedDescription: leaveGrantedDescription == freezed
+      leaveGrantedDescription: null == leaveGrantedDescription
           ? _value.leaveGrantedDescription
           : leaveGrantedDescription // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeName: employeeName == freezed
+      employeeName: null == employeeName
           ? _value.employeeName
           : employeeName // ignore: cast_nullable_to_non_nullable
               as String,
-      department: department == freezed
+      department: null == department
           ? _value.department
           : department // ignore: cast_nullable_to_non_nullable
               as String,
-      departmentCode: departmentCode == freezed
+      departmentCode: null == departmentCode
           ? _value.departmentCode
           : departmentCode // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -163,6 +166,7 @@ abstract class _$$_ApprovedLeaveModelCopyWith<$Res>
           $Res Function(_$_ApprovedLeaveModel) then) =
       __$$_ApprovedLeaveModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "from_date") String fromDate,
       @JsonKey(name: "end_date") String endDate,
@@ -181,81 +185,79 @@ abstract class _$$_ApprovedLeaveModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_ApprovedLeaveModelCopyWithImpl<$Res>
-    extends _$ApprovedLeaveModelCopyWithImpl<$Res>
+    extends _$ApprovedLeaveModelCopyWithImpl<$Res, _$_ApprovedLeaveModel>
     implements _$$_ApprovedLeaveModelCopyWith<$Res> {
   __$$_ApprovedLeaveModelCopyWithImpl(
       _$_ApprovedLeaveModel _value, $Res Function(_$_ApprovedLeaveModel) _then)
-      : super(_value, (v) => _then(v as _$_ApprovedLeaveModel));
+      : super(_value, _then);
 
-  @override
-  _$_ApprovedLeaveModel get _value => super._value as _$_ApprovedLeaveModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fromDate = freezed,
-    Object? endDate = freezed,
-    Object? leaveType = freezed,
-    Object? employeeCode = freezed,
-    Object? leaveGranted = freezed,
-    Object? leaveDays = freezed,
-    Object? leaveDescription = freezed,
-    Object? leaveId = freezed,
-    Object? reason = freezed,
-    Object? leaveGrantedDescription = freezed,
-    Object? employeeName = freezed,
-    Object? department = freezed,
-    Object? departmentCode = freezed,
+    Object? fromDate = null,
+    Object? endDate = null,
+    Object? leaveType = null,
+    Object? employeeCode = null,
+    Object? leaveGranted = null,
+    Object? leaveDays = null,
+    Object? leaveDescription = null,
+    Object? leaveId = null,
+    Object? reason = null,
+    Object? leaveGrantedDescription = null,
+    Object? employeeName = null,
+    Object? department = null,
+    Object? departmentCode = null,
   }) {
     return _then(_$_ApprovedLeaveModel(
-      fromDate: fromDate == freezed
+      fromDate: null == fromDate
           ? _value.fromDate
           : fromDate // ignore: cast_nullable_to_non_nullable
               as String,
-      endDate: endDate == freezed
+      endDate: null == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as String,
-      leaveType: leaveType == freezed
+      leaveType: null == leaveType
           ? _value.leaveType
           : leaveType // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeCode: employeeCode == freezed
+      employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      leaveGranted: leaveGranted == freezed
+      leaveGranted: null == leaveGranted
           ? _value.leaveGranted
           : leaveGranted // ignore: cast_nullable_to_non_nullable
               as String,
-      leaveDays: leaveDays == freezed
+      leaveDays: null == leaveDays
           ? _value.leaveDays
           : leaveDays // ignore: cast_nullable_to_non_nullable
               as String,
-      leaveDescription: leaveDescription == freezed
+      leaveDescription: null == leaveDescription
           ? _value.leaveDescription
           : leaveDescription // ignore: cast_nullable_to_non_nullable
               as String,
-      leaveId: leaveId == freezed
+      leaveId: null == leaveId
           ? _value.leaveId
           : leaveId // ignore: cast_nullable_to_non_nullable
               as int,
-      reason: reason == freezed
+      reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as String,
-      leaveGrantedDescription: leaveGrantedDescription == freezed
+      leaveGrantedDescription: null == leaveGrantedDescription
           ? _value.leaveGrantedDescription
           : leaveGrantedDescription // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeName: employeeName == freezed
+      employeeName: null == employeeName
           ? _value.employeeName
           : employeeName // ignore: cast_nullable_to_non_nullable
               as String,
-      department: department == freezed
+      department: null == department
           ? _value.department
           : department // ignore: cast_nullable_to_non_nullable
               as String,
-      departmentCode: departmentCode == freezed
+      departmentCode: null == departmentCode
           ? _value.departmentCode
           : departmentCode // ignore: cast_nullable_to_non_nullable
               as String,
@@ -334,48 +336,53 @@ class _$_ApprovedLeaveModel implements _ApprovedLeaveModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ApprovedLeaveModel &&
-            const DeepCollectionEquality().equals(other.fromDate, fromDate) &&
-            const DeepCollectionEquality().equals(other.endDate, endDate) &&
-            const DeepCollectionEquality().equals(other.leaveType, leaveType) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeCode, employeeCode) &&
-            const DeepCollectionEquality()
-                .equals(other.leaveGranted, leaveGranted) &&
-            const DeepCollectionEquality().equals(other.leaveDays, leaveDays) &&
-            const DeepCollectionEquality()
-                .equals(other.leaveDescription, leaveDescription) &&
-            const DeepCollectionEquality().equals(other.leaveId, leaveId) &&
-            const DeepCollectionEquality().equals(other.reason, reason) &&
-            const DeepCollectionEquality().equals(
-                other.leaveGrantedDescription, leaveGrantedDescription) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeName, employeeName) &&
-            const DeepCollectionEquality()
-                .equals(other.department, department) &&
-            const DeepCollectionEquality()
-                .equals(other.departmentCode, departmentCode));
+            (identical(other.fromDate, fromDate) ||
+                other.fromDate == fromDate) &&
+            (identical(other.endDate, endDate) || other.endDate == endDate) &&
+            (identical(other.leaveType, leaveType) ||
+                other.leaveType == leaveType) &&
+            (identical(other.employeeCode, employeeCode) ||
+                other.employeeCode == employeeCode) &&
+            (identical(other.leaveGranted, leaveGranted) ||
+                other.leaveGranted == leaveGranted) &&
+            (identical(other.leaveDays, leaveDays) ||
+                other.leaveDays == leaveDays) &&
+            (identical(other.leaveDescription, leaveDescription) ||
+                other.leaveDescription == leaveDescription) &&
+            (identical(other.leaveId, leaveId) || other.leaveId == leaveId) &&
+            (identical(other.reason, reason) || other.reason == reason) &&
+            (identical(
+                    other.leaveGrantedDescription, leaveGrantedDescription) ||
+                other.leaveGrantedDescription == leaveGrantedDescription) &&
+            (identical(other.employeeName, employeeName) ||
+                other.employeeName == employeeName) &&
+            (identical(other.department, department) ||
+                other.department == department) &&
+            (identical(other.departmentCode, departmentCode) ||
+                other.departmentCode == departmentCode));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(fromDate),
-      const DeepCollectionEquality().hash(endDate),
-      const DeepCollectionEquality().hash(leaveType),
-      const DeepCollectionEquality().hash(employeeCode),
-      const DeepCollectionEquality().hash(leaveGranted),
-      const DeepCollectionEquality().hash(leaveDays),
-      const DeepCollectionEquality().hash(leaveDescription),
-      const DeepCollectionEquality().hash(leaveId),
-      const DeepCollectionEquality().hash(reason),
-      const DeepCollectionEquality().hash(leaveGrantedDescription),
-      const DeepCollectionEquality().hash(employeeName),
-      const DeepCollectionEquality().hash(department),
-      const DeepCollectionEquality().hash(departmentCode));
+      fromDate,
+      endDate,
+      leaveType,
+      employeeCode,
+      leaveGranted,
+      leaveDays,
+      leaveDescription,
+      leaveId,
+      reason,
+      leaveGrantedDescription,
+      employeeName,
+      department,
+      departmentCode);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ApprovedLeaveModelCopyWith<_$_ApprovedLeaveModel> get copyWith =>
       __$$_ApprovedLeaveModelCopyWithImpl<_$_ApprovedLeaveModel>(
           this, _$identity);

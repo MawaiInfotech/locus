@@ -38,17 +38,17 @@ mixin _$OdApproveRejectState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel)?
         loading,
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel)?
         content,
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel,
             String? message)?
         success,
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel,
             String message)?
         failed,
@@ -83,10 +83,10 @@ mixin _$OdApproveRejectState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -108,7 +108,8 @@ mixin _$OdApproveRejectState {
 abstract class $OdApproveRejectStateCopyWith<$Res> {
   factory $OdApproveRejectStateCopyWith(OdApproveRejectState value,
           $Res Function(OdApproveRejectState) then) =
-      _$OdApproveRejectStateCopyWithImpl<$Res>;
+      _$OdApproveRejectStateCopyWithImpl<$Res, OdApproveRejectState>;
+  @useResult
   $Res call({TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel});
 
   $TeamLeaderAttendanceApproveRejectionModelCopyWith<$Res>
@@ -116,32 +117,36 @@ abstract class $OdApproveRejectStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$OdApproveRejectStateCopyWithImpl<$Res>
+class _$OdApproveRejectStateCopyWithImpl<$Res,
+        $Val extends OdApproveRejectState>
     implements $OdApproveRejectStateCopyWith<$Res> {
   _$OdApproveRejectStateCopyWithImpl(this._value, this._then);
 
-  final OdApproveRejectState _value;
   // ignore: unused_field
-  final $Res Function(OdApproveRejectState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? approvalRejectionModel = freezed,
+    Object? approvalRejectionModel = null,
   }) {
     return _then(_value.copyWith(
-      approvalRejectionModel: approvalRejectionModel == freezed
+      approvalRejectionModel: null == approvalRejectionModel
           ? _value.approvalRejectionModel
           : approvalRejectionModel // ignore: cast_nullable_to_non_nullable
               as TeamLeaderAttendanceApproveRejectionModel,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $TeamLeaderAttendanceApproveRejectionModelCopyWith<$Res>
       get approvalRejectionModel {
     return $TeamLeaderAttendanceApproveRejectionModelCopyWith<$Res>(
         _value.approvalRejectionModel, (value) {
-      return _then(_value.copyWith(approvalRejectionModel: value));
+      return _then(_value.copyWith(approvalRejectionModel: value) as $Val);
     });
   }
 }
@@ -153,6 +158,7 @@ abstract class _$$_LoadingCopyWith<$Res>
           _$_Loading value, $Res Function(_$_Loading) then) =
       __$$_LoadingCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel});
 
   @override
@@ -162,20 +168,18 @@ abstract class _$$_LoadingCopyWith<$Res>
 
 /// @nodoc
 class __$$_LoadingCopyWithImpl<$Res>
-    extends _$OdApproveRejectStateCopyWithImpl<$Res>
+    extends _$OdApproveRejectStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
-      : super(_value, (v) => _then(v as _$_Loading));
+      : super(_value, _then);
 
-  @override
-  _$_Loading get _value => super._value as _$_Loading;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? approvalRejectionModel = freezed,
+    Object? approvalRejectionModel = null,
   }) {
     return _then(_$_Loading(
-      approvalRejectionModel == freezed
+      null == approvalRejectionModel
           ? _value.approvalRejectionModel
           : approvalRejectionModel // ignore: cast_nullable_to_non_nullable
               as TeamLeaderAttendanceApproveRejectionModel,
@@ -201,16 +205,16 @@ class _$_Loading implements _Loading {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loading &&
-            const DeepCollectionEquality()
-                .equals(other.approvalRejectionModel, approvalRejectionModel));
+            (identical(other.approvalRejectionModel, approvalRejectionModel) ||
+                other.approvalRejectionModel == approvalRejectionModel));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(approvalRejectionModel));
+  int get hashCode => Object.hash(runtimeType, approvalRejectionModel);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadingCopyWith<_$_Loading> get copyWith =>
       __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
 
@@ -238,17 +242,17 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel)?
         loading,
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel)?
         content,
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel,
             String? message)?
         success,
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel,
             String message)?
         failed,
@@ -295,10 +299,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return loading?.call(this);
   }
@@ -339,6 +343,7 @@ abstract class _$$_ContentCopyWith<$Res>
           _$_Content value, $Res Function(_$_Content) then) =
       __$$_ContentCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel});
 
   @override
@@ -348,20 +353,18 @@ abstract class _$$_ContentCopyWith<$Res>
 
 /// @nodoc
 class __$$_ContentCopyWithImpl<$Res>
-    extends _$OdApproveRejectStateCopyWithImpl<$Res>
+    extends _$OdApproveRejectStateCopyWithImpl<$Res, _$_Content>
     implements _$$_ContentCopyWith<$Res> {
   __$$_ContentCopyWithImpl(_$_Content _value, $Res Function(_$_Content) _then)
-      : super(_value, (v) => _then(v as _$_Content));
+      : super(_value, _then);
 
-  @override
-  _$_Content get _value => super._value as _$_Content;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? approvalRejectionModel = freezed,
+    Object? approvalRejectionModel = null,
   }) {
     return _then(_$_Content(
-      approvalRejectionModel == freezed
+      null == approvalRejectionModel
           ? _value.approvalRejectionModel
           : approvalRejectionModel // ignore: cast_nullable_to_non_nullable
               as TeamLeaderAttendanceApproveRejectionModel,
@@ -387,16 +390,16 @@ class _$_Content implements _Content {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Content &&
-            const DeepCollectionEquality()
-                .equals(other.approvalRejectionModel, approvalRejectionModel));
+            (identical(other.approvalRejectionModel, approvalRejectionModel) ||
+                other.approvalRejectionModel == approvalRejectionModel));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(approvalRejectionModel));
+  int get hashCode => Object.hash(runtimeType, approvalRejectionModel);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ContentCopyWith<_$_Content> get copyWith =>
       __$$_ContentCopyWithImpl<_$_Content>(this, _$identity);
 
@@ -424,17 +427,17 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel)?
         loading,
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel)?
         content,
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel,
             String? message)?
         success,
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel,
             String message)?
         failed,
@@ -481,10 +484,10 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return content?.call(this);
   }
@@ -525,6 +528,7 @@ abstract class _$$_SuccessCopyWith<$Res>
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel,
       String? message});
@@ -536,25 +540,23 @@ abstract class _$$_SuccessCopyWith<$Res>
 
 /// @nodoc
 class __$$_SuccessCopyWithImpl<$Res>
-    extends _$OdApproveRejectStateCopyWithImpl<$Res>
+    extends _$OdApproveRejectStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
-      : super(_value, (v) => _then(v as _$_Success));
+      : super(_value, _then);
 
-  @override
-  _$_Success get _value => super._value as _$_Success;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? approvalRejectionModel = freezed,
+    Object? approvalRejectionModel = null,
     Object? message = freezed,
   }) {
     return _then(_$_Success(
-      approvalRejectionModel == freezed
+      null == approvalRejectionModel
           ? _value.approvalRejectionModel
           : approvalRejectionModel // ignore: cast_nullable_to_non_nullable
               as TeamLeaderAttendanceApproveRejectionModel,
-      message == freezed
+      freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -582,19 +584,17 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            const DeepCollectionEquality()
-                .equals(other.approvalRejectionModel, approvalRejectionModel) &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.approvalRejectionModel, approvalRejectionModel) ||
+                other.approvalRejectionModel == approvalRejectionModel) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(approvalRejectionModel),
-      const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, approvalRejectionModel, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
@@ -622,17 +622,17 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel)?
         loading,
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel)?
         content,
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel,
             String? message)?
         success,
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel,
             String message)?
         failed,
@@ -679,10 +679,10 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return success?.call(this);
   }
@@ -723,6 +723,7 @@ abstract class _$$_FailedCopyWith<$Res>
   factory _$$_FailedCopyWith(_$_Failed value, $Res Function(_$_Failed) then) =
       __$$_FailedCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel,
       String message});
@@ -734,25 +735,23 @@ abstract class _$$_FailedCopyWith<$Res>
 
 /// @nodoc
 class __$$_FailedCopyWithImpl<$Res>
-    extends _$OdApproveRejectStateCopyWithImpl<$Res>
+    extends _$OdApproveRejectStateCopyWithImpl<$Res, _$_Failed>
     implements _$$_FailedCopyWith<$Res> {
   __$$_FailedCopyWithImpl(_$_Failed _value, $Res Function(_$_Failed) _then)
-      : super(_value, (v) => _then(v as _$_Failed));
+      : super(_value, _then);
 
-  @override
-  _$_Failed get _value => super._value as _$_Failed;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? approvalRejectionModel = freezed,
-    Object? message = freezed,
+    Object? approvalRejectionModel = null,
+    Object? message = null,
   }) {
     return _then(_$_Failed(
-      approvalRejectionModel == freezed
+      null == approvalRejectionModel
           ? _value.approvalRejectionModel
           : approvalRejectionModel // ignore: cast_nullable_to_non_nullable
               as TeamLeaderAttendanceApproveRejectionModel,
-      message == freezed
+      null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -780,19 +779,17 @@ class _$_Failed implements _Failed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Failed &&
-            const DeepCollectionEquality()
-                .equals(other.approvalRejectionModel, approvalRejectionModel) &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.approvalRejectionModel, approvalRejectionModel) ||
+                other.approvalRejectionModel == approvalRejectionModel) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(approvalRejectionModel),
-      const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, approvalRejectionModel, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FailedCopyWith<_$_Failed> get copyWith =>
       __$$_FailedCopyWithImpl<_$_Failed>(this, _$identity);
 
@@ -820,17 +817,17 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel)?
         loading,
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel)?
         content,
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel,
             String? message)?
         success,
-    TResult Function(
+    TResult? Function(
             TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel,
             String message)?
         failed,
@@ -877,10 +874,10 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return failed?.call(this);
   }

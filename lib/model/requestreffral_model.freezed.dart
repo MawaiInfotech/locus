@@ -33,35 +33,38 @@ mixin _$RequestReffralModel {
 abstract class $RequestReffralModelCopyWith<$Res> {
   factory $RequestReffralModelCopyWith(
           RequestReffralModel value, $Res Function(RequestReffralModel) then) =
-      _$RequestReffralModelCopyWithImpl<$Res>;
+      _$RequestReffralModelCopyWithImpl<$Res, RequestReffralModel>;
+  @useResult
   $Res call(
       {List<DesignationModel> designations, List<DepartmentModel> departments});
 }
 
 /// @nodoc
-class _$RequestReffralModelCopyWithImpl<$Res>
+class _$RequestReffralModelCopyWithImpl<$Res, $Val extends RequestReffralModel>
     implements $RequestReffralModelCopyWith<$Res> {
   _$RequestReffralModelCopyWithImpl(this._value, this._then);
 
-  final RequestReffralModel _value;
   // ignore: unused_field
-  final $Res Function(RequestReffralModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? designations = freezed,
-    Object? departments = freezed,
+    Object? designations = null,
+    Object? departments = null,
   }) {
     return _then(_value.copyWith(
-      designations: designations == freezed
+      designations: null == designations
           ? _value.designations
           : designations // ignore: cast_nullable_to_non_nullable
               as List<DesignationModel>,
-      departments: departments == freezed
+      departments: null == departments
           ? _value.departments
           : departments // ignore: cast_nullable_to_non_nullable
               as List<DepartmentModel>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -72,32 +75,31 @@ abstract class _$$_RequestReffralModelCopyWith<$Res>
           $Res Function(_$_RequestReffralModel) then) =
       __$$_RequestReffralModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {List<DesignationModel> designations, List<DepartmentModel> departments});
 }
 
 /// @nodoc
 class __$$_RequestReffralModelCopyWithImpl<$Res>
-    extends _$RequestReffralModelCopyWithImpl<$Res>
+    extends _$RequestReffralModelCopyWithImpl<$Res, _$_RequestReffralModel>
     implements _$$_RequestReffralModelCopyWith<$Res> {
   __$$_RequestReffralModelCopyWithImpl(_$_RequestReffralModel _value,
       $Res Function(_$_RequestReffralModel) _then)
-      : super(_value, (v) => _then(v as _$_RequestReffralModel));
+      : super(_value, _then);
 
-  @override
-  _$_RequestReffralModel get _value => super._value as _$_RequestReffralModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? designations = freezed,
-    Object? departments = freezed,
+    Object? designations = null,
+    Object? departments = null,
   }) {
     return _then(_$_RequestReffralModel(
-      designations: designations == freezed
+      designations: null == designations
           ? _value._designations
           : designations // ignore: cast_nullable_to_non_nullable
               as List<DesignationModel>,
-      departments: departments == freezed
+      departments: null == departments
           ? _value._departments
           : departments // ignore: cast_nullable_to_non_nullable
               as List<DepartmentModel>,
@@ -158,6 +160,7 @@ class _$_RequestReffralModel implements _RequestReffralModel {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RequestReffralModelCopyWith<_$_RequestReffralModel> get copyWith =>
       __$$_RequestReffralModelCopyWithImpl<_$_RequestReffralModel>(
           this, _$identity);

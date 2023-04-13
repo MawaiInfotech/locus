@@ -36,7 +36,8 @@ mixin _$DummyAttendanceModel {
 abstract class $DummyAttendanceModelCopyWith<$Res> {
   factory $DummyAttendanceModelCopyWith(DummyAttendanceModel value,
           $Res Function(DummyAttendanceModel) then) =
-      _$DummyAttendanceModelCopyWithImpl<$Res>;
+      _$DummyAttendanceModelCopyWithImpl<$Res, DummyAttendanceModel>;
+  @useResult
   $Res call(
       {String status,
       String message,
@@ -46,44 +47,47 @@ abstract class $DummyAttendanceModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DummyAttendanceModelCopyWithImpl<$Res>
+class _$DummyAttendanceModelCopyWithImpl<$Res,
+        $Val extends DummyAttendanceModel>
     implements $DummyAttendanceModelCopyWith<$Res> {
   _$DummyAttendanceModelCopyWithImpl(this._value, this._then);
 
-  final DummyAttendanceModel _value;
   // ignore: unused_field
-  final $Res Function(DummyAttendanceModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
-    Object? address = freezed,
-    Object? punchin = freezed,
-    Object? punchout = freezed,
+    Object? status = null,
+    Object? message = null,
+    Object? address = null,
+    Object? punchin = null,
+    Object? punchout = null,
   }) {
     return _then(_value.copyWith(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      punchin: punchin == freezed
+      punchin: null == punchin
           ? _value.punchin
           : punchin // ignore: cast_nullable_to_non_nullable
               as String,
-      punchout: punchout == freezed
+      punchout: null == punchout
           ? _value.punchout
           : punchout // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -94,6 +98,7 @@ abstract class _$$_DummyAttendanceModelCopyWith<$Res>
           $Res Function(_$_DummyAttendanceModel) then) =
       __$$_DummyAttendanceModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String status,
       String message,
@@ -104,41 +109,39 @@ abstract class _$$_DummyAttendanceModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_DummyAttendanceModelCopyWithImpl<$Res>
-    extends _$DummyAttendanceModelCopyWithImpl<$Res>
+    extends _$DummyAttendanceModelCopyWithImpl<$Res, _$_DummyAttendanceModel>
     implements _$$_DummyAttendanceModelCopyWith<$Res> {
   __$$_DummyAttendanceModelCopyWithImpl(_$_DummyAttendanceModel _value,
       $Res Function(_$_DummyAttendanceModel) _then)
-      : super(_value, (v) => _then(v as _$_DummyAttendanceModel));
+      : super(_value, _then);
 
-  @override
-  _$_DummyAttendanceModel get _value => super._value as _$_DummyAttendanceModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
-    Object? address = freezed,
-    Object? punchin = freezed,
-    Object? punchout = freezed,
+    Object? status = null,
+    Object? message = null,
+    Object? address = null,
+    Object? punchin = null,
+    Object? punchout = null,
   }) {
     return _then(_$_DummyAttendanceModel(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      punchin: punchin == freezed
+      punchin: null == punchin
           ? _value.punchin
           : punchin // ignore: cast_nullable_to_non_nullable
               as String,
-      punchout: punchout == freezed
+      punchout: null == punchout
           ? _value.punchout
           : punchout // ignore: cast_nullable_to_non_nullable
               as String,
@@ -185,25 +188,22 @@ class _$_DummyAttendanceModel implements _DummyAttendanceModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DummyAttendanceModel &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.message, message) &&
-            const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality().equals(other.punchin, punchin) &&
-            const DeepCollectionEquality().equals(other.punchout, punchout));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.punchin, punchin) || other.punchin == punchin) &&
+            (identical(other.punchout, punchout) ||
+                other.punchout == punchout));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(message),
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(punchin),
-      const DeepCollectionEquality().hash(punchout));
+  int get hashCode =>
+      Object.hash(runtimeType, status, message, address, punchin, punchout);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DummyAttendanceModelCopyWith<_$_DummyAttendanceModel> get copyWith =>
       __$$_DummyAttendanceModelCopyWithImpl<_$_DummyAttendanceModel>(
           this, _$identity);

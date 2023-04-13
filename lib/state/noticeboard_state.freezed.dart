@@ -29,10 +29,10 @@ mixin _$NoticeboardState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<NoticeboardModel> noticeList)? loading,
-    TResult Function(List<NoticeboardModel> noticeList)? content,
-    TResult Function(List<NoticeboardModel> noticeList)? success,
-    TResult Function(List<NoticeboardModel> noticeList, dynamic message)?
+    TResult? Function(List<NoticeboardModel> noticeList)? loading,
+    TResult? Function(List<NoticeboardModel> noticeList)? content,
+    TResult? Function(List<NoticeboardModel> noticeList)? success,
+    TResult? Function(List<NoticeboardModel> noticeList, dynamic message)?
         failed,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,10 +56,10 @@ mixin _$NoticeboardState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,29 +81,32 @@ mixin _$NoticeboardState {
 abstract class $NoticeboardStateCopyWith<$Res> {
   factory $NoticeboardStateCopyWith(
           NoticeboardState value, $Res Function(NoticeboardState) then) =
-      _$NoticeboardStateCopyWithImpl<$Res>;
+      _$NoticeboardStateCopyWithImpl<$Res, NoticeboardState>;
+  @useResult
   $Res call({List<NoticeboardModel> noticeList});
 }
 
 /// @nodoc
-class _$NoticeboardStateCopyWithImpl<$Res>
+class _$NoticeboardStateCopyWithImpl<$Res, $Val extends NoticeboardState>
     implements $NoticeboardStateCopyWith<$Res> {
   _$NoticeboardStateCopyWithImpl(this._value, this._then);
 
-  final NoticeboardState _value;
   // ignore: unused_field
-  final $Res Function(NoticeboardState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? noticeList = freezed,
+    Object? noticeList = null,
   }) {
     return _then(_value.copyWith(
-      noticeList: noticeList == freezed
+      noticeList: null == noticeList
           ? _value.noticeList
           : noticeList // ignore: cast_nullable_to_non_nullable
               as List<NoticeboardModel>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -114,25 +117,24 @@ abstract class _$$_LoadingCopyWith<$Res>
           _$_Loading value, $Res Function(_$_Loading) then) =
       __$$_LoadingCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<NoticeboardModel> noticeList});
 }
 
 /// @nodoc
 class __$$_LoadingCopyWithImpl<$Res>
-    extends _$NoticeboardStateCopyWithImpl<$Res>
+    extends _$NoticeboardStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
-      : super(_value, (v) => _then(v as _$_Loading));
+      : super(_value, _then);
 
-  @override
-  _$_Loading get _value => super._value as _$_Loading;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? noticeList = freezed,
+    Object? noticeList = null,
   }) {
     return _then(_$_Loading(
-      noticeList == freezed
+      null == noticeList
           ? _value._noticeList
           : noticeList // ignore: cast_nullable_to_non_nullable
               as List<NoticeboardModel>,
@@ -173,6 +175,7 @@ class _$_Loading implements _Loading {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadingCopyWith<_$_Loading> get copyWith =>
       __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
 
@@ -192,10 +195,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<NoticeboardModel> noticeList)? loading,
-    TResult Function(List<NoticeboardModel> noticeList)? content,
-    TResult Function(List<NoticeboardModel> noticeList)? success,
-    TResult Function(List<NoticeboardModel> noticeList, dynamic message)?
+    TResult? Function(List<NoticeboardModel> noticeList)? loading,
+    TResult? Function(List<NoticeboardModel> noticeList)? content,
+    TResult? Function(List<NoticeboardModel> noticeList)? success,
+    TResult? Function(List<NoticeboardModel> noticeList, dynamic message)?
         failed,
   }) {
     return loading?.call(noticeList);
@@ -231,10 +234,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return loading?.call(this);
   }
@@ -273,25 +276,24 @@ abstract class _$$_ContentCopyWith<$Res>
           _$_Content value, $Res Function(_$_Content) then) =
       __$$_ContentCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<NoticeboardModel> noticeList});
 }
 
 /// @nodoc
 class __$$_ContentCopyWithImpl<$Res>
-    extends _$NoticeboardStateCopyWithImpl<$Res>
+    extends _$NoticeboardStateCopyWithImpl<$Res, _$_Content>
     implements _$$_ContentCopyWith<$Res> {
   __$$_ContentCopyWithImpl(_$_Content _value, $Res Function(_$_Content) _then)
-      : super(_value, (v) => _then(v as _$_Content));
+      : super(_value, _then);
 
-  @override
-  _$_Content get _value => super._value as _$_Content;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? noticeList = freezed,
+    Object? noticeList = null,
   }) {
     return _then(_$_Content(
-      noticeList == freezed
+      null == noticeList
           ? _value._noticeList
           : noticeList // ignore: cast_nullable_to_non_nullable
               as List<NoticeboardModel>,
@@ -332,6 +334,7 @@ class _$_Content implements _Content {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ContentCopyWith<_$_Content> get copyWith =>
       __$$_ContentCopyWithImpl<_$_Content>(this, _$identity);
 
@@ -351,10 +354,10 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<NoticeboardModel> noticeList)? loading,
-    TResult Function(List<NoticeboardModel> noticeList)? content,
-    TResult Function(List<NoticeboardModel> noticeList)? success,
-    TResult Function(List<NoticeboardModel> noticeList, dynamic message)?
+    TResult? Function(List<NoticeboardModel> noticeList)? loading,
+    TResult? Function(List<NoticeboardModel> noticeList)? content,
+    TResult? Function(List<NoticeboardModel> noticeList)? success,
+    TResult? Function(List<NoticeboardModel> noticeList, dynamic message)?
         failed,
   }) {
     return content?.call(noticeList);
@@ -390,10 +393,10 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return content?.call(this);
   }
@@ -432,25 +435,24 @@ abstract class _$$_SuccessCopyWith<$Res>
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<NoticeboardModel> noticeList});
 }
 
 /// @nodoc
 class __$$_SuccessCopyWithImpl<$Res>
-    extends _$NoticeboardStateCopyWithImpl<$Res>
+    extends _$NoticeboardStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
-      : super(_value, (v) => _then(v as _$_Success));
+      : super(_value, _then);
 
-  @override
-  _$_Success get _value => super._value as _$_Success;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? noticeList = freezed,
+    Object? noticeList = null,
   }) {
     return _then(_$_Success(
-      noticeList == freezed
+      null == noticeList
           ? _value._noticeList
           : noticeList // ignore: cast_nullable_to_non_nullable
               as List<NoticeboardModel>,
@@ -491,6 +493,7 @@ class _$_Success implements _Success {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
@@ -510,10 +513,10 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<NoticeboardModel> noticeList)? loading,
-    TResult Function(List<NoticeboardModel> noticeList)? content,
-    TResult Function(List<NoticeboardModel> noticeList)? success,
-    TResult Function(List<NoticeboardModel> noticeList, dynamic message)?
+    TResult? Function(List<NoticeboardModel> noticeList)? loading,
+    TResult? Function(List<NoticeboardModel> noticeList)? content,
+    TResult? Function(List<NoticeboardModel> noticeList)? success,
+    TResult? Function(List<NoticeboardModel> noticeList, dynamic message)?
         failed,
   }) {
     return success?.call(noticeList);
@@ -549,10 +552,10 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return success?.call(this);
   }
@@ -590,29 +593,29 @@ abstract class _$$_FailedCopyWith<$Res>
   factory _$$_FailedCopyWith(_$_Failed value, $Res Function(_$_Failed) then) =
       __$$_FailedCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<NoticeboardModel> noticeList, dynamic message});
 }
 
 /// @nodoc
-class __$$_FailedCopyWithImpl<$Res> extends _$NoticeboardStateCopyWithImpl<$Res>
+class __$$_FailedCopyWithImpl<$Res>
+    extends _$NoticeboardStateCopyWithImpl<$Res, _$_Failed>
     implements _$$_FailedCopyWith<$Res> {
   __$$_FailedCopyWithImpl(_$_Failed _value, $Res Function(_$_Failed) _then)
-      : super(_value, (v) => _then(v as _$_Failed));
+      : super(_value, _then);
 
-  @override
-  _$_Failed get _value => super._value as _$_Failed;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? noticeList = freezed,
-    Object? message = freezed,
+    Object? noticeList = null,
+    Object? message = null,
   }) {
     return _then(_$_Failed(
-      noticeList == freezed
+      null == noticeList
           ? _value._noticeList
           : noticeList // ignore: cast_nullable_to_non_nullable
               as List<NoticeboardModel>,
-      message == freezed ? _value.message : message,
+      null == message ? _value.message : message,
     ));
   }
 }
@@ -656,6 +659,7 @@ class _$_Failed implements _Failed {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FailedCopyWith<_$_Failed> get copyWith =>
       __$$_FailedCopyWithImpl<_$_Failed>(this, _$identity);
 
@@ -675,10 +679,10 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<NoticeboardModel> noticeList)? loading,
-    TResult Function(List<NoticeboardModel> noticeList)? content,
-    TResult Function(List<NoticeboardModel> noticeList)? success,
-    TResult Function(List<NoticeboardModel> noticeList, dynamic message)?
+    TResult? Function(List<NoticeboardModel> noticeList)? loading,
+    TResult? Function(List<NoticeboardModel> noticeList)? content,
+    TResult? Function(List<NoticeboardModel> noticeList)? success,
+    TResult? Function(List<NoticeboardModel> noticeList, dynamic message)?
         failed,
   }) {
     return failed?.call(noticeList, message);
@@ -714,10 +718,10 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return failed?.call(this);
   }

@@ -40,7 +40,8 @@ mixin _$EmployeeLeavetypeModel {
 abstract class $EmployeeLeavetypeModelCopyWith<$Res> {
   factory $EmployeeLeavetypeModelCopyWith(EmployeeLeavetypeModel value,
           $Res Function(EmployeeLeavetypeModel) then) =
-      _$EmployeeLeavetypeModelCopyWithImpl<$Res>;
+      _$EmployeeLeavetypeModelCopyWithImpl<$Res, EmployeeLeavetypeModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "balance_leave") double balanceLeave,
       @JsonKey(name: "leave_taken") double leaveTaken,
@@ -49,39 +50,42 @@ abstract class $EmployeeLeavetypeModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EmployeeLeavetypeModelCopyWithImpl<$Res>
+class _$EmployeeLeavetypeModelCopyWithImpl<$Res,
+        $Val extends EmployeeLeavetypeModel>
     implements $EmployeeLeavetypeModelCopyWith<$Res> {
   _$EmployeeLeavetypeModelCopyWithImpl(this._value, this._then);
 
-  final EmployeeLeavetypeModel _value;
   // ignore: unused_field
-  final $Res Function(EmployeeLeavetypeModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? balanceLeave = freezed,
-    Object? leaveTaken = freezed,
-    Object? emp_leave_list = freezed,
-    Object? leave_list = freezed,
+    Object? balanceLeave = null,
+    Object? leaveTaken = null,
+    Object? emp_leave_list = null,
+    Object? leave_list = null,
   }) {
     return _then(_value.copyWith(
-      balanceLeave: balanceLeave == freezed
+      balanceLeave: null == balanceLeave
           ? _value.balanceLeave
           : balanceLeave // ignore: cast_nullable_to_non_nullable
               as double,
-      leaveTaken: leaveTaken == freezed
+      leaveTaken: null == leaveTaken
           ? _value.leaveTaken
           : leaveTaken // ignore: cast_nullable_to_non_nullable
               as double,
-      emp_leave_list: emp_leave_list == freezed
+      emp_leave_list: null == emp_leave_list
           ? _value.emp_leave_list
           : emp_leave_list // ignore: cast_nullable_to_non_nullable
               as List<EmployeeLeaveModel>,
-      leave_list: leave_list == freezed
+      leave_list: null == leave_list
           ? _value.leave_list
           : leave_list // ignore: cast_nullable_to_non_nullable
               as List<EmployeeleaveListModel>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -92,6 +96,7 @@ abstract class _$$_EmployeeLeavetypeModelCopyWith<$Res>
           $Res Function(_$_EmployeeLeavetypeModel) then) =
       __$$_EmployeeLeavetypeModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "balance_leave") double balanceLeave,
       @JsonKey(name: "leave_taken") double leaveTaken,
@@ -101,37 +106,35 @@ abstract class _$$_EmployeeLeavetypeModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_EmployeeLeavetypeModelCopyWithImpl<$Res>
-    extends _$EmployeeLeavetypeModelCopyWithImpl<$Res>
+    extends _$EmployeeLeavetypeModelCopyWithImpl<$Res,
+        _$_EmployeeLeavetypeModel>
     implements _$$_EmployeeLeavetypeModelCopyWith<$Res> {
   __$$_EmployeeLeavetypeModelCopyWithImpl(_$_EmployeeLeavetypeModel _value,
       $Res Function(_$_EmployeeLeavetypeModel) _then)
-      : super(_value, (v) => _then(v as _$_EmployeeLeavetypeModel));
+      : super(_value, _then);
 
-  @override
-  _$_EmployeeLeavetypeModel get _value =>
-      super._value as _$_EmployeeLeavetypeModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? balanceLeave = freezed,
-    Object? leaveTaken = freezed,
-    Object? emp_leave_list = freezed,
-    Object? leave_list = freezed,
+    Object? balanceLeave = null,
+    Object? leaveTaken = null,
+    Object? emp_leave_list = null,
+    Object? leave_list = null,
   }) {
     return _then(_$_EmployeeLeavetypeModel(
-      balanceLeave: balanceLeave == freezed
+      balanceLeave: null == balanceLeave
           ? _value.balanceLeave
           : balanceLeave // ignore: cast_nullable_to_non_nullable
               as double,
-      leaveTaken: leaveTaken == freezed
+      leaveTaken: null == leaveTaken
           ? _value.leaveTaken
           : leaveTaken // ignore: cast_nullable_to_non_nullable
               as double,
-      emp_leave_list: emp_leave_list == freezed
+      emp_leave_list: null == emp_leave_list
           ? _value._emp_leave_list
           : emp_leave_list // ignore: cast_nullable_to_non_nullable
               as List<EmployeeLeaveModel>,
-      leave_list: leave_list == freezed
+      leave_list: null == leave_list
           ? _value._leave_list
           : leave_list // ignore: cast_nullable_to_non_nullable
               as List<EmployeeleaveListModel>,
@@ -187,10 +190,10 @@ class _$_EmployeeLeavetypeModel implements _EmployeeLeavetypeModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EmployeeLeavetypeModel &&
-            const DeepCollectionEquality()
-                .equals(other.balanceLeave, balanceLeave) &&
-            const DeepCollectionEquality()
-                .equals(other.leaveTaken, leaveTaken) &&
+            (identical(other.balanceLeave, balanceLeave) ||
+                other.balanceLeave == balanceLeave) &&
+            (identical(other.leaveTaken, leaveTaken) ||
+                other.leaveTaken == leaveTaken) &&
             const DeepCollectionEquality()
                 .equals(other._emp_leave_list, _emp_leave_list) &&
             const DeepCollectionEquality()
@@ -201,13 +204,14 @@ class _$_EmployeeLeavetypeModel implements _EmployeeLeavetypeModel {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(balanceLeave),
-      const DeepCollectionEquality().hash(leaveTaken),
+      balanceLeave,
+      leaveTaken,
       const DeepCollectionEquality().hash(_emp_leave_list),
       const DeepCollectionEquality().hash(_leave_list));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EmployeeLeavetypeModelCopyWith<_$_EmployeeLeavetypeModel> get copyWith =>
       __$$_EmployeeLeavetypeModelCopyWithImpl<_$_EmployeeLeavetypeModel>(
           this, _$identity);

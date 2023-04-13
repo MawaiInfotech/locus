@@ -34,35 +34,39 @@ mixin _$EmployeeBirthDetailModel {
 abstract class $EmployeeBirthDetailModelCopyWith<$Res> {
   factory $EmployeeBirthDetailModelCopyWith(EmployeeBirthDetailModel value,
           $Res Function(EmployeeBirthDetailModel) then) =
-      _$EmployeeBirthDetailModelCopyWithImpl<$Res>;
+      _$EmployeeBirthDetailModelCopyWithImpl<$Res, EmployeeBirthDetailModel>;
+  @useResult
   $Res call(
       {List<NewJoineeModel> emp_newjoins, List<BirthdayModel> emp_births});
 }
 
 /// @nodoc
-class _$EmployeeBirthDetailModelCopyWithImpl<$Res>
+class _$EmployeeBirthDetailModelCopyWithImpl<$Res,
+        $Val extends EmployeeBirthDetailModel>
     implements $EmployeeBirthDetailModelCopyWith<$Res> {
   _$EmployeeBirthDetailModelCopyWithImpl(this._value, this._then);
 
-  final EmployeeBirthDetailModel _value;
   // ignore: unused_field
-  final $Res Function(EmployeeBirthDetailModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? emp_newjoins = freezed,
-    Object? emp_births = freezed,
+    Object? emp_newjoins = null,
+    Object? emp_births = null,
   }) {
     return _then(_value.copyWith(
-      emp_newjoins: emp_newjoins == freezed
+      emp_newjoins: null == emp_newjoins
           ? _value.emp_newjoins
           : emp_newjoins // ignore: cast_nullable_to_non_nullable
               as List<NewJoineeModel>,
-      emp_births: emp_births == freezed
+      emp_births: null == emp_births
           ? _value.emp_births
           : emp_births // ignore: cast_nullable_to_non_nullable
               as List<BirthdayModel>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -74,33 +78,32 @@ abstract class _$$_EmployeeBirthDetailModelCopyWith<$Res>
           $Res Function(_$_EmployeeBirthDetailModel) then) =
       __$$_EmployeeBirthDetailModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {List<NewJoineeModel> emp_newjoins, List<BirthdayModel> emp_births});
 }
 
 /// @nodoc
 class __$$_EmployeeBirthDetailModelCopyWithImpl<$Res>
-    extends _$EmployeeBirthDetailModelCopyWithImpl<$Res>
+    extends _$EmployeeBirthDetailModelCopyWithImpl<$Res,
+        _$_EmployeeBirthDetailModel>
     implements _$$_EmployeeBirthDetailModelCopyWith<$Res> {
   __$$_EmployeeBirthDetailModelCopyWithImpl(_$_EmployeeBirthDetailModel _value,
       $Res Function(_$_EmployeeBirthDetailModel) _then)
-      : super(_value, (v) => _then(v as _$_EmployeeBirthDetailModel));
+      : super(_value, _then);
 
-  @override
-  _$_EmployeeBirthDetailModel get _value =>
-      super._value as _$_EmployeeBirthDetailModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? emp_newjoins = freezed,
-    Object? emp_births = freezed,
+    Object? emp_newjoins = null,
+    Object? emp_births = null,
   }) {
     return _then(_$_EmployeeBirthDetailModel(
-      emp_newjoins: emp_newjoins == freezed
+      emp_newjoins: null == emp_newjoins
           ? _value._emp_newjoins
           : emp_newjoins // ignore: cast_nullable_to_non_nullable
               as List<NewJoineeModel>,
-      emp_births: emp_births == freezed
+      emp_births: null == emp_births
           ? _value._emp_births
           : emp_births // ignore: cast_nullable_to_non_nullable
               as List<BirthdayModel>,
@@ -161,6 +164,7 @@ class _$_EmployeeBirthDetailModel implements _EmployeeBirthDetailModel {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EmployeeBirthDetailModelCopyWith<_$_EmployeeBirthDetailModel>
       get copyWith => __$$_EmployeeBirthDetailModelCopyWithImpl<
           _$_EmployeeBirthDetailModel>(this, _$identity);

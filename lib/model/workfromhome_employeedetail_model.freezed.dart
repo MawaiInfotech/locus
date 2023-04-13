@@ -44,7 +44,8 @@ mixin _$WFHEmployeeDetailModel {
 abstract class $WFHEmployeeDetailModelCopyWith<$Res> {
   factory $WFHEmployeeDetailModelCopyWith(WFHEmployeeDetailModel value,
           $Res Function(WFHEmployeeDetailModel) then) =
-      _$WFHEmployeeDetailModelCopyWithImpl<$Res>;
+      _$WFHEmployeeDetailModelCopyWithImpl<$Res, WFHEmployeeDetailModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_number") String employeeNumber,
       @JsonKey(name: "emp_last_name") String employeeLastName,
@@ -55,49 +56,52 @@ abstract class $WFHEmployeeDetailModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$WFHEmployeeDetailModelCopyWithImpl<$Res>
+class _$WFHEmployeeDetailModelCopyWithImpl<$Res,
+        $Val extends WFHEmployeeDetailModel>
     implements $WFHEmployeeDetailModelCopyWith<$Res> {
   _$WFHEmployeeDetailModelCopyWithImpl(this._value, this._then);
 
-  final WFHEmployeeDetailModel _value;
   // ignore: unused_field
-  final $Res Function(WFHEmployeeDetailModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeNumber = freezed,
-    Object? employeeLastName = freezed,
-    Object? employeeFirstName = freezed,
-    Object? presentNumber = freezed,
-    Object? permamnentNumber = freezed,
-    Object? reportingTo = freezed,
+    Object? employeeNumber = null,
+    Object? employeeLastName = null,
+    Object? employeeFirstName = null,
+    Object? presentNumber = null,
+    Object? permamnentNumber = null,
+    Object? reportingTo = null,
   }) {
     return _then(_value.copyWith(
-      employeeNumber: employeeNumber == freezed
+      employeeNumber: null == employeeNumber
           ? _value.employeeNumber
           : employeeNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeLastName: employeeLastName == freezed
+      employeeLastName: null == employeeLastName
           ? _value.employeeLastName
           : employeeLastName // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeFirstName: employeeFirstName == freezed
+      employeeFirstName: null == employeeFirstName
           ? _value.employeeFirstName
           : employeeFirstName // ignore: cast_nullable_to_non_nullable
               as String,
-      presentNumber: presentNumber == freezed
+      presentNumber: null == presentNumber
           ? _value.presentNumber
           : presentNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      permamnentNumber: permamnentNumber == freezed
+      permamnentNumber: null == permamnentNumber
           ? _value.permamnentNumber
           : permamnentNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      reportingTo: reportingTo == freezed
+      reportingTo: null == reportingTo
           ? _value.reportingTo
           : reportingTo // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -108,6 +112,7 @@ abstract class _$$_WFHEmployeeDetailModelCopyWith<$Res>
           $Res Function(_$_WFHEmployeeDetailModel) then) =
       __$$_WFHEmployeeDetailModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_number") String employeeNumber,
       @JsonKey(name: "emp_last_name") String employeeLastName,
@@ -119,47 +124,45 @@ abstract class _$$_WFHEmployeeDetailModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_WFHEmployeeDetailModelCopyWithImpl<$Res>
-    extends _$WFHEmployeeDetailModelCopyWithImpl<$Res>
+    extends _$WFHEmployeeDetailModelCopyWithImpl<$Res,
+        _$_WFHEmployeeDetailModel>
     implements _$$_WFHEmployeeDetailModelCopyWith<$Res> {
   __$$_WFHEmployeeDetailModelCopyWithImpl(_$_WFHEmployeeDetailModel _value,
       $Res Function(_$_WFHEmployeeDetailModel) _then)
-      : super(_value, (v) => _then(v as _$_WFHEmployeeDetailModel));
+      : super(_value, _then);
 
-  @override
-  _$_WFHEmployeeDetailModel get _value =>
-      super._value as _$_WFHEmployeeDetailModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeNumber = freezed,
-    Object? employeeLastName = freezed,
-    Object? employeeFirstName = freezed,
-    Object? presentNumber = freezed,
-    Object? permamnentNumber = freezed,
-    Object? reportingTo = freezed,
+    Object? employeeNumber = null,
+    Object? employeeLastName = null,
+    Object? employeeFirstName = null,
+    Object? presentNumber = null,
+    Object? permamnentNumber = null,
+    Object? reportingTo = null,
   }) {
     return _then(_$_WFHEmployeeDetailModel(
-      employeeNumber: employeeNumber == freezed
+      employeeNumber: null == employeeNumber
           ? _value.employeeNumber
           : employeeNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeLastName: employeeLastName == freezed
+      employeeLastName: null == employeeLastName
           ? _value.employeeLastName
           : employeeLastName // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeFirstName: employeeFirstName == freezed
+      employeeFirstName: null == employeeFirstName
           ? _value.employeeFirstName
           : employeeFirstName // ignore: cast_nullable_to_non_nullable
               as String,
-      presentNumber: presentNumber == freezed
+      presentNumber: null == presentNumber
           ? _value.presentNumber
           : presentNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      permamnentNumber: permamnentNumber == freezed
+      permamnentNumber: null == permamnentNumber
           ? _value.permamnentNumber
           : permamnentNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      reportingTo: reportingTo == freezed
+      reportingTo: null == reportingTo
           ? _value.reportingTo
           : reportingTo // ignore: cast_nullable_to_non_nullable
               as String,
@@ -210,33 +213,28 @@ class _$_WFHEmployeeDetailModel implements _WFHEmployeeDetailModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WFHEmployeeDetailModel &&
-            const DeepCollectionEquality()
-                .equals(other.employeeNumber, employeeNumber) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeLastName, employeeLastName) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeFirstName, employeeFirstName) &&
-            const DeepCollectionEquality()
-                .equals(other.presentNumber, presentNumber) &&
-            const DeepCollectionEquality()
-                .equals(other.permamnentNumber, permamnentNumber) &&
-            const DeepCollectionEquality()
-                .equals(other.reportingTo, reportingTo));
+            (identical(other.employeeNumber, employeeNumber) ||
+                other.employeeNumber == employeeNumber) &&
+            (identical(other.employeeLastName, employeeLastName) ||
+                other.employeeLastName == employeeLastName) &&
+            (identical(other.employeeFirstName, employeeFirstName) ||
+                other.employeeFirstName == employeeFirstName) &&
+            (identical(other.presentNumber, presentNumber) ||
+                other.presentNumber == presentNumber) &&
+            (identical(other.permamnentNumber, permamnentNumber) ||
+                other.permamnentNumber == permamnentNumber) &&
+            (identical(other.reportingTo, reportingTo) ||
+                other.reportingTo == reportingTo));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(employeeNumber),
-      const DeepCollectionEquality().hash(employeeLastName),
-      const DeepCollectionEquality().hash(employeeFirstName),
-      const DeepCollectionEquality().hash(presentNumber),
-      const DeepCollectionEquality().hash(permamnentNumber),
-      const DeepCollectionEquality().hash(reportingTo));
+  int get hashCode => Object.hash(runtimeType, employeeNumber, employeeLastName,
+      employeeFirstName, presentNumber, permamnentNumber, reportingTo);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WFHEmployeeDetailModelCopyWith<_$_WFHEmployeeDetailModel> get copyWith =>
       __$$_WFHEmployeeDetailModelCopyWithImpl<_$_WFHEmployeeDetailModel>(
           this, _$identity);

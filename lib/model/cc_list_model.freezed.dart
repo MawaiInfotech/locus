@@ -37,7 +37,8 @@ mixin _$CClistModel {
 abstract class $CClistModelCopyWith<$Res> {
   factory $CClistModelCopyWith(
           CClistModel value, $Res Function(CClistModel) then) =
-      _$CClistModelCopyWithImpl<$Res>;
+      _$CClistModelCopyWithImpl<$Res, CClistModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_number") String employeeCode,
       @JsonKey(name: "emp_last_name") String employeeLatsName,
@@ -45,33 +46,36 @@ abstract class $CClistModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CClistModelCopyWithImpl<$Res> implements $CClistModelCopyWith<$Res> {
+class _$CClistModelCopyWithImpl<$Res, $Val extends CClistModel>
+    implements $CClistModelCopyWith<$Res> {
   _$CClistModelCopyWithImpl(this._value, this._then);
 
-  final CClistModel _value;
   // ignore: unused_field
-  final $Res Function(CClistModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeCode = freezed,
-    Object? employeeLatsName = freezed,
-    Object? employeeFirstName = freezed,
+    Object? employeeCode = null,
+    Object? employeeLatsName = null,
+    Object? employeeFirstName = null,
   }) {
     return _then(_value.copyWith(
-      employeeCode: employeeCode == freezed
+      employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeLatsName: employeeLatsName == freezed
+      employeeLatsName: null == employeeLatsName
           ? _value.employeeLatsName
           : employeeLatsName // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeFirstName: employeeFirstName == freezed
+      employeeFirstName: null == employeeFirstName
           ? _value.employeeFirstName
           : employeeFirstName // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -82,6 +86,7 @@ abstract class _$$_CClistModelCopyWith<$Res>
           _$_CClistModel value, $Res Function(_$_CClistModel) then) =
       __$$_CClistModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_number") String employeeCode,
       @JsonKey(name: "emp_last_name") String employeeLatsName,
@@ -89,31 +94,30 @@ abstract class _$$_CClistModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CClistModelCopyWithImpl<$Res> extends _$CClistModelCopyWithImpl<$Res>
+class __$$_CClistModelCopyWithImpl<$Res>
+    extends _$CClistModelCopyWithImpl<$Res, _$_CClistModel>
     implements _$$_CClistModelCopyWith<$Res> {
   __$$_CClistModelCopyWithImpl(
       _$_CClistModel _value, $Res Function(_$_CClistModel) _then)
-      : super(_value, (v) => _then(v as _$_CClistModel));
+      : super(_value, _then);
 
-  @override
-  _$_CClistModel get _value => super._value as _$_CClistModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeCode = freezed,
-    Object? employeeLatsName = freezed,
-    Object? employeeFirstName = freezed,
+    Object? employeeCode = null,
+    Object? employeeLatsName = null,
+    Object? employeeFirstName = null,
   }) {
     return _then(_$_CClistModel(
-      employeeCode: employeeCode == freezed
+      employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeLatsName: employeeLatsName == freezed
+      employeeLatsName: null == employeeLatsName
           ? _value.employeeLatsName
           : employeeLatsName // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeFirstName: employeeFirstName == freezed
+      employeeFirstName: null == employeeFirstName
           ? _value.employeeFirstName
           : employeeFirstName // ignore: cast_nullable_to_non_nullable
               as String,
@@ -152,24 +156,22 @@ class _$_CClistModel implements _CClistModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CClistModel &&
-            const DeepCollectionEquality()
-                .equals(other.employeeCode, employeeCode) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeLatsName, employeeLatsName) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeFirstName, employeeFirstName));
+            (identical(other.employeeCode, employeeCode) ||
+                other.employeeCode == employeeCode) &&
+            (identical(other.employeeLatsName, employeeLatsName) ||
+                other.employeeLatsName == employeeLatsName) &&
+            (identical(other.employeeFirstName, employeeFirstName) ||
+                other.employeeFirstName == employeeFirstName));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(employeeCode),
-      const DeepCollectionEquality().hash(employeeLatsName),
-      const DeepCollectionEquality().hash(employeeFirstName));
+      runtimeType, employeeCode, employeeLatsName, employeeFirstName);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CClistModelCopyWith<_$_CClistModel> get copyWith =>
       __$$_CClistModelCopyWithImpl<_$_CClistModel>(this, _$identity);
 

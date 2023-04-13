@@ -35,35 +35,39 @@ mixin _$WfhTypeModel {
 abstract class $WfhTypeModelCopyWith<$Res> {
   factory $WfhTypeModelCopyWith(
           WfhTypeModel value, $Res Function(WfhTypeModel) then) =
-      _$WfhTypeModelCopyWithImpl<$Res>;
+      _$WfhTypeModelCopyWithImpl<$Res, WfhTypeModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "control_code") String controlCode,
       @JsonKey(name: "description") String meaning});
 }
 
 /// @nodoc
-class _$WfhTypeModelCopyWithImpl<$Res> implements $WfhTypeModelCopyWith<$Res> {
+class _$WfhTypeModelCopyWithImpl<$Res, $Val extends WfhTypeModel>
+    implements $WfhTypeModelCopyWith<$Res> {
   _$WfhTypeModelCopyWithImpl(this._value, this._then);
 
-  final WfhTypeModel _value;
   // ignore: unused_field
-  final $Res Function(WfhTypeModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? controlCode = freezed,
-    Object? meaning = freezed,
+    Object? controlCode = null,
+    Object? meaning = null,
   }) {
     return _then(_value.copyWith(
-      controlCode: controlCode == freezed
+      controlCode: null == controlCode
           ? _value.controlCode
           : controlCode // ignore: cast_nullable_to_non_nullable
               as String,
-      meaning: meaning == freezed
+      meaning: null == meaning
           ? _value.meaning
           : meaning // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -74,6 +78,7 @@ abstract class _$$_WfhTypeModelCopyWith<$Res>
           _$_WfhTypeModel value, $Res Function(_$_WfhTypeModel) then) =
       __$$_WfhTypeModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "control_code") String controlCode,
       @JsonKey(name: "description") String meaning});
@@ -81,26 +86,24 @@ abstract class _$$_WfhTypeModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_WfhTypeModelCopyWithImpl<$Res>
-    extends _$WfhTypeModelCopyWithImpl<$Res>
+    extends _$WfhTypeModelCopyWithImpl<$Res, _$_WfhTypeModel>
     implements _$$_WfhTypeModelCopyWith<$Res> {
   __$$_WfhTypeModelCopyWithImpl(
       _$_WfhTypeModel _value, $Res Function(_$_WfhTypeModel) _then)
-      : super(_value, (v) => _then(v as _$_WfhTypeModel));
+      : super(_value, _then);
 
-  @override
-  _$_WfhTypeModel get _value => super._value as _$_WfhTypeModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? controlCode = freezed,
-    Object? meaning = freezed,
+    Object? controlCode = null,
+    Object? meaning = null,
   }) {
     return _then(_$_WfhTypeModel(
-      controlCode: controlCode == freezed
+      controlCode: null == controlCode
           ? _value.controlCode
           : controlCode // ignore: cast_nullable_to_non_nullable
               as String,
-      meaning: meaning == freezed
+      meaning: null == meaning
           ? _value.meaning
           : meaning // ignore: cast_nullable_to_non_nullable
               as String,
@@ -135,20 +138,18 @@ class _$_WfhTypeModel implements _WfhTypeModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WfhTypeModel &&
-            const DeepCollectionEquality()
-                .equals(other.controlCode, controlCode) &&
-            const DeepCollectionEquality().equals(other.meaning, meaning));
+            (identical(other.controlCode, controlCode) ||
+                other.controlCode == controlCode) &&
+            (identical(other.meaning, meaning) || other.meaning == meaning));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(controlCode),
-      const DeepCollectionEquality().hash(meaning));
+  int get hashCode => Object.hash(runtimeType, controlCode, meaning);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WfhTypeModelCopyWith<_$_WfhTypeModel> get copyWith =>
       __$$_WfhTypeModelCopyWithImpl<_$_WfhTypeModel>(this, _$identity);
 

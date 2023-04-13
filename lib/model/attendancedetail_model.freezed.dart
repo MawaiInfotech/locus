@@ -66,7 +66,8 @@ mixin _$AttendanceDetailModel {
 abstract class $AttendanceDetailModelCopyWith<$Res> {
   factory $AttendanceDetailModelCopyWith(AttendanceDetailModel value,
           $Res Function(AttendanceDetailModel) then) =
-      _$AttendanceDetailModelCopyWithImpl<$Res>;
+      _$AttendanceDetailModelCopyWithImpl<$Res, AttendanceDetailModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "empcode") String employeeCode,
       String card_no,
@@ -89,109 +90,112 @@ abstract class $AttendanceDetailModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AttendanceDetailModelCopyWithImpl<$Res>
+class _$AttendanceDetailModelCopyWithImpl<$Res,
+        $Val extends AttendanceDetailModel>
     implements $AttendanceDetailModelCopyWith<$Res> {
   _$AttendanceDetailModelCopyWithImpl(this._value, this._then);
 
-  final AttendanceDetailModel _value;
   // ignore: unused_field
-  final $Res Function(AttendanceDetailModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeCode = freezed,
-    Object? card_no = freezed,
-    Object? reporting_to = freezed,
-    Object? month = freezed,
-    Object? year = freezed,
-    Object? attendanceDate = freezed,
-    Object? inTime = freezed,
-    Object? outTime = freezed,
-    Object? inRem = freezed,
-    Object? outRem = freezed,
-    Object? totalTime = freezed,
-    Object? inAddress = freezed,
-    Object? outAddress = freezed,
-    Object? departmaentCode = freezed,
-    Object? catCode = freezed,
-    Object? shiftCode = freezed,
-    Object? unitCode = freezed,
-    Object? misPunch = freezed,
+    Object? employeeCode = null,
+    Object? card_no = null,
+    Object? reporting_to = null,
+    Object? month = null,
+    Object? year = null,
+    Object? attendanceDate = null,
+    Object? inTime = null,
+    Object? outTime = null,
+    Object? inRem = null,
+    Object? outRem = null,
+    Object? totalTime = null,
+    Object? inAddress = null,
+    Object? outAddress = null,
+    Object? departmaentCode = null,
+    Object? catCode = null,
+    Object? shiftCode = null,
+    Object? unitCode = null,
+    Object? misPunch = null,
   }) {
     return _then(_value.copyWith(
-      employeeCode: employeeCode == freezed
+      employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      card_no: card_no == freezed
+      card_no: null == card_no
           ? _value.card_no
           : card_no // ignore: cast_nullable_to_non_nullable
               as String,
-      reporting_to: reporting_to == freezed
+      reporting_to: null == reporting_to
           ? _value.reporting_to
           : reporting_to // ignore: cast_nullable_to_non_nullable
               as String,
-      month: month == freezed
+      month: null == month
           ? _value.month
           : month // ignore: cast_nullable_to_non_nullable
               as String,
-      year: year == freezed
+      year: null == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
               as String,
-      attendanceDate: attendanceDate == freezed
+      attendanceDate: null == attendanceDate
           ? _value.attendanceDate
           : attendanceDate // ignore: cast_nullable_to_non_nullable
               as String,
-      inTime: inTime == freezed
+      inTime: null == inTime
           ? _value.inTime
           : inTime // ignore: cast_nullable_to_non_nullable
               as String,
-      outTime: outTime == freezed
+      outTime: null == outTime
           ? _value.outTime
           : outTime // ignore: cast_nullable_to_non_nullable
               as String,
-      inRem: inRem == freezed
+      inRem: null == inRem
           ? _value.inRem
           : inRem // ignore: cast_nullable_to_non_nullable
               as String,
-      outRem: outRem == freezed
+      outRem: null == outRem
           ? _value.outRem
           : outRem // ignore: cast_nullable_to_non_nullable
               as String,
-      totalTime: totalTime == freezed
+      totalTime: null == totalTime
           ? _value.totalTime
           : totalTime // ignore: cast_nullable_to_non_nullable
               as String,
-      inAddress: inAddress == freezed
+      inAddress: null == inAddress
           ? _value.inAddress
           : inAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      outAddress: outAddress == freezed
+      outAddress: null == outAddress
           ? _value.outAddress
           : outAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      departmaentCode: departmaentCode == freezed
+      departmaentCode: null == departmaentCode
           ? _value.departmaentCode
           : departmaentCode // ignore: cast_nullable_to_non_nullable
               as String,
-      catCode: catCode == freezed
+      catCode: null == catCode
           ? _value.catCode
           : catCode // ignore: cast_nullable_to_non_nullable
               as String,
-      shiftCode: shiftCode == freezed
+      shiftCode: null == shiftCode
           ? _value.shiftCode
           : shiftCode // ignore: cast_nullable_to_non_nullable
               as String,
-      unitCode: unitCode == freezed
+      unitCode: null == unitCode
           ? _value.unitCode
           : unitCode // ignore: cast_nullable_to_non_nullable
               as String,
-      misPunch: misPunch == freezed
+      misPunch: null == misPunch
           ? _value.misPunch
           : misPunch // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -202,6 +206,7 @@ abstract class _$$_AttendanceDetailModelCopyWith<$Res>
           $Res Function(_$_AttendanceDetailModel) then) =
       __$$_AttendanceDetailModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "empcode") String employeeCode,
       String card_no,
@@ -225,107 +230,104 @@ abstract class _$$_AttendanceDetailModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_AttendanceDetailModelCopyWithImpl<$Res>
-    extends _$AttendanceDetailModelCopyWithImpl<$Res>
+    extends _$AttendanceDetailModelCopyWithImpl<$Res, _$_AttendanceDetailModel>
     implements _$$_AttendanceDetailModelCopyWith<$Res> {
   __$$_AttendanceDetailModelCopyWithImpl(_$_AttendanceDetailModel _value,
       $Res Function(_$_AttendanceDetailModel) _then)
-      : super(_value, (v) => _then(v as _$_AttendanceDetailModel));
+      : super(_value, _then);
 
-  @override
-  _$_AttendanceDetailModel get _value =>
-      super._value as _$_AttendanceDetailModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeCode = freezed,
-    Object? card_no = freezed,
-    Object? reporting_to = freezed,
-    Object? month = freezed,
-    Object? year = freezed,
-    Object? attendanceDate = freezed,
-    Object? inTime = freezed,
-    Object? outTime = freezed,
-    Object? inRem = freezed,
-    Object? outRem = freezed,
-    Object? totalTime = freezed,
-    Object? inAddress = freezed,
-    Object? outAddress = freezed,
-    Object? departmaentCode = freezed,
-    Object? catCode = freezed,
-    Object? shiftCode = freezed,
-    Object? unitCode = freezed,
-    Object? misPunch = freezed,
+    Object? employeeCode = null,
+    Object? card_no = null,
+    Object? reporting_to = null,
+    Object? month = null,
+    Object? year = null,
+    Object? attendanceDate = null,
+    Object? inTime = null,
+    Object? outTime = null,
+    Object? inRem = null,
+    Object? outRem = null,
+    Object? totalTime = null,
+    Object? inAddress = null,
+    Object? outAddress = null,
+    Object? departmaentCode = null,
+    Object? catCode = null,
+    Object? shiftCode = null,
+    Object? unitCode = null,
+    Object? misPunch = null,
   }) {
     return _then(_$_AttendanceDetailModel(
-      employeeCode: employeeCode == freezed
+      employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      card_no: card_no == freezed
+      card_no: null == card_no
           ? _value.card_no
           : card_no // ignore: cast_nullable_to_non_nullable
               as String,
-      reporting_to: reporting_to == freezed
+      reporting_to: null == reporting_to
           ? _value.reporting_to
           : reporting_to // ignore: cast_nullable_to_non_nullable
               as String,
-      month: month == freezed
+      month: null == month
           ? _value.month
           : month // ignore: cast_nullable_to_non_nullable
               as String,
-      year: year == freezed
+      year: null == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
               as String,
-      attendanceDate: attendanceDate == freezed
+      attendanceDate: null == attendanceDate
           ? _value.attendanceDate
           : attendanceDate // ignore: cast_nullable_to_non_nullable
               as String,
-      inTime: inTime == freezed
+      inTime: null == inTime
           ? _value.inTime
           : inTime // ignore: cast_nullable_to_non_nullable
               as String,
-      outTime: outTime == freezed
+      outTime: null == outTime
           ? _value.outTime
           : outTime // ignore: cast_nullable_to_non_nullable
               as String,
-      inRem: inRem == freezed
+      inRem: null == inRem
           ? _value.inRem
           : inRem // ignore: cast_nullable_to_non_nullable
               as String,
-      outRem: outRem == freezed
+      outRem: null == outRem
           ? _value.outRem
           : outRem // ignore: cast_nullable_to_non_nullable
               as String,
-      totalTime: totalTime == freezed
+      totalTime: null == totalTime
           ? _value.totalTime
           : totalTime // ignore: cast_nullable_to_non_nullable
               as String,
-      inAddress: inAddress == freezed
+      inAddress: null == inAddress
           ? _value.inAddress
           : inAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      outAddress: outAddress == freezed
+      outAddress: null == outAddress
           ? _value.outAddress
           : outAddress // ignore: cast_nullable_to_non_nullable
               as String,
-      departmaentCode: departmaentCode == freezed
+      departmaentCode: null == departmaentCode
           ? _value.departmaentCode
           : departmaentCode // ignore: cast_nullable_to_non_nullable
               as String,
-      catCode: catCode == freezed
+      catCode: null == catCode
           ? _value.catCode
           : catCode // ignore: cast_nullable_to_non_nullable
               as String,
-      shiftCode: shiftCode == freezed
+      shiftCode: null == shiftCode
           ? _value.shiftCode
           : shiftCode // ignore: cast_nullable_to_non_nullable
               as String,
-      unitCode: unitCode == freezed
+      unitCode: null == unitCode
           ? _value.unitCode
           : unitCode // ignore: cast_nullable_to_non_nullable
               as String,
-      misPunch: misPunch == freezed
+      misPunch: null == misPunch
           ? _value.misPunch
           : misPunch // ignore: cast_nullable_to_non_nullable
               as String,
@@ -424,56 +426,62 @@ class _$_AttendanceDetailModel implements _AttendanceDetailModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AttendanceDetailModel &&
-            const DeepCollectionEquality()
-                .equals(other.employeeCode, employeeCode) &&
-            const DeepCollectionEquality().equals(other.card_no, card_no) &&
-            const DeepCollectionEquality()
-                .equals(other.reporting_to, reporting_to) &&
-            const DeepCollectionEquality().equals(other.month, month) &&
-            const DeepCollectionEquality().equals(other.year, year) &&
-            const DeepCollectionEquality()
-                .equals(other.attendanceDate, attendanceDate) &&
-            const DeepCollectionEquality().equals(other.inTime, inTime) &&
-            const DeepCollectionEquality().equals(other.outTime, outTime) &&
-            const DeepCollectionEquality().equals(other.inRem, inRem) &&
-            const DeepCollectionEquality().equals(other.outRem, outRem) &&
-            const DeepCollectionEquality().equals(other.totalTime, totalTime) &&
-            const DeepCollectionEquality().equals(other.inAddress, inAddress) &&
-            const DeepCollectionEquality()
-                .equals(other.outAddress, outAddress) &&
-            const DeepCollectionEquality()
-                .equals(other.departmaentCode, departmaentCode) &&
-            const DeepCollectionEquality().equals(other.catCode, catCode) &&
-            const DeepCollectionEquality().equals(other.shiftCode, shiftCode) &&
-            const DeepCollectionEquality().equals(other.unitCode, unitCode) &&
-            const DeepCollectionEquality().equals(other.misPunch, misPunch));
+            (identical(other.employeeCode, employeeCode) ||
+                other.employeeCode == employeeCode) &&
+            (identical(other.card_no, card_no) || other.card_no == card_no) &&
+            (identical(other.reporting_to, reporting_to) ||
+                other.reporting_to == reporting_to) &&
+            (identical(other.month, month) || other.month == month) &&
+            (identical(other.year, year) || other.year == year) &&
+            (identical(other.attendanceDate, attendanceDate) ||
+                other.attendanceDate == attendanceDate) &&
+            (identical(other.inTime, inTime) || other.inTime == inTime) &&
+            (identical(other.outTime, outTime) || other.outTime == outTime) &&
+            (identical(other.inRem, inRem) || other.inRem == inRem) &&
+            (identical(other.outRem, outRem) || other.outRem == outRem) &&
+            (identical(other.totalTime, totalTime) ||
+                other.totalTime == totalTime) &&
+            (identical(other.inAddress, inAddress) ||
+                other.inAddress == inAddress) &&
+            (identical(other.outAddress, outAddress) ||
+                other.outAddress == outAddress) &&
+            (identical(other.departmaentCode, departmaentCode) ||
+                other.departmaentCode == departmaentCode) &&
+            (identical(other.catCode, catCode) || other.catCode == catCode) &&
+            (identical(other.shiftCode, shiftCode) ||
+                other.shiftCode == shiftCode) &&
+            (identical(other.unitCode, unitCode) ||
+                other.unitCode == unitCode) &&
+            (identical(other.misPunch, misPunch) ||
+                other.misPunch == misPunch));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(employeeCode),
-      const DeepCollectionEquality().hash(card_no),
-      const DeepCollectionEquality().hash(reporting_to),
-      const DeepCollectionEquality().hash(month),
-      const DeepCollectionEquality().hash(year),
-      const DeepCollectionEquality().hash(attendanceDate),
-      const DeepCollectionEquality().hash(inTime),
-      const DeepCollectionEquality().hash(outTime),
-      const DeepCollectionEquality().hash(inRem),
-      const DeepCollectionEquality().hash(outRem),
-      const DeepCollectionEquality().hash(totalTime),
-      const DeepCollectionEquality().hash(inAddress),
-      const DeepCollectionEquality().hash(outAddress),
-      const DeepCollectionEquality().hash(departmaentCode),
-      const DeepCollectionEquality().hash(catCode),
-      const DeepCollectionEquality().hash(shiftCode),
-      const DeepCollectionEquality().hash(unitCode),
-      const DeepCollectionEquality().hash(misPunch));
+      employeeCode,
+      card_no,
+      reporting_to,
+      month,
+      year,
+      attendanceDate,
+      inTime,
+      outTime,
+      inRem,
+      outRem,
+      totalTime,
+      inAddress,
+      outAddress,
+      departmaentCode,
+      catCode,
+      shiftCode,
+      unitCode,
+      misPunch);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AttendanceDetailModelCopyWith<_$_AttendanceDetailModel> get copyWith =>
       __$$_AttendanceDetailModelCopyWithImpl<_$_AttendanceDetailModel>(
           this, _$identity);

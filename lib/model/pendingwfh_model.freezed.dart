@@ -51,7 +51,8 @@ mixin _$PendingWfhModel {
 abstract class $PendingWfhModelCopyWith<$Res> {
   factory $PendingWfhModelCopyWith(
           PendingWfhModel value, $Res Function(PendingWfhModel) then) =
-      _$PendingWfhModelCopyWithImpl<$Res>;
+      _$PendingWfhModelCopyWithImpl<$Res, PendingWfhModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "empmemb_emp_master_emp_number") String empNumber,
       @JsonKey(name: "from_date") String fromDate,
@@ -66,69 +67,71 @@ abstract class $PendingWfhModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PendingWfhModelCopyWithImpl<$Res>
+class _$PendingWfhModelCopyWithImpl<$Res, $Val extends PendingWfhModel>
     implements $PendingWfhModelCopyWith<$Res> {
   _$PendingWfhModelCopyWithImpl(this._value, this._then);
 
-  final PendingWfhModel _value;
   // ignore: unused_field
-  final $Res Function(PendingWfhModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? empNumber = freezed,
-    Object? fromDate = freezed,
-    Object? endDate = freezed,
-    Object? granted = freezed,
-    Object? days = freezed,
-    Object? reason = freezed,
-    Object? name = freezed,
-    Object? reportingTo = freezed,
-    Object? departmentCode = freezed,
-    Object? appNumber = freezed,
+    Object? empNumber = null,
+    Object? fromDate = null,
+    Object? endDate = null,
+    Object? granted = null,
+    Object? days = null,
+    Object? reason = null,
+    Object? name = null,
+    Object? reportingTo = null,
+    Object? departmentCode = null,
+    Object? appNumber = null,
   }) {
     return _then(_value.copyWith(
-      empNumber: empNumber == freezed
+      empNumber: null == empNumber
           ? _value.empNumber
           : empNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      fromDate: fromDate == freezed
+      fromDate: null == fromDate
           ? _value.fromDate
           : fromDate // ignore: cast_nullable_to_non_nullable
               as String,
-      endDate: endDate == freezed
+      endDate: null == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as String,
-      granted: granted == freezed
+      granted: null == granted
           ? _value.granted
           : granted // ignore: cast_nullable_to_non_nullable
               as String,
-      days: days == freezed
+      days: null == days
           ? _value.days
           : days // ignore: cast_nullable_to_non_nullable
               as String,
-      reason: reason == freezed
+      reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      reportingTo: reportingTo == freezed
+      reportingTo: null == reportingTo
           ? _value.reportingTo
           : reportingTo // ignore: cast_nullable_to_non_nullable
               as String,
-      departmentCode: departmentCode == freezed
+      departmentCode: null == departmentCode
           ? _value.departmentCode
           : departmentCode // ignore: cast_nullable_to_non_nullable
               as String,
-      appNumber: appNumber == freezed
+      appNumber: null == appNumber
           ? _value.appNumber
           : appNumber // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -139,6 +142,7 @@ abstract class _$$_PendingWfhModelCopyWith<$Res>
           _$_PendingWfhModel value, $Res Function(_$_PendingWfhModel) then) =
       __$$_PendingWfhModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "empmemb_emp_master_emp_number") String empNumber,
       @JsonKey(name: "from_date") String fromDate,
@@ -154,66 +158,64 @@ abstract class _$$_PendingWfhModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_PendingWfhModelCopyWithImpl<$Res>
-    extends _$PendingWfhModelCopyWithImpl<$Res>
+    extends _$PendingWfhModelCopyWithImpl<$Res, _$_PendingWfhModel>
     implements _$$_PendingWfhModelCopyWith<$Res> {
   __$$_PendingWfhModelCopyWithImpl(
       _$_PendingWfhModel _value, $Res Function(_$_PendingWfhModel) _then)
-      : super(_value, (v) => _then(v as _$_PendingWfhModel));
+      : super(_value, _then);
 
-  @override
-  _$_PendingWfhModel get _value => super._value as _$_PendingWfhModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? empNumber = freezed,
-    Object? fromDate = freezed,
-    Object? endDate = freezed,
-    Object? granted = freezed,
-    Object? days = freezed,
-    Object? reason = freezed,
-    Object? name = freezed,
-    Object? reportingTo = freezed,
-    Object? departmentCode = freezed,
-    Object? appNumber = freezed,
+    Object? empNumber = null,
+    Object? fromDate = null,
+    Object? endDate = null,
+    Object? granted = null,
+    Object? days = null,
+    Object? reason = null,
+    Object? name = null,
+    Object? reportingTo = null,
+    Object? departmentCode = null,
+    Object? appNumber = null,
   }) {
     return _then(_$_PendingWfhModel(
-      empNumber: empNumber == freezed
+      empNumber: null == empNumber
           ? _value.empNumber
           : empNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      fromDate: fromDate == freezed
+      fromDate: null == fromDate
           ? _value.fromDate
           : fromDate // ignore: cast_nullable_to_non_nullable
               as String,
-      endDate: endDate == freezed
+      endDate: null == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as String,
-      granted: granted == freezed
+      granted: null == granted
           ? _value.granted
           : granted // ignore: cast_nullable_to_non_nullable
               as String,
-      days: days == freezed
+      days: null == days
           ? _value.days
           : days // ignore: cast_nullable_to_non_nullable
               as String,
-      reason: reason == freezed
+      reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      reportingTo: reportingTo == freezed
+      reportingTo: null == reportingTo
           ? _value.reportingTo
           : reportingTo // ignore: cast_nullable_to_non_nullable
               as String,
-      departmentCode: departmentCode == freezed
+      departmentCode: null == departmentCode
           ? _value.departmentCode
           : departmentCode // ignore: cast_nullable_to_non_nullable
               as String,
-      appNumber: appNumber == freezed
+      appNumber: null == appNumber
           ? _value.appNumber
           : appNumber // ignore: cast_nullable_to_non_nullable
               as String,
@@ -280,37 +282,31 @@ class _$_PendingWfhModel implements _PendingWfhModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PendingWfhModel &&
-            const DeepCollectionEquality().equals(other.empNumber, empNumber) &&
-            const DeepCollectionEquality().equals(other.fromDate, fromDate) &&
-            const DeepCollectionEquality().equals(other.endDate, endDate) &&
-            const DeepCollectionEquality().equals(other.granted, granted) &&
-            const DeepCollectionEquality().equals(other.days, days) &&
-            const DeepCollectionEquality().equals(other.reason, reason) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality()
-                .equals(other.reportingTo, reportingTo) &&
-            const DeepCollectionEquality()
-                .equals(other.departmentCode, departmentCode) &&
-            const DeepCollectionEquality().equals(other.appNumber, appNumber));
+            (identical(other.empNumber, empNumber) ||
+                other.empNumber == empNumber) &&
+            (identical(other.fromDate, fromDate) ||
+                other.fromDate == fromDate) &&
+            (identical(other.endDate, endDate) || other.endDate == endDate) &&
+            (identical(other.granted, granted) || other.granted == granted) &&
+            (identical(other.days, days) || other.days == days) &&
+            (identical(other.reason, reason) || other.reason == reason) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.reportingTo, reportingTo) ||
+                other.reportingTo == reportingTo) &&
+            (identical(other.departmentCode, departmentCode) ||
+                other.departmentCode == departmentCode) &&
+            (identical(other.appNumber, appNumber) ||
+                other.appNumber == appNumber));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(empNumber),
-      const DeepCollectionEquality().hash(fromDate),
-      const DeepCollectionEquality().hash(endDate),
-      const DeepCollectionEquality().hash(granted),
-      const DeepCollectionEquality().hash(days),
-      const DeepCollectionEquality().hash(reason),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(reportingTo),
-      const DeepCollectionEquality().hash(departmentCode),
-      const DeepCollectionEquality().hash(appNumber));
+  int get hashCode => Object.hash(runtimeType, empNumber, fromDate, endDate,
+      granted, days, reason, name, reportingTo, departmentCode, appNumber);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PendingWfhModelCopyWith<_$_PendingWfhModel> get copyWith =>
       __$$_PendingWfhModelCopyWithImpl<_$_PendingWfhModel>(this, _$identity);
 

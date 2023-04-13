@@ -28,10 +28,10 @@ mixin _$LeaveTypeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(EmployeeLeavetypeModel model)? loading,
-    TResult Function(EmployeeLeavetypeModel model)? content,
-    TResult Function(EmployeeLeavetypeModel model)? success,
-    TResult Function(EmployeeLeavetypeModel model, String message)? failed,
+    TResult? Function(EmployeeLeavetypeModel model)? loading,
+    TResult? Function(EmployeeLeavetypeModel model)? content,
+    TResult? Function(EmployeeLeavetypeModel model)? success,
+    TResult? Function(EmployeeLeavetypeModel model, String message)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,10 +53,10 @@ mixin _$LeaveTypeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,37 +78,41 @@ mixin _$LeaveTypeState {
 abstract class $LeaveTypeStateCopyWith<$Res> {
   factory $LeaveTypeStateCopyWith(
           LeaveTypeState value, $Res Function(LeaveTypeState) then) =
-      _$LeaveTypeStateCopyWithImpl<$Res>;
+      _$LeaveTypeStateCopyWithImpl<$Res, LeaveTypeState>;
+  @useResult
   $Res call({EmployeeLeavetypeModel model});
 
   $EmployeeLeavetypeModelCopyWith<$Res> get model;
 }
 
 /// @nodoc
-class _$LeaveTypeStateCopyWithImpl<$Res>
+class _$LeaveTypeStateCopyWithImpl<$Res, $Val extends LeaveTypeState>
     implements $LeaveTypeStateCopyWith<$Res> {
   _$LeaveTypeStateCopyWithImpl(this._value, this._then);
 
-  final LeaveTypeState _value;
   // ignore: unused_field
-  final $Res Function(LeaveTypeState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? model = freezed,
+    Object? model = null,
   }) {
     return _then(_value.copyWith(
-      model: model == freezed
+      model: null == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as EmployeeLeavetypeModel,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $EmployeeLeavetypeModelCopyWith<$Res> get model {
     return $EmployeeLeavetypeModelCopyWith<$Res>(_value.model, (value) {
-      return _then(_value.copyWith(model: value));
+      return _then(_value.copyWith(model: value) as $Val);
     });
   }
 }
@@ -120,6 +124,7 @@ abstract class _$$_LoadingCopyWith<$Res>
           _$_Loading value, $Res Function(_$_Loading) then) =
       __$$_LoadingCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({EmployeeLeavetypeModel model});
 
   @override
@@ -127,20 +132,19 @@ abstract class _$$_LoadingCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res> extends _$LeaveTypeStateCopyWithImpl<$Res>
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$LeaveTypeStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
-      : super(_value, (v) => _then(v as _$_Loading));
+      : super(_value, _then);
 
-  @override
-  _$_Loading get _value => super._value as _$_Loading;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? model = freezed,
+    Object? model = null,
   }) {
     return _then(_$_Loading(
-      model == freezed
+      null == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as EmployeeLeavetypeModel,
@@ -166,15 +170,15 @@ class _$_Loading implements _Loading {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loading &&
-            const DeepCollectionEquality().equals(other.model, model));
+            (identical(other.model, model) || other.model == model));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(model));
+  int get hashCode => Object.hash(runtimeType, model);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadingCopyWith<_$_Loading> get copyWith =>
       __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
 
@@ -193,10 +197,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(EmployeeLeavetypeModel model)? loading,
-    TResult Function(EmployeeLeavetypeModel model)? content,
-    TResult Function(EmployeeLeavetypeModel model)? success,
-    TResult Function(EmployeeLeavetypeModel model, String message)? failed,
+    TResult? Function(EmployeeLeavetypeModel model)? loading,
+    TResult? Function(EmployeeLeavetypeModel model)? content,
+    TResult? Function(EmployeeLeavetypeModel model)? success,
+    TResult? Function(EmployeeLeavetypeModel model, String message)? failed,
   }) {
     return loading?.call(model);
   }
@@ -230,10 +234,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return loading?.call(this);
   }
@@ -272,6 +276,7 @@ abstract class _$$_ContentCopyWith<$Res>
           _$_Content value, $Res Function(_$_Content) then) =
       __$$_ContentCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({EmployeeLeavetypeModel model});
 
   @override
@@ -279,20 +284,19 @@ abstract class _$$_ContentCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ContentCopyWithImpl<$Res> extends _$LeaveTypeStateCopyWithImpl<$Res>
+class __$$_ContentCopyWithImpl<$Res>
+    extends _$LeaveTypeStateCopyWithImpl<$Res, _$_Content>
     implements _$$_ContentCopyWith<$Res> {
   __$$_ContentCopyWithImpl(_$_Content _value, $Res Function(_$_Content) _then)
-      : super(_value, (v) => _then(v as _$_Content));
+      : super(_value, _then);
 
-  @override
-  _$_Content get _value => super._value as _$_Content;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? model = freezed,
+    Object? model = null,
   }) {
     return _then(_$_Content(
-      model == freezed
+      null == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as EmployeeLeavetypeModel,
@@ -318,15 +322,15 @@ class _$_Content implements _Content {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Content &&
-            const DeepCollectionEquality().equals(other.model, model));
+            (identical(other.model, model) || other.model == model));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(model));
+  int get hashCode => Object.hash(runtimeType, model);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ContentCopyWith<_$_Content> get copyWith =>
       __$$_ContentCopyWithImpl<_$_Content>(this, _$identity);
 
@@ -345,10 +349,10 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(EmployeeLeavetypeModel model)? loading,
-    TResult Function(EmployeeLeavetypeModel model)? content,
-    TResult Function(EmployeeLeavetypeModel model)? success,
-    TResult Function(EmployeeLeavetypeModel model, String message)? failed,
+    TResult? Function(EmployeeLeavetypeModel model)? loading,
+    TResult? Function(EmployeeLeavetypeModel model)? content,
+    TResult? Function(EmployeeLeavetypeModel model)? success,
+    TResult? Function(EmployeeLeavetypeModel model, String message)? failed,
   }) {
     return content?.call(model);
   }
@@ -382,10 +386,10 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return content?.call(this);
   }
@@ -424,6 +428,7 @@ abstract class _$$_SuccessCopyWith<$Res>
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({EmployeeLeavetypeModel model});
 
   @override
@@ -431,20 +436,19 @@ abstract class _$$_SuccessCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res> extends _$LeaveTypeStateCopyWithImpl<$Res>
+class __$$_SuccessCopyWithImpl<$Res>
+    extends _$LeaveTypeStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
-      : super(_value, (v) => _then(v as _$_Success));
+      : super(_value, _then);
 
-  @override
-  _$_Success get _value => super._value as _$_Success;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? model = freezed,
+    Object? model = null,
   }) {
     return _then(_$_Success(
-      model == freezed
+      null == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as EmployeeLeavetypeModel,
@@ -470,15 +474,15 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            const DeepCollectionEquality().equals(other.model, model));
+            (identical(other.model, model) || other.model == model));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(model));
+  int get hashCode => Object.hash(runtimeType, model);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
@@ -497,10 +501,10 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(EmployeeLeavetypeModel model)? loading,
-    TResult Function(EmployeeLeavetypeModel model)? content,
-    TResult Function(EmployeeLeavetypeModel model)? success,
-    TResult Function(EmployeeLeavetypeModel model, String message)? failed,
+    TResult? Function(EmployeeLeavetypeModel model)? loading,
+    TResult? Function(EmployeeLeavetypeModel model)? content,
+    TResult? Function(EmployeeLeavetypeModel model)? success,
+    TResult? Function(EmployeeLeavetypeModel model, String message)? failed,
   }) {
     return success?.call(model);
   }
@@ -534,10 +538,10 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return success?.call(this);
   }
@@ -575,6 +579,7 @@ abstract class _$$_FailedCopyWith<$Res>
   factory _$$_FailedCopyWith(_$_Failed value, $Res Function(_$_Failed) then) =
       __$$_FailedCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({EmployeeLeavetypeModel model, String message});
 
   @override
@@ -582,25 +587,24 @@ abstract class _$$_FailedCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FailedCopyWithImpl<$Res> extends _$LeaveTypeStateCopyWithImpl<$Res>
+class __$$_FailedCopyWithImpl<$Res>
+    extends _$LeaveTypeStateCopyWithImpl<$Res, _$_Failed>
     implements _$$_FailedCopyWith<$Res> {
   __$$_FailedCopyWithImpl(_$_Failed _value, $Res Function(_$_Failed) _then)
-      : super(_value, (v) => _then(v as _$_Failed));
+      : super(_value, _then);
 
-  @override
-  _$_Failed get _value => super._value as _$_Failed;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? model = freezed,
-    Object? message = freezed,
+    Object? model = null,
+    Object? message = null,
   }) {
     return _then(_$_Failed(
-      model == freezed
+      null == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as EmployeeLeavetypeModel,
-      message == freezed
+      null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -628,18 +632,16 @@ class _$_Failed implements _Failed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Failed &&
-            const DeepCollectionEquality().equals(other.model, model) &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.model, model) || other.model == model) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(model),
-      const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, model, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FailedCopyWith<_$_Failed> get copyWith =>
       __$$_FailedCopyWithImpl<_$_Failed>(this, _$identity);
 
@@ -658,10 +660,10 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(EmployeeLeavetypeModel model)? loading,
-    TResult Function(EmployeeLeavetypeModel model)? content,
-    TResult Function(EmployeeLeavetypeModel model)? success,
-    TResult Function(EmployeeLeavetypeModel model, String message)? failed,
+    TResult? Function(EmployeeLeavetypeModel model)? loading,
+    TResult? Function(EmployeeLeavetypeModel model)? content,
+    TResult? Function(EmployeeLeavetypeModel model)? success,
+    TResult? Function(EmployeeLeavetypeModel model, String message)? failed,
   }) {
     return failed?.call(model, message);
   }
@@ -695,10 +697,10 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return failed?.call(this);
   }

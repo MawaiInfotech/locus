@@ -53,7 +53,8 @@ mixin _$DummyLocationlistModel {
 abstract class $DummyLocationlistModelCopyWith<$Res> {
   factory $DummyLocationlistModelCopyWith(DummyLocationlistModel value,
           $Res Function(DummyLocationlistModel) then) =
-      _$DummyLocationlistModelCopyWithImpl<$Res>;
+      _$DummyLocationlistModelCopyWithImpl<$Res, DummyLocationlistModel>;
+  @useResult
   $Res call(
       {String empcode,
       String officepunch,
@@ -79,124 +80,127 @@ abstract class $DummyLocationlistModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DummyLocationlistModelCopyWithImpl<$Res>
+class _$DummyLocationlistModelCopyWithImpl<$Res,
+        $Val extends DummyLocationlistModel>
     implements $DummyLocationlistModelCopyWith<$Res> {
   _$DummyLocationlistModelCopyWithImpl(this._value, this._then);
 
-  final DummyLocationlistModel _value;
   // ignore: unused_field
-  final $Res Function(DummyLocationlistModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? empcode = freezed,
-    Object? officepunch = freezed,
-    Object? address = freezed,
-    Object? longitude = freezed,
-    Object? latitude = freezed,
-    Object? imagesave = freezed,
-    Object? imagename = freezed,
-    Object? filetype = freezed,
-    Object? p_from = freezed,
-    Object? upload_flag = freezed,
-    Object? p_type = freezed,
-    Object? tot_time = freezed,
-    Object? remarks = freezed,
-    Object? unit_cd = freezed,
-    Object? created_by = freezed,
-    Object? created_at = freezed,
-    Object? last_updated_by = freezed,
-    Object? updated_at = freezed,
-    Object? object_version_number = freezed,
-    Object? apple_rawdata_app_id = freezed,
-    Object? loc_type = freezed,
+    Object? empcode = null,
+    Object? officepunch = null,
+    Object? address = null,
+    Object? longitude = null,
+    Object? latitude = null,
+    Object? imagesave = null,
+    Object? imagename = null,
+    Object? filetype = null,
+    Object? p_from = null,
+    Object? upload_flag = null,
+    Object? p_type = null,
+    Object? tot_time = null,
+    Object? remarks = null,
+    Object? unit_cd = null,
+    Object? created_by = null,
+    Object? created_at = null,
+    Object? last_updated_by = null,
+    Object? updated_at = null,
+    Object? object_version_number = null,
+    Object? apple_rawdata_app_id = null,
+    Object? loc_type = null,
   }) {
     return _then(_value.copyWith(
-      empcode: empcode == freezed
+      empcode: null == empcode
           ? _value.empcode
           : empcode // ignore: cast_nullable_to_non_nullable
               as String,
-      officepunch: officepunch == freezed
+      officepunch: null == officepunch
           ? _value.officepunch
           : officepunch // ignore: cast_nullable_to_non_nullable
               as String,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      longitude: longitude == freezed
+      longitude: null == longitude
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as String,
-      latitude: latitude == freezed
+      latitude: null == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
               as String,
-      imagesave: imagesave == freezed
+      imagesave: null == imagesave
           ? _value.imagesave
           : imagesave // ignore: cast_nullable_to_non_nullable
               as String,
-      imagename: imagename == freezed
+      imagename: null == imagename
           ? _value.imagename
           : imagename // ignore: cast_nullable_to_non_nullable
               as String,
-      filetype: filetype == freezed
+      filetype: null == filetype
           ? _value.filetype
           : filetype // ignore: cast_nullable_to_non_nullable
               as String,
-      p_from: p_from == freezed
+      p_from: null == p_from
           ? _value.p_from
           : p_from // ignore: cast_nullable_to_non_nullable
               as String,
-      upload_flag: upload_flag == freezed
+      upload_flag: null == upload_flag
           ? _value.upload_flag
           : upload_flag // ignore: cast_nullable_to_non_nullable
               as String,
-      p_type: p_type == freezed
+      p_type: null == p_type
           ? _value.p_type
           : p_type // ignore: cast_nullable_to_non_nullable
               as String,
-      tot_time: tot_time == freezed
+      tot_time: null == tot_time
           ? _value.tot_time
           : tot_time // ignore: cast_nullable_to_non_nullable
               as String,
-      remarks: remarks == freezed
+      remarks: null == remarks
           ? _value.remarks
           : remarks // ignore: cast_nullable_to_non_nullable
               as String,
-      unit_cd: unit_cd == freezed
+      unit_cd: null == unit_cd
           ? _value.unit_cd
           : unit_cd // ignore: cast_nullable_to_non_nullable
               as String,
-      created_by: created_by == freezed
+      created_by: null == created_by
           ? _value.created_by
           : created_by // ignore: cast_nullable_to_non_nullable
               as String,
-      created_at: created_at == freezed
+      created_at: null == created_at
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
               as String,
-      last_updated_by: last_updated_by == freezed
+      last_updated_by: null == last_updated_by
           ? _value.last_updated_by
           : last_updated_by // ignore: cast_nullable_to_non_nullable
               as String,
-      updated_at: updated_at == freezed
+      updated_at: null == updated_at
           ? _value.updated_at
           : updated_at // ignore: cast_nullable_to_non_nullable
               as String,
-      object_version_number: object_version_number == freezed
+      object_version_number: null == object_version_number
           ? _value.object_version_number
           : object_version_number // ignore: cast_nullable_to_non_nullable
               as int,
-      apple_rawdata_app_id: apple_rawdata_app_id == freezed
+      apple_rawdata_app_id: null == apple_rawdata_app_id
           ? _value.apple_rawdata_app_id
           : apple_rawdata_app_id // ignore: cast_nullable_to_non_nullable
               as int,
-      loc_type: loc_type == freezed
+      loc_type: null == loc_type
           ? _value.loc_type
           : loc_type // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -207,6 +211,7 @@ abstract class _$$_DummyLocationlistModelCopyWith<$Res>
           $Res Function(_$_DummyLocationlistModel) then) =
       __$$_DummyLocationlistModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String empcode,
       String officepunch,
@@ -233,122 +238,120 @@ abstract class _$$_DummyLocationlistModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_DummyLocationlistModelCopyWithImpl<$Res>
-    extends _$DummyLocationlistModelCopyWithImpl<$Res>
+    extends _$DummyLocationlistModelCopyWithImpl<$Res,
+        _$_DummyLocationlistModel>
     implements _$$_DummyLocationlistModelCopyWith<$Res> {
   __$$_DummyLocationlistModelCopyWithImpl(_$_DummyLocationlistModel _value,
       $Res Function(_$_DummyLocationlistModel) _then)
-      : super(_value, (v) => _then(v as _$_DummyLocationlistModel));
+      : super(_value, _then);
 
-  @override
-  _$_DummyLocationlistModel get _value =>
-      super._value as _$_DummyLocationlistModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? empcode = freezed,
-    Object? officepunch = freezed,
-    Object? address = freezed,
-    Object? longitude = freezed,
-    Object? latitude = freezed,
-    Object? imagesave = freezed,
-    Object? imagename = freezed,
-    Object? filetype = freezed,
-    Object? p_from = freezed,
-    Object? upload_flag = freezed,
-    Object? p_type = freezed,
-    Object? tot_time = freezed,
-    Object? remarks = freezed,
-    Object? unit_cd = freezed,
-    Object? created_by = freezed,
-    Object? created_at = freezed,
-    Object? last_updated_by = freezed,
-    Object? updated_at = freezed,
-    Object? object_version_number = freezed,
-    Object? apple_rawdata_app_id = freezed,
-    Object? loc_type = freezed,
+    Object? empcode = null,
+    Object? officepunch = null,
+    Object? address = null,
+    Object? longitude = null,
+    Object? latitude = null,
+    Object? imagesave = null,
+    Object? imagename = null,
+    Object? filetype = null,
+    Object? p_from = null,
+    Object? upload_flag = null,
+    Object? p_type = null,
+    Object? tot_time = null,
+    Object? remarks = null,
+    Object? unit_cd = null,
+    Object? created_by = null,
+    Object? created_at = null,
+    Object? last_updated_by = null,
+    Object? updated_at = null,
+    Object? object_version_number = null,
+    Object? apple_rawdata_app_id = null,
+    Object? loc_type = null,
   }) {
     return _then(_$_DummyLocationlistModel(
-      empcode: empcode == freezed
+      empcode: null == empcode
           ? _value.empcode
           : empcode // ignore: cast_nullable_to_non_nullable
               as String,
-      officepunch: officepunch == freezed
+      officepunch: null == officepunch
           ? _value.officepunch
           : officepunch // ignore: cast_nullable_to_non_nullable
               as String,
-      address: address == freezed
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      longitude: longitude == freezed
+      longitude: null == longitude
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as String,
-      latitude: latitude == freezed
+      latitude: null == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
               as String,
-      imagesave: imagesave == freezed
+      imagesave: null == imagesave
           ? _value.imagesave
           : imagesave // ignore: cast_nullable_to_non_nullable
               as String,
-      imagename: imagename == freezed
+      imagename: null == imagename
           ? _value.imagename
           : imagename // ignore: cast_nullable_to_non_nullable
               as String,
-      filetype: filetype == freezed
+      filetype: null == filetype
           ? _value.filetype
           : filetype // ignore: cast_nullable_to_non_nullable
               as String,
-      p_from: p_from == freezed
+      p_from: null == p_from
           ? _value.p_from
           : p_from // ignore: cast_nullable_to_non_nullable
               as String,
-      upload_flag: upload_flag == freezed
+      upload_flag: null == upload_flag
           ? _value.upload_flag
           : upload_flag // ignore: cast_nullable_to_non_nullable
               as String,
-      p_type: p_type == freezed
+      p_type: null == p_type
           ? _value.p_type
           : p_type // ignore: cast_nullable_to_non_nullable
               as String,
-      tot_time: tot_time == freezed
+      tot_time: null == tot_time
           ? _value.tot_time
           : tot_time // ignore: cast_nullable_to_non_nullable
               as String,
-      remarks: remarks == freezed
+      remarks: null == remarks
           ? _value.remarks
           : remarks // ignore: cast_nullable_to_non_nullable
               as String,
-      unit_cd: unit_cd == freezed
+      unit_cd: null == unit_cd
           ? _value.unit_cd
           : unit_cd // ignore: cast_nullable_to_non_nullable
               as String,
-      created_by: created_by == freezed
+      created_by: null == created_by
           ? _value.created_by
           : created_by // ignore: cast_nullable_to_non_nullable
               as String,
-      created_at: created_at == freezed
+      created_at: null == created_at
           ? _value.created_at
           : created_at // ignore: cast_nullable_to_non_nullable
               as String,
-      last_updated_by: last_updated_by == freezed
+      last_updated_by: null == last_updated_by
           ? _value.last_updated_by
           : last_updated_by // ignore: cast_nullable_to_non_nullable
               as String,
-      updated_at: updated_at == freezed
+      updated_at: null == updated_at
           ? _value.updated_at
           : updated_at // ignore: cast_nullable_to_non_nullable
               as String,
-      object_version_number: object_version_number == freezed
+      object_version_number: null == object_version_number
           ? _value.object_version_number
           : object_version_number // ignore: cast_nullable_to_non_nullable
               as int,
-      apple_rawdata_app_id: apple_rawdata_app_id == freezed
+      apple_rawdata_app_id: null == apple_rawdata_app_id
           ? _value.apple_rawdata_app_id
           : apple_rawdata_app_id // ignore: cast_nullable_to_non_nullable
               as int,
-      loc_type: loc_type == freezed
+      loc_type: null == loc_type
           ? _value.loc_type
           : loc_type // ignore: cast_nullable_to_non_nullable
               as String,
@@ -459,66 +462,74 @@ class _$_DummyLocationlistModel implements _DummyLocationlistModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DummyLocationlistModel &&
-            const DeepCollectionEquality().equals(other.empcode, empcode) &&
-            const DeepCollectionEquality()
-                .equals(other.officepunch, officepunch) &&
-            const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality().equals(other.longitude, longitude) &&
-            const DeepCollectionEquality().equals(other.latitude, latitude) &&
-            const DeepCollectionEquality().equals(other.imagesave, imagesave) &&
-            const DeepCollectionEquality().equals(other.imagename, imagename) &&
-            const DeepCollectionEquality().equals(other.filetype, filetype) &&
-            const DeepCollectionEquality().equals(other.p_from, p_from) &&
-            const DeepCollectionEquality()
-                .equals(other.upload_flag, upload_flag) &&
-            const DeepCollectionEquality().equals(other.p_type, p_type) &&
-            const DeepCollectionEquality().equals(other.tot_time, tot_time) &&
-            const DeepCollectionEquality().equals(other.remarks, remarks) &&
-            const DeepCollectionEquality().equals(other.unit_cd, unit_cd) &&
-            const DeepCollectionEquality()
-                .equals(other.created_by, created_by) &&
-            const DeepCollectionEquality()
-                .equals(other.created_at, created_at) &&
-            const DeepCollectionEquality()
-                .equals(other.last_updated_by, last_updated_by) &&
-            const DeepCollectionEquality()
-                .equals(other.updated_at, updated_at) &&
-            const DeepCollectionEquality()
-                .equals(other.object_version_number, object_version_number) &&
-            const DeepCollectionEquality()
-                .equals(other.apple_rawdata_app_id, apple_rawdata_app_id) &&
-            const DeepCollectionEquality().equals(other.loc_type, loc_type));
+            (identical(other.empcode, empcode) || other.empcode == empcode) &&
+            (identical(other.officepunch, officepunch) ||
+                other.officepunch == officepunch) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.longitude, longitude) ||
+                other.longitude == longitude) &&
+            (identical(other.latitude, latitude) ||
+                other.latitude == latitude) &&
+            (identical(other.imagesave, imagesave) ||
+                other.imagesave == imagesave) &&
+            (identical(other.imagename, imagename) ||
+                other.imagename == imagename) &&
+            (identical(other.filetype, filetype) ||
+                other.filetype == filetype) &&
+            (identical(other.p_from, p_from) || other.p_from == p_from) &&
+            (identical(other.upload_flag, upload_flag) ||
+                other.upload_flag == upload_flag) &&
+            (identical(other.p_type, p_type) || other.p_type == p_type) &&
+            (identical(other.tot_time, tot_time) ||
+                other.tot_time == tot_time) &&
+            (identical(other.remarks, remarks) || other.remarks == remarks) &&
+            (identical(other.unit_cd, unit_cd) || other.unit_cd == unit_cd) &&
+            (identical(other.created_by, created_by) ||
+                other.created_by == created_by) &&
+            (identical(other.created_at, created_at) ||
+                other.created_at == created_at) &&
+            (identical(other.last_updated_by, last_updated_by) ||
+                other.last_updated_by == last_updated_by) &&
+            (identical(other.updated_at, updated_at) ||
+                other.updated_at == updated_at) &&
+            (identical(other.object_version_number, object_version_number) ||
+                other.object_version_number == object_version_number) &&
+            (identical(other.apple_rawdata_app_id, apple_rawdata_app_id) ||
+                other.apple_rawdata_app_id == apple_rawdata_app_id) &&
+            (identical(other.loc_type, loc_type) ||
+                other.loc_type == loc_type));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
-        const DeepCollectionEquality().hash(empcode),
-        const DeepCollectionEquality().hash(officepunch),
-        const DeepCollectionEquality().hash(address),
-        const DeepCollectionEquality().hash(longitude),
-        const DeepCollectionEquality().hash(latitude),
-        const DeepCollectionEquality().hash(imagesave),
-        const DeepCollectionEquality().hash(imagename),
-        const DeepCollectionEquality().hash(filetype),
-        const DeepCollectionEquality().hash(p_from),
-        const DeepCollectionEquality().hash(upload_flag),
-        const DeepCollectionEquality().hash(p_type),
-        const DeepCollectionEquality().hash(tot_time),
-        const DeepCollectionEquality().hash(remarks),
-        const DeepCollectionEquality().hash(unit_cd),
-        const DeepCollectionEquality().hash(created_by),
-        const DeepCollectionEquality().hash(created_at),
-        const DeepCollectionEquality().hash(last_updated_by),
-        const DeepCollectionEquality().hash(updated_at),
-        const DeepCollectionEquality().hash(object_version_number),
-        const DeepCollectionEquality().hash(apple_rawdata_app_id),
-        const DeepCollectionEquality().hash(loc_type)
+        empcode,
+        officepunch,
+        address,
+        longitude,
+        latitude,
+        imagesave,
+        imagename,
+        filetype,
+        p_from,
+        upload_flag,
+        p_type,
+        tot_time,
+        remarks,
+        unit_cd,
+        created_by,
+        created_at,
+        last_updated_by,
+        updated_at,
+        object_version_number,
+        apple_rawdata_app_id,
+        loc_type
       ]);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DummyLocationlistModelCopyWith<_$_DummyLocationlistModel> get copyWith =>
       __$$_DummyLocationlistModelCopyWithImpl<_$_DummyLocationlistModel>(
           this, _$identity);

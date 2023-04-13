@@ -36,36 +36,40 @@ mixin _$TeamEmployeeListModel {
 abstract class $TeamEmployeeListModelCopyWith<$Res> {
   factory $TeamEmployeeListModelCopyWith(TeamEmployeeListModel value,
           $Res Function(TeamEmployeeListModel) then) =
-      _$TeamEmployeeListModelCopyWithImpl<$Res>;
+      _$TeamEmployeeListModelCopyWithImpl<$Res, TeamEmployeeListModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_number") String employeeNumber,
       @JsonKey(name: "name") String name});
 }
 
 /// @nodoc
-class _$TeamEmployeeListModelCopyWithImpl<$Res>
+class _$TeamEmployeeListModelCopyWithImpl<$Res,
+        $Val extends TeamEmployeeListModel>
     implements $TeamEmployeeListModelCopyWith<$Res> {
   _$TeamEmployeeListModelCopyWithImpl(this._value, this._then);
 
-  final TeamEmployeeListModel _value;
   // ignore: unused_field
-  final $Res Function(TeamEmployeeListModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeNumber = freezed,
-    Object? name = freezed,
+    Object? employeeNumber = null,
+    Object? name = null,
   }) {
     return _then(_value.copyWith(
-      employeeNumber: employeeNumber == freezed
+      employeeNumber: null == employeeNumber
           ? _value.employeeNumber
           : employeeNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -76,6 +80,7 @@ abstract class _$$_TeamEmployeeListModelCopyWith<$Res>
           $Res Function(_$_TeamEmployeeListModel) then) =
       __$$_TeamEmployeeListModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_number") String employeeNumber,
       @JsonKey(name: "name") String name});
@@ -83,27 +88,24 @@ abstract class _$$_TeamEmployeeListModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_TeamEmployeeListModelCopyWithImpl<$Res>
-    extends _$TeamEmployeeListModelCopyWithImpl<$Res>
+    extends _$TeamEmployeeListModelCopyWithImpl<$Res, _$_TeamEmployeeListModel>
     implements _$$_TeamEmployeeListModelCopyWith<$Res> {
   __$$_TeamEmployeeListModelCopyWithImpl(_$_TeamEmployeeListModel _value,
       $Res Function(_$_TeamEmployeeListModel) _then)
-      : super(_value, (v) => _then(v as _$_TeamEmployeeListModel));
+      : super(_value, _then);
 
-  @override
-  _$_TeamEmployeeListModel get _value =>
-      super._value as _$_TeamEmployeeListModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeNumber = freezed,
-    Object? name = freezed,
+    Object? employeeNumber = null,
+    Object? name = null,
   }) {
     return _then(_$_TeamEmployeeListModel(
-      employeeNumber: employeeNumber == freezed
+      employeeNumber: null == employeeNumber
           ? _value.employeeNumber
           : employeeNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -138,20 +140,18 @@ class _$_TeamEmployeeListModel implements _TeamEmployeeListModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TeamEmployeeListModel &&
-            const DeepCollectionEquality()
-                .equals(other.employeeNumber, employeeNumber) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            (identical(other.employeeNumber, employeeNumber) ||
+                other.employeeNumber == employeeNumber) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(employeeNumber),
-      const DeepCollectionEquality().hash(name));
+  int get hashCode => Object.hash(runtimeType, employeeNumber, name);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TeamEmployeeListModelCopyWith<_$_TeamEmployeeListModel> get copyWith =>
       __$$_TeamEmployeeListModelCopyWithImpl<_$_TeamEmployeeListModel>(
           this, _$identity);

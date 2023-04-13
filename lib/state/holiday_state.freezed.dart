@@ -28,10 +28,10 @@ mixin _$HolidayState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<HolidayModel> holidaylist)? loading,
-    TResult Function(List<HolidayModel> holidaylist)? content,
-    TResult Function(List<HolidayModel> holidaylist)? success,
-    TResult Function(List<HolidayModel> holidaylist, dynamic message)? failed,
+    TResult? Function(List<HolidayModel> holidaylist)? loading,
+    TResult? Function(List<HolidayModel> holidaylist)? content,
+    TResult? Function(List<HolidayModel> holidaylist)? success,
+    TResult? Function(List<HolidayModel> holidaylist, dynamic message)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,10 +53,10 @@ mixin _$HolidayState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,28 +78,32 @@ mixin _$HolidayState {
 abstract class $HolidayStateCopyWith<$Res> {
   factory $HolidayStateCopyWith(
           HolidayState value, $Res Function(HolidayState) then) =
-      _$HolidayStateCopyWithImpl<$Res>;
+      _$HolidayStateCopyWithImpl<$Res, HolidayState>;
+  @useResult
   $Res call({List<HolidayModel> holidaylist});
 }
 
 /// @nodoc
-class _$HolidayStateCopyWithImpl<$Res> implements $HolidayStateCopyWith<$Res> {
+class _$HolidayStateCopyWithImpl<$Res, $Val extends HolidayState>
+    implements $HolidayStateCopyWith<$Res> {
   _$HolidayStateCopyWithImpl(this._value, this._then);
 
-  final HolidayState _value;
   // ignore: unused_field
-  final $Res Function(HolidayState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? holidaylist = freezed,
+    Object? holidaylist = null,
   }) {
     return _then(_value.copyWith(
-      holidaylist: holidaylist == freezed
+      holidaylist: null == holidaylist
           ? _value.holidaylist
           : holidaylist // ignore: cast_nullable_to_non_nullable
               as List<HolidayModel>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -110,24 +114,24 @@ abstract class _$$_LoadingCopyWith<$Res>
           _$_Loading value, $Res Function(_$_Loading) then) =
       __$$_LoadingCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<HolidayModel> holidaylist});
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res> extends _$HolidayStateCopyWithImpl<$Res>
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$HolidayStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
-      : super(_value, (v) => _then(v as _$_Loading));
+      : super(_value, _then);
 
-  @override
-  _$_Loading get _value => super._value as _$_Loading;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? holidaylist = freezed,
+    Object? holidaylist = null,
   }) {
     return _then(_$_Loading(
-      holidaylist == freezed
+      null == holidaylist
           ? _value._holidaylist
           : holidaylist // ignore: cast_nullable_to_non_nullable
               as List<HolidayModel>,
@@ -168,6 +172,7 @@ class _$_Loading implements _Loading {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadingCopyWith<_$_Loading> get copyWith =>
       __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
 
@@ -186,10 +191,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<HolidayModel> holidaylist)? loading,
-    TResult Function(List<HolidayModel> holidaylist)? content,
-    TResult Function(List<HolidayModel> holidaylist)? success,
-    TResult Function(List<HolidayModel> holidaylist, dynamic message)? failed,
+    TResult? Function(List<HolidayModel> holidaylist)? loading,
+    TResult? Function(List<HolidayModel> holidaylist)? content,
+    TResult? Function(List<HolidayModel> holidaylist)? success,
+    TResult? Function(List<HolidayModel> holidaylist, dynamic message)? failed,
   }) {
     return loading?.call(holidaylist);
   }
@@ -223,10 +228,10 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return loading?.call(this);
   }
@@ -265,24 +270,24 @@ abstract class _$$_ContentCopyWith<$Res>
           _$_Content value, $Res Function(_$_Content) then) =
       __$$_ContentCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<HolidayModel> holidaylist});
 }
 
 /// @nodoc
-class __$$_ContentCopyWithImpl<$Res> extends _$HolidayStateCopyWithImpl<$Res>
+class __$$_ContentCopyWithImpl<$Res>
+    extends _$HolidayStateCopyWithImpl<$Res, _$_Content>
     implements _$$_ContentCopyWith<$Res> {
   __$$_ContentCopyWithImpl(_$_Content _value, $Res Function(_$_Content) _then)
-      : super(_value, (v) => _then(v as _$_Content));
+      : super(_value, _then);
 
-  @override
-  _$_Content get _value => super._value as _$_Content;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? holidaylist = freezed,
+    Object? holidaylist = null,
   }) {
     return _then(_$_Content(
-      holidaylist == freezed
+      null == holidaylist
           ? _value._holidaylist
           : holidaylist // ignore: cast_nullable_to_non_nullable
               as List<HolidayModel>,
@@ -323,6 +328,7 @@ class _$_Content implements _Content {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ContentCopyWith<_$_Content> get copyWith =>
       __$$_ContentCopyWithImpl<_$_Content>(this, _$identity);
 
@@ -341,10 +347,10 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<HolidayModel> holidaylist)? loading,
-    TResult Function(List<HolidayModel> holidaylist)? content,
-    TResult Function(List<HolidayModel> holidaylist)? success,
-    TResult Function(List<HolidayModel> holidaylist, dynamic message)? failed,
+    TResult? Function(List<HolidayModel> holidaylist)? loading,
+    TResult? Function(List<HolidayModel> holidaylist)? content,
+    TResult? Function(List<HolidayModel> holidaylist)? success,
+    TResult? Function(List<HolidayModel> holidaylist, dynamic message)? failed,
   }) {
     return content?.call(holidaylist);
   }
@@ -378,10 +384,10 @@ class _$_Content implements _Content {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return content?.call(this);
   }
@@ -420,24 +426,24 @@ abstract class _$$_SuccessCopyWith<$Res>
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<HolidayModel> holidaylist});
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res> extends _$HolidayStateCopyWithImpl<$Res>
+class __$$_SuccessCopyWithImpl<$Res>
+    extends _$HolidayStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
-      : super(_value, (v) => _then(v as _$_Success));
+      : super(_value, _then);
 
-  @override
-  _$_Success get _value => super._value as _$_Success;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? holidaylist = freezed,
+    Object? holidaylist = null,
   }) {
     return _then(_$_Success(
-      holidaylist == freezed
+      null == holidaylist
           ? _value._holidaylist
           : holidaylist // ignore: cast_nullable_to_non_nullable
               as List<HolidayModel>,
@@ -478,6 +484,7 @@ class _$_Success implements _Success {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
@@ -496,10 +503,10 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<HolidayModel> holidaylist)? loading,
-    TResult Function(List<HolidayModel> holidaylist)? content,
-    TResult Function(List<HolidayModel> holidaylist)? success,
-    TResult Function(List<HolidayModel> holidaylist, dynamic message)? failed,
+    TResult? Function(List<HolidayModel> holidaylist)? loading,
+    TResult? Function(List<HolidayModel> holidaylist)? content,
+    TResult? Function(List<HolidayModel> holidaylist)? success,
+    TResult? Function(List<HolidayModel> holidaylist, dynamic message)? failed,
   }) {
     return success?.call(holidaylist);
   }
@@ -533,10 +540,10 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return success?.call(this);
   }
@@ -573,29 +580,29 @@ abstract class _$$_FailedCopyWith<$Res> implements $HolidayStateCopyWith<$Res> {
   factory _$$_FailedCopyWith(_$_Failed value, $Res Function(_$_Failed) then) =
       __$$_FailedCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<HolidayModel> holidaylist, dynamic message});
 }
 
 /// @nodoc
-class __$$_FailedCopyWithImpl<$Res> extends _$HolidayStateCopyWithImpl<$Res>
+class __$$_FailedCopyWithImpl<$Res>
+    extends _$HolidayStateCopyWithImpl<$Res, _$_Failed>
     implements _$$_FailedCopyWith<$Res> {
   __$$_FailedCopyWithImpl(_$_Failed _value, $Res Function(_$_Failed) _then)
-      : super(_value, (v) => _then(v as _$_Failed));
+      : super(_value, _then);
 
-  @override
-  _$_Failed get _value => super._value as _$_Failed;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? holidaylist = freezed,
-    Object? message = freezed,
+    Object? holidaylist = null,
+    Object? message = null,
   }) {
     return _then(_$_Failed(
-      holidaylist == freezed
+      null == holidaylist
           ? _value._holidaylist
           : holidaylist // ignore: cast_nullable_to_non_nullable
               as List<HolidayModel>,
-      message == freezed ? _value.message : message,
+      null == message ? _value.message : message,
     ));
   }
 }
@@ -639,6 +646,7 @@ class _$_Failed implements _Failed {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FailedCopyWith<_$_Failed> get copyWith =>
       __$$_FailedCopyWithImpl<_$_Failed>(this, _$identity);
 
@@ -657,10 +665,10 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<HolidayModel> holidaylist)? loading,
-    TResult Function(List<HolidayModel> holidaylist)? content,
-    TResult Function(List<HolidayModel> holidaylist)? success,
-    TResult Function(List<HolidayModel> holidaylist, dynamic message)? failed,
+    TResult? Function(List<HolidayModel> holidaylist)? loading,
+    TResult? Function(List<HolidayModel> holidaylist)? content,
+    TResult? Function(List<HolidayModel> holidaylist)? success,
+    TResult? Function(List<HolidayModel> holidaylist, dynamic message)? failed,
   }) {
     return failed?.call(holidaylist, message);
   }
@@ -694,10 +702,10 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Content value)? content,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failed value)? failed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Content value)? content,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failed value)? failed,
   }) {
     return failed?.call(this);
   }

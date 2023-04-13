@@ -37,7 +37,8 @@ mixin _$ReportingtoModel {
 abstract class $ReportingtoModelCopyWith<$Res> {
   factory $ReportingtoModelCopyWith(
           ReportingtoModel value, $Res Function(ReportingtoModel) then) =
-      _$ReportingtoModelCopyWithImpl<$Res>;
+      _$ReportingtoModelCopyWithImpl<$Res, ReportingtoModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_number") String employeeNumber,
       @JsonKey(name: "emp_last_name") String employeeLastName,
@@ -45,34 +46,36 @@ abstract class $ReportingtoModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ReportingtoModelCopyWithImpl<$Res>
+class _$ReportingtoModelCopyWithImpl<$Res, $Val extends ReportingtoModel>
     implements $ReportingtoModelCopyWith<$Res> {
   _$ReportingtoModelCopyWithImpl(this._value, this._then);
 
-  final ReportingtoModel _value;
   // ignore: unused_field
-  final $Res Function(ReportingtoModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeNumber = freezed,
-    Object? employeeLastName = freezed,
-    Object? employeeFirstName = freezed,
+    Object? employeeNumber = null,
+    Object? employeeLastName = null,
+    Object? employeeFirstName = null,
   }) {
     return _then(_value.copyWith(
-      employeeNumber: employeeNumber == freezed
+      employeeNumber: null == employeeNumber
           ? _value.employeeNumber
           : employeeNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeLastName: employeeLastName == freezed
+      employeeLastName: null == employeeLastName
           ? _value.employeeLastName
           : employeeLastName // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeFirstName: employeeFirstName == freezed
+      employeeFirstName: null == employeeFirstName
           ? _value.employeeFirstName
           : employeeFirstName // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -83,6 +86,7 @@ abstract class _$$_ReportingtoModelCopyWith<$Res>
           _$_ReportingtoModel value, $Res Function(_$_ReportingtoModel) then) =
       __$$_ReportingtoModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_number") String employeeNumber,
       @JsonKey(name: "emp_last_name") String employeeLastName,
@@ -91,31 +95,29 @@ abstract class _$$_ReportingtoModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_ReportingtoModelCopyWithImpl<$Res>
-    extends _$ReportingtoModelCopyWithImpl<$Res>
+    extends _$ReportingtoModelCopyWithImpl<$Res, _$_ReportingtoModel>
     implements _$$_ReportingtoModelCopyWith<$Res> {
   __$$_ReportingtoModelCopyWithImpl(
       _$_ReportingtoModel _value, $Res Function(_$_ReportingtoModel) _then)
-      : super(_value, (v) => _then(v as _$_ReportingtoModel));
+      : super(_value, _then);
 
-  @override
-  _$_ReportingtoModel get _value => super._value as _$_ReportingtoModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeNumber = freezed,
-    Object? employeeLastName = freezed,
-    Object? employeeFirstName = freezed,
+    Object? employeeNumber = null,
+    Object? employeeLastName = null,
+    Object? employeeFirstName = null,
   }) {
     return _then(_$_ReportingtoModel(
-      employeeNumber: employeeNumber == freezed
+      employeeNumber: null == employeeNumber
           ? _value.employeeNumber
           : employeeNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeLastName: employeeLastName == freezed
+      employeeLastName: null == employeeLastName
           ? _value.employeeLastName
           : employeeLastName // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeFirstName: employeeFirstName == freezed
+      employeeFirstName: null == employeeFirstName
           ? _value.employeeFirstName
           : employeeFirstName // ignore: cast_nullable_to_non_nullable
               as String,
@@ -154,24 +156,22 @@ class _$_ReportingtoModel implements _ReportingtoModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ReportingtoModel &&
-            const DeepCollectionEquality()
-                .equals(other.employeeNumber, employeeNumber) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeLastName, employeeLastName) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeFirstName, employeeFirstName));
+            (identical(other.employeeNumber, employeeNumber) ||
+                other.employeeNumber == employeeNumber) &&
+            (identical(other.employeeLastName, employeeLastName) ||
+                other.employeeLastName == employeeLastName) &&
+            (identical(other.employeeFirstName, employeeFirstName) ||
+                other.employeeFirstName == employeeFirstName));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(employeeNumber),
-      const DeepCollectionEquality().hash(employeeLastName),
-      const DeepCollectionEquality().hash(employeeFirstName));
+      runtimeType, employeeNumber, employeeLastName, employeeFirstName);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ReportingtoModelCopyWith<_$_ReportingtoModel> get copyWith =>
       __$$_ReportingtoModelCopyWithImpl<_$_ReportingtoModel>(this, _$identity);
 

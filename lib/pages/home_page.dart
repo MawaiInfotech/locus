@@ -11,6 +11,7 @@ import 'package:locus/themes/app_colors.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
+import '../bloc/applylunch_bloc.dart';
 import '../model/login_model.dart';
 import '../service/login_service.dart';
 
@@ -28,6 +29,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     Image.asset("assets/images/leave.jpg.png"),
   ];
 
+  final scaffoldKey = GlobalKey<ScaffoldState>();
   late final LoginModel user;
 
   late TabController tabController;
@@ -35,6 +37,9 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   late PageController pageController;
 
   late EmployeeBirthDetailBloc employeeBirthDetailBloc;
+  late ApplyLunchBloc applyLunchBloc;
+
+  late HomePageService homePageService;
 
   int currentPage = 0;
 
@@ -44,11 +49,14 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 
   @override
   void initState() {
+    final homepageServices =
+    Provider.of<HomePageService>(context, listen: false);
     user = Provider.of<LoginService>(context, listen: false).getCurrentUser!;
     tabController = TabController(length: 2, vsync: this);
     pageController = PageController(initialPage: currentPage, viewportFraction: 0.8);
     final homePageService = Provider.of<HomePageService>(context, listen: false);
     employeeBirthDetailBloc = EmployeeBirthDetailBloc(homePageService);
+    applyLunchBloc = ApplyLunchBloc(homepageServices);
     controller.addListener(() {
       setState(() {
         currentPageValue = controller.page!;
@@ -68,6 +76,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       backgroundColor: Colors.white,
       body: Column(
         children: [
@@ -216,8 +225,42 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             ),
           ),
         ),
+        InkWell(
+          onTap: () {
+            _applyLunch();
+          },
+          child: Card(
+            color: const Color(0xffcEeff5),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Lottie.asset("assets/lottie/lunch.json",
+                    height: 80.dh, width: 100.dw),
+                _buildText(title: "Apply for lunch")
+              ],
+            ),
+          ),
+        )
       ],
     );
+  }
+
+  void _applyLunch() async {
+    await applyLunchBloc.init();
+    final state = applyLunchBloc.state;
+    state.maybeWhen(
+        success: (model, message) {
+          ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(
+              SnackBar(backgroundColor: AppColors.green, content: Text(message.toString(), style: const TextStyle(color: Colors.white),)));
+          // Navigator.pop(context);
+        },
+        failed: (model, message) {
+          ScaffoldMessenger.of(scaffoldKey.currentContext!)
+              .showSnackBar(SnackBar(
+              backgroundColor: AppColors.red,
+              content: Text(message)));
+        },
+        orElse: () {});
   }
 
   _buildCard() {

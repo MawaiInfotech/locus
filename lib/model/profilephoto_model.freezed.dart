@@ -39,7 +39,8 @@ mixin _$ProfilePhotoModel {
 abstract class $ProfilePhotoModelCopyWith<$Res> {
   factory $ProfilePhotoModelCopyWith(
           ProfilePhotoModel value, $Res Function(ProfilePhotoModel) then) =
-      _$ProfilePhotoModelCopyWithImpl<$Res>;
+      _$ProfilePhotoModelCopyWithImpl<$Res, ProfilePhotoModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "status") String status,
       @JsonKey(name: "msg") String message,
@@ -48,39 +49,41 @@ abstract class $ProfilePhotoModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ProfilePhotoModelCopyWithImpl<$Res>
+class _$ProfilePhotoModelCopyWithImpl<$Res, $Val extends ProfilePhotoModel>
     implements $ProfilePhotoModelCopyWith<$Res> {
   _$ProfilePhotoModelCopyWithImpl(this._value, this._then);
 
-  final ProfilePhotoModel _value;
   // ignore: unused_field
-  final $Res Function(ProfilePhotoModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
-    Object? photo = freezed,
-    Object? employeeCode = freezed,
+    Object? status = null,
+    Object? message = null,
+    Object? photo = null,
+    Object? employeeCode = null,
   }) {
     return _then(_value.copyWith(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      photo: photo == freezed
+      photo: null == photo
           ? _value.photo
           : photo // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeCode: employeeCode == freezed
+      employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -91,6 +94,7 @@ abstract class _$$_ProfilePhotoModelCopyWith<$Res>
           $Res Function(_$_ProfilePhotoModel) then) =
       __$$_ProfilePhotoModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "status") String status,
       @JsonKey(name: "msg") String message,
@@ -100,36 +104,34 @@ abstract class _$$_ProfilePhotoModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_ProfilePhotoModelCopyWithImpl<$Res>
-    extends _$ProfilePhotoModelCopyWithImpl<$Res>
+    extends _$ProfilePhotoModelCopyWithImpl<$Res, _$_ProfilePhotoModel>
     implements _$$_ProfilePhotoModelCopyWith<$Res> {
   __$$_ProfilePhotoModelCopyWithImpl(
       _$_ProfilePhotoModel _value, $Res Function(_$_ProfilePhotoModel) _then)
-      : super(_value, (v) => _then(v as _$_ProfilePhotoModel));
+      : super(_value, _then);
 
-  @override
-  _$_ProfilePhotoModel get _value => super._value as _$_ProfilePhotoModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? message = freezed,
-    Object? photo = freezed,
-    Object? employeeCode = freezed,
+    Object? status = null,
+    Object? message = null,
+    Object? photo = null,
+    Object? employeeCode = null,
   }) {
     return _then(_$_ProfilePhotoModel(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      photo: photo == freezed
+      photo: null == photo
           ? _value.photo
           : photo // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeCode: employeeCode == freezed
+      employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
               as String,
@@ -172,24 +174,21 @@ class _$_ProfilePhotoModel implements _ProfilePhotoModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ProfilePhotoModel &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.message, message) &&
-            const DeepCollectionEquality().equals(other.photo, photo) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeCode, employeeCode));
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.photo, photo) || other.photo == photo) &&
+            (identical(other.employeeCode, employeeCode) ||
+                other.employeeCode == employeeCode));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(message),
-      const DeepCollectionEquality().hash(photo),
-      const DeepCollectionEquality().hash(employeeCode));
+  int get hashCode =>
+      Object.hash(runtimeType, status, message, photo, employeeCode);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ProfilePhotoModelCopyWith<_$_ProfilePhotoModel> get copyWith =>
       __$$_ProfilePhotoModelCopyWithImpl<_$_ProfilePhotoModel>(
           this, _$identity);

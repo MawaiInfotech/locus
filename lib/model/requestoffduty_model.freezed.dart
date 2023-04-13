@@ -41,7 +41,8 @@ mixin _$RequestoffdutyModel {
 abstract class $RequestoffdutyModelCopyWith<$Res> {
   factory $RequestoffdutyModelCopyWith(
           RequestoffdutyModel value, $Res Function(RequestoffdutyModel) then) =
-      _$RequestoffdutyModelCopyWithImpl<$Res>;
+      _$RequestoffdutyModelCopyWithImpl<$Res, RequestoffdutyModel>;
+  @useResult
   $Res call(
       {List<OffdutyDataModel> od_data,
       List<OffdutyTypeModel> od_type,
@@ -56,65 +57,68 @@ abstract class $RequestoffdutyModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RequestoffdutyModelCopyWithImpl<$Res>
+class _$RequestoffdutyModelCopyWithImpl<$Res, $Val extends RequestoffdutyModel>
     implements $RequestoffdutyModelCopyWith<$Res> {
   _$RequestoffdutyModelCopyWithImpl(this._value, this._then);
 
-  final RequestoffdutyModel _value;
   // ignore: unused_field
-  final $Res Function(RequestoffdutyModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? od_data = freezed,
-    Object? od_type = freezed,
-    Object? gp_od_status = freezed,
-    Object? od_for = freezed,
-    Object? purpose = freezed,
-    Object? emp_lov = freezed,
-    Object? org_list = freezed,
-    Object? applied_to = freezed,
+    Object? od_data = null,
+    Object? od_type = null,
+    Object? gp_od_status = null,
+    Object? od_for = null,
+    Object? purpose = null,
+    Object? emp_lov = null,
+    Object? org_list = null,
+    Object? applied_to = null,
   }) {
     return _then(_value.copyWith(
-      od_data: od_data == freezed
+      od_data: null == od_data
           ? _value.od_data
           : od_data // ignore: cast_nullable_to_non_nullable
               as List<OffdutyDataModel>,
-      od_type: od_type == freezed
+      od_type: null == od_type
           ? _value.od_type
           : od_type // ignore: cast_nullable_to_non_nullable
               as List<OffdutyTypeModel>,
-      gp_od_status: gp_od_status == freezed
+      gp_od_status: null == gp_od_status
           ? _value.gp_od_status
           : gp_od_status // ignore: cast_nullable_to_non_nullable
               as List<OffdutyStatusModel>,
-      od_for: od_for == freezed
+      od_for: null == od_for
           ? _value.od_for
           : od_for // ignore: cast_nullable_to_non_nullable
               as List<OffdutyForModel>,
-      purpose: purpose == freezed
+      purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
               as List<OffdutyPurposeModel>,
-      emp_lov: emp_lov == freezed
+      emp_lov: null == emp_lov
           ? _value.emp_lov
           : emp_lov // ignore: cast_nullable_to_non_nullable
               as List<OffdutyEmployeeModel>,
-      org_list: org_list == freezed
+      org_list: null == org_list
           ? _value.org_list
           : org_list // ignore: cast_nullable_to_non_nullable
               as List<OffdutyClientListModel>,
-      applied_to: applied_to == freezed
+      applied_to: null == applied_to
           ? _value.applied_to
           : applied_to // ignore: cast_nullable_to_non_nullable
               as AppliedToModel,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $AppliedToModelCopyWith<$Res> get applied_to {
     return $AppliedToModelCopyWith<$Res>(_value.applied_to, (value) {
-      return _then(_value.copyWith(applied_to: value));
+      return _then(_value.copyWith(applied_to: value) as $Val);
     });
   }
 }
@@ -126,6 +130,7 @@ abstract class _$$_RequestoffdutyModelCopyWith<$Res>
           $Res Function(_$_RequestoffdutyModel) then) =
       __$$_RequestoffdutyModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {List<OffdutyDataModel> od_data,
       List<OffdutyTypeModel> od_type,
@@ -142,56 +147,54 @@ abstract class _$$_RequestoffdutyModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_RequestoffdutyModelCopyWithImpl<$Res>
-    extends _$RequestoffdutyModelCopyWithImpl<$Res>
+    extends _$RequestoffdutyModelCopyWithImpl<$Res, _$_RequestoffdutyModel>
     implements _$$_RequestoffdutyModelCopyWith<$Res> {
   __$$_RequestoffdutyModelCopyWithImpl(_$_RequestoffdutyModel _value,
       $Res Function(_$_RequestoffdutyModel) _then)
-      : super(_value, (v) => _then(v as _$_RequestoffdutyModel));
+      : super(_value, _then);
 
-  @override
-  _$_RequestoffdutyModel get _value => super._value as _$_RequestoffdutyModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? od_data = freezed,
-    Object? od_type = freezed,
-    Object? gp_od_status = freezed,
-    Object? od_for = freezed,
-    Object? purpose = freezed,
-    Object? emp_lov = freezed,
-    Object? org_list = freezed,
-    Object? applied_to = freezed,
+    Object? od_data = null,
+    Object? od_type = null,
+    Object? gp_od_status = null,
+    Object? od_for = null,
+    Object? purpose = null,
+    Object? emp_lov = null,
+    Object? org_list = null,
+    Object? applied_to = null,
   }) {
     return _then(_$_RequestoffdutyModel(
-      od_data: od_data == freezed
+      od_data: null == od_data
           ? _value._od_data
           : od_data // ignore: cast_nullable_to_non_nullable
               as List<OffdutyDataModel>,
-      od_type: od_type == freezed
+      od_type: null == od_type
           ? _value._od_type
           : od_type // ignore: cast_nullable_to_non_nullable
               as List<OffdutyTypeModel>,
-      gp_od_status: gp_od_status == freezed
+      gp_od_status: null == gp_od_status
           ? _value._gp_od_status
           : gp_od_status // ignore: cast_nullable_to_non_nullable
               as List<OffdutyStatusModel>,
-      od_for: od_for == freezed
+      od_for: null == od_for
           ? _value._od_for
           : od_for // ignore: cast_nullable_to_non_nullable
               as List<OffdutyForModel>,
-      purpose: purpose == freezed
+      purpose: null == purpose
           ? _value._purpose
           : purpose // ignore: cast_nullable_to_non_nullable
               as List<OffdutyPurposeModel>,
-      emp_lov: emp_lov == freezed
+      emp_lov: null == emp_lov
           ? _value._emp_lov
           : emp_lov // ignore: cast_nullable_to_non_nullable
               as List<OffdutyEmployeeModel>,
-      org_list: org_list == freezed
+      org_list: null == org_list
           ? _value._org_list
           : org_list // ignore: cast_nullable_to_non_nullable
               as List<OffdutyClientListModel>,
-      applied_to: applied_to == freezed
+      applied_to: null == applied_to
           ? _value.applied_to
           : applied_to // ignore: cast_nullable_to_non_nullable
               as AppliedToModel,
@@ -302,8 +305,8 @@ class _$_RequestoffdutyModel implements _RequestoffdutyModel {
             const DeepCollectionEquality().equals(other._purpose, _purpose) &&
             const DeepCollectionEquality().equals(other._emp_lov, _emp_lov) &&
             const DeepCollectionEquality().equals(other._org_list, _org_list) &&
-            const DeepCollectionEquality()
-                .equals(other.applied_to, applied_to));
+            (identical(other.applied_to, applied_to) ||
+                other.applied_to == applied_to));
   }
 
   @JsonKey(ignore: true)
@@ -317,10 +320,11 @@ class _$_RequestoffdutyModel implements _RequestoffdutyModel {
       const DeepCollectionEquality().hash(_purpose),
       const DeepCollectionEquality().hash(_emp_lov),
       const DeepCollectionEquality().hash(_org_list),
-      const DeepCollectionEquality().hash(applied_to));
+      applied_to);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RequestoffdutyModelCopyWith<_$_RequestoffdutyModel> get copyWith =>
       __$$_RequestoffdutyModelCopyWithImpl<_$_RequestoffdutyModel>(
           this, _$identity);

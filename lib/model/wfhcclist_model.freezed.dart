@@ -35,36 +35,39 @@ mixin _$WfhCcListModel {
 abstract class $WfhCcListModelCopyWith<$Res> {
   factory $WfhCcListModelCopyWith(
           WfhCcListModel value, $Res Function(WfhCcListModel) then) =
-      _$WfhCcListModelCopyWithImpl<$Res>;
+      _$WfhCcListModelCopyWithImpl<$Res, WfhCcListModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_number") String employeeCode,
       @JsonKey(name: "name") String name});
 }
 
 /// @nodoc
-class _$WfhCcListModelCopyWithImpl<$Res>
+class _$WfhCcListModelCopyWithImpl<$Res, $Val extends WfhCcListModel>
     implements $WfhCcListModelCopyWith<$Res> {
   _$WfhCcListModelCopyWithImpl(this._value, this._then);
 
-  final WfhCcListModel _value;
   // ignore: unused_field
-  final $Res Function(WfhCcListModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeCode = freezed,
-    Object? name = freezed,
+    Object? employeeCode = null,
+    Object? name = null,
   }) {
     return _then(_value.copyWith(
-      employeeCode: employeeCode == freezed
+      employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -75,6 +78,7 @@ abstract class _$$_WfhCcListModelCopyWith<$Res>
           _$_WfhCcListModel value, $Res Function(_$_WfhCcListModel) then) =
       __$$_WfhCcListModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_number") String employeeCode,
       @JsonKey(name: "name") String name});
@@ -82,26 +86,24 @@ abstract class _$$_WfhCcListModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_WfhCcListModelCopyWithImpl<$Res>
-    extends _$WfhCcListModelCopyWithImpl<$Res>
+    extends _$WfhCcListModelCopyWithImpl<$Res, _$_WfhCcListModel>
     implements _$$_WfhCcListModelCopyWith<$Res> {
   __$$_WfhCcListModelCopyWithImpl(
       _$_WfhCcListModel _value, $Res Function(_$_WfhCcListModel) _then)
-      : super(_value, (v) => _then(v as _$_WfhCcListModel));
+      : super(_value, _then);
 
-  @override
-  _$_WfhCcListModel get _value => super._value as _$_WfhCcListModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeCode = freezed,
-    Object? name = freezed,
+    Object? employeeCode = null,
+    Object? name = null,
   }) {
     return _then(_$_WfhCcListModel(
-      employeeCode: employeeCode == freezed
+      employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -136,20 +138,18 @@ class _$_WfhCcListModel implements _WfhCcListModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WfhCcListModel &&
-            const DeepCollectionEquality()
-                .equals(other.employeeCode, employeeCode) &&
-            const DeepCollectionEquality().equals(other.name, name));
+            (identical(other.employeeCode, employeeCode) ||
+                other.employeeCode == employeeCode) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(employeeCode),
-      const DeepCollectionEquality().hash(name));
+  int get hashCode => Object.hash(runtimeType, employeeCode, name);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WfhCcListModelCopyWith<_$_WfhCcListModel> get copyWith =>
       __$$_WfhCcListModelCopyWithImpl<_$_WfhCcListModel>(this, _$identity);
 

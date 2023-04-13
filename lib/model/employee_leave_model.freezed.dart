@@ -41,7 +41,8 @@ mixin _$EmployeeLeaveModel {
 abstract class $EmployeeLeaveModelCopyWith<$Res> {
   factory $EmployeeLeaveModelCopyWith(
           EmployeeLeaveModel value, $Res Function(EmployeeLeaveModel) then) =
-      _$EmployeeLeaveModelCopyWithImpl<$Res>;
+      _$EmployeeLeaveModelCopyWithImpl<$Res, EmployeeLeaveModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "leave_total") double leaveTotal,
       @JsonKey(name: "leave_available") double leaveAvailable,
@@ -51,44 +52,46 @@ abstract class $EmployeeLeaveModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EmployeeLeaveModelCopyWithImpl<$Res>
+class _$EmployeeLeaveModelCopyWithImpl<$Res, $Val extends EmployeeLeaveModel>
     implements $EmployeeLeaveModelCopyWith<$Res> {
   _$EmployeeLeaveModelCopyWithImpl(this._value, this._then);
 
-  final EmployeeLeaveModel _value;
   // ignore: unused_field
-  final $Res Function(EmployeeLeaveModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? leaveTotal = freezed,
-    Object? leaveAvailable = freezed,
-    Object? leaveUsed = freezed,
-    Object? leaveCode = freezed,
-    Object? description = freezed,
+    Object? leaveTotal = null,
+    Object? leaveAvailable = null,
+    Object? leaveUsed = null,
+    Object? leaveCode = null,
+    Object? description = null,
   }) {
     return _then(_value.copyWith(
-      leaveTotal: leaveTotal == freezed
+      leaveTotal: null == leaveTotal
           ? _value.leaveTotal
           : leaveTotal // ignore: cast_nullable_to_non_nullable
               as double,
-      leaveAvailable: leaveAvailable == freezed
+      leaveAvailable: null == leaveAvailable
           ? _value.leaveAvailable
           : leaveAvailable // ignore: cast_nullable_to_non_nullable
               as double,
-      leaveUsed: leaveUsed == freezed
+      leaveUsed: null == leaveUsed
           ? _value.leaveUsed
           : leaveUsed // ignore: cast_nullable_to_non_nullable
               as double,
-      leaveCode: leaveCode == freezed
+      leaveCode: null == leaveCode
           ? _value.leaveCode
           : leaveCode // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -99,6 +102,7 @@ abstract class _$$_EmployeeLeaveModelCopyWith<$Res>
           $Res Function(_$_EmployeeLeaveModel) then) =
       __$$_EmployeeLeaveModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "leave_total") double leaveTotal,
       @JsonKey(name: "leave_available") double leaveAvailable,
@@ -109,41 +113,39 @@ abstract class _$$_EmployeeLeaveModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_EmployeeLeaveModelCopyWithImpl<$Res>
-    extends _$EmployeeLeaveModelCopyWithImpl<$Res>
+    extends _$EmployeeLeaveModelCopyWithImpl<$Res, _$_EmployeeLeaveModel>
     implements _$$_EmployeeLeaveModelCopyWith<$Res> {
   __$$_EmployeeLeaveModelCopyWithImpl(
       _$_EmployeeLeaveModel _value, $Res Function(_$_EmployeeLeaveModel) _then)
-      : super(_value, (v) => _then(v as _$_EmployeeLeaveModel));
+      : super(_value, _then);
 
-  @override
-  _$_EmployeeLeaveModel get _value => super._value as _$_EmployeeLeaveModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? leaveTotal = freezed,
-    Object? leaveAvailable = freezed,
-    Object? leaveUsed = freezed,
-    Object? leaveCode = freezed,
-    Object? description = freezed,
+    Object? leaveTotal = null,
+    Object? leaveAvailable = null,
+    Object? leaveUsed = null,
+    Object? leaveCode = null,
+    Object? description = null,
   }) {
     return _then(_$_EmployeeLeaveModel(
-      leaveTotal: leaveTotal == freezed
+      leaveTotal: null == leaveTotal
           ? _value.leaveTotal
           : leaveTotal // ignore: cast_nullable_to_non_nullable
               as double,
-      leaveAvailable: leaveAvailable == freezed
+      leaveAvailable: null == leaveAvailable
           ? _value.leaveAvailable
           : leaveAvailable // ignore: cast_nullable_to_non_nullable
               as double,
-      leaveUsed: leaveUsed == freezed
+      leaveUsed: null == leaveUsed
           ? _value.leaveUsed
           : leaveUsed // ignore: cast_nullable_to_non_nullable
               as double,
-      leaveCode: leaveCode == freezed
+      leaveCode: null == leaveCode
           ? _value.leaveCode
           : leaveCode // ignore: cast_nullable_to_non_nullable
               as String,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
@@ -190,28 +192,26 @@ class _$_EmployeeLeaveModel implements _EmployeeLeaveModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EmployeeLeaveModel &&
-            const DeepCollectionEquality()
-                .equals(other.leaveTotal, leaveTotal) &&
-            const DeepCollectionEquality()
-                .equals(other.leaveAvailable, leaveAvailable) &&
-            const DeepCollectionEquality().equals(other.leaveUsed, leaveUsed) &&
-            const DeepCollectionEquality().equals(other.leaveCode, leaveCode) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description));
+            (identical(other.leaveTotal, leaveTotal) ||
+                other.leaveTotal == leaveTotal) &&
+            (identical(other.leaveAvailable, leaveAvailable) ||
+                other.leaveAvailable == leaveAvailable) &&
+            (identical(other.leaveUsed, leaveUsed) ||
+                other.leaveUsed == leaveUsed) &&
+            (identical(other.leaveCode, leaveCode) ||
+                other.leaveCode == leaveCode) &&
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(leaveTotal),
-      const DeepCollectionEquality().hash(leaveAvailable),
-      const DeepCollectionEquality().hash(leaveUsed),
-      const DeepCollectionEquality().hash(leaveCode),
-      const DeepCollectionEquality().hash(description));
+  int get hashCode => Object.hash(runtimeType, leaveTotal, leaveAvailable,
+      leaveUsed, leaveCode, description);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_EmployeeLeaveModelCopyWith<_$_EmployeeLeaveModel> get copyWith =>
       __$$_EmployeeLeaveModelCopyWithImpl<_$_EmployeeLeaveModel>(
           this, _$identity);

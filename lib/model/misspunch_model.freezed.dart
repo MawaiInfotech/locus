@@ -41,7 +41,8 @@ mixin _$MisspunchModel {
 abstract class $MisspunchModelCopyWith<$Res> {
   factory $MisspunchModelCopyWith(
           MisspunchModel value, $Res Function(MisspunchModel) then) =
-      _$MisspunchModelCopyWithImpl<$Res>;
+      _$MisspunchModelCopyWithImpl<$Res, MisspunchModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "punch_in_dt") String punchDate,
       @JsonKey(name: "in_time") String inTime,
@@ -51,44 +52,46 @@ abstract class $MisspunchModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MisspunchModelCopyWithImpl<$Res>
+class _$MisspunchModelCopyWithImpl<$Res, $Val extends MisspunchModel>
     implements $MisspunchModelCopyWith<$Res> {
   _$MisspunchModelCopyWithImpl(this._value, this._then);
 
-  final MisspunchModel _value;
   // ignore: unused_field
-  final $Res Function(MisspunchModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? punchDate = freezed,
-    Object? inTime = freezed,
-    Object? outTime = freezed,
-    Object? reason = freezed,
-    Object? status = freezed,
+    Object? punchDate = null,
+    Object? inTime = null,
+    Object? outTime = null,
+    Object? reason = null,
+    Object? status = null,
   }) {
     return _then(_value.copyWith(
-      punchDate: punchDate == freezed
+      punchDate: null == punchDate
           ? _value.punchDate
           : punchDate // ignore: cast_nullable_to_non_nullable
               as String,
-      inTime: inTime == freezed
+      inTime: null == inTime
           ? _value.inTime
           : inTime // ignore: cast_nullable_to_non_nullable
               as String,
-      outTime: outTime == freezed
+      outTime: null == outTime
           ? _value.outTime
           : outTime // ignore: cast_nullable_to_non_nullable
               as String,
-      reason: reason == freezed
+      reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as String,
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -99,6 +102,7 @@ abstract class _$$_MisspunchModelCopyWith<$Res>
           _$_MisspunchModel value, $Res Function(_$_MisspunchModel) then) =
       __$$_MisspunchModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "punch_in_dt") String punchDate,
       @JsonKey(name: "in_time") String inTime,
@@ -109,41 +113,39 @@ abstract class _$$_MisspunchModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_MisspunchModelCopyWithImpl<$Res>
-    extends _$MisspunchModelCopyWithImpl<$Res>
+    extends _$MisspunchModelCopyWithImpl<$Res, _$_MisspunchModel>
     implements _$$_MisspunchModelCopyWith<$Res> {
   __$$_MisspunchModelCopyWithImpl(
       _$_MisspunchModel _value, $Res Function(_$_MisspunchModel) _then)
-      : super(_value, (v) => _then(v as _$_MisspunchModel));
+      : super(_value, _then);
 
-  @override
-  _$_MisspunchModel get _value => super._value as _$_MisspunchModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? punchDate = freezed,
-    Object? inTime = freezed,
-    Object? outTime = freezed,
-    Object? reason = freezed,
-    Object? status = freezed,
+    Object? punchDate = null,
+    Object? inTime = null,
+    Object? outTime = null,
+    Object? reason = null,
+    Object? status = null,
   }) {
     return _then(_$_MisspunchModel(
-      punchDate: punchDate == freezed
+      punchDate: null == punchDate
           ? _value.punchDate
           : punchDate // ignore: cast_nullable_to_non_nullable
               as String,
-      inTime: inTime == freezed
+      inTime: null == inTime
           ? _value.inTime
           : inTime // ignore: cast_nullable_to_non_nullable
               as String,
-      outTime: outTime == freezed
+      outTime: null == outTime
           ? _value.outTime
           : outTime // ignore: cast_nullable_to_non_nullable
               as String,
-      reason: reason == freezed
+      reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as String,
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
@@ -190,25 +192,22 @@ class _$_MisspunchModel implements _MisspunchModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MisspunchModel &&
-            const DeepCollectionEquality().equals(other.punchDate, punchDate) &&
-            const DeepCollectionEquality().equals(other.inTime, inTime) &&
-            const DeepCollectionEquality().equals(other.outTime, outTime) &&
-            const DeepCollectionEquality().equals(other.reason, reason) &&
-            const DeepCollectionEquality().equals(other.status, status));
+            (identical(other.punchDate, punchDate) ||
+                other.punchDate == punchDate) &&
+            (identical(other.inTime, inTime) || other.inTime == inTime) &&
+            (identical(other.outTime, outTime) || other.outTime == outTime) &&
+            (identical(other.reason, reason) || other.reason == reason) &&
+            (identical(other.status, status) || other.status == status));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(punchDate),
-      const DeepCollectionEquality().hash(inTime),
-      const DeepCollectionEquality().hash(outTime),
-      const DeepCollectionEquality().hash(reason),
-      const DeepCollectionEquality().hash(status));
+  int get hashCode =>
+      Object.hash(runtimeType, punchDate, inTime, outTime, reason, status);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MisspunchModelCopyWith<_$_MisspunchModel> get copyWith =>
       __$$_MisspunchModelCopyWithImpl<_$_MisspunchModel>(this, _$identity);
 

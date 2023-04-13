@@ -37,7 +37,8 @@ mixin _$AppliedToModel {
 abstract class $AppliedToModelCopyWith<$Res> {
   factory $AppliedToModelCopyWith(
           AppliedToModel value, $Res Function(AppliedToModel) then) =
-      _$AppliedToModelCopyWithImpl<$Res>;
+      _$AppliedToModelCopyWithImpl<$Res, AppliedToModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_number") String employeeNumber,
       @JsonKey(name: "emp_first_name") String employeeFirstName,
@@ -45,34 +46,36 @@ abstract class $AppliedToModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AppliedToModelCopyWithImpl<$Res>
+class _$AppliedToModelCopyWithImpl<$Res, $Val extends AppliedToModel>
     implements $AppliedToModelCopyWith<$Res> {
   _$AppliedToModelCopyWithImpl(this._value, this._then);
 
-  final AppliedToModel _value;
   // ignore: unused_field
-  final $Res Function(AppliedToModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeNumber = freezed,
-    Object? employeeFirstName = freezed,
-    Object? employeelastName = freezed,
+    Object? employeeNumber = null,
+    Object? employeeFirstName = null,
+    Object? employeelastName = null,
   }) {
     return _then(_value.copyWith(
-      employeeNumber: employeeNumber == freezed
+      employeeNumber: null == employeeNumber
           ? _value.employeeNumber
           : employeeNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeFirstName: employeeFirstName == freezed
+      employeeFirstName: null == employeeFirstName
           ? _value.employeeFirstName
           : employeeFirstName // ignore: cast_nullable_to_non_nullable
               as String,
-      employeelastName: employeelastName == freezed
+      employeelastName: null == employeelastName
           ? _value.employeelastName
           : employeelastName // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -83,6 +86,7 @@ abstract class _$$_AppliedToModelCopyWith<$Res>
           _$_AppliedToModel value, $Res Function(_$_AppliedToModel) then) =
       __$$_AppliedToModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "emp_number") String employeeNumber,
       @JsonKey(name: "emp_first_name") String employeeFirstName,
@@ -91,31 +95,29 @@ abstract class _$$_AppliedToModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_AppliedToModelCopyWithImpl<$Res>
-    extends _$AppliedToModelCopyWithImpl<$Res>
+    extends _$AppliedToModelCopyWithImpl<$Res, _$_AppliedToModel>
     implements _$$_AppliedToModelCopyWith<$Res> {
   __$$_AppliedToModelCopyWithImpl(
       _$_AppliedToModel _value, $Res Function(_$_AppliedToModel) _then)
-      : super(_value, (v) => _then(v as _$_AppliedToModel));
+      : super(_value, _then);
 
-  @override
-  _$_AppliedToModel get _value => super._value as _$_AppliedToModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? employeeNumber = freezed,
-    Object? employeeFirstName = freezed,
-    Object? employeelastName = freezed,
+    Object? employeeNumber = null,
+    Object? employeeFirstName = null,
+    Object? employeelastName = null,
   }) {
     return _then(_$_AppliedToModel(
-      employeeNumber: employeeNumber == freezed
+      employeeNumber: null == employeeNumber
           ? _value.employeeNumber
           : employeeNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      employeeFirstName: employeeFirstName == freezed
+      employeeFirstName: null == employeeFirstName
           ? _value.employeeFirstName
           : employeeFirstName // ignore: cast_nullable_to_non_nullable
               as String,
-      employeelastName: employeelastName == freezed
+      employeelastName: null == employeelastName
           ? _value.employeelastName
           : employeelastName // ignore: cast_nullable_to_non_nullable
               as String,
@@ -154,24 +156,22 @@ class _$_AppliedToModel implements _AppliedToModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AppliedToModel &&
-            const DeepCollectionEquality()
-                .equals(other.employeeNumber, employeeNumber) &&
-            const DeepCollectionEquality()
-                .equals(other.employeeFirstName, employeeFirstName) &&
-            const DeepCollectionEquality()
-                .equals(other.employeelastName, employeelastName));
+            (identical(other.employeeNumber, employeeNumber) ||
+                other.employeeNumber == employeeNumber) &&
+            (identical(other.employeeFirstName, employeeFirstName) ||
+                other.employeeFirstName == employeeFirstName) &&
+            (identical(other.employeelastName, employeelastName) ||
+                other.employeelastName == employeelastName));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(employeeNumber),
-      const DeepCollectionEquality().hash(employeeFirstName),
-      const DeepCollectionEquality().hash(employeelastName));
+      runtimeType, employeeNumber, employeeFirstName, employeelastName);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_AppliedToModelCopyWith<_$_AppliedToModel> get copyWith =>
       __$$_AppliedToModelCopyWithImpl<_$_AppliedToModel>(this, _$identity);
 

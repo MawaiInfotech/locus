@@ -35,36 +35,39 @@ mixin _$WfhConditionModel {
 abstract class $WfhConditionModelCopyWith<$Res> {
   factory $WfhConditionModelCopyWith(
           WfhConditionModel value, $Res Function(WfhConditionModel) then) =
-      _$WfhConditionModelCopyWithImpl<$Res>;
+      _$WfhConditionModelCopyWithImpl<$Res, WfhConditionModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "control_code") String controlCode,
       @JsonKey(name: "description") String meaning});
 }
 
 /// @nodoc
-class _$WfhConditionModelCopyWithImpl<$Res>
+class _$WfhConditionModelCopyWithImpl<$Res, $Val extends WfhConditionModel>
     implements $WfhConditionModelCopyWith<$Res> {
   _$WfhConditionModelCopyWithImpl(this._value, this._then);
 
-  final WfhConditionModel _value;
   // ignore: unused_field
-  final $Res Function(WfhConditionModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? controlCode = freezed,
-    Object? meaning = freezed,
+    Object? controlCode = null,
+    Object? meaning = null,
   }) {
     return _then(_value.copyWith(
-      controlCode: controlCode == freezed
+      controlCode: null == controlCode
           ? _value.controlCode
           : controlCode // ignore: cast_nullable_to_non_nullable
               as String,
-      meaning: meaning == freezed
+      meaning: null == meaning
           ? _value.meaning
           : meaning // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -75,6 +78,7 @@ abstract class _$$_WfhConditionModelCopyWith<$Res>
           $Res Function(_$_WfhConditionModel) then) =
       __$$_WfhConditionModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "control_code") String controlCode,
       @JsonKey(name: "description") String meaning});
@@ -82,26 +86,24 @@ abstract class _$$_WfhConditionModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_WfhConditionModelCopyWithImpl<$Res>
-    extends _$WfhConditionModelCopyWithImpl<$Res>
+    extends _$WfhConditionModelCopyWithImpl<$Res, _$_WfhConditionModel>
     implements _$$_WfhConditionModelCopyWith<$Res> {
   __$$_WfhConditionModelCopyWithImpl(
       _$_WfhConditionModel _value, $Res Function(_$_WfhConditionModel) _then)
-      : super(_value, (v) => _then(v as _$_WfhConditionModel));
+      : super(_value, _then);
 
-  @override
-  _$_WfhConditionModel get _value => super._value as _$_WfhConditionModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? controlCode = freezed,
-    Object? meaning = freezed,
+    Object? controlCode = null,
+    Object? meaning = null,
   }) {
     return _then(_$_WfhConditionModel(
-      controlCode: controlCode == freezed
+      controlCode: null == controlCode
           ? _value.controlCode
           : controlCode // ignore: cast_nullable_to_non_nullable
               as String,
-      meaning: meaning == freezed
+      meaning: null == meaning
           ? _value.meaning
           : meaning // ignore: cast_nullable_to_non_nullable
               as String,
@@ -136,20 +138,18 @@ class _$_WfhConditionModel implements _WfhConditionModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_WfhConditionModel &&
-            const DeepCollectionEquality()
-                .equals(other.controlCode, controlCode) &&
-            const DeepCollectionEquality().equals(other.meaning, meaning));
+            (identical(other.controlCode, controlCode) ||
+                other.controlCode == controlCode) &&
+            (identical(other.meaning, meaning) || other.meaning == meaning));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(controlCode),
-      const DeepCollectionEquality().hash(meaning));
+  int get hashCode => Object.hash(runtimeType, controlCode, meaning);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_WfhConditionModelCopyWith<_$_WfhConditionModel> get copyWith =>
       __$$_WfhConditionModelCopyWithImpl<_$_WfhConditionModel>(
           this, _$identity);

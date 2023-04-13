@@ -36,36 +36,40 @@ mixin _$OffdutyClientListModel {
 abstract class $OffdutyClientListModelCopyWith<$Res> {
   factory $OffdutyClientListModelCopyWith(OffdutyClientListModel value,
           $Res Function(OffdutyClientListModel) then) =
-      _$OffdutyClientListModelCopyWithImpl<$Res>;
+      _$OffdutyClientListModelCopyWithImpl<$Res, OffdutyClientListModel>;
+  @useResult
   $Res call(
       {@JsonKey(name: "client_cd") String clientCode,
       @JsonKey(name: "client_name") String clientName});
 }
 
 /// @nodoc
-class _$OffdutyClientListModelCopyWithImpl<$Res>
+class _$OffdutyClientListModelCopyWithImpl<$Res,
+        $Val extends OffdutyClientListModel>
     implements $OffdutyClientListModelCopyWith<$Res> {
   _$OffdutyClientListModelCopyWithImpl(this._value, this._then);
 
-  final OffdutyClientListModel _value;
   // ignore: unused_field
-  final $Res Function(OffdutyClientListModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? clientCode = freezed,
-    Object? clientName = freezed,
+    Object? clientCode = null,
+    Object? clientName = null,
   }) {
     return _then(_value.copyWith(
-      clientCode: clientCode == freezed
+      clientCode: null == clientCode
           ? _value.clientCode
           : clientCode // ignore: cast_nullable_to_non_nullable
               as String,
-      clientName: clientName == freezed
+      clientName: null == clientName
           ? _value.clientName
           : clientName // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -76,6 +80,7 @@ abstract class _$$_OffdutyClientListModelCopyWith<$Res>
           $Res Function(_$_OffdutyClientListModel) then) =
       __$$_OffdutyClientListModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "client_cd") String clientCode,
       @JsonKey(name: "client_name") String clientName});
@@ -83,27 +88,25 @@ abstract class _$$_OffdutyClientListModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_OffdutyClientListModelCopyWithImpl<$Res>
-    extends _$OffdutyClientListModelCopyWithImpl<$Res>
+    extends _$OffdutyClientListModelCopyWithImpl<$Res,
+        _$_OffdutyClientListModel>
     implements _$$_OffdutyClientListModelCopyWith<$Res> {
   __$$_OffdutyClientListModelCopyWithImpl(_$_OffdutyClientListModel _value,
       $Res Function(_$_OffdutyClientListModel) _then)
-      : super(_value, (v) => _then(v as _$_OffdutyClientListModel));
+      : super(_value, _then);
 
-  @override
-  _$_OffdutyClientListModel get _value =>
-      super._value as _$_OffdutyClientListModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? clientCode = freezed,
-    Object? clientName = freezed,
+    Object? clientCode = null,
+    Object? clientName = null,
   }) {
     return _then(_$_OffdutyClientListModel(
-      clientCode: clientCode == freezed
+      clientCode: null == clientCode
           ? _value.clientCode
           : clientCode // ignore: cast_nullable_to_non_nullable
               as String,
-      clientName: clientName == freezed
+      clientName: null == clientName
           ? _value.clientName
           : clientName // ignore: cast_nullable_to_non_nullable
               as String,
@@ -138,21 +141,19 @@ class _$_OffdutyClientListModel implements _OffdutyClientListModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OffdutyClientListModel &&
-            const DeepCollectionEquality()
-                .equals(other.clientCode, clientCode) &&
-            const DeepCollectionEquality()
-                .equals(other.clientName, clientName));
+            (identical(other.clientCode, clientCode) ||
+                other.clientCode == clientCode) &&
+            (identical(other.clientName, clientName) ||
+                other.clientName == clientName));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(clientCode),
-      const DeepCollectionEquality().hash(clientName));
+  int get hashCode => Object.hash(runtimeType, clientCode, clientName);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_OffdutyClientListModelCopyWith<_$_OffdutyClientListModel> get copyWith =>
       __$$_OffdutyClientListModelCopyWithImpl<_$_OffdutyClientListModel>(
           this, _$identity);
