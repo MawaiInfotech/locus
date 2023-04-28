@@ -1,24 +1,23 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:locus/bloc/approvedleave_bloc.dart';
-import 'package:locus/bloc/leavetype_bloc.dart';
-import 'package:locus/bloc/teamleader_leaveapprove_bloc.dart';
-import 'package:locus/model/approvedleave_model.dart';
-import 'package:locus/model/employee_leave_model.dart';
-import 'package:locus/model/employeeleavetype_model.dart';
-import 'package:locus/routes/app_routes.dart';
-import 'package:locus/service/leave_service.dart';
-import 'package:locus/service/login_service.dart';
-import 'package:locus/state/approvedleave_state.dart';
-import 'package:locus/state/leavetype_state.dart';
-import 'package:locus/state/teamleader_attendanceapproverejection_state.dart';
-import 'package:locus/state/teamleader_leaveApprovereject_state.dart';
-import 'package:locus/utils/screen_size_config.dart';
-import 'package:locus/widgets/app_top_bar.dart';
 import 'package:provider/provider.dart';
+import 'package:locus/utils/screen_size_config.dart';
+import '../bloc/approvedleave_bloc.dart';
+import '../bloc/leavetype_bloc.dart';
+import '../bloc/teamleader_leaveapprove_bloc.dart';
+import '../model/approvedleave_model.dart';
+import '../model/employee_leave_model.dart';
 import '../model/employeeleavelist_model.dart';
+import '../model/employeeleavetype_model.dart';
+import '../routes/app_routes.dart';
+import '../service/leave_service.dart';
+import '../service/login_service.dart';
+import '../state/approvedleave_state.dart';
+import '../state/leavetype_state.dart';
+import '../state/teamleader_leaveApprovereject_state.dart';
 import '../themes/app_colors.dart';
+import '../widgets/app_top_bar.dart';
 
 class LeavePage extends StatefulWidget {
   const LeavePage({Key? key}) : super(key: key);
@@ -65,34 +64,34 @@ class _LeavePageState extends State<LeavePage> with SingleTickerProviderStateMix
         body: Column(
           children: [
             SizedBox(
-              height: 80.dh,
+              height: 100.dh,
               child: TabBar(
                 controller: tabController,
                 indicatorColor: AppColors.navyblue,
-                indicatorWeight: 2.dw,
+                indicatorWeight: 6.dw,
                 labelColor: AppColors.bloodred,
                 unselectedLabelColor: AppColors.navyblue,
                 unselectedLabelStyle: TextStyle(fontSize: 14.dh),
                 indicatorPadding: EdgeInsets.all(8.dh),
                 labelPadding: EdgeInsets.all(8.dw),
-                labelStyle: TextStyle(fontSize: 16.dh, fontWeight: FontWeight.w500),
+                labelStyle: TextStyle(fontSize: 18.dh, fontWeight: FontWeight.w500),
                 tabs: [
                   Column(
                     children: [
                       Image.asset(
                         "assets/images/leave.png",
-                        scale: 12.dw,
+                        scale: 10.dw,
                       ),
-                      Text("My Leaves",style: TextStyle(fontSize: 14.dw),),
+                      const Text("My Leaves"),
                     ],
                   ),
                   Column(
                     children: [
                       Image.asset(
                         "assets/images/leave-2.png",
-                        scale: 18.dw,
+                        scale: 14.dw,
                       ),
-                      Text("Pending For Approval", style: TextStyle(fontSize: 14.dw),),
+                      Text("Pending For Approval", style: TextStyle(fontSize: 16.dw),),
                     ],
                   ),
                 ],
@@ -102,13 +101,12 @@ class _LeavePageState extends State<LeavePage> with SingleTickerProviderStateMix
                 child: TabBarView(
                     controller: tabController,
                     children: const [
-              MyLeavesPage(),
-              ApprovedLeavesPage(),
-            ]
+                      MyLeavesPage(),
+                      ApprovedLeavesPage(),
+                    ]
                 ))
           ],
-        )
-    );
+        ));
   }
 }
 
@@ -143,7 +141,8 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
     approvedleaveBloc = ApprovedleaveBloc(leaveService, loginService);
     bloc.init();
     approvedleaveBloc.init();
-    teamLeaderLeaveApproveRejectBloc = TeamLeaderLeaveApproveRejectBloc(leaveService);
+    teamLeaderLeaveApproveRejectBloc =
+        TeamLeaderLeaveApproveRejectBloc(leaveService);
   }
 
   @override
@@ -206,12 +205,12 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
                     "Balance Leave",
                     style: TextStyle(
                         color: AppColors.white,
-                        fontSize: 12.dw,
-                        fontWeight: FontWeight.w400),
+                        fontSize: 14.dw,
+                        fontWeight: FontWeight.w500),
                   ),
                   Text(
                     model.balanceLeave.toString(),
-                    style: TextStyle(color: AppColors.white,fontSize: 12.dw),
+                    style: TextStyle(color: AppColors.white),
                   )
                 ],
               ),
@@ -228,12 +227,12 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
                     "Leave Taken",
                     style: TextStyle(
                         color: AppColors.white,
-                        fontSize: 12.dw,
-                        fontWeight: FontWeight.w400),
+                        fontSize: 14.dw,
+                        fontWeight: FontWeight.w500),
                   ),
                   Text(
                     model.leaveTaken.toString(),
-                    style: TextStyle(color: AppColors.white, fontSize: 12.dw),
+                    style: TextStyle(color: AppColors.white),
                   )
                 ],
               ),
@@ -248,7 +247,8 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
     return Container(
         alignment: Alignment.topCenter,
         margin: EdgeInsets.all(8.dw),
-        decoration: BoxDecoration(color: AppColors.brown, borderRadius: BorderRadius.circular(20.dw)),
+        decoration: BoxDecoration(
+            color: AppColors.brown, borderRadius: BorderRadius.circular(20.dw)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -257,7 +257,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
               child: Text(
                 model.description,
                 style: TextStyle(
-                    fontSize: 14.0.dw,
+                    fontSize: 15.0.dw,
                     fontWeight: FontWeight.w500,
                     color: AppColors.black),
               ),
@@ -292,7 +292,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
         CarouselSlider(
           carouselController: carouselController,
           options: CarouselOptions(
-              height: 120.0.dh,
+              height: 150.0.dh,
               autoPlay: false,
               enlargeCenterPage: true,
               viewportFraction: 0.8,
@@ -305,7 +305,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
         ),
         Positioned(
           left: 10.dw,
-          top: 30.dw,
+          top: 40.dw,
           child: IconButton(
             onPressed: () {
               carouselController.previousPage();
@@ -315,7 +315,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
         ),
         Positioned(
           right: 5.dw,
-          top: 30.dw,
+          top: 40.dw,
           child: IconButton(
             onPressed: () {
               carouselController.nextPage();
@@ -329,7 +329,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
 
   _buildRequestLeaveCard(EmployeeLeavetypeModel leavetypeList) {
     return Column(
-     // shrinkWrap: true,
+      // shrinkWrap: true,
       children: leavetypeList.leave_list
           .map((model) => _buildRequesttedLeaveCard(model))
           .toList(),
@@ -354,24 +354,24 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
                   "${model.fromDate}  -  ${model.endDate}",
                   style: TextStyle(
                       color: AppColors.black,
-                      fontSize: 14.dw,
+                      fontSize: 16.dw,
                       fontWeight: FontWeight.w500),
                 ),
                 Text(
                   "${model.leaveDescription} - ${model.leaveDays}",
                   style: TextStyle(
                       color: AppColors.navyblue,
-                      fontSize: 12.dw,
+                      fontSize: 14.dw,
                       fontWeight: FontWeight.w400),
                 ),
                 Container(
-                  width: 250.dw,
+                  width: 180.dw,
                   child: Text(
                     "${"Reason "} - ${model.reason}",
                     maxLines: 2,
                     style: TextStyle(
                         color: AppColors.navyblue,
-                        fontSize: 12.dw,
+                        fontSize: 14.dw,
                         fontWeight: FontWeight.w400),
                   ),
                 ),
@@ -383,7 +383,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
             child: InkWell(
               onTap: (){
                 openApproveDialog(model);
-                },
+              },
               child: Image.asset("assets/images/undo-2.png", scale: 22.dw,),
             ),
           ),
@@ -425,131 +425,132 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
   }
 
   Future openApproveDialog(EmployeeleaveListModel model) => showDialog(
-        context: context,
-        builder: (context) => Dialog(
-          elevation: 8.0,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-          child: SingleChildScrollView(
-            child: SizedBox(
-                height: 220.dh,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+    context: context,
+    builder: (context) => Dialog(
+      elevation: 8.0,
+      shape:
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+      child: SingleChildScrollView(
+        child: SizedBox(
+            height: 220.dh,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: Text(
+                    "Are you sure you want to cancel ?",
+                    style: TextStyle(
+                        fontSize: 18.dw, fontWeight: FontWeight.w400),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: TextField(
+                    maxLines: null,
+                    controller: cancelController,
+                    keyboardType: TextInputType.multiline,
+                    decoration: InputDecoration(
+                        hintText: "  Enter Your Remark Here",
+                        contentPadding: EdgeInsets.all(8.dw)),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Padding(
                       padding: EdgeInsets.all(8.0.dw),
-                      child: Text(
-                        "Are you sure you want to cancel ?",
-                        style: TextStyle(
-                            fontSize: 18.dw, fontWeight: FontWeight.w400),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        style: ElevatedButton.styleFrom(
+                            primary: AppColors.red,
+                            minimumSize: Size(40.dw, 30.dh),
+                            elevation: 8.0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0))),
+                        child: Text(
+                          "Cancel",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18.dw),
+                        ),
                       ),
                     ),
+
+                    // Padding(
+                    //   padding: EdgeInsets.all(8.0.dw),
+                    //   child: ElevatedButton(
+                    //     onPressed: () {
+                    //       _approvalRejection(model, "C");
+                    //
+                    //       Navigator.pop(context);
+                    //       bloc.init();
+                    //       approvedleaveBloc.init();
+                    //     },
+                    //     style: ElevatedButton.styleFrom(
+                    //         primary: Colors.lightGreen,
+                    //         minimumSize: Size(80.dw, 30.dh),
+                    //         elevation: 8.0,
+                    //         shape: RoundedRectangleBorder(
+                    //             borderRadius: BorderRadius.circular(8.0))),
+                    //     child: Text(
+                    //       "Ok",
+                    //       style: TextStyle(
+                    //           fontWeight: FontWeight.bold, fontSize: 18.dw),
+                    //     ),
+                    //   ),
+                    // ),
                     Padding(
                       padding: EdgeInsets.all(8.0.dw),
-                      child: TextField(
-                        maxLines: null,
-                        controller: cancelController,
-                        keyboardType: TextInputType.multiline,
-                        decoration: InputDecoration(
-                            hintText: "  Enter Your Remark Here",
-                            contentPadding: EdgeInsets.all(8.dw)),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(8.0.dw),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            style: ElevatedButton.styleFrom(
-                                primary: AppColors.red,
-                                minimumSize: Size(40.dw, 30.dh),
-                                elevation: 8.0,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8.0))),
-                            child: Text(
-                              "Cancel",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 18.dw),
-                            ),
-                          ),
-                        ),
+                      child: BlocConsumer<TeamLeaderLeaveApproveRejectBloc, TeamleaderLeaveApproveState>(
+                          bloc: teamLeaderLeaveApproveRejectBloc,
+                          listener: (_, state){
+                            state.maybeWhen(
+                                success: (_, message){
+                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message??"Something")));
+                                  bloc.init();
+                                  Navigator.pop(context);
 
-                        // Padding(
-                        //   padding: EdgeInsets.all(8.0.dw),
-                        //   child: ElevatedButton(
-                        //     onPressed: () {
-                        //       _approvalRejection(model, "C");
-                        //
-                        //       Navigator.pop(context);
-                        //       bloc.init();
-                        //       approvedleaveBloc.init();
-                        //     },
-                        //     style: ElevatedButton.styleFrom(
-                        //         primary: Colors.lightGreen,
-                        //         minimumSize: Size(80.dw, 30.dh),
-                        //         elevation: 8.0,
-                        //         shape: RoundedRectangleBorder(
-                        //             borderRadius: BorderRadius.circular(8.0))),
-                        //     child: Text(
-                        //       "Ok",
-                        //       style: TextStyle(
-                        //           fontWeight: FontWeight.bold, fontSize: 18.dw),
-                        //     ),
-                        //   ),
-                        // ),
-                        Padding(
-                          padding: EdgeInsets.all(8.0.dw),
-                          child: BlocConsumer<TeamLeaderLeaveApproveRejectBloc, TeamleaderLeaveApproveState>(
-                              bloc: teamLeaderLeaveApproveRejectBloc,
-                              listener: (_, state){
-                                state.maybeWhen(
-                                    success: (_, message){
-                                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message??"Something")));
-                                      Navigator.pop(context);
+                                },
+                                failed: (_, message){
+                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+                                }, orElse:(){});
+                          },
+                          builder: (context, state) {
+                            return state.maybeWhen(
+                                loading: (_){
+                                  return CircularProgressIndicator();
+                                },
+                                orElse: (){
+                                  return ElevatedButton(
+                                    onPressed: () {
+                                      _approvalRejection(model, "C", cancelController.text);
                                       bloc.init();
                                     },
-                                    failed: (_, message){
-                                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
-                                    }, orElse:(){});
-                              },
-                              builder: (context, state) {
-                                return state.maybeWhen(
-                                    loading: (_){
-                                      return CircularProgressIndicator();
-                                    },
-                                    orElse: (){
-                                      return ElevatedButton(
-                                        onPressed: () {
-                                          _approvalRejection(model, "C", cancelController.text);
-                                          bloc.init();
-                                        },
-                                        style: ElevatedButton.styleFrom(
-                                            primary: Colors.lightGreen,
-                                            minimumSize: Size(80.dw, 30.dh),
-                                            elevation: 8.0,
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.circular(8.0))),
-                                        child: Text(
-                                          "Ok",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold, fontSize: 18.dw),
-                                        ),
-                                      );
-                                    });
-                              }
-                          ),
-                        ),
-                      ],
-                    )
+                                    style: ElevatedButton.styleFrom(
+                                        primary: Colors.lightGreen,
+                                        minimumSize: Size(80.dw, 30.dh),
+                                        elevation: 8.0,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(8.0))),
+                                    child: Text(
+                                      "Ok",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold, fontSize: 18.dw),
+                                    ),
+                                  );
+                                });
+                          }
+                      ),
+                    ),
                   ],
-                )),
-          ),
-        ),
-      );
+                )
+              ],
+            )),
+      ),
+    ),
+  );
 
   void _approvalRejection(EmployeeleaveListModel model, String grantedType, String remark) async {
     final data = {
@@ -588,7 +589,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
             title,
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: Color, fontSize: 12.dw, fontWeight: FontWeight.w400),
+                color: Color, fontSize: 14.dw, fontWeight: FontWeight.w400),
           ),
           Text(
             title1,
@@ -663,11 +664,11 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
       children: [
         Expanded(
             child: ListView(
-          shrinkWrap: true,
-          children: approvedLeaveList
-              .map((model) => _buildApprovedLeaveList(model))
-              .toList(),
-        ))
+              shrinkWrap: true,
+              children: approvedLeaveList
+                  .map((model) => _buildApprovedLeaveList(model))
+                  .toList(),
+            ))
       ],
     );
   }
@@ -866,170 +867,199 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
       "remarks": remarks,
     };
     await teamLeaderLeaveApproveRejectBloc.ApprovalRejectionStatus(data);
-    final state = teamLeaderLeaveApproveRejectBloc.state;
-    state.maybeWhen(success: (model, message) {
-           approvedleaveBloc.init();
-          ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(SnackBar(
-              content: Text(message!, style: const TextStyle(color: Colors.white),)));
-           Navigator.pop(context);
-
-        },
-        failed: (model, message) {
-          ScaffoldMessenger.of(scaffoldKey.currentContext!)
-              .showSnackBar(SnackBar(content: Text(message)));
-        },
-        orElse: () {});
+    approvedleaveBloc.init();
+    Navigator.pop(context);
+    // final state = teamLeaderLeaveApproveRejectBloc.state;
+    // state.maybeWhen(
+    //     success: (model, message) {
+    //       approvedleaveBloc.init();
+    //       ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(SnackBar(
+    //           content: Text(message!, style: const TextStyle(color: Colors.white),)));
+    //
+    //     },
+    //     failed: (model, message) {
+    //       ScaffoldMessenger.of(scaffoldKey.currentContext!)
+    //           .showSnackBar(SnackBar(content: Text(message)));
+    //     },
+    //     orElse: () {});
   }
 
   Future openApproveDialog(ApprovedLeaveModel model) => showDialog(
-        context: context,
-        builder: (context) => Dialog(
-          elevation: 8.0,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-          child: SingleChildScrollView(
-            child: SizedBox(
-                height: 220.dh,
-                child: Column(
+    context: context,
+    builder: (context) => Dialog(
+      elevation: 8.0,
+      shape:
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+      child: SingleChildScrollView(
+        child: SizedBox(
+            height: 220.dh,
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: Text(
+                    "Are you sure you want to approve?",
+                    style: TextStyle(
+                        fontSize: 16.dw, fontWeight: FontWeight.w400),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: TextField(
+                    maxLines: null,
+                    controller: approvalController,
+                    keyboardType: TextInputType.multiline,
+                    decoration: InputDecoration(
+                        hintText: "  Enter Your Remark Here",
+                        contentPadding: EdgeInsets.all(8.dw)),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.all(8.0.dw),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        approvedleaveBloc.init();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: AppColors.red,
+                          minimumSize: Size(40.dw, 30.dh),
+                          elevation: 8.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0))),
                       child: Text(
-                        "Are you sure you want to approve?",
+                        "Cancel",
                         style: TextStyle(
-                            fontSize: 16.dw, fontWeight: FontWeight.w400),
+                            fontWeight: FontWeight.bold, fontSize: 18.dw),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.all(8.0.dw),
-                      child: TextField(
-                        maxLines: null,
-                        controller: approvalController,
-                        keyboardType: TextInputType.multiline,
-                        decoration: InputDecoration(
-                            hintText: "  Enter Your Remark Here",
-                            contentPadding: EdgeInsets.all(8.dw)),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                            approvedleaveBloc.init();
-                          },
-                          style: ElevatedButton.styleFrom(
-                              primary: AppColors.red,
-                              minimumSize: Size(40.dw, 30.dh),
-                              elevation: 8.0,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0))),
-                          child: Text(
-                            "Cancel",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 18.dw),
-                          ),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            _approvalRejection(model, "A", approvalController.text);
-                           // approvedleaveBloc.init();
-                          },
-                          style: ElevatedButton.styleFrom(
-                              primary: Colors.lightGreen,
-                              minimumSize: Size(40.dw, 30.dh),
-                              elevation: 8.0,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0))),
-                          child: Text(
-                            "Approve",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 18.dw),
-                          ),
-                        ),
-                      ],
-                    )
+                    BlocConsumer<TeamLeaderLeaveApproveRejectBloc, TeamleaderLeaveApproveState>(
+                        bloc: teamLeaderLeaveApproveRejectBloc,
+                        listener: (_, state) {
+                          state.maybeWhen(
+                              success: (_, message) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text(message ?? "Something")));
+
+                                approvedleaveBloc.init();
+                                // Navigator.pushNamed(context, AppRoutes.leaveApply);
+                              },
+                              failed: (_, message) {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(content: Text(message)));
+                              },
+                              orElse: () {});
+                        },
+                        builder: (context, state) {
+                          return state.maybeWhen(loading: (_) {
+                            return const CircularProgressIndicator();
+                          }, orElse: () {
+                            return ElevatedButton(
+                              onPressed: () {
+                                _approvalRejection(model, "A", approvalController.text);
+                                approvedleaveBloc.init();
+                              //  Navigator.pop(context);
+
+                              },
+                              style: ElevatedButton.styleFrom(
+                                  primary: Colors.lightGreen,
+                                  minimumSize: Size(40.dw, 30.dh),
+                                  elevation: 8.0,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8.0))),
+                              child: Text(
+                                "Approve",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 18.dw),
+                              ),
+                            );
+                          });
+                        }),
+
                   ],
-                )),
-          ),
-        ),
-      );
+                )
+              ],
+            )),
+      ),
+    ),
+  );
 
   Future openRejectionDialog(ApprovedLeaveModel model) => showDialog(
-        context: context,
-        builder: (context) => Dialog(
-          elevation: 8.0,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-          child: SingleChildScrollView(
-            child: SizedBox(
-                height: 220.dh,
-                child: Column(
+    context: context,
+    builder: (context) => Dialog(
+      elevation: 8.0,
+      shape:
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+      child: SingleChildScrollView(
+        child: SizedBox(
+            height: 220.dh,
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: Text(
+                    "Are you sure you want to reject?",
+                    style: TextStyle(
+                        fontSize: 16.dw, fontWeight: FontWeight.w400),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: TextField(
+                    maxLines: null,
+                    controller: approvalController,
+                    keyboardType: TextInputType.multiline,
+                    decoration: InputDecoration(
+                        hintText: "  Enter Your Remark Here",
+                        contentPadding: EdgeInsets.all(8.dw)),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.all(8.0.dw),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        approvedleaveBloc.init();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: AppColors.red,
+                          minimumSize: Size(40.dw, 30.dh),
+                          elevation: 8.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0))),
                       child: Text(
-                        "Are you sure you want to reject?",
+                        "Cancel",
                         style: TextStyle(
-                            fontSize: 16.dw, fontWeight: FontWeight.w400),
+                            fontWeight: FontWeight.bold, fontSize: 18.dw),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.all(8.0.dw),
-                      child: TextField(
-                        maxLines: null,
-                        controller: approvalController,
-                        keyboardType: TextInputType.multiline,
-                        decoration: InputDecoration(
-                            hintText: "  Enter Your Remark Here",
-                            contentPadding: EdgeInsets.all(8.dw)),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                            approvedleaveBloc.init();
-                          },
-                          style: ElevatedButton.styleFrom(
-                              primary: AppColors.red,
-                              minimumSize: Size(40.dw, 30.dh),
-                              elevation: 8.0,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0))),
-                          child: Text(
-                            "Cancel",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 18.dw),
-                          ),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            _approvalRejection(model, "R", rejectionController.text);
-                            //approvedleaveBloc.init();
-                            Navigator.pop(context);
 
-                          },
-                          style: ElevatedButton.styleFrom(
-                              primary: AppColors.portalgreyBlue,
-                              minimumSize: Size(40.dw, 30.dh),
-                              elevation: 8.0,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0))),
-                          child: Text(
-                            "Reject",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 18.dw),
-                          ),
-                        ),
-                      ],
-                    )
+                    ElevatedButton(
+                      onPressed: () {
+                        _approvalRejection(model, "R", rejectionController.text);
+                        //approvedleaveBloc.init();
+                        Navigator.pop(context);
+
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: AppColors.portalgreyBlue,
+                          minimumSize: Size(40.dw, 30.dh),
+                          elevation: 8.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0))),
+                      child: Text(
+                        "Reject",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18.dw),
+                      ),
+                    ),
                   ],
-                )),
-          ),
-        ),
-      );
+                )
+              ],
+            )),
+      ),
+    ),
+  );
 }

@@ -1,8 +1,8 @@
 import 'package:hive/hive.dart';
 
 //const root = 'http://103.25.128.214:64/api/';
-// const root = 'http://45.64.8.46:63/api/';
-const root = 'http://192.168.1.6:63/api/';
+ const root = 'http://45.64.8.46:63/api/';
+//const root = 'http://192.168.1.6:63/api/';
 
 //HELLO HELLO
 

@@ -258,9 +258,9 @@ class _HomePageState extends State<HomePage>
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
           child: SizedBox(
-            height: 230.dh,
+            height: 220.dh,
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -294,7 +294,7 @@ class _HomePageState extends State<HomePage>
                         ),
                       ),
                       SizedBox(
-                        width: 10.dw,
+                        width: 20.dw,
                       ),
                       ElevatedButton(
                         onPressed: () {
@@ -502,7 +502,7 @@ class _BirthdayState extends State<Birthday> {
   }
 
   Widget _buildLoading(EmployeeBirthDetailModel model) {
-    return Center(child: CircularProgressIndicator());
+    return const Center(child: CircularProgressIndicator());
   }
 
   Widget _buildContent(EmployeeBirthDetailModel model) {
