@@ -22,8 +22,8 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin{
-
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   List list = [
     Image.asset("assets/images/attendance.jpg"),
     Image.asset("assets/images/leave.jpg.png"),
@@ -50,11 +50,13 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   @override
   void initState() {
     final homepageServices =
-    Provider.of<HomePageService>(context, listen: false);
+        Provider.of<HomePageService>(context, listen: false);
     user = Provider.of<LoginService>(context, listen: false).getCurrentUser!;
     tabController = TabController(length: 2, vsync: this);
-    pageController = PageController(initialPage: currentPage, viewportFraction: 0.8);
-    final homePageService = Provider.of<HomePageService>(context, listen: false);
+    pageController =
+        PageController(initialPage: currentPage, viewportFraction: 0.8);
+    final homePageService =
+        Provider.of<HomePageService>(context, listen: false);
     employeeBirthDetailBloc = EmployeeBirthDetailBloc(homePageService);
     applyLunchBloc = ApplyLunchBloc(homepageServices);
     controller.addListener(() {
@@ -72,22 +74,20 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     pageController.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          _buildCard(),
-          _buildBirthdayCard(),
-          Expanded(
-            child: _buildGrid(),
-          ),
-        ],
-      )
-    );
+        key: scaffoldKey,
+        backgroundColor: Colors.white,
+        body: Column(
+          children: [
+            _buildCard(),
+            _buildBirthdayCard(),
+            Expanded(
+              child: _buildGrid(),
+            ),
+          ],
+        ));
   }
 
   _buildGrid() {
@@ -105,12 +105,13 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             Navigator.pushNamed(context, AppRoutes.attendancepage);
           },
           child: Card(
-            color:  const Color(0xffFFF2E5),
+            color: const Color(0xffFFF2E5),
             elevation: 10.dw,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Lottie.asset("assets/lottie/checking.json", height: 80.dh, width: 80.dw),
+                Lottie.asset("assets/lottie/checking.json",
+                    height: 80.dh, width: 80.dw),
                 // _buildImage("assets/images/verification.png"),
                 _buildText(title: "Attendance")
               ],
@@ -118,7 +119,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           ),
         ),
         InkWell(
-          onTap: (){
+          onTap: () {
             Navigator.pushNamed(context, AppRoutes.leaveApply);
           },
           child: Card(
@@ -127,7 +128,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Lottie.asset("assets/lottie/take-on-leave.json", height: 80.dh, width: 80.dw),
+                Lottie.asset("assets/lottie/take-on-leave.json",
+                    height: 80.dh, width: 80.dw),
                 // _buildImage("assets/images/leave-2.png"),
                 _buildText(title: "Leave")
               ],
@@ -135,15 +137,16 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           ),
         ),
         InkWell(
-          onTap: (){
+          onTap: () {
             Navigator.pushNamed(context, AppRoutes.onDutyPage);
           },
           child: Card(
-            color: Color(0xffE5ECFF),
+            color: const Color(0xffE5ECFF),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Lottie.asset("assets/lottie/outdoorDuty.json", height: 80.dh, width: 80.dw),
+                Lottie.asset("assets/lottie/outdoorDuty.json",
+                    height: 80.dh, width: 80.dw),
 
                 //Image.asset("assets/images/file.png", scale: 10.dw,),
                 _buildText(title: "Outdoor Duty")
@@ -170,11 +173,11 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         //   ),
         // ),
         InkWell(
-          onTap: (){
+          onTap: () {
             Navigator.pushNamed(context, AppRoutes.holidaypage);
           },
           child: Card(
-            color: Color(0xffFFECE5),
+            color: const Color(0xffFFECE5),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -188,15 +191,16 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           ),
         ),
         InkWell(
-          onTap: (){
+          onTap: () {
             Navigator.pushNamed(context, AppRoutes.noticeboard);
           },
           child: Card(
-            color: Color(0xffFFFBE5),
+            color: const Color(0xffFFFBE5),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Lottie.asset("assets/lottie/notice.json", height: 80.dh, width: 100.dw),
+                Lottie.asset("assets/lottie/notice.json",
+                    height: 80.dh, width: 100.dw),
                 // Image.asset(
                 //   "assets/images/noticeboard.png",
                 //   scale: 8.dw,
@@ -207,15 +211,16 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           ),
         ),
         InkWell(
-          onTap: (){
+          onTap: () {
             Navigator.pushNamed(context, AppRoutes.refrralDetailsPage);
           },
           child: Card(
-            color: Color(0xffFFFBE5),
+            color: const Color(0xffFFFBE5),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Lottie.asset("assets/lottie/referal.json", height: 80.dh, width: 100.dw),
+                Lottie.asset("assets/lottie/referal.json",
+                    height: 80.dh, width: 100.dw),
                 // Image.asset(
                 //   "assets/images/collaboration.png",
                 //   scale: 8.dw,
@@ -227,7 +232,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         ),
         InkWell(
           onTap: () {
-            _applyLunch();
+            _openApprovalDialog();
           },
           child: Card(
             color: const Color(0xffcEeff5),
@@ -245,40 +250,118 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     );
   }
 
+  _openApprovalDialog() => showDialog(
+      context: context,
+      builder: (builder) {
+        return Dialog(
+          elevation: 8.0,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+          child: SizedBox(
+            height: 230.dh,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    "Confirmation",
+                    style:
+                        TextStyle(fontSize: 20.dw, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "Are you sure you want to Apply Lunch?",
+                    style:
+                        TextStyle(fontSize: 17.dw, fontWeight: FontWeight.w400),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.red.shade900,
+                            minimumSize: Size(60.dw, 40.dh),
+                            elevation: 8.0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(6.0))),
+                        child: Text(
+                          "No",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18.dw),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10.dw,
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          _applyLunch();
+                        },
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green,
+                            minimumSize: Size(60.dw, 40.dh),
+                            elevation: 8.0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(6.0))),
+                        child: Text(
+                          "Yes",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18.dw),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      });
+
   void _applyLunch() async {
     await applyLunchBloc.init();
     final state = applyLunchBloc.state;
     state.maybeWhen(
         success: (model, message) {
-          ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(
-              SnackBar(backgroundColor: AppColors.green, content: Text(message.toString(), style: const TextStyle(color: Colors.white),)));
-          // Navigator.pop(context);
-        },
-        failed: (model, message) {
           ScaffoldMessenger.of(scaffoldKey.currentContext!)
               .showSnackBar(SnackBar(
-              backgroundColor: AppColors.red,
-              content: Text(message)));
+                  backgroundColor: Colors.green,
+                  content: Text(
+                    message.toString(),
+                    style: const TextStyle(color: Colors.white, fontSize: 15),
+                  )));
+          Navigator.pop(context);
+        },
+        failed: (model, message) {
+          ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(
+              SnackBar(backgroundColor: AppColors.red, content: Text(message)));
         },
         orElse: () {});
   }
 
   _buildCard() {
     return Padding(
-      padding:  EdgeInsets.all(8.0.dw),
+      padding: EdgeInsets.all(8.0.dw),
       child: Card(
         elevation: 10.dh,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.dw)),
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.dw)),
         color: AppColors.brown,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Padding(
-              padding:  EdgeInsets.only(left: 10.dw),
-              child: Image.asset("assets/images/calender.png",scale: 22.dw,),
+              padding: EdgeInsets.only(left: 10.dw),
+              child: Image.asset(
+                "assets/images/calender.png",
+                scale: 22.dw,
+              ),
             ),
             Padding(
-              padding:  EdgeInsets.all(8.0.dw),
+              padding: EdgeInsets.all(8.0.dw),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -288,11 +371,14 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               ),
             ),
             Padding(
-              padding:  EdgeInsets.only(left: 10.dw),
-              child: Image.asset("assets/images/calender.png",scale: 22.dw,),
+              padding: EdgeInsets.only(left: 10.dw),
+              child: Image.asset(
+                "assets/images/calender.png",
+                scale: 22.dw,
+              ),
             ),
             Padding(
-              padding:  EdgeInsets.all(8.0.dw),
+              padding: EdgeInsets.all(8.0.dw),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -307,7 +393,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     );
   }
 
-  _buildBirthdayCard(){
+  _buildBirthdayCard() {
     return SizedBox(
       height: 250.dw,
       child: Padding(
@@ -325,18 +411,23 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                   unselectedLabelStyle: TextStyle(fontSize: 12.dh),
                   indicatorPadding: EdgeInsets.all(10.dw),
                   labelPadding: EdgeInsets.all(10.dw),
-                  labelStyle: TextStyle(fontSize: 20.dh, fontWeight: FontWeight.w600),
+                  labelStyle:
+                      TextStyle(fontSize: 20.dh, fontWeight: FontWeight.w600),
                   controller: tabController,
                   tabs: [
-                Text("Birthdays", style: TextStyle(fontSize: 14.dw),),
-                Text("New Joinee",style: TextStyle(fontSize: 14.dw),)
-              ]),
-              Expanded(child: TabBarView(
-                  controller: tabController,
-                  children: const [
-                    Birthday(),
-                    NewJoinee()
-                  ]))
+                    Text(
+                      "Birthdays",
+                      style: TextStyle(fontSize: 14.dw),
+                    ),
+                    Text(
+                      "New Joinee",
+                      style: TextStyle(fontSize: 14.dw),
+                    )
+                  ]),
+              Expanded(
+                  child: TabBarView(
+                      controller: tabController,
+                      children: const [Birthday(), NewJoinee()]))
             ],
           ),
         ),
@@ -344,11 +435,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     );
   }
 
-  _buildImage(image){
-    return Image.asset(image,scale: 10.dw,);
-  }
-
-  _buildCardText({required String title}){
+  _buildCardText({required String title}) {
     return Text(
       title,
       style: TextStyle(
@@ -364,7 +451,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           color: AppColors.black, fontWeight: FontWeight.w400, fontSize: 14.dh),
     );
   }
-
 }
 
 class Birthday extends StatefulWidget {
@@ -375,12 +461,12 @@ class Birthday extends StatefulWidget {
 }
 
 class _BirthdayState extends State<Birthday> {
-
   late EmployeeBirthDetailBloc employeeBirthDetailBloc;
 
   @override
   void initState() {
-    final homePageService = Provider.of<HomePageService>(context, listen: false);
+    final homePageService =
+        Provider.of<HomePageService>(context, listen: false);
     employeeBirthDetailBloc = EmployeeBirthDetailBloc(homePageService);
     employeeBirthDetailBloc.init();
     super.initState();
@@ -393,32 +479,33 @@ class _BirthdayState extends State<Birthday> {
         body: Container(
           width: ScreenSizeConfig.getFullWidth,
           decoration: const BoxDecoration(
-              image: DecorationImage(image: AssetImage("assets/images/birthday.jpg"), fit: BoxFit.cover, opacity: 0.6)
-          ),
+              image: DecorationImage(
+                  image: AssetImage("assets/images/birthday.jpg"),
+                  fit: BoxFit.cover,
+                  opacity: 0.6)),
           child: _buildBody(),
-        )
-    );
+        ));
   }
-  _buildBody(){
+
+  _buildBody() {
     return BlocConsumer<EmployeeBirthDetailBloc, EmployeeBirthDetailState>(
       bloc: employeeBirthDetailBloc,
-      listener: (_, state){},
-      builder: (_, state){
+      listener: (_, state) {},
+      builder: (_, state) {
         return state.when(
             loading: _buildLoading,
             content: _buildContent,
             success: _buildContent,
-            failed: (form, __) => _buildContent(form)
-        );
+            failed: (form, __) => _buildContent(form));
       },
     );
   }
 
-  Widget _buildLoading(EmployeeBirthDetailModel model){
+  Widget _buildLoading(EmployeeBirthDetailModel model) {
     return Center(child: CircularProgressIndicator());
   }
 
-  Widget _buildContent(EmployeeBirthDetailModel model){
+  Widget _buildContent(EmployeeBirthDetailModel model) {
     final birthdayList = model.emp_births;
     return ListView(
       shrinkWrap: true,
@@ -427,8 +514,7 @@ class _BirthdayState extends State<Birthday> {
     );
   }
 
-
-  Widget _buildCard(BirthdayModel model){
+  Widget _buildCard(BirthdayModel model) {
     return Padding(
       padding: EdgeInsets.all(5.0.dw),
       child: SizedBox(
@@ -447,7 +533,8 @@ class _BirthdayState extends State<Birthday> {
                 SizedBox(
                   height: 80.dw,
                   width: 80.dw,
-                  child: Image.network(model.photoFile,
+                  child: Image.network(
+                    model.photoFile,
                     fit: BoxFit.cover,
                     // errorBuilder: (context, exception, stackTrace){
                     //   return Image.asset("assets/images/profile2.png", scale: 6.dw);
@@ -456,23 +543,33 @@ class _BirthdayState extends State<Birthday> {
                 ),
                 SizedBox(
                   width: 120.dw,
-                  child: Text(model.firstName + " "+ model.lastName,
+                  child: Text(
+                    model.firstName + " " + model.lastName,
                     textAlign: TextAlign.center,
                     maxLines: 3,
                     style: TextStyle(fontSize: 12.dw),
-                    overflow: TextOverflow.ellipsis,),
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(model.bdate, style: TextStyle(fontSize: 12.dw),),
+                    Text(
+                      model.bdate,
+                      style: TextStyle(fontSize: 12.dw),
+                    ),
                     Text(" "),
-                    Text(model.bmonth, style: TextStyle(fontSize: 12.dw),),
+                    Text(
+                      model.bmonth,
+                      style: TextStyle(fontSize: 12.dw),
+                    ),
                     Text(" "),
-                    Text(model.department, style: TextStyle(fontSize: 12.dw),),
+                    Text(
+                      model.department,
+                      style: TextStyle(fontSize: 12.dw),
+                    ),
                   ],
                 ),
-
               ],
             ),
           ),
@@ -490,12 +587,12 @@ class NewJoinee extends StatefulWidget {
 }
 
 class _NewJoineeState extends State<NewJoinee> {
-
   late EmployeeBirthDetailBloc employeeBirthDetailBloc;
 
   @override
   void initState() {
-    final homePageService = Provider.of<HomePageService>(context, listen: false);
+    final homePageService =
+        Provider.of<HomePageService>(context, listen: false);
     employeeBirthDetailBloc = EmployeeBirthDetailBloc(homePageService);
     employeeBirthDetailBloc.init();
     super.initState();
@@ -507,33 +604,34 @@ class _NewJoineeState extends State<NewJoinee> {
       body: Container(
         width: ScreenSizeConfig.getFullWidth,
         decoration: const BoxDecoration(
-            image: DecorationImage(image: AssetImage("assets/images/welcome.jpg"), fit: BoxFit.fill, opacity: 0.6)
-        ),
+            image: DecorationImage(
+                image: AssetImage("assets/images/welcome.jpg"),
+                fit: BoxFit.fill,
+                opacity: 0.6)),
         child: _buildBody(),
       ),
     );
   }
 
-  _buildBody(){
+  _buildBody() {
     return BlocConsumer<EmployeeBirthDetailBloc, EmployeeBirthDetailState>(
       bloc: employeeBirthDetailBloc,
-      listener: (_, state){},
-      builder: (_, state){
+      listener: (_, state) {},
+      builder: (_, state) {
         return state.when(
             loading: _buildLoading,
             content: _buildContent,
             success: _buildContent,
-            failed: (form, __) => _buildContent(form)
-        );
+            failed: (form, __) => _buildContent(form));
       },
     );
   }
 
-  Widget _buildLoading(EmployeeBirthDetailModel model){
+  Widget _buildLoading(EmployeeBirthDetailModel model) {
     return Center(child: CircularProgressIndicator());
   }
 
-  Widget _buildContent(EmployeeBirthDetailModel model){
+  Widget _buildContent(EmployeeBirthDetailModel model) {
     final birthdayList = model.emp_newjoins;
     return ListView(
       scrollDirection: Axis.horizontal,
@@ -542,8 +640,7 @@ class _NewJoineeState extends State<NewJoinee> {
     );
   }
 
-
-  Widget _buildCard(NewJoineeModel model){
+  Widget _buildCard(NewJoineeModel model) {
     return Padding(
       padding: EdgeInsets.all(5.0.dw),
       child: Card(
@@ -571,7 +668,8 @@ class _NewJoineeState extends State<NewJoinee> {
                 padding: EdgeInsets.all(2.0.dw),
                 child: SizedBox(
                   width: 120.dw,
-                  child: Text(model.firstName + " "+ model.lastName,
+                  child: Text(
+                    model.firstName + " " + model.lastName,
                     textAlign: TextAlign.center,
                     maxLines: 1,
                     overflow: TextOverflow.fade,
@@ -579,8 +677,14 @@ class _NewJoineeState extends State<NewJoinee> {
                   ),
                 ),
               ),
-              Text(model.joiningDate, style: TextStyle(fontSize: 12.dw),),
-              Text(model.departName, style: TextStyle(fontSize: 12.dw),),
+              Text(
+                model.joiningDate,
+                style: TextStyle(fontSize: 12.dw),
+              ),
+              Text(
+                model.departName,
+                style: TextStyle(fontSize: 12.dw),
+              ),
             ],
           ),
         ),
@@ -588,4 +692,3 @@ class _NewJoineeState extends State<NewJoinee> {
     );
   }
 }
-
