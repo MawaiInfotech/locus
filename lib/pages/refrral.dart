@@ -178,7 +178,7 @@ class _RefrralPageState extends State<RefrralPage> with SingleTickerProviderStat
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(designation ?? "Job Position"),
-                  Icon(Icons.arrow_drop_down)
+                  const Icon(Icons.arrow_drop_down)
                 ],
               ),
             )),

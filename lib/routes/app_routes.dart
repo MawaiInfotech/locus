@@ -20,6 +20,8 @@ import 'package:locus/pages/workfrom_home_page.dart';
 import '../pages/login_page.dart';
 import '../pages/refferdetails_page.dart';
 import '../pages/refrral.dart';
+import '../pages/travelrequest_page.dart';
+import '../pages/travelrequestform_page.dart';
 import '../pages/updatedialouge.dart';
 
 class AppRoutes {
@@ -45,6 +47,8 @@ class AppRoutes {
   static const requestWorkfromHome = '/requestWorkfromHome';
   static const refrralPage = '/refrralPage';
   static const refrralDetailsPage = '/refferdetails_Page';
+  static const travelRequestPage = '/travelrequest_page';
+  static const travelRequestMainPage = '/travelrequestmain_page';
 
 
   static Map<String, Widget Function(BuildContext)> getRoutes(BuildContext _) {
@@ -69,7 +73,9 @@ class AppRoutes {
       noticeboard: (_) => NoticeBoardPage(),
       requestWorkfromHome: (_) => RequestWorkfromHome(),
       refrralPage: (_) => RefrralPage(),
-      refrralDetailsPage:(_) => ReferralDetails()
+      refrralDetailsPage:(_) => ReferralDetails(),
+      travelRequestPage:(_) => TravelRequestPage(),
+      travelRequestMainPage:(_) => TravelRequestMainPage()
     };
   }
 }

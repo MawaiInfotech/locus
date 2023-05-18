@@ -245,6 +245,22 @@ class _HomePageState extends State<HomePage>
               ],
             ),
           ),
+        ),
+        InkWell(
+          onTap: () {
+            Navigator.pushNamed(context, AppRoutes.travelRequestMainPage);
+          },
+          child: Card(
+            color: const Color(0xffdEfff5),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Lottie.asset("assets/lottie/travel.json",
+                    height: 80.dh, width: 100.dw),
+                _buildText(title: "Travel Request")
+              ],
+            ),
+          ),
         )
       ],
     );
