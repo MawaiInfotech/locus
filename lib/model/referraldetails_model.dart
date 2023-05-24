@@ -17,3 +17,5 @@ class ReferralDetailModel with _$ReferralDetailModel{
 
   factory ReferralDetailModel.fromJson(Map<String, dynamic> json) => _$ReferralDetailModelFromJson(json);
 }
+
+//hello
