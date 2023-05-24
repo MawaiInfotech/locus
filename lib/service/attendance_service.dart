@@ -18,6 +18,8 @@ import '../pages/address.dart';
 
 class AttendanceService {
 
+  //attendance data checking
+
   Future<CheckLoginModelForm?> getCheckLogin() async {
     final date = DateFormat("yyyy-MM-dd").format(DateTime.now());
     final body = {"sysdate": date};
@@ -59,6 +61,8 @@ class AttendanceService {
       _handleError(e);
     }
   }
+
+  //attendance markingh
 
   Future<Map<String, dynamic>?>  getAttendance(String status, String remark, String site, file) async {
     const url = root + 'checkin-checkout';

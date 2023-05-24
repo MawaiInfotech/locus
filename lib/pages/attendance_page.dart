@@ -1045,7 +1045,6 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
         return XFile(selectedFile.path);
 
       } else {
-        // HelperUI.showSnackBar(strTile: STRING_ERROR, strMessage: 'No image selected');
         return null;
       }
     }

@@ -485,8 +485,7 @@ class _RequestLeaveState extends State<RequestLeave> {
             listener: (_, state) {
               state.maybeWhen(
                   success: (_, message) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(message ?? "Something")));
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message ?? "Something")));
                     Navigator.pop(context, true);
                     // Navigator.pushNamed(context, AppRoutes.leaveApply);
                   },

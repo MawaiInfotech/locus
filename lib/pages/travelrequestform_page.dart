@@ -41,14 +41,14 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
   TextEditingController travelFromCityController = TextEditingController();
   TextEditingController travelToCityController = TextEditingController();
   //TextEditingController targetDateController = TextEditingController();
- // TextEditingController returnTargetController = TextEditingController();
- // TextEditingController timeInputController = TextEditingController();
- // TextEditingController targetTimeInputController = TextEditingController();
+  // TextEditingController returnTargetController = TextEditingController();
+  // TextEditingController timeInputController = TextEditingController();
+  // TextEditingController targetTimeInputController = TextEditingController();
 //  TextEditingController returnTimeInputController = TextEditingController();
   TextEditingController purposeController = TextEditingController();
- // TextEditingController trainNameController = TextEditingController();
+  // TextEditingController trainNameController = TextEditingController();
 // TextEditingController ticketDateTimeController = TextEditingController();
- // TextEditingController arregmentController = TextEditingController();
+  // TextEditingController arregmentController = TextEditingController();
 
   var clienName;
   var clienCode;
@@ -78,8 +78,8 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppTopBar(title: "Travel Request Form"),
-      body: _buildBody()
+        appBar: const AppTopBar(title: "Travel Request Form"),
+        body: _buildBody()
     );
   }
 
@@ -102,61 +102,61 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
     return const Center(child: CircularProgressIndicator());
   }
 
-Widget _buildContent(ProjectListModel model){
+  Widget _buildContent(ProjectListModel model){
     return SafeArea(
-        child: SingleChildScrollView(
-          child: Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                _buildDisabledTextField("New", reqNoController, 1),
-                //  _buildDisabledTextField(now_date, currentDateController, 1),
-                _buildDateTextField(currentDateController, "Requested Date"),
-                _buildNameTextField(
-                    "Travel From(City)*", travelFromCityController, 1),
-                _buildNameTextField(
-                    "Travel To(City)*", travelToCityController, 1),
-                _buildProjectListDialogBox(model,),
-                _buildModeListDialogBox(model, "--Select Mode--"),
-                _buildDropdownList(requiredOption,reqOption,"Ticket Booking Request(Y/N)"),
-                _buildNameTextField("Purpose of booking*", purposeController, 2),
-                // (mode != "By Cab/Taxi")
-                //     ? Column(
-                //         children: [
-                //           _buildNameTextField("Preferred Train/ Air No. & name",
-                //               trainNameController, 2),
-                //           _buildNameTextField("Ticket Booking Date & Time",
-                //               ticketDateTimeController, 2),
-                //           _buildDateTextField(targetDateController,
-                //               "Target date to reach the client"),
-                //           _buildTimeTextField(targetTimeInputController,
-                //               "Target time to reach the client"),
-                //           _buildDateTextField(
-                //               returnTargetController, "return target date "),
-                //           _buildTimeTextField(
-                //               returnTimeInputController, "return target time "),
-                //           _buildNameTextField(
-                //               "Number of days", nameController, 1),
-                //           _buildNameTextField(
-                //               "Staying arrangement(by client/ by us)",
-                //               arregmentController,
-                //               2),
-                //         //  _buildPassengerDetailsContainer()
-                //         ],
-                //       )
-                //     : Container(),
-                // _buildDisabledTextField("Request Approved/Canceled by", currentDateController, 1),
-                _buildRow("Request Approved/Cancelled by :", " SWE269"),
-                _buildRow("Requested by : ", ""),
-                _buildRow("Requested status : ", " "),
-                _buildSubmitButton()
-              ],
-            ),
+      child: SingleChildScrollView(
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              _buildDisabledTextField("New", reqNoController, 1),
+              //  _buildDisabledTextField(now_date, currentDateController, 1),
+              _buildDateTextField(currentDateController, "Requested Date"),
+              _buildNameTextField(
+                  "Travel From(City)*", travelFromCityController, 1),
+              _buildNameTextField(
+                  "Travel To(City)*", travelToCityController, 1),
+              _buildProjectListDialogBox(model,),
+              _buildModeListDialogBox(model, "--Select Mode--"),
+              _buildDropdownList(requiredOption,reqOption,"Ticket Booking Request(Y/N)"),
+              _buildNameTextField("Purpose of booking*", purposeController, 2),
+              // (mode != "By Cab/Taxi")
+              //     ? Column(
+              //         children: [
+              //           _buildNameTextField("Preferred Train/ Air No. & name",
+              //               trainNameController, 2),
+              //           _buildNameTextField("Ticket Booking Date & Time",
+              //               ticketDateTimeController, 2),
+              //           _buildDateTextField(targetDateController,
+              //               "Target date to reach the client"),
+              //           _buildTimeTextField(targetTimeInputController,
+              //               "Target time to reach the client"),
+              //           _buildDateTextField(
+              //               returnTargetController, "return target date "),
+              //           _buildTimeTextField(
+              //               returnTimeInputController, "return target time "),
+              //           _buildNameTextField(
+              //               "Number of days", nameController, 1),
+              //           _buildNameTextField(
+              //               "Staying arrangement(by client/ by us)",
+              //               arregmentController,
+              //               2),
+              //         //  _buildPassengerDetailsContainer()
+              //         ],
+              //       )
+              //     : Container(),
+              // _buildDisabledTextField("Request Approved/Canceled by", currentDateController, 1),
+              _buildRow("Request Approved/Cancelled by :", " SWE269"),
+              _buildRow("Requested by : ", ""),
+              _buildRow("Requested status : ", " "),
+              _buildSubmitButton()
+            ],
           ),
         ),
+      ),
     );
-    
-}
+
+  }
 
   _buildNameTextField(String hintText, TextEditingController controller, int lines) {
     return Padding(
@@ -167,7 +167,7 @@ Widget _buildContent(ProjectListModel model){
 
         decoration: InputDecoration(
             hintText: hintText,
-         //     errorText: _validate ? "Value Can't Be Empty" : null,
+            //     errorText: _validate ? "Value Can't Be Empty" : null,
             label: Text(hintText),
             border: _border(),
             focusedBorder: _focusedborder(),
@@ -185,7 +185,7 @@ Widget _buildContent(ProjectListModel model){
         maxLines: lines,
         readOnly: true,
         decoration: InputDecoration(
-          filled: true,
+            filled: true,
             fillColor: Colors.grey.shade100,
             hintText: hintText,
             border: _border(),
@@ -262,13 +262,13 @@ Widget _buildContent(ProjectListModel model){
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.dw),
                                   side:
-                                      const BorderSide(color: AppColors.black)),
+                                  const BorderSide(color: AppColors.black)),
                               child: Padding(
                                 padding: EdgeInsets.all(8.0.dw),
                                 child: SizedBox(
                                   width: 150.dw,
                                   child: Text(
-                                   clientModel[index].clientCode+ " - " +clientModel[index].clientName,
+                                    clientModel[index].clientCode+ " - " +clientModel[index].clientName,
                                     textAlign: TextAlign.center,
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
@@ -345,7 +345,7 @@ Widget _buildContent(ProjectListModel model){
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.dw),
                                   side:
-                                      const BorderSide(color: AppColors.black)),
+                                  const BorderSide(color: AppColors.black)),
                               child: Padding(
                                 padding: EdgeInsets.all(8.0.dw),
                                 child: SizedBox(
@@ -378,7 +378,7 @@ Widget _buildContent(ProjectListModel model){
       padding: EdgeInsets.all(10.0.dw),
       child: TextField(
         controller: controller,
-       // readOnly: true,
+        // readOnly: true,
         onTap: () async {
           DateTime? pickedDate = await showDatePicker(
               context: context,
@@ -416,7 +416,7 @@ Widget _buildContent(ProjectListModel model){
           );
           if (pickedTime != null) {
             DateTime parsedTime =
-                DateFormat.jm().parse(pickedTime.format(context).toString());
+            DateFormat.jm().parse(pickedTime.format(context).toString());
 
             String formattedTime = DateFormat('HH:mm').format(parsedTime);
 
@@ -529,7 +529,7 @@ Widget _buildContent(ProjectListModel model){
 
   _buildRow(String title, String value) {
     return Container(
-        padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: Row(
         children: [
           Expanded(
@@ -540,26 +540,26 @@ Widget _buildContent(ProjectListModel model){
     );
   }
 
-  // void onAddForm() {
-  //   setState(() {
-  //     var _user = User();
-  //     users.add(PassengerDetailsForm(
-  //       user: _user,
-  //       // onDelete: () => onDelete(_user),
-  //     ));
-  //   });
-  // }
-  //
-  // void remove() {
-  //   setState(() {
-  //     if(users.length <=1){
-  //
-  //     }else{
-  //       users.removeAt(users.length-1);
-  //     }
-  //
-  //   });
-  // }
+// void onAddForm() {
+//   setState(() {
+//     var _user = User();
+//     users.add(PassengerDetailsForm(
+//       user: _user,
+//       // onDelete: () => onDelete(_user),
+//     ));
+//   });
+// }
+//
+// void remove() {
+//   setState(() {
+//     if(users.length <=1){
+//
+//     }else{
+//       users.removeAt(users.length-1);
+//     }
+//
+//   });
+// }
 }
 
 // class User {

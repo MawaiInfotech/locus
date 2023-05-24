@@ -22,7 +22,6 @@ import '../pages/refferdetails_page.dart';
 import '../pages/refrral.dart';
 import '../pages/travelrequest_page.dart';
 import '../pages/travelrequestform_page.dart';
-import '../pages/updatedialouge.dart';
 
 class AppRoutes {
   static const loginPage = '/login_page';

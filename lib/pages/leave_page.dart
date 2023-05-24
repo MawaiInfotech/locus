@@ -37,8 +37,7 @@ class _LeavePageState extends State<LeavePage> with SingleTickerProviderStateMix
   @override
   void initState() {
     tabController = TabController(length: 2, vsync: this);
-    pageController =
-        PageController(initialPage: currentPage, viewportFraction: 0.8);
+    pageController = PageController(initialPage: currentPage, viewportFraction: 0.8);
     controller.addListener(() {
       setState(() {
         currentPageValue = controller.page!;

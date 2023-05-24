@@ -22,8 +22,8 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
+class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
+  
   List list = [
     Image.asset("assets/images/attendance.jpg"),
     Image.asset("assets/images/leave.jpg.png"),
@@ -192,20 +192,15 @@ class _HomePageState extends State<HomePage>
         ),
         InkWell(
           onTap: () {
-            Navigator.pushNamed(context, AppRoutes.noticeboard);
+            _openApprovalDialog();
           },
           child: Card(
-            color: const Color(0xffFFFBE5),
+            color: const Color(0xffcEeff5),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Lottie.asset("assets/lottie/notice.json",
-                    height: 80.dh, width: 100.dw),
-                // Image.asset(
-                //   "assets/images/noticeboard.png",
-                //   scale: 8.dw,
-                // ),
-                _buildText(title: "I B")
+                Lottie.asset("assets/lottie/lunch.json", height: 80.dh, width: 100.dw),
+                _buildText(title: "Apply for lunch")
               ],
             ),
           ),
@@ -232,16 +227,20 @@ class _HomePageState extends State<HomePage>
         ),
         InkWell(
           onTap: () {
-            _openApprovalDialog();
+            Navigator.pushNamed(context, AppRoutes.noticeboard);
           },
           child: Card(
-            color: const Color(0xffcEeff5),
+            color: const Color(0xffFFFBE5),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Lottie.asset("assets/lottie/lunch.json",
+                Lottie.asset("assets/lottie/notice.json",
                     height: 80.dh, width: 100.dw),
-                _buildText(title: "Apply for lunch")
+                // Image.asset(
+                //   "assets/images/noticeboard.png",
+                //   scale: 8.dw,
+                // ),
+                _buildText(title: "I B")
               ],
             ),
           ),
@@ -262,6 +261,7 @@ class _HomePageState extends State<HomePage>
             ),
           ),
         )
+
       ],
     );
   }

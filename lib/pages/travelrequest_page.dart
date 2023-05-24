@@ -44,11 +44,11 @@ class _TravelRequestMainPageState extends State<TravelRequestMainPage> with Sing
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppTopBar(title: 'Travel Request',),
-      bottomNavigationBar: BottomAppBar(
-        child: _buildTravelRequestButton(),
+        appBar: const AppTopBar(title: 'Travel Request',),
+        bottomNavigationBar: BottomAppBar(
+          child: _buildTravelRequestButton(),
 
-      ),
+        ),
 
         body: Column(
           children: [
@@ -103,7 +103,7 @@ class _TravelRequestMainPageState extends State<TravelRequestMainPage> with Sing
       padding: EdgeInsets.all(10.0.dw),
       child: ElevatedButton(
           onPressed: ()  {
-             Navigator.pushNamed(context, AppRoutes.travelRequestPage);
+            Navigator.pushNamed(context, AppRoutes.travelRequestPage);
 
           },
           style: ElevatedButton.styleFrom(
@@ -129,58 +129,58 @@ class _TravelRequestHistoryState extends State<TravelRequestHistory> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 5,
+        itemCount: 5,
         itemBuilder: (BuildContext context, int index){
-      return Card(
-        elevation: 10.dw,
-        color: Colors.grey.shade50,
-        margin: EdgeInsets.all(8.dw),
-        child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 8.0.dw),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: EdgeInsets.all(10.0.dw),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "22-05-2023  - 22-05-2023",
-                      style: TextStyle(
-                          color: AppColors.black,
-                          fontSize: 16.dw,
-                          fontWeight: FontWeight.w500),
+          return Card(
+            elevation: 10.dw,
+            color: Colors.grey.shade50,
+            margin: EdgeInsets.all(8.dw),
+            child: Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 8.0.dw),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(10.0.dw),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "22-05-2023  - 22-05-2023",
+                          style: TextStyle(
+                              color: AppColors.black,
+                              fontSize: 16.dw,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        Text(
+                          "Total Days - 2.00",
+                          style: TextStyle(
+                              color: AppColors.navyblue,
+                              fontSize: 14.dw,
+                              fontWeight: FontWeight.w400),
+                        ),
+                        SizedBox(
+                          width: 180.dw,
+                          child: Text(
+                            "Purpose - testing",
+                            maxLines: 2,
+                            style: TextStyle(
+                                color: AppColors.navyblue,
+                                fontSize: 14.dw,
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                      ],
                     ),
-                    Text(
-                      "Total Days - 2.00",
-                      style: TextStyle(
-                          color: AppColors.navyblue,
-                          fontSize: 14.dw,
-                          fontWeight: FontWeight.w400),
-                    ),
-                    SizedBox(
-                      width: 180.dw,
-                      child: Text(
-                        "Purpose - testing",
-                        maxLines: 2,
-                        style: TextStyle(
-                            color: AppColors.navyblue,
-                            fontSize: 14.dw,
-                            fontWeight: FontWeight.w400),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+                  ),
 
-              Image.asset("assets/images/approved.png", scale: 12.dw,),
-            ],
-          ),
-        ),
-      );
-    }
+                  Image.asset("assets/images/approved.png", scale: 12.dw,),
+                ],
+              ),
+            ),
+          );
+        }
     );
   }
 }
@@ -196,96 +196,96 @@ class _TravelRequestApprovalState extends State<TravelRequestApproval> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 5,
+        itemCount: 5,
         itemBuilder: (BuildContext context, int index)
-    {
-      return Card(
-        elevation: 8,
-        margin: EdgeInsets.all(10.dw),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildButtons(),
-            Container(
-              padding: const EdgeInsets.all(8),
-              height: 1.0,
-              color: Colors.black,
-            ),
-            Row(
-              children: [
-                _buildBoldText(title: "Name"),
-                _buildcolon(),
-                _buildApproveText(title:"Anurag"),
-              ],
-            ),
-            Row(
-              children: [
-                _buildBoldText(title: "Employee Code"),
-                _buildcolon(),
-                _buildApproveText(title:"SWE269"),
-              ],
-            ),
-            Row(
-              children: [
-                _buildBoldText(title: "Project"),
-                _buildcolon(),
-                _buildApproveText(title: "Locus")
-              ],
-            ),
-            Row(
+        {
+          return Card(
+            elevation: 8,
+            margin: EdgeInsets.all(10.dw),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _buildBoldText(title: "Mode"),
-                _buildcolon(),
-                _buildApproveText(title:"By Car")
+                _buildButtons(),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  height: 1.0,
+                  color: Colors.black,
+                ),
+                Row(
+                  children: [
+                    _buildBoldText(title: "Name"),
+                    _buildcolon(),
+                    _buildApproveText(title:"Anurag"),
+                  ],
+                ),
+                Row(
+                  children: [
+                    _buildBoldText(title: "Employee Code"),
+                    _buildcolon(),
+                    _buildApproveText(title:"SWE269"),
+                  ],
+                ),
+                Row(
+                  children: [
+                    _buildBoldText(title: "Project"),
+                    _buildcolon(),
+                    _buildApproveText(title: "Locus")
+                  ],
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildBoldText(title: "Mode"),
+                    _buildcolon(),
+                    _buildApproveText(title:"By Car")
+                  ],
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildBoldText(title: "City"),
+                    _buildcolon(),
+                    _buildApproveText(
+                        title: "Delhi")
+                  ],
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildBoldText(title: "From Date"),
+                    _buildcolon(),
+                    _buildApproveText(title:"04-09-2018")
+                  ],
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildBoldText(title: "To Date"),
+                    _buildcolon(),
+                    _buildApproveText(title: "08-06-2020")
+                  ],
+                ),
+                Container(
+                  padding: EdgeInsets.all(10.dw),
+                  decoration: BoxDecoration(
+                      color: AppColors.red,
+                      borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(15.dw),
+                          bottomLeft: Radius.circular(15.dw))),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      _buildDays(title: "No. of Days"),
+                      _buildcolon(),
+                      _buildDays(title:"1")
+                    ],
+                  ),
+                )
               ],
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildBoldText(title: "City"),
-                _buildcolon(),
-                _buildApproveText(
-                    title: "Delhi")
-              ],
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildBoldText(title: "From Date"),
-                _buildcolon(),
-                _buildApproveText(title:"04-09-2018")
-              ],
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildBoldText(title: "To Date"),
-                _buildcolon(),
-                _buildApproveText(title: "08-06-2020")
-              ],
-            ),
-            Container(
-              padding: EdgeInsets.all(10.dw),
-              decoration: BoxDecoration(
-                  color: AppColors.red,
-                  borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(15.dw),
-                      bottomLeft: Radius.circular(15.dw))),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _buildDays(title: "No. of Days"),
-                  _buildcolon(),
-                  _buildDays(title:"1")
-                ],
-              ),
-            )
-          ],
-        ),
-      );
-    });
+          );
+        });
   }
 
   _buildBoldText({required String title}) {
@@ -354,7 +354,7 @@ class _TravelRequestApprovalState extends State<TravelRequestApproval> {
               ],
             ),
             onPressed: () {
-             // openRejectionDialog(model);
+              // openRejectionDialog(model);
             },
           ),
         ),
@@ -374,8 +374,8 @@ class _TravelRequestApprovalState extends State<TravelRequestApproval> {
                   color: Colors.white),
             ),
             onPressed: () {
-             // openApproveDialog(model);
-          //    approvedleaveBloc.init();
+              // openApproveDialog(model);
+              //    approvedleaveBloc.init();
               // _approvalRejection(model, "A");
             },
           ),
@@ -384,5 +384,4 @@ class _TravelRequestApprovalState extends State<TravelRequestApproval> {
     );
   }
 }
-
 
