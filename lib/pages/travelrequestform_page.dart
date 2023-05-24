@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:locus/bloc/applytravel_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:locus/bloc/travelrequest_bloc.dart';
 import 'package:locus/model/projectlist_model.dart';
@@ -9,6 +10,7 @@ import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_top_bar.dart';
 
 import '../bloc/profilephoto_bloc.dart';
+import '../state/applytravel_state.dart';
 import '../themes/app_colors.dart';
 
 class TravelRequestPage extends StatefulWidget {
@@ -53,17 +55,26 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
   var clienName;
   var clienCode;
   var mode;
+  var modeCode;
   var gender;
+  var fromDate;
+  var toDate;
+  var difference;
+
+  late DateTimeRange dateTimeRange =
+  DateTimeRange(start: DateTime.now(), end: DateTime.now());
 
 
 //  List<PassengerDetailsForm> users = [PassengerDetailsForm(user: User())];
 
-  final now_date = DateFormat('dd/MM/yyyy ').format(DateTime.now());
+  final now_date = DateFormat('yyyy-MM-dd').format(DateTime.now());
   final _formKey = GlobalKey<FormState>();
 
   late TravelRequestBloc travelRequestBloc;
 
   late TravelRequestService travelRequestService;
+
+  late ApplyTravelBloc applyTravelBloc;
 
   late ProjectListModel projectListModel = const ProjectListModel();
 
@@ -71,15 +82,24 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
   void initState() {
     travelRequestService = Provider.of<TravelRequestService>(context, listen: false);
     travelRequestBloc = TravelRequestBloc(travelRequestService);
+    applyTravelBloc = ApplyTravelBloc(travelRequestService);
     travelRequestBloc.init();
     super.initState();
+  }
+
+  void disposeValues() {
+    fromDate = "Select Date";
+    toDate = "";
+    difference = "";
+    dateTimeRange = DateTimeRange(start: DateTime.now(), end: DateTime.now());
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const AppTopBar(title: "Travel Request Form"),
-        body: _buildBody()
+      appBar: const AppTopBar(title: "Travel Request Form"),
+      body: _buildBody()
     );
   }
 
@@ -102,61 +122,63 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
     return const Center(child: CircularProgressIndicator());
   }
 
-  Widget _buildContent(ProjectListModel model){
+Widget _buildContent(ProjectListModel model){
     return SafeArea(
-      child: SingleChildScrollView(
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              _buildDisabledTextField("New", reqNoController, 1),
-              //  _buildDisabledTextField(now_date, currentDateController, 1),
-              _buildDateTextField(currentDateController, "Requested Date"),
-              _buildNameTextField(
-                  "Travel From(City)*", travelFromCityController, 1),
-              _buildNameTextField(
-                  "Travel To(City)*", travelToCityController, 1),
-              _buildProjectListDialogBox(model,),
-              _buildModeListDialogBox(model, "--Select Mode--"),
-              _buildDropdownList(requiredOption,reqOption,"Ticket Booking Request(Y/N)"),
-              _buildNameTextField("Purpose of booking*", purposeController, 2),
-              // (mode != "By Cab/Taxi")
-              //     ? Column(
-              //         children: [
-              //           _buildNameTextField("Preferred Train/ Air No. & name",
-              //               trainNameController, 2),
-              //           _buildNameTextField("Ticket Booking Date & Time",
-              //               ticketDateTimeController, 2),
-              //           _buildDateTextField(targetDateController,
-              //               "Target date to reach the client"),
-              //           _buildTimeTextField(targetTimeInputController,
-              //               "Target time to reach the client"),
-              //           _buildDateTextField(
-              //               returnTargetController, "return target date "),
-              //           _buildTimeTextField(
-              //               returnTimeInputController, "return target time "),
-              //           _buildNameTextField(
-              //               "Number of days", nameController, 1),
-              //           _buildNameTextField(
-              //               "Staying arrangement(by client/ by us)",
-              //               arregmentController,
-              //               2),
-              //         //  _buildPassengerDetailsContainer()
-              //         ],
-              //       )
-              //     : Container(),
-              // _buildDisabledTextField("Request Approved/Canceled by", currentDateController, 1),
-              _buildRow("Request Approved/Cancelled by :", " SWE269"),
-              _buildRow("Requested by : ", ""),
-              _buildRow("Requested status : ", " "),
-              _buildSubmitButton()
-            ],
+        child: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+             //   _buildDisabledTextField("New", reqNoController, 1),
+                //  _buildDisabledTextField(now_date, currentDateController, 1),
+              //  _buildDateTextField(currentDateController, "Requested Date"),
+                _buildFromDate(),
+                _buildToDate(),
+                _buildNameTextField(
+                    "Travel From(City)*", travelFromCityController, 1),
+                _buildNameTextField(
+                    "Travel To(City)*", travelToCityController, 1),
+                _buildProjectListDialogBox(model,),
+                _buildModeListDialogBox(model, "--Select Mode--"),
+               // _buildDropdownList(requiredOption,reqOption,"Ticket Booking Request(Y/N)"),
+                _buildNameTextField("Purpose of booking*", purposeController, 2),
+                // (mode != "By Cab/Taxi")
+                //     ? Column(
+                //         children: [
+                //           _buildNameTextField("Preferred Train/ Air No. & name",
+                //               trainNameController, 2),
+                //           _buildNameTextField("Ticket Booking Date & Time",
+                //               ticketDateTimeController, 2),
+                //           _buildDateTextField(targetDateController,
+                //               "Target date to reach the client"),
+                //           _buildTimeTextField(targetTimeInputController,
+                //               "Target time to reach the client"),
+                //           _buildDateTextField(
+                //               returnTargetController, "return target date "),
+                //           _buildTimeTextField(
+                //               returnTimeInputController, "return target time "),
+                //           _buildNameTextField(
+                //               "Number of days", nameController, 1),
+                //           _buildNameTextField(
+                //               "Staying arrangement(by client/ by us)",
+                //               arregmentController,
+                //               2),
+                //         //  _buildPassengerDetailsContainer()
+                //         ],
+                //       )
+                //     : Container(),
+                // _buildDisabledTextField("Request Approved/Canceled by", currentDateController, 1),
+                // _buildRow("Request Approved/Cancelled by :", " SWE269"),
+                // _buildRow("Requested by : ", ""),
+                // _buildRow("Requested status : ", " "),
+                _buildSubmitButton()
+              ],
+            ),
           ),
         ),
-      ),
     );
 
-  }
+}
 
   _buildNameTextField(String hintText, TextEditingController controller, int lines) {
     return Padding(
@@ -166,8 +188,8 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
         maxLines: lines,
 
         decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 10,vertical: 16),
             hintText: hintText,
-            //     errorText: _validate ? "Value Can't Be Empty" : null,
             label: Text(hintText),
             border: _border(),
             focusedBorder: _focusedborder(),
@@ -177,24 +199,6 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
     );
   }
 
-  _buildDisabledTextField(String hintText, TextEditingController controller, int lines) {
-    return Padding(
-      padding: EdgeInsets.all(10.0.dw),
-      child: TextField(
-        controller: controller,
-        maxLines: lines,
-        readOnly: true,
-        decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.grey.shade100,
-            hintText: hintText,
-            border: _border(),
-            focusedBorder: _border(),
-            disabledBorder: _border(),
-            enabledBorder: _border()),
-      ),
-    );
-  }
 
   _border() => OutlineInputBorder(
       borderRadius: BorderRadius.circular(30.dw),
@@ -203,6 +207,8 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
   _focusedborder() => OutlineInputBorder(
       borderRadius: BorderRadius.circular(30.dw),
       borderSide: BorderSide(color: AppColors.portaldarkBlue));
+
+  // Client Project Dropdown
 
   _buildProjectListDialogBox(ProjectListModel model,) {
     return InkWell(
@@ -262,13 +268,13 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.dw),
                                   side:
-                                  const BorderSide(color: AppColors.black)),
+                                      const BorderSide(color: AppColors.black)),
                               child: Padding(
                                 padding: EdgeInsets.all(8.0.dw),
                                 child: SizedBox(
                                   width: 150.dw,
                                   child: Text(
-                                    clientModel[index].clientCode+ " - " +clientModel[index].clientName,
+                                   clientModel[index].clientCode+ " - " +clientModel[index].clientName,
                                     textAlign: TextAlign.center,
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
@@ -289,6 +295,8 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
           );
         });
   }
+
+  // Travel Mode Dropdown
 
   _buildModeListDialogBox(ProjectListModel model, String header) {
     return InkWell(
@@ -337,6 +345,7 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
                             onTap: () {
                               travelRequestBloc.init();
                               mode = travelMode[index].description;
+                              modeCode = travelMode[index].controlCode;
                               setState(() {});
                               Navigator.pop(context);
                             },
@@ -345,7 +354,7 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.dw),
                                   side:
-                                  const BorderSide(color: AppColors.black)),
+                                      const BorderSide(color: AppColors.black)),
                               child: Padding(
                                 padding: EdgeInsets.all(8.0.dw),
                                 child: SizedBox(
@@ -373,71 +382,162 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
         });
   }
 
-  _buildDateTextField(TextEditingController controller, String hintText) {
+  // From Date Container
+
+  Widget _buildFromDate() {
     return Padding(
-      padding: EdgeInsets.all(10.0.dw),
-      child: TextField(
-        controller: controller,
-        // readOnly: true,
-        onTap: () async {
-          DateTime? pickedDate = await showDatePicker(
-              context: context,
-              initialDate: DateTime.now(),
-              firstDate: DateTime.now(),
-              lastDate: DateTime(2050));
-          if (pickedDate != null) {
-            controller.text = pickedDate.toString().substring(0, 10);
-          }
-        },
-        decoration: InputDecoration(
-            hintText: hintText,
-            suffixIcon: const Icon(
-              Icons.calendar_month,
-              color: Colors.red,
-            ),
-            border: _border(),
-            focusedBorder: _focusedborder(),
-            disabledBorder: _border(),
-            enabledBorder: _border()),
+      padding: EdgeInsets.all(10.dh),
+      child: Column(
+        children: [
+          Container(
+              padding: EdgeInsets.all(10.dw),
+            //  height: 50.dh,
+            //  width: MediaQuery.of(context).size.width / 2,
+              decoration: BoxDecoration(
+                  border: Border.all(
+                      color: Colors.black
+                  ),
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.white),
+              child: InkWell(
+                onTap: () {
+                    showDateRangePicker(
+                        context: context,
+                        builder: (context, child) {
+                          return Theme(
+                            data: Theme.of(context).copyWith(
+                              colorScheme: const ColorScheme.light(
+                                primary: Colors.blue,
+                                onPrimary: Colors.white,
+                                onSurface: Colors.black,
+                              ),
+                              textButtonTheme: TextButtonThemeData(
+                                style: TextButton.styleFrom(
+                                  primary: Colors.white,
+                                  backgroundColor: AppColors.brown,
+                                  textStyle: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: AppColors.black),
+                                ),
+                              ),
+                            ),
+                            child: child!,
+                          );
+                        },
+                        helpText: 'Select Date',
+                        initialEntryMode: DatePickerEntryMode.calendarOnly,
+                        firstDate: DateTime.now().subtract(const Duration(days: 90)),
+                        lastDate: DateTime.now().add(const Duration(days: 365)),
+                        errorFormatText: "Invalid Format",
+                        errorInvalidRangeText: "Invalid Range",
+                        fieldStartHintText: "Start Date",
+                        fieldEndHintText: "End Date")
+                        .then((pickedDate) {
+                      if (pickedDate == null) {
+                        return;
+                      }
+                      setState(() {
+                        dateTimeRange = pickedDate;
+
+                          difference = pickedDate.end.difference(pickedDate.start).inDays + 1;
+                          fromDate = DateFormat('yyyy-MM-dd').format(pickedDate.start);
+                          toDate = DateFormat('yyyy-MM-dd').format(pickedDate.end);
+
+                      });
+                    });
+
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      "assets/images/from_date.png",
+                      scale: 2.dw,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.dw),
+                      child: Text(fromDate ?? "Select From Date"),
+                    ),
+                  ],
+                ),
+              )),
+        ],
       ),
     );
   }
 
-  _buildTimeTextField(TextEditingController controller, String hintText) {
+  // To date Container
+
+  _buildToDate() {
     return Padding(
-      padding: EdgeInsets.all(10.0.dw),
-      child: TextField(
-        controller: controller,
-        readOnly: true,
-        onTap: () async {
-          TimeOfDay? pickedTime = await showTimePicker(
-            initialTime: TimeOfDay.now(),
-            context: context,
-          );
-          if (pickedTime != null) {
-            DateTime parsedTime =
-            DateFormat.jm().parse(pickedTime.format(context).toString());
-
-            String formattedTime = DateFormat('HH:mm').format(parsedTime);
-
-            setState(() {
-              controller.text = formattedTime; //set the value of text field.
-            });
-          } else {}
-        },
-        decoration: InputDecoration(
-            hintText: hintText,
-            suffixIcon: const Icon(
-              Icons.watch_later_outlined,
-              color: Colors.red,
+      padding: EdgeInsets.all(10.dh),
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(10.dw),
+            // height: 50.dh,
+            // width: MediaQuery.of(context).size.width / 2,
+            decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black
+                   ),
+                borderRadius: BorderRadius.circular(30),
+                color: Colors.white),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Image.asset(
+                  "assets/images/from_date.png",
+                  scale: 2.dw,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 10.dw),
+                  child: Text(toDate ?? "To date"),
+                ),
+              ],
             ),
-            border: _border(),
-            focusedBorder: _focusedborder(),
-            disabledBorder: _border(),
-            enabledBorder: _border()),
+          ),
+        ],
       ),
     );
   }
+
+  // _buildTimeTextField(TextEditingController controller, String hintText) {
+  //   return Padding(
+  //     padding: EdgeInsets.all(10.0.dw),
+  //     child: TextField(
+  //       controller: controller,
+  //       readOnly: true,
+  //       onTap: () async {
+  //         TimeOfDay? pickedTime = await showTimePicker(
+  //           initialTime: TimeOfDay.now(),
+  //           context: context,
+  //         );
+  //         if (pickedTime != null) {
+  //           DateTime parsedTime =
+  //               DateFormat.jm().parse(pickedTime.format(context).toString());
+  //
+  //           String formattedTime = DateFormat('HH:mm').format(parsedTime);
+  //
+  //           setState(() {
+  //             controller.text = formattedTime; //set the value of text field.
+  //           });
+  //         } else {}
+  //       },
+  //       decoration: InputDecoration(
+  //           hintText: hintText,
+  //           suffixIcon: const Icon(
+  //             Icons.watch_later_outlined,
+  //             color: Colors.red,
+  //           ),
+  //           border: _border(),
+  //           focusedBorder: _focusedborder(),
+  //           disabledBorder: _border(),
+  //           enabledBorder: _border()),
+  //     ),
+  //   );
+  // }
 
   // _buildPassengerDetailsContainer() {
   //   return Container(
@@ -482,43 +582,55 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
   //   );
   // }
 
-  _buildDropdownList(List<String> items, String value, String hintText){
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: DropdownButtonFormField<String>(
+  // _buildDropdownList(List<String> items, String value, String hintText){
+  //   return Padding(
+  //     padding: const EdgeInsets.all(8.0),
+  //     child: DropdownButtonFormField<String>(
+  //
+  //       decoration: InputDecoration(
+  //         //label: Text(hintText),
+  //           border: _border(),
+  //           focusedBorder: _focusedborder(),
+  //           disabledBorder: _border(),
+  //           enabledBorder: _border()
+  //       ),
+  //
+  //       hint: Text(hintText),
+  //       items: items.map((String value) {
+  //         return DropdownMenuItem<String>(
+  //           value: value,
+  //           child: Text(value),
+  //         );
+  //       }).toList(),
+  //       onChanged: (String? newValue) {
+  //         setState(() {
+  //           value = newValue!;
+  //         });
+  //       },
+  //     ),
+  //   );
+  // }
 
-        decoration: InputDecoration(
-          //label: Text(hintText),
-            border: _border(),
-            focusedBorder: _focusedborder(),
-            disabledBorder: _border(),
-            enabledBorder: _border()
-        ),
+  // Submit Button
 
-        hint: Text(hintText),
-        items: items.map((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
-            child: Text(value),
-          );
-        }).toList(),
-        onChanged: (String? newValue) {
-          setState(() {
-            value = newValue!;
-          });
-        },
-      ),
-    );
-  }
-
-  _buildSubmitButton() {
+  _buildSubmiButton() {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.red, // background (button) color
         foregroundColor: Colors.white, // foreground (text) color
       ),
       onPressed: () {
-
+        print(now_date.toString());
+        print(travelFromCityController.text);
+        print(travelToCityController.text);
+        print(clienName);
+        print(clienCode);
+        print(mode);
+        print(reqOption);
+        print(purposeController.text);
+        print(fromDate);
+        print(toDate);
+        print(difference);
       },
       child: const Text(
         'Submit',
@@ -527,9 +639,71 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
     );
   }
 
+  _buildSubmitButton() {
+    return BlocConsumer<ApplyTravelBloc, ApplyTravelState>(
+        bloc: applyTravelBloc,
+        listener: (_, state) {
+          state.maybeWhen(
+              success: (_, message) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(message ?? "Something")));
+                Navigator.pop(context, true);
+                // Navigator.pushNamed(context, AppRoutes.leaveApply);
+              },
+              failed: (_, message) {
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text(message)));
+              },
+              orElse: () {});
+        },
+        builder: (context, state) {
+          return state.maybeWhen(loading: (_) {
+            return const CircularProgressIndicator();
+          }, orElse: () {
+            return ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.red, // background (button) color
+                foregroundColor: Colors.white, // foreground (text) color
+              ),
+              onPressed: () {
+                if (fromDate == null && toDate == null) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text("Please Select Dates")));
+                          return;
+                        }
+                else if(clienCode == null){
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("Please Select Project")));
+                  return;
+                }
+                _applyTravel();
+              },
+              child: const Text(
+                'Submit',
+                style: TextStyle(fontSize: 20),
+              ),
+            );
+          });
+        });
+  }
+  _applyTravel() async {
+    final data = {
+      'requisition_date': now_date.toString(),
+      'travel_from': fromDate,
+      'travel_to': toDate,
+      'from_city': travelFromCityController.text,
+      'to_city': travelToCityController.text,
+      'travel_mode': modeCode ?? "C",
+      'project_name': clienCode,
+      'purpose_of_travel': purposeController.text,
+      'total_no_of_days': difference ,
+    };
+    await applyTravelBloc.applyTravel(data);
+  }
+
   _buildRow(String title, String value) {
     return Container(
-      padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
       child: Row(
         children: [
           Expanded(
@@ -540,26 +714,26 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
     );
   }
 
-// void onAddForm() {
-//   setState(() {
-//     var _user = User();
-//     users.add(PassengerDetailsForm(
-//       user: _user,
-//       // onDelete: () => onDelete(_user),
-//     ));
-//   });
-// }
-//
-// void remove() {
-//   setState(() {
-//     if(users.length <=1){
-//
-//     }else{
-//       users.removeAt(users.length-1);
-//     }
-//
-//   });
-// }
+  // void onAddForm() {
+  //   setState(() {
+  //     var _user = User();
+  //     users.add(PassengerDetailsForm(
+  //       user: _user,
+  //       // onDelete: () => onDelete(_user),
+  //     ));
+  //   });
+  // }
+  //
+  // void remove() {
+  //   setState(() {
+  //     if(users.length <=1){
+  //
+  //     }else{
+  //       users.removeAt(users.length-1);
+  //     }
+  //
+  //   });
+  // }
 }
 
 // class User {
