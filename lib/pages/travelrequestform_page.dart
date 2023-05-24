@@ -390,7 +390,7 @@ Widget _buildContent(ProjectListModel model){
       child: Column(
         children: [
           Container(
-              padding: EdgeInsets.all(10.dw),
+              padding: EdgeInsets.all(15.dw),
             //  height: 50.dh,
             //  width: MediaQuery.of(context).size.width / 2,
               decoration: BoxDecoration(
@@ -453,7 +453,7 @@ Widget _buildContent(ProjectListModel model){
                   children: [
                     Image.asset(
                       "assets/images/from_date.png",
-                      scale: 2.dw,
+                      scale: 3.dw,
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 10.dw),
@@ -475,7 +475,7 @@ Widget _buildContent(ProjectListModel model){
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(10.dw),
+            padding: EdgeInsets.all(15.dw),
             // height: 50.dh,
             // width: MediaQuery.of(context).size.width / 2,
             decoration: BoxDecoration(
@@ -489,7 +489,7 @@ Widget _buildContent(ProjectListModel model){
               children: [
                 Image.asset(
                   "assets/images/from_date.png",
-                  scale: 2.dw,
+                  scale: 3.dw,
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 10.dw),
@@ -699,6 +699,7 @@ Widget _buildContent(ProjectListModel model){
       'total_no_of_days': difference ,
     };
     await applyTravelBloc.applyTravel(data);
+    Navigator.pop(context);
   }
 
   _buildRow(String title, String value) {

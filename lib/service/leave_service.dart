@@ -11,7 +11,7 @@ import 'package:http/http.dart' as http;
 class LeaveService {
 
   Future<RequestLeaveModel?> getLeaveData(String employerCode, String unitCode,) async {
-    const url = root + 'leave-create';
+    const url = '${root}leave-create';
     final body = {'emp_cd': employerCode, 'unit_cd': unitCode,};
     try {
       final response = await http.post(Uri.parse(url),
@@ -26,7 +26,7 @@ class LeaveService {
   }
 
   Future<EmployeeLeavetypeModel?> getLeavetypeData(String employerCode, String unitCode, String finyear)async{
-    const url = root +'leave-list';
+    const url = '${root}leave-list';
     final body = {'emp_cd': employerCode, 'unit_cd' : unitCode, 'fin_year': finyear};
     try{
       final response = await http.post(Uri.parse(url), body:  json.encode(body), headers:  getHeaders());
@@ -39,7 +39,7 @@ class LeaveService {
   }
 
   Future<String?> getApplyLeave(Map<String, dynamic>data) async {
-    const url = root + 'leave-create/save-leave';
+    const url = '${root}leave-create/save-leave';
     final body = data;
     try {
       final response = await http.post(Uri.parse(url),
@@ -60,7 +60,7 @@ class LeaveService {
   //Approval Page Api
 
   Future<List<ApprovedLeaveModel>> getApprovalDetail(String employeeCode, String unitCode) async {
-    const url = root + 'reporting-apporval-list';
+    const url = '${root}reporting-apporval-list';
     final body = {
       "emp_cd" : employeeCode,
       "unit_cd" : unitCode
@@ -82,7 +82,7 @@ class LeaveService {
   //Team Leader Leave Approve And Rejected
 
   Future<String?> getAprovalRejectionData(Map<String, dynamic>data) async {
-    const url = root + 'leave-approved-reject';
+    const url = '${root}leave-approved-reject';
     final body = data;
     try {
       final response = await http.post(Uri.parse(url),
@@ -98,6 +98,8 @@ class LeaveService {
       _handleError(e);
     }
   }
+
+
 
 
   _handleError(var e) {

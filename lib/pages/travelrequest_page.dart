@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:locus/bloc/approvetravel_bloc.dart';
+import 'package:locus/bloc/employeetraveldetails_bloc.dart';
+import 'package:locus/model/emp_rep_details_model.dart';
+import 'package:locus/model/traveldetailslist_model.dart';
+import 'package:locus/service/travelrequest_service.dart';
+import 'package:locus/state/applytravel_state.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_top_bar.dart';
+import 'package:provider/provider.dart';
 
+import '../bloc/profilephoto_bloc.dart';
+import '../model/employeetraveldetails_model.dart';
 import '../routes/app_routes.dart';
+import '../state/employeetraveldetails_state.dart';
 import '../themes/app_colors.dart';
 
 class TravelRequestMainPage extends StatefulWidget {
@@ -104,10 +114,9 @@ class _TravelRequestMainPageState extends State<TravelRequestMainPage> with Sing
       child: ElevatedButton(
           onPressed: ()  {
             Navigator.pushNamed(context, AppRoutes.travelRequestPage);
-
-          },
+            },
           style: ElevatedButton.styleFrom(
-            primary: AppColors.red,
+            backgroundColor: AppColors.red,
             fixedSize: Size(60.dw, 40.dh),
           ),
           child: Text(
@@ -126,64 +135,113 @@ class TravelRequestHistory extends StatefulWidget {
 }
 
 class _TravelRequestHistoryState extends State<TravelRequestHistory> {
+
+  late EmployeeTravelRequestBloc travelRequestBloc;
+
+  @override
+  void initState() {
+    final travelService = Provider.of<TravelRequestService>(context, listen: false);
+    travelRequestBloc = EmployeeTravelRequestBloc(travelService);
+    travelRequestBloc.init();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: 5,
-        itemBuilder: (BuildContext context, int index){
-          return Card(
-            elevation: 10.dw,
-            color: Colors.grey.shade50,
-            margin: EdgeInsets.all(8.dw),
-            child: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 8.0.dw),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return _buildBody();
+  }
+  _buildBody() {
+    return BlocConsumer<EmployeeTravelRequestBloc, TravelDetailsListState>(
+      bloc: travelRequestBloc,
+      listener: (_, state) {},
+      builder: (_, state) {
+        return state.when(
+            loading: _buildLoading,
+            content: _buildMyTravel,
+            success: _buildMyTravel,
+            failed: (form, __) => _buildMyTravel(form));
+      },
+    );
+  }
+  Widget _buildLoading(TravelDetailsListModel model) {
+    return const Center(child: CircularProgressIndicator());
+  }
+
+ Widget _buildMyTravel(TravelDetailsListModel trvelModel){
+    return SingleChildScrollView(
+      child: Column(
+        // shrinkWrap: true,
+        children: trvelModel.emp_dtls
+            .map((model) => _buildTravelDetailsCard(model))
+            .toList(),
+      ),
+    );
+  }
+
+ Widget _buildTravelDetailsCard(TravelDetailsModel model)  {
+    return  Card(
+      elevation: 10.dw,
+      color: Colors.grey.shade50,
+      margin: EdgeInsets.all(8.dw),
+      child: Padding(
+        padding:  EdgeInsets.symmetric(horizontal: 8.0.dw),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: EdgeInsets.all(10.0.dw),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.all(10.0.dw),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "22-05-2023  - 22-05-2023",
-                          style: TextStyle(
-                              color: AppColors.black,
-                              fontSize: 16.dw,
-                              fontWeight: FontWeight.w500),
-                        ),
-                        Text(
-                          "Total Days - 2.00",
-                          style: TextStyle(
-                              color: AppColors.navyblue,
-                              fontSize: 14.dw,
-                              fontWeight: FontWeight.w400),
-                        ),
-                        SizedBox(
-                          width: 180.dw,
-                          child: Text(
-                            "Purpose - testing",
-                            maxLines: 2,
-                            style: TextStyle(
-                                color: AppColors.navyblue,
-                                fontSize: 14.dw,
-                                fontWeight: FontWeight.w400),
-                          ),
-                        ),
-                      ],
+                  Text(
+                    "${model.fromDate}  -  ${model.endDate}",
+                    style: TextStyle(
+                        color: AppColors.black,
+                        fontSize: 16.dw,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  Text(
+                    "Days  -  ${model.totalDays}",
+                    style: TextStyle(
+                        color: AppColors.navyblue,
+                        fontSize: 14.dw,
+                        fontWeight: FontWeight.w400),
+                  ),
+                  SizedBox(
+                    width: 180.dw,
+                    child: Text(
+                      "Purpose -  ${model.purpose}",
+                      maxLines: 2,
+                      style: TextStyle(
+                          color: AppColors.navyblue,
+                          fontSize: 14.dw,
+                          fontWeight: FontWeight.w400),
                     ),
                   ),
-
-                  Image.asset("assets/images/approved.png", scale: 12.dw,),
                 ],
               ),
             ),
-          );
-        }
+            if(model.approvalStatus == "A")(Padding(
+              padding: EdgeInsets.only(right: 10.dw, top: 18.dw),
+              child: Image.asset("assets/images/approved.png", scale: 12.dw,),
+            )),
+            if(model.approvalStatus == "R")(Padding(
+              padding: EdgeInsets.only(right: 10.dw, top: 5.dw),
+              child: Image.asset("assets/images/rejected.png", scale: 12.dw,),
+            )),
+            if(model.approvalStatus == "P")(Padding(
+              padding: EdgeInsets.only(right: 10.dw, top: 10.dw),
+              child: Image.asset("assets/images/pending.png", scale: 16.dw,),
+            ))
+          ],
+        ),
+      ),
     );
   }
 }
+
+
 
 class TravelRequestApproval extends StatefulWidget {
   const TravelRequestApproval({Key? key}) : super(key: key);
@@ -193,99 +251,144 @@ class TravelRequestApproval extends StatefulWidget {
 }
 
 class _TravelRequestApprovalState extends State<TravelRequestApproval> {
+  late EmployeeTravelRequestBloc travelRequestBloc;
+  late ApproveTravelBloc approveTravelBloc;
+
+  @override
+  void initState() {
+    final travelService = Provider.of<TravelRequestService>(context, listen: false);
+    travelRequestBloc = EmployeeTravelRequestBloc(travelService);
+    travelRequestBloc.init();
+    approveTravelBloc = ApproveTravelBloc(travelService);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: 5,
-        itemBuilder: (BuildContext context, int index)
-        {
-          return Card(
-            elevation: 8,
-            margin: EdgeInsets.all(10.dw),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+    return _buildBody();
+  }
+
+  _buildBody() {
+    return BlocConsumer<EmployeeTravelRequestBloc, TravelDetailsListState>(
+      bloc: travelRequestBloc,
+      listener: (_, state) {},
+      builder: (_, state) {
+        return state.when(
+            loading: _buildLoading,
+            content: _buildMyTravelApproval,
+            success: _buildMyTravelApproval,
+            failed: (form, __) => _buildMyTravelApproval(form));
+      },
+    );
+  }
+  Widget _buildLoading(TravelDetailsListModel model) {
+    return const Center(child: CircularProgressIndicator());
+  }
+
+  Widget _buildMyTravelApproval(TravelDetailsListModel traveApprovalModel){
+    return SingleChildScrollView(
+      child: Column(
+        // shrinkWrap: true,
+        children: traveApprovalModel.emp_rep_dtls
+            .map((model) => _buildTravelApprovalCard(model))
+            .toList(),
+      ),
+    );
+  }
+
+  Widget _buildTravelApprovalCard(TravelReportModel model){
+    return  Card(
+      elevation: 8,
+      margin: EdgeInsets.all(10.dw),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildButtons(model),
+          Container(
+            padding: const EdgeInsets.all(8),
+            height: 1.0,
+            color: Colors.black,
+          ),
+          const SizedBox(height: 5,),
+          Row(
+            children: [
+              _buildBoldText(title: "App_No"),
+              _buildcolon(),
+              _buildApproveText(title:model.appNo),
+            ],
+          ),
+          const SizedBox(height: 5,),
+          Row(
+            children: [
+              _buildBoldText(title: "From Date"),
+              _buildcolon(),
+              _buildApproveText(title:model.fromDate),
+            ],
+          ),
+          const SizedBox(height: 5,),
+          Row(
+            children: [
+              _buildBoldText(title: "End Date"),
+              _buildcolon(),
+              _buildApproveText(title:model.endDate),
+            ],
+          ),
+          const SizedBox(height: 5,),
+          Row(
+            children: [
+              _buildBoldText(title: "Client Name"),
+              _buildcolon(),
+              _buildApproveText(title: model.clientName)
+            ],
+          ),
+          const SizedBox(height: 5,),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildBoldText(title: "Mode"),
+              _buildcolon(),
+              _buildApproveText(title:model.travelMode)
+            ],
+          ),
+          const SizedBox(height: 5,),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildBoldText(title: "Employee Code"),
+              _buildcolon(),
+              _buildApproveText(title: model.employeeNo)
+            ],
+          ),
+          const SizedBox(height: 5,),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildBoldText(title: "Purpose"),
+              _buildcolon(),
+              _buildApproveText(title:model.purpose)
+            ],
+          ),
+          const SizedBox(height: 5,),
+          Container(
+            padding: EdgeInsets.all(10.dw),
+            decoration: BoxDecoration(
+                color: AppColors.red,
+                borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(15.dw),
+                    bottomLeft: Radius.circular(15.dw))),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _buildButtons(),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  height: 1.0,
-                  color: Colors.black,
-                ),
-                Row(
-                  children: [
-                    _buildBoldText(title: "Name"),
-                    _buildcolon(),
-                    _buildApproveText(title:"Anurag"),
-                  ],
-                ),
-                Row(
-                  children: [
-                    _buildBoldText(title: "Employee Code"),
-                    _buildcolon(),
-                    _buildApproveText(title:"SWE269"),
-                  ],
-                ),
-                Row(
-                  children: [
-                    _buildBoldText(title: "Project"),
-                    _buildcolon(),
-                    _buildApproveText(title: "Locus")
-                  ],
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildBoldText(title: "Mode"),
-                    _buildcolon(),
-                    _buildApproveText(title:"By Car")
-                  ],
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildBoldText(title: "City"),
-                    _buildcolon(),
-                    _buildApproveText(
-                        title: "Delhi")
-                  ],
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildBoldText(title: "From Date"),
-                    _buildcolon(),
-                    _buildApproveText(title:"04-09-2018")
-                  ],
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildBoldText(title: "To Date"),
-                    _buildcolon(),
-                    _buildApproveText(title: "08-06-2020")
-                  ],
-                ),
-                Container(
-                  padding: EdgeInsets.all(10.dw),
-                  decoration: BoxDecoration(
-                      color: AppColors.red,
-                      borderRadius: BorderRadius.only(
-                          bottomRight: Radius.circular(15.dw),
-                          bottomLeft: Radius.circular(15.dw))),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      _buildDays(title: "No. of Days"),
-                      _buildcolon(),
-                      _buildDays(title:"1")
-                    ],
-                  ),
-                )
+                _buildDays(title: "No. of Days"),
+                _buildcolon(),
+                _buildDays(title:model.totalDays)
               ],
             ),
-          );
-        });
+          )
+        ],
+      ),
+    );
   }
 
   _buildBoldText({required String title}) {
@@ -308,7 +411,7 @@ class _TravelRequestApprovalState extends State<TravelRequestApproval> {
   _buildApproveText({required String title}) {
     return Container(
       width: 230.dw,
-      padding: EdgeInsets.only(left: 10.dw, top: 8.dw),
+      padding: EdgeInsets.only(left: 10.dw,),
       child: Text(
         title,
         maxLines: 1,
@@ -326,7 +429,7 @@ class _TravelRequestApprovalState extends State<TravelRequestApproval> {
     );
   }
 
-  _buildButtons() {
+  _buildButtons(TravelReportModel model) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -334,7 +437,7 @@ class _TravelRequestApprovalState extends State<TravelRequestApproval> {
           padding: EdgeInsets.all(8.0.dw),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-                primary: AppColors.navyblue,
+                backgroundColor: AppColors.navyblue,
                 minimumSize: const Size(80, 45),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10))),
@@ -354,7 +457,7 @@ class _TravelRequestApprovalState extends State<TravelRequestApproval> {
               ],
             ),
             onPressed: () {
-              // openRejectionDialog(model);
+               openRejectionDialog(model);
             },
           ),
         ),
@@ -362,7 +465,7 @@ class _TravelRequestApprovalState extends State<TravelRequestApproval> {
           padding: EdgeInsets.all(8.dw),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-                primary: AppColors.green,
+                backgroundColor: AppColors.green,
                 minimumSize: const Size(80, 45),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.dw))),
@@ -374,7 +477,7 @@ class _TravelRequestApprovalState extends State<TravelRequestApproval> {
                   color: Colors.white),
             ),
             onPressed: () {
-              // openApproveDialog(model);
+               openApproveDialog(model);
               //    approvedleaveBloc.init();
               // _approvalRejection(model, "A");
             },
@@ -383,5 +486,201 @@ class _TravelRequestApprovalState extends State<TravelRequestApproval> {
       ],
     );
   }
+
+  void _approvalRejection(
+      TravelReportModel model, String grantedType) async {
+    final data = {
+      "req_status": grantedType,
+      "app_no": model.appNo,
+    };
+    await approveTravelBloc.approvalRejectionStatus(data);
+    travelRequestBloc.init();
+    Navigator.pop(context);
+
+  }
+
+  Future openApproveDialog(TravelReportModel model) => showDialog(
+    context: context,
+    builder: (context) => Dialog(
+      elevation: 8.0,
+      shape:
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+      child: SingleChildScrollView(
+        child: SizedBox(
+            height: 150.dh,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: Text(
+                    "Are you sure you want to approve?",
+                    style: TextStyle(
+                        fontSize: 16.dw, fontWeight: FontWeight.w400),
+                  ),
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        travelRequestBloc.init();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.red,
+                          minimumSize: Size(40.dw, 30.dh),
+                          elevation: 8.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0))),
+                      child: Text(
+                        "Cancel",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18.dw),
+                      ),
+                    ),
+                    BlocConsumer<ApproveTravelBloc, ApplyTravelState>(
+                        bloc: approveTravelBloc,
+                        listener: (_, state) {
+                          state.maybeWhen(
+                              success: (_, message) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text(message ?? "Something")));
+
+                                travelRequestBloc.init();
+                                // Navigator.pushNamed(context, AppRoutes.leaveApply);
+                              },
+                              failed: (_, message) {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(content: Text(message)));
+                              },
+                              orElse: () {});
+                        },
+                        builder: (context, state) {
+                          return state.maybeWhen(loading: (_) {
+                            return const CircularProgressIndicator();
+                          }, orElse: () {
+                            return ElevatedButton(
+                              onPressed: () {
+                                _approvalRejection(model, "A",);
+                                //travelRequestBloc.init();
+                                //  Navigator.pop(context);
+
+                              },
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.lightGreen,
+                                  minimumSize: Size(40.dw, 30.dh),
+                                  elevation: 8.0,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8.0))),
+                              child: Text(
+                                "Approve",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 18.dw),
+                              ),
+                            );
+                          });
+                        }),
+
+                  ],
+                )
+              ],
+            )),
+      ),
+    ),
+  );
+
+
+  Future openRejectionDialog(TravelReportModel model) => showDialog(
+    context: context,
+    builder: (context) => Dialog(
+      elevation: 8.0,
+      shape:
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+      child: SingleChildScrollView(
+        child: SizedBox(
+            height: 150.dh,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(8.0.dw),
+                  child: Text(
+                    "Are you sure you want to Reject?",
+                    style: TextStyle(
+                        fontSize: 16.dw, fontWeight: FontWeight.w400),
+                  ),
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        //travelRequestBloc.init();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.red,
+                          minimumSize: Size(40.dw, 30.dh),
+                          elevation: 8.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0))),
+                      child: Text(
+                        "Cancel",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18.dw),
+                      ),
+                    ),
+                    BlocConsumer<ApproveTravelBloc, ApplyTravelState>(
+                        bloc: approveTravelBloc,
+                        listener: (_, state) {
+                          state.maybeWhen(
+                              success: (_, message) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text(message ?? "Something")));
+                                travelRequestBloc.init();
+                                // Navigator.pushNamed(context, AppRoutes.leaveApply);
+                              },
+                              failed: (_, message) {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(content: Text(message)));
+                              },
+                              orElse: () {});
+                        },
+                        builder: (context, state) {
+                          return state.maybeWhen(loading: (_) {
+                            return const CircularProgressIndicator();
+                          }, orElse: () {
+                            return ElevatedButton(
+                              onPressed: () {
+                                _approvalRejection(model, "R",);
+                                travelRequestBloc.init();
+                                //  Navigator.pop(context);
+
+                              },
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.lightGreen,
+                                  minimumSize: Size(40.dw, 30.dh),
+                                  elevation: 8.0,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8.0))),
+                              child: Text(
+                                "Reject",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 18.dw),
+                              ),
+                            );
+                          });
+                        }),
+
+                  ],
+                )
+              ],
+            )),
+      ),
+    ),
+  );
 }
 
