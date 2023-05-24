@@ -69,7 +69,7 @@ class _TravelRequestMainPageState extends State<TravelRequestMainPage> with Sing
                     children: [
                       Image.asset(
                         "assets/images/travel.png",
-                        scale: 13.dw,
+                        scale: 15.dw,
                       ),
                       const Text("My Travel Requests"),
                     ],
@@ -78,7 +78,7 @@ class _TravelRequestMainPageState extends State<TravelRequestMainPage> with Sing
                     children: [
                       Image.asset(
                         "assets/images/travel1.png",
-                        scale: 14.dw,
+                        scale: 15.dw,
                       ),
                       Text("Pending For Approval", style: TextStyle(fontSize: 16.dw),),
                     ],

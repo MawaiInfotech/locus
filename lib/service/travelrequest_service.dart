@@ -26,6 +26,26 @@ class TravelRequestService{
     }
     return ProjectListModel();
   }
+
+  Future<String?> getApplyTravel(Map<String, dynamic>data) async {
+    const url = root + 'travel-requisition-save';
+    final body = data;
+    try {
+      final response = await http.post(Uri.parse(url),
+          body: json.encode(body), headers: getHeaders());
+      final responseBody = json.decode(response.body);
+      if (responseBody['status'] == true) {
+        return responseBody ['message'];
+      }else{
+        throw ApiError.fromResponse(responseBody['message']);
+      }
+    } catch (e) {
+      print(e);
+      _handleError(e);
+    }
+    // return null;
+  }
+
   _handleError(var e) {
     if (e is String) throw e;
     if (e is SocketException) throw ApiError.internet();

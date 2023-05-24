@@ -4,7 +4,6 @@ import 'package:intl/intl.dart';
 import 'package:locus/bloc/applyleave_bloc.dart';
 import 'package:locus/bloc/request_leave_bloc.dart';
 import 'package:locus/model/requestleave_model.dart';
-import 'package:locus/routes/app_routes.dart';
 import 'package:locus/service/leave_service.dart';
 import 'package:locus/service/login_service.dart';
 import 'package:locus/state/applyleave_state.dart';
@@ -528,11 +527,9 @@ class _RequestLeaveState extends State<RequestLeave> {
               height: 50.dh,
               width: MediaQuery.of(context).size.width / 2,
               decoration: BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(color: AppColors.navyblue),
-                      top: BorderSide(color: AppColors.navyblue),
-                      left: BorderSide(color: AppColors.navyblue),
-                      right: BorderSide(color: AppColors.navyblue)),
+                  border: Border.all(
+                    color: AppColors.navyblue
+                     ),
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white),
               child: InkWell(
