@@ -26,7 +26,7 @@ class LoginService{
 
   Future<void> logIn(String employeeCode, String password, [bool shouldRemember = false]) async{
     final data = {'emp_cd': employeeCode,'password': password};
-    const url = root + 'login';
+    const url = '${root}login';
     try{
       final response = await http.post(Uri.parse(url), body: json.encode(data), headers: headers);
       final body = json.decode(response.body);

@@ -21,21 +21,8 @@ class TravelRequestPage extends StatefulWidget {
 }
 
 class _TravelRequestPageState extends State<TravelRequestPage> {
-  List projectList = [
-    "Sg customer portal",
-    "mawai Locus",
-    "DG terms",
-    "nishtha",
-    "Hind ware",
-    "Hind ware",
-    "Hind ware",
-    "Hind ware",
-  ];
 
-  List modeList = ["By Cab/Taxi", "By train", "By Road", "By Air"];
-  List genderList = ["Male", "Female", "Other"];
-  List<String> requiredOption = <String>["Yes", "No"];
-  var reqOption = "No";
+
 
   TextEditingController nameController = TextEditingController();
   TextEditingController reqNoController = TextEditingController();
@@ -127,52 +114,21 @@ Widget _buildContent(ProjectListModel model){
         child: SingleChildScrollView(
           child: Form(
             key: _formKey,
-            child: Column(
-              children: [
-             //   _buildDisabledTextField("New", reqNoController, 1),
-                //  _buildDisabledTextField(now_date, currentDateController, 1),
-              //  _buildDateTextField(currentDateController, "Requested Date"),
-                _buildFromDate(),
-                _buildToDate(),
-                _buildNameTextField(
-                    "Travel From(City)*", travelFromCityController, 1),
-                _buildNameTextField(
-                    "Travel To(City)*", travelToCityController, 1),
-                _buildProjectListDialogBox(model,),
-                _buildModeListDialogBox(model, "--Select Mode--"),
-               // _buildDropdownList(requiredOption,reqOption,"Ticket Booking Request(Y/N)"),
-                _buildNameTextField("Purpose of booking*", purposeController, 2),
-                // (mode != "By Cab/Taxi")
-                //     ? Column(
-                //         children: [
-                //           _buildNameTextField("Preferred Train/ Air No. & name",
-                //               trainNameController, 2),
-                //           _buildNameTextField("Ticket Booking Date & Time",
-                //               ticketDateTimeController, 2),
-                //           _buildDateTextField(targetDateController,
-                //               "Target date to reach the client"),
-                //           _buildTimeTextField(targetTimeInputController,
-                //               "Target time to reach the client"),
-                //           _buildDateTextField(
-                //               returnTargetController, "return target date "),
-                //           _buildTimeTextField(
-                //               returnTimeInputController, "return target time "),
-                //           _buildNameTextField(
-                //               "Number of days", nameController, 1),
-                //           _buildNameTextField(
-                //               "Staying arrangement(by client/ by us)",
-                //               arregmentController,
-                //               2),
-                //         //  _buildPassengerDetailsContainer()
-                //         ],
-                //       )
-                //     : Container(),
-                // _buildDisabledTextField("Request Approved/Canceled by", currentDateController, 1),
-                // _buildRow("Request Approved/Cancelled by :", " SWE269"),
-                // _buildRow("Requested by : ", ""),
-                // _buildRow("Requested status : ", " "),
-                _buildSubmitButton()
-              ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 30,horizontal: 15),
+              child: Column(
+                children: [
+                  _buildFromDate(),
+                  _buildToDate(),
+                  _buildNameTextField("Travel From(City)*", travelFromCityController, 1),
+                  _buildNameTextField("Travel To(City)*", travelToCityController, 1),
+                  _buildProjectListDialogBox(model,),
+                  _buildModeListDialogBox(model, "--Select Mode--"),
+                  _buildNameTextField("Purpose of booking*", purposeController, 2),
+                   const SizedBox(height: 20,),
+                  _buildSubmitButton()
+                ],
+              ),
             ),
           ),
         ),
@@ -188,7 +144,7 @@ Widget _buildContent(ProjectListModel model){
         maxLines: lines,
 
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.symmetric(horizontal: 10,vertical: 16),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
             hintText: hintText,
             label: Text(hintText),
             border: _border(),
@@ -218,7 +174,7 @@ Widget _buildContent(ProjectListModel model){
       child: Padding(
         padding: EdgeInsets.all(10.0.dw),
         child: Container(
-            height: 60.dw,
+            height: 40.dw,
             // elevation: 10,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30.0.dw),
@@ -274,7 +230,7 @@ Widget _buildContent(ProjectListModel model){
                                 child: SizedBox(
                                   width: 150.dw,
                                   child: Text(
-                                   clientModel[index].clientCode+ " - " +clientModel[index].clientName,
+                                   "${clientModel[index].clientCode} - ${clientModel[index].clientName}",
                                     textAlign: TextAlign.center,
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
@@ -306,7 +262,7 @@ Widget _buildContent(ProjectListModel model){
       child: Padding(
         padding: EdgeInsets.all(10.0.dw),
         child: Container(
-            height: 60.dw,
+            height: 40.dw,
             // elevation: 10,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30.0.dw),
@@ -390,7 +346,7 @@ Widget _buildContent(ProjectListModel model){
       child: Column(
         children: [
           Container(
-              padding: EdgeInsets.all(15.dw),
+              padding: EdgeInsets.all(10.dw),
             //  height: 50.dh,
             //  width: MediaQuery.of(context).size.width / 2,
               decoration: BoxDecoration(
@@ -475,7 +431,7 @@ Widget _buildContent(ProjectListModel model){
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(15.dw),
+            padding: EdgeInsets.all(10.dw),
             // height: 50.dh,
             // width: MediaQuery.of(context).size.width / 2,
             decoration: BoxDecoration(
@@ -502,143 +458,6 @@ Widget _buildContent(ProjectListModel model){
       ),
     );
   }
-
-  // _buildTimeTextField(TextEditingController controller, String hintText) {
-  //   return Padding(
-  //     padding: EdgeInsets.all(10.0.dw),
-  //     child: TextField(
-  //       controller: controller,
-  //       readOnly: true,
-  //       onTap: () async {
-  //         TimeOfDay? pickedTime = await showTimePicker(
-  //           initialTime: TimeOfDay.now(),
-  //           context: context,
-  //         );
-  //         if (pickedTime != null) {
-  //           DateTime parsedTime =
-  //               DateFormat.jm().parse(pickedTime.format(context).toString());
-  //
-  //           String formattedTime = DateFormat('HH:mm').format(parsedTime);
-  //
-  //           setState(() {
-  //             controller.text = formattedTime; //set the value of text field.
-  //           });
-  //         } else {}
-  //       },
-  //       decoration: InputDecoration(
-  //           hintText: hintText,
-  //           suffixIcon: const Icon(
-  //             Icons.watch_later_outlined,
-  //             color: Colors.red,
-  //           ),
-  //           border: _border(),
-  //           focusedBorder: _focusedborder(),
-  //           disabledBorder: _border(),
-  //           enabledBorder: _border()),
-  //     ),
-  //   );
-  // }
-
-  // _buildPassengerDetailsContainer() {
-  //   return Container(
-  //     margin: const EdgeInsets.all(10),
-  //     decoration:
-  //         BoxDecoration(border: Border.all(color: Colors.blueAccent, width: 1)),
-  //     child: Column(
-  //       children: [
-  //         Container(
-  //           alignment: Alignment.center,
-  //           height: 40.dw,
-  //           width: double.infinity,
-  //           color: Colors.blueAccent,
-  //           child: const Text(
-  //             "Passenger Details",
-  //             style: TextStyle(
-  //                 color: Colors.white,
-  //                 fontWeight: FontWeight.bold,
-  //                 fontSize: 18),
-  //           ),
-  //         ),
-  //         //  _buildPassengerColumn(),
-  //         ListView.builder(
-  //           addAutomaticKeepAlives: true,
-  //           itemCount: users.length,
-  //           shrinkWrap: true,
-  //           physics: ScrollPhysics(),
-  //           itemBuilder: (_, i) => users[i],
-  //         ),
-  //         TextButton(
-  //             onPressed: onAddForm,
-  //             child: const Text(
-  //               "+ Add New Passenger",
-  //               style: TextStyle(
-  //                   fontSize: 18,
-  //                   fontWeight: FontWeight.bold,
-  //                   color: Colors.blueAccent),
-  //             )),
-  //
-  //       ],
-  //     ),
-  //   );
-  // }
-
-  // _buildDropdownList(List<String> items, String value, String hintText){
-  //   return Padding(
-  //     padding: const EdgeInsets.all(8.0),
-  //     child: DropdownButtonFormField<String>(
-  //
-  //       decoration: InputDecoration(
-  //         //label: Text(hintText),
-  //           border: _border(),
-  //           focusedBorder: _focusedborder(),
-  //           disabledBorder: _border(),
-  //           enabledBorder: _border()
-  //       ),
-  //
-  //       hint: Text(hintText),
-  //       items: items.map((String value) {
-  //         return DropdownMenuItem<String>(
-  //           value: value,
-  //           child: Text(value),
-  //         );
-  //       }).toList(),
-  //       onChanged: (String? newValue) {
-  //         setState(() {
-  //           value = newValue!;
-  //         });
-  //       },
-  //     ),
-  //   );
-  // }
-
-  // Submit Button
-
-  _buildSubmiButton() {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.red, // background (button) color
-        foregroundColor: Colors.white, // foreground (text) color
-      ),
-      onPressed: () {
-        print(now_date.toString());
-        print(travelFromCityController.text);
-        print(travelToCityController.text);
-        print(clienName);
-        print(clienCode);
-        print(mode);
-        print(reqOption);
-        print(purposeController.text);
-        print(fromDate);
-        print(toDate);
-        print(difference);
-      },
-      child: const Text(
-        'Submit',
-        style: TextStyle(fontSize: 20),
-      ),
-    );
-  }
-
   _buildSubmitButton() {
     return BlocConsumer<ApplyTravelBloc, ApplyTravelState>(
         bloc: applyTravelBloc,
@@ -663,7 +482,8 @@ Widget _buildContent(ProjectListModel model){
             return ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.red, // background (button) color
-                foregroundColor: Colors.white, // foreground (text) color
+                foregroundColor: Colors.white,
+                minimumSize: Size(MediaQuery.of(context).size.width*0.8, 40)// foreground (text) color
               ),
               onPressed: () {
                 if (fromDate == null && toDate == null) {
