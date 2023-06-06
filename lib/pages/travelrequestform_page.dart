@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:locus/bloc/applytravel_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:locus/bloc/travelrequest_bloc.dart';
+import 'package:locus/model/clientdetails_model.dart';
 import 'package:locus/model/projectlist_model.dart';
 import 'package:locus/service/travelrequest_service.dart';
 import 'package:locus/state/projectlist_state.dart';
@@ -41,11 +42,11 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
 
   var clienName;
   var clienCode;
-  var mode;
-  var modeCode;
+  var mode="By Cab/Taxi";
+  var modeCode="C";
   var gender;
-  var fromDate;
-  var toDate;
+  var fromDate=DateFormat('yyyy-MM-dd').format(DateTime.now());
+  var toDate=DateFormat('yyyy-MM-dd').format(DateTime.now());
   var difference;
 
   late DateTimeRange dateTimeRange =
@@ -85,8 +86,8 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppTopBar(title: "Travel Request Form"),
-      body: _buildBody()
+        appBar: const AppTopBar(title: "Travel Request Form"),
+        body: _buildBody()
     );
   }
 
@@ -109,60 +110,124 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
     return const Center(child: CircularProgressIndicator());
   }
 
-Widget _buildContent(ProjectListModel model){
+  Widget _buildContent(ProjectListModel model){
     return SafeArea(
-        child: SingleChildScrollView(
-          child: Form(
-            key: _formKey,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 30,horizontal: 15),
-              child: Column(
-                children: [
-                  _buildFromDate(),
-                  _buildToDate(),
-                  _buildNameTextField("Travel From(City)*", travelFromCityController, 1),
-                  _buildNameTextField("Travel To(City)*", travelToCityController, 1),
-                  _buildProjectListDialogBox(model,),
-                  _buildModeListDialogBox(model, "--Select Mode--"),
-                  _buildNameTextField("Purpose of booking*", purposeController, 2),
-                   const SizedBox(height: 20,),
-                  _buildSubmitButton()
-                ],
-              ),
+      child: SingleChildScrollView(
+        child: Form(
+          key: _formKey,
+          child: Container(
+            margin:  EdgeInsets.symmetric(horizontal:10.dw,vertical: 30),
+            padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 5),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.grey.shade100,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                        child:Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            _buildHeading("From Date -"),
+                            _buildFromDate()
+                          ],
+                        )
+                    ),
+                    Expanded(
+                        child:Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            _buildHeading("To Date -"),
+                            _buildToDate()
+                          ],
+                        )
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            _buildHeading("From City -"),
+                            _buildNameTextField("From(City)*", travelFromCityController, 1),
+                          ],
+                        )
+                    ),
+                    Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            _buildHeading("To City -"),
+                            _buildNameTextField("To(City)*", travelToCityController, 1),
+                          ],
+                        )
+                    ),
+                  ],
+                ),
+                _buildHeading("Select Project -"),
+                _buildProjectListDialogBox(model,),
+                _buildHeading("Select Mode -"),
+                _buildModeListDialogBox(model, "--Select Mode--"),
+                _buildHeading("Purpose - "),
+                _buildNameTextField("Purpose of booking*", purposeController, 1),
+                const SizedBox(height: 20,),
+                Center(
+                  child: _buildSubmitButton(),
+                )
+              ],
             ),
           ),
         ),
+      ),
     );
 
-}
+  }
+
+  _buildHeading(String title){
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0),
+      child: Text(title,style:  TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.w400,
+          fontSize: 18.dw
+      ),),
+    );
+  }
 
   _buildNameTextField(String hintText, TextEditingController controller, int lines) {
-    return Padding(
-      padding: EdgeInsets.all(10.0.dw),
+    return Container(
+      height: 50,
+      padding: EdgeInsets.all(5.0.dw),
       child: TextFormField(
         controller: controller,
         maxLines: lines,
-
         decoration: InputDecoration(
+          fillColor: Colors.white,
+          // filled: true,
           contentPadding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
-            hintText: hintText,
-            label: Text(hintText),
-            border: _border(),
-            focusedBorder: _focusedborder(),
-            disabledBorder: _border(),
-            enabledBorder: _border()),
+          hintText: hintText,
+          hintStyle: const TextStyle(fontSize: 15),
+
+          // disabledBorder: _border(),
+          // enabledBorder: _border()
+        ),
       ),
     );
   }
 
 
-  _border() => OutlineInputBorder(
-      borderRadius: BorderRadius.circular(30.dw),
+  _border() => UnderlineInputBorder(
+      borderRadius: BorderRadius.circular(10.dw),
       borderSide: const BorderSide(color: AppColors.black));
 
-  _focusedborder() => OutlineInputBorder(
-      borderRadius: BorderRadius.circular(30.dw),
-      borderSide: BorderSide(color: AppColors.portaldarkBlue));
+  _focusedborder() => UnderlineInputBorder(
+      borderRadius: BorderRadius.circular(10.dw),
+      borderSide: const BorderSide(color: Colors.blue));
 
   // Client Project Dropdown
 
@@ -174,11 +239,13 @@ Widget _buildContent(ProjectListModel model){
       child: Padding(
         padding: EdgeInsets.all(10.0.dw),
         child: Container(
-            height: 40.dw,
+            height: 50.dw,
             // elevation: 10,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30.0.dw),
-                border: Border.all(color: AppColors.orange2)),
+              color: Colors.blue.shade100,
+              borderRadius: BorderRadius.circular(10.0.dw),
+              // border: Border.all(color: AppColors.black)
+            ),
             child: Padding(
               padding: EdgeInsets.all(10.dw),
               child: Row(
@@ -195,6 +262,7 @@ Widget _buildContent(ProjectListModel model){
 
   Future<void>_showProjectListDialog(ProjectListModel model) async {
     final clientModel = model.client;
+    final listNotifier = SearchableListNotifier(model.client);
     await showDialog(
         context: context,
         builder: (context) {
@@ -204,44 +272,62 @@ Widget _buildContent(ProjectListModel model){
               width: ScreenSizeConfig.getFullWidth,
               child: Column(
                 children: [
+                  SizedBox(
+                    height: 50.dw,
+                    child: TextField(
+                      onChanged: listNotifier.filterBasedOn,
+                      decoration: InputDecoration(
+                          border: _border(),
+                          focusedBorder: _border(),
+                          disabledBorder: _border(),
+                          hintText: "Search",
+                          contentPadding: EdgeInsets.all(5.dw),
+                          prefixIcon: const Icon(Icons.search)
+                      ),
+                    ),
+                  ),
                   Expanded(
-                    child: ListView.builder(
-                        itemCount: clientModel.length,
-                        shrinkWrap: true,
-                        itemBuilder: (BuildContext context, int index) {
-                          return InkWell(
-                            onTap: () {
-                              travelRequestBloc.init();
-                              clienName = clientModel[index].clientName;
-                              clienCode = clientModel[index].clientCode;
-                              setState(() {
-
-                              });
-                              Navigator.pop(context);
-                            },
-                            child: Card(
-                              elevation: 2.dw,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.dw),
-                                  side:
-                                      const BorderSide(color: AppColors.black)),
-                              child: Padding(
-                                padding: EdgeInsets.all(8.0.dw),
-                                child: SizedBox(
-                                  width: 150.dw,
-                                  child: Text(
-                                   "${clientModel[index].clientCode} - ${clientModel[index].clientName}",
-                                    textAlign: TextAlign.center,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontSize: 18.dw,
-                                      fontWeight: FontWeight.w500,
+                    child: ValueListenableBuilder<List<ClientDetailsModel>>(
+                        valueListenable: listNotifier,
+                        builder: (context, list, widget) {
+                          return ListView.builder(
+                            itemCount: list.length,
+                            shrinkWrap: true,
+                            itemBuilder:
+                                (BuildContext context, int index) {
+                              return InkWell(
+                                onTap: () {
+                                  clienName = list[index].clientName;
+                                  clienCode = list[index].clientCode;
+                                  setState(() {});
+                                  Navigator.pop(context);
+                                },
+                                child: Card(
+                                  elevation: 2.dw,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.dw),
+                                      side: const BorderSide(color: AppColors.black)
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(8.0.dw),
+                                    child: SizedBox(
+                                      width: 150.dw,
+                                      child: Text(
+                                        list[index].clientName,
+                                        textAlign: TextAlign.center,
+                                        maxLines: 2,
+                                        overflow:
+                                        TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          fontSize: 18.dw,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ),
+                              );
+                            },
                           );
                         }),
                   ),
@@ -262,11 +348,13 @@ Widget _buildContent(ProjectListModel model){
       child: Padding(
         padding: EdgeInsets.all(10.0.dw),
         child: Container(
-            height: 40.dw,
+            height: 50.dw,
             // elevation: 10,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30.0.dw),
-                border: Border.all(color: AppColors.orange2)),
+              color: Colors.blue.shade100,
+              borderRadius: BorderRadius.circular(10.0.dw),
+              //   border: Border.all(color: AppColors.black)
+            ),
             child: Padding(
               padding: EdgeInsets.all(10.dw),
               child: Row(
@@ -300,9 +388,12 @@ Widget _buildContent(ProjectListModel model){
                           return InkWell(
                             onTap: () {
                               travelRequestBloc.init();
-                              mode = travelMode[index].description;
-                              modeCode = travelMode[index].controlCode;
-                              setState(() {});
+
+
+                              setState(() {
+                                mode = travelMode[index].description;
+                                modeCode = travelMode[index].controlCode;
+                              });
                               Navigator.pop(context);
                             },
                             child: Card(
@@ -310,7 +401,7 @@ Widget _buildContent(ProjectListModel model){
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.dw),
                                   side:
-                                      const BorderSide(color: AppColors.black)),
+                                  const BorderSide(color: AppColors.black)),
                               child: Padding(
                                 padding: EdgeInsets.all(8.0.dw),
                                 child: SizedBox(
@@ -347,61 +438,61 @@ Widget _buildContent(ProjectListModel model){
         children: [
           Container(
               padding: EdgeInsets.all(10.dw),
-            //  height: 50.dh,
-            //  width: MediaQuery.of(context).size.width / 2,
+              height: 50.dh,
+              //  width: MediaQuery.of(context).size.width / 2,
               decoration: BoxDecoration(
-                  border: Border.all(
-                      color: Colors.black
-                  ),
-                  borderRadius: BorderRadius.circular(30),
-                  color: Colors.white),
+                // border: Border.all(
+                //     color: Colors.black
+                // ),
+                  borderRadius: BorderRadius.circular(10.dw),
+                  color: Colors.blue.shade100),
               child: InkWell(
                 onTap: () {
-                    showDateRangePicker(
-                        context: context,
-                        builder: (context, child) {
-                          return Theme(
-                            data: Theme.of(context).copyWith(
-                              colorScheme: const ColorScheme.light(
-                                primary: Colors.blue,
-                                onPrimary: Colors.white,
-                                onSurface: Colors.black,
-                              ),
-                              textButtonTheme: TextButtonThemeData(
-                                style: TextButton.styleFrom(
-                                  primary: Colors.white,
-                                  backgroundColor: AppColors.brown,
-                                  textStyle: const TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: AppColors.black),
-                                ),
+                  showDateRangePicker(
+                      context: context,
+                      builder: (context, child) {
+                        return Theme(
+                          data: Theme.of(context).copyWith(
+                            colorScheme: const ColorScheme.light(
+                              primary: Colors.blue,
+                              onPrimary: Colors.white,
+                              onSurface: Colors.black,
+                            ),
+                            textButtonTheme: TextButtonThemeData(
+                              style: TextButton.styleFrom(
+                                primary: Colors.white,
+                                backgroundColor: AppColors.brown,
+                                textStyle: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: AppColors.black),
                               ),
                             ),
-                            child: child!,
-                          );
-                        },
-                        helpText: 'Select Date',
-                        initialEntryMode: DatePickerEntryMode.calendarOnly,
-                        firstDate: DateTime.now().subtract(const Duration(days: 90)),
-                        lastDate: DateTime.now().add(const Duration(days: 365)),
-                        errorFormatText: "Invalid Format",
-                        errorInvalidRangeText: "Invalid Range",
-                        fieldStartHintText: "Start Date",
-                        fieldEndHintText: "End Date")
-                        .then((pickedDate) {
-                      if (pickedDate == null) {
-                        return;
-                      }
-                      setState(() {
-                        dateTimeRange = pickedDate;
+                          ),
+                          child: child!,
+                        );
+                      },
+                      helpText: 'Select Date',
+                      initialEntryMode: DatePickerEntryMode.calendarOnly,
+                      firstDate: DateTime.now().subtract(const Duration(days: 90)),
+                      lastDate: DateTime.now().add(const Duration(days: 365)),
+                      errorFormatText: "Invalid Format",
+                      errorInvalidRangeText: "Invalid Range",
+                      fieldStartHintText: "Start Date",
+                      fieldEndHintText: "End Date")
+                      .then((pickedDate) {
+                    if (pickedDate == null) {
+                      return;
+                    }
+                    setState(() {
+                      dateTimeRange = pickedDate;
 
-                          difference = pickedDate.end.difference(pickedDate.start).inDays + 1;
-                          fromDate = DateFormat('yyyy-MM-dd').format(pickedDate.start);
-                          toDate = DateFormat('yyyy-MM-dd').format(pickedDate.end);
+                      difference = pickedDate.end.difference(pickedDate.start).inDays + 1;
+                      fromDate = DateFormat('yyyy-MM-dd').format(pickedDate.start);
+                      toDate = DateFormat('yyyy-MM-dd').format(pickedDate.end);
 
-                      });
                     });
+                  });
 
                 },
                 child: Row(
@@ -413,7 +504,7 @@ Widget _buildContent(ProjectListModel model){
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 10.dw),
-                      child: Text(fromDate ?? "Select From Date"),
+                      child: Text(fromDate ?? now_date),
                     ),
                   ],
                 ),
@@ -433,13 +524,11 @@ Widget _buildContent(ProjectListModel model){
           Container(
             padding: EdgeInsets.all(10.dw),
             // height: 50.dh,
-            // width: MediaQuery.of(context).size.width / 2,
+            // width: MediaQuery.of(context).size.width / 3,
             decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.black
-                   ),
-                borderRadius: BorderRadius.circular(30),
-                color: Colors.white),
+
+                borderRadius: BorderRadius.circular(10.dw),
+                color: Colors.blue.shade100),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -449,7 +538,7 @@ Widget _buildContent(ProjectListModel model){
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 10.dw),
-                  child: Text(toDate ?? "To date"),
+                  child: Text(toDate ?? now_date),
                 ),
               ],
             ),
@@ -481,16 +570,16 @@ Widget _buildContent(ProjectListModel model){
           }, orElse: () {
             return ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.red, // background (button) color
-                foregroundColor: Colors.white,
-                minimumSize: Size(MediaQuery.of(context).size.width*0.8, 40)// foreground (text) color
+                  backgroundColor: AppColors.red, // background (button) color
+                  foregroundColor: Colors.white,
+                  minimumSize: Size(MediaQuery.of(context).size.width*0.8, 40)// foreground (text) color
               ),
               onPressed: () {
                 if (fromDate == null && toDate == null) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text("Please Select Dates")));
-                          return;
-                        }
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("Please Select Dates")));
+                  return;
+                }
                 else if(clienCode == null){
                   ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text("Please Select Project")));
@@ -524,7 +613,7 @@ Widget _buildContent(ProjectListModel model){
 
   _buildRow(String title, String value) {
     return Container(
-        padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: Row(
         children: [
           Expanded(
@@ -535,26 +624,26 @@ Widget _buildContent(ProjectListModel model){
     );
   }
 
-  // void onAddForm() {
-  //   setState(() {
-  //     var _user = User();
-  //     users.add(PassengerDetailsForm(
-  //       user: _user,
-  //       // onDelete: () => onDelete(_user),
-  //     ));
-  //   });
-  // }
-  //
-  // void remove() {
-  //   setState(() {
-  //     if(users.length <=1){
-  //
-  //     }else{
-  //       users.removeAt(users.length-1);
-  //     }
-  //
-  //   });
-  // }
+// void onAddForm() {
+//   setState(() {
+//     var _user = User();
+//     users.add(PassengerDetailsForm(
+//       user: _user,
+//       // onDelete: () => onDelete(_user),
+//     ));
+//   });
+// }
+//
+// void remove() {
+//   setState(() {
+//     if(users.length <=1){
+//
+//     }else{
+//       users.removeAt(users.length-1);
+//     }
+//
+//   });
+// }
 }
 
 // class User {
@@ -744,3 +833,20 @@ Widget _buildContent(ProjectListModel model){
 //     );
 //   }
 // }
+class SearchableListNotifier extends ValueNotifier<List<ClientDetailsModel>> {
+  SearchableListNotifier(super.value) {
+    initialValue = value;
+    print("INITIAL VALUE WAS $value");
+  }
+
+  late List<ClientDetailsModel> initialValue;
+
+  void filterBasedOn(String query) {
+    if (query.isEmpty) {
+      value = initialValue;
+    } else {
+      value = initialValue.where((e) => e.clientName.toLowerCase().startsWith(query)).toList();
+    }
+    notifyListeners();
+  }
+}

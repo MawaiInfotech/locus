@@ -11,6 +11,7 @@ _$_TravelDetailsModel _$$_TravelDetailsModelFromJson(
     _$_TravelDetailsModel(
       appNo: json['app_no'] as String? ?? '',
       employeeNo: json['empmemb_emp_master_emp_number'] as String? ?? '',
+      employeeName: json['emp_name'] as String? ?? '',
       fromDate: json['from_date'] as String? ?? '',
       endDate: json['end_date'] as String? ?? '',
       travelMode: json['travel_mode'] as String? ?? '',
@@ -19,6 +20,8 @@ _$_TravelDetailsModel _$$_TravelDetailsModelFromJson(
       clientId: json['client_cd'] as String? ?? '',
       clientName: json['client_name'] as String? ?? '',
       approvalStatus: json['approval_status'] as String? ?? '',
+      fromCity: json['from_city'] as String? ?? '',
+      toCity: json['to_city'] as String? ?? '',
     );
 
 Map<String, dynamic> _$$_TravelDetailsModelToJson(
@@ -26,6 +29,7 @@ Map<String, dynamic> _$$_TravelDetailsModelToJson(
     <String, dynamic>{
       'app_no': instance.appNo,
       'empmemb_emp_master_emp_number': instance.employeeNo,
+      'emp_name': instance.employeeName,
       'from_date': instance.fromDate,
       'end_date': instance.endDate,
       'travel_mode': instance.travelMode,
@@ -34,4 +38,6 @@ Map<String, dynamic> _$$_TravelDetailsModelToJson(
       'client_cd': instance.clientId,
       'client_name': instance.clientName,
       'approval_status': instance.approvalStatus,
+      'from_city': instance.fromCity,
+      'to_city': instance.toCity,
     };

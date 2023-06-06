@@ -24,6 +24,8 @@ mixin _$TravelDetailsModel {
   String get appNo => throw _privateConstructorUsedError;
   @JsonKey(name: 'empmemb_emp_master_emp_number')
   String get employeeNo => throw _privateConstructorUsedError;
+  @JsonKey(name: 'emp_name')
+  String get employeeName => throw _privateConstructorUsedError;
   @JsonKey(name: 'from_date')
   String get fromDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'end_date')
@@ -40,6 +42,10 @@ mixin _$TravelDetailsModel {
   String get clientName => throw _privateConstructorUsedError;
   @JsonKey(name: 'approval_status')
   String get approvalStatus => throw _privateConstructorUsedError;
+  @JsonKey(name: 'from_city')
+  String get fromCity => throw _privateConstructorUsedError;
+  @JsonKey(name: 'to_city')
+  String get toCity => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,6 +62,7 @@ abstract class $TravelDetailsModelCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'app_no') String appNo,
       @JsonKey(name: 'empmemb_emp_master_emp_number') String employeeNo,
+      @JsonKey(name: 'emp_name') String employeeName,
       @JsonKey(name: 'from_date') String fromDate,
       @JsonKey(name: 'end_date') String endDate,
       @JsonKey(name: 'travel_mode') String travelMode,
@@ -63,7 +70,9 @@ abstract class $TravelDetailsModelCopyWith<$Res> {
       @JsonKey(name: 'travel_purpose') String purpose,
       @JsonKey(name: 'client_cd') String clientId,
       @JsonKey(name: 'client_name') String clientName,
-      @JsonKey(name: 'approval_status') String approvalStatus});
+      @JsonKey(name: 'approval_status') String approvalStatus,
+      @JsonKey(name: 'from_city') String fromCity,
+      @JsonKey(name: 'to_city') String toCity});
 }
 
 /// @nodoc
@@ -81,6 +90,7 @@ class _$TravelDetailsModelCopyWithImpl<$Res, $Val extends TravelDetailsModel>
   $Res call({
     Object? appNo = null,
     Object? employeeNo = null,
+    Object? employeeName = null,
     Object? fromDate = null,
     Object? endDate = null,
     Object? travelMode = null,
@@ -89,6 +99,8 @@ class _$TravelDetailsModelCopyWithImpl<$Res, $Val extends TravelDetailsModel>
     Object? clientId = null,
     Object? clientName = null,
     Object? approvalStatus = null,
+    Object? fromCity = null,
+    Object? toCity = null,
   }) {
     return _then(_value.copyWith(
       appNo: null == appNo
@@ -98,6 +110,10 @@ class _$TravelDetailsModelCopyWithImpl<$Res, $Val extends TravelDetailsModel>
       employeeNo: null == employeeNo
           ? _value.employeeNo
           : employeeNo // ignore: cast_nullable_to_non_nullable
+              as String,
+      employeeName: null == employeeName
+          ? _value.employeeName
+          : employeeName // ignore: cast_nullable_to_non_nullable
               as String,
       fromDate: null == fromDate
           ? _value.fromDate
@@ -130,6 +146,14 @@ class _$TravelDetailsModelCopyWithImpl<$Res, $Val extends TravelDetailsModel>
       approvalStatus: null == approvalStatus
           ? _value.approvalStatus
           : approvalStatus // ignore: cast_nullable_to_non_nullable
+              as String,
+      fromCity: null == fromCity
+          ? _value.fromCity
+          : fromCity // ignore: cast_nullable_to_non_nullable
+              as String,
+      toCity: null == toCity
+          ? _value.toCity
+          : toCity // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -146,6 +170,7 @@ abstract class _$$_TravelDetailsModelCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'app_no') String appNo,
       @JsonKey(name: 'empmemb_emp_master_emp_number') String employeeNo,
+      @JsonKey(name: 'emp_name') String employeeName,
       @JsonKey(name: 'from_date') String fromDate,
       @JsonKey(name: 'end_date') String endDate,
       @JsonKey(name: 'travel_mode') String travelMode,
@@ -153,7 +178,9 @@ abstract class _$$_TravelDetailsModelCopyWith<$Res>
       @JsonKey(name: 'travel_purpose') String purpose,
       @JsonKey(name: 'client_cd') String clientId,
       @JsonKey(name: 'client_name') String clientName,
-      @JsonKey(name: 'approval_status') String approvalStatus});
+      @JsonKey(name: 'approval_status') String approvalStatus,
+      @JsonKey(name: 'from_city') String fromCity,
+      @JsonKey(name: 'to_city') String toCity});
 }
 
 /// @nodoc
@@ -169,6 +196,7 @@ class __$$_TravelDetailsModelCopyWithImpl<$Res>
   $Res call({
     Object? appNo = null,
     Object? employeeNo = null,
+    Object? employeeName = null,
     Object? fromDate = null,
     Object? endDate = null,
     Object? travelMode = null,
@@ -177,6 +205,8 @@ class __$$_TravelDetailsModelCopyWithImpl<$Res>
     Object? clientId = null,
     Object? clientName = null,
     Object? approvalStatus = null,
+    Object? fromCity = null,
+    Object? toCity = null,
   }) {
     return _then(_$_TravelDetailsModel(
       appNo: null == appNo
@@ -186,6 +216,10 @@ class __$$_TravelDetailsModelCopyWithImpl<$Res>
       employeeNo: null == employeeNo
           ? _value.employeeNo
           : employeeNo // ignore: cast_nullable_to_non_nullable
+              as String,
+      employeeName: null == employeeName
+          ? _value.employeeName
+          : employeeName // ignore: cast_nullable_to_non_nullable
               as String,
       fromDate: null == fromDate
           ? _value.fromDate
@@ -219,6 +253,14 @@ class __$$_TravelDetailsModelCopyWithImpl<$Res>
           ? _value.approvalStatus
           : approvalStatus // ignore: cast_nullable_to_non_nullable
               as String,
+      fromCity: null == fromCity
+          ? _value.fromCity
+          : fromCity // ignore: cast_nullable_to_non_nullable
+              as String,
+      toCity: null == toCity
+          ? _value.toCity
+          : toCity // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -229,6 +271,7 @@ class _$_TravelDetailsModel implements _TravelDetailsModel {
   const _$_TravelDetailsModel(
       {@JsonKey(name: 'app_no') this.appNo = '',
       @JsonKey(name: 'empmemb_emp_master_emp_number') this.employeeNo = '',
+      @JsonKey(name: 'emp_name') this.employeeName = '',
       @JsonKey(name: 'from_date') this.fromDate = '',
       @JsonKey(name: 'end_date') this.endDate = '',
       @JsonKey(name: 'travel_mode') this.travelMode = '',
@@ -236,7 +279,9 @@ class _$_TravelDetailsModel implements _TravelDetailsModel {
       @JsonKey(name: 'travel_purpose') this.purpose = '',
       @JsonKey(name: 'client_cd') this.clientId = '',
       @JsonKey(name: 'client_name') this.clientName = '',
-      @JsonKey(name: 'approval_status') this.approvalStatus = ''});
+      @JsonKey(name: 'approval_status') this.approvalStatus = '',
+      @JsonKey(name: 'from_city') this.fromCity = '',
+      @JsonKey(name: 'to_city') this.toCity = ''});
 
   factory _$_TravelDetailsModel.fromJson(Map<String, dynamic> json) =>
       _$$_TravelDetailsModelFromJson(json);
@@ -247,6 +292,9 @@ class _$_TravelDetailsModel implements _TravelDetailsModel {
   @override
   @JsonKey(name: 'empmemb_emp_master_emp_number')
   final String employeeNo;
+  @override
+  @JsonKey(name: 'emp_name')
+  final String employeeName;
   @override
   @JsonKey(name: 'from_date')
   final String fromDate;
@@ -271,10 +319,16 @@ class _$_TravelDetailsModel implements _TravelDetailsModel {
   @override
   @JsonKey(name: 'approval_status')
   final String approvalStatus;
+  @override
+  @JsonKey(name: 'from_city')
+  final String fromCity;
+  @override
+  @JsonKey(name: 'to_city')
+  final String toCity;
 
   @override
   String toString() {
-    return 'TravelDetailsModel(appNo: $appNo, employeeNo: $employeeNo, fromDate: $fromDate, endDate: $endDate, travelMode: $travelMode, totalDays: $totalDays, purpose: $purpose, clientId: $clientId, clientName: $clientName, approvalStatus: $approvalStatus)';
+    return 'TravelDetailsModel(appNo: $appNo, employeeNo: $employeeNo, employeeName: $employeeName, fromDate: $fromDate, endDate: $endDate, travelMode: $travelMode, totalDays: $totalDays, purpose: $purpose, clientId: $clientId, clientName: $clientName, approvalStatus: $approvalStatus, fromCity: $fromCity, toCity: $toCity)';
   }
 
   @override
@@ -285,6 +339,8 @@ class _$_TravelDetailsModel implements _TravelDetailsModel {
             (identical(other.appNo, appNo) || other.appNo == appNo) &&
             (identical(other.employeeNo, employeeNo) ||
                 other.employeeNo == employeeNo) &&
+            (identical(other.employeeName, employeeName) ||
+                other.employeeName == employeeName) &&
             (identical(other.fromDate, fromDate) ||
                 other.fromDate == fromDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
@@ -298,7 +354,10 @@ class _$_TravelDetailsModel implements _TravelDetailsModel {
             (identical(other.clientName, clientName) ||
                 other.clientName == clientName) &&
             (identical(other.approvalStatus, approvalStatus) ||
-                other.approvalStatus == approvalStatus));
+                other.approvalStatus == approvalStatus) &&
+            (identical(other.fromCity, fromCity) ||
+                other.fromCity == fromCity) &&
+            (identical(other.toCity, toCity) || other.toCity == toCity));
   }
 
   @JsonKey(ignore: true)
@@ -307,6 +366,7 @@ class _$_TravelDetailsModel implements _TravelDetailsModel {
       runtimeType,
       appNo,
       employeeNo,
+      employeeName,
       fromDate,
       endDate,
       travelMode,
@@ -314,7 +374,9 @@ class _$_TravelDetailsModel implements _TravelDetailsModel {
       purpose,
       clientId,
       clientName,
-      approvalStatus);
+      approvalStatus,
+      fromCity,
+      toCity);
 
   @JsonKey(ignore: true)
   @override
@@ -333,26 +395,19 @@ class _$_TravelDetailsModel implements _TravelDetailsModel {
 
 abstract class _TravelDetailsModel implements TravelDetailsModel {
   const factory _TravelDetailsModel(
-      {@JsonKey(name: 'app_no')
-          final String appNo,
-      @JsonKey(name: 'empmemb_emp_master_emp_number')
-          final String employeeNo,
-      @JsonKey(name: 'from_date')
-          final String fromDate,
-      @JsonKey(name: 'end_date')
-          final String endDate,
-      @JsonKey(name: 'travel_mode')
-          final String travelMode,
-      @JsonKey(name: 'total_days_of_travel')
-          final String totalDays,
-      @JsonKey(name: 'travel_purpose')
-          final String purpose,
-      @JsonKey(name: 'client_cd')
-          final String clientId,
-      @JsonKey(name: 'client_name')
-          final String clientName,
-      @JsonKey(name: 'approval_status')
-          final String approvalStatus}) = _$_TravelDetailsModel;
+      {@JsonKey(name: 'app_no') final String appNo,
+      @JsonKey(name: 'empmemb_emp_master_emp_number') final String employeeNo,
+      @JsonKey(name: 'emp_name') final String employeeName,
+      @JsonKey(name: 'from_date') final String fromDate,
+      @JsonKey(name: 'end_date') final String endDate,
+      @JsonKey(name: 'travel_mode') final String travelMode,
+      @JsonKey(name: 'total_days_of_travel') final String totalDays,
+      @JsonKey(name: 'travel_purpose') final String purpose,
+      @JsonKey(name: 'client_cd') final String clientId,
+      @JsonKey(name: 'client_name') final String clientName,
+      @JsonKey(name: 'approval_status') final String approvalStatus,
+      @JsonKey(name: 'from_city') final String fromCity,
+      @JsonKey(name: 'to_city') final String toCity}) = _$_TravelDetailsModel;
 
   factory _TravelDetailsModel.fromJson(Map<String, dynamic> json) =
       _$_TravelDetailsModel.fromJson;
@@ -363,6 +418,9 @@ abstract class _TravelDetailsModel implements TravelDetailsModel {
   @override
   @JsonKey(name: 'empmemb_emp_master_emp_number')
   String get employeeNo;
+  @override
+  @JsonKey(name: 'emp_name')
+  String get employeeName;
   @override
   @JsonKey(name: 'from_date')
   String get fromDate;
@@ -387,6 +445,12 @@ abstract class _TravelDetailsModel implements TravelDetailsModel {
   @override
   @JsonKey(name: 'approval_status')
   String get approvalStatus;
+  @override
+  @JsonKey(name: 'from_city')
+  String get fromCity;
+  @override
+  @JsonKey(name: 'to_city')
+  String get toCity;
   @override
   @JsonKey(ignore: true)
   _$$_TravelDetailsModelCopyWith<_$_TravelDetailsModel> get copyWith =>

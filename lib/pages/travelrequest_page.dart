@@ -114,7 +114,7 @@ class _TravelRequestMainPageState extends State<TravelRequestMainPage> with Sing
       child: ElevatedButton(
           onPressed: ()  {
             Navigator.pushNamed(context, AppRoutes.travelRequestPage);
-            },
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.red,
             fixedSize: Size(60.dw, 40.dh),
@@ -167,7 +167,7 @@ class _TravelRequestHistoryState extends State<TravelRequestHistory> {
     return const Center(child: CircularProgressIndicator());
   }
 
- Widget _buildMyTravel(TravelDetailsListModel trvelModel){
+  Widget _buildMyTravel(TravelDetailsListModel trvelModel){
     return SingleChildScrollView(
       child: Column(
         // shrinkWrap: true,
@@ -178,7 +178,7 @@ class _TravelRequestHistoryState extends State<TravelRequestHistory> {
     );
   }
 
- Widget _buildTravelDetailsCard(TravelDetailsModel model)  {
+  Widget _buildTravelDetailsCard(TravelDetailsModel model)  {
     return  Card(
       elevation: 10.dw,
       color: Colors.grey.shade50,
@@ -200,6 +200,28 @@ class _TravelRequestHistoryState extends State<TravelRequestHistory> {
                         color: AppColors.black,
                         fontSize: 16.dw,
                         fontWeight: FontWeight.w500),
+                  ),
+                  Text(
+                    "${model.fromCity}  -  ${model.toCity}",
+                    style: TextStyle(
+                        color: AppColors.black,
+                        fontSize: 16.dw,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  Text(
+                    "App No  -  ${model.appNo}",
+                    style: TextStyle(
+                        color: AppColors.navyblue,
+                        fontSize: 14.dw,
+                        fontWeight: FontWeight.w400),
+                  ),
+
+                  Text(
+                    "Mode  -  ${model.travelMode}",
+                    style: TextStyle(
+                        color: AppColors.navyblue,
+                        fontSize: 14.dw,
+                        fontWeight: FontWeight.w400),
                   ),
                   Text(
                     "Days  -  ${model.totalDays}",
@@ -312,6 +334,15 @@ class _TravelRequestApprovalState extends State<TravelRequestApproval> {
           ),
           const SizedBox(height: 5,),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildBoldText(title: "Employee Name"),
+              _buildcolon(),
+              _buildApproveText(title: "${model.employeeName}(${model.employeeNo})")
+            ],
+          ),
+          const SizedBox(height: 5,),
+          Row(
             children: [
               _buildBoldText(title: "App_No"),
               _buildcolon(),
@@ -334,6 +365,21 @@ class _TravelRequestApprovalState extends State<TravelRequestApproval> {
               _buildApproveText(title:model.endDate),
             ],
           ),
+          Row(
+            children: [
+              _buildBoldText(title: "From City"),
+              _buildcolon(),
+              _buildApproveText(title:model.fromCity),
+            ],
+          ),
+          const SizedBox(height: 5,),
+          Row(
+            children: [
+              _buildBoldText(title: "To City"),
+              _buildcolon(),
+              _buildApproveText(title:model.toCity),
+            ],
+          ),
           const SizedBox(height: 5,),
           Row(
             children: [
@@ -352,15 +398,7 @@ class _TravelRequestApprovalState extends State<TravelRequestApproval> {
             ],
           ),
           const SizedBox(height: 5,),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildBoldText(title: "Employee Code"),
-              _buildcolon(),
-              _buildApproveText(title: model.employeeNo)
-            ],
-          ),
-          const SizedBox(height: 5,),
+
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -457,7 +495,7 @@ class _TravelRequestApprovalState extends State<TravelRequestApproval> {
               ],
             ),
             onPressed: () {
-               openRejectionDialog(model);
+              openRejectionDialog(model);
             },
           ),
         ),
@@ -477,7 +515,7 @@ class _TravelRequestApprovalState extends State<TravelRequestApproval> {
                   color: Colors.white),
             ),
             onPressed: () {
-               openApproveDialog(model);
+              openApproveDialog(model);
               //    approvedleaveBloc.init();
               // _approvalRejection(model, "A");
             },
