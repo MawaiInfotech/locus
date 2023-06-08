@@ -90,6 +90,7 @@ class AttendanceService {
 
     try {
       final location = await Geolocator.getCurrentPosition();
+      // location.isMocked;
       final results = await placemarkFromCoordinates(location.latitude, location.longitude);
       var address = Address();
       if (results.isNotEmpty) {

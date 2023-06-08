@@ -8,7 +8,6 @@ import 'package:locus/state/applytravel_state.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_top_bar.dart';
 import 'package:provider/provider.dart';
-
 import '../bloc/profilephoto_bloc.dart';
 import '../model/employeetraveldetails_model.dart';
 import '../routes/app_routes.dart';
@@ -55,11 +54,6 @@ class _TravelRequestMainPageState extends State<TravelRequestMainPage> with Sing
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: const AppTopBar(title: 'Travel Request',),
-        bottomNavigationBar: BottomAppBar(
-          child: _buildTravelRequestButton(),
-
-        ),
-
         body: Column(
           children: [
             SizedBox(
@@ -108,23 +102,8 @@ class _TravelRequestMainPageState extends State<TravelRequestMainPage> with Sing
         )
     );
   }
-  _buildTravelRequestButton() {
-    return Padding(
-      padding: EdgeInsets.all(10.0.dw),
-      child: ElevatedButton(
-          onPressed: ()  {
-            Navigator.pushNamed(context, AppRoutes.travelRequestPage);
-          },
-          style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.red,
-            fixedSize: Size(60.dw, 40.dh),
-          ),
-          child: Text(
-            "Request for travel",
-            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18.dw),
-          )),
-    );
-  }
+
+
 }
 
 class TravelRequestHistory extends StatefulWidget {
@@ -140,15 +119,21 @@ class _TravelRequestHistoryState extends State<TravelRequestHistory> {
 
   @override
   void initState() {
+    super.initState();
     final travelService = Provider.of<TravelRequestService>(context, listen: false);
     travelRequestBloc = EmployeeTravelRequestBloc(travelService);
     travelRequestBloc.init();
-    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return _buildBody();
+    return Scaffold(
+      bottomNavigationBar: BottomAppBar(
+        child: _buildTravelRequestButton(),
+        elevation: 0.0,
+      ),
+      body: _buildBody(),
+    );
   }
   _buildBody() {
     return BlocConsumer<EmployeeTravelRequestBloc, TravelDetailsListState>(
@@ -163,6 +148,7 @@ class _TravelRequestHistoryState extends State<TravelRequestHistory> {
       },
     );
   }
+
   Widget _buildLoading(TravelDetailsListModel model) {
     return const Center(child: CircularProgressIndicator());
   }
@@ -259,6 +245,26 @@ class _TravelRequestHistoryState extends State<TravelRequestHistory> {
           ],
         ),
       ),
+    );
+  }
+
+  _buildTravelRequestButton() {
+    return Padding(
+      padding: EdgeInsets.all(10.0.dw),
+      child: ElevatedButton(
+          onPressed: () async{
+            final shouldInit = await Navigator.pushNamed(context, AppRoutes.travelRequestPage) as bool?;
+            print(shouldInit);
+            if(shouldInit != null && shouldInit) travelRequestBloc.init();
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColors.red,
+            fixedSize: Size(60.dw, 40.dh),
+          ),
+          child: Text(
+            "Request for travel",
+            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18.dw),
+          )),
     );
   }
 }

@@ -14,6 +14,7 @@ import 'package:http/http.dart' as http;
 
 class TravelRequestService{
 
+  //travel project list
 
   Future<ProjectListModel?> getProjectListData() async {
     const url = '${root}travel_request_val';
@@ -29,6 +30,8 @@ class TravelRequestService{
     return ProjectListModel();
   }
 
+  //apply travel request
+
   Future<String?> getApplyTravel(Map<String, dynamic>data) async {
     const url = root + 'travel-requisition-save';
     final body = data;
@@ -36,7 +39,7 @@ class TravelRequestService{
       final response = await http.post(Uri.parse(url),
           body: json.encode(body), headers: getHeaders());
       final responseBody = json.decode(response.body);
-      if (responseBody['status'] == true) {
+      if (responseBody['status'] == 1) {
         return responseBody ['message'];
       }else{
         throw ApiError.fromResponse(responseBody['message']);

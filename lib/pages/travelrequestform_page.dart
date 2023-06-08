@@ -565,10 +565,8 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
         listener: (_, state) {
           state.maybeWhen(
               success: (_, message) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(message ?? "Something")));
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message ?? "Something")));
                 Navigator.pop(context, true);
-                // Navigator.pushNamed(context, AppRoutes.leaveApply);
               },
               failed: (_, message) {
                 ScaffoldMessenger.of(context)
@@ -607,6 +605,7 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
           });
         });
   }
+
   _applyTravel() async {
     final data = {
       'requisition_date': now_date.toString(),
@@ -620,7 +619,6 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
       'total_no_of_days': difference ,
     };
     await applyTravelBloc.applyTravel(data);
-    Navigator.pop(context);
   }
 
   _buildRow(String title, String value) {
