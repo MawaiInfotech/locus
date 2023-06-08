@@ -238,24 +238,27 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
       },
       child: Padding(
         padding: EdgeInsets.all(10.0.dw),
-        child: Container(
-            height: 50.dw,
-            // elevation: 10,
-            decoration: BoxDecoration(
-              color: Colors.blue.shade100,
-              borderRadius: BorderRadius.circular(10.0.dw),
-              // border: Border.all(color: AppColors.black)
-            ),
-            child: Padding(
-              padding: EdgeInsets.all(10.dw),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(clienName ?? "--Select Project--"),
-                  const Icon(Icons.arrow_drop_down)
-                ],
+        child: Card(
+          elevation: 10,
+          child: Container(
+              height: 50.dw,
+              // elevation: 10,
+              decoration: BoxDecoration(
+                color: Colors.blue.shade100,
+                borderRadius: BorderRadius.circular(10.0.dw),
+                // border: Border.all(color: AppColors.black)
               ),
-            )),
+              child: Padding(
+                padding: EdgeInsets.all(10.dw),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(clienName ?? "--Select Project--"),
+                    const Icon(Icons.arrow_drop_down)
+                  ],
+                ),
+              )),
+        ),
       ),
     );
   }
@@ -347,24 +350,27 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
       },
       child: Padding(
         padding: EdgeInsets.all(10.0.dw),
-        child: Container(
-            height: 50.dw,
-            // elevation: 10,
-            decoration: BoxDecoration(
-              color: Colors.blue.shade100,
-              borderRadius: BorderRadius.circular(10.0.dw),
-              //   border: Border.all(color: AppColors.black)
-            ),
-            child: Padding(
-              padding: EdgeInsets.all(10.dw),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(mode ?? header),
-                  const Icon(Icons.arrow_drop_down)
-                ],
+        child: Card(
+          elevation: 10,
+          child: Container(
+              height: 50.dw,
+              // elevation: 10,
+              decoration: BoxDecoration(
+                color: Colors.blue.shade100,
+                borderRadius: BorderRadius.circular(10.0.dw),
+                //   border: Border.all(color: AppColors.black)
               ),
-            )),
+              child: Padding(
+                padding: EdgeInsets.all(10.dw),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(mode ?? header),
+                    const Icon(Icons.arrow_drop_down)
+                  ],
+                ),
+              )),
+        ),
       ),
     );
   }
@@ -436,79 +442,82 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
       padding: EdgeInsets.all(10.dh),
       child: Column(
         children: [
-          Container(
-              padding: EdgeInsets.all(10.dw),
-              height: 50.dh,
-              //  width: MediaQuery.of(context).size.width / 2,
-              decoration: BoxDecoration(
-                // border: Border.all(
-                //     color: Colors.black
-                // ),
-                  borderRadius: BorderRadius.circular(10.dw),
-                  color: Colors.blue.shade100),
-              child: InkWell(
-                onTap: () {
-                  showDateRangePicker(
-                      context: context,
-                      builder: (context, child) {
-                        return Theme(
-                          data: Theme.of(context).copyWith(
-                            colorScheme: const ColorScheme.light(
-                              primary: Colors.blue,
-                              onPrimary: Colors.white,
-                              onSurface: Colors.black,
-                            ),
-                            textButtonTheme: TextButtonThemeData(
-                              style: TextButton.styleFrom(
-                                primary: Colors.white,
-                                backgroundColor: AppColors.brown,
-                                textStyle: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: AppColors.black),
+          Card(
+            elevation: 10,
+            child: Container(
+                padding: EdgeInsets.all(10.dw),
+                height: 50.dh,
+                //  width: MediaQuery.of(context).size.width / 2,
+                decoration: BoxDecoration(
+                  // border: Border.all(
+                  //     color: Colors.black
+                  // ),
+                    borderRadius: BorderRadius.circular(10.dw),
+                    color: Colors.blue.shade100),
+                child: InkWell(
+                  onTap: () {
+                    showDateRangePicker(
+                        context: context,
+                        builder: (context, child) {
+                          return Theme(
+                            data: Theme.of(context).copyWith(
+                              colorScheme: const ColorScheme.light(
+                                primary: Colors.blue,
+                                onPrimary: Colors.white,
+                                onSurface: Colors.black,
+                              ),
+                              textButtonTheme: TextButtonThemeData(
+                                style: TextButton.styleFrom(
+                                  primary: Colors.white,
+                                  backgroundColor: AppColors.brown,
+                                  textStyle: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: AppColors.black),
+                                ),
                               ),
                             ),
-                          ),
-                          child: child!,
-                        );
-                      },
-                      helpText: 'Select Date',
-                      initialEntryMode: DatePickerEntryMode.calendarOnly,
-                      firstDate: DateTime.now().subtract(const Duration(days: 90)),
-                      lastDate: DateTime.now().add(const Duration(days: 365)),
-                      errorFormatText: "Invalid Format",
-                      errorInvalidRangeText: "Invalid Range",
-                      fieldStartHintText: "Start Date",
-                      fieldEndHintText: "End Date")
-                      .then((pickedDate) {
-                    if (pickedDate == null) {
-                      return;
-                    }
-                    setState(() {
-                      dateTimeRange = pickedDate;
+                            child: child!,
+                          );
+                        },
+                        helpText: 'Select Date',
+                        initialEntryMode: DatePickerEntryMode.calendarOnly,
+                        firstDate: DateTime.now().subtract(const Duration(days: 90)),
+                        lastDate: DateTime.now().add(const Duration(days: 365)),
+                        errorFormatText: "Invalid Format",
+                        errorInvalidRangeText: "Invalid Range",
+                        fieldStartHintText: "Start Date",
+                        fieldEndHintText: "End Date")
+                        .then((pickedDate) {
+                      if (pickedDate == null) {
+                        return;
+                      }
+                      setState(() {
+                        dateTimeRange = pickedDate;
 
-                      difference = pickedDate.end.difference(pickedDate.start).inDays + 1;
-                      fromDate = DateFormat('yyyy-MM-dd').format(pickedDate.start);
-                      toDate = DateFormat('yyyy-MM-dd').format(pickedDate.end);
+                        difference = pickedDate.end.difference(pickedDate.start).inDays + 1;
+                        fromDate = DateFormat('yyyy-MM-dd').format(pickedDate.start);
+                        toDate = DateFormat('yyyy-MM-dd').format(pickedDate.end);
 
+                      });
                     });
-                  });
 
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Image.asset(
-                      "assets/images/from_date.png",
-                      scale: 3.dw,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 10.dw),
-                      child: Text(fromDate ?? now_date),
-                    ),
-                  ],
-                ),
-              )),
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        "assets/images/from_date.png",
+                        scale: 3.dw,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 10.dw),
+                        child: Text(fromDate ?? now_date),
+                      ),
+                    ],
+                  ),
+                )),
+          ),
         ],
       ),
     );
@@ -521,26 +530,29 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
       padding: EdgeInsets.all(10.dh),
       child: Column(
         children: [
-          Container(
-            padding: EdgeInsets.all(10.dw),
-            // height: 50.dh,
-            // width: MediaQuery.of(context).size.width / 3,
-            decoration: BoxDecoration(
+          Card(
+            elevation: 10,
+            child: Container(
+              padding: EdgeInsets.all(10.dw),
+              // height: 50.dh,
+              // width: MediaQuery.of(context).size.width / 3,
+              decoration: BoxDecoration(
 
-                borderRadius: BorderRadius.circular(10.dw),
-                color: Colors.blue.shade100),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Image.asset(
-                  "assets/images/from_date.png",
-                  scale: 3.dw,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 10.dw),
-                  child: Text(toDate ?? now_date),
-                ),
-              ],
+                  borderRadius: BorderRadius.circular(10.dw),
+                  color: Colors.blue.shade100),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    "assets/images/from_date.png",
+                    scale: 3.dw,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10.dw),
+                    child: Text(toDate ?? now_date),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
