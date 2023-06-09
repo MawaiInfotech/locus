@@ -47,7 +47,7 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
   var gender;
   var fromDate=DateFormat('yyyy-MM-dd').format(DateTime.now());
   var toDate=DateFormat('yyyy-MM-dd').format(DateTime.now());
-  var difference;
+  var difference=1;
 
   late DateTimeRange dateTimeRange =
   DateTimeRange(start: DateTime.now(), end: DateTime.now());
@@ -78,7 +78,6 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
   void disposeValues() {
     fromDate = "Select Date";
     toDate = "";
-    difference = "";
     dateTimeRange = DateTimeRange(start: DateTime.now(), end: DateTime.now());
     setState(() {});
   }
