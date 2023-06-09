@@ -240,7 +240,7 @@ class _TravelRequestHistoryState extends State<TravelRequestHistory> {
             )),
             if(model.approvalStatus == "P")(Padding(
               padding: EdgeInsets.only(right: 10.dw, top: 10.dw),
-              child: Image.asset("assets/images/pending.png", scale: 16.dw,),
+              child: Image.asset("assets/images/pending1.jpg", scale: 6.dw,),
             ))
           ],
         ),
