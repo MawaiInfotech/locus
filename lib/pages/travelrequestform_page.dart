@@ -9,7 +9,6 @@ import 'package:locus/service/travelrequest_service.dart';
 import 'package:locus/state/projectlist_state.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:locus/widgets/app_top_bar.dart';
-
 import '../bloc/profilephoto_bloc.dart';
 import '../state/applytravel_state.dart';
 import '../themes/app_colors.dart';
@@ -558,6 +557,7 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
       ),
     );
   }
+
   _buildSubmitButton() {
     return BlocConsumer<ApplyTravelBloc, ApplyTravelState>(
         bloc: applyTravelBloc,
