@@ -201,7 +201,6 @@ class _TravelRequestHistoryState extends State<TravelRequestHistory> {
                         fontSize: 14.dw,
                         fontWeight: FontWeight.w400),
                   ),
-
                   Text(
                     "Mode  -  ${model.travelMode}",
                     style: TextStyle(
@@ -254,7 +253,6 @@ class _TravelRequestHistoryState extends State<TravelRequestHistory> {
       child: ElevatedButton(
           onPressed: () async{
             final shouldInit = await Navigator.pushNamed(context, AppRoutes.travelRequestPage) as bool?;
-            print(shouldInit);
             if(shouldInit != null && shouldInit) travelRequestBloc.init();
           },
           style: ElevatedButton.styleFrom(

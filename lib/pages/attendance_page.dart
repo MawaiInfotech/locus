@@ -999,10 +999,10 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
 
   Future<void> _getCurrentPosition() async {
     final hasPermission = await _handleLocationPermission();
-
     if (!hasPermission) return;
-    await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high)
-        .then((Position position) {
+    await Geolocator.getCurrentPosition(
+        forceAndroidLocationManager: true,
+        desiredAccuracy: LocationAccuracy.medium).then((Position position) {
       setState(() => _currentPosition = position);
       setState(() {
         _getAddressFromLatLng(_currentPosition!);

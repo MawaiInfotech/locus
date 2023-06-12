@@ -153,13 +153,13 @@ class _LoginPageState extends State<LoginPage> {
               final isSuccess = state.maybeWhen(success: (_) => true, orElse: () => false);
               if (isSuccess) {
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content: Text("Login Successfull"),
+                  content: Text("Login Successfully"),
                   duration: Duration(milliseconds: 500),
                 ));
                 final userFroms = Hive.box("userFrom").get("userFrom");
-                if(userFroms=="R")
-                Navigator.popAndPushNamed(context, AppRoutes.dummyattendancepage);
-                else{
+                if(userFroms=="R") {
+                  Navigator.popAndPushNamed(context, AppRoutes.dummyattendancepage);
+                } else{
                   Navigator.popAndPushNamed(context, AppRoutes.navigationPage);
                }
               }
@@ -221,7 +221,7 @@ class _LoginPageState extends State<LoginPage> {
                     ))
               ],
             ),
-            Text("V 3.1.0+2", style: TextStyle(fontSize: 12.dw),)
+            Text("V 3.1.1+2", style: TextStyle(fontSize: 12.dw),)
           ],
         ),
        

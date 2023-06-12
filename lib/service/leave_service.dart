@@ -99,9 +99,6 @@ class LeaveService {
     }
   }
 
-
-
-
   _handleError(var e) {
     if (e is String) throw e;
     if (e is SocketException) throw ApiError.internet();
