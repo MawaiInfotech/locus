@@ -712,6 +712,8 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
   }
 
   Future<bool> showConfirmationDialog(file) async {
+    final location = await Geolocator.getCurrentPosition();
+    getData();
     checkInCallback() async {
       final bloc = context.read<CheckLoginBloc>();
       await bloc.checkIn(remarkController.text, selectedOutput, file);
@@ -755,7 +757,28 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
                       ),
                       onPressed: () async {
                         final isGrantedPermission = await context.read<CheckLoginBloc>().checkIfPermissionIsGiven();
-                        if (isGrantedPermission) {
+                        if(location.isMocked == true)
+                        {
+                          Navigator.pop(context);
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: Center(child: Icon(Icons.warning_amber,size: 60,color: AppColors.red,)),
+                              content: Text("Alert! You are using mock location!",style: TextStyle(color: AppColors.red,
+                                  fontWeight: FontWeight.bold),),
+                              actions: [
+                                TextButton(
+                                  style:  ButtonStyle(
+                                    backgroundColor: MaterialStatePropertyAll(AppColors.red),
+                                  ),
+                                  child: Text('Close',style: TextStyle(color: AppColors.white),),
+                                  onPressed: () => Navigator.of(context).pop(),
+                                ),
+                              ],
+                            ),
+                          );
+                        }
+                       else if (isGrantedPermission) {
                           checkInCallback();
                           Navigator.pop(context);
                         } else {
@@ -811,6 +834,8 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
   }
 
   Future<bool> showConfirmationCheckOutDialog(file) async {
+    final location = await Geolocator.getCurrentPosition();
+    getData();
     checkInCallback() async {
       final bloc = context.read<CheckLoginBloc>();
       await bloc.checkOut(remarkController.text, selectedOutput, file);
@@ -855,7 +880,28 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
                         final isGrantedPermission = await context
                             .read<CheckLoginBloc>()
                             .checkIfPermissionIsGiven();
-                        if (isGrantedPermission) {
+                        if(location.isMocked == true)
+                        {
+                          Navigator.pop(context);
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: Center(child: Icon(Icons.warning_amber,size: 60,color: AppColors.red,)),
+                              content: Text("Alert! You are using mock location!",style: TextStyle(color: AppColors.red,
+                                  fontWeight: FontWeight.bold),),
+                              actions: [
+                                TextButton(
+                                  style:  ButtonStyle(
+                                    backgroundColor: MaterialStatePropertyAll(AppColors.red),
+                                  ),
+                                  child: Text('Close',style: TextStyle(color: AppColors.white),),
+                                  onPressed: () => Navigator.of(context).pop(),
+                                ),
+                              ],
+                            ),
+                          );
+                        }
+                       else if (isGrantedPermission) {
                           checkInCallback();
                           Navigator.pop(context);
                         } else {

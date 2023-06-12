@@ -43,7 +43,6 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
   var clienCode;
   var mode="By Cab/Taxi";
   var modeCode="C";
-  var gender;
   var fromDate=DateFormat('yyyy-MM-dd').format(DateTime.now());
   var toDate=DateFormat('yyyy-MM-dd').format(DateTime.now());
   var difference=1;
@@ -532,8 +531,6 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
             elevation: 10,
             child: Container(
               padding: EdgeInsets.all(10.dw),
-              // height: 50.dh,
-              // width: MediaQuery.of(context).size.width / 3,
               decoration: BoxDecoration(
 
                   borderRadius: BorderRadius.circular(10.dw),
