@@ -29,7 +29,8 @@ class AttendancePage extends StatefulWidget {
   State<AttendancePage> createState() => _AttendancePageState();
 }
 
-class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObserver{
+class _AttendancePageState extends State<AttendancePage>
+    with WidgetsBindingObserver {
   late final LoginModel loginModel;
 
   late LatLng currentPostion;
@@ -60,12 +61,12 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
 
   final hasLoadedDataNotifier = ValueNotifier<bool>(false);
 
-
   @override
   void initState() {
-    loginModel = Provider.of<LoginService>(context, listen: false).getCurrentUser!;
+    loginModel =
+        Provider.of<LoginService>(context, listen: false).getCurrentUser!;
     context.read<CheckLoginBloc>().init();
-  // loadData();
+    // loadData();
     getData();
     initTimer();
 
@@ -85,12 +86,12 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
   }
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state)async {
+  void didChangeAppLifecycleState(AppLifecycleState state) async {
     if (state == AppLifecycleState.resumed) {
-     // print("Hello");
-  await context.read<CheckLoginBloc>().init();
+      // print("Hello");
+      await context.read<CheckLoginBloc>().init();
       setState(() {});
-    }else{
+    } else {
       //print("Not NOt");
     }
   }
@@ -105,7 +106,7 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
     });
     _getCurrentPosition();
     _getUserLocation();
-   // print(permissionPopup);
+    // print(permissionPopup);
   }
 
   _showDialog() async {
@@ -121,7 +122,7 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
                 Text(
                   "Location Permission",
                   style:
-                  TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),
+                      TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),
                 ),
                 const Text(
                   "Locus needs your location coordinates for a host of activities – attendance management,to coordinate with your field teams and to make possible your travel reimbursement claims.",
@@ -129,7 +130,7 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
                 Text(
                   "Camera Permission",
                   style:
-                  TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),
+                      TextStyle(fontWeight: FontWeight.w600, fontSize: 16.dw),
                 ),
                 const Text(
                   "This is to check whether the person himself/herself is marking the attendance.\nFurther , This is to enable our users to capture and attach photos of their expense bills while submitting for reimbursement.\n It also helps them attach photos while collecting data through custom forms.",
@@ -141,7 +142,7 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
                 child: ElevatedButton(
                     onPressed: () async {
                       SharedPreferences prefs =
-                      await SharedPreferences.getInstance();
+                          await SharedPreferences.getInstance();
                       prefs.setBool("permissionPopup", true);
                       Navigator.pop(context);
                       _getCurrentPosition();
@@ -192,12 +193,15 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             _buildDateTime(
-              dateFormat: DateFormat("EEE, MMM- dd - yyyy").format(DateTime.now()),
+              dateFormat:
+                  DateFormat("EEE, MMM- dd - yyyy").format(DateTime.now()),
             ),
             ValueListenableBuilder(
                 valueListenable: secondNotifier,
                 builder: (_, ___, __) {
-                  return _buildDateTime(dateFormat: DateFormat("hh:mm aaa").format(DateTime.now()));
+                  return _buildDateTime(
+                      dateFormat:
+                          DateFormat("hh:mm aaa").format(DateTime.now()));
                 }),
           ],
         ),
@@ -216,7 +220,7 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
                   maxLines: 2,
                   textAlign: TextAlign.center,
                   style:
-                  TextStyle(fontWeight: FontWeight.w400, fontSize: 16.dw),
+                      TextStyle(fontWeight: FontWeight.w400, fontSize: 16.dw),
                 ),
               ),
               InkWell(
@@ -327,8 +331,7 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
             children: [
               _buildText(
                   title:
-                  "${loginModel.emp_first_name!} ${loginModel
-                      .emp_last_name!} - ${loginModel.emp_cd!}"),
+                      "${loginModel.emp_first_name!} ${loginModel.emp_last_name!} - ${loginModel.emp_cd!}"),
               _buildText(title: loginModel.description ?? "")
             ],
           )
@@ -352,9 +355,9 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
         elevation: 10,
         margin: EdgeInsets.only(left: 10.dw, right: 10.dw, bottom: 10.dw),
         shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.dw)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.dw)),
         child:
-        BlocBuilder<CheckLoginBloc, CheckLoginState>(builder: (_, state) {
+            BlocBuilder<CheckLoginBloc, CheckLoginState>(builder: (_, state) {
           final hasCheckIn = state.form.checkInData != null;
           final address = hasCheckIn ? state.form.checkInData?.address : null;
           final isLoading = state.maybeWhen(
@@ -376,45 +379,45 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
                 child: Text(
                   "First Check-In",
                   style:
-                  TextStyle(fontWeight: FontWeight.w400, fontSize: 16.dw),
+                      TextStyle(fontWeight: FontWeight.w400, fontSize: 16.dw),
                   textAlign: TextAlign.center,
                 ),
               ),
               isLoading
                   ? Padding(
-                padding: EdgeInsets.all(8.0.dw),
-                child: Center(
-                    child: SizedBox(
-                        width: 20.dw,
-                        height: 20.dw,
-                        child: CircularProgressIndicator(
-                            color: AppColors.red))),
-              )
+                      padding: EdgeInsets.all(8.0.dw),
+                      child: Center(
+                          child: SizedBox(
+                              width: 20.dw,
+                              height: 20.dw,
+                              child: CircularProgressIndicator(
+                                  color: AppColors.red))),
+                    )
                   : Column(
-                children: [
-                  Center(
-                    child: _buildDateTime(
-                        dateFormat: hasCheckIn
-                            ? DateFormat("hh:mm aa").format(
-                            DateFormat("yyyy-MM-dd hh:mm:ss").parse(
-                                state.form.checkInData?.officepunch ??
-                                    ""))
-                            : "--"),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: 10.dw, right: 10.dw, bottom: 5.dw),
-                    child: Text(
-                      address == null
-                          ? " Please check-in"
-                          : "Address : $address",
-                      style: TextStyle(fontSize: 16.dw),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  )
-                ],
-              )
+                      children: [
+                        Center(
+                          child: _buildDateTime(
+                              dateFormat: hasCheckIn
+                                  ? DateFormat("hh:mm aa").format(
+                                      DateFormat("yyyy-MM-dd hh:mm:ss").parse(
+                                          state.form.checkInData?.officepunch ??
+                                              ""))
+                                  : "--"),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: 10.dw, right: 10.dw, bottom: 5.dw),
+                          child: Text(
+                            address == null
+                                ? " Please check-in"
+                                : "Address : $address",
+                            style: TextStyle(fontSize: 16.dw),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        )
+                      ],
+                    )
             ],
           );
         }),
@@ -430,12 +433,12 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
         elevation: 10,
         margin: EdgeInsets.only(left: 10.dw, right: 10.dw, top: 10.dw),
         shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.dw)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.dw)),
         child: BlocBuilder<CheckLoginBloc, CheckLoginState>(
           builder: (_, state) {
             final hasCheckOut = state.form.checkOutData != null;
             final checkOutAddress =
-            hasCheckOut ? state.form.checkOutData?.address : null;
+                hasCheckOut ? state.form.checkOutData?.address : null;
             final isLoading = state.maybeWhen(
                 loading: (action, _) => action == AttendanceAction.checkOut,
                 orElse: () => false);
@@ -462,40 +465,40 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
                 ),
                 isLoading
                     ? Padding(
-                  padding: EdgeInsets.all(8.0.dw),
-                  child: Center(
-                      child: SizedBox(
-                          width: 20.dw,
-                          height: 20.dw,
-                          child: CircularProgressIndicator(
-                              color: AppColors.red))),
-                )
+                        padding: EdgeInsets.all(8.0.dw),
+                        child: Center(
+                            child: SizedBox(
+                                width: 20.dw,
+                                height: 20.dw,
+                                child: CircularProgressIndicator(
+                                    color: AppColors.red))),
+                      )
                     : Column(
-                  children: [
-                    Center(
-                      child: _buildDateTime(
-                          dateFormat: hasCheckOut
-                              ? DateFormat("hh:mm aa").format(
-                              DateFormat("yyyy-MM-dd hh:mm:ss").parse(
-                                  state.form.checkOutData
-                                      ?.officepunch ??
-                                      ""))
-                              : "--"),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          left: 10.dw, right: 10.dw, bottom: 5.dw),
-                      child: Text(
-                        checkOutAddress == null
-                            ? " Please check-out"
-                            : "Address : $checkOutAddress",
-                        style: TextStyle(fontSize: 16.dw),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    )
-                  ],
-                )
+                        children: [
+                          Center(
+                            child: _buildDateTime(
+                                dateFormat: hasCheckOut
+                                    ? DateFormat("hh:mm aa").format(
+                                        DateFormat("yyyy-MM-dd hh:mm:ss").parse(
+                                            state.form.checkOutData
+                                                    ?.officepunch ??
+                                                ""))
+                                    : "--"),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                left: 10.dw, right: 10.dw, bottom: 5.dw),
+                            child: Text(
+                              checkOutAddress == null
+                                  ? " Please check-out"
+                                  : "Address : $checkOutAddress",
+                              style: TextStyle(fontSize: 16.dw),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          )
+                        ],
+                      )
               ],
             );
           },
@@ -511,14 +514,15 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
         width: ScreenSizeConfig.getFullWidth / 1.1,
         child: ElevatedButton(
             onPressed: () async {
-              XFile? imagePicture =  await launchCustomImagePicker(context);
+              XFile? imagePicture = await launchCustomImagePicker(context);
 
-             // print(imagePicture!.path);
+              // print(imagePicture!.path);
 
               showConfirmationDialog(imagePicture!.path);
             },
             style: ElevatedButton.styleFrom(
-                elevation: 10.dw, backgroundColor: AppColors.navyblue,
+                elevation: 10.dw,
+                backgroundColor: AppColors.navyblue,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.dw))),
             child: Text(
@@ -565,13 +569,14 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
               //   if (file!.path != null);
               // });
 
-           XFile? imagePicture =  await launchCustomImagePicker(context);
+              XFile? imagePicture = await launchCustomImagePicker(context);
 
-           //print(imagePicture!.path);
-           showConfirmationCheckOutDialog(imagePicture!.path);
+              //print(imagePicture!.path);
+              showConfirmationCheckOutDialog(imagePicture!.path);
             },
             style: ElevatedButton.styleFrom(
-                elevation: 10.dw, backgroundColor: AppColors.red,
+                elevation: 10.dw,
+                backgroundColor: AppColors.red,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.dw))),
             child: Text(
@@ -733,103 +738,124 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
     }
 
     return await showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            content: const Text("Are you sure you want to Check In"),
-            actions: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.red,
-                        minimumSize: Size(80.dw, 50.dh),
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pop(false);
-                      },
-                      child: const Text("No")),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.portalgreen,
-                        minimumSize: Size(80.dw, 50.dh),
-                      ),
-                      onPressed: () async {
-                        final isGrantedPermission = await context.read<CheckLoginBloc>().checkIfPermissionIsGiven();
-                        if(location.isMocked == true)
-                        {
-                          Navigator.pop(context);
-                          showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(
-                              title: Center(child: Icon(Icons.warning_amber,size: 60,color: AppColors.red,)),
-                              content: Text("Alert! You are using mock location!",style: TextStyle(color: AppColors.red,
-                                  fontWeight: FontWeight.bold),),
-                              actions: [
-                                TextButton(
-                                  style:  ButtonStyle(
-                                    backgroundColor: MaterialStatePropertyAll(AppColors.red),
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                content: const Text("Are you sure you want to Check In"),
+                actions: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.red,
+                            minimumSize: Size(80.dw, 50.dh),
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).pop(false);
+                          },
+                          child: const Text("No")),
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.portalgreen,
+                            minimumSize: Size(80.dw, 50.dh),
+                          ),
+                          onPressed: () async {
+                            final isGrantedPermission = await context
+                                .read<CheckLoginBloc>()
+                                .checkIfPermissionIsGiven();
+                            if (location.isMocked == true) {
+                              Navigator.pop(context);
+                              showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: Center(
+                                      child: Icon(
+                                    Icons.warning_amber,
+                                    size: 60,
+                                    color: AppColors.red,
+                                  )),
+                                  content: Text(
+                                    "Alert! You are using mock location!",
+                                    style: TextStyle(
+                                        color: AppColors.red,
+                                        fontWeight: FontWeight.bold),
                                   ),
-                                  child: Text('Close',style: TextStyle(color: AppColors.white),),
-                                  onPressed: () => Navigator.of(context).pop(),
-                                ),
-                              ],
-                            ),
-                          );
-                        }
-                       else if (isGrantedPermission) {
-                          checkInCallback();
-                          Navigator.pop(context);
-                        } else {
-                          Navigator.pop(context);
-                          showDialog(
-                              context: context,
-                              builder: (_) {
-                                return Dialog(
-                                  backgroundColor: AppColors.white,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                      BorderRadius.circular(20.dw)),
-                                  child: SizedBox(
-                                    height: 200.dh,
-                                    child: Column(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.center,
-                                      //mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.all(10.0.dh),
-                                          child: const Text(
-                                              'Location permission is needed to use this feature.'),
-                                        ),
-                                        //SizedBox(height: 10),
-                                        ElevatedButton(
-                                            onPressed: () async {
-                                              final isGrantedPermission = await context.read<CheckLoginBloc>().requestPermission();
-                                              if (isGrantedPermission) {
-                                                checkInCallback();
-                                                Navigator.pop(context);
-                                              }
-                                              // showOptionsDialog(context);
-                                            },
-                                            style: ElevatedButton.styleFrom(
-                                                backgroundColor: AppColors.brown),
-                                            child: const Text(
-                                                'Check Permisssions')),
-                                      ],
+                                  actions: [
+                                    TextButton(
+                                      style: ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStatePropertyAll(
+                                                AppColors.red),
+                                      ),
+                                      child: Text(
+                                        'Close',
+                                        style:
+                                            TextStyle(color: AppColors.white),
+                                      ),
+                                      onPressed: () =>
+                                          Navigator.of(context).pop(),
                                     ),
-                                  ),
-                                );
-                              });
-                        }
-                      },
-                      child: const Text("Yes")),
+                                  ],
+                                ),
+                              );
+                            } else if (isGrantedPermission) {
+                              checkInCallback();
+                              Navigator.pop(context);
+                            } else {
+                              Navigator.pop(context);
+                              showDialog(
+                                  context: context,
+                                  builder: (_) {
+                                    return Dialog(
+                                      backgroundColor: AppColors.white,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20.dw)),
+                                      child: SizedBox(
+                                        height: 200.dh,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          //mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsets.all(10.0.dh),
+                                              child: const Text(
+                                                  'Location permission is needed to use this feature.'),
+                                            ),
+                                            //SizedBox(height: 10),
+                                            ElevatedButton(
+                                                onPressed: () async {
+                                                  final isGrantedPermission =
+                                                      await context
+                                                          .read<
+                                                              CheckLoginBloc>()
+                                                          .requestPermission();
+                                                  if (isGrantedPermission) {
+                                                    checkInCallback();
+                                                    Navigator.pop(context);
+                                                  }
+                                                  // showOptionsDialog(context);
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                    backgroundColor:
+                                                        AppColors.brown),
+                                                child: const Text(
+                                                    'Check Permisssions')),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  });
+                            }
+                          },
+                          child: const Text("Yes")),
+                    ],
+                  )
                 ],
-              )
-            ],
-          );
-        }) ??
+              );
+            }) ??
         false;
   }
 
@@ -854,115 +880,130 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
     }
 
     return await showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            content: const Text("Are you sure you want to Check Out ?"),
-            actions: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.red,
-                        minimumSize: Size(80.dw, 50.dh),
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pop(false);
-                      },
-                      child: const Text("No")),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.portalgreen,
-                        minimumSize: Size(80.dw, 50.dh),
-                      ),
-                      onPressed: () async {
-                        final isGrantedPermission = await context
-                            .read<CheckLoginBloc>()
-                            .checkIfPermissionIsGiven();
-                        if(location.isMocked == true)
-                        {
-                          Navigator.pop(context);
-                          showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(
-                              title: Center(child: Icon(Icons.warning_amber,size: 60,color: AppColors.red,)),
-                              content: Text("Alert! You are using mock location!",style: TextStyle(color: AppColors.red,
-                                  fontWeight: FontWeight.bold),),
-                              actions: [
-                                TextButton(
-                                  style:  ButtonStyle(
-                                    backgroundColor: MaterialStatePropertyAll(AppColors.red),
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                content: const Text("Are you sure you want to Check Out ?"),
+                actions: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.red,
+                            minimumSize: Size(80.dw, 50.dh),
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).pop(false);
+                          },
+                          child: const Text("No")),
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.portalgreen,
+                            minimumSize: Size(80.dw, 50.dh),
+                          ),
+                          onPressed: () async {
+                            final isGrantedPermission = await context
+                                .read<CheckLoginBloc>()
+                                .checkIfPermissionIsGiven();
+                            if (location.isMocked == true) {
+                              Navigator.pop(context);
+                              showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: Center(
+                                      child: Icon(
+                                    Icons.warning_amber,
+                                    size: 60,
+                                    color: AppColors.red,
+                                  )),
+                                  content: Text(
+                                    "Alert! You are using mock location!",
+                                    style: TextStyle(
+                                        color: AppColors.red,
+                                        fontWeight: FontWeight.bold),
                                   ),
-                                  child: Text('Close',style: TextStyle(color: AppColors.white),),
-                                  onPressed: () => Navigator.of(context).pop(),
-                                ),
-                              ],
-                            ),
-                          );
-                        }
-                       else if (isGrantedPermission) {
-                          checkInCallback();
-                          Navigator.pop(context);
-                        } else {
-                          Navigator.pop(context);
-                          showDialog(
-                              context: context,
-                              builder: (_) {
-                                return Dialog(
-                                  backgroundColor: AppColors.white,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                      BorderRadius.circular(20.dw)),
-                                  child: SizedBox(
-                                    height: 200.dh,
-                                    child: Column(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.center,
-                                      //mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.all(10.0.dh),
-                                          child: const Text(
-                                              'Location permission is needed to use this feature.'),
-                                        ),
-                                        //SizedBox(height: 10),
-                                        ElevatedButton(
-                                            onPressed: () async {
-                                              final isGrantedPermission =
-                                              await context
-                                                  .read<
-                                                  CheckLoginBloc>()
-                                                  .requestPermission();
-                                              if (isGrantedPermission) {
-                                                checkInCallback();
-                                                Navigator.pop(context);
-                                              }
-                                            },
-                                            style: ElevatedButton.styleFrom(
-                                                backgroundColor: AppColors.brown),
-                                            child: const Text(
-                                                'Check Permisssions')),
-                                      ],
+                                  actions: [
+                                    TextButton(
+                                      style: ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStatePropertyAll(
+                                                AppColors.red),
+                                      ),
+                                      child: Text(
+                                        'Close',
+                                        style:
+                                            TextStyle(color: AppColors.white),
+                                      ),
+                                      onPressed: () =>
+                                          Navigator.of(context).pop(),
                                     ),
-                                  ),
-                                );
-                              });
-                        }
-                      },
-                      child: const Text("Yes")),
+                                  ],
+                                ),
+                              );
+                            } else if (isGrantedPermission) {
+                              checkInCallback();
+                              Navigator.pop(context);
+                            } else {
+                              Navigator.pop(context);
+                              showDialog(
+                                  context: context,
+                                  builder: (_) {
+                                    return Dialog(
+                                      backgroundColor: AppColors.white,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20.dw)),
+                                      child: SizedBox(
+                                        height: 200.dh,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          //mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsets.all(10.0.dh),
+                                              child: const Text(
+                                                  'Location permission is needed to use this feature.'),
+                                            ),
+                                            //SizedBox(height: 10),
+                                            ElevatedButton(
+                                                onPressed: () async {
+                                                  final isGrantedPermission =
+                                                      await context
+                                                          .read<
+                                                              CheckLoginBloc>()
+                                                          .requestPermission();
+                                                  if (isGrantedPermission) {
+                                                    checkInCallback();
+                                                    Navigator.pop(context);
+                                                  }
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                    backgroundColor:
+                                                        AppColors.brown),
+                                                child: const Text(
+                                                    'Check Permisssions')),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  });
+                            }
+                          },
+                          child: const Text("Yes")),
+                    ],
+                  )
                 ],
-              )
-            ],
-          );
-        }) ??
+              );
+            }) ??
         false;
   }
 
   void _getUserLocation() async {
     var position = await GeolocatorPlatform.instance.getCurrentPosition(
         locationSettings:
-        const LocationSettings(accuracy: LocationAccuracy.best));
+            const LocationSettings(accuracy: LocationAccuracy.best));
     setState(() {
       currentPostion = LatLng(position.latitude, position.longitude);
     });
@@ -989,9 +1030,12 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
       }
     }
     if (permission == LocationPermission.deniedForever) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
           content: Text(
-              'Location permissions are permanently denied, we cannot request permissions.')));
+              'Location permissions are permanently denied, we cannot request permissions.'),
+        ),
+      );
       return false;
     }
     return true;
@@ -1014,18 +1058,17 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
 
   Future<void> _getAddressFromLatLng(Position position) async {
     await placemarkFromCoordinates(
-        _currentPosition!.latitude, _currentPosition!.longitude)
+            _currentPosition!.latitude, _currentPosition!.longitude)
         .then((List<Placemark> placemarks) {
       Placemark place = placemarks[0];
       setState(() {
         _currentAddress =
-        '${place.street},${place.subLocality},${place.locality}';
+            '${place.street},${place.subLocality},${place.locality}';
       });
     }).catchError((e) {
       debugPrint(e);
     });
   }
-
 
   // Future<void> showCheckoutOptionsDialog(BuildContext context) {
   //   return showDialog(
@@ -1079,7 +1122,8 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
   //       });
   // }
 
-  static Future<XFile?> launchCustomImagePicker(BuildContext context, {CameraDevice camera = CameraDevice.front}) async {
+  static Future<XFile?> launchCustomImagePicker(BuildContext context,
+      {CameraDevice camera = CameraDevice.front}) async {
     PermissionStatus permission = await Permission.camera.status;
     if (permission.isGranted) {
       File? selectedFile = await Navigator.of(context).push(
@@ -1089,7 +1133,6 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
       );
       if (selectedFile != null) {
         return XFile(selectedFile.path);
-
       } else {
         return null;
       }
@@ -1111,13 +1154,12 @@ class _AttendancePageState extends State<AttendancePage> with WidgetsBindingObse
           return null;
         }
       }
-      if (permission.isDenied || permission.isPermanentlyDenied ||
+      if (permission.isDenied ||
+          permission.isPermanentlyDenied ||
           permission.isRestricted) {
         // HelperUI.showCameraPermissionBottomSheet();
       }
     }
     return null;
   }
-
 }
-

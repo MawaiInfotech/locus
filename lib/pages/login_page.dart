@@ -153,7 +153,7 @@ class _LoginPageState extends State<LoginPage> {
               final isSuccess = state.maybeWhen(success: (_) => true, orElse: () => false);
               if (isSuccess) {
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content: Text("Login Successfull"),
+                  content: Text("Login Successfully"),
                   duration: Duration(milliseconds: 500),
                 ));
                 final userFroms = Hive.box("userFrom").get("userFrom");
@@ -221,6 +221,8 @@ class _LoginPageState extends State<LoginPage> {
                     ))
               ],
             ),
+
+            //Also change the version in attendance remark section
             Text("V 3.1.0+2", style: TextStyle(fontSize: 12.dw),)
           ],
         ),
