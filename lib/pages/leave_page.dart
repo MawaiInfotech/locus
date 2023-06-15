@@ -266,17 +266,17 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
                 _buildText(
                   title: "Total",
                   title1: model.leaveTotal.toString(),
-                  Color: AppColors.black,
+                  color: AppColors.black,
                 ),
                 _buildText(
                   title: "Used",
                   title1: model.leaveUsed.toString(),
-                  Color: AppColors.black,
+                  color: AppColors.black,
                 ),
                 _buildText(
                   title: "Available",
                   title1: model.leaveAvailable.toString(),
-                  Color: AppColors.black,
+                  color: AppColors.black,
                 ),
               ],
             ),
@@ -362,7 +362,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
                       fontSize: 14.dw,
                       fontWeight: FontWeight.w400),
                 ),
-                Container(
+                SizedBox(
                   width: 180.dw,
                   child: Text(
                     "${"Reason "} - ${model.reason}",
@@ -408,11 +408,11 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
       child: ElevatedButton(
           onPressed: () async {
             final shouldInit = await Navigator.pushNamed(context, AppRoutes.requestLeave) as bool?;
-            print(shouldInit);
+          //  print(shouldInit);
             if(shouldInit != null && shouldInit) bloc.init();
           },
           style: ElevatedButton.styleFrom(
-            primary: AppColors.red,
+            backgroundColor: AppColors.red,
             fixedSize: Size(60.dw, 40.dh),
           ),
           child: Text(
@@ -463,7 +463,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
                           Navigator.pop(context);
                         },
                         style: ElevatedButton.styleFrom(
-                            primary: AppColors.red,
+                            backgroundColor: AppColors.red,
                             minimumSize: Size(40.dw, 30.dh),
                             elevation: 8.0,
                             shape: RoundedRectangleBorder(
@@ -518,7 +518,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
                           builder: (context, state) {
                             return state.maybeWhen(
                                 loading: (_){
-                                  return CircularProgressIndicator();
+                                  return const CircularProgressIndicator();
                                 },
                                 orElse: (){
                                   return ElevatedButton(
@@ -527,7 +527,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
                                       bloc.init();
                                     },
                                     style: ElevatedButton.styleFrom(
-                                        primary: Colors.lightGreen,
+                                        backgroundColor: Colors.lightGreen,
                                         minimumSize: Size(80.dw, 30.dh),
                                         elevation: 8.0,
                                         shape: RoundedRectangleBorder(
@@ -578,7 +578,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
     //     orElse: () {});
   }
 
-  _buildText({required String title, required String title1, required Color}) {
+  _buildText({required String title, required String title1, required color}) {
     return Padding(
       padding: EdgeInsets.all(0.0.dw),
       child: Column(
@@ -587,13 +587,13 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
             title,
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: Color, fontSize: 14.dw, fontWeight: FontWeight.w400),
+                color: color, fontSize: 14.dw, fontWeight: FontWeight.w400),
           ),
           Text(
             title1,
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: Color, fontSize: 14.dh, fontWeight: FontWeight.w500),
+                color: color, fontSize: 14.dh, fontWeight: FontWeight.w500),
           ),
         ],
       ),
@@ -703,7 +703,7 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
             children: [
               _buildBoldText(title: "Department"),
               _buildcolon(),
-              _buildApproveText(title: model.department + "  (" + model.departmentCode + ")")
+              _buildApproveText(title: "${model.department}  (${model.departmentCode})")
             ],
           ),
           Row(
@@ -806,7 +806,7 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
           padding: EdgeInsets.all(8.0.dw),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-                primary: AppColors.navyblue,
+                backgroundColor: AppColors.navyblue,
                 minimumSize: const Size(80, 45),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10))),
@@ -834,7 +834,7 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
           padding: EdgeInsets.all(8.dw),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-                primary: AppColors.green,
+                backgroundColor: AppColors.green,
                 minimumSize: const Size(80, 45),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.dw))),
@@ -921,7 +921,7 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
                         approvedleaveBloc.init();
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.red,
+                          backgroundColor: AppColors.red,
                           minimumSize: Size(40.dw, 30.dh),
                           elevation: 8.0,
                           shape: RoundedRectangleBorder(
@@ -961,7 +961,7 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
 
                               },
                               style: ElevatedButton.styleFrom(
-                                  primary: Colors.lightGreen,
+                                  backgroundColor: Colors.lightGreen,
                                   minimumSize: Size(40.dw, 30.dh),
                                   elevation: 8.0,
                                   shape: RoundedRectangleBorder(
@@ -1022,7 +1022,7 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
                         approvedleaveBloc.init();
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.red,
+                          backgroundColor: AppColors.red,
                           minimumSize: Size(40.dw, 30.dh),
                           elevation: 8.0,
                           shape: RoundedRectangleBorder(
@@ -1042,7 +1042,7 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
 
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.portalgreyBlue,
+                          backgroundColor: AppColors.portalgreyBlue,
                           minimumSize: Size(40.dw, 30.dh),
                           elevation: 8.0,
                           shape: RoundedRectangleBorder(
