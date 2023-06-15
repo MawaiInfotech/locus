@@ -103,7 +103,7 @@ class AttendanceService {
         "lat": location.latitude,
         "long": location.longitude,
         "status": status,
-        "remark" : "$remark V 3.1.0+2",
+        "remark" : remark,
         "site" : site,
         "image" : "data:image/"+type+";base64," + img64,
         "address" : address.subLocality +

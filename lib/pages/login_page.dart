@@ -221,8 +221,6 @@ class _LoginPageState extends State<LoginPage> {
                     ))
               ],
             ),
-
-            //Also change the version in attendance remark section
             Text("V 3.1.0+2", style: TextStyle(fontSize: 12.dw),)
           ],
         ),
