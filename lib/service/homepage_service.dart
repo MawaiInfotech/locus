@@ -18,7 +18,7 @@ class HomePageService{
       print(e);
       _handleError(e);
     }
-    return EmployeeBirthDetailModel();
+    return const EmployeeBirthDetailModel();
   }
 
   // Apply Lunch

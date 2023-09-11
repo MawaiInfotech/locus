@@ -1,6 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:locus/model/applyleave_model.dart';
-import 'package:locus/model/forgetpassword_model.dart';
 
 import '../model/otp_verification_model.dart';
 

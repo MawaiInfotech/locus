@@ -261,6 +261,24 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             ),
           ),
         ),
+        InkWell(
+          onTap: () {
+            Navigator.pushNamed(context, AppRoutes.imprestClaimPage);
+          },
+          child: Card(
+            color: const Color(0xffD9D9BF),
+            elevation: 10.dw,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Lottie.asset("assets/lottie/travel.json",
+                    height: 80.dh, width: 80.dw),
+                // _buildImage("assets/images/leave-2.png"),
+                _buildText(title: "Imprest Claim")
+              ],
+            ),
+          ),
+        ),
 
 
       ],

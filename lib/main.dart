@@ -10,6 +10,7 @@ import 'package:locus/service/dummysignup_service.dart';
 import 'package:locus/service/forgetpasswrod_service.dart';
 import 'package:locus/service/holiday_service.dart';
 import 'package:locus/service/homepage_service.dart';
+import 'package:locus/service/imprest_claim_service.dart';
 import 'package:locus/service/leave_service.dart';
 import 'package:locus/service/login_service.dart';
 import 'package:locus/service/misspunch_service.dart';
@@ -58,6 +59,8 @@ import 'package:path_provider/path_provider.dart' as path_provider;
         Provider<ProfileService>(create: (_) => ProfileService()),
         Provider<ReferralService>(create: (_) => ReferralService()),
         Provider<TravelRequestService>(create: (_) => TravelRequestService()),
+        Provider<ImprestClaimService>(create: (_) => ImprestClaimService()),
+
       ],
   child: BlocProvider(create: (_) => CheckLoginBloc(attendanceService),
       child: const MyApp()

@@ -138,11 +138,11 @@ class _DummySignupPageState extends State<DummySignupPage> {
           return Container(
             height: 300.dw,
             child: AlertDialog(
-              content: Container(
+              content: SizedBox(
                 height: 200.dh,
                 child: Column(
                   children: [
-                    Text("You can use the following UserID as user code to login : "),
+                    const Text("You can use the following UserID as user code to login : "),
                     SizedBox(height: 20.dh,),
                     Text(userCode, style: TextStyle(fontSize: 18.dw, fontWeight: FontWeight.bold),),
                   ],

@@ -17,9 +17,11 @@ import 'package:locus/pages/request_offduty.dart';
 import 'package:locus/pages/request_workfromhome.dart';
 import 'package:locus/pages/team_attendance_page.dart';
 import 'package:locus/pages/workfrom_home_page.dart';
+import '../pages/imprest_claim_page.dart';
 import '../pages/login_page.dart';
 import '../pages/refferdetails_page.dart';
 import '../pages/refrral.dart';
+import '../pages/request_imprest_claim_page.dart';
 import '../pages/travelrequest_page.dart';
 import '../pages/travelrequestform_page.dart';
 
@@ -48,6 +50,8 @@ class AppRoutes {
   static const refrralDetailsPage = '/refferdetails_Page';
   static const travelRequestPage = '/travelrequest_page';
   static const travelRequestMainPage = '/travelrequestmain_page';
+  static const requestImprestClaim = '/requestImprestClaim';
+  static const imprestClaimPage = '/imprestClaimPage';
 
 
   static Map<String, Widget Function(BuildContext)> getRoutes(BuildContext _) {
@@ -74,7 +78,9 @@ class AppRoutes {
       refrralPage: (_) => RefrralPage(),
       refrralDetailsPage:(_) => ReferralDetails(),
       travelRequestPage:(_) => TravelRequestPage(),
-      travelRequestMainPage:(_) => TravelRequestMainPage()
+      travelRequestMainPage:(_) => TravelRequestMainPage(),
+      requestImprestClaim:(_) => RequestImprestClaimPage(),
+      imprestClaimPage:(_) => ImprestClaimPage()
     };
   }
 }

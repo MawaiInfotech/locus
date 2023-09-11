@@ -44,13 +44,15 @@ class LoginService{
        // throw body['msg'];
       }
 
-    }catch(e, trace){
+    }catch(e, trace)
+    {
       print("Error: $e");
       print("$trace");
       _handleError(e);
     }
   }
-  _handleError(var e) {
+  _handleError(var e)
+  {
     if(e is String ) throw e;
     if (e is SocketException) throw ApiError.internet();
     if (e is TimeoutException) throw ApiError.timeOut();

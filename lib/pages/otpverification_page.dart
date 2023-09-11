@@ -137,9 +137,9 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
           _otpVerification();
         },
         style: ElevatedButton.styleFrom(
-            primary: AppColors.portalgreyBlue
+            backgroundColor: AppColors.portalgreyBlue
         ),
-        child:Text("Send OTP"));
+        child:const Text("Send OTP"));
   }
 
   void _otpVerification() async {
@@ -156,7 +156,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
           ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(
               SnackBar(
                   backgroundColor: AppColors.portalgreen,
-                  content: Text(message!, style: TextStyle(color: Colors.white),)));
+                  content: Text(message!, style: const TextStyle(color: Colors.white),)));
           Navigator.push(context, MaterialPageRoute(builder: (BuildContext) => LoginPage()));
         },
         failed: (model, message) {

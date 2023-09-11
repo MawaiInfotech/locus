@@ -105,7 +105,7 @@ class AttendanceService {
         "status": status,
         "remark" : remark,
         "site" : site,
-        "image" : "data:image/"+type+";base64," + img64,
+        "image" : "data:image/$type;base64,$img64",
         "address" : address.subLocality +
             ' ' +
             address.street +
@@ -179,7 +179,7 @@ class AttendanceService {
   //Team Attendance
 
   Future<TeamAttendanceSuppModel> getTeamAttendanceData(String employeeCode, String month)async{
-    const url = root +'serch-team-attend';
+    const url = '${root}serch-team-attend';
     final body = {
       "emp_number" : employeeCode,
       "month" : month
@@ -198,7 +198,7 @@ class AttendanceService {
   //Team Attendance Approval
 
   Future<List<TeamLeaderAttendanceApprovelModel>> getTeamAttendanceList(String employeeCode, String unitCode) async {
-    const url = root + 'attedance-approval-list';
+    const url = '${root}attedance-approval-list';
     final body = {
       "emp_cd" : employeeCode,
       "unit_cd" : unitCode
@@ -219,7 +219,7 @@ class AttendanceService {
   //Team Attendance Approval Rejection Data
 
   Future<String?> getAprovalRejectionData(Map<String, dynamic>data) async {
-    const url = root + 'attedance-approved-reject';
+    const url = '${root}attedance-approved-reject';
     final body = data;
     try {
       final response = await http.post(Uri.parse(url),

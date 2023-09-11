@@ -87,11 +87,11 @@ class _NavigationPageState extends State<NavigationPage> {
           onTap: onTabTapped,
         ),
         body: PageView(
-          children: tabPages,
           onPageChanged: onPageChanged,
           scrollBehavior: const ScrollBehavior(
               androidOverscrollIndicator: AndroidOverscrollIndicator.glow),
           controller: pageController,
+          children: tabPages,
         ),
       ),
     );

@@ -125,11 +125,11 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
     );
   }
 
-  void _forgetPassword() async {
-    final data = {
-      'emp_cd': employeeCodeController.text};
-    await forgetpasswordBloc.forgetpassword(data);
+    void _forgetPassword() async {
+      final data = {
+        'emp_cd': employeeCodeController.text};
+      await forgetpasswordBloc.forgetpassword(data);
 
-  }
+    }
 
 }

@@ -193,7 +193,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       //openCamera();
                     },
                   ),
-                  Padding(padding: EdgeInsets.all(10)),
+                  const Padding(padding: EdgeInsets.all(10)),
                   GestureDetector(
                       child: const Text("Take Image From Gallery"),
                       onTap: () async {
@@ -201,7 +201,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         //Navigator.pop(context, false);
                         setState(() {
                           file = gallery;
-                          if (file!.path != null) ;
+                          if (file!.path != null);
                         });
                         Navigator.pop(context, false);
                          _changePhoto(file!.path);

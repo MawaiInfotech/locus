@@ -30,12 +30,12 @@ class _CameraScreenState extends State<CameraScreen> with WidgetsBindingObserver
 
   bool isImageReady = false;
 
-  List<File> allFileList = [];
-
-  final resolutionPresets = ResolutionPreset.values;
 
   ResolutionPreset currentResolutionPreset = ResolutionPreset.low;
 
+  List<File> allFileList = [];
+
+  final resolutionPresets = ResolutionPreset.values;
   getPermissionStatus() async {
     await Permission.camera.request();
     var status = await Permission.camera.status;

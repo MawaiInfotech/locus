@@ -228,7 +228,7 @@ class _RefrralPageState extends State<RefrralPage> with SingleTickerProviderStat
                               elevation: 2.dw,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.dw),
-                                  side: BorderSide(color: AppColors.black)
+                                  side: const BorderSide(color: AppColors.black)
                               ),
                               child: Padding(
                                 padding: EdgeInsets.all(8.0.dw),
@@ -331,7 +331,7 @@ class _RefrralPageState extends State<RefrralPage> with SingleTickerProviderStat
                                     elevation: 2.dw,
                                     shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(10.dw),
-                                        side: BorderSide(color: AppColors.black)
+                                        side: const BorderSide(color: AppColors.black)
                                     ),
                                     child: Padding(
                                       padding: EdgeInsets.all(8.0.dw),
@@ -365,7 +365,7 @@ class _RefrralPageState extends State<RefrralPage> with SingleTickerProviderStat
 
   _border() => OutlineInputBorder(
       borderRadius: BorderRadius.circular(30.dw),
-      borderSide: BorderSide(color: AppColors.orange2));
+      borderSide: const BorderSide(color: AppColors.orange2));
 
   _focusedborder() => OutlineInputBorder(
       borderRadius: BorderRadius.circular(30.dw),

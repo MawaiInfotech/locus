@@ -116,7 +116,7 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
   _buildHeadingText(String title){
     return Padding(
       padding: EdgeInsets.all(5.0.dw),
-      child: Container(
+      child: SizedBox(
           width: 150.dw,
           child: Text(title,style: TextStyle(fontWeight: FontWeight.w400,fontSize: 16.dw),)),
     );

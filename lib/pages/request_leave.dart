@@ -75,7 +75,8 @@ class _RequestLeaveState extends State<RequestLeave> {
     return Scaffold(
         key: scaffoldKey,
         appBar: const AppTopBar(title: "Request Leave"),
-        body: _buildBody());
+        body: _buildBody(),
+    );
   }
 
   _buildBody() {
@@ -413,7 +414,7 @@ class _RequestLeaveState extends State<RequestLeave> {
                                         elevation: 2.dw,
                                         shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.circular(10.dw),
-                                        side: BorderSide(color: AppColors.black)
+                                        side: const BorderSide(color: AppColors.black)
                                         ),
                                         child: Padding(
                                           padding: EdgeInsets.all(8.0.dw),
@@ -436,9 +437,7 @@ class _RequestLeaveState extends State<RequestLeave> {
                                                 ),
                                               ),
                                               Text(
-                                                "(" +
-                                                    list[index].employeeCode +
-                                                    ")",
+                                                "(${list[index].employeeCode})",
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                   fontSize: 18.dw,
@@ -498,7 +497,7 @@ class _RequestLeaveState extends State<RequestLeave> {
               }, orElse: () {
                 return ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        primary: AppColors.portalgreyBlue),
+                        backgroundColor: AppColors.portalgreyBlue),
                     onPressed: () {
                       if (fromDate == null && toDate == null) {
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -535,7 +534,8 @@ class _RequestLeaveState extends State<RequestLeave> {
                   if (controlCode != null && leavetype != null) {
                     showDateRangePicker(
                             context: context,
-                            builder: (context, child) {
+                            builder: (context, child)
+                            {
                               return Theme(
                                 data: Theme.of(context).copyWith(
                                   colorScheme: const ColorScheme.light(
@@ -545,7 +545,7 @@ class _RequestLeaveState extends State<RequestLeave> {
                                   ),
                                   textButtonTheme: TextButtonThemeData(
                                     style: TextButton.styleFrom(
-                                      primary: Colors.white,
+                                      foregroundColor: Colors.white,
                                       backgroundColor: AppColors.brown,
                                       textStyle: const TextStyle(
                                           fontSize: 16,
@@ -584,9 +584,11 @@ class _RequestLeaveState extends State<RequestLeave> {
                       });
                     });
                   } else {
-                    (ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: const Text(
-                            "Please select apply leave for and leave type."))));
+                    (
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text(
+                            "Please select apply leave for and leave type."),),)
+                    );
                   }
                 },
                 child: Row(
