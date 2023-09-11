@@ -105,7 +105,7 @@ class AttendanceService {
         "status": status,
         "remark" : remark,
         "site" : site,
-        "image" : "data:image/"+type+";base64," + img64,
+        "image" : "data:image/$type;base64,$img64",
         "address" : address.subLocality +
             ' ' +
             address.street +

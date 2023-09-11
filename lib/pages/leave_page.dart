@@ -105,8 +105,7 @@ class _LeavePageState extends State<LeavePage> with SingleTickerProviderStateMix
                     ]
                 ))
           ],
-        )
-    );
+        ));
   }
 }
 
@@ -267,17 +266,17 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
                 _buildText(
                   title: "Total",
                   title1: model.leaveTotal.toString(),
-                  Color: AppColors.black,
+                  color: AppColors.black,
                 ),
                 _buildText(
                   title: "Used",
                   title1: model.leaveUsed.toString(),
-                  Color: AppColors.black,
+                  color: AppColors.black,
                 ),
                 _buildText(
                   title: "Available",
                   title1: model.leaveAvailable.toString(),
-                  Color: AppColors.black,
+                  color: AppColors.black,
                 ),
               ],
             ),
@@ -409,6 +408,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
       child: ElevatedButton(
           onPressed: () async {
             final shouldInit = await Navigator.pushNamed(context, AppRoutes.requestLeave) as bool?;
+          //  print(shouldInit);
             if(shouldInit != null && shouldInit) bloc.init();
           },
           style: ElevatedButton.styleFrom(
@@ -578,7 +578,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
     //     orElse: () {});
   }
 
-  _buildText({required String title, required String title1, required Color}) {
+  _buildText({required String title, required String title1, required color}) {
     return Padding(
       padding: EdgeInsets.all(0.0.dw),
       child: Column(
@@ -587,13 +587,13 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
             title,
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: Color, fontSize: 14.dw, fontWeight: FontWeight.w400),
+                color: color, fontSize: 14.dw, fontWeight: FontWeight.w400),
           ),
           Text(
             title1,
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: Color, fontSize: 14.dh, fontWeight: FontWeight.w500),
+                color: color, fontSize: 14.dh, fontWeight: FontWeight.w500),
           ),
         ],
       ),
@@ -627,7 +627,8 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
     loginService = Provider.of<LoginService>(context, listen: false);
     approvedleaveBloc = ApprovedleaveBloc(leaveService, loginService);
     approvedleaveBloc.init();
-    teamLeaderLeaveApproveRejectBloc = TeamLeaderLeaveApproveRejectBloc(leaveService);
+    teamLeaderLeaveApproveRejectBloc =
+        TeamLeaderLeaveApproveRejectBloc(leaveService);
   }
 
   @override
@@ -855,8 +856,7 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
     );
   }
 
-  void _approvalRejection(
-      ApprovedLeaveModel model, String grantedType, String remarks) async {
+  void _approvalRejection(ApprovedLeaveModel model, String grantedType, String remarks) async {
     final data = {
       "emp_cd": loginService.getCurrentUser!.emp_cd,
       "leave_pk_id": model.leaveId,
