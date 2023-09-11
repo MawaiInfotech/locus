@@ -63,7 +63,7 @@ class _ReferralDetailsState extends State<ReferralDetails> {
   }
 
   Widget _buildLoading(List<ReferralDetailModel> model){
-    return Center(child: CircularProgressIndicator());
+    return const Center(child: CircularProgressIndicator());
   }
 
   Widget _buildContent(List<ReferralDetailModel> model){
@@ -109,7 +109,7 @@ class _ReferralDetailsState extends State<ReferralDetails> {
       child: ElevatedButton(
           onPressed: ()async {
             final shouldInit = await Navigator.pushNamed(context, AppRoutes.refrralPage) as bool?;
-            print(shouldInit);
+           // print(shouldInit);
             if(shouldInit != null && shouldInit) referralDetailBloc.init();
             // Navigator.pushNamed(context, AppRoutes.refrralPage);
           },
