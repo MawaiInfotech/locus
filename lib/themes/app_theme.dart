@@ -6,11 +6,11 @@ class AppTheme {
   static final theme = ThemeData(
       fontFamily: 'Poppins',
       primaryTextTheme: const TextTheme(),
-      backgroundColor: Colors.white,
+      primaryColor: Colors.white,
       scaffoldBackgroundColor: Colors.white,
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-              primary: Colors.blue.shade700,
+              backgroundColor: Colors.blue.shade700,
               elevation: 8,
               padding: const EdgeInsets.all(8),
               shape: RoundedRectangleBorder(

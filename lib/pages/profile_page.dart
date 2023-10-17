@@ -109,7 +109,7 @@ class _ProfilePageState extends State<ProfilePage> {
       child: ElevatedButton(
           onPressed: (){Navigator.pushNamed(context, AppRoutes.changepassword);},
           style: ElevatedButton.styleFrom(
-            primary: AppColors.portalgreyBlue
+            backgroundColor: AppColors.portalgreyBlue
           ),
           child: Text("Change Password",style: TextStyle(fontSize: 16.dw))),
     );
@@ -118,7 +118,7 @@ class _ProfilePageState extends State<ProfilePage> {
   _buildLogout(){
     return ElevatedButton(onPressed: (){showExitPopup();},
         style: ElevatedButton.styleFrom(
-            primary: AppColors.portaldarkBlue
+            backgroundColor: AppColors.portaldarkBlue
         ),
         child: Text("Logout", style: TextStyle(fontSize: 16.dw),));
   }
@@ -236,7 +236,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Navigator.of(context).pop(false);
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.bloodred,
+                          backgroundColor: AppColors.bloodred,
                         minimumSize: Size(100.dw, 40.dw)
                       ),
                       child: const Text("No")),
@@ -251,7 +251,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 (route) => false);
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.portalgreen,
+                          backgroundColor: AppColors.portalgreen,
                           minimumSize: Size(100.dw, 40.dw)
                       ),
                       child: const Text("Yes"))

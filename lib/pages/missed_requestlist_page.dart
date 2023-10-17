@@ -176,8 +176,7 @@ class _MissedRequestState extends State<MissedRequest> {
         child: TextButton(
           onPressed: () {},
           style: TextButton.styleFrom(
-              primary: AppColors.red,
-              backgroundColor: AppColors.white,
+              foregroundColor: AppColors.red, backgroundColor: AppColors.white,
               padding: EdgeInsets.all(5.dw),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.dw))),

@@ -282,9 +282,7 @@ class _DummyAttendancePageState extends State<DummyAttendancePage> {
                   // showConfirmationCheckOutDialog();
                 },
                 style: ElevatedButton.styleFrom(
-                    elevation: 10.dw,
-                    primary:
-                    AppColors.red,
+                    elevation: 10.dw, backgroundColor: AppColors.red,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.dw))),
                 child: Text(
@@ -311,7 +309,7 @@ class _DummyAttendancePageState extends State<DummyAttendancePage> {
                 children: [
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: AppColors.red,
+                        backgroundColor: AppColors.red,
                         minimumSize: Size(80.dw, 50.dh),
                       ),
                       onPressed: () {
@@ -320,7 +318,7 @@ class _DummyAttendancePageState extends State<DummyAttendancePage> {
                       child: const Text("No")),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: AppColors.portalgreen,
+                        backgroundColor: AppColors.portalgreen,
                         minimumSize: Size(80.dw, 50.dh),
                       ),
                       onPressed: () async {
@@ -366,7 +364,7 @@ class _DummyAttendancePageState extends State<DummyAttendancePage> {
                                               }
                                             },
                                             style: ElevatedButton.styleFrom(
-                                                primary: AppColors.brown),
+                                                backgroundColor: AppColors.brown),
                                             child: const Text(
                                                 'Check Permisssions')),
                                       ],
@@ -454,9 +452,7 @@ class _DummyAttendancePageState extends State<DummyAttendancePage> {
         child: ElevatedButton(
             onPressed: () async {showDeleteDialog();},
             style: ElevatedButton.styleFrom(
-                elevation: 10.dw,
-                primary:
-                AppColors.red,
+                elevation: 10.dw, backgroundColor: AppColors.red,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.dw))),
             child: Text(
@@ -481,7 +477,7 @@ class _DummyAttendancePageState extends State<DummyAttendancePage> {
                 children: [
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: AppColors.red,
+                        backgroundColor: AppColors.red,
                         minimumSize: Size(80.dw, 50.dh),
                       ),
                       onPressed: () {
@@ -490,7 +486,7 @@ class _DummyAttendancePageState extends State<DummyAttendancePage> {
                       child: const Text("No")),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: AppColors.portalgreen,
+                        backgroundColor: AppColors.portalgreen,
                         minimumSize: Size(80.dw, 50.dh),
                       ),
                       onPressed: () async {
@@ -524,7 +520,7 @@ class _DummyAttendancePageState extends State<DummyAttendancePage> {
                 children: [
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: AppColors.red,
+                        backgroundColor: AppColors.red,
                         minimumSize: Size(80.dw, 50.dh),
                       ),
                       onPressed: () {
@@ -533,7 +529,7 @@ class _DummyAttendancePageState extends State<DummyAttendancePage> {
                       child: const Text("No")),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: AppColors.portalgreen,
+                        backgroundColor: AppColors.portalgreen,
                         minimumSize: Size(80.dw, 50.dh),
                       ),
                       onPressed: () async {

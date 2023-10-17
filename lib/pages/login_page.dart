@@ -120,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.pop(context);
                     },
                     style: ElevatedButton.styleFrom(
-                        primary: AppColors.portalgreen,
+                        backgroundColor: AppColors.portalgreen,
                         minimumSize: Size(150.dw, 50.dw)),
                     child: Text(
                       "Confirm",
