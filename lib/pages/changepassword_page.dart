@@ -190,7 +190,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                 backgroundColor: AppColors.red,
                 content: const Text("New Password and Confirm Password is not same & Password must be of 6 character")));
           }},
-        style: ElevatedButton.styleFrom(primary: AppColors.portalgreyBlue),
+        style: ElevatedButton.styleFrom(backgroundColor: AppColors.portalgreyBlue),
         child: Text("Submit", style: TextStyle(fontSize: 18.dw, fontWeight: FontWeight.w400),));
   }
 

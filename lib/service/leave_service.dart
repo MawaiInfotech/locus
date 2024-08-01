@@ -42,8 +42,7 @@ class LeaveService {
     const url = '${root}leave-create/save-leave';
     final body = data;
     try {
-      final response = await http.post(Uri.parse(url),
-          body: json.encode(body), headers: getHeaders());
+      final response = await http.post(Uri.parse(url), body: json.encode(body), headers: getHeaders());
       final responseBody = json.decode(response.body);
       if (responseBody['status'] == true) {
         return responseBody ['message'];

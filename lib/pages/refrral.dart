@@ -1,4 +1,3 @@
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:locus/utils/screen_size_config.dart';
@@ -15,6 +14,7 @@ import '../state/applyreferral_state.dart';
 import '../state/requestreferral_state.dart';
 import '../themes/app_colors.dart';
 import '../widgets/app_top_bar.dart';
+import 'package:file_picker/file_picker.dart';
 
 class RefrralPage extends StatefulWidget {
   const RefrralPage({Key? key}) : super(key: key);

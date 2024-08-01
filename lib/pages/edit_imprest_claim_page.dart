@@ -757,7 +757,7 @@ class _EditImprestClaimPageState extends State<EditImprestClaimPage> {
         builder: (context) {
           return AlertDialog(
             title: SizedBox(
-              // height: 300,
+               height: 300,
               width: ScreenSizeConfig.getFullWidth,
               child: ListView.builder(
                 itemCount: model.length,

@@ -182,8 +182,7 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
           attendanceDetailBloc.init();
         },
         style: ElevatedButton.styleFrom(
-          minimumSize: Size(100.dw, 30.dh),
-          primary: AppColors.green,
+          minimumSize: Size(100.dw, 30.dh), backgroundColor: AppColors.green,
         ),
         child:Text("Request",style: TextStyle(
           fontSize: 16.dw,
@@ -270,9 +269,8 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
         attendanceDetailBloc.init();
       },
           style: ElevatedButton.styleFrom(
-              maximumSize: Size(300.dw, 50.dh),
-              minimumSize: Size(300.dw, 50.dh),
-              primary: AppColors.navyblue
+              maximumSize: Size(300.dw, 50.dh), backgroundColor: AppColors.navyblue,
+              minimumSize: Size(300.dw, 50.dh)
           ),
           child:Text("Not Checked-In and Checked-Out", style: TextStyle(
             fontSize: 16.dw, fontWeight: FontWeight.w400
