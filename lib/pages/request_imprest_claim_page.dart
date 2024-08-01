@@ -58,7 +58,9 @@ class _RequestImprestClaimPageState extends State<RequestImprestClaimPage> {
 
 
   var fromDate=DateFormat('yyyy-MM-dd').format(DateTime.now());
+  var fromDate1=DateFormat('dd-MM-yyyy').format(DateTime.now());
   var toDate=DateFormat('yyyy-MM-dd').format(DateTime.now());
+  var toDate1=DateFormat('dd-MM-yyyy').format(DateTime.now());
   var difference=1;
 
   late DateTimeRange dateTimeRange =
@@ -101,7 +103,9 @@ class _RequestImprestClaimPageState extends State<RequestImprestClaimPage> {
     visitThrough= null;
     visitThroughCode= null;
     fromDate=DateFormat('yyyy-MM-dd').format(DateTime.now());
+    fromDate1=DateFormat('dd-MM-yyyy').format(DateTime.now());
     toDate=DateFormat('yyyy-MM-dd').format(DateTime.now());
+    toDate1=DateFormat('dd-MM-yyyy').format(DateTime.now());
     journeyFromController.text = "";
     journeyToController.text = "";
     distanceController.text = "";
@@ -213,15 +217,7 @@ class _RequestImprestClaimPageState extends State<RequestImprestClaimPage> {
               ],
             )
         ),
-        Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildHeading("Approval No * "),
-                _buildApprovalNoContainer()
-              ],
-            )
-        ),
+
       ],
     );
   }
@@ -435,6 +431,7 @@ class _RequestImprestClaimPageState extends State<RequestImprestClaimPage> {
       "rate_per_km":isOwnVehicle ? distanceController.text : "",
       "image":"data:image/$type;base64,$img64"
     };
+
     await saveTempImprestBloc.saveTempData(data);
   }
 
@@ -492,16 +489,7 @@ class _RequestImprestClaimPageState extends State<RequestImprestClaimPage> {
       padding: EdgeInsets.only(left: 8.0.dw,bottom: 8.dh),
       child: TextFormField(
         controller: controller,
-        onChanged:(String value) {
 
-            if(isOwnVehicle) {
-              claimAmountController.text = (double.parse(model.rate_per_km)*double.parse(value)).toString();
-              setState(() {
-
-              });
-            }
-
-        },
         decoration: InputDecoration(
           fillColor: Colors.white,
           // filled: true,
@@ -522,10 +510,10 @@ class _RequestImprestClaimPageState extends State<RequestImprestClaimPage> {
       padding: EdgeInsets.only(left: 8.0.dw,bottom: 8.dh),
       child: TextFormField(
         controller: controller,
-        readOnly: isOwnVehicle ? true : false,
+
         decoration: InputDecoration(
-          fillColor: isOwnVehicle ? Colors.grey.shade300 :Colors.white,
-          filled: isOwnVehicle ?true : false,
+       //   fillColor: isOwnVehicle ? Colors.grey.shade300 :Colors.white,
+        //  filled: isOwnVehicle ?true : false,
           contentPadding:  EdgeInsets.symmetric(horizontal: 5.dw,),
           hintText: hintText,
           hintStyle: const TextStyle(fontSize: 15),
@@ -928,7 +916,9 @@ class _RequestImprestClaimPageState extends State<RequestImprestClaimPage> {
 
                         difference = pickedDate.end.difference(pickedDate.start).inDays + 1;
                         fromDate = DateFormat('yyyy-MM-dd').format(pickedDate.start);
+                        fromDate1 = DateFormat('dd-MM-yyyy').format(pickedDate.start);
                         toDate = DateFormat('yyyy-MM-dd').format(pickedDate.end);
+                        toDate1 = DateFormat('dd-MM-yyyy').format(pickedDate.end);
 
                       });
                     });
@@ -943,7 +933,7 @@ class _RequestImprestClaimPageState extends State<RequestImprestClaimPage> {
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: 10.dw),
-                        child: Text(fromDate),
+                        child: Text(fromDate1),
                       ),
                     ],
                   ),
@@ -980,7 +970,7 @@ class _RequestImprestClaimPageState extends State<RequestImprestClaimPage> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: 10.dw),
-                    child: Text(toDate),
+                    child: Text(toDate1),
                   ),
                 ],
               ),
