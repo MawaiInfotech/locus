@@ -267,7 +267,7 @@ class _MyWorkfromHomePageState extends State<MyWorkfromHomePage> {
             if(shouldInit != null && shouldInit) myWorkfromHomeBloc.init();
           },
           style: ElevatedButton.styleFrom(
-            primary: AppColors.red,
+            backgroundColor: AppColors.red,
             fixedSize: Size(60.dw, 40.dh),
           ),
           child: Text(
@@ -337,7 +337,7 @@ class _MyWorkfromHomePageState extends State<MyWorkfromHomePage> {
                         pendingWfhBloc.init();
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.red,
+                          backgroundColor: AppColors.red,
                           minimumSize: Size(40.dw, 30.dh),
                           elevation: 8.0,
                           shape: RoundedRectangleBorder(
@@ -354,7 +354,7 @@ class _MyWorkfromHomePageState extends State<MyWorkfromHomePage> {
                         Navigator.pop(context);
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: Colors.lightGreen,
+                          backgroundColor: Colors.lightGreen,
                           minimumSize: Size(40.dw, 30.dh),
                           elevation: 8.0,
                           shape: RoundedRectangleBorder(
@@ -543,7 +543,7 @@ class _ApproveWorkfromHomePageState extends State<ApproveWorkfromHomePage> {
           padding: EdgeInsets.all(8.0.dw),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-                primary: AppColors.navyblue,
+                backgroundColor: AppColors.navyblue,
                 minimumSize: const Size(80, 45),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10))),
@@ -571,7 +571,7 @@ class _ApproveWorkfromHomePageState extends State<ApproveWorkfromHomePage> {
           padding: EdgeInsets.all(8.dw),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-                primary: AppColors.green,
+                backgroundColor: AppColors.green,
                 minimumSize: const Size(80, 45),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.dw))),
@@ -653,7 +653,7 @@ class _ApproveWorkfromHomePageState extends State<ApproveWorkfromHomePage> {
                         pendingWfhBloc.init();
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.red,
+                          backgroundColor: AppColors.red,
                           minimumSize: Size(40.dw, 30.dh),
                           elevation: 8.0,
                           shape: RoundedRectangleBorder(
@@ -670,7 +670,7 @@ class _ApproveWorkfromHomePageState extends State<ApproveWorkfromHomePage> {
                         Navigator.pop(context);
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: Colors.lightGreen,
+                          backgroundColor: Colors.lightGreen,
                           minimumSize: Size(40.dw, 30.dh),
                           elevation: 8.0,
                           shape: RoundedRectangleBorder(
@@ -728,7 +728,7 @@ class _ApproveWorkfromHomePageState extends State<ApproveWorkfromHomePage> {
                         pendingWfhBloc.init();
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.red,
+                          backgroundColor: AppColors.red,
                           minimumSize: Size(40.dw, 30.dh),
                           elevation: 8.0,
                           shape: RoundedRectangleBorder(
@@ -745,7 +745,7 @@ class _ApproveWorkfromHomePageState extends State<ApproveWorkfromHomePage> {
                         Navigator.pop(context);
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.portalgreyBlue,
+                          backgroundColor: AppColors.portalgreyBlue,
                           minimumSize: Size(40.dw, 30.dh),
                           elevation: 8.0,
                           shape: RoundedRectangleBorder(

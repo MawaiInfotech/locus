@@ -465,8 +465,7 @@ class _TravelRequestPageState extends State<TravelRequestPage> {
                               ),
                               textButtonTheme: TextButtonThemeData(
                                 style: TextButton.styleFrom(
-                                  primary: Colors.white,
-                                  backgroundColor: AppColors.brown,
+                                  foregroundColor: Colors.white, backgroundColor: AppColors.brown,
                                   textStyle: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,

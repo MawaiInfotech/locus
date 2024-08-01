@@ -279,7 +279,7 @@ class _MyOffDutyPageState extends State<MyOffDutyPage> {
           if(shouldInit != null && shouldInit) bloc.init();
         },
         style: ElevatedButton.styleFrom(
-            primary: AppColors.red
+            backgroundColor: AppColors.red
         ),
         child: Text(
           "Request OD",
@@ -318,7 +318,7 @@ class _MyOffDutyPageState extends State<MyOffDutyPage> {
                           Navigator.pop(context);
                         },
                         style: ElevatedButton.styleFrom(
-                            primary: AppColors.red,
+                            backgroundColor: AppColors.red,
                             minimumSize: Size(40.dw, 30.dh),
                             elevation: 8.0,
                             shape: RoundedRectangleBorder(
@@ -357,7 +357,7 @@ class _MyOffDutyPageState extends State<MyOffDutyPage> {
                                       bloc.init();
                                     },
                                     style: ElevatedButton.styleFrom(
-                                        primary: Colors.lightGreen,
+                                        backgroundColor: Colors.lightGreen,
                                         minimumSize: Size(80.dw, 30.dh),
                                         elevation: 8.0,
                                         shape: RoundedRectangleBorder(
@@ -610,7 +610,7 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
           padding: EdgeInsets.all(8.0.dw),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-                primary: AppColors.navyblue,
+                backgroundColor: AppColors.navyblue,
                 minimumSize: const Size(80, 45),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10))),
@@ -639,7 +639,7 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
           padding: EdgeInsets.all(8.dw),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-                primary: AppColors.green,
+                backgroundColor: AppColors.green,
                 minimumSize: const Size(80, 45),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.dw))),
             child: Text(
@@ -707,7 +707,7 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
                         approveoffdutyBloc.init();
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.red,
+                          backgroundColor: AppColors.red,
                           minimumSize: Size(40.dw, 30.dh),
                           elevation: 8.0,
                           shape: RoundedRectangleBorder(
@@ -726,7 +726,7 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
 
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: Colors.lightGreen,
+                          backgroundColor: Colors.lightGreen,
                           minimumSize: Size(40.dw, 30.dh),
                           elevation: 8.0,
                           shape: RoundedRectangleBorder(
@@ -784,7 +784,7 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
                         approveoffdutyBloc.init();
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.red,
+                          backgroundColor: AppColors.red,
                           minimumSize: Size(40.dw, 30.dh),
                           elevation: 8.0,
                           shape: RoundedRectangleBorder(
@@ -804,7 +804,7 @@ class _ApproveOffDutyPageState extends State<ApproveOffDutyPage> {
 
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.portalgreyBlue,
+                          backgroundColor: AppColors.portalgreyBlue,
                           minimumSize: Size(40.dw, 30.dh),
                           elevation: 8.0,
                           shape: RoundedRectangleBorder(

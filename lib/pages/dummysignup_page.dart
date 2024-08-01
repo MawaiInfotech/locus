@@ -111,7 +111,7 @@ class _DummySignupPageState extends State<DummySignupPage> {
                     onPressed: (){
                       _signup();
                     },
-                    style: ElevatedButton.styleFrom(primary: AppColors.bottlegreen,),
+                    style: ElevatedButton.styleFrom(backgroundColor: AppColors.bottlegreen,),
                     child: Text("Signup", style: TextStyle(fontSize: 20.dw, fontWeight: FontWeight.w600),));
 
               });
@@ -151,7 +151,7 @@ class _DummySignupPageState extends State<DummySignupPage> {
               actions: [
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: AppColors.red,
+                      backgroundColor: AppColors.red,
                       minimumSize: Size(80.dw, 50.dh),
                     ),
                     onPressed: () {

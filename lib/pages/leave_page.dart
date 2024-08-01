@@ -856,8 +856,7 @@ class _ApprovedLeavesPageState extends State<ApprovedLeavesPage> {
     );
   }
 
-  void _approvalRejection(
-      ApprovedLeaveModel model, String grantedType, String remarks) async {
+  void _approvalRejection(ApprovedLeaveModel model, String grantedType, String remarks) async {
     final data = {
       "emp_cd": loginService.getCurrentUser!.emp_cd,
       "leave_pk_id": model.leaveId,

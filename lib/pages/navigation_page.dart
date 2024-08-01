@@ -88,8 +88,7 @@ class _NavigationPageState extends State<NavigationPage> {
         ),
         body: PageView(
           onPageChanged: onPageChanged,
-          scrollBehavior: const ScrollBehavior(
-              androidOverscrollIndicator: AndroidOverscrollIndicator.glow),
+          scrollBehavior: const ScrollBehavior(),
           controller: pageController,
           children: tabPages,
         ),
@@ -113,7 +112,7 @@ class _NavigationPageState extends State<NavigationPage> {
                         Navigator.of(context).pop(false);
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.bloodred,
+                          backgroundColor: AppColors.bloodred,
                           minimumSize: Size(100.dw, 40.dw)
                       ),
                       child: const Text("No")),
@@ -127,7 +126,7 @@ class _NavigationPageState extends State<NavigationPage> {
                                 (route) => false);
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.portalgreen,
+                          backgroundColor: AppColors.portalgreen,
                           minimumSize: Size(100.dw, 40.dw)
                       ),
                       child: const Text("Yes"))

@@ -139,7 +139,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
         style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.portalgreyBlue
         ),
-        child:const Text("Send OTP"));
+        child:const Text("Change Password"));
   }
 
   void _otpVerification() async {
@@ -147,7 +147,6 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
       'emp_cd': widget.employeeCode,
       'otp' : otpController.text,
       'new_password' : newPassword.text
-
     };
     await otpVerificationBloc.otpVerification(data);
     final state = otpVerificationBloc.state;
@@ -155,14 +154,11 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
         success: (model, message) {
           ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(
               SnackBar(
-                  backgroundColor: AppColors.portalgreen,
-                  content: Text(message!, style: const TextStyle(color: Colors.white),)));
+                  backgroundColor: AppColors.portalgreen, content: Text(message!, style: TextStyle(color: Colors.white),)));
           Navigator.push(context, MaterialPageRoute(builder: (BuildContext) => LoginPage()));
         },
         failed: (model, message) {
-          ScaffoldMessenger.of(scaffoldKey.currentContext!)
-              .showSnackBar(SnackBar(
-              backgroundColor: AppColors.red,
+          ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(SnackBar(backgroundColor: AppColors.red,
               content: Text(message)));
         },
         orElse: () {});

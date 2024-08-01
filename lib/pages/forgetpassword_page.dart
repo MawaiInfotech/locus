@@ -112,7 +112,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                   },
                   orElse: (){return ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.portalgreyBlue
+                          backgroundColor: AppColors.portalgreyBlue
                       ),
                       onPressed: () {
                         _forgetPassword();

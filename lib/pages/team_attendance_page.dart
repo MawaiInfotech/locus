@@ -603,9 +603,8 @@ class _ApproveRequestState extends State<ApproveRequest> {
           openApproveDialog(model);
         },
         style: ElevatedButton.styleFrom(
-          minimumSize: Size(100.dw, 30.dh),
-          padding: EdgeInsets.all(5.dw),
-          primary: AppColors.green,),
+          minimumSize: Size(100.dw, 30.dh), backgroundColor: AppColors.green,
+          padding: EdgeInsets.all(5.dw),),
         child: Text("Approve",
           style: TextStyle(
               fontSize: 16.dw,
@@ -620,9 +619,8 @@ class _ApproveRequestState extends State<ApproveRequest> {
       openRejectionDialog(model);
     },
         style: ElevatedButton.styleFrom(
-            minimumSize: Size(100.dw, 30.dh),
-            padding: EdgeInsets.all(5.dw),
-            primary: AppColors.navyblue
+            minimumSize: Size(100.dw, 30.dh), backgroundColor: AppColors.navyblue,
+            padding: EdgeInsets.all(5.dw)
         ),
         child: Text("Reject",
             style: TextStyle(
@@ -698,7 +696,7 @@ class _ApproveRequestState extends State<ApproveRequest> {
                         Navigator.pop(context);
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.red,
+                          backgroundColor: AppColors.red,
                           minimumSize: Size(40.dw, 30.dh),
                           elevation: 8.0,
                           shape: RoundedRectangleBorder(
@@ -714,7 +712,7 @@ class _ApproveRequestState extends State<ApproveRequest> {
                         Navigator.pop(context);
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: Colors.lightGreen,
+                          backgroundColor: Colors.lightGreen,
                           minimumSize: Size(40.dw, 30.dh),
                           elevation: 8.0,
                           shape: RoundedRectangleBorder(
@@ -769,7 +767,7 @@ class _ApproveRequestState extends State<ApproveRequest> {
                         Navigator.pop(context);
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.red,
+                          backgroundColor: AppColors.red,
                           minimumSize: Size(40.dw, 30.dh),
                           elevation: 8.0,
                           shape: RoundedRectangleBorder(
@@ -785,7 +783,7 @@ class _ApproveRequestState extends State<ApproveRequest> {
                         Navigator.pop(context);
                       },
                       style: ElevatedButton.styleFrom(
-                          primary: AppColors.portalgreyBlue,
+                          backgroundColor: AppColors.portalgreyBlue,
                           minimumSize: Size(40.dw, 30.dh),
                           elevation: 8.0,
                           shape: RoundedRectangleBorder(
