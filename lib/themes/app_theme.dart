@@ -5,6 +5,7 @@ import 'package:locus/themes/app_colors.dart';
 class AppTheme {
   static final theme = ThemeData(
       fontFamily: 'Poppins',
+     useMaterial3: false,
      primaryTextTheme: const TextTheme(),
       primaryColor: Colors.white,
      scaffoldBackgroundColor: Colors.white,

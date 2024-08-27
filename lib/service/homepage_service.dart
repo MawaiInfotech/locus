@@ -9,13 +9,12 @@ import 'constant.dart';
 class HomePageService{
 
   Future<EmployeeBirthDetailModel?> getEmployeeDetail() async {
-    const url = root + 'employes_details';
+          const url = root + 'employes_details';
     try {
       final response = await http.get(Uri.parse(url), headers: getHeaders());
       final responseBody = json.decode(response.body);
       return EmployeeBirthDetailModel.fromJson(responseBody["emp_details"]);
     } catch (e) {
-      print(e);
       _handleError(e);
     }
     return const EmployeeBirthDetailModel();
