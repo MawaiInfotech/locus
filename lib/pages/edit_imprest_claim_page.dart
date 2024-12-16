@@ -81,6 +81,23 @@ class _EditImprestClaimPageState extends State<EditImprestClaimPage> {
 
   XFile? pickedImage;
 
+  String formatDateString(String originalDate) {
+    // Define the current format of the string
+    DateFormat originalFormat = DateFormat('yyyy-MM-dd'); // Adjust this format to match your original string format
+    DateFormat targetFormat = DateFormat('dd-MM-yyyy');
+
+    // Parse the original date string
+    DateTime dateTime = originalFormat.parse(originalDate);
+
+    // Format the parsed date to the new format
+    String formattedDate = targetFormat.format(dateTime);
+    return formattedDate;
+  }
+
+  late String fromDate1;
+  late String toDate1;
+
+
   @override
   void initState() {
     lineId = widget.lineId;
@@ -91,7 +108,9 @@ class _EditImprestClaimPageState extends State<EditImprestClaimPage> {
     visitThrough = widget.visitThrough;
     visitThroughCode = widget.visitThroughCode;
     fromDate = widget.fromDate;
+    fromDate1 = formatDateString(widget.fromDate);
     toDate = widget.toDate;
+    toDate1 = formatDateString(widget.toDate);
     journeyFromController.text = widget.placeFrom;
     journeyToController.text = widget.placeTo;
     remarkController.text = widget.remark;
@@ -209,15 +228,7 @@ class _EditImprestClaimPageState extends State<EditImprestClaimPage> {
               ],
             )
         ),
-        Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildHeading("Approval No * "),
-                _buildApprovalNoContainer()
-              ],
-            )
-        ),
+
       ],
     );
   }
@@ -503,10 +514,10 @@ class _EditImprestClaimPageState extends State<EditImprestClaimPage> {
       padding: EdgeInsets.only(left: 8.0.dw,bottom: 8.dh),
       child: TextFormField(
         controller: controller,
-        readOnly: isOwnVehicle ? true : false,
+       // readOnly: isOwnVehicle ? true : false,
         decoration: InputDecoration(
-          fillColor: isOwnVehicle ? Colors.grey.shade300 :Colors.white,
-          filled: isOwnVehicle ? true : false,
+        //  fillColor: isOwnVehicle ? Colors.grey.shade300 :Colors.white,
+       //   filled: isOwnVehicle ? true : false,
           contentPadding:  EdgeInsets.symmetric(horizontal: 5.dw,),
           hintText: hintText,
           hintStyle: const TextStyle(fontSize: 15),
@@ -910,7 +921,9 @@ class _EditImprestClaimPageState extends State<EditImprestClaimPage> {
 
                         difference = pickedDate.end.difference(pickedDate.start).inDays + 1;
                         fromDate = DateFormat('yyyy-MM-dd').format(pickedDate.start);
+                        fromDate1 = DateFormat('dd-MM-yyyy').format(pickedDate.start);
                         toDate = DateFormat('yyyy-MM-dd').format(pickedDate.end);
+                        toDate1 = DateFormat('dd-MM-yyyy').format(pickedDate.end);
 
                       });
                     });
@@ -925,7 +938,7 @@ class _EditImprestClaimPageState extends State<EditImprestClaimPage> {
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: 10.dw),
-                        child: Text(fromDate),
+                        child: Text(fromDate1),
                       ),
                     ],
                   ),
@@ -961,7 +974,7 @@ class _EditImprestClaimPageState extends State<EditImprestClaimPage> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: 10.dw),
-                    child: Text(toDate ),
+                    child: Text(toDate1 ),
                   ),
                 ],
               ),
