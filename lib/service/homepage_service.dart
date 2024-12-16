@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:locus/model/employeebirthdetail_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:locus/model/lunch_details_model.dart';
 import '../errors/api_error.dart';
 import 'constant.dart';
 
@@ -39,6 +40,44 @@ class HomePageService{
       _handleError(e);
     }
     // return null;
+  }
+
+  Future<List<LunchDetailsModel>> getLunchDetails()async{
+    const url = '${root}lunch-data';
+
+    try{
+      final response = await http.get(Uri.parse(url), headers: getHeaders(),);
+      final responseBody = json.decode(response.body);
+      if(responseBody['status'] == true){
+        final itemList = responseBody['LunchDetail'] as List;
+        return itemList.map((e) => LunchDetailsModel.fromJson(e)).toList();
+      }
+    }catch(e){
+      _handleError(e);
+    }
+    return [];
+  }
+
+  Future<String?> submitForLunch(String empCode, String flag, )async{
+    const url = "${root}lunch-data-update";
+    final body = {
+      "emp_cd": empCode,
+      "flag" : flag
+    };
+    final response = await http.post(Uri.parse(url),body: json.encode(body), headers: getHeaders());
+    try{
+      final responseBody = json.decode(response.body);
+      if(responseBody["status"] == true){
+
+        return responseBody["message"];
+      }else{
+        throw ApiError.fromResponse(responseBody["message"]);
+      }
+    }catch(e){
+      _handleError(e);
+    }
+    return null;
+
   }
 
   _handleError(var e) {

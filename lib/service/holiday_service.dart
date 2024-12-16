@@ -9,7 +9,7 @@ import '../errors/api_error.dart';
 class HolidayService{
 
   Future<List<HolidayModel>> getHolidayList(String unitCode)async{
-    const url = root+ 'holiday-list';
+    const url = '${root}holiday-list';
     final body = {"unit_cd" : unitCode};
     try{
       final response = await http.post(Uri.parse(url), headers: getHeaders(), body: json.encode(body));

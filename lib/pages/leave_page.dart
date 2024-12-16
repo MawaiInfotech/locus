@@ -129,7 +129,7 @@ class _MyLeavesPageState extends State<MyLeavesPage> {
 
   TextEditingController cancelController = TextEditingController();
 
-  CarouselController carouselController = CarouselController();
+  CarouselSliderController carouselController = CarouselSliderController();
 
   @override
   void initState() {

@@ -46,12 +46,17 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   PageController controller = PageController(viewportFraction: 0.9);
 
   var currentPageValue = 0.0;
+  late String userCode;
+  late String roll;
 
   @override
   void initState() {
     final homepageServices =
         Provider.of<HomePageService>(context, listen: false);
     user = Provider.of<LoginService>(context, listen: false).getCurrentUser!;
+    userCode = Provider.of<LoginService>(context, listen: false).getCurrentUser!.emp_cd!;
+    roll =userCode.substring(0, 3);
+    print(" Hell this is current $userCode $roll");
     tabController = TabController(length: 2, vsync: this);
     pageController =
         PageController(initialPage: currentPage, viewportFraction: 0.8);
@@ -279,7 +284,24 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             ),
           ),
         ),
+        (roll == "ADM" || userCode ==  "SWE001" || userCode ==  "SWE009"|| userCode ==  "SWE236" || userCode ==  "SWE269") ?
+        InkWell(
+          onTap: () {
+          //  _openApprovalDialog();
+            Navigator.pushNamed(context, AppRoutes.lunchDetailsPage);
 
+          },
+          child: Card(
+            color: const Color(0xffcEeff5),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Lottie.asset("assets/lottie/lunch.json", height: 80.dh, width: 100.dw),
+                _buildText(title: "Lunch Details")
+              ],
+            ),
+          ),
+        ) : const SizedBox(),
 
       ],
     );

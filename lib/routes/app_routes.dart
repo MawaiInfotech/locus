@@ -8,6 +8,7 @@ import 'package:locus/pages/forgetpassword_page.dart';
 import 'package:locus/pages/holiday_page.dart';
 import 'package:locus/pages/home_page.dart';
 import 'package:locus/pages/leave_page.dart';
+import 'package:locus/pages/lunch_details_page.dart';
 import 'package:locus/pages/navigation_page.dart';
 import 'package:locus/pages/noticeboard_page.dart';
 import 'package:locus/pages/onduty_page.dart';
@@ -52,6 +53,7 @@ class AppRoutes {
   static const travelRequestMainPage = '/travelrequestmain_page';
   static const requestImprestClaim = '/requestImprestClaim';
   static const imprestClaimPage = '/imprestClaimPage';
+  static const lunchDetailsPage = '/lunchDetailsPage';
 
 
   static Map<String, Widget Function(BuildContext)> getRoutes(BuildContext _) {
@@ -80,7 +82,8 @@ class AppRoutes {
       travelRequestPage:(_) => TravelRequestPage(),
       travelRequestMainPage:(_) => TravelRequestMainPage(),
       requestImprestClaim:(_) => RequestImprestClaimPage(),
-      imprestClaimPage:(_) => ImprestClaimPage()
+      imprestClaimPage:(_) => ImprestClaimPage(),
+      lunchDetailsPage:(_) => LunchDetailsPage()
     };
   }
 }

@@ -16,92 +16,61 @@ class CameraScreen extends StatefulWidget {
   _CameraScreenState createState() => _CameraScreenState();
 }
 
-class _CameraScreenState extends State<CameraScreen> with WidgetsBindingObserver {
-
+class _CameraScreenState extends State<CameraScreen>
+    with WidgetsBindingObserver {
   List<CameraDescription> cameras = [];
-
   CameraController? controller;
 
   File? _capturedImage;
-
   bool _isCameraInitialized = false;
   bool _isCameraPermissionGranted = false;
   bool _isRearCameraSelected = false;
-
   bool isImageReady = false;
 
-
   ResolutionPreset currentResolutionPreset = ResolutionPreset.low;
-
   List<File> allFileList = [];
 
-  final resolutionPresets = ResolutionPreset.values;
-  getPermissionStatus() async {
-    await Permission.camera.request();
-    var status = await Permission.camera.status;
+  @override
+  void initState() {
+    WidgetsBinding.instance.addObserver(this);
+    _checkPermissionAndInit();
+    super.initState();
+  }
+
+  Future<void> _checkPermissionAndInit() async {
+    PermissionStatus status = await Permission.camera.status;
+
+    if (!status.isGranted) {
+      status = await Permission.camera.request();
+    }
 
     if (status.isGranted) {
-      log('Camera Permission: GRANTED');
-      setState(() {
-        _isCameraPermissionGranted = true;
-      });
+      setState(() => _isCameraPermissionGranted = true);
+
+      // Small delay for iOS to prevent AVFoundation freeze
+      if (Platform.isIOS) {
+        await Future.delayed(const Duration(milliseconds: 300));
+      }
+
       await initializeCameras();
-      // Set and initialize the new camera
-      onNewCameraSelected(cameras[1]);
-    } else if(status.isDenied || status.isPermanentlyDenied || status.isRestricted){
-     // HelperUI.showCameraPermissionBottomSheet();
+      onNewCameraSelected(
+          widget.camera == CameraDevice.front && cameras.length > 1
+              ? cameras[1]
+              : cameras[0]);
+    } else {
       log('Camera Permission: DENIED');
+      // Optionally show UI for permission denied case
     }
   }
 
-  refreshAlreadyCapturedImages() async {
-    final directory = await getApplicationDocumentsDirectory();
-    List<FileSystemEntity> fileList = await directory.list().toList();
-    allFileList.clear();
-    List<Map<int, dynamic>> fileNames = [];
-
-    fileList.forEach((file) {
-      if (file.path.contains('.jpg')) {
-        allFileList.add(File(file.path));
-
-        String name = file.path.split('/').last.split('.').first;
-        fileNames.add({0: int.parse(name), 1: file.path.split('/').last});
-      }
-    });
-
-    if (fileNames.isNotEmpty) {
-      final recentFile =
-      fileNames.reduce((curr, next) => curr[0] > next[0] ? curr : next);
-      String recentFileName = recentFile[1];
-      if (recentFileName.contains('.mp4')) {
-        _capturedImage = null;
-      } else {
-        _capturedImage = File('${directory.path}/$recentFileName');
-      }
-
-      setState(() {});
-    }
-  }
-
-  Future<XFile?> takePicture() async {
-    final CameraController? cameraController = controller;
-
-    if (cameraController!.value.isTakingPicture) {
-      // A capture is already pending, do nothing.
-      return null;
-    }
-
-    try {
-      XFile file = await cameraController.takePicture();
-      return file;
-    } on CameraException catch (e) {
-      log('Error occured while taking picture: $e');
-      return null;
-    }
+  Future<void> initializeCameras() async {
+    cameras = await availableCameras();
+    setState(() {});
   }
 
   void onNewCameraSelected(CameraDescription cameraDescription) async {
     final previousCameraController = controller;
+    await previousCameraController?.dispose();
 
     final CameraController cameraController = CameraController(
       cameraDescription,
@@ -109,15 +78,12 @@ class _CameraScreenState extends State<CameraScreen> with WidgetsBindingObserver
       imageFormatGroup: ImageFormatGroup.jpeg,
     );
 
-    await previousCameraController?.dispose();
-
     if (mounted) {
       setState(() {
         controller = cameraController;
       });
     }
 
-    // Update UI if controller updated
     cameraController.addListener(() {
       if (mounted) setState(() {});
     });
@@ -135,10 +101,54 @@ class _CameraScreenState extends State<CameraScreen> with WidgetsBindingObserver
     }
   }
 
-  void onViewFinderTap(TapDownDetails details, BoxConstraints constraints) {
-    if (controller == null) {
-      return;
+  Future<XFile?> takePicture() async {
+    final CameraController? cameraController = controller;
+
+    if (cameraController == null || cameraController.value.isTakingPicture) {
+      return null;
     }
+
+    try {
+      return await cameraController.takePicture();
+    } on CameraException catch (e) {
+      log('Error occurred while taking picture: $e');
+      return null;
+    }
+  }
+
+  void refreshAlreadyCapturedImages() async {
+    final directory = await getApplicationDocumentsDirectory();
+    List<FileSystemEntity> fileList = await directory.list().toList();
+    allFileList.clear();
+
+    List<Map<int, dynamic>> fileNames = [];
+
+    for (var file in fileList) {
+      if (file.path.contains('.jpg')) {
+        allFileList.add(File(file.path));
+
+        String name = file.path.split('/').last.split('.').first;
+        fileNames.add({0: int.parse(name), 1: file.path.split('/').last});
+      }
+    }
+
+    if (fileNames.isNotEmpty) {
+      final recentFile =
+      fileNames.reduce((curr, next) => curr[0] > next[0] ? curr : next);
+      String recentFileName = recentFile[1];
+
+      if (recentFileName.contains('.mp4')) {
+        _capturedImage = null;
+      } else {
+        _capturedImage = File('${directory.path}/$recentFileName');
+      }
+
+      setState(() {});
+    }
+  }
+
+  void onViewFinderTap(TapDownDetails details, BoxConstraints constraints) {
+    if (controller == null) return;
 
     final offset = Offset(
       details.localPosition.dx / constraints.maxWidth,
@@ -149,36 +159,26 @@ class _CameraScreenState extends State<CameraScreen> with WidgetsBindingObserver
   }
 
   @override
-  void initState() {
-    WidgetsBinding.instance.addObserver(this);
-    getPermissionStatus();
-    super.initState();
-  }
-
-  @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     final CameraController? cameraController = controller;
 
-    // App state changed before we got the chance to initialize.
     if (cameraController == null || !cameraController.value.isInitialized) {
       return;
     }
 
     if (state == AppLifecycleState.paused) {
-      Navigator.pop;
-    } else if (state == AppLifecycleState.inactive) {
       cameraController.dispose();
     } else if (state == AppLifecycleState.resumed) {
-      // if(controller!=null) {
-      //   onNewCameraSelected(cameraController.description);
-      // }
+      // Reinitialize camera when coming back
+      onNewCameraSelected(cameraController.description);
     }
   }
 
   @override
   void dispose() {
     controller?.dispose();
-    log("disposed");
+    WidgetsBinding.instance.removeObserver(this);
+    log("Camera disposed");
     super.dispose();
   }
 
@@ -187,191 +187,129 @@ class _CameraScreenState extends State<CameraScreen> with WidgetsBindingObserver
     return Scaffold(
       body: _isCameraPermissionGranted
           ? cameras.isNotEmpty && _isCameraInitialized
-          ? Container(
-        color: Colors.black,
-        //padding: const EdgeInsets.only(top: 50, left: 16, right: 16),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AspectRatio(
-              aspectRatio: 1 / controller!.value.aspectRatio,
-              child: Stack(
-                children: [
-                  CameraPreview(
-                    controller!,
-                    child: LayoutBuilder(builder:
-                        (BuildContext context,
-                        BoxConstraints constraints) {
+          ? _buildCameraPreview()
+          : const Center(child: Text('LOADING', style: TextStyle(color: Colors.white)))
+          : const SizedBox(),
+    );
+  }
+
+  Widget _buildCameraPreview() {
+    return Container(
+      color: Colors.black,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          AspectRatio(
+            aspectRatio: 1 / controller!.value.aspectRatio,
+            child: Stack(
+              children: [
+                CameraPreview(
+                  controller!,
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
                       return GestureDetector(
                         behavior: HitTestBehavior.opaque,
                         onTapDown: (details) =>
                             onViewFinderTap(details, constraints),
                       );
-                    }),
+                    },
                   ),
-                  if (isImageReady)
-                    AspectRatio(
-                      aspectRatio: 1 / controller!.value.aspectRatio,
-                      child: Container(
-                        width: 200.dw,
-                        height: 300,
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          border: Border.all(
-                            color: Colors.white,
-                            width: 2,
-                          ),
-                          image: _capturedImage != null
-                              ? DecorationImage(
-                            image: FileImage(_capturedImage!),
-                            fit: BoxFit.cover,
-                          )
-                              : null,
-                        ),
-                        child: Container(),
-                      ),
-                    ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          if (isImageReady) return;
-                          setState(() {
-                            _isCameraInitialized = false;
-                          });
-                          onNewCameraSelected(
-                              cameras[_isRearCameraSelected ? 1 : 0]);
-                          setState(() {
-                            _isRearCameraSelected =
-                            !_isRearCameraSelected;
-                          });
-                        },
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Icon(
-                                Icons.circle,
-                                color: Colors.black38,
-                                size: 60,
-                              ),
-                            ),
-                            Icon(
-                              Icons.flip_camera_android,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                          ],
-                        ),
-                      ),
-                      const Spacer(),
-                      Container(
-                        color: Colors.black.withOpacity(0.5),
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 16, horizontal: 24),
-                        child: Row(
-                          mainAxisAlignment: isImageReady
-                              ? MainAxisAlignment.spaceBetween
-                              : MainAxisAlignment.center,
-                          children: [
-                            if (isImageReady)
-                              GestureDetector(
-                                onTap: () {
-                                  if (_capturedImage != null) {
-                                    setState(() {
-                                      isImageReady = false;
-                                    });
-                                  }
-                                },
-                                child: const Icon(
-                                  Icons.cancel,
-                                  color: Colors.white,
-                                  size: 60,
-                                ),
-                              ),
-                            if (!isImageReady)
-                              InkWell(
-                                onTap: () async {
-                                  XFile? rawImage =
-                                  await takePicture();
-
-                                  File imageFile =
-                                  File(rawImage!.path);
-
-                                  int currentUnix = DateTime.now()
-                                      .millisecondsSinceEpoch;
-
-                                  final directory =
-                                  await getApplicationDocumentsDirectory();
-
-                                  String fileFormat =
-                                      imageFile.path.split('.').last;
-
-                                  await imageFile.copy(
-                                    '${directory.path}/$currentUnix.$fileFormat',
-                                  );
-
-                                  isImageReady = true;
-
-                                  refreshAlreadyCapturedImages();
-                                },
-                                child: Stack(
-                                  alignment: Alignment.center,
-                                  children: const [
-                                    Icon(
-                                      Icons.circle,
-                                      color: Colors.white38,
-                                      size: 80,
-                                    ),
-                                    Icon(
-                                      Icons.circle,
-                                      color: Colors.white,
-                                      size: 65,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            if (isImageReady)
-                              GestureDetector(
-                                onTap: () {
-                                  if (_capturedImage != null) {
-                                    Navigator.pop(context, _capturedImage );
-                                   // Navigator.pop(result: _capturedImage);
-                                  }
-                                },
-                                child: const Icon(
-                                  Icons.check_circle,
-                                  color: Colors.white,
-                                  size: 60,
-                                ),
-                              )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                ),
+                if (isImageReady) _buildCapturedImagePreview(),
+                _buildControls(),
+              ],
             ),
-          ],
-        ),
-      )
-          : const Center(
-        child: Text(
-          'LOADING',
-          style: TextStyle(color: Colors.white),
-        ),
-      )
-          : Container(),
+          ),
+        ],
+      ),
     );
   }
 
-  Future<void> initializeCameras() async {
-    //get available cameras on device
-    cameras = await availableCameras();
-    setState(() {});
+  Widget _buildCapturedImagePreview() {
+    return AspectRatio(
+      aspectRatio: 1 / controller!.value.aspectRatio,
+      child: Container(
+        width: 200.dw,
+        height: 300,
+        decoration: BoxDecoration(
+          color: Colors.black,
+          border: Border.all(color: Colors.white, width: 2),
+          image: _capturedImage != null
+              ? DecorationImage(
+            image: FileImage(_capturedImage!),
+            fit: BoxFit.cover,
+          )
+              : null,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildControls() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        InkWell(
+          onTap: () {
+            if (isImageReady) return;
+            setState(() => _isCameraInitialized = false);
+            onNewCameraSelected(
+                cameras[_isRearCameraSelected ? 1 : 0]);
+            setState(() => _isRearCameraSelected = !_isRearCameraSelected);
+          },
+          child: const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Icon(Icons.flip_camera_android, color: Colors.white, size: 30),
+          ),
+        ),
+        const Spacer(),
+        Container(
+          color: Colors.black.withOpacity(0.5),
+          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+          child: Row(
+            mainAxisAlignment: isImageReady
+                ? MainAxisAlignment.spaceBetween
+                : MainAxisAlignment.center,
+            children: [
+              if (isImageReady)
+                GestureDetector(
+                  onTap: () => setState(() => isImageReady = false),
+                  child: const Icon(Icons.cancel, color: Colors.white, size: 60),
+                ),
+              if (!isImageReady)
+                InkWell(
+                  onTap: () async {
+                    XFile? rawImage = await takePicture();
+                    if (rawImage == null) return;
+
+                    File imageFile = File(rawImage.path);
+                    int currentUnix = DateTime.now().millisecondsSinceEpoch;
+                    final directory = await getApplicationDocumentsDirectory();
+                    String fileFormat = imageFile.path.split('.').last;
+
+                    await imageFile.copy(
+                      '${directory.path}/$currentUnix.$fileFormat',
+                    );
+
+                    isImageReady = true;
+                    refreshAlreadyCapturedImages();
+                  },
+                  child: const Icon(Icons.circle, color: Colors.white, size: 80),
+                ),
+              if (isImageReady)
+                GestureDetector(
+                  onTap: () {
+                    if (_capturedImage != null) {
+                      Navigator.pop(context, _capturedImage);
+                    }
+                  },
+                  child: const Icon(Icons.check_circle,
+                      color: Colors.white, size: 60),
+                )
+            ],
+          ),
+        ),
+      ],
+    );
   }
 }

@@ -47,7 +47,6 @@ class _AttendancePageState extends State<AttendancePage>
 
   TextEditingController remarkController = TextEditingController();
 
-  ImagePicker _picker = ImagePicker();
 
   XFile? file;
 
@@ -1122,44 +1121,43 @@ class _AttendancePageState extends State<AttendancePage>
   //       });
   // }
 
-  static Future<XFile?> launchCustomImagePicker(BuildContext context,
-      {CameraDevice camera = CameraDevice.front}) async {
+  static Future<XFile?> launchCustomImagePicker(
+      BuildContext context, {
+        CameraDevice camera = CameraDevice.front,
+      }) async {
+    // Step 1: Check permission first
     PermissionStatus permission = await Permission.camera.status;
+
+    // Step 2: If not granted, request it
+    if (!permission.isGranted) {
+      permission = await Permission.camera.request();
+    }
+
+    // Step 3: Handle granted case
     if (permission.isGranted) {
-      File? selectedFile = await Navigator.of(context).push(
+      // Add small delay for iOS camera session to initialize properly
+      if (Platform.isIOS) {
+        await Future.delayed(const Duration(milliseconds: 300));
+      }
+
+      final File? selectedFile = await Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) => CameraScreen(camera: camera),
         ),
       );
-      if (selectedFile != null) {
-        return XFile(selectedFile.path);
-      } else {
-        return null;
-      }
+
+      return selectedFile != null ? XFile(selectedFile.path) : null;
     }
 
-    if (permission.isDenied) {
-      permission = await Permission.camera.request();
-      if (permission.isGranted) {
-        File? selectedFile = await Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => CameraScreen(camera: camera),
-          ),
-        );
-
-        if (selectedFile != null) {
-          return XFile(selectedFile.path);
-        } else {
-          // HelperUI.showSnackBar(strTile: STRING_ERROR, strMessage: 'No image selected');
-          return null;
-        }
-      }
-      if (permission.isDenied ||
-          permission.isPermanentlyDenied ||
-          permission.isRestricted) {
-        // HelperUI.showCameraPermissionBottomSheet();
-      }
+    // Step 4: Handle denied or restricted permissions
+    if (permission.isDenied ||
+        permission.isPermanentlyDenied ||
+        permission.isRestricted) {
+      // Show a bottom sheet or dialog explaining how to enable it
+      // HelperUI.showCameraPermissionBottomSheet();
     }
+
     return null;
   }
+
 }

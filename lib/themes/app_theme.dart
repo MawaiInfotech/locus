@@ -23,8 +23,9 @@ class AppTheme {
         titleTextStyle:
             const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       ),
-      cardTheme: CardTheme(
-          elevation: 10,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))));
+      // cardTheme: CardTheme(
+      //     elevation: 10,
+      //     shape:
+      //         RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))
+  );
 }

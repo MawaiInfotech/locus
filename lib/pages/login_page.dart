@@ -207,7 +207,7 @@ class _LoginPageState extends State<LoginPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _buildText(title: "Dont have an account ?"),
+                _buildText(title: "Don't have an account ?"),
                 TextButton(
                     onPressed: () {
                       Navigator.pushNamed(context, AppRoutes.dummysignuppage);
@@ -243,7 +243,7 @@ class _LoginPageState extends State<LoginPage> {
             height: ScreenSizeConfig.sHeight / 3,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
-                    stops: [0.3, 0.8],
+                    stops: const [0.3, 0.8],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
