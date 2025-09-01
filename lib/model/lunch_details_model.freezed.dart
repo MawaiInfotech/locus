@@ -30,8 +30,10 @@ mixin _$LunchDetailsModel {
   int get lunch_detail_id => throw _privateConstructorUsedError;
   @JsonKey(name: "flag")
   String get flag => throw _privateConstructorUsedError;
-  @JsonKey(name: "get_emp_details")
-  LunchUserModel? get empDetails => throw _privateConstructorUsedError;
+  @JsonKey(name: "emp_first_name")
+  String get firstName => throw _privateConstructorUsedError;
+  @JsonKey(name: "emp_last_name")
+  String get lastName => throw _privateConstructorUsedError;
 
   /// Serializes this LunchDetailsModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -55,9 +57,8 @@ abstract class $LunchDetailsModelCopyWith<$Res> {
       @JsonKey(name: "staus") String staus,
       @JsonKey(name: "lunch_detail_id") int lunch_detail_id,
       @JsonKey(name: "flag") String flag,
-      @JsonKey(name: "get_emp_details") LunchUserModel? empDetails});
-
-  $LunchUserModelCopyWith<$Res>? get empDetails;
+      @JsonKey(name: "emp_first_name") String firstName,
+      @JsonKey(name: "emp_last_name") String lastName});
 }
 
 /// @nodoc
@@ -80,7 +81,8 @@ class _$LunchDetailsModelCopyWithImpl<$Res, $Val extends LunchDetailsModel>
     Object? staus = null,
     Object? lunch_detail_id = null,
     Object? flag = null,
-    Object? empDetails = freezed,
+    Object? firstName = null,
+    Object? lastName = null,
   }) {
     return _then(_value.copyWith(
       emp_number: null == emp_number
@@ -103,25 +105,15 @@ class _$LunchDetailsModelCopyWithImpl<$Res, $Val extends LunchDetailsModel>
           ? _value.flag
           : flag // ignore: cast_nullable_to_non_nullable
               as String,
-      empDetails: freezed == empDetails
-          ? _value.empDetails
-          : empDetails // ignore: cast_nullable_to_non_nullable
-              as LunchUserModel?,
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
-  }
-
-  /// Create a copy of LunchDetailsModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LunchUserModelCopyWith<$Res>? get empDetails {
-    if (_value.empDetails == null) {
-      return null;
-    }
-
-    return $LunchUserModelCopyWith<$Res>(_value.empDetails!, (value) {
-      return _then(_value.copyWith(empDetails: value) as $Val);
-    });
   }
 }
 
@@ -139,10 +131,8 @@ abstract class _$$LunchDetailsModelImplCopyWith<$Res>
       @JsonKey(name: "staus") String staus,
       @JsonKey(name: "lunch_detail_id") int lunch_detail_id,
       @JsonKey(name: "flag") String flag,
-      @JsonKey(name: "get_emp_details") LunchUserModel? empDetails});
-
-  @override
-  $LunchUserModelCopyWith<$Res>? get empDetails;
+      @JsonKey(name: "emp_first_name") String firstName,
+      @JsonKey(name: "emp_last_name") String lastName});
 }
 
 /// @nodoc
@@ -163,7 +153,8 @@ class __$$LunchDetailsModelImplCopyWithImpl<$Res>
     Object? staus = null,
     Object? lunch_detail_id = null,
     Object? flag = null,
-    Object? empDetails = freezed,
+    Object? firstName = null,
+    Object? lastName = null,
   }) {
     return _then(_$LunchDetailsModelImpl(
       emp_number: null == emp_number
@@ -186,10 +177,14 @@ class __$$LunchDetailsModelImplCopyWithImpl<$Res>
           ? _value.flag
           : flag // ignore: cast_nullable_to_non_nullable
               as String,
-      empDetails: freezed == empDetails
-          ? _value.empDetails
-          : empDetails // ignore: cast_nullable_to_non_nullable
-              as LunchUserModel?,
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -203,7 +198,8 @@ class _$LunchDetailsModelImpl implements _LunchDetailsModel {
       @JsonKey(name: "staus") this.staus = "",
       @JsonKey(name: "lunch_detail_id") this.lunch_detail_id = 0,
       @JsonKey(name: "flag") this.flag = "",
-      @JsonKey(name: "get_emp_details") this.empDetails});
+      @JsonKey(name: "emp_first_name") this.firstName = "",
+      @JsonKey(name: "emp_last_name") this.lastName = ""});
 
   factory _$LunchDetailsModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$LunchDetailsModelImplFromJson(json);
@@ -224,12 +220,15 @@ class _$LunchDetailsModelImpl implements _LunchDetailsModel {
   @JsonKey(name: "flag")
   final String flag;
   @override
-  @JsonKey(name: "get_emp_details")
-  final LunchUserModel? empDetails;
+  @JsonKey(name: "emp_first_name")
+  final String firstName;
+  @override
+  @JsonKey(name: "emp_last_name")
+  final String lastName;
 
   @override
   String toString() {
-    return 'LunchDetailsModel(emp_number: $emp_number, lunch_date: $lunch_date, staus: $staus, lunch_detail_id: $lunch_detail_id, flag: $flag, empDetails: $empDetails)';
+    return 'LunchDetailsModel(emp_number: $emp_number, lunch_date: $lunch_date, staus: $staus, lunch_detail_id: $lunch_detail_id, flag: $flag, firstName: $firstName, lastName: $lastName)';
   }
 
   @override
@@ -245,14 +244,16 @@ class _$LunchDetailsModelImpl implements _LunchDetailsModel {
             (identical(other.lunch_detail_id, lunch_detail_id) ||
                 other.lunch_detail_id == lunch_detail_id) &&
             (identical(other.flag, flag) || other.flag == flag) &&
-            (identical(other.empDetails, empDetails) ||
-                other.empDetails == empDetails));
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, emp_number, lunch_date, staus,
-      lunch_detail_id, flag, empDetails);
+      lunch_detail_id, flag, firstName, lastName);
 
   /// Create a copy of LunchDetailsModel
   /// with the given fields replaced by the non-null parameter values.
@@ -278,7 +279,8 @@ abstract class _LunchDetailsModel implements LunchDetailsModel {
           @JsonKey(name: "staus") final String staus,
           @JsonKey(name: "lunch_detail_id") final int lunch_detail_id,
           @JsonKey(name: "flag") final String flag,
-          @JsonKey(name: "get_emp_details") final LunchUserModel? empDetails}) =
+          @JsonKey(name: "emp_first_name") final String firstName,
+          @JsonKey(name: "emp_last_name") final String lastName}) =
       _$LunchDetailsModelImpl;
 
   factory _LunchDetailsModel.fromJson(Map<String, dynamic> json) =
@@ -300,8 +302,11 @@ abstract class _LunchDetailsModel implements LunchDetailsModel {
   @JsonKey(name: "flag")
   String get flag;
   @override
-  @JsonKey(name: "get_emp_details")
-  LunchUserModel? get empDetails;
+  @JsonKey(name: "emp_first_name")
+  String get firstName;
+  @override
+  @JsonKey(name: "emp_last_name")
+  String get lastName;
 
   /// Create a copy of LunchDetailsModel
   /// with the given fields replaced by the non-null parameter values.

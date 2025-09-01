@@ -6,8 +6,9 @@ part of 'birthday_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_BirthdayModel _$$_BirthdayModelFromJson(Map<String, dynamic> json) =>
-    _$_BirthdayModel(
+_$BirthdayModelImpl _$$BirthdayModelImplFromJson(Map<String, dynamic> json) =>
+    _$BirthdayModelImpl(
+      emp_number: json['emp_number'] as String? ?? "",
       firstName: json['emp_first_name'] as String? ?? "",
       lastName: json['emp_last_name'] as String? ?? "",
       photoFile: json['photo_file'] as String? ?? "",
@@ -16,8 +17,9 @@ _$_BirthdayModel _$$_BirthdayModelFromJson(Map<String, dynamic> json) =>
       department: json['dept_name'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_BirthdayModelToJson(_$_BirthdayModel instance) =>
+Map<String, dynamic> _$$BirthdayModelImplToJson(_$BirthdayModelImpl instance) =>
     <String, dynamic>{
+      'emp_number': instance.emp_number,
       'emp_first_name': instance.firstName,
       'emp_last_name': instance.lastName,
       'photo_file': instance.photoFile,

@@ -10,7 +10,7 @@ import 'constant.dart';
 class HomePageService{
 
   Future<EmployeeBirthDetailModel?> getEmployeeDetail() async {
-          const url = root + 'employes_details';
+          const url = '${root}employes_details';
     try {
       final response = await http.get(Uri.parse(url), headers: getHeaders());
       final responseBody = json.decode(response.body);
@@ -21,30 +21,47 @@ class HomePageService{
     return const EmployeeBirthDetailModel();
   }
 
+  Future<String?> getSendWishes(Map<String, dynamic>data) async {
+    const url = '${root}sendWishes';
+    final body = data;
+  //  print(body);
+    try {
+      final response = await http.post(Uri.parse(url), body: json.encode(body), headers: getHeaders());
+      final responseBody = json.decode(response.body);
+     //  print(responseBody);
+      if (responseBody['status'] == 1) {
+        return responseBody ['message'];
+      }else{
+        throw ApiError.fromResponse(responseBody['message']);
+      }
+    } catch (e) {
+      _handleError(e);
+    }
+    return null;
+    // return null;
+  }
+
   // Apply Lunch
 
   Future<String?> getApplyLunch() async {
     const url = '${root}apply-lunch';
-
     try {
       final response = await http.post(Uri.parse(url), headers: getHeaders());
       final responseBody = json.decode(response.body);
       if (responseBody['status'] == true) {
         return responseBody ['message'];
-
-      }else{
+      }
+      else{
         throw ApiError.fromResponse(responseBody['message']);
       }
     } catch (e) {
-      print(e);
       _handleError(e);
     }
-    // return null;
+    return null;
   }
 
   Future<List<LunchDetailsModel>> getLunchDetails()async{
     const url = '${root}lunch-data';
-
     try{
       final response = await http.get(Uri.parse(url), headers: getHeaders(),);
       final responseBody = json.decode(response.body);
@@ -58,17 +75,17 @@ class HomePageService{
     return [];
   }
 
-  Future<String?> submitForLunch(String empCode, String flag, )async{
+  Future<String?> submitForLunch(String empCode,String type, String flag, )async{
     const url = "${root}lunch-data-update";
     final body = {
       "emp_cd": empCode,
+      "remarks" : type,
       "flag" : flag
     };
     final response = await http.post(Uri.parse(url),body: json.encode(body), headers: getHeaders());
     try{
       final responseBody = json.decode(response.body);
       if(responseBody["status"] == true){
-
         return responseBody["message"];
       }else{
         throw ApiError.fromResponse(responseBody["message"]);

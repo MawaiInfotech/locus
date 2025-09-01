@@ -40,6 +40,29 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
   super.initState();
   }
 
+  String calculateWorkingHours(String inTime, String outTime) {
+    if (inTime.isEmpty || outTime.isEmpty) return "";
+
+    try {
+      DateFormat format = DateFormat("HH:mm:ss");
+
+      DateTime inDate = format.parse(inTime);
+      DateTime outDate = format.parse(outTime);
+
+      Duration diff = outDate.difference(inDate);
+
+      String twoDigits(int n) => n.toString().padLeft(2, '0');
+
+      String hours = twoDigits(diff.inHours);
+      String minutes = twoDigits(diff.inMinutes.remainder(60));
+
+      return "$hours:$minutes";
+    } catch (e) {
+      return "";
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,33 +108,42 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
   }
 
   Widget _buildListCard(AttendanceDetailModel model){
-    return  Card(
-        margin: EdgeInsets.all(10.dw),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.dw)),
-        elevation: 10.dw,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _buildDate(model),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _buildCheckIn(model),
-                _buildCheckOut(model)
 
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                if(model.attendanceDate == date && model.inTime.isEmpty)_buildRequestButton(model),
-                if(model.outTime.isEmpty && model.inTime.isNotEmpty) _buildRequestButton(model),
-                if(model.outTime.isEmpty && model.inTime.isEmpty && model.attendanceDate != date) _buildNotCheckedInandChekedOut(model)
-              ],
-            )
-          ],
-        ));
+
+    return Card(
+      margin: EdgeInsets.all(10.dw),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.dw)),
+      elevation: 10.dw,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+
+          // DATE HEADER
+          _buildDate(model),
+
+          // SHOW WORKING HOURS ONLY IF CHECKOUT EXISTS
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildCheckIn(model),
+              _buildCheckOut(model)
+            ],
+          ),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if(model.attendanceDate == date && model.inTime.isEmpty)_buildRequestButton(model),
+              if(model.outTime.isEmpty && model.inTime.isNotEmpty) _buildRequestButton(model),
+              if(model.outTime.isEmpty && model.inTime.isEmpty && model.attendanceDate != date) _buildNotCheckedInandChekedOut(model)
+            ],
+          )
+        ],
+      ),
+    );
   }
+
 
   _buildHeadingText(String title){
     return Padding(
@@ -135,6 +167,7 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
   }
 
   _buildDate(AttendanceDetailModel model){
+    final workingHours = calculateWorkingHours(model.inTime, model.outTime);
     return Container(
       width: ScreenSizeConfig.getFullWidth,
       decoration: BoxDecoration(
@@ -143,9 +176,27 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
       ),
       child: Padding(
         padding: EdgeInsets.all(5.0.dh),
-        child: Text(model.attendanceDate,
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 18.dw, fontWeight: FontWeight.w500, color: AppColors.black),),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Text(model.attendanceDate,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 18.dw, fontWeight: FontWeight.w500, color: AppColors.black),),
+            if (workingHours.isNotEmpty)
+              Padding(
+                padding: EdgeInsets.all(6.dw),
+                child: Text(
+                  "T.W.H :  $workingHours",
+                  style: TextStyle(
+                      fontSize: 18.dw,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.black
+                  ),
+                ),
+              ),
+
+          ],
+        ),
       ),
     );
   }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'birthday_model.dart';
 
@@ -12,7 +12,7 @@ part of 'birthday_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 BirthdayModel _$BirthdayModelFromJson(Map<String, dynamic> json) {
   return _BirthdayModel.fromJson(json);
@@ -20,6 +20,8 @@ BirthdayModel _$BirthdayModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BirthdayModel {
+  @JsonKey(name: "emp_number")
+  String get emp_number => throw _privateConstructorUsedError;
   @JsonKey(name: "emp_first_name")
   String get firstName => throw _privateConstructorUsedError;
   @JsonKey(name: "emp_last_name")
@@ -46,7 +48,8 @@ abstract class $BirthdayModelCopyWith<$Res> {
       _$BirthdayModelCopyWithImpl<$Res, BirthdayModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: "emp_first_name") String firstName,
+      {@JsonKey(name: "emp_number") String emp_number,
+      @JsonKey(name: "emp_first_name") String firstName,
       @JsonKey(name: "emp_last_name") String lastName,
       @JsonKey(name: "photo_file") String photoFile,
       @JsonKey(name: "b_day") String bdate,
@@ -67,6 +70,7 @@ class _$BirthdayModelCopyWithImpl<$Res, $Val extends BirthdayModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? emp_number = null,
     Object? firstName = null,
     Object? lastName = null,
     Object? photoFile = null,
@@ -75,6 +79,10 @@ class _$BirthdayModelCopyWithImpl<$Res, $Val extends BirthdayModel>
     Object? department = null,
   }) {
     return _then(_value.copyWith(
+      emp_number: null == emp_number
+          ? _value.emp_number
+          : emp_number // ignore: cast_nullable_to_non_nullable
+              as String,
       firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -104,15 +112,16 @@ class _$BirthdayModelCopyWithImpl<$Res, $Val extends BirthdayModel>
 }
 
 /// @nodoc
-abstract class _$$_BirthdayModelCopyWith<$Res>
+abstract class _$$BirthdayModelImplCopyWith<$Res>
     implements $BirthdayModelCopyWith<$Res> {
-  factory _$$_BirthdayModelCopyWith(
-          _$_BirthdayModel value, $Res Function(_$_BirthdayModel) then) =
-      __$$_BirthdayModelCopyWithImpl<$Res>;
+  factory _$$BirthdayModelImplCopyWith(
+          _$BirthdayModelImpl value, $Res Function(_$BirthdayModelImpl) then) =
+      __$$BirthdayModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "emp_first_name") String firstName,
+      {@JsonKey(name: "emp_number") String emp_number,
+      @JsonKey(name: "emp_first_name") String firstName,
       @JsonKey(name: "emp_last_name") String lastName,
       @JsonKey(name: "photo_file") String photoFile,
       @JsonKey(name: "b_day") String bdate,
@@ -121,16 +130,17 @@ abstract class _$$_BirthdayModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_BirthdayModelCopyWithImpl<$Res>
-    extends _$BirthdayModelCopyWithImpl<$Res, _$_BirthdayModel>
-    implements _$$_BirthdayModelCopyWith<$Res> {
-  __$$_BirthdayModelCopyWithImpl(
-      _$_BirthdayModel _value, $Res Function(_$_BirthdayModel) _then)
+class __$$BirthdayModelImplCopyWithImpl<$Res>
+    extends _$BirthdayModelCopyWithImpl<$Res, _$BirthdayModelImpl>
+    implements _$$BirthdayModelImplCopyWith<$Res> {
+  __$$BirthdayModelImplCopyWithImpl(
+      _$BirthdayModelImpl _value, $Res Function(_$BirthdayModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? emp_number = null,
     Object? firstName = null,
     Object? lastName = null,
     Object? photoFile = null,
@@ -138,7 +148,11 @@ class __$$_BirthdayModelCopyWithImpl<$Res>
     Object? bmonth = null,
     Object? department = null,
   }) {
-    return _then(_$_BirthdayModel(
+    return _then(_$BirthdayModelImpl(
+      emp_number: null == emp_number
+          ? _value.emp_number
+          : emp_number // ignore: cast_nullable_to_non_nullable
+              as String,
       firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -169,18 +183,22 @@ class __$$_BirthdayModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BirthdayModel implements _BirthdayModel {
-  const _$_BirthdayModel(
-      {@JsonKey(name: "emp_first_name") this.firstName = "",
+class _$BirthdayModelImpl implements _BirthdayModel {
+  const _$BirthdayModelImpl(
+      {@JsonKey(name: "emp_number") this.emp_number = "",
+      @JsonKey(name: "emp_first_name") this.firstName = "",
       @JsonKey(name: "emp_last_name") this.lastName = "",
       @JsonKey(name: "photo_file") this.photoFile = "",
       @JsonKey(name: "b_day") this.bdate = "",
       @JsonKey(name: "b_mon") this.bmonth = "",
       @JsonKey(name: "dept_name") this.department = ""});
 
-  factory _$_BirthdayModel.fromJson(Map<String, dynamic> json) =>
-      _$$_BirthdayModelFromJson(json);
+  factory _$BirthdayModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BirthdayModelImplFromJson(json);
 
+  @override
+  @JsonKey(name: "emp_number")
+  final String emp_number;
   @override
   @JsonKey(name: "emp_first_name")
   final String firstName;
@@ -202,14 +220,16 @@ class _$_BirthdayModel implements _BirthdayModel {
 
   @override
   String toString() {
-    return 'BirthdayModel(firstName: $firstName, lastName: $lastName, photoFile: $photoFile, bdate: $bdate, bmonth: $bmonth, department: $department)';
+    return 'BirthdayModel(emp_number: $emp_number, firstName: $firstName, lastName: $lastName, photoFile: $photoFile, bdate: $bdate, bmonth: $bmonth, department: $department)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BirthdayModel &&
+            other is _$BirthdayModelImpl &&
+            (identical(other.emp_number, emp_number) ||
+                other.emp_number == emp_number) &&
             (identical(other.firstName, firstName) ||
                 other.firstName == firstName) &&
             (identical(other.lastName, lastName) ||
@@ -224,18 +244,18 @@ class _$_BirthdayModel implements _BirthdayModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, firstName, lastName, photoFile, bdate, bmonth, department);
+  int get hashCode => Object.hash(runtimeType, emp_number, firstName, lastName,
+      photoFile, bdate, bmonth, department);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BirthdayModelCopyWith<_$_BirthdayModel> get copyWith =>
-      __$$_BirthdayModelCopyWithImpl<_$_BirthdayModel>(this, _$identity);
+  _$$BirthdayModelImplCopyWith<_$BirthdayModelImpl> get copyWith =>
+      __$$BirthdayModelImplCopyWithImpl<_$BirthdayModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BirthdayModelToJson(
+    return _$$BirthdayModelImplToJson(
       this,
     );
   }
@@ -243,16 +263,21 @@ class _$_BirthdayModel implements _BirthdayModel {
 
 abstract class _BirthdayModel implements BirthdayModel {
   const factory _BirthdayModel(
-      {@JsonKey(name: "emp_first_name") final String firstName,
-      @JsonKey(name: "emp_last_name") final String lastName,
-      @JsonKey(name: "photo_file") final String photoFile,
-      @JsonKey(name: "b_day") final String bdate,
-      @JsonKey(name: "b_mon") final String bmonth,
-      @JsonKey(name: "dept_name") final String department}) = _$_BirthdayModel;
+          {@JsonKey(name: "emp_number") final String emp_number,
+          @JsonKey(name: "emp_first_name") final String firstName,
+          @JsonKey(name: "emp_last_name") final String lastName,
+          @JsonKey(name: "photo_file") final String photoFile,
+          @JsonKey(name: "b_day") final String bdate,
+          @JsonKey(name: "b_mon") final String bmonth,
+          @JsonKey(name: "dept_name") final String department}) =
+      _$BirthdayModelImpl;
 
   factory _BirthdayModel.fromJson(Map<String, dynamic> json) =
-      _$_BirthdayModel.fromJson;
+      _$BirthdayModelImpl.fromJson;
 
+  @override
+  @JsonKey(name: "emp_number")
+  String get emp_number;
   @override
   @JsonKey(name: "emp_first_name")
   String get firstName;
@@ -273,6 +298,6 @@ abstract class _BirthdayModel implements BirthdayModel {
   String get department;
   @override
   @JsonKey(ignore: true)
-  _$$_BirthdayModelCopyWith<_$_BirthdayModel> get copyWith =>
+  _$$BirthdayModelImplCopyWith<_$BirthdayModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

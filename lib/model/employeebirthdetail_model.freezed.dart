@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'employeebirthdetail_model.dart';
 
@@ -12,7 +12,7 @@ part of 'employeebirthdetail_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 EmployeeBirthDetailModel _$EmployeeBirthDetailModelFromJson(
     Map<String, dynamic> json) {
@@ -23,6 +23,8 @@ EmployeeBirthDetailModel _$EmployeeBirthDetailModelFromJson(
 mixin _$EmployeeBirthDetailModel {
   List<NewJoineeModel> get emp_newjoins => throw _privateConstructorUsedError;
   List<BirthdayModel> get emp_births => throw _privateConstructorUsedError;
+  List<WorkAnniversaryModel> get emp_anniversary =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +39,9 @@ abstract class $EmployeeBirthDetailModelCopyWith<$Res> {
       _$EmployeeBirthDetailModelCopyWithImpl<$Res, EmployeeBirthDetailModel>;
   @useResult
   $Res call(
-      {List<NewJoineeModel> emp_newjoins, List<BirthdayModel> emp_births});
+      {List<NewJoineeModel> emp_newjoins,
+      List<BirthdayModel> emp_births,
+      List<WorkAnniversaryModel> emp_anniversary});
 }
 
 /// @nodoc
@@ -56,6 +60,7 @@ class _$EmployeeBirthDetailModelCopyWithImpl<$Res,
   $Res call({
     Object? emp_newjoins = null,
     Object? emp_births = null,
+    Object? emp_anniversary = null,
   }) {
     return _then(_value.copyWith(
       emp_newjoins: null == emp_newjoins
@@ -66,30 +71,37 @@ class _$EmployeeBirthDetailModelCopyWithImpl<$Res,
           ? _value.emp_births
           : emp_births // ignore: cast_nullable_to_non_nullable
               as List<BirthdayModel>,
+      emp_anniversary: null == emp_anniversary
+          ? _value.emp_anniversary
+          : emp_anniversary // ignore: cast_nullable_to_non_nullable
+              as List<WorkAnniversaryModel>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_EmployeeBirthDetailModelCopyWith<$Res>
+abstract class _$$EmployeeBirthDetailModelImplCopyWith<$Res>
     implements $EmployeeBirthDetailModelCopyWith<$Res> {
-  factory _$$_EmployeeBirthDetailModelCopyWith(
-          _$_EmployeeBirthDetailModel value,
-          $Res Function(_$_EmployeeBirthDetailModel) then) =
-      __$$_EmployeeBirthDetailModelCopyWithImpl<$Res>;
+  factory _$$EmployeeBirthDetailModelImplCopyWith(
+          _$EmployeeBirthDetailModelImpl value,
+          $Res Function(_$EmployeeBirthDetailModelImpl) then) =
+      __$$EmployeeBirthDetailModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {List<NewJoineeModel> emp_newjoins, List<BirthdayModel> emp_births});
+      {List<NewJoineeModel> emp_newjoins,
+      List<BirthdayModel> emp_births,
+      List<WorkAnniversaryModel> emp_anniversary});
 }
 
 /// @nodoc
-class __$$_EmployeeBirthDetailModelCopyWithImpl<$Res>
+class __$$EmployeeBirthDetailModelImplCopyWithImpl<$Res>
     extends _$EmployeeBirthDetailModelCopyWithImpl<$Res,
-        _$_EmployeeBirthDetailModel>
-    implements _$$_EmployeeBirthDetailModelCopyWith<$Res> {
-  __$$_EmployeeBirthDetailModelCopyWithImpl(_$_EmployeeBirthDetailModel _value,
-      $Res Function(_$_EmployeeBirthDetailModel) _then)
+        _$EmployeeBirthDetailModelImpl>
+    implements _$$EmployeeBirthDetailModelImplCopyWith<$Res> {
+  __$$EmployeeBirthDetailModelImplCopyWithImpl(
+      _$EmployeeBirthDetailModelImpl _value,
+      $Res Function(_$EmployeeBirthDetailModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,8 +109,9 @@ class __$$_EmployeeBirthDetailModelCopyWithImpl<$Res>
   $Res call({
     Object? emp_newjoins = null,
     Object? emp_births = null,
+    Object? emp_anniversary = null,
   }) {
-    return _then(_$_EmployeeBirthDetailModel(
+    return _then(_$EmployeeBirthDetailModelImpl(
       emp_newjoins: null == emp_newjoins
           ? _value._emp_newjoins
           : emp_newjoins // ignore: cast_nullable_to_non_nullable
@@ -107,26 +120,34 @@ class __$$_EmployeeBirthDetailModelCopyWithImpl<$Res>
           ? _value._emp_births
           : emp_births // ignore: cast_nullable_to_non_nullable
               as List<BirthdayModel>,
+      emp_anniversary: null == emp_anniversary
+          ? _value._emp_anniversary
+          : emp_anniversary // ignore: cast_nullable_to_non_nullable
+              as List<WorkAnniversaryModel>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_EmployeeBirthDetailModel implements _EmployeeBirthDetailModel {
-  const _$_EmployeeBirthDetailModel(
+class _$EmployeeBirthDetailModelImpl implements _EmployeeBirthDetailModel {
+  const _$EmployeeBirthDetailModelImpl(
       {final List<NewJoineeModel> emp_newjoins = const <NewJoineeModel>[],
-      final List<BirthdayModel> emp_births = const <BirthdayModel>[]})
+      final List<BirthdayModel> emp_births = const <BirthdayModel>[],
+      final List<WorkAnniversaryModel> emp_anniversary =
+          const <WorkAnniversaryModel>[]})
       : _emp_newjoins = emp_newjoins,
-        _emp_births = emp_births;
+        _emp_births = emp_births,
+        _emp_anniversary = emp_anniversary;
 
-  factory _$_EmployeeBirthDetailModel.fromJson(Map<String, dynamic> json) =>
-      _$$_EmployeeBirthDetailModelFromJson(json);
+  factory _$EmployeeBirthDetailModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmployeeBirthDetailModelImplFromJson(json);
 
   final List<NewJoineeModel> _emp_newjoins;
   @override
   @JsonKey()
   List<NewJoineeModel> get emp_newjoins {
+    if (_emp_newjoins is EqualUnmodifiableListView) return _emp_newjoins;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_emp_newjoins);
   }
@@ -135,24 +156,36 @@ class _$_EmployeeBirthDetailModel implements _EmployeeBirthDetailModel {
   @override
   @JsonKey()
   List<BirthdayModel> get emp_births {
+    if (_emp_births is EqualUnmodifiableListView) return _emp_births;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_emp_births);
   }
 
+  final List<WorkAnniversaryModel> _emp_anniversary;
   @override
-  String toString() {
-    return 'EmployeeBirthDetailModel(emp_newjoins: $emp_newjoins, emp_births: $emp_births)';
+  @JsonKey()
+  List<WorkAnniversaryModel> get emp_anniversary {
+    if (_emp_anniversary is EqualUnmodifiableListView) return _emp_anniversary;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_emp_anniversary);
   }
 
   @override
-  bool operator ==(dynamic other) {
+  String toString() {
+    return 'EmployeeBirthDetailModel(emp_newjoins: $emp_newjoins, emp_births: $emp_births, emp_anniversary: $emp_anniversary)';
+  }
+
+  @override
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmployeeBirthDetailModel &&
+            other is _$EmployeeBirthDetailModelImpl &&
             const DeepCollectionEquality()
                 .equals(other._emp_newjoins, _emp_newjoins) &&
             const DeepCollectionEquality()
-                .equals(other._emp_births, _emp_births));
+                .equals(other._emp_births, _emp_births) &&
+            const DeepCollectionEquality()
+                .equals(other._emp_anniversary, _emp_anniversary));
   }
 
   @JsonKey(ignore: true)
@@ -160,18 +193,19 @@ class _$_EmployeeBirthDetailModel implements _EmployeeBirthDetailModel {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_emp_newjoins),
-      const DeepCollectionEquality().hash(_emp_births));
+      const DeepCollectionEquality().hash(_emp_births),
+      const DeepCollectionEquality().hash(_emp_anniversary));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmployeeBirthDetailModelCopyWith<_$_EmployeeBirthDetailModel>
-      get copyWith => __$$_EmployeeBirthDetailModelCopyWithImpl<
-          _$_EmployeeBirthDetailModel>(this, _$identity);
+  _$$EmployeeBirthDetailModelImplCopyWith<_$EmployeeBirthDetailModelImpl>
+      get copyWith => __$$EmployeeBirthDetailModelImplCopyWithImpl<
+          _$EmployeeBirthDetailModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmployeeBirthDetailModelToJson(
+    return _$$EmployeeBirthDetailModelImplToJson(
       this,
     );
   }
@@ -179,18 +213,22 @@ class _$_EmployeeBirthDetailModel implements _EmployeeBirthDetailModel {
 
 abstract class _EmployeeBirthDetailModel implements EmployeeBirthDetailModel {
   const factory _EmployeeBirthDetailModel(
-      {final List<NewJoineeModel> emp_newjoins,
-      final List<BirthdayModel> emp_births}) = _$_EmployeeBirthDetailModel;
+          {final List<NewJoineeModel> emp_newjoins,
+          final List<BirthdayModel> emp_births,
+          final List<WorkAnniversaryModel> emp_anniversary}) =
+      _$EmployeeBirthDetailModelImpl;
 
   factory _EmployeeBirthDetailModel.fromJson(Map<String, dynamic> json) =
-      _$_EmployeeBirthDetailModel.fromJson;
+      _$EmployeeBirthDetailModelImpl.fromJson;
 
   @override
   List<NewJoineeModel> get emp_newjoins;
   @override
   List<BirthdayModel> get emp_births;
   @override
+  List<WorkAnniversaryModel> get emp_anniversary;
+  @override
   @JsonKey(ignore: true)
-  _$$_EmployeeBirthDetailModelCopyWith<_$_EmployeeBirthDetailModel>
+  _$$EmployeeBirthDetailModelImplCopyWith<_$EmployeeBirthDetailModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

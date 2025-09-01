@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:locus/bloc/employeebirthdetail_bloc.dart';
+import 'package:locus/bloc/sendwishes_bloc.dart';
 import 'package:locus/model/birthday_model.dart';
 import 'package:locus/model/employeebirthdetail_model.dart';
 import 'package:locus/model/newjoinee_model.dart';
@@ -13,6 +15,7 @@ import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import '../bloc/applylunch_bloc.dart';
 import '../model/login_model.dart';
+import '../model/work_anniversary_model.dart';
 import '../service/login_service.dart';
 
 class HomePage extends StatefulWidget {
@@ -56,8 +59,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     user = Provider.of<LoginService>(context, listen: false).getCurrentUser!;
     userCode = Provider.of<LoginService>(context, listen: false).getCurrentUser!.emp_cd!;
     roll =userCode.substring(0, 3);
-    print(" Hell this is current $userCode $roll");
-    tabController = TabController(length: 2, vsync: this);
+   // print(" Hell this is current $userCode $roll");
+    tabController = TabController(length: 3, vsync: this);
     pageController =
         PageController(initialPage: currentPage, viewportFraction: 0.8);
     final homePageService =
@@ -452,7 +455,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 
   _buildBirthdayCard() {
     return SizedBox(
-      height: 250.dw,
+      height: 270.dw,
       child: Padding(
         padding: EdgeInsets.all(8.0.dw),
         child: Card(
@@ -462,29 +465,33 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               TabBar(
                   indicatorColor: AppColors.bottlegreen,
                   indicatorWeight: 4.dw,
-                  overlayColor: MaterialStateProperty.all(Colors.orange),
+                  overlayColor: WidgetStateProperty.all(Colors.orange),
                   labelColor: AppColors.bloodred,
                   unselectedLabelColor: AppColors.navyblue,
                   unselectedLabelStyle: TextStyle(fontSize: 12.dh),
                   indicatorPadding: EdgeInsets.all(10.dw),
                   labelPadding: EdgeInsets.all(10.dw),
-                  labelStyle:
-                      TextStyle(fontSize: 20.dh, fontWeight: FontWeight.w600),
+                  labelStyle: TextStyle(fontSize: 20.dh, fontWeight: FontWeight.w600),
                   controller: tabController,
                   tabs: [
                     Text(
                       "Birthdays",
-                      style: TextStyle(fontSize: 14.dw),
+                      style: TextStyle(fontSize: 12.dw),
+                    ),
+                    Text(
+                      "Work Anniversary",
+                      style: TextStyle(fontSize: 11.dw),
+                      overflow: TextOverflow.ellipsis,
                     ),
                     Text(
                       "New Joinee",
-                      style: TextStyle(fontSize: 14.dw),
+                      style: TextStyle(fontSize: 12.dw),
                     )
                   ]),
               Expanded(
                   child: TabBarView(
                       controller: tabController,
-                      children: const [Birthday(), NewJoinee()]))
+                      children: const [Birthday(), WorkAnniversary(), NewJoinee()]))
             ],
           ),
         ),
@@ -520,12 +527,26 @@ class Birthday extends StatefulWidget {
 class _BirthdayState extends State<Birthday> {
   late EmployeeBirthDetailBloc employeeBirthDetailBloc;
 
+  /// 🔥 NEW — Track “wished” per employee
+  Map<String, bool> wishedUsers = {};
+
+  String getFormattedDate() {
+    final now = DateTime.now();
+    return DateFormat('MMM dd').format(now);   // Example: "Dec 05"
+  }
+
+  late final String today;
+  late SendwishesBloc sendwishesBloc;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   void initState() {
     final homePageService =
-        Provider.of<HomePageService>(context, listen: false);
+    Provider.of<HomePageService>(context, listen: false);
     employeeBirthDetailBloc = EmployeeBirthDetailBloc(homePageService);
     employeeBirthDetailBloc.init();
+    today = getFormattedDate();
+    sendwishesBloc = SendwishesBloc(homePageService);
     super.initState();
   }
 
@@ -533,6 +554,7 @@ class _BirthdayState extends State<Birthday> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.babyPink,
+        key: scaffoldKey,
         body: Container(
           width: ScreenSizeConfig.getFullWidth,
           decoration: const BoxDecoration(
@@ -572,6 +594,9 @@ class _BirthdayState extends State<Birthday> {
   }
 
   Widget _buildCard(BirthdayModel model) {
+    String birthDate = "${model.bmonth} ${model.bdate}";
+    bool alreadyWished = wishedUsers[model.emp_number] ?? false;
+
     return Padding(
       padding: EdgeInsets.all(5.0.dw),
       child: SizedBox(
@@ -581,27 +606,20 @@ class _BirthdayState extends State<Birthday> {
           child: Padding(
             padding: EdgeInsets.all(8.0.dw),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                // model.photoFile == "" ? SizedBox(
-                //     height: 80.dw,
-                //     width: 80.dw,
-                //     child: Image.asset("assets/images/profile2.png")) :
                 SizedBox(
                   height: 80.dw,
                   width: 80.dw,
                   child: Image.network(
                     model.photoFile,
                     fit: BoxFit.cover,
-                    // errorBuilder: (context, exception, stackTrace){
-                    //   return Image.asset("assets/images/profile2.png", scale: 6.dw);
-                    // },
                   ),
                 ),
                 SizedBox(
                   width: 120.dw,
                   child: Text(
-                    model.firstName + " " + model.lastName,
+                    "${model.firstName} ${model.lastName}",
                     textAlign: TextAlign.center,
                     maxLines: 3,
                     style: TextStyle(fontSize: 12.dw),
@@ -615,18 +633,40 @@ class _BirthdayState extends State<Birthday> {
                       model.bdate,
                       style: TextStyle(fontSize: 12.dw),
                     ),
-                    Text(" "),
+                    const Text(" "),
                     Text(
                       model.bmonth,
                       style: TextStyle(fontSize: 12.dw),
                     ),
-                    Text(" "),
+                    const Text(" "),
                     Text(
                       model.department,
                       style: TextStyle(fontSize: 12.dw),
                     ),
                   ],
                 ),
+
+                /// ---------- SEND WISHES BUTTON ----------
+                (birthDate.toLowerCase() == today.toLowerCase())
+                    ? ElevatedButton(
+                  onPressed: alreadyWished
+                      ? null
+                      : () {
+                    _sendWishes(model);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(0, 0),
+                    backgroundColor: alreadyWished
+                        ? Colors.grey
+                        : Colors.blue.shade800,
+                    padding: EdgeInsets.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    fixedSize: Size(100.dw, 30.dh),
+                  ),
+                  child:
+                  Text("Send Wishes", style: TextStyle(fontSize: 12.dw)),
+                )
+                    : const SizedBox(),
               ],
             ),
           ),
@@ -634,7 +674,224 @@ class _BirthdayState extends State<Birthday> {
       ),
     );
   }
+
+  void _sendWishes(BirthdayModel model) async {
+    final data = {
+      'empcd': model.emp_number,
+      'type': "B",
+    };
+    await sendwishesBloc.sendWishes(data);
+    final state = sendwishesBloc.state;
+
+    state.maybeWhen(
+        success: (model2, message) {
+          ScaffoldMessenger.of(scaffoldKey.currentContext!)
+              .showSnackBar(SnackBar(
+              content: Text(
+                message!,
+                style: const TextStyle(color: Colors.white),
+              )));
+
+          /// 🔥 Update only this user's wish status
+          setState(() {
+            wishedUsers[model.emp_number] = true;
+          });
+        },
+        failed: (model2, message) {
+          ScaffoldMessenger.of(scaffoldKey.currentContext!)
+              .showSnackBar(SnackBar(content: Text(message)));
+        },
+        orElse: () {});
+  }
 }
+
+class WorkAnniversary extends StatefulWidget {
+  const WorkAnniversary({super.key});
+
+  @override
+  State<WorkAnniversary> createState() => _WorkAnniversaryState();
+}
+
+class _WorkAnniversaryState extends State<WorkAnniversary> {
+  late EmployeeBirthDetailBloc employeeBirthDetailBloc;
+
+  /// 🔥 NEW — Track wish sent for each employee
+  Map<String, bool> wishedUsers = {};
+
+  String getFormattedDate() {
+    final now = DateTime.now();
+    return DateFormat('MMM dd').format(now);
+  }
+
+  late final String today;
+  late SendwishesBloc sendwishesBloc;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    final homePageService =
+    Provider.of<HomePageService>(context, listen: false);
+
+    employeeBirthDetailBloc = EmployeeBirthDetailBloc(homePageService);
+    employeeBirthDetailBloc.init();
+
+    sendwishesBloc = SendwishesBloc(homePageService);
+
+    today = getFormattedDate();
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: AppColors.babyPink,
+        key: scaffoldKey,
+        body: Container(
+          width: ScreenSizeConfig.getFullWidth,
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/birthday.jpg"),
+                  fit: BoxFit.cover,
+                  opacity: 0.6)),
+          child: _buildBody(),
+        ));
+  }
+
+  _buildBody() {
+    return BlocConsumer<EmployeeBirthDetailBloc, EmployeeBirthDetailState>(
+      bloc: employeeBirthDetailBloc,
+      listener: (_, state) {},
+      builder: (_, state) {
+        return state.when(
+            loading: _buildLoading,
+            content: _buildContent,
+            success: _buildContent,
+            failed: (form, __) => _buildContent(form));
+      },
+    );
+  }
+
+  Widget _buildLoading(EmployeeBirthDetailModel model) {
+    return const Center(child: CircularProgressIndicator());
+  }
+
+  Widget _buildContent(EmployeeBirthDetailModel model) {
+    final anniversaryList = model.emp_anniversary;
+
+    return ListView(
+      shrinkWrap: true,
+      scrollDirection: Axis.horizontal,
+      children: anniversaryList.map((e) => _buildCard(e)).toList(),
+    );
+  }
+
+  Widget _buildCard(WorkAnniversaryModel model) {
+    String joinDate = model.join_date;
+    bool alreadyWished = wishedUsers[model.empNumber] ?? false;
+
+    return Padding(
+      padding: EdgeInsets.all(5.0.dw),
+      child: SizedBox(
+        height: 80.dw,
+        width: 150.dw,
+        child: Card(
+          child: Padding(
+            padding: EdgeInsets.all(8.0.dw),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SizedBox(
+                  height: 80.dw,
+                  width: 80.dw,
+                  child: Image.network(
+                    model.image,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+
+                SizedBox(
+                  width: 120.dw,
+                  child: Text(
+                    "${model.firstName} ${model.lastName}",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 12.dw),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(model.join_date, style: TextStyle(fontSize: 12.dw)),
+                    const Text(", "),
+                    Text("${model.year} Years",
+                        style: TextStyle(fontSize: 12.dw)),
+                  ],
+                ),
+
+                Text(model.deptName, style: TextStyle(fontSize: 12.dw)),
+
+                /// ---------- SEND WISHES BUTTON ----------
+                (joinDate.toLowerCase() == today.toLowerCase())
+                    ? ElevatedButton(
+                  onPressed: alreadyWished
+                      ? null
+                      : () {
+                    _sendWishes(model);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(0, 0),
+                    backgroundColor: alreadyWished
+                        ? Colors.grey
+                        : Colors.blue.shade800,
+                    padding: EdgeInsets.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    fixedSize: Size(100.dw, 30.dh),
+                  ),
+                  child: Text("Send Wishes",
+                      style: TextStyle(fontSize: 12.dw)),
+                )
+                    : const SizedBox(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _sendWishes(WorkAnniversaryModel model) async {
+    final data = {
+      'empcd': model.empNumber,
+      'type': "A",
+    };
+
+    await sendwishesBloc.sendWishes(data);
+
+    final state = sendwishesBloc.state;
+
+    state.maybeWhen(
+      success: (modelX, message) {
+        ScaffoldMessenger.of(scaffoldKey.currentContext!)
+            .showSnackBar(SnackBar(
+          content: Text(message!, style: const TextStyle(color: Colors.white)),
+        ));
+
+        /// 🔥 Mark only this employee as wished
+        setState(() {
+          wishedUsers[model.empNumber] = true;
+        });
+      },
+      failed: (modelX, message) {
+        ScaffoldMessenger.of(scaffoldKey.currentContext!)
+            .showSnackBar(SnackBar(content: Text(message)));
+      },
+      orElse: () {},
+    );
+  }
+}
+
 
 class NewJoinee extends StatefulWidget {
   const NewJoinee({Key? key}) : super(key: key);

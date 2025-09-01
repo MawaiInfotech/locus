@@ -14,10 +14,8 @@ _$LunchDetailsModelImpl _$$LunchDetailsModelImplFromJson(
       staus: json['staus'] as String? ?? "",
       lunch_detail_id: (json['lunch_detail_id'] as num?)?.toInt() ?? 0,
       flag: json['flag'] as String? ?? "",
-      empDetails: json['get_emp_details'] == null
-          ? null
-          : LunchUserModel.fromJson(
-              json['get_emp_details'] as Map<String, dynamic>),
+      firstName: json['emp_first_name'] as String? ?? "",
+      lastName: json['emp_last_name'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$LunchDetailsModelImplToJson(
@@ -28,5 +26,6 @@ Map<String, dynamic> _$$LunchDetailsModelImplToJson(
       'staus': instance.staus,
       'lunch_detail_id': instance.lunch_detail_id,
       'flag': instance.flag,
-      'get_emp_details': instance.empDetails,
+      'emp_first_name': instance.firstName,
+      'emp_last_name': instance.lastName,
     };

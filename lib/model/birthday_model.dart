@@ -6,6 +6,7 @@ part 'birthday_model.freezed.dart';
 @freezed
 class BirthdayModel with _$BirthdayModel{
   const factory BirthdayModel({
+    @JsonKey(name: "emp_number") @Default("") String emp_number,
     @JsonKey(name: "emp_first_name") @Default("") String firstName,
     @JsonKey(name: "emp_last_name") @Default("") String lastName,
     @JsonKey(name: "photo_file") @Default("") String photoFile,

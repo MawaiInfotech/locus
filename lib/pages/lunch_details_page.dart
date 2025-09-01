@@ -24,6 +24,9 @@ class _LunchDetailsPageState extends State<LunchDetailsPage> {
   /// track which employee button is loading
   String? _loadingEmpId;
 
+  /// track dropdown selection per employee
+  final Map<String, String> _dropdownSelections = {};
+
   @override
   void initState() {
     super.initState();
@@ -59,30 +62,81 @@ class _LunchDetailsPageState extends State<LunchDetailsPage> {
       return const Center(child: Text("No employees found"));
     }
 
-    return ListView.builder(
-      padding: const EdgeInsets.all(12),
-      itemCount: model.length,
-      itemBuilder: (context, index) {
-        final emp = model[index];
-        return Card(
-          margin: const EdgeInsets.symmetric(vertical: 6),
-          child: ListTile(
-            contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            title: Text(
-              "${emp.empDetails?.firstName} ${emp.empDetails?.lastName}(${emp.empDetails?.emp_number})",
-              style:
-              const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+    return SafeArea(
+      child: ListView.builder(
+        padding: const EdgeInsets.all(12),
+        itemCount: model.length,
+        itemBuilder: (context, index) {
+          final emp = model[index];
+          final empId = emp.emp_number;
+
+          // Get selected value or default
+          final selectedType = _dropdownSelections[empId] ?? "Normal";
+
+          return Card(
+            margin: const EdgeInsets.symmetric(vertical: 6),
+            child: ListTile(
+              contentPadding:
+              const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              title: Row(
+                children: [
+                  // 🔢 Numbering
+                  Text(
+                    "${index + 1}. ",
+                    style: const TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  // 👤 Employee name
+                  Expanded(
+                    child: Text(
+                      emp.firstName,
+                      style: const TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 5),
+
+                  // 🔽 Dropdown
+                  DropdownButton<String>(
+                    value: selectedType,
+                    items: const [
+                      DropdownMenuItem(
+                        value: "Normal",
+                        child: Text("Normal", style: TextStyle(fontSize: 13)),
+                      ),
+                      DropdownMenuItem(
+                        value: "Force",
+                        child: Text("Force", style: TextStyle(fontSize: 13)),
+                      ),
+                    ],
+                    onChanged: emp.flag == "Y"
+                        ? null // 🔒 disable dropdown
+                        : (value) {
+                      if (value != null) {
+                        setState(() {
+                          _dropdownSelections[empId] = value;
+                        });
+                      }
+                    },
+                  ),
+                ],
+              ),
+              trailing: _buildSubmitButton(emp, selectedType),
             ),
-            trailing: _buildSubmitButton(emp),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
+
   }
 
-  Widget _buildSubmitButton(LunchDetailsModel emp) {
-    final empId = emp.empDetails!.emp_number;
+  Widget _buildSubmitButton(LunchDetailsModel emp, String type) {
+    final empId = emp.emp_number;
     final isLoading = _loadingEmpId == empId;
 
     if (isLoading) {
@@ -100,15 +154,16 @@ class _LunchDetailsPageState extends State<LunchDetailsPage> {
       onPressed: emp.flag == "Y"
           ? null
           : () {
-        _showConfirmDialog(emp);
+        _showConfirmDialog(emp, type);
       },
-      child: Text(emp.flag == "N" ? "Take Lunch" : "Lunch Taken"),
+      // child: Text(emp.flag == "N" ? "Take Lunch" : "Lunch Taken"),
+      child: Icon(emp.flag == "N" ?Icons.thumb_up: Icons.thumb_down),
     );
   }
 
-  Future<void> _showConfirmDialog(LunchDetailsModel emp) async {
-    final empId = emp.empDetails!.emp_number;
-    final name = "${emp.empDetails?.firstName} ${emp.empDetails?.lastName}";
+  Future<void> _showConfirmDialog(LunchDetailsModel emp, String type) async {
+    final empId = emp.emp_number;
+    final name = "${emp.firstName} ";
 
     return showDialog(
       context: context,
@@ -123,7 +178,7 @@ class _LunchDetailsPageState extends State<LunchDetailsPage> {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     backgroundColor: Colors.green,
-                    content: Text(message ?? "Lunch marked for $name"),
+                    content: Text(message ?? "Lunch marked for $name ($type)"),
                   ),
                 );
                 lunchDetailsBloc.init(); // ✅ reload list
@@ -155,41 +210,22 @@ class _LunchDetailsPageState extends State<LunchDetailsPage> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Colors.green, Colors.teal],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(Icons.fastfood,
-                          size: 50, color: Colors.white),
-                    ),
+                    const Icon(Icons.fastfood,
+                        size: 50, color: Colors.green),
                     const SizedBox(height: 16),
-                    Text(
-                      "Confirm Lunch",
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey[800],
-                      ),
-                    ),
+                    Text("Confirm Lunch",
+                        style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey[800])),
                     const SizedBox(height: 8),
                     Text(
-                      "Do you want to mark lunch for $name?",
+                      "Do you want to mark lunch for $name as $type?",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.grey[600],
-                        height: 1.4,
-                      ),
+                          fontSize: 15, color: Colors.grey[600], height: 1.4),
                     ),
                     const SizedBox(height: 20),
-
-                    // Buttons row
                     Row(
                       children: [
                         Expanded(
@@ -197,11 +233,6 @@ class _LunchDetailsPageState extends State<LunchDetailsPage> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.redAccent,
                               foregroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              padding:
-                              const EdgeInsets.symmetric(vertical: 14),
                             ),
                             onPressed: isLoading
                                 ? null
@@ -215,23 +246,17 @@ class _LunchDetailsPageState extends State<LunchDetailsPage> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.green,
                               foregroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              padding:
-                              const EdgeInsets.symmetric(vertical: 14),
                             ),
                             onPressed: isLoading
                                 ? null
-                                : () => lunchSubmitBloc.init(empId, "Y"),
+                                : () => lunchSubmitBloc.init(empId, type,"Y"),
                             child: isLoading
                                 ? const SizedBox(
                               width: 18,
                               height: 18,
                               child: CircularProgressIndicator(
-                                strokeWidth: 2,
-                                color: Colors.white,
-                              ),
+                                  strokeWidth: 2,
+                                  color: Colors.white),
                             )
                                 : const Text("Confirm"),
                           ),
@@ -247,8 +272,5 @@ class _LunchDetailsPageState extends State<LunchDetailsPage> {
       },
     );
   }
-
-
-
-
 }
+

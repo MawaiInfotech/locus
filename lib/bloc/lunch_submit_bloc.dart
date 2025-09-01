@@ -11,10 +11,10 @@ class LunchSubmitBloc extends Cubit<LunchSubmitState>{
 
   HomePageService homePageService;
 
-  Future<void> init(String empCode,String flag)async{
+  Future<void> init(String empCode,String type,String flag)async{
     try{
       emit(LunchSubmitState.loading(state.lunchSubmitModel));
-      final message = await homePageService.submitForLunch(empCode, flag);
+      final message = await homePageService.submitForLunch(empCode,type, flag);
       emit(LunchSubmitState.success(state.lunchSubmitModel, message));
     }on ApiError catch(error){
       emit(LunchSubmitState.failed(state.lunchSubmitModel,  error.message));

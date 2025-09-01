@@ -6,9 +6,9 @@ part of 'employeebirthdetail_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EmployeeBirthDetailModel _$$_EmployeeBirthDetailModelFromJson(
+_$EmployeeBirthDetailModelImpl _$$EmployeeBirthDetailModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_EmployeeBirthDetailModel(
+    _$EmployeeBirthDetailModelImpl(
       emp_newjoins: (json['emp_newjoins'] as List<dynamic>?)
               ?.map((e) => NewJoineeModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -17,11 +17,17 @@ _$_EmployeeBirthDetailModel _$$_EmployeeBirthDetailModelFromJson(
               ?.map((e) => BirthdayModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <BirthdayModel>[],
+      emp_anniversary: (json['emp_anniversary'] as List<dynamic>?)
+              ?.map((e) =>
+                  WorkAnniversaryModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <WorkAnniversaryModel>[],
     );
 
-Map<String, dynamic> _$$_EmployeeBirthDetailModelToJson(
-        _$_EmployeeBirthDetailModel instance) =>
+Map<String, dynamic> _$$EmployeeBirthDetailModelImplToJson(
+        _$EmployeeBirthDetailModelImpl instance) =>
     <String, dynamic>{
       'emp_newjoins': instance.emp_newjoins,
       'emp_births': instance.emp_births,
+      'emp_anniversary': instance.emp_anniversary,
     };

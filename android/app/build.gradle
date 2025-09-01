@@ -1,7 +1,7 @@
 
 plugins {
     id "com.android.application"
-    id "kotlin-android"
+    id "org.jetbrains.kotlin.android"
     id "dev.flutter.flutter-gradle-plugin"
 }
 def localProperties = new Properties()
@@ -23,11 +23,12 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace "com.shilpi.locusmawai.shilpi"
-    compileSdkVersion 35
+    compileSdkVersion 36
+    ndkVersion "29.0.14206865"
     defaultConfig {
         applicationId "com.shilpi.locusmawai.shilpi"
-        minSdkVersion 21
-        targetSdkVersion 35
+        minSdkVersion flutter.minSdkVersion
+        targetSdkVersion 36
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true

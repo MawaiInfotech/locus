@@ -27,6 +27,7 @@ class LoginService {
       'emp_cd': employeeCode,
       'password': password,
     };
+    print(data);
     const url = '${root}login';
 
     try {

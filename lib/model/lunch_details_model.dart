@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'lunch_user_model.dart';
+
 
 
 part 'lunch_details_model.g.dart';
@@ -14,7 +14,9 @@ class LunchDetailsModel with _$LunchDetailsModel{
     @JsonKey(name: "staus") @Default("") String staus,
     @JsonKey(name: "lunch_detail_id") @Default(0) int lunch_detail_id,
     @JsonKey(name: "flag") @Default("") String flag,
-    @JsonKey(name: "get_emp_details") LunchUserModel? empDetails,
+    @JsonKey(name: "emp_first_name") @Default("") String firstName,
+    @JsonKey(name: "emp_last_name") @Default("") String lastName,
+  //  @JsonKey(name: "get_emp_details") LunchUserModel? empDetails,
 
   }) = _LunchDetailsModel;
 
