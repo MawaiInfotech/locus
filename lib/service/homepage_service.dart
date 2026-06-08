@@ -24,11 +24,9 @@ class HomePageService{
   Future<String?> getSendWishes(Map<String, dynamic>data) async {
     const url = '${root}sendWishes';
     final body = data;
-  //  print(body);
     try {
       final response = await http.post(Uri.parse(url), body: json.encode(body), headers: getHeaders());
       final responseBody = json.decode(response.body);
-     //  print(responseBody);
       if (responseBody['status'] == 1) {
         return responseBody ['message'];
       }else{
@@ -38,7 +36,6 @@ class HomePageService{
       _handleError(e);
     }
     return null;
-    // return null;
   }
 
   // Apply Lunch

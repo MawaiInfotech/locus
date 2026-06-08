@@ -491,7 +491,12 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               Expanded(
                   child: TabBarView(
                       controller: tabController,
-                      children: const [Birthday(), WorkAnniversary(), NewJoinee()]))
+                      children: const [
+                        Birthday(),
+                        WorkAnniversary(),
+                        NewJoinee()
+                      ]
+                  ),),
             ],
           ),
         ),
@@ -942,7 +947,7 @@ class _NewJoineeState extends State<NewJoinee> {
   }
 
   Widget _buildLoading(EmployeeBirthDetailModel model) {
-    return Center(child: CircularProgressIndicator());
+    return const Center(child: CircularProgressIndicator());
   }
 
   Widget _buildContent(EmployeeBirthDetailModel model) {
@@ -983,7 +988,7 @@ class _NewJoineeState extends State<NewJoinee> {
                 child: SizedBox(
                   width: 120.dw,
                   child: Text(
-                    model.firstName + " " + model.lastName,
+                    "${model.firstName} ${model.lastName}",
                     textAlign: TextAlign.center,
                     maxLines: 1,
                     overflow: TextOverflow.fade,

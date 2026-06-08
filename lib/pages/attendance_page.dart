@@ -398,7 +398,7 @@ class _AttendancePageState extends State<AttendancePage>
                           child: _buildDateTime(
                               dateFormat: hasCheckIn
                                   ? DateFormat("hh:mm aa").format(
-                                      DateFormat("yyyy-MM-dd hh:mm:ss").parse(
+                                      DateFormat("yyyy-MM-dd HH:mm:ss").parse(
                                           state.form.checkInData?.officepunch ??
                                               ""))
                                   : "--"),
@@ -425,6 +425,7 @@ class _AttendancePageState extends State<AttendancePage>
   }
 
   _buildCheckOutCard() {
+
     return SizedBox(
       width: ScreenSizeConfig.sWidth,
       child: Card(
@@ -435,6 +436,8 @@ class _AttendancePageState extends State<AttendancePage>
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.dw)),
         child: BlocBuilder<CheckLoginBloc, CheckLoginState>(
           builder: (_, state) {
+            print(state.form.checkOutData
+                ?.officepunch);
             final hasCheckOut = state.form.checkOutData != null;
             final checkOutAddress =
                 hasCheckOut ? state.form.checkOutData?.address : null;
@@ -478,7 +481,7 @@ class _AttendancePageState extends State<AttendancePage>
                             child: _buildDateTime(
                                 dateFormat: hasCheckOut
                                     ? DateFormat("hh:mm aa").format(
-                                        DateFormat("yyyy-MM-dd hh:mm:ss").parse(
+                                        DateFormat("yyyy-MM-dd HH:mm:ss").parse(
                                             state.form.checkOutData
                                                     ?.officepunch ??
                                                 ""))

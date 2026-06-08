@@ -104,8 +104,8 @@ class _RequestMisspunchPageState extends State<RequestMisspunchPage> {
   }
 
   Widget _buildContent(RequestModel model) {
-    //timeTextController = TextEditingController(text: user.end_time.toString());
-    //checkInTimeTextController = TextEditingController(text: user.start_time.toString());
+    timeTextController = TextEditingController(text: user.end_time.toString());
+    checkInTimeTextController = TextEditingController(text: user.start_time.toString());
     return Card(
       margin: EdgeInsets.all(20.dw),
       elevation: 20.dw,

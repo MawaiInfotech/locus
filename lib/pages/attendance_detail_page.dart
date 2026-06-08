@@ -108,8 +108,6 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
   }
 
   Widget _buildListCard(AttendanceDetailModel model){
-
-
     return Card(
       margin: EdgeInsets.all(10.dw),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.dw)),
@@ -242,7 +240,6 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
   }
 
   _buildMonthDialogBox(AttendanceDetailSuppModel model) {
-    int index = model.attendance.length;
     return InkWell(
       onTap: () async {
         _showMonthDialogue(model);
@@ -257,7 +254,7 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(model.attendance.length == 0 ? selectedMonth : model.attendance[0].month),
+                  Text(model.attendance.isEmpty ? selectedMonth : model.attendance[0].month),
                   const Icon(Icons.arrow_drop_down)
                 ],
               ),

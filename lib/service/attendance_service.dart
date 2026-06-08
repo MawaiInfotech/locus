@@ -23,14 +23,16 @@ class AttendanceService {
   Future<CheckLoginModelForm?> getCheckLogin() async {
     final date = DateFormat("yyyy-MM-dd").format(DateTime.now());
     final body = {"sysdate": date};
-    const url = root + "checklogin";
-
+    const url = "${root}checklogin";
+    print("Body : $body");
     final response = await http.post(Uri.parse(url), body: json.encode(body), headers: getHeaders());
     try {
       final responseBody = json.decode(response.body);
       final checkIN = responseBody["checkInData"];
       final checkOut = responseBody["checkOutData"];
-      print(responseBody);
+      print("CheckIN : $checkIN");
+      print("CheckOut : $checkOut");
+      print("Response Body : $responseBody");
       if (checkIN is String) {
         if (checkIN.isEmpty) responseBody["checkInData"] = null;
       }
@@ -65,7 +67,7 @@ class AttendanceService {
   //attendance markingh
 
   Future<Map<String, dynamic>?>  getAttendance(String status, String remark, String site, file) async {
-    const url = root + 'checkin-checkout';
+    const url = '${root}checkin-checkout';
 
     final bytes = Io.File(file).readAsBytesSync();
     String img64 = base64Encode(bytes);
@@ -117,6 +119,7 @@ class AttendanceService {
       final response = await http.post(Uri.parse(url), body: json.encode(body), headers: getHeaders());
 
       final responseBody = json.decode(response.body);
+      print("Response Body : $responseBody");
       if (responseBody['status'] == false) {
         throw ApiError.fromResponse(responseBody['message']);
       }
