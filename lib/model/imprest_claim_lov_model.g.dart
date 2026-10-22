@@ -6,9 +6,9 @@ part of 'imprest_claim_lov_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ImprestClaimLovModel _$$_ImprestClaimLovModelFromJson(
+_$ImprestClaimLovModelImpl _$$ImprestClaimLovModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ImprestClaimLovModel(
+    _$ImprestClaimLovModelImpl(
       types: (json['types'] as List<dynamic>?)
               ?.map((e) => ClaimTypeModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -25,8 +25,8 @@ _$_ImprestClaimLovModel _$$_ImprestClaimLovModelFromJson(
       rate_per_km: json['rate_per_km'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_ImprestClaimLovModelToJson(
-        _$_ImprestClaimLovModel instance) =>
+Map<String, dynamic> _$$ImprestClaimLovModelImplToJson(
+        _$ImprestClaimLovModelImpl instance) =>
     <String, dynamic>{
       'types': instance.types,
       'visit_throughs': instance.visit_throughs,

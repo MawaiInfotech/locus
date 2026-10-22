@@ -6,9 +6,9 @@ part of 'employeedetail_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EmployeedetailModel _$$_EmployeedetailModelFromJson(
+_$EmployeedetailModelImpl _$$EmployeedetailModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_EmployeedetailModel(
+    _$EmployeedetailModelImpl(
       employeeNumber: json['emp_number'] as String? ?? "",
       employeeLastName: json['emp_last_name'] as String? ?? "",
       employeeFirstName: json['emp_first_name'] as String? ?? "",
@@ -17,8 +17,8 @@ _$_EmployeedetailModel _$$_EmployeedetailModelFromJson(
       reportingTo: json['reporting_to'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_EmployeedetailModelToJson(
-        _$_EmployeedetailModel instance) =>
+Map<String, dynamic> _$$EmployeedetailModelImplToJson(
+        _$EmployeedetailModelImpl instance) =>
     <String, dynamic>{
       'emp_number': instance.employeeNumber,
       'emp_last_name': instance.employeeLastName,

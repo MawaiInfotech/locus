@@ -6,13 +6,15 @@ part of 'approvewfh_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApproveWfhModel _$$_ApproveWfhModelFromJson(Map<String, dynamic> json) =>
-    _$_ApproveWfhModel(
+_$ApproveWfhModelImpl _$$ApproveWfhModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ApproveWfhModelImpl(
       status: json['status'] as String? ?? "",
       message: json['message'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_ApproveWfhModelToJson(_$_ApproveWfhModel instance) =>
+Map<String, dynamic> _$$ApproveWfhModelImplToJson(
+        _$ApproveWfhModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,

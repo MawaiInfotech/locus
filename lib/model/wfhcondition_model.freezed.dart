@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'wfhcondition_model.dart';
 
@@ -12,7 +12,7 @@ part of 'wfhcondition_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 WfhConditionModel _$WfhConditionModelFromJson(Map<String, dynamic> json) {
   return _WfhConditionModel.fromJson(json);
@@ -72,11 +72,11 @@ class _$WfhConditionModelCopyWithImpl<$Res, $Val extends WfhConditionModel>
 }
 
 /// @nodoc
-abstract class _$$_WfhConditionModelCopyWith<$Res>
+abstract class _$$WfhConditionModelImplCopyWith<$Res>
     implements $WfhConditionModelCopyWith<$Res> {
-  factory _$$_WfhConditionModelCopyWith(_$_WfhConditionModel value,
-          $Res Function(_$_WfhConditionModel) then) =
-      __$$_WfhConditionModelCopyWithImpl<$Res>;
+  factory _$$WfhConditionModelImplCopyWith(_$WfhConditionModelImpl value,
+          $Res Function(_$WfhConditionModelImpl) then) =
+      __$$WfhConditionModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -85,11 +85,11 @@ abstract class _$$_WfhConditionModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_WfhConditionModelCopyWithImpl<$Res>
-    extends _$WfhConditionModelCopyWithImpl<$Res, _$_WfhConditionModel>
-    implements _$$_WfhConditionModelCopyWith<$Res> {
-  __$$_WfhConditionModelCopyWithImpl(
-      _$_WfhConditionModel _value, $Res Function(_$_WfhConditionModel) _then)
+class __$$WfhConditionModelImplCopyWithImpl<$Res>
+    extends _$WfhConditionModelCopyWithImpl<$Res, _$WfhConditionModelImpl>
+    implements _$$WfhConditionModelImplCopyWith<$Res> {
+  __$$WfhConditionModelImplCopyWithImpl(_$WfhConditionModelImpl _value,
+      $Res Function(_$WfhConditionModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_WfhConditionModelCopyWithImpl<$Res>
     Object? controlCode = null,
     Object? meaning = null,
   }) {
-    return _then(_$_WfhConditionModel(
+    return _then(_$WfhConditionModelImpl(
       controlCode: null == controlCode
           ? _value.controlCode
           : controlCode // ignore: cast_nullable_to_non_nullable
@@ -113,13 +113,13 @@ class __$$_WfhConditionModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WfhConditionModel implements _WfhConditionModel {
-  const _$_WfhConditionModel(
+class _$WfhConditionModelImpl implements _WfhConditionModel {
+  const _$WfhConditionModelImpl(
       {@JsonKey(name: "control_code") this.controlCode = "",
       @JsonKey(name: "description") this.meaning = ""});
 
-  factory _$_WfhConditionModel.fromJson(Map<String, dynamic> json) =>
-      _$$_WfhConditionModelFromJson(json);
+  factory _$WfhConditionModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WfhConditionModelImplFromJson(json);
 
   @override
   @JsonKey(name: "control_code")
@@ -134,10 +134,10 @@ class _$_WfhConditionModel implements _WfhConditionModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WfhConditionModel &&
+            other is _$WfhConditionModelImpl &&
             (identical(other.controlCode, controlCode) ||
                 other.controlCode == controlCode) &&
             (identical(other.meaning, meaning) || other.meaning == meaning));
@@ -150,13 +150,13 @@ class _$_WfhConditionModel implements _WfhConditionModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WfhConditionModelCopyWith<_$_WfhConditionModel> get copyWith =>
-      __$$_WfhConditionModelCopyWithImpl<_$_WfhConditionModel>(
+  _$$WfhConditionModelImplCopyWith<_$WfhConditionModelImpl> get copyWith =>
+      __$$WfhConditionModelImplCopyWithImpl<_$WfhConditionModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WfhConditionModelToJson(
+    return _$$WfhConditionModelImplToJson(
       this,
     );
   }
@@ -166,10 +166,10 @@ abstract class _WfhConditionModel implements WfhConditionModel {
   const factory _WfhConditionModel(
           {@JsonKey(name: "control_code") final String controlCode,
           @JsonKey(name: "description") final String meaning}) =
-      _$_WfhConditionModel;
+      _$WfhConditionModelImpl;
 
   factory _WfhConditionModel.fromJson(Map<String, dynamic> json) =
-      _$_WfhConditionModel.fromJson;
+      _$WfhConditionModelImpl.fromJson;
 
   @override
   @JsonKey(name: "control_code")
@@ -179,6 +179,6 @@ abstract class _WfhConditionModel implements WfhConditionModel {
   String get meaning;
   @override
   @JsonKey(ignore: true)
-  _$$_WfhConditionModelCopyWith<_$_WfhConditionModel> get copyWith =>
+  _$$WfhConditionModelImplCopyWith<_$WfhConditionModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

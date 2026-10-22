@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'save_temp_imprest_model.dart';
 
@@ -12,7 +12,7 @@ part of 'save_temp_imprest_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SaveTempImprestModel _$SaveTempImprestModelFromJson(Map<String, dynamic> json) {
   return _SaveTempImprestModel.fromJson(json);
@@ -69,22 +69,22 @@ class _$SaveTempImprestModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_SaveTempImprestModelCopyWith<$Res>
+abstract class _$$SaveTempImprestModelImplCopyWith<$Res>
     implements $SaveTempImprestModelCopyWith<$Res> {
-  factory _$$_SaveTempImprestModelCopyWith(_$_SaveTempImprestModel value,
-          $Res Function(_$_SaveTempImprestModel) then) =
-      __$$_SaveTempImprestModelCopyWithImpl<$Res>;
+  factory _$$SaveTempImprestModelImplCopyWith(_$SaveTempImprestModelImpl value,
+          $Res Function(_$SaveTempImprestModelImpl) then) =
+      __$$SaveTempImprestModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int status, String message});
 }
 
 /// @nodoc
-class __$$_SaveTempImprestModelCopyWithImpl<$Res>
-    extends _$SaveTempImprestModelCopyWithImpl<$Res, _$_SaveTempImprestModel>
-    implements _$$_SaveTempImprestModelCopyWith<$Res> {
-  __$$_SaveTempImprestModelCopyWithImpl(_$_SaveTempImprestModel _value,
-      $Res Function(_$_SaveTempImprestModel) _then)
+class __$$SaveTempImprestModelImplCopyWithImpl<$Res>
+    extends _$SaveTempImprestModelCopyWithImpl<$Res, _$SaveTempImprestModelImpl>
+    implements _$$SaveTempImprestModelImplCopyWith<$Res> {
+  __$$SaveTempImprestModelImplCopyWithImpl(_$SaveTempImprestModelImpl _value,
+      $Res Function(_$SaveTempImprestModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +93,7 @@ class __$$_SaveTempImprestModelCopyWithImpl<$Res>
     Object? status = null,
     Object? message = null,
   }) {
-    return _then(_$_SaveTempImprestModel(
+    return _then(_$SaveTempImprestModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -108,11 +108,11 @@ class __$$_SaveTempImprestModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SaveTempImprestModel implements _SaveTempImprestModel {
-  const _$_SaveTempImprestModel({this.status = 0, this.message = ""});
+class _$SaveTempImprestModelImpl implements _SaveTempImprestModel {
+  const _$SaveTempImprestModelImpl({this.status = 0, this.message = ""});
 
-  factory _$_SaveTempImprestModel.fromJson(Map<String, dynamic> json) =>
-      _$$_SaveTempImprestModelFromJson(json);
+  factory _$SaveTempImprestModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SaveTempImprestModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -127,10 +127,10 @@ class _$_SaveTempImprestModel implements _SaveTempImprestModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SaveTempImprestModel &&
+            other is _$SaveTempImprestModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -142,13 +142,14 @@ class _$_SaveTempImprestModel implements _SaveTempImprestModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SaveTempImprestModelCopyWith<_$_SaveTempImprestModel> get copyWith =>
-      __$$_SaveTempImprestModelCopyWithImpl<_$_SaveTempImprestModel>(
-          this, _$identity);
+  _$$SaveTempImprestModelImplCopyWith<_$SaveTempImprestModelImpl>
+      get copyWith =>
+          __$$SaveTempImprestModelImplCopyWithImpl<_$SaveTempImprestModelImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SaveTempImprestModelToJson(
+    return _$$SaveTempImprestModelImplToJson(
       this,
     );
   }
@@ -156,10 +157,10 @@ class _$_SaveTempImprestModel implements _SaveTempImprestModel {
 
 abstract class _SaveTempImprestModel implements SaveTempImprestModel {
   const factory _SaveTempImprestModel(
-      {final int status, final String message}) = _$_SaveTempImprestModel;
+      {final int status, final String message}) = _$SaveTempImprestModelImpl;
 
   factory _SaveTempImprestModel.fromJson(Map<String, dynamic> json) =
-      _$_SaveTempImprestModel.fromJson;
+      _$SaveTempImprestModelImpl.fromJson;
 
   @override
   int get status;
@@ -167,6 +168,6 @@ abstract class _SaveTempImprestModel implements SaveTempImprestModel {
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_SaveTempImprestModelCopyWith<_$_SaveTempImprestModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SaveTempImprestModelImplCopyWith<_$SaveTempImprestModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

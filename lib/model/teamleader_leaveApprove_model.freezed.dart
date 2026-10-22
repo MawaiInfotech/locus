@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'teamleader_leaveApprove_model.dart';
 
@@ -12,7 +12,7 @@ part of 'teamleader_leaveApprove_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 TeamLeaderLeaveApproveRejectModel _$TeamLeaderLeaveApproveRejectModelFromJson(
     Map<String, dynamic> json) {
@@ -72,25 +72,25 @@ class _$TeamLeaderLeaveApproveRejectModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_TeamLeaderLeaveApproveRejectModelCopyWith<$Res>
+abstract class _$$TeamLeaderLeaveApproveRejectModelImplCopyWith<$Res>
     implements $TeamLeaderLeaveApproveRejectModelCopyWith<$Res> {
-  factory _$$_TeamLeaderLeaveApproveRejectModelCopyWith(
-          _$_TeamLeaderLeaveApproveRejectModel value,
-          $Res Function(_$_TeamLeaderLeaveApproveRejectModel) then) =
-      __$$_TeamLeaderLeaveApproveRejectModelCopyWithImpl<$Res>;
+  factory _$$TeamLeaderLeaveApproveRejectModelImplCopyWith(
+          _$TeamLeaderLeaveApproveRejectModelImpl value,
+          $Res Function(_$TeamLeaderLeaveApproveRejectModelImpl) then) =
+      __$$TeamLeaderLeaveApproveRejectModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String status, String message});
 }
 
 /// @nodoc
-class __$$_TeamLeaderLeaveApproveRejectModelCopyWithImpl<$Res>
+class __$$TeamLeaderLeaveApproveRejectModelImplCopyWithImpl<$Res>
     extends _$TeamLeaderLeaveApproveRejectModelCopyWithImpl<$Res,
-        _$_TeamLeaderLeaveApproveRejectModel>
-    implements _$$_TeamLeaderLeaveApproveRejectModelCopyWith<$Res> {
-  __$$_TeamLeaderLeaveApproveRejectModelCopyWithImpl(
-      _$_TeamLeaderLeaveApproveRejectModel _value,
-      $Res Function(_$_TeamLeaderLeaveApproveRejectModel) _then)
+        _$TeamLeaderLeaveApproveRejectModelImpl>
+    implements _$$TeamLeaderLeaveApproveRejectModelImplCopyWith<$Res> {
+  __$$TeamLeaderLeaveApproveRejectModelImplCopyWithImpl(
+      _$TeamLeaderLeaveApproveRejectModelImpl _value,
+      $Res Function(_$TeamLeaderLeaveApproveRejectModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_TeamLeaderLeaveApproveRejectModelCopyWithImpl<$Res>
     Object? status = null,
     Object? message = null,
   }) {
-    return _then(_$_TeamLeaderLeaveApproveRejectModel(
+    return _then(_$TeamLeaderLeaveApproveRejectModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -114,14 +114,14 @@ class __$$_TeamLeaderLeaveApproveRejectModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TeamLeaderLeaveApproveRejectModel
+class _$TeamLeaderLeaveApproveRejectModelImpl
     implements _TeamLeaderLeaveApproveRejectModel {
-  const _$_TeamLeaderLeaveApproveRejectModel(
+  const _$TeamLeaderLeaveApproveRejectModelImpl(
       {this.status = "", this.message = ""});
 
-  factory _$_TeamLeaderLeaveApproveRejectModel.fromJson(
+  factory _$TeamLeaderLeaveApproveRejectModelImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$_TeamLeaderLeaveApproveRejectModelFromJson(json);
+      _$$TeamLeaderLeaveApproveRejectModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -136,10 +136,10 @@ class _$_TeamLeaderLeaveApproveRejectModel
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TeamLeaderLeaveApproveRejectModel &&
+            other is _$TeamLeaderLeaveApproveRejectModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -151,14 +151,14 @@ class _$_TeamLeaderLeaveApproveRejectModel
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TeamLeaderLeaveApproveRejectModelCopyWith<
-          _$_TeamLeaderLeaveApproveRejectModel>
-      get copyWith => __$$_TeamLeaderLeaveApproveRejectModelCopyWithImpl<
-          _$_TeamLeaderLeaveApproveRejectModel>(this, _$identity);
+  _$$TeamLeaderLeaveApproveRejectModelImplCopyWith<
+          _$TeamLeaderLeaveApproveRejectModelImpl>
+      get copyWith => __$$TeamLeaderLeaveApproveRejectModelImplCopyWithImpl<
+          _$TeamLeaderLeaveApproveRejectModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TeamLeaderLeaveApproveRejectModelToJson(
+    return _$$TeamLeaderLeaveApproveRejectModelImplToJson(
       this,
     );
   }
@@ -168,11 +168,11 @@ abstract class _TeamLeaderLeaveApproveRejectModel
     implements TeamLeaderLeaveApproveRejectModel {
   const factory _TeamLeaderLeaveApproveRejectModel(
       {final String status,
-      final String message}) = _$_TeamLeaderLeaveApproveRejectModel;
+      final String message}) = _$TeamLeaderLeaveApproveRejectModelImpl;
 
   factory _TeamLeaderLeaveApproveRejectModel.fromJson(
           Map<String, dynamic> json) =
-      _$_TeamLeaderLeaveApproveRejectModel.fromJson;
+      _$TeamLeaderLeaveApproveRejectModelImpl.fromJson;
 
   @override
   String get status;
@@ -180,7 +180,7 @@ abstract class _TeamLeaderLeaveApproveRejectModel
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_TeamLeaderLeaveApproveRejectModelCopyWith<
-          _$_TeamLeaderLeaveApproveRejectModel>
+  _$$TeamLeaderLeaveApproveRejectModelImplCopyWith<
+          _$TeamLeaderLeaveApproveRejectModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

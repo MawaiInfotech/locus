@@ -6,15 +6,15 @@ part of 'update_temp_imprest_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UpdateTempImprestModel _$$_UpdateTempImprestModelFromJson(
+_$UpdateTempImprestModelImpl _$$UpdateTempImprestModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_UpdateTempImprestModel(
+    _$UpdateTempImprestModelImpl(
       status: json['status'] as int? ?? 0,
       message: json['message'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_UpdateTempImprestModelToJson(
-        _$_UpdateTempImprestModel instance) =>
+Map<String, dynamic> _$$UpdateTempImprestModelImplToJson(
+        _$UpdateTempImprestModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,

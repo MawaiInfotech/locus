@@ -6,9 +6,9 @@ part of 'attendanceDetail_month_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AttendanceDetailMonthModel _$$_AttendanceDetailMonthModelFromJson(
+_$AttendanceDetailMonthModelImpl _$$AttendanceDetailMonthModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_AttendanceDetailMonthModel(
+    _$AttendanceDetailMonthModelImpl(
       January: json['January'] as String? ?? "",
       February: json['February'] as String? ?? "",
       March: json['March'] as String? ?? "",
@@ -23,8 +23,8 @@ _$_AttendanceDetailMonthModel _$$_AttendanceDetailMonthModelFromJson(
       December: json['December'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_AttendanceDetailMonthModelToJson(
-        _$_AttendanceDetailMonthModel instance) =>
+Map<String, dynamic> _$$AttendanceDetailMonthModelImplToJson(
+        _$AttendanceDetailMonthModelImpl instance) =>
     <String, dynamic>{
       'January': instance.January,
       'February': instance.February,

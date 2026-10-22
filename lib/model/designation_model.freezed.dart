@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'designation_model.dart';
 
@@ -12,7 +12,7 @@ part of 'designation_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 DesignationModel _$DesignationModelFromJson(Map<String, dynamic> json) {
   return _DesignationModel.fromJson(json);
@@ -72,11 +72,11 @@ class _$DesignationModelCopyWithImpl<$Res, $Val extends DesignationModel>
 }
 
 /// @nodoc
-abstract class _$$_DesignationModelCopyWith<$Res>
+abstract class _$$DesignationModelImplCopyWith<$Res>
     implements $DesignationModelCopyWith<$Res> {
-  factory _$$_DesignationModelCopyWith(
-          _$_DesignationModel value, $Res Function(_$_DesignationModel) then) =
-      __$$_DesignationModelCopyWithImpl<$Res>;
+  factory _$$DesignationModelImplCopyWith(_$DesignationModelImpl value,
+          $Res Function(_$DesignationModelImpl) then) =
+      __$$DesignationModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -85,11 +85,11 @@ abstract class _$$_DesignationModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DesignationModelCopyWithImpl<$Res>
-    extends _$DesignationModelCopyWithImpl<$Res, _$_DesignationModel>
-    implements _$$_DesignationModelCopyWith<$Res> {
-  __$$_DesignationModelCopyWithImpl(
-      _$_DesignationModel _value, $Res Function(_$_DesignationModel) _then)
+class __$$DesignationModelImplCopyWithImpl<$Res>
+    extends _$DesignationModelCopyWithImpl<$Res, _$DesignationModelImpl>
+    implements _$$DesignationModelImplCopyWith<$Res> {
+  __$$DesignationModelImplCopyWithImpl(_$DesignationModelImpl _value,
+      $Res Function(_$DesignationModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_DesignationModelCopyWithImpl<$Res>
     Object? code = null,
     Object? description = null,
   }) {
-    return _then(_$_DesignationModel(
+    return _then(_$DesignationModelImpl(
       code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -113,13 +113,13 @@ class __$$_DesignationModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DesignationModel implements _DesignationModel {
-  const _$_DesignationModel(
+class _$DesignationModelImpl implements _DesignationModel {
+  const _$DesignationModelImpl(
       {@JsonKey(name: "code") this.code = "",
       @JsonKey(name: "description") this.description = ""});
 
-  factory _$_DesignationModel.fromJson(Map<String, dynamic> json) =>
-      _$$_DesignationModelFromJson(json);
+  factory _$DesignationModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DesignationModelImplFromJson(json);
 
   @override
   @JsonKey(name: "code")
@@ -134,10 +134,10 @@ class _$_DesignationModel implements _DesignationModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DesignationModel &&
+            other is _$DesignationModelImpl &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.description, description) ||
                 other.description == description));
@@ -150,12 +150,13 @@ class _$_DesignationModel implements _DesignationModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DesignationModelCopyWith<_$_DesignationModel> get copyWith =>
-      __$$_DesignationModelCopyWithImpl<_$_DesignationModel>(this, _$identity);
+  _$$DesignationModelImplCopyWith<_$DesignationModelImpl> get copyWith =>
+      __$$DesignationModelImplCopyWithImpl<_$DesignationModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DesignationModelToJson(
+    return _$$DesignationModelImplToJson(
       this,
     );
   }
@@ -165,10 +166,10 @@ abstract class _DesignationModel implements DesignationModel {
   const factory _DesignationModel(
           {@JsonKey(name: "code") final String code,
           @JsonKey(name: "description") final String description}) =
-      _$_DesignationModel;
+      _$DesignationModelImpl;
 
   factory _DesignationModel.fromJson(Map<String, dynamic> json) =
-      _$_DesignationModel.fromJson;
+      _$DesignationModelImpl.fromJson;
 
   @override
   @JsonKey(name: "code")
@@ -178,6 +179,6 @@ abstract class _DesignationModel implements DesignationModel {
   String get description;
   @override
   @JsonKey(ignore: true)
-  _$$_DesignationModelCopyWith<_$_DesignationModel> get copyWith =>
+  _$$DesignationModelImplCopyWith<_$DesignationModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

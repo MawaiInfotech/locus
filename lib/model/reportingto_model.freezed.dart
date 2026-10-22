@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'reportingto_model.dart';
 
@@ -12,7 +12,7 @@ part of 'reportingto_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ReportingtoModel _$ReportingtoModelFromJson(Map<String, dynamic> json) {
   return _ReportingtoModel.fromJson(json);
@@ -80,11 +80,11 @@ class _$ReportingtoModelCopyWithImpl<$Res, $Val extends ReportingtoModel>
 }
 
 /// @nodoc
-abstract class _$$_ReportingtoModelCopyWith<$Res>
+abstract class _$$ReportingtoModelImplCopyWith<$Res>
     implements $ReportingtoModelCopyWith<$Res> {
-  factory _$$_ReportingtoModelCopyWith(
-          _$_ReportingtoModel value, $Res Function(_$_ReportingtoModel) then) =
-      __$$_ReportingtoModelCopyWithImpl<$Res>;
+  factory _$$ReportingtoModelImplCopyWith(_$ReportingtoModelImpl value,
+          $Res Function(_$ReportingtoModelImpl) then) =
+      __$$ReportingtoModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -94,11 +94,11 @@ abstract class _$$_ReportingtoModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ReportingtoModelCopyWithImpl<$Res>
-    extends _$ReportingtoModelCopyWithImpl<$Res, _$_ReportingtoModel>
-    implements _$$_ReportingtoModelCopyWith<$Res> {
-  __$$_ReportingtoModelCopyWithImpl(
-      _$_ReportingtoModel _value, $Res Function(_$_ReportingtoModel) _then)
+class __$$ReportingtoModelImplCopyWithImpl<$Res>
+    extends _$ReportingtoModelCopyWithImpl<$Res, _$ReportingtoModelImpl>
+    implements _$$ReportingtoModelImplCopyWith<$Res> {
+  __$$ReportingtoModelImplCopyWithImpl(_$ReportingtoModelImpl _value,
+      $Res Function(_$ReportingtoModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +108,7 @@ class __$$_ReportingtoModelCopyWithImpl<$Res>
     Object? employeeLastName = null,
     Object? employeeFirstName = null,
   }) {
-    return _then(_$_ReportingtoModel(
+    return _then(_$ReportingtoModelImpl(
       employeeNumber: null == employeeNumber
           ? _value.employeeNumber
           : employeeNumber // ignore: cast_nullable_to_non_nullable
@@ -127,14 +127,14 @@ class __$$_ReportingtoModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ReportingtoModel implements _ReportingtoModel {
-  const _$_ReportingtoModel(
+class _$ReportingtoModelImpl implements _ReportingtoModel {
+  const _$ReportingtoModelImpl(
       {@JsonKey(name: "emp_number") this.employeeNumber = "",
       @JsonKey(name: "emp_last_name") this.employeeLastName = "",
       @JsonKey(name: "emp_first_name") this.employeeFirstName = ""});
 
-  factory _$_ReportingtoModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ReportingtoModelFromJson(json);
+  factory _$ReportingtoModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ReportingtoModelImplFromJson(json);
 
   @override
   @JsonKey(name: "emp_number")
@@ -152,10 +152,10 @@ class _$_ReportingtoModel implements _ReportingtoModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ReportingtoModel &&
+            other is _$ReportingtoModelImpl &&
             (identical(other.employeeNumber, employeeNumber) ||
                 other.employeeNumber == employeeNumber) &&
             (identical(other.employeeLastName, employeeLastName) ||
@@ -172,12 +172,13 @@ class _$_ReportingtoModel implements _ReportingtoModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ReportingtoModelCopyWith<_$_ReportingtoModel> get copyWith =>
-      __$$_ReportingtoModelCopyWithImpl<_$_ReportingtoModel>(this, _$identity);
+  _$$ReportingtoModelImplCopyWith<_$ReportingtoModelImpl> get copyWith =>
+      __$$ReportingtoModelImplCopyWithImpl<_$ReportingtoModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ReportingtoModelToJson(
+    return _$$ReportingtoModelImplToJson(
       this,
     );
   }
@@ -188,10 +189,10 @@ abstract class _ReportingtoModel implements ReportingtoModel {
           {@JsonKey(name: "emp_number") final String employeeNumber,
           @JsonKey(name: "emp_last_name") final String employeeLastName,
           @JsonKey(name: "emp_first_name") final String employeeFirstName}) =
-      _$_ReportingtoModel;
+      _$ReportingtoModelImpl;
 
   factory _ReportingtoModel.fromJson(Map<String, dynamic> json) =
-      _$_ReportingtoModel.fromJson;
+      _$ReportingtoModelImpl.fromJson;
 
   @override
   @JsonKey(name: "emp_number")
@@ -204,6 +205,6 @@ abstract class _ReportingtoModel implements ReportingtoModel {
   String get employeeFirstName;
   @override
   @JsonKey(ignore: true)
-  _$$_ReportingtoModelCopyWith<_$_ReportingtoModel> get copyWith =>
+  _$$ReportingtoModelImplCopyWith<_$ReportingtoModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

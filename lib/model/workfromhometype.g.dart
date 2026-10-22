@@ -6,15 +6,15 @@ part of 'workfromhometype.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_WorkfromHomeTypeModel _$$_WorkfromHomeTypeModelFromJson(
+_$WorkfromHomeTypeModelImpl _$$WorkfromHomeTypeModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_WorkfromHomeTypeModel(
+    _$WorkfromHomeTypeModelImpl(
       controlCode: json['control_code'] as String? ?? "",
       meaning: json['meaning'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_WorkfromHomeTypeModelToJson(
-        _$_WorkfromHomeTypeModel instance) =>
+Map<String, dynamic> _$$WorkfromHomeTypeModelImplToJson(
+        _$WorkfromHomeTypeModelImpl instance) =>
     <String, dynamic>{
       'control_code': instance.controlCode,
       'meaning': instance.meaning,

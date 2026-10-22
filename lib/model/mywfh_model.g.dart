@@ -6,9 +6,9 @@ part of 'mywfh_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_MyWorkfromHomeModel _$$_MyWorkfromHomeModelFromJson(
+_$MyWorkfromHomeModelImpl _$$MyWorkfromHomeModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_MyWorkfromHomeModel(
+    _$MyWorkfromHomeModelImpl(
       empNumber: json['empmemb_emp_master_emp_number'] as String? ?? "",
       fromDate: json['from_date'] as String? ?? "",
       endDate: json['end_date'] as String? ?? "",
@@ -18,8 +18,8 @@ _$_MyWorkfromHomeModel _$$_MyWorkfromHomeModelFromJson(
       appNumber: json['app_no'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_MyWorkfromHomeModelToJson(
-        _$_MyWorkfromHomeModel instance) =>
+Map<String, dynamic> _$$MyWorkfromHomeModelImplToJson(
+        _$MyWorkfromHomeModelImpl instance) =>
     <String, dynamic>{
       'empmemb_emp_master_emp_number': instance.empNumber,
       'from_date': instance.fromDate,

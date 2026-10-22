@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'applylunch_model.dart';
 
@@ -12,7 +12,7 @@ part of 'applylunch_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ApplyLunchModel _$ApplyLunchModelFromJson(Map<String, dynamic> json) {
   return _ApplyLunchModel.fromJson(json);
@@ -72,11 +72,11 @@ class _$ApplyLunchModelCopyWithImpl<$Res, $Val extends ApplyLunchModel>
 }
 
 /// @nodoc
-abstract class _$$_ApplyLunchModelCopyWith<$Res>
+abstract class _$$ApplyLunchModelImplCopyWith<$Res>
     implements $ApplyLunchModelCopyWith<$Res> {
-  factory _$$_ApplyLunchModelCopyWith(
-          _$_ApplyLunchModel value, $Res Function(_$_ApplyLunchModel) then) =
-      __$$_ApplyLunchModelCopyWithImpl<$Res>;
+  factory _$$ApplyLunchModelImplCopyWith(_$ApplyLunchModelImpl value,
+          $Res Function(_$ApplyLunchModelImpl) then) =
+      __$$ApplyLunchModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -85,11 +85,11 @@ abstract class _$$_ApplyLunchModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ApplyLunchModelCopyWithImpl<$Res>
-    extends _$ApplyLunchModelCopyWithImpl<$Res, _$_ApplyLunchModel>
-    implements _$$_ApplyLunchModelCopyWith<$Res> {
-  __$$_ApplyLunchModelCopyWithImpl(
-      _$_ApplyLunchModel _value, $Res Function(_$_ApplyLunchModel) _then)
+class __$$ApplyLunchModelImplCopyWithImpl<$Res>
+    extends _$ApplyLunchModelCopyWithImpl<$Res, _$ApplyLunchModelImpl>
+    implements _$$ApplyLunchModelImplCopyWith<$Res> {
+  __$$ApplyLunchModelImplCopyWithImpl(
+      _$ApplyLunchModelImpl _value, $Res Function(_$ApplyLunchModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_ApplyLunchModelCopyWithImpl<$Res>
     Object? message = null,
     Object? status = null,
   }) {
-    return _then(_$_ApplyLunchModel(
+    return _then(_$ApplyLunchModelImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -113,13 +113,13 @@ class __$$_ApplyLunchModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApplyLunchModel implements _ApplyLunchModel {
-  const _$_ApplyLunchModel(
+class _$ApplyLunchModelImpl implements _ApplyLunchModel {
+  const _$ApplyLunchModelImpl(
       {@JsonKey(name: "msg") this.message = "",
       @JsonKey(name: "status") this.status = ""});
 
-  factory _$_ApplyLunchModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ApplyLunchModelFromJson(json);
+  factory _$ApplyLunchModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ApplyLunchModelImplFromJson(json);
 
   @override
   @JsonKey(name: "msg")
@@ -134,10 +134,10 @@ class _$_ApplyLunchModel implements _ApplyLunchModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApplyLunchModel &&
+            other is _$ApplyLunchModelImpl &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.status, status) || other.status == status));
   }
@@ -149,12 +149,13 @@ class _$_ApplyLunchModel implements _ApplyLunchModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApplyLunchModelCopyWith<_$_ApplyLunchModel> get copyWith =>
-      __$$_ApplyLunchModelCopyWithImpl<_$_ApplyLunchModel>(this, _$identity);
+  _$$ApplyLunchModelImplCopyWith<_$ApplyLunchModelImpl> get copyWith =>
+      __$$ApplyLunchModelImplCopyWithImpl<_$ApplyLunchModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApplyLunchModelToJson(
+    return _$$ApplyLunchModelImplToJson(
       this,
     );
   }
@@ -163,10 +164,10 @@ class _$_ApplyLunchModel implements _ApplyLunchModel {
 abstract class _ApplyLunchModel implements ApplyLunchModel {
   const factory _ApplyLunchModel(
       {@JsonKey(name: "msg") final String message,
-      @JsonKey(name: "status") final String status}) = _$_ApplyLunchModel;
+      @JsonKey(name: "status") final String status}) = _$ApplyLunchModelImpl;
 
   factory _ApplyLunchModel.fromJson(Map<String, dynamic> json) =
-      _$_ApplyLunchModel.fromJson;
+      _$ApplyLunchModelImpl.fromJson;
 
   @override
   @JsonKey(name: "msg")
@@ -176,6 +177,6 @@ abstract class _ApplyLunchModel implements ApplyLunchModel {
   String get status;
   @override
   @JsonKey(ignore: true)
-  _$$_ApplyLunchModelCopyWith<_$_ApplyLunchModel> get copyWith =>
+  _$$ApplyLunchModelImplCopyWith<_$ApplyLunchModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

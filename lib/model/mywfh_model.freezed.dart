@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'mywfh_model.dart';
 
@@ -12,7 +12,7 @@ part of 'mywfh_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 MyWorkfromHomeModel _$MyWorkfromHomeModelFromJson(Map<String, dynamic> json) {
   return _MyWorkfromHomeModel.fromJson(json);
@@ -112,11 +112,11 @@ class _$MyWorkfromHomeModelCopyWithImpl<$Res, $Val extends MyWorkfromHomeModel>
 }
 
 /// @nodoc
-abstract class _$$_MyWorkfromHomeModelCopyWith<$Res>
+abstract class _$$MyWorkfromHomeModelImplCopyWith<$Res>
     implements $MyWorkfromHomeModelCopyWith<$Res> {
-  factory _$$_MyWorkfromHomeModelCopyWith(_$_MyWorkfromHomeModel value,
-          $Res Function(_$_MyWorkfromHomeModel) then) =
-      __$$_MyWorkfromHomeModelCopyWithImpl<$Res>;
+  factory _$$MyWorkfromHomeModelImplCopyWith(_$MyWorkfromHomeModelImpl value,
+          $Res Function(_$MyWorkfromHomeModelImpl) then) =
+      __$$MyWorkfromHomeModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -130,11 +130,11 @@ abstract class _$$_MyWorkfromHomeModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_MyWorkfromHomeModelCopyWithImpl<$Res>
-    extends _$MyWorkfromHomeModelCopyWithImpl<$Res, _$_MyWorkfromHomeModel>
-    implements _$$_MyWorkfromHomeModelCopyWith<$Res> {
-  __$$_MyWorkfromHomeModelCopyWithImpl(_$_MyWorkfromHomeModel _value,
-      $Res Function(_$_MyWorkfromHomeModel) _then)
+class __$$MyWorkfromHomeModelImplCopyWithImpl<$Res>
+    extends _$MyWorkfromHomeModelCopyWithImpl<$Res, _$MyWorkfromHomeModelImpl>
+    implements _$$MyWorkfromHomeModelImplCopyWith<$Res> {
+  __$$MyWorkfromHomeModelImplCopyWithImpl(_$MyWorkfromHomeModelImpl _value,
+      $Res Function(_$MyWorkfromHomeModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -148,7 +148,7 @@ class __$$_MyWorkfromHomeModelCopyWithImpl<$Res>
     Object? reason = null,
     Object? appNumber = null,
   }) {
-    return _then(_$_MyWorkfromHomeModel(
+    return _then(_$MyWorkfromHomeModelImpl(
       empNumber: null == empNumber
           ? _value.empNumber
           : empNumber // ignore: cast_nullable_to_non_nullable
@@ -183,8 +183,8 @@ class __$$_MyWorkfromHomeModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MyWorkfromHomeModel implements _MyWorkfromHomeModel {
-  const _$_MyWorkfromHomeModel(
+class _$MyWorkfromHomeModelImpl implements _MyWorkfromHomeModel {
+  const _$MyWorkfromHomeModelImpl(
       {@JsonKey(name: "empmemb_emp_master_emp_number") this.empNumber = "",
       @JsonKey(name: "from_date") this.fromDate = "",
       @JsonKey(name: "end_date") this.endDate = "",
@@ -193,8 +193,8 @@ class _$_MyWorkfromHomeModel implements _MyWorkfromHomeModel {
       @JsonKey(name: "reason") this.reason = "",
       @JsonKey(name: "app_no") this.appNumber = ""});
 
-  factory _$_MyWorkfromHomeModel.fromJson(Map<String, dynamic> json) =>
-      _$$_MyWorkfromHomeModelFromJson(json);
+  factory _$MyWorkfromHomeModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MyWorkfromHomeModelImplFromJson(json);
 
   @override
   @JsonKey(name: "empmemb_emp_master_emp_number")
@@ -224,10 +224,10 @@ class _$_MyWorkfromHomeModel implements _MyWorkfromHomeModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MyWorkfromHomeModel &&
+            other is _$MyWorkfromHomeModelImpl &&
             (identical(other.empNumber, empNumber) ||
                 other.empNumber == empNumber) &&
             (identical(other.fromDate, fromDate) ||
@@ -248,13 +248,13 @@ class _$_MyWorkfromHomeModel implements _MyWorkfromHomeModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MyWorkfromHomeModelCopyWith<_$_MyWorkfromHomeModel> get copyWith =>
-      __$$_MyWorkfromHomeModelCopyWithImpl<_$_MyWorkfromHomeModel>(
+  _$$MyWorkfromHomeModelImplCopyWith<_$MyWorkfromHomeModelImpl> get copyWith =>
+      __$$MyWorkfromHomeModelImplCopyWithImpl<_$MyWorkfromHomeModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MyWorkfromHomeModelToJson(
+    return _$$MyWorkfromHomeModelImplToJson(
       this,
     );
   }
@@ -262,23 +262,17 @@ class _$_MyWorkfromHomeModel implements _MyWorkfromHomeModel {
 
 abstract class _MyWorkfromHomeModel implements MyWorkfromHomeModel {
   const factory _MyWorkfromHomeModel(
-      {@JsonKey(name: "empmemb_emp_master_emp_number")
-          final String empNumber,
-      @JsonKey(name: "from_date")
-          final String fromDate,
-      @JsonKey(name: "end_date")
-          final String endDate,
-      @JsonKey(name: "wfh_granted")
-          final String granted,
-      @JsonKey(name: "wfh_days")
-          final String days,
-      @JsonKey(name: "reason")
-          final String reason,
+      {@JsonKey(name: "empmemb_emp_master_emp_number") final String empNumber,
+      @JsonKey(name: "from_date") final String fromDate,
+      @JsonKey(name: "end_date") final String endDate,
+      @JsonKey(name: "wfh_granted") final String granted,
+      @JsonKey(name: "wfh_days") final String days,
+      @JsonKey(name: "reason") final String reason,
       @JsonKey(name: "app_no")
-          final String appNumber}) = _$_MyWorkfromHomeModel;
+      final String appNumber}) = _$MyWorkfromHomeModelImpl;
 
   factory _MyWorkfromHomeModel.fromJson(Map<String, dynamic> json) =
-      _$_MyWorkfromHomeModel.fromJson;
+      _$MyWorkfromHomeModelImpl.fromJson;
 
   @override
   @JsonKey(name: "empmemb_emp_master_emp_number")
@@ -303,6 +297,6 @@ abstract class _MyWorkfromHomeModel implements MyWorkfromHomeModel {
   String get appNumber;
   @override
   @JsonKey(ignore: true)
-  _$$_MyWorkfromHomeModelCopyWith<_$_MyWorkfromHomeModel> get copyWith =>
+  _$$MyWorkfromHomeModelImplCopyWith<_$MyWorkfromHomeModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

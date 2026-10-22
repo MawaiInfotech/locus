@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'update_temp_imprest_model.dart';
 
@@ -12,7 +12,7 @@ part of 'update_temp_imprest_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 UpdateTempImprestModel _$UpdateTempImprestModelFromJson(
     Map<String, dynamic> json) {
@@ -70,23 +70,25 @@ class _$UpdateTempImprestModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_UpdateTempImprestModelCopyWith<$Res>
+abstract class _$$UpdateTempImprestModelImplCopyWith<$Res>
     implements $UpdateTempImprestModelCopyWith<$Res> {
-  factory _$$_UpdateTempImprestModelCopyWith(_$_UpdateTempImprestModel value,
-          $Res Function(_$_UpdateTempImprestModel) then) =
-      __$$_UpdateTempImprestModelCopyWithImpl<$Res>;
+  factory _$$UpdateTempImprestModelImplCopyWith(
+          _$UpdateTempImprestModelImpl value,
+          $Res Function(_$UpdateTempImprestModelImpl) then) =
+      __$$UpdateTempImprestModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int status, String message});
 }
 
 /// @nodoc
-class __$$_UpdateTempImprestModelCopyWithImpl<$Res>
+class __$$UpdateTempImprestModelImplCopyWithImpl<$Res>
     extends _$UpdateTempImprestModelCopyWithImpl<$Res,
-        _$_UpdateTempImprestModel>
-    implements _$$_UpdateTempImprestModelCopyWith<$Res> {
-  __$$_UpdateTempImprestModelCopyWithImpl(_$_UpdateTempImprestModel _value,
-      $Res Function(_$_UpdateTempImprestModel) _then)
+        _$UpdateTempImprestModelImpl>
+    implements _$$UpdateTempImprestModelImplCopyWith<$Res> {
+  __$$UpdateTempImprestModelImplCopyWithImpl(
+      _$UpdateTempImprestModelImpl _value,
+      $Res Function(_$UpdateTempImprestModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +97,7 @@ class __$$_UpdateTempImprestModelCopyWithImpl<$Res>
     Object? status = null,
     Object? message = null,
   }) {
-    return _then(_$_UpdateTempImprestModel(
+    return _then(_$UpdateTempImprestModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -110,11 +112,11 @@ class __$$_UpdateTempImprestModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UpdateTempImprestModel implements _UpdateTempImprestModel {
-  const _$_UpdateTempImprestModel({this.status = 0, this.message = ""});
+class _$UpdateTempImprestModelImpl implements _UpdateTempImprestModel {
+  const _$UpdateTempImprestModelImpl({this.status = 0, this.message = ""});
 
-  factory _$_UpdateTempImprestModel.fromJson(Map<String, dynamic> json) =>
-      _$$_UpdateTempImprestModelFromJson(json);
+  factory _$UpdateTempImprestModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UpdateTempImprestModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -129,10 +131,10 @@ class _$_UpdateTempImprestModel implements _UpdateTempImprestModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UpdateTempImprestModel &&
+            other is _$UpdateTempImprestModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -144,13 +146,13 @@ class _$_UpdateTempImprestModel implements _UpdateTempImprestModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UpdateTempImprestModelCopyWith<_$_UpdateTempImprestModel> get copyWith =>
-      __$$_UpdateTempImprestModelCopyWithImpl<_$_UpdateTempImprestModel>(
-          this, _$identity);
+  _$$UpdateTempImprestModelImplCopyWith<_$UpdateTempImprestModelImpl>
+      get copyWith => __$$UpdateTempImprestModelImplCopyWithImpl<
+          _$UpdateTempImprestModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UpdateTempImprestModelToJson(
+    return _$$UpdateTempImprestModelImplToJson(
       this,
     );
   }
@@ -158,10 +160,10 @@ class _$_UpdateTempImprestModel implements _UpdateTempImprestModel {
 
 abstract class _UpdateTempImprestModel implements UpdateTempImprestModel {
   const factory _UpdateTempImprestModel(
-      {final int status, final String message}) = _$_UpdateTempImprestModel;
+      {final int status, final String message}) = _$UpdateTempImprestModelImpl;
 
   factory _UpdateTempImprestModel.fromJson(Map<String, dynamic> json) =
-      _$_UpdateTempImprestModel.fromJson;
+      _$UpdateTempImprestModelImpl.fromJson;
 
   @override
   int get status;
@@ -169,6 +171,6 @@ abstract class _UpdateTempImprestModel implements UpdateTempImprestModel {
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_UpdateTempImprestModelCopyWith<_$_UpdateTempImprestModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UpdateTempImprestModelImplCopyWith<_$UpdateTempImprestModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'checklogin_state.dart';
 
@@ -12,7 +12,7 @@ part of 'checklogin_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CheckLoginState {
@@ -131,21 +131,22 @@ class _$CheckLoginStateCopyWithImpl<$Res, $Val extends CheckLoginState>
 }
 
 /// @nodoc
-abstract class _$$_LoadingCopyWith<$Res>
+abstract class _$$LoadingImplCopyWith<$Res>
     implements $CheckLoginStateCopyWith<$Res> {
-  factory _$$_LoadingCopyWith(
-          _$_Loading value, $Res Function(_$_Loading) then) =
-      __$$_LoadingCopyWithImpl<$Res>;
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({AttendanceAction action, CheckLoginModelForm form});
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res>
-    extends _$CheckLoginStateCopyWithImpl<$Res, _$_Loading>
-    implements _$$_LoadingCopyWith<$Res> {
-  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$CheckLoginStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -154,7 +155,7 @@ class __$$_LoadingCopyWithImpl<$Res>
     Object? action = null,
     Object? form = null,
   }) {
-    return _then(_$_Loading(
+    return _then(_$LoadingImpl(
       null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -169,8 +170,8 @@ class __$$_LoadingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Loading implements _Loading {
-  const _$_Loading(this.action, this.form);
+class _$LoadingImpl implements _Loading {
+  const _$LoadingImpl(this.action, this.form);
 
   @override
   final AttendanceAction action;
@@ -183,10 +184,10 @@ class _$_Loading implements _Loading {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Loading &&
+            other is _$LoadingImpl &&
             (identical(other.action, action) || other.action == action) &&
             (identical(other.form, form) || other.form == form));
   }
@@ -197,8 +198,8 @@ class _$_Loading implements _Loading {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
-      __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
+  _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
+      __$$LoadingImplCopyWithImpl<_$LoadingImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -296,7 +297,7 @@ class _$_Loading implements _Loading {
 abstract class _Loading implements CheckLoginState {
   const factory _Loading(
           final AttendanceAction action, final CheckLoginModelForm form) =
-      _$_Loading;
+      _$LoadingImpl;
 
   @override
   AttendanceAction get action;
@@ -304,26 +305,27 @@ abstract class _Loading implements CheckLoginState {
   CheckLoginModelForm get form;
   @override
   @JsonKey(ignore: true)
-  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
+  _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ContentCopyWith<$Res>
+abstract class _$$ContentImplCopyWith<$Res>
     implements $CheckLoginStateCopyWith<$Res> {
-  factory _$$_ContentCopyWith(
-          _$_Content value, $Res Function(_$_Content) then) =
-      __$$_ContentCopyWithImpl<$Res>;
+  factory _$$ContentImplCopyWith(
+          _$ContentImpl value, $Res Function(_$ContentImpl) then) =
+      __$$ContentImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({AttendanceAction action, CheckLoginModelForm form});
 }
 
 /// @nodoc
-class __$$_ContentCopyWithImpl<$Res>
-    extends _$CheckLoginStateCopyWithImpl<$Res, _$_Content>
-    implements _$$_ContentCopyWith<$Res> {
-  __$$_ContentCopyWithImpl(_$_Content _value, $Res Function(_$_Content) _then)
+class __$$ContentImplCopyWithImpl<$Res>
+    extends _$CheckLoginStateCopyWithImpl<$Res, _$ContentImpl>
+    implements _$$ContentImplCopyWith<$Res> {
+  __$$ContentImplCopyWithImpl(
+      _$ContentImpl _value, $Res Function(_$ContentImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -332,7 +334,7 @@ class __$$_ContentCopyWithImpl<$Res>
     Object? action = null,
     Object? form = null,
   }) {
-    return _then(_$_Content(
+    return _then(_$ContentImpl(
       null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -347,8 +349,8 @@ class __$$_ContentCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Content implements _Content {
-  const _$_Content(this.action, this.form);
+class _$ContentImpl implements _Content {
+  const _$ContentImpl(this.action, this.form);
 
   @override
   final AttendanceAction action;
@@ -361,10 +363,10 @@ class _$_Content implements _Content {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Content &&
+            other is _$ContentImpl &&
             (identical(other.action, action) || other.action == action) &&
             (identical(other.form, form) || other.form == form));
   }
@@ -375,8 +377,8 @@ class _$_Content implements _Content {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ContentCopyWith<_$_Content> get copyWith =>
-      __$$_ContentCopyWithImpl<_$_Content>(this, _$identity);
+  _$$ContentImplCopyWith<_$ContentImpl> get copyWith =>
+      __$$ContentImplCopyWithImpl<_$ContentImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -474,7 +476,7 @@ class _$_Content implements _Content {
 abstract class _Content implements CheckLoginState {
   const factory _Content(
           final AttendanceAction action, final CheckLoginModelForm form) =
-      _$_Content;
+      _$ContentImpl;
 
   @override
   AttendanceAction get action;
@@ -482,16 +484,16 @@ abstract class _Content implements CheckLoginState {
   CheckLoginModelForm get form;
   @override
   @JsonKey(ignore: true)
-  _$$_ContentCopyWith<_$_Content> get copyWith =>
+  _$$ContentImplCopyWith<_$ContentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SuccessCopyWith<$Res>
+abstract class _$$SuccessImplCopyWith<$Res>
     implements $CheckLoginStateCopyWith<$Res> {
-  factory _$$_SuccessCopyWith(
-          _$_Success value, $Res Function(_$_Success) then) =
-      __$$_SuccessCopyWithImpl<$Res>;
+  factory _$$SuccessImplCopyWith(
+          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -499,10 +501,11 @@ abstract class _$$_SuccessCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res>
-    extends _$CheckLoginStateCopyWithImpl<$Res, _$_Success>
-    implements _$$_SuccessCopyWith<$Res> {
-  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+class __$$SuccessImplCopyWithImpl<$Res>
+    extends _$CheckLoginStateCopyWithImpl<$Res, _$SuccessImpl>
+    implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(
+      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -512,7 +515,7 @@ class __$$_SuccessCopyWithImpl<$Res>
     Object? form = null,
     Object? message = null,
   }) {
-    return _then(_$_Success(
+    return _then(_$SuccessImpl(
       null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -531,8 +534,8 @@ class __$$_SuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Success implements _Success {
-  const _$_Success(this.action, this.form, this.message);
+class _$SuccessImpl implements _Success {
+  const _$SuccessImpl(this.action, this.form, this.message);
 
   @override
   final AttendanceAction action;
@@ -547,10 +550,10 @@ class _$_Success implements _Success {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Success &&
+            other is _$SuccessImpl &&
             (identical(other.action, action) || other.action == action) &&
             (identical(other.form, form) || other.form == form) &&
             (identical(other.message, message) || other.message == message));
@@ -562,8 +565,8 @@ class _$_Success implements _Success {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
-      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -660,7 +663,7 @@ class _$_Success implements _Success {
 
 abstract class _Success implements CheckLoginState {
   const factory _Success(final AttendanceAction action,
-      final CheckLoginModelForm form, final String message) = _$_Success;
+      final CheckLoginModelForm form, final String message) = _$SuccessImpl;
 
   @override
   AttendanceAction get action;
@@ -669,15 +672,16 @@ abstract class _Success implements CheckLoginState {
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FailedCopyWith<$Res>
+abstract class _$$FailedImplCopyWith<$Res>
     implements $CheckLoginStateCopyWith<$Res> {
-  factory _$$_FailedCopyWith(_$_Failed value, $Res Function(_$_Failed) then) =
-      __$$_FailedCopyWithImpl<$Res>;
+  factory _$$FailedImplCopyWith(
+          _$FailedImpl value, $Res Function(_$FailedImpl) then) =
+      __$$FailedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -685,10 +689,11 @@ abstract class _$$_FailedCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FailedCopyWithImpl<$Res>
-    extends _$CheckLoginStateCopyWithImpl<$Res, _$_Failed>
-    implements _$$_FailedCopyWith<$Res> {
-  __$$_FailedCopyWithImpl(_$_Failed _value, $Res Function(_$_Failed) _then)
+class __$$FailedImplCopyWithImpl<$Res>
+    extends _$CheckLoginStateCopyWithImpl<$Res, _$FailedImpl>
+    implements _$$FailedImplCopyWith<$Res> {
+  __$$FailedImplCopyWithImpl(
+      _$FailedImpl _value, $Res Function(_$FailedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -698,7 +703,7 @@ class __$$_FailedCopyWithImpl<$Res>
     Object? form = null,
     Object? message = null,
   }) {
-    return _then(_$_Failed(
+    return _then(_$FailedImpl(
       null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -717,8 +722,8 @@ class __$$_FailedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Failed implements _Failed {
-  const _$_Failed(this.action, this.form, this.message);
+class _$FailedImpl implements _Failed {
+  const _$FailedImpl(this.action, this.form, this.message);
 
   @override
   final AttendanceAction action;
@@ -733,10 +738,10 @@ class _$_Failed implements _Failed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Failed &&
+            other is _$FailedImpl &&
             (identical(other.action, action) || other.action == action) &&
             (identical(other.form, form) || other.form == form) &&
             (identical(other.message, message) || other.message == message));
@@ -748,8 +753,8 @@ class _$_Failed implements _Failed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FailedCopyWith<_$_Failed> get copyWith =>
-      __$$_FailedCopyWithImpl<_$_Failed>(this, _$identity);
+  _$$FailedImplCopyWith<_$FailedImpl> get copyWith =>
+      __$$FailedImplCopyWithImpl<_$FailedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -846,7 +851,7 @@ class _$_Failed implements _Failed {
 
 abstract class _Failed implements CheckLoginState {
   const factory _Failed(final AttendanceAction action,
-      final CheckLoginModelForm form, final String message) = _$_Failed;
+      final CheckLoginModelForm form, final String message) = _$FailedImpl;
 
   @override
   AttendanceAction get action;
@@ -855,6 +860,6 @@ abstract class _Failed implements CheckLoginState {
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_FailedCopyWith<_$_Failed> get copyWith =>
+  _$$FailedImplCopyWith<_$FailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

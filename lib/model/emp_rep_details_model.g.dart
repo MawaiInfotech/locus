@@ -6,8 +6,9 @@ part of 'emp_rep_details_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TravelReportModel _$$_TravelReportModelFromJson(Map<String, dynamic> json) =>
-    _$_TravelReportModel(
+_$TravelReportModelImpl _$$TravelReportModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$TravelReportModelImpl(
       appNo: json['app_no'] as String? ?? '',
       employeeNo: json['empmemb_emp_master_emp_number'] as String? ?? '',
       employeeName: json['emp_name'] as String? ?? '',
@@ -23,8 +24,8 @@ _$_TravelReportModel _$$_TravelReportModelFromJson(Map<String, dynamic> json) =>
       toCity: json['to_city'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$_TravelReportModelToJson(
-        _$_TravelReportModel instance) =>
+Map<String, dynamic> _$$TravelReportModelImplToJson(
+        _$TravelReportModelImpl instance) =>
     <String, dynamic>{
       'app_no': instance.appNo,
       'empmemb_emp_master_emp_number': instance.employeeNo,

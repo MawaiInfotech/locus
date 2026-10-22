@@ -6,15 +6,16 @@ part of 'teamleader_leaveApprove_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TeamLeaderLeaveApproveRejectModel
-    _$$_TeamLeaderLeaveApproveRejectModelFromJson(Map<String, dynamic> json) =>
-        _$_TeamLeaderLeaveApproveRejectModel(
+_$TeamLeaderLeaveApproveRejectModelImpl
+    _$$TeamLeaderLeaveApproveRejectModelImplFromJson(
+            Map<String, dynamic> json) =>
+        _$TeamLeaderLeaveApproveRejectModelImpl(
           status: json['status'] as String? ?? "",
           message: json['message'] as String? ?? "",
         );
 
-Map<String, dynamic> _$$_TeamLeaderLeaveApproveRejectModelToJson(
-        _$_TeamLeaderLeaveApproveRejectModel instance) =>
+Map<String, dynamic> _$$TeamLeaderLeaveApproveRejectModelImplToJson(
+        _$TeamLeaderLeaveApproveRejectModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,

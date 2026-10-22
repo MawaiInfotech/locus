@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'dummysignup_model.dart';
 
@@ -12,7 +12,7 @@ part of 'dummysignup_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 DummySignupModel _$DummySignupModelFromJson(Map<String, dynamic> json) {
   return _DummySignupModel.fromJson(json);
@@ -74,22 +74,22 @@ class _$DummySignupModelCopyWithImpl<$Res, $Val extends DummySignupModel>
 }
 
 /// @nodoc
-abstract class _$$_DummySignupModelCopyWith<$Res>
+abstract class _$$DummySignupModelImplCopyWith<$Res>
     implements $DummySignupModelCopyWith<$Res> {
-  factory _$$_DummySignupModelCopyWith(
-          _$_DummySignupModel value, $Res Function(_$_DummySignupModel) then) =
-      __$$_DummySignupModelCopyWithImpl<$Res>;
+  factory _$$DummySignupModelImplCopyWith(_$DummySignupModelImpl value,
+          $Res Function(_$DummySignupModelImpl) then) =
+      __$$DummySignupModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String status, String msg, String user});
 }
 
 /// @nodoc
-class __$$_DummySignupModelCopyWithImpl<$Res>
-    extends _$DummySignupModelCopyWithImpl<$Res, _$_DummySignupModel>
-    implements _$$_DummySignupModelCopyWith<$Res> {
-  __$$_DummySignupModelCopyWithImpl(
-      _$_DummySignupModel _value, $Res Function(_$_DummySignupModel) _then)
+class __$$DummySignupModelImplCopyWithImpl<$Res>
+    extends _$DummySignupModelCopyWithImpl<$Res, _$DummySignupModelImpl>
+    implements _$$DummySignupModelImplCopyWith<$Res> {
+  __$$DummySignupModelImplCopyWithImpl(_$DummySignupModelImpl _value,
+      $Res Function(_$DummySignupModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_DummySignupModelCopyWithImpl<$Res>
     Object? msg = null,
     Object? user = null,
   }) {
-    return _then(_$_DummySignupModel(
+    return _then(_$DummySignupModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -118,11 +118,12 @@ class __$$_DummySignupModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DummySignupModel implements _DummySignupModel {
-  const _$_DummySignupModel({this.status = "", this.msg = "", this.user = ""});
+class _$DummySignupModelImpl implements _DummySignupModel {
+  const _$DummySignupModelImpl(
+      {this.status = "", this.msg = "", this.user = ""});
 
-  factory _$_DummySignupModel.fromJson(Map<String, dynamic> json) =>
-      _$$_DummySignupModelFromJson(json);
+  factory _$DummySignupModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DummySignupModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -140,10 +141,10 @@ class _$_DummySignupModel implements _DummySignupModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DummySignupModel &&
+            other is _$DummySignupModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.msg, msg) || other.msg == msg) &&
             (identical(other.user, user) || other.user == user));
@@ -156,12 +157,13 @@ class _$_DummySignupModel implements _DummySignupModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DummySignupModelCopyWith<_$_DummySignupModel> get copyWith =>
-      __$$_DummySignupModelCopyWithImpl<_$_DummySignupModel>(this, _$identity);
+  _$$DummySignupModelImplCopyWith<_$DummySignupModelImpl> get copyWith =>
+      __$$DummySignupModelImplCopyWithImpl<_$DummySignupModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DummySignupModelToJson(
+    return _$$DummySignupModelImplToJson(
       this,
     );
   }
@@ -171,10 +173,10 @@ abstract class _DummySignupModel implements DummySignupModel {
   const factory _DummySignupModel(
       {final String status,
       final String msg,
-      final String user}) = _$_DummySignupModel;
+      final String user}) = _$DummySignupModelImpl;
 
   factory _DummySignupModel.fromJson(Map<String, dynamic> json) =
-      _$_DummySignupModel.fromJson;
+      _$DummySignupModelImpl.fromJson;
 
   @override
   String get status;
@@ -184,6 +186,6 @@ abstract class _DummySignupModel implements DummySignupModel {
   String get user;
   @override
   @JsonKey(ignore: true)
-  _$$_DummySignupModelCopyWith<_$_DummySignupModel> get copyWith =>
+  _$$DummySignupModelImplCopyWith<_$DummySignupModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

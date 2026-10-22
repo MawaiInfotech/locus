@@ -27,12 +27,8 @@ mixin _$LunchUserModel {
   @JsonKey(name: "emp_last_name")
   String get lastName => throw _privateConstructorUsedError;
 
-  /// Serializes this LunchUserModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of LunchUserModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $LunchUserModelCopyWith<LunchUserModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -59,8 +55,6 @@ class _$LunchUserModelCopyWithImpl<$Res, $Val extends LunchUserModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of LunchUserModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -107,8 +101,6 @@ class __$$LunchUserModelImplCopyWithImpl<$Res>
       _$LunchUserModelImpl _value, $Res Function(_$LunchUserModelImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of LunchUserModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -172,13 +164,11 @@ class _$LunchUserModelImpl implements _LunchUserModel {
                 other.lastName == lastName));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, emp_number, firstName, lastName);
 
-  /// Create a copy of LunchUserModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$LunchUserModelImplCopyWith<_$LunchUserModelImpl> get copyWith =>
@@ -212,11 +202,8 @@ abstract class _LunchUserModel implements LunchUserModel {
   @override
   @JsonKey(name: "emp_last_name")
   String get lastName;
-
-  /// Create a copy of LunchUserModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$LunchUserModelImplCopyWith<_$LunchUserModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

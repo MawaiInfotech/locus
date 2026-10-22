@@ -6,9 +6,9 @@ part of 'attendance_detail_supp_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AttendanceDetailSuppModel _$$_AttendanceDetailSuppModelFromJson(
+_$AttendanceDetailSuppModelImpl _$$AttendanceDetailSuppModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_AttendanceDetailSuppModel(
+    _$AttendanceDetailSuppModelImpl(
       attendance: (json['attendance'] as List<dynamic>?)
               ?.map((e) =>
                   AttendanceDetailModel.fromJson(e as Map<String, dynamic>))
@@ -17,11 +17,15 @@ _$_AttendanceDetailSuppModel _$$_AttendanceDetailSuppModelFromJson(
       month:
           (json['month'] as List<dynamic>?)?.map((e) => e as String).toList() ??
               const <String>[],
+      limit: json['limit'] as String? ?? "",
+      useMissPunch: json['useMissPunch'] as int? ?? 0,
     );
 
-Map<String, dynamic> _$$_AttendanceDetailSuppModelToJson(
-        _$_AttendanceDetailSuppModel instance) =>
+Map<String, dynamic> _$$AttendanceDetailSuppModelImplToJson(
+        _$AttendanceDetailSuppModelImpl instance) =>
     <String, dynamic>{
       'attendance': instance.attendance,
       'month': instance.month,
+      'limit': instance.limit,
+      'useMissPunch': instance.useMissPunch,
     };

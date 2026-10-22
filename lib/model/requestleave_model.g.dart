@@ -6,8 +6,9 @@ part of 'requestleave_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RequestLeaveModel _$$_RequestLeaveModelFromJson(Map<String, dynamic> json) =>
-    _$_RequestLeaveModel(
+_$RequestLeaveModelImpl _$$RequestLeaveModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$RequestLeaveModelImpl(
       leave_type: (json['leave_type'] as List<dynamic>?)
               ?.map((e) => LeavetypeModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -31,8 +32,8 @@ _$_RequestLeaveModel _$$_RequestLeaveModelFromJson(Map<String, dynamic> json) =>
           const <ReportingtoModel>[],
     );
 
-Map<String, dynamic> _$$_RequestLeaveModelToJson(
-        _$_RequestLeaveModel instance) =>
+Map<String, dynamic> _$$RequestLeaveModelImplToJson(
+        _$RequestLeaveModelImpl instance) =>
     <String, dynamic>{
       'leave_type': instance.leave_type,
       'cc_list': instance.cc_list,

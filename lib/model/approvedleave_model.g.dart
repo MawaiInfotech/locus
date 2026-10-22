@@ -6,9 +6,9 @@ part of 'approvedleave_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApprovedLeaveModel _$$_ApprovedLeaveModelFromJson(
+_$ApprovedLeaveModelImpl _$$ApprovedLeaveModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ApprovedLeaveModel(
+    _$ApprovedLeaveModelImpl(
       fromDate: json['from_date'] as String? ?? "",
       endDate: json['end_date'] as String? ?? "",
       leaveType: json['leave_type'] as String? ?? "",
@@ -24,8 +24,8 @@ _$_ApprovedLeaveModel _$$_ApprovedLeaveModelFromJson(
       departmentCode: json['dept_cd'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_ApprovedLeaveModelToJson(
-        _$_ApprovedLeaveModel instance) =>
+Map<String, dynamic> _$$ApprovedLeaveModelImplToJson(
+        _$ApprovedLeaveModelImpl instance) =>
     <String, dynamic>{
       'from_date': instance.fromDate,
       'end_date': instance.endDate,

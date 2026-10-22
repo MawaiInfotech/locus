@@ -6,16 +6,16 @@ part of 'leaveapprove_reject_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LeaveApproveRejectModel _$$_LeaveApproveRejectModelFromJson(
+_$LeaveApproveRejectModelImpl _$$LeaveApproveRejectModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_LeaveApproveRejectModel(
+    _$LeaveApproveRejectModelImpl(
       status: json['status'] ?? "",
       message: json['message'] ?? "",
       result: json['result'] ?? "",
     );
 
-Map<String, dynamic> _$$_LeaveApproveRejectModelToJson(
-        _$_LeaveApproveRejectModel instance) =>
+Map<String, dynamic> _$$LeaveApproveRejectModelImplToJson(
+        _$LeaveApproveRejectModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,

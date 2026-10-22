@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'employee_leave_model.dart';
 
@@ -12,7 +12,7 @@ part of 'employee_leave_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 EmployeeLeaveModel _$EmployeeLeaveModelFromJson(Map<String, dynamic> json) {
   return _EmployeeLeaveModel.fromJson(json);
@@ -96,11 +96,11 @@ class _$EmployeeLeaveModelCopyWithImpl<$Res, $Val extends EmployeeLeaveModel>
 }
 
 /// @nodoc
-abstract class _$$_EmployeeLeaveModelCopyWith<$Res>
+abstract class _$$EmployeeLeaveModelImplCopyWith<$Res>
     implements $EmployeeLeaveModelCopyWith<$Res> {
-  factory _$$_EmployeeLeaveModelCopyWith(_$_EmployeeLeaveModel value,
-          $Res Function(_$_EmployeeLeaveModel) then) =
-      __$$_EmployeeLeaveModelCopyWithImpl<$Res>;
+  factory _$$EmployeeLeaveModelImplCopyWith(_$EmployeeLeaveModelImpl value,
+          $Res Function(_$EmployeeLeaveModelImpl) then) =
+      __$$EmployeeLeaveModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -112,11 +112,11 @@ abstract class _$$_EmployeeLeaveModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EmployeeLeaveModelCopyWithImpl<$Res>
-    extends _$EmployeeLeaveModelCopyWithImpl<$Res, _$_EmployeeLeaveModel>
-    implements _$$_EmployeeLeaveModelCopyWith<$Res> {
-  __$$_EmployeeLeaveModelCopyWithImpl(
-      _$_EmployeeLeaveModel _value, $Res Function(_$_EmployeeLeaveModel) _then)
+class __$$EmployeeLeaveModelImplCopyWithImpl<$Res>
+    extends _$EmployeeLeaveModelCopyWithImpl<$Res, _$EmployeeLeaveModelImpl>
+    implements _$$EmployeeLeaveModelImplCopyWith<$Res> {
+  __$$EmployeeLeaveModelImplCopyWithImpl(_$EmployeeLeaveModelImpl _value,
+      $Res Function(_$EmployeeLeaveModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -128,7 +128,7 @@ class __$$_EmployeeLeaveModelCopyWithImpl<$Res>
     Object? leaveCode = null,
     Object? description = null,
   }) {
-    return _then(_$_EmployeeLeaveModel(
+    return _then(_$EmployeeLeaveModelImpl(
       leaveTotal: null == leaveTotal
           ? _value.leaveTotal
           : leaveTotal // ignore: cast_nullable_to_non_nullable
@@ -155,16 +155,16 @@ class __$$_EmployeeLeaveModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EmployeeLeaveModel implements _EmployeeLeaveModel {
-  const _$_EmployeeLeaveModel(
+class _$EmployeeLeaveModelImpl implements _EmployeeLeaveModel {
+  const _$EmployeeLeaveModelImpl(
       {@JsonKey(name: "leave_total") this.leaveTotal = 0.0,
       @JsonKey(name: "leave_available") this.leaveAvailable = 0.0,
       @JsonKey(name: "leave_used") this.leaveUsed = 0.0,
       @JsonKey(name: "leave_code") this.leaveCode = "",
       @JsonKey(name: "description") this.description = ""});
 
-  factory _$_EmployeeLeaveModel.fromJson(Map<String, dynamic> json) =>
-      _$$_EmployeeLeaveModelFromJson(json);
+  factory _$EmployeeLeaveModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmployeeLeaveModelImplFromJson(json);
 
   @override
   @JsonKey(name: "leave_total")
@@ -188,10 +188,10 @@ class _$_EmployeeLeaveModel implements _EmployeeLeaveModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmployeeLeaveModel &&
+            other is _$EmployeeLeaveModelImpl &&
             (identical(other.leaveTotal, leaveTotal) ||
                 other.leaveTotal == leaveTotal) &&
             (identical(other.leaveAvailable, leaveAvailable) ||
@@ -212,13 +212,13 @@ class _$_EmployeeLeaveModel implements _EmployeeLeaveModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmployeeLeaveModelCopyWith<_$_EmployeeLeaveModel> get copyWith =>
-      __$$_EmployeeLeaveModelCopyWithImpl<_$_EmployeeLeaveModel>(
+  _$$EmployeeLeaveModelImplCopyWith<_$EmployeeLeaveModelImpl> get copyWith =>
+      __$$EmployeeLeaveModelImplCopyWithImpl<_$EmployeeLeaveModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmployeeLeaveModelToJson(
+    return _$$EmployeeLeaveModelImplToJson(
       this,
     );
   }
@@ -231,10 +231,10 @@ abstract class _EmployeeLeaveModel implements EmployeeLeaveModel {
           @JsonKey(name: "leave_used") final double leaveUsed,
           @JsonKey(name: "leave_code") final String leaveCode,
           @JsonKey(name: "description") final String description}) =
-      _$_EmployeeLeaveModel;
+      _$EmployeeLeaveModelImpl;
 
   factory _EmployeeLeaveModel.fromJson(Map<String, dynamic> json) =
-      _$_EmployeeLeaveModel.fromJson;
+      _$EmployeeLeaveModelImpl.fromJson;
 
   @override
   @JsonKey(name: "leave_total")
@@ -253,6 +253,6 @@ abstract class _EmployeeLeaveModel implements EmployeeLeaveModel {
   String get description;
   @override
   @JsonKey(ignore: true)
-  _$$_EmployeeLeaveModelCopyWith<_$_EmployeeLeaveModel> get copyWith =>
+  _$$EmployeeLeaveModelImplCopyWith<_$EmployeeLeaveModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

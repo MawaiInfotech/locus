@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:in_app_update/in_app_update.dart';
 import 'package:locus/routes/app_routes.dart';
 import 'package:locus/themes/app_theme.dart';
@@ -12,32 +13,45 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    InAppUpdate.checkForUpdate().then((updateInfo) {
-      if (updateInfo.updateAvailability == UpdateAvailability.updateAvailable) {
-        if (updateInfo.immediateUpdateAllowed) {
-          // Perform immediate update
-          InAppUpdate.performImmediateUpdate().then((appUpdateResult) {
-            if (appUpdateResult == AppUpdateResult.success) {
-              //App Update successful
-            }
-          });
-        } else if (updateInfo.flexibleUpdateAllowed) {
-          //Perform flexible update
-          InAppUpdate.startFlexibleUpdate().then((appUpdateResult) {
-            if (appUpdateResult == AppUpdateResult.success) {
-              //App Update successful
-              InAppUpdate.completeFlexibleUpdate();
-            }
-          });
-        }
-      }
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _checkForUpdate();
     });
   }
 
+  Future<void> _checkForUpdate() async {
+    try {
+      final updateInfo = await InAppUpdate.checkForUpdate();
+
+      if (!mounted) return;
+
+      if (updateInfo.updateAvailability ==
+          UpdateAvailability.updateAvailable) {
+        if (updateInfo.immediateUpdateAllowed) {
+          final result = await InAppUpdate.performImmediateUpdate();
+
+          if (result == AppUpdateResult.success) {
+            debugPrint('Immediate update successful');
+          }
+        } else if (updateInfo.flexibleUpdateAllowed) {
+          final result = await InAppUpdate.startFlexibleUpdate();
+
+          if (result == AppUpdateResult.success) {
+            await InAppUpdate.completeFlexibleUpdate();
+            debugPrint('Flexible update successful');
+          }
+        }
+      }
+    } on PlatformException catch (e) {
+      debugPrint('In-app update error: ${e.code} - ${e.message}');
+    } catch (e, stackTrace) {
+      debugPrint('Unexpected update error: $e');
+      debugPrintStack(stackTrace: stackTrace);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

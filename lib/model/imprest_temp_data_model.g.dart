@@ -6,9 +6,9 @@ part of 'imprest_temp_data_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ImprestTempDataModel _$$_ImprestTempDataModelFromJson(
+_$ImprestTempDataModelImpl _$$ImprestTempDataModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ImprestTempDataModel(
+    _$ImprestTempDataModelImpl(
       projectCd: json['project_cd'] as String? ?? "",
       claimType: json['claim_type'] as String? ?? "",
       visitThrough: json['visit_through'] as String? ?? "",
@@ -27,8 +27,8 @@ _$_ImprestTempDataModel _$$_ImprestTempDataModelFromJson(
       visitName: json['visit_name'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_ImprestTempDataModelToJson(
-        _$_ImprestTempDataModel instance) =>
+Map<String, dynamic> _$$ImprestTempDataModelImplToJson(
+        _$ImprestTempDataModelImpl instance) =>
     <String, dynamic>{
       'project_cd': instance.projectCd,
       'claim_type': instance.claimType,

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'claim_type_model.dart';
 
@@ -12,7 +12,7 @@ part of 'claim_type_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ClaimTypeModel _$ClaimTypeModelFromJson(Map<String, dynamic> json) {
   return _ClaimTypeModel.fromJson(json);
@@ -80,11 +80,11 @@ class _$ClaimTypeModelCopyWithImpl<$Res, $Val extends ClaimTypeModel>
 }
 
 /// @nodoc
-abstract class _$$_ClaimTypeModelCopyWith<$Res>
+abstract class _$$ClaimTypeModelImplCopyWith<$Res>
     implements $ClaimTypeModelCopyWith<$Res> {
-  factory _$$_ClaimTypeModelCopyWith(
-          _$_ClaimTypeModel value, $Res Function(_$_ClaimTypeModel) then) =
-      __$$_ClaimTypeModelCopyWithImpl<$Res>;
+  factory _$$ClaimTypeModelImplCopyWith(_$ClaimTypeModelImpl value,
+          $Res Function(_$ClaimTypeModelImpl) then) =
+      __$$ClaimTypeModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -94,11 +94,11 @@ abstract class _$$_ClaimTypeModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ClaimTypeModelCopyWithImpl<$Res>
-    extends _$ClaimTypeModelCopyWithImpl<$Res, _$_ClaimTypeModel>
-    implements _$$_ClaimTypeModelCopyWith<$Res> {
-  __$$_ClaimTypeModelCopyWithImpl(
-      _$_ClaimTypeModel _value, $Res Function(_$_ClaimTypeModel) _then)
+class __$$ClaimTypeModelImplCopyWithImpl<$Res>
+    extends _$ClaimTypeModelCopyWithImpl<$Res, _$ClaimTypeModelImpl>
+    implements _$$ClaimTypeModelImplCopyWith<$Res> {
+  __$$ClaimTypeModelImplCopyWithImpl(
+      _$ClaimTypeModelImpl _value, $Res Function(_$ClaimTypeModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +108,7 @@ class __$$_ClaimTypeModelCopyWithImpl<$Res>
     Object? meaning = null,
     Object? description = null,
   }) {
-    return _then(_$_ClaimTypeModel(
+    return _then(_$ClaimTypeModelImpl(
       controlCode: null == controlCode
           ? _value.controlCode
           : controlCode // ignore: cast_nullable_to_non_nullable
@@ -127,14 +127,14 @@ class __$$_ClaimTypeModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ClaimTypeModel implements _ClaimTypeModel {
-  const _$_ClaimTypeModel(
+class _$ClaimTypeModelImpl implements _ClaimTypeModel {
+  const _$ClaimTypeModelImpl(
       {@JsonKey(name: 'control_code') this.controlCode = "",
       @JsonKey(name: 'meaning') this.meaning = '',
       @JsonKey(name: 'description') this.description = ''});
 
-  factory _$_ClaimTypeModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ClaimTypeModelFromJson(json);
+  factory _$ClaimTypeModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ClaimTypeModelImplFromJson(json);
 
   @override
   @JsonKey(name: 'control_code')
@@ -152,10 +152,10 @@ class _$_ClaimTypeModel implements _ClaimTypeModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ClaimTypeModel &&
+            other is _$ClaimTypeModelImpl &&
             (identical(other.controlCode, controlCode) ||
                 other.controlCode == controlCode) &&
             (identical(other.meaning, meaning) || other.meaning == meaning) &&
@@ -171,12 +171,13 @@ class _$_ClaimTypeModel implements _ClaimTypeModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ClaimTypeModelCopyWith<_$_ClaimTypeModel> get copyWith =>
-      __$$_ClaimTypeModelCopyWithImpl<_$_ClaimTypeModel>(this, _$identity);
+  _$$ClaimTypeModelImplCopyWith<_$ClaimTypeModelImpl> get copyWith =>
+      __$$ClaimTypeModelImplCopyWithImpl<_$ClaimTypeModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ClaimTypeModelToJson(
+    return _$$ClaimTypeModelImplToJson(
       this,
     );
   }
@@ -187,10 +188,10 @@ abstract class _ClaimTypeModel implements ClaimTypeModel {
           {@JsonKey(name: 'control_code') final String controlCode,
           @JsonKey(name: 'meaning') final String meaning,
           @JsonKey(name: 'description') final String description}) =
-      _$_ClaimTypeModel;
+      _$ClaimTypeModelImpl;
 
   factory _ClaimTypeModel.fromJson(Map<String, dynamic> json) =
-      _$_ClaimTypeModel.fromJson;
+      _$ClaimTypeModelImpl.fromJson;
 
   @override
   @JsonKey(name: 'control_code')
@@ -203,6 +204,6 @@ abstract class _ClaimTypeModel implements ClaimTypeModel {
   String get description;
   @override
   @JsonKey(ignore: true)
-  _$$_ClaimTypeModelCopyWith<_$_ClaimTypeModel> get copyWith =>
+  _$$ClaimTypeModelImplCopyWith<_$ClaimTypeModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

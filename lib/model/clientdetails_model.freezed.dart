@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'clientdetails_model.dart';
 
@@ -12,7 +12,7 @@ part of 'clientdetails_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ClientDetailsModel _$ClientDetailsModelFromJson(Map<String, dynamic> json) {
   return _ClientDetailsModel.fromJson(json);
@@ -72,11 +72,11 @@ class _$ClientDetailsModelCopyWithImpl<$Res, $Val extends ClientDetailsModel>
 }
 
 /// @nodoc
-abstract class _$$_ClientDetailsModelCopyWith<$Res>
+abstract class _$$ClientDetailsModelImplCopyWith<$Res>
     implements $ClientDetailsModelCopyWith<$Res> {
-  factory _$$_ClientDetailsModelCopyWith(_$_ClientDetailsModel value,
-          $Res Function(_$_ClientDetailsModel) then) =
-      __$$_ClientDetailsModelCopyWithImpl<$Res>;
+  factory _$$ClientDetailsModelImplCopyWith(_$ClientDetailsModelImpl value,
+          $Res Function(_$ClientDetailsModelImpl) then) =
+      __$$ClientDetailsModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -85,11 +85,11 @@ abstract class _$$_ClientDetailsModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ClientDetailsModelCopyWithImpl<$Res>
-    extends _$ClientDetailsModelCopyWithImpl<$Res, _$_ClientDetailsModel>
-    implements _$$_ClientDetailsModelCopyWith<$Res> {
-  __$$_ClientDetailsModelCopyWithImpl(
-      _$_ClientDetailsModel _value, $Res Function(_$_ClientDetailsModel) _then)
+class __$$ClientDetailsModelImplCopyWithImpl<$Res>
+    extends _$ClientDetailsModelCopyWithImpl<$Res, _$ClientDetailsModelImpl>
+    implements _$$ClientDetailsModelImplCopyWith<$Res> {
+  __$$ClientDetailsModelImplCopyWithImpl(_$ClientDetailsModelImpl _value,
+      $Res Function(_$ClientDetailsModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_ClientDetailsModelCopyWithImpl<$Res>
     Object? clientCode = null,
     Object? clientName = null,
   }) {
-    return _then(_$_ClientDetailsModel(
+    return _then(_$ClientDetailsModelImpl(
       clientCode: null == clientCode
           ? _value.clientCode
           : clientCode // ignore: cast_nullable_to_non_nullable
@@ -113,13 +113,13 @@ class __$$_ClientDetailsModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ClientDetailsModel implements _ClientDetailsModel {
-  const _$_ClientDetailsModel(
+class _$ClientDetailsModelImpl implements _ClientDetailsModel {
+  const _$ClientDetailsModelImpl(
       {@JsonKey(name: 'client_cd') this.clientCode = '',
       @JsonKey(name: 'client_name') this.clientName = ''});
 
-  factory _$_ClientDetailsModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ClientDetailsModelFromJson(json);
+  factory _$ClientDetailsModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ClientDetailsModelImplFromJson(json);
 
   @override
   @JsonKey(name: 'client_cd')
@@ -134,10 +134,10 @@ class _$_ClientDetailsModel implements _ClientDetailsModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ClientDetailsModel &&
+            other is _$ClientDetailsModelImpl &&
             (identical(other.clientCode, clientCode) ||
                 other.clientCode == clientCode) &&
             (identical(other.clientName, clientName) ||
@@ -151,13 +151,13 @@ class _$_ClientDetailsModel implements _ClientDetailsModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ClientDetailsModelCopyWith<_$_ClientDetailsModel> get copyWith =>
-      __$$_ClientDetailsModelCopyWithImpl<_$_ClientDetailsModel>(
+  _$$ClientDetailsModelImplCopyWith<_$ClientDetailsModelImpl> get copyWith =>
+      __$$ClientDetailsModelImplCopyWithImpl<_$ClientDetailsModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ClientDetailsModelToJson(
+    return _$$ClientDetailsModelImplToJson(
       this,
     );
   }
@@ -167,10 +167,10 @@ abstract class _ClientDetailsModel implements ClientDetailsModel {
   const factory _ClientDetailsModel(
           {@JsonKey(name: 'client_cd') final String clientCode,
           @JsonKey(name: 'client_name') final String clientName}) =
-      _$_ClientDetailsModel;
+      _$ClientDetailsModelImpl;
 
   factory _ClientDetailsModel.fromJson(Map<String, dynamic> json) =
-      _$_ClientDetailsModel.fromJson;
+      _$ClientDetailsModelImpl.fromJson;
 
   @override
   @JsonKey(name: 'client_cd')
@@ -180,6 +180,6 @@ abstract class _ClientDetailsModel implements ClientDetailsModel {
   String get clientName;
   @override
   @JsonKey(ignore: true)
-  _$$_ClientDetailsModelCopyWith<_$_ClientDetailsModel> get copyWith =>
+  _$$ClientDetailsModelImplCopyWith<_$ClientDetailsModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

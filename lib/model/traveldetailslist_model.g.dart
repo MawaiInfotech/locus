@@ -6,9 +6,9 @@ part of 'traveldetailslist_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TravelDetailsListModel _$$_TravelDetailsListModelFromJson(
+_$TravelDetailsListModelImpl _$$TravelDetailsListModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_TravelDetailsListModel(
+    _$TravelDetailsListModelImpl(
       emp_dtls: (json['emp_dtls'] as List<dynamic>?)
               ?.map(
                   (e) => TravelDetailsModel.fromJson(e as Map<String, dynamic>))
@@ -21,8 +21,8 @@ _$_TravelDetailsListModel _$$_TravelDetailsListModelFromJson(
           const <TravelReportModel>[],
     );
 
-Map<String, dynamic> _$$_TravelDetailsListModelToJson(
-        _$_TravelDetailsListModel instance) =>
+Map<String, dynamic> _$$TravelDetailsListModelImplToJson(
+        _$TravelDetailsListModelImpl instance) =>
     <String, dynamic>{
       'emp_dtls': instance.emp_dtls,
       'emp_rep_dtls': instance.emp_rep_dtls,

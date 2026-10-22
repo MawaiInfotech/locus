@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'profilephoto_model.dart';
 
@@ -12,7 +12,7 @@ part of 'profilephoto_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ProfilePhotoModel _$ProfilePhotoModelFromJson(Map<String, dynamic> json) {
   return _ProfilePhotoModel.fromJson(json);
@@ -88,11 +88,11 @@ class _$ProfilePhotoModelCopyWithImpl<$Res, $Val extends ProfilePhotoModel>
 }
 
 /// @nodoc
-abstract class _$$_ProfilePhotoModelCopyWith<$Res>
+abstract class _$$ProfilePhotoModelImplCopyWith<$Res>
     implements $ProfilePhotoModelCopyWith<$Res> {
-  factory _$$_ProfilePhotoModelCopyWith(_$_ProfilePhotoModel value,
-          $Res Function(_$_ProfilePhotoModel) then) =
-      __$$_ProfilePhotoModelCopyWithImpl<$Res>;
+  factory _$$ProfilePhotoModelImplCopyWith(_$ProfilePhotoModelImpl value,
+          $Res Function(_$ProfilePhotoModelImpl) then) =
+      __$$ProfilePhotoModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -103,11 +103,11 @@ abstract class _$$_ProfilePhotoModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ProfilePhotoModelCopyWithImpl<$Res>
-    extends _$ProfilePhotoModelCopyWithImpl<$Res, _$_ProfilePhotoModel>
-    implements _$$_ProfilePhotoModelCopyWith<$Res> {
-  __$$_ProfilePhotoModelCopyWithImpl(
-      _$_ProfilePhotoModel _value, $Res Function(_$_ProfilePhotoModel) _then)
+class __$$ProfilePhotoModelImplCopyWithImpl<$Res>
+    extends _$ProfilePhotoModelCopyWithImpl<$Res, _$ProfilePhotoModelImpl>
+    implements _$$ProfilePhotoModelImplCopyWith<$Res> {
+  __$$ProfilePhotoModelImplCopyWithImpl(_$ProfilePhotoModelImpl _value,
+      $Res Function(_$ProfilePhotoModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +118,7 @@ class __$$_ProfilePhotoModelCopyWithImpl<$Res>
     Object? photo = null,
     Object? employeeCode = null,
   }) {
-    return _then(_$_ProfilePhotoModel(
+    return _then(_$ProfilePhotoModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -141,15 +141,15 @@ class __$$_ProfilePhotoModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProfilePhotoModel implements _ProfilePhotoModel {
-  const _$_ProfilePhotoModel(
+class _$ProfilePhotoModelImpl implements _ProfilePhotoModel {
+  const _$ProfilePhotoModelImpl(
       {@JsonKey(name: "status") this.status = "",
       @JsonKey(name: "msg") this.message = "",
       @JsonKey(name: "photo_file") this.photo = "",
       @JsonKey(name: "emp_cd") this.employeeCode = ""});
 
-  factory _$_ProfilePhotoModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ProfilePhotoModelFromJson(json);
+  factory _$ProfilePhotoModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProfilePhotoModelImplFromJson(json);
 
   @override
   @JsonKey(name: "status")
@@ -170,10 +170,10 @@ class _$_ProfilePhotoModel implements _ProfilePhotoModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProfilePhotoModel &&
+            other is _$ProfilePhotoModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.photo, photo) || other.photo == photo) &&
@@ -189,13 +189,13 @@ class _$_ProfilePhotoModel implements _ProfilePhotoModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProfilePhotoModelCopyWith<_$_ProfilePhotoModel> get copyWith =>
-      __$$_ProfilePhotoModelCopyWithImpl<_$_ProfilePhotoModel>(
+  _$$ProfilePhotoModelImplCopyWith<_$ProfilePhotoModelImpl> get copyWith =>
+      __$$ProfilePhotoModelImplCopyWithImpl<_$ProfilePhotoModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProfilePhotoModelToJson(
+    return _$$ProfilePhotoModelImplToJson(
       this,
     );
   }
@@ -207,10 +207,10 @@ abstract class _ProfilePhotoModel implements ProfilePhotoModel {
           @JsonKey(name: "msg") final String message,
           @JsonKey(name: "photo_file") final String photo,
           @JsonKey(name: "emp_cd") final String employeeCode}) =
-      _$_ProfilePhotoModel;
+      _$ProfilePhotoModelImpl;
 
   factory _ProfilePhotoModel.fromJson(Map<String, dynamic> json) =
-      _$_ProfilePhotoModel.fromJson;
+      _$ProfilePhotoModelImpl.fromJson;
 
   @override
   @JsonKey(name: "status")
@@ -226,6 +226,6 @@ abstract class _ProfilePhotoModel implements ProfilePhotoModel {
   String get employeeCode;
   @override
   @JsonKey(ignore: true)
-  _$$_ProfilePhotoModelCopyWith<_$_ProfilePhotoModel> get copyWith =>
+  _$$ProfilePhotoModelImplCopyWith<_$ProfilePhotoModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,3 +1,4 @@
+import 'package:locus/themes/app_colors.dart';
 import 'package:locus/utils/screen_size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,47 +15,58 @@ import '../state/request_state.dart';
 import '../widgets/app_top_bar.dart';
 
 class RequestMisspunchPage extends StatefulWidget {
-  const RequestMisspunchPage(this.model, {Key? key}) : super(key: key);
+  const RequestMisspunchPage(this.model, this.useMissPunch, this.limit, {Key? key}) : super(key: key);
 
   final AttendanceDetailModel model;
+  final String useMissPunch;
+  final String limit;
+
 
   @override
   State<RequestMisspunchPage> createState() => _RequestMisspunchPageState();
 }
 
 class _RequestMisspunchPageState extends State<RequestMisspunchPage> {
-  TextEditingController reasonTextController = TextEditingController();
+  final TextEditingController reasonTextController =
+  TextEditingController();
 
-  TextEditingController timeTextController = TextEditingController();
+  final TextEditingController timeTextController =
+  TextEditingController(text: '18:30');
 
-  TextEditingController checkInTimeTextController = TextEditingController();
-
-  TextEditingController bothCheckOutTimeController = TextEditingController();
-
-  TextEditingController bothCheckInTimeController = TextEditingController();
+  final TextEditingController checkInTimeTextController =
+  TextEditingController(text: '09:30');
 
   late final RequestBloc bloc;
-
-  var missPunchType;
-
-  var checkInTime;
-
-  var checkOutTime;
-
-  var selectedTime;
-
   late final LoginModel user;
 
-  final date = DateFormat("dd-MM-yyyy").format(DateTime.now());
+  String? missPunchType; // Default to Check Out
 
+  String? checkInTime;
+  String? checkOutTime;
+
+  final Map<String, String> missPunchOptions = {
+    'I': 'Check In',
+    'O': 'Check Out',
+    'B': 'Both',
+  };
   @override
   void initState() {
-    user = Provider.of<LoginService>(context, listen: false).getCurrentUser!;
-    final attendanceService = Provider.of<AttendanceService>(context, listen: false);
-    final loginService = Provider.of<LoginService>(context, listen: false);
-    bloc = RequestBloc(loginService, attendanceService);
-    widget.model;
     super.initState();
+
+    user = Provider.of<LoginService>(context, listen: false).getCurrentUser!;
+
+    final attendanceService =
+    Provider.of<AttendanceService>(context, listen: false);
+    final loginService =
+    Provider.of<LoginService>(context, listen: false);
+
+    bloc = RequestBloc(loginService, attendanceService);
+
+    // timeTextController =
+    //     TextEditingController(text: user.end_time.toString());
+    //
+    // checkInTimeTextController =
+    //     TextEditingController(text: user.start_time.toString());
   }
 
   @override
@@ -62,10 +74,7 @@ class _RequestMisspunchPageState extends State<RequestMisspunchPage> {
     return Scaffold(
       appBar: const AppTopBar(title: "Request Miss Check-out/Check-In"),
       body: SafeArea(
-          child: SizedBox(
-            height: 400.dw,
-            child: _buildBody(),
-          )),
+          child: _buildBody()),
     );
   }
 
@@ -104,140 +113,222 @@ class _RequestMisspunchPageState extends State<RequestMisspunchPage> {
   }
 
   Widget _buildContent(RequestModel model) {
-    timeTextController = TextEditingController(text: user.end_time.toString());
-    checkInTimeTextController = TextEditingController(text: user.start_time.toString());
-    return Card(
-      margin: EdgeInsets.all(20.dw),
-      elevation: 20.dw,
-      child: Column(
-        children: [
-          if (widget.model.outRem == "O")
-            _buildHeading("Miss Punch - Out")
-          else if (widget.model.inRem == "I")
-            _buildHeading("Miss Punch - In")
-          else if (widget.model.misPunch == "B")
-              _buildHeading("Checkin/CheckOut"),
-          if (widget.model.outRem == "O")
-            _buildTimeFields(user.end_time.toString())
-          else if (widget.model.inRem == "I")
-            _buildInTime(user.start_time.toString())
-          else if (widget.model.misPunch == "B")
-              Padding(
-                padding: EdgeInsets.only(left: 8.dw, right: 8.dw),
-                child: Column(
-                  children: [
-                    TextField(
-                      onTap: () {
-                        _selectInTime(context);
-                      },
-                      controller: checkInTimeTextController,
-                      decoration: InputDecoration(hintText: user.start_time.toString() ),
-                    ),
-                    TextField(
-                      onTap: () {
-                        _selectTime(context);
-                      },
-                      controller: timeTextController,
-                      decoration: InputDecoration(hintText: user.end_time.toString()),
-                    ),
-                  ],
+    return SingleChildScrollView(
+      padding: EdgeInsets.all(12.dw),
+      child: Card(
+        margin: EdgeInsets.all(8.dw),
+        elevation: 4,
+        child: Padding(
+          padding: EdgeInsets.all(16.dw),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildMissPunchBalanceCard(),
+
+              SizedBox(height: 20.dw),
+              _buildHeading('Miss Punch Apply For'),
+
+              DropdownButtonFormField<String>(
+                value: missPunchType,
+                isExpanded: true,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Select Miss Punch Type',
                 ),
+                items: missPunchOptions.entries.map((entry) {
+                  return DropdownMenuItem<String>(
+                    value: entry.key,
+                    child: Text(entry.value),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  setState(() {
+                    missPunchType = value;
+
+                    // Reset default times when changing selection.
+                    checkInTimeTextController.text = '09:30';
+                    timeTextController.text = '18:30';
+                  });
+                },
               ),
-          // _buildBothTime(timeTextController.text),
-          _buildHeading("Reason"),
-          _buildTextField("Reason"),
-          _buildSubmit()
+
+              SizedBox(height: 16.dw),
+
+// Show Check In Time only for I or B
+              if (missPunchType == 'I' || missPunchType == 'B') ...[
+                _buildHeading('Check In Time'),
+                _buildInTime('09:30'),
+                SizedBox(height: 12.dw),
+              ],
+
+// Show Check Out Time only for O or B
+              if (missPunchType == 'O' || missPunchType == 'B') ...[
+                _buildHeading('Check Out Time'),
+                _buildTimeFields('18:30'),
+                SizedBox(height: 12.dw),
+              ],
+
+              _buildHeading('Reason'),
+              _buildTextField('Enter reason'),
+
+              SizedBox(height: 20.dw),
+
+              _buildSubmit(),
+              SizedBox(height: 60.dw),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+
+  Widget _buildMissPunchBalanceCard() {
+    final int totalLimit = int.tryParse(widget.limit.toString()) ?? 0;
+    final int used = int.tryParse(widget.useMissPunch.toString()) ?? 0;
+
+    final int availableBalance = (totalLimit - used).clamp(0, totalLimit);
+
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(10.dw),
+      decoration: BoxDecoration(
+        color: AppColors.red.withOpacity(0.08),
+        borderRadius: BorderRadius.circular(14.dw),
+        border: Border.all(
+          color: AppColors.red.withOpacity(0.25),
+        ),
+      ),
+      child: Row(
+        children: [
+          Container(
+            height: 52.dw,
+            width: 52.dw,
+            decoration: BoxDecoration(
+              color: AppColors.red,
+              borderRadius: BorderRadius.circular(12.dw),
+            ),
+            child: Icon(
+              Icons.account_balance_wallet_outlined,
+              color: Colors.white,
+              size: 28.dw,
+            ),
+          ),
+          SizedBox(width: 12.dw),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Miss Punch Request Limit',
+                  style: TextStyle(
+                    fontSize: 14.dw,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black87,
+                  ),
+                ),
+                SizedBox(height: 6.dw),
+                Text(
+                  'Total Limit: $totalLimit',
+                  style: TextStyle(
+                    fontSize: 12.dw,
+                    color: Colors.grey.shade700,
+                  ),
+                ),
+                SizedBox(height: 3.dw),
+                Text(
+                  'Used: $used',
+                  style: TextStyle(
+                    fontSize: 12.dw,
+                    color: Colors.grey.shade700,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 12.dw,
+              vertical: 8.dw,
+            ),
+            decoration: BoxDecoration(
+              color: AppColors.red,
+              borderRadius: BorderRadius.circular(10.dw),
+            ),
+            child: Column(
+              children: [
+                Text(
+                  '$availableBalance',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22.dw,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  'Available',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 10.dw,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
   }
 
-  _buildHeading(String title) {
-    return Padding(
-      padding: EdgeInsets.all(8.0.dw),
-      child: Text(
-        "$title*",
-        style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18.dw),
-      ),
-    );
-  }
 
-  _buildTextField(String title) {
-    return Padding(
-      padding: EdgeInsets.only(left: 8.dw, right: 8.dw),
-      child: TextField(
-        controller: reasonTextController,
-        decoration: InputDecoration(hintText: title),
-      ),
-    );
-  }
-
-  _buildTimeFields(String title) {
-    return Padding(
-      padding: EdgeInsets.only(left: 8.dw, right: 8.dw),
-      child: TextField(
-        onTap: () {
-          _selectTime(context);
-        },
-        controller: timeTextController,
-        decoration: InputDecoration(hintText: title),
-      ),
-    );
-  }
-
-  _selectTime(BuildContext context) async {
-    final TimeOfDay? timeOfDay = await showTimePicker(
+  Future<void> _selectTime(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(
       context: context,
-      initialTime: TimeOfDay.now(),
+      initialTime: _parseTime(timeTextController.text, 18, 30),
       initialEntryMode: TimePickerEntryMode.dial,
     );
+
+    if (picked == null || !mounted) return;
+
     setState(() {
-      String hour;
-      if (timeOfDay!.hour < 10) {
-        hour = "0${timeOfDay.hour}";
-      } else {
-        hour = "${timeOfDay.hour}";
-      }
-
-      String minute;
-      if (timeOfDay.minute < 10) {
-        minute = "0${timeOfDay.minute}";
-      } else {
-        minute = "${timeOfDay.minute}";
-      }
-
-      timeTextController.text = "$hour:$minute";
-      checkOutTime = timeTextController.text;
-
-
+      timeTextController.text =
+      '${picked.hour.toString().padLeft(2, '0')}:'
+          '${picked.minute.toString().padLeft(2, '0')}';
     });
   }
 
-  _selectInTime(BuildContext context) async {
-    final TimeOfDay? timeOfDay = await showTimePicker(
+  Future<void> _selectInTime(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(
       context: context,
-      initialTime: TimeOfDay.now(),
+      initialTime:
+      _parseTime(checkInTimeTextController.text, 9, 30),
       initialEntryMode: TimePickerEntryMode.dial,
     );
+
+    if (picked == null || !mounted) return;
+
     setState(() {
-      String hour;
-      if (timeOfDay!.hour < 10) {
-        hour = "0${timeOfDay.hour}";
-      } else {
-        hour = "${timeOfDay.hour}";
-      }
-
-      String minute;
-      if (timeOfDay.minute < 10) {
-        minute = "0${timeOfDay.minute}";
-      } else {
-        minute = "${timeOfDay.minute}";
-      }
-      checkInTimeTextController.text = "$hour:$minute";
-      checkInTime = TimeOfDay;
+      checkInTimeTextController.text =
+      '${picked.hour.toString().padLeft(2, '0')}:'
+          '${picked.minute.toString().padLeft(2, '0')}';
     });
+  }
 
-    // }
+  TimeOfDay _parseTime(String value, int defaultHour, int defaultMinute) {
+    final parts = value.split(':');
+
+    if (parts.length != 2) {
+      return TimeOfDay(
+        hour: defaultHour,
+        minute: defaultMinute,
+      );
+    }
+
+    return TimeOfDay(
+      hour: int.tryParse(parts[0]) ?? defaultHour,
+      minute: int.tryParse(parts[1]) ?? defaultMinute,
+    );
   }
 
   // _buildBothTime(String title) {
@@ -264,57 +355,139 @@ class _RequestMisspunchPageState extends State<RequestMisspunchPage> {
   //   );
   // }
 
-  _buildInTime(String title) {
+  Widget _buildInTime(String title) {
     return TextField(
-      onTap: () {
-        _selectInTime(context);
-      },
       controller: checkInTimeTextController,
-      decoration: InputDecoration(hintText: title),
+      readOnly: true,
+      onTap: () => _selectInTime(context),
+      decoration: InputDecoration(
+        hintText: title,
+        labelText: 'Check In Time',
+        border: const OutlineInputBorder(),
+        suffixIcon: const Icon(Icons.access_time),
+      ),
     );
   }
 
-  _buildSubmit() {
+  Widget _buildTimeFields(String title) {
+    return TextField(
+      controller: timeTextController,
+      readOnly: true,
+      onTap: () => _selectTime(context),
+      decoration: InputDecoration(
+        hintText: title,
+        labelText: 'Check Out Time',
+        border: const OutlineInputBorder(),
+        suffixIcon: const Icon(Icons.access_time),
+      ),
+    );
+  }
+
+  Widget _buildHeading(String title) {
     return Padding(
-      padding: EdgeInsets.only(top: 20.dw, left: 10.dw, right: 10.dw),
+      padding: EdgeInsets.only(bottom: 8.dw),
+      child: Text(
+        title,
+        style: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: 16.dw,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTextField(String title) {
+    return TextField(
+      controller: reasonTextController,
+      maxLines: 3,
+      decoration: InputDecoration(
+        hintText: title,
+        border: const OutlineInputBorder(),
+      ),
+    );
+  }
+
+  Widget _buildSubmit() {
+    return SizedBox(
+      width: double.infinity,
       child: ElevatedButton(
-          onPressed: () async {
-            if (widget.model.misPunch.isNotEmpty) {
-              missPunchType = widget.model.misPunch;
-            } else if (widget.model.inRem.isNotEmpty) {
-              missPunchType = widget.model.inRem;
-            } else if (widget.model.outRem.isNotEmpty) {
-              missPunchType = widget.model.outRem;
-            }
-            if (widget.model.outRem == "O" &&
-                timeTextController.text.isNotEmpty &&
-                reasonTextController.text.isNotEmpty) {
-              checkInTime = widget.model.inTime;
-              checkOutTime = timeTextController.text;
-            } else if (widget.model.inRem == "I" &&
-                checkInTimeTextController.text.isNotEmpty &&
-                reasonTextController.text.isNotEmpty) {
-              checkInTime = checkInTimeTextController.text;
-              checkOutTime = widget.model.outTime;
-            } else if (widget.model.misPunch == "B" &&
-                checkInTimeTextController.text.isNotEmpty &&
-                timeTextController.text.isNotEmpty &&
-                reasonTextController.text.isNotEmpty) {
-              checkInTime = checkInTimeTextController.text;
-              checkOutTime = timeTextController.text;
-            } else {
-              ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text("Please Fill All Details.")));
-            }
-            bloc.UpdateRequest(
-              reasonTextController.text,
-              widget.model.attendanceDate,
-              missPunchType,
-              checkInTime,
-              checkOutTime,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.red
+        ),
+        onPressed: () {
+          final reason = reasonTextController.text.trim();
+
+          if (missPunchType == null) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Please select Miss Punch Apply For.'),
+              ),
             );
-          },
-          child: const Text("Submit")),
+            return;
+          }
+          if (reason.isEmpty) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Please enter a reason.'),
+              ),
+            );
+            return;
+          }
+
+          String inTime = '';
+          String outTime = '';
+
+          if (missPunchType == 'I') {
+            inTime = checkInTimeTextController.text.trim();
+
+            if (inTime.isEmpty) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Please select Check In time.'),
+                ),
+              );
+              return;
+            }
+          } else if (missPunchType == 'O') {
+            outTime = timeTextController.text.trim();
+
+            if (outTime.isEmpty) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Please select Check Out time.'),
+                ),
+              );
+              return;
+            }
+          } else if (missPunchType == 'B') {
+            inTime = checkInTimeTextController.text.trim();
+            outTime = timeTextController.text.trim();
+
+            if (inTime.isEmpty || outTime.isEmpty) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text(
+                    'Please fill both Check In and Check Out times.',
+                  ),
+                ),
+              );
+              return;
+            }
+          }
+
+          checkInTime = inTime;
+          checkOutTime = outTime;
+
+          bloc.UpdateRequest(
+            reason,
+            widget.model.attendanceDate,
+            missPunchType!,
+            inTime,
+            outTime,
+          );
+        },
+        child: const Text('Submit'),
+      ),
     );
   }
 }

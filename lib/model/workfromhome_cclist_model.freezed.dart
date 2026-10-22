@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'workfromhome_cclist_model.dart';
 
@@ -12,7 +12,7 @@ part of 'workfromhome_cclist_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 WorkfromHomeCClistModel _$WorkfromHomeCClistModelFromJson(
     Map<String, dynamic> json) {
@@ -82,11 +82,12 @@ class _$WorkfromHomeCClistModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_WorkfromHomeCClistModelCopyWith<$Res>
+abstract class _$$WorkfromHomeCClistModelImplCopyWith<$Res>
     implements $WorkfromHomeCClistModelCopyWith<$Res> {
-  factory _$$_WorkfromHomeCClistModelCopyWith(_$_WorkfromHomeCClistModel value,
-          $Res Function(_$_WorkfromHomeCClistModel) then) =
-      __$$_WorkfromHomeCClistModelCopyWithImpl<$Res>;
+  factory _$$WorkfromHomeCClistModelImplCopyWith(
+          _$WorkfromHomeCClistModelImpl value,
+          $Res Function(_$WorkfromHomeCClistModelImpl) then) =
+      __$$WorkfromHomeCClistModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -96,12 +97,13 @@ abstract class _$$_WorkfromHomeCClistModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_WorkfromHomeCClistModelCopyWithImpl<$Res>
+class __$$WorkfromHomeCClistModelImplCopyWithImpl<$Res>
     extends _$WorkfromHomeCClistModelCopyWithImpl<$Res,
-        _$_WorkfromHomeCClistModel>
-    implements _$$_WorkfromHomeCClistModelCopyWith<$Res> {
-  __$$_WorkfromHomeCClistModelCopyWithImpl(_$_WorkfromHomeCClistModel _value,
-      $Res Function(_$_WorkfromHomeCClistModel) _then)
+        _$WorkfromHomeCClistModelImpl>
+    implements _$$WorkfromHomeCClistModelImplCopyWith<$Res> {
+  __$$WorkfromHomeCClistModelImplCopyWithImpl(
+      _$WorkfromHomeCClistModelImpl _value,
+      $Res Function(_$WorkfromHomeCClistModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +113,7 @@ class __$$_WorkfromHomeCClistModelCopyWithImpl<$Res>
     Object? employeeLatsName = null,
     Object? employeeFirstName = null,
   }) {
-    return _then(_$_WorkfromHomeCClistModel(
+    return _then(_$WorkfromHomeCClistModelImpl(
       employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
@@ -130,14 +132,14 @@ class __$$_WorkfromHomeCClistModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WorkfromHomeCClistModel implements _WorkfromHomeCClistModel {
-  const _$_WorkfromHomeCClistModel(
+class _$WorkfromHomeCClistModelImpl implements _WorkfromHomeCClistModel {
+  const _$WorkfromHomeCClistModelImpl(
       {@JsonKey(name: "emp_number") this.employeeCode = "",
       @JsonKey(name: "emp_last_name") this.employeeLatsName = "",
       @JsonKey(name: "emp_first_name") this.employeeFirstName = ""});
 
-  factory _$_WorkfromHomeCClistModel.fromJson(Map<String, dynamic> json) =>
-      _$$_WorkfromHomeCClistModelFromJson(json);
+  factory _$WorkfromHomeCClistModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WorkfromHomeCClistModelImplFromJson(json);
 
   @override
   @JsonKey(name: "emp_number")
@@ -155,10 +157,10 @@ class _$_WorkfromHomeCClistModel implements _WorkfromHomeCClistModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WorkfromHomeCClistModel &&
+            other is _$WorkfromHomeCClistModelImpl &&
             (identical(other.employeeCode, employeeCode) ||
                 other.employeeCode == employeeCode) &&
             (identical(other.employeeLatsName, employeeLatsName) ||
@@ -175,14 +177,13 @@ class _$_WorkfromHomeCClistModel implements _WorkfromHomeCClistModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WorkfromHomeCClistModelCopyWith<_$_WorkfromHomeCClistModel>
-      get copyWith =>
-          __$$_WorkfromHomeCClistModelCopyWithImpl<_$_WorkfromHomeCClistModel>(
-              this, _$identity);
+  _$$WorkfromHomeCClistModelImplCopyWith<_$WorkfromHomeCClistModelImpl>
+      get copyWith => __$$WorkfromHomeCClistModelImplCopyWithImpl<
+          _$WorkfromHomeCClistModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WorkfromHomeCClistModelToJson(
+    return _$$WorkfromHomeCClistModelImplToJson(
       this,
     );
   }
@@ -193,10 +194,10 @@ abstract class _WorkfromHomeCClistModel implements WorkfromHomeCClistModel {
           {@JsonKey(name: "emp_number") final String employeeCode,
           @JsonKey(name: "emp_last_name") final String employeeLatsName,
           @JsonKey(name: "emp_first_name") final String employeeFirstName}) =
-      _$_WorkfromHomeCClistModel;
+      _$WorkfromHomeCClistModelImpl;
 
   factory _WorkfromHomeCClistModel.fromJson(Map<String, dynamic> json) =
-      _$_WorkfromHomeCClistModel.fromJson;
+      _$WorkfromHomeCClistModelImpl.fromJson;
 
   @override
   @JsonKey(name: "emp_number")
@@ -209,6 +210,6 @@ abstract class _WorkfromHomeCClistModel implements WorkfromHomeCClistModel {
   String get employeeFirstName;
   @override
   @JsonKey(ignore: true)
-  _$$_WorkfromHomeCClistModelCopyWith<_$_WorkfromHomeCClistModel>
+  _$$WorkfromHomeCClistModelImplCopyWith<_$WorkfromHomeCClistModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

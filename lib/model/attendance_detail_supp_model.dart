@@ -9,6 +9,8 @@ class AttendanceDetailSuppModel with _$AttendanceDetailSuppModel{
   const factory AttendanceDetailSuppModel({
     @Default(<AttendanceDetailModel> []) List<AttendanceDetailModel> attendance,
     @Default(<String> []) List<String> month,
+    @Default("")  String limit,
+    @Default(0)  int useMissPunch,
 
   }) = _AttendanceDetailSuppModel;
   factory AttendanceDetailSuppModel.fromJson(Map<String , dynamic> json) => _$AttendanceDetailSuppModelFromJson(json);

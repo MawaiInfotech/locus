@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'teamleader_attendanceApprovalRejection_model.dart';
 
@@ -12,7 +12,7 @@ part of 'teamleader_attendanceApprovalRejection_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 TeamLeaderAttendanceApproveRejectionModel
     _$TeamLeaderAttendanceApproveRejectionModelFromJson(
@@ -75,25 +75,25 @@ class _$TeamLeaderAttendanceApproveRejectionModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_TeamLeaderAttendanceApproveRejectionModelCopyWith<$Res>
+abstract class _$$TeamLeaderAttendanceApproveRejectionModelImplCopyWith<$Res>
     implements $TeamLeaderAttendanceApproveRejectionModelCopyWith<$Res> {
-  factory _$$_TeamLeaderAttendanceApproveRejectionModelCopyWith(
-          _$_TeamLeaderAttendanceApproveRejectionModel value,
-          $Res Function(_$_TeamLeaderAttendanceApproveRejectionModel) then) =
-      __$$_TeamLeaderAttendanceApproveRejectionModelCopyWithImpl<$Res>;
+  factory _$$TeamLeaderAttendanceApproveRejectionModelImplCopyWith(
+          _$TeamLeaderAttendanceApproveRejectionModelImpl value,
+          $Res Function(_$TeamLeaderAttendanceApproveRejectionModelImpl) then) =
+      __$$TeamLeaderAttendanceApproveRejectionModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String status, String message});
 }
 
 /// @nodoc
-class __$$_TeamLeaderAttendanceApproveRejectionModelCopyWithImpl<$Res>
+class __$$TeamLeaderAttendanceApproveRejectionModelImplCopyWithImpl<$Res>
     extends _$TeamLeaderAttendanceApproveRejectionModelCopyWithImpl<$Res,
-        _$_TeamLeaderAttendanceApproveRejectionModel>
-    implements _$$_TeamLeaderAttendanceApproveRejectionModelCopyWith<$Res> {
-  __$$_TeamLeaderAttendanceApproveRejectionModelCopyWithImpl(
-      _$_TeamLeaderAttendanceApproveRejectionModel _value,
-      $Res Function(_$_TeamLeaderAttendanceApproveRejectionModel) _then)
+        _$TeamLeaderAttendanceApproveRejectionModelImpl>
+    implements _$$TeamLeaderAttendanceApproveRejectionModelImplCopyWith<$Res> {
+  __$$TeamLeaderAttendanceApproveRejectionModelImplCopyWithImpl(
+      _$TeamLeaderAttendanceApproveRejectionModelImpl _value,
+      $Res Function(_$TeamLeaderAttendanceApproveRejectionModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -102,7 +102,7 @@ class __$$_TeamLeaderAttendanceApproveRejectionModelCopyWithImpl<$Res>
     Object? status = null,
     Object? message = null,
   }) {
-    return _then(_$_TeamLeaderAttendanceApproveRejectionModel(
+    return _then(_$TeamLeaderAttendanceApproveRejectionModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -117,14 +117,14 @@ class __$$_TeamLeaderAttendanceApproveRejectionModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TeamLeaderAttendanceApproveRejectionModel
+class _$TeamLeaderAttendanceApproveRejectionModelImpl
     implements _TeamLeaderAttendanceApproveRejectionModel {
-  const _$_TeamLeaderAttendanceApproveRejectionModel(
+  const _$TeamLeaderAttendanceApproveRejectionModelImpl(
       {this.status = "", this.message = ""});
 
-  factory _$_TeamLeaderAttendanceApproveRejectionModel.fromJson(
+  factory _$TeamLeaderAttendanceApproveRejectionModelImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$_TeamLeaderAttendanceApproveRejectionModelFromJson(json);
+      _$$TeamLeaderAttendanceApproveRejectionModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -139,10 +139,10 @@ class _$_TeamLeaderAttendanceApproveRejectionModel
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TeamLeaderAttendanceApproveRejectionModel &&
+            other is _$TeamLeaderAttendanceApproveRejectionModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -154,15 +154,16 @@ class _$_TeamLeaderAttendanceApproveRejectionModel
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TeamLeaderAttendanceApproveRejectionModelCopyWith<
-          _$_TeamLeaderAttendanceApproveRejectionModel>
+  _$$TeamLeaderAttendanceApproveRejectionModelImplCopyWith<
+          _$TeamLeaderAttendanceApproveRejectionModelImpl>
       get copyWith =>
-          __$$_TeamLeaderAttendanceApproveRejectionModelCopyWithImpl<
-              _$_TeamLeaderAttendanceApproveRejectionModel>(this, _$identity);
+          __$$TeamLeaderAttendanceApproveRejectionModelImplCopyWithImpl<
+                  _$TeamLeaderAttendanceApproveRejectionModelImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TeamLeaderAttendanceApproveRejectionModelToJson(
+    return _$$TeamLeaderAttendanceApproveRejectionModelImplToJson(
       this,
     );
   }
@@ -172,11 +173,11 @@ abstract class _TeamLeaderAttendanceApproveRejectionModel
     implements TeamLeaderAttendanceApproveRejectionModel {
   const factory _TeamLeaderAttendanceApproveRejectionModel(
       {final String status,
-      final String message}) = _$_TeamLeaderAttendanceApproveRejectionModel;
+      final String message}) = _$TeamLeaderAttendanceApproveRejectionModelImpl;
 
   factory _TeamLeaderAttendanceApproveRejectionModel.fromJson(
           Map<String, dynamic> json) =
-      _$_TeamLeaderAttendanceApproveRejectionModel.fromJson;
+      _$TeamLeaderAttendanceApproveRejectionModelImpl.fromJson;
 
   @override
   String get status;
@@ -184,7 +185,7 @@ abstract class _TeamLeaderAttendanceApproveRejectionModel
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_TeamLeaderAttendanceApproveRejectionModelCopyWith<
-          _$_TeamLeaderAttendanceApproveRejectionModel>
+  _$$TeamLeaderAttendanceApproveRejectionModelImplCopyWith<
+          _$TeamLeaderAttendanceApproveRejectionModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

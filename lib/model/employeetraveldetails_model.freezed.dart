@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'employeetraveldetails_model.dart';
 
@@ -12,7 +12,7 @@ part of 'employeetraveldetails_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 TravelDetailsModel _$TravelDetailsModelFromJson(Map<String, dynamic> json) {
   return _TravelDetailsModel.fromJson(json);
@@ -160,11 +160,11 @@ class _$TravelDetailsModelCopyWithImpl<$Res, $Val extends TravelDetailsModel>
 }
 
 /// @nodoc
-abstract class _$$_TravelDetailsModelCopyWith<$Res>
+abstract class _$$TravelDetailsModelImplCopyWith<$Res>
     implements $TravelDetailsModelCopyWith<$Res> {
-  factory _$$_TravelDetailsModelCopyWith(_$_TravelDetailsModel value,
-          $Res Function(_$_TravelDetailsModel) then) =
-      __$$_TravelDetailsModelCopyWithImpl<$Res>;
+  factory _$$TravelDetailsModelImplCopyWith(_$TravelDetailsModelImpl value,
+          $Res Function(_$TravelDetailsModelImpl) then) =
+      __$$TravelDetailsModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -184,11 +184,11 @@ abstract class _$$_TravelDetailsModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TravelDetailsModelCopyWithImpl<$Res>
-    extends _$TravelDetailsModelCopyWithImpl<$Res, _$_TravelDetailsModel>
-    implements _$$_TravelDetailsModelCopyWith<$Res> {
-  __$$_TravelDetailsModelCopyWithImpl(
-      _$_TravelDetailsModel _value, $Res Function(_$_TravelDetailsModel) _then)
+class __$$TravelDetailsModelImplCopyWithImpl<$Res>
+    extends _$TravelDetailsModelCopyWithImpl<$Res, _$TravelDetailsModelImpl>
+    implements _$$TravelDetailsModelImplCopyWith<$Res> {
+  __$$TravelDetailsModelImplCopyWithImpl(_$TravelDetailsModelImpl _value,
+      $Res Function(_$TravelDetailsModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -208,7 +208,7 @@ class __$$_TravelDetailsModelCopyWithImpl<$Res>
     Object? fromCity = null,
     Object? toCity = null,
   }) {
-    return _then(_$_TravelDetailsModel(
+    return _then(_$TravelDetailsModelImpl(
       appNo: null == appNo
           ? _value.appNo
           : appNo // ignore: cast_nullable_to_non_nullable
@@ -267,8 +267,8 @@ class __$$_TravelDetailsModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TravelDetailsModel implements _TravelDetailsModel {
-  const _$_TravelDetailsModel(
+class _$TravelDetailsModelImpl implements _TravelDetailsModel {
+  const _$TravelDetailsModelImpl(
       {@JsonKey(name: 'app_no') this.appNo = '',
       @JsonKey(name: 'empmemb_emp_master_emp_number') this.employeeNo = '',
       @JsonKey(name: 'emp_name') this.employeeName = '',
@@ -283,8 +283,8 @@ class _$_TravelDetailsModel implements _TravelDetailsModel {
       @JsonKey(name: 'from_city') this.fromCity = '',
       @JsonKey(name: 'to_city') this.toCity = ''});
 
-  factory _$_TravelDetailsModel.fromJson(Map<String, dynamic> json) =>
-      _$$_TravelDetailsModelFromJson(json);
+  factory _$TravelDetailsModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TravelDetailsModelImplFromJson(json);
 
   @override
   @JsonKey(name: 'app_no')
@@ -332,10 +332,10 @@ class _$_TravelDetailsModel implements _TravelDetailsModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TravelDetailsModel &&
+            other is _$TravelDetailsModelImpl &&
             (identical(other.appNo, appNo) || other.appNo == appNo) &&
             (identical(other.employeeNo, employeeNo) ||
                 other.employeeNo == employeeNo) &&
@@ -381,13 +381,13 @@ class _$_TravelDetailsModel implements _TravelDetailsModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TravelDetailsModelCopyWith<_$_TravelDetailsModel> get copyWith =>
-      __$$_TravelDetailsModelCopyWithImpl<_$_TravelDetailsModel>(
+  _$$TravelDetailsModelImplCopyWith<_$TravelDetailsModelImpl> get copyWith =>
+      __$$TravelDetailsModelImplCopyWithImpl<_$TravelDetailsModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TravelDetailsModelToJson(
+    return _$$TravelDetailsModelImplToJson(
       this,
     );
   }
@@ -407,10 +407,11 @@ abstract class _TravelDetailsModel implements TravelDetailsModel {
       @JsonKey(name: 'client_name') final String clientName,
       @JsonKey(name: 'approval_status') final String approvalStatus,
       @JsonKey(name: 'from_city') final String fromCity,
-      @JsonKey(name: 'to_city') final String toCity}) = _$_TravelDetailsModel;
+      @JsonKey(name: 'to_city')
+      final String toCity}) = _$TravelDetailsModelImpl;
 
   factory _TravelDetailsModel.fromJson(Map<String, dynamic> json) =
-      _$_TravelDetailsModel.fromJson;
+      _$TravelDetailsModelImpl.fromJson;
 
   @override
   @JsonKey(name: 'app_no')
@@ -453,6 +454,6 @@ abstract class _TravelDetailsModel implements TravelDetailsModel {
   String get toCity;
   @override
   @JsonKey(ignore: true)
-  _$$_TravelDetailsModelCopyWith<_$_TravelDetailsModel> get copyWith =>
+  _$$TravelDetailsModelImplCopyWith<_$TravelDetailsModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

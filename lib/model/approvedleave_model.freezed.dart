@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'approvedleave_model.dart';
 
@@ -12,7 +12,7 @@ part of 'approvedleave_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ApprovedLeaveModel _$ApprovedLeaveModelFromJson(Map<String, dynamic> json) {
   return _ApprovedLeaveModel.fromJson(json);
@@ -160,11 +160,11 @@ class _$ApprovedLeaveModelCopyWithImpl<$Res, $Val extends ApprovedLeaveModel>
 }
 
 /// @nodoc
-abstract class _$$_ApprovedLeaveModelCopyWith<$Res>
+abstract class _$$ApprovedLeaveModelImplCopyWith<$Res>
     implements $ApprovedLeaveModelCopyWith<$Res> {
-  factory _$$_ApprovedLeaveModelCopyWith(_$_ApprovedLeaveModel value,
-          $Res Function(_$_ApprovedLeaveModel) then) =
-      __$$_ApprovedLeaveModelCopyWithImpl<$Res>;
+  factory _$$ApprovedLeaveModelImplCopyWith(_$ApprovedLeaveModelImpl value,
+          $Res Function(_$ApprovedLeaveModelImpl) then) =
+      __$$ApprovedLeaveModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -184,11 +184,11 @@ abstract class _$$_ApprovedLeaveModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ApprovedLeaveModelCopyWithImpl<$Res>
-    extends _$ApprovedLeaveModelCopyWithImpl<$Res, _$_ApprovedLeaveModel>
-    implements _$$_ApprovedLeaveModelCopyWith<$Res> {
-  __$$_ApprovedLeaveModelCopyWithImpl(
-      _$_ApprovedLeaveModel _value, $Res Function(_$_ApprovedLeaveModel) _then)
+class __$$ApprovedLeaveModelImplCopyWithImpl<$Res>
+    extends _$ApprovedLeaveModelCopyWithImpl<$Res, _$ApprovedLeaveModelImpl>
+    implements _$$ApprovedLeaveModelImplCopyWith<$Res> {
+  __$$ApprovedLeaveModelImplCopyWithImpl(_$ApprovedLeaveModelImpl _value,
+      $Res Function(_$ApprovedLeaveModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -208,7 +208,7 @@ class __$$_ApprovedLeaveModelCopyWithImpl<$Res>
     Object? department = null,
     Object? departmentCode = null,
   }) {
-    return _then(_$_ApprovedLeaveModel(
+    return _then(_$ApprovedLeaveModelImpl(
       fromDate: null == fromDate
           ? _value.fromDate
           : fromDate // ignore: cast_nullable_to_non_nullable
@@ -267,8 +267,8 @@ class __$$_ApprovedLeaveModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApprovedLeaveModel implements _ApprovedLeaveModel {
-  const _$_ApprovedLeaveModel(
+class _$ApprovedLeaveModelImpl implements _ApprovedLeaveModel {
+  const _$ApprovedLeaveModelImpl(
       {@JsonKey(name: "from_date") this.fromDate = "",
       @JsonKey(name: "end_date") this.endDate = "",
       @JsonKey(name: "leave_type") this.leaveType = "",
@@ -283,8 +283,8 @@ class _$_ApprovedLeaveModel implements _ApprovedLeaveModel {
       @JsonKey(name: "dept_name") this.department = "",
       @JsonKey(name: "dept_cd") this.departmentCode = ""});
 
-  factory _$_ApprovedLeaveModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ApprovedLeaveModelFromJson(json);
+  factory _$ApprovedLeaveModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ApprovedLeaveModelImplFromJson(json);
 
   @override
   @JsonKey(name: "from_date")
@@ -332,10 +332,10 @@ class _$_ApprovedLeaveModel implements _ApprovedLeaveModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApprovedLeaveModel &&
+            other is _$ApprovedLeaveModelImpl &&
             (identical(other.fromDate, fromDate) ||
                 other.fromDate == fromDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
@@ -383,13 +383,13 @@ class _$_ApprovedLeaveModel implements _ApprovedLeaveModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApprovedLeaveModelCopyWith<_$_ApprovedLeaveModel> get copyWith =>
-      __$$_ApprovedLeaveModelCopyWithImpl<_$_ApprovedLeaveModel>(
+  _$$ApprovedLeaveModelImplCopyWith<_$ApprovedLeaveModelImpl> get copyWith =>
+      __$$ApprovedLeaveModelImplCopyWithImpl<_$ApprovedLeaveModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApprovedLeaveModelToJson(
+    return _$$ApprovedLeaveModelImplToJson(
       this,
     );
   }
@@ -397,35 +397,23 @@ class _$_ApprovedLeaveModel implements _ApprovedLeaveModel {
 
 abstract class _ApprovedLeaveModel implements ApprovedLeaveModel {
   const factory _ApprovedLeaveModel(
-      {@JsonKey(name: "from_date")
-          final String fromDate,
-      @JsonKey(name: "end_date")
-          final String endDate,
-      @JsonKey(name: "leave_type")
-          final String leaveType,
-      @JsonKey(name: "emp_cd")
-          final String employeeCode,
-      @JsonKey(name: "leave_granted")
-          final String leaveGranted,
-      @JsonKey(name: "leave_days")
-          final String leaveDays,
-      @JsonKey(name: "leave_desc")
-          final String leaveDescription,
-      @JsonKey(name: "leave_pk_id")
-          final int leaveId,
-      @JsonKey(name: "reason")
-          final String reason,
-      @JsonKey(name: "leave_granted_desc")
-          final String leaveGrantedDescription,
-      @JsonKey(name: "emp_name")
-          final String employeeName,
-      @JsonKey(name: "dept_name")
-          final String department,
+      {@JsonKey(name: "from_date") final String fromDate,
+      @JsonKey(name: "end_date") final String endDate,
+      @JsonKey(name: "leave_type") final String leaveType,
+      @JsonKey(name: "emp_cd") final String employeeCode,
+      @JsonKey(name: "leave_granted") final String leaveGranted,
+      @JsonKey(name: "leave_days") final String leaveDays,
+      @JsonKey(name: "leave_desc") final String leaveDescription,
+      @JsonKey(name: "leave_pk_id") final int leaveId,
+      @JsonKey(name: "reason") final String reason,
+      @JsonKey(name: "leave_granted_desc") final String leaveGrantedDescription,
+      @JsonKey(name: "emp_name") final String employeeName,
+      @JsonKey(name: "dept_name") final String department,
       @JsonKey(name: "dept_cd")
-          final String departmentCode}) = _$_ApprovedLeaveModel;
+      final String departmentCode}) = _$ApprovedLeaveModelImpl;
 
   factory _ApprovedLeaveModel.fromJson(Map<String, dynamic> json) =
-      _$_ApprovedLeaveModel.fromJson;
+      _$ApprovedLeaveModelImpl.fromJson;
 
   @override
   @JsonKey(name: "from_date")
@@ -468,6 +456,6 @@ abstract class _ApprovedLeaveModel implements ApprovedLeaveModel {
   String get departmentCode;
   @override
   @JsonKey(ignore: true)
-  _$$_ApprovedLeaveModelCopyWith<_$_ApprovedLeaveModel> get copyWith =>
+  _$$ApprovedLeaveModelImplCopyWith<_$ApprovedLeaveModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'checklogin_model.dart';
 
@@ -12,7 +12,7 @@ part of 'checklogin_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 CheckLoginModel _$CheckLoginModelFromJson(Map<String, dynamic> json) {
   return _CheckLoginModel.fromJson(json);
@@ -196,11 +196,11 @@ class _$CheckLoginModelCopyWithImpl<$Res, $Val extends CheckLoginModel>
 }
 
 /// @nodoc
-abstract class _$$_CheckLoginModelCopyWith<$Res>
+abstract class _$$CheckLoginModelImplCopyWith<$Res>
     implements $CheckLoginModelCopyWith<$Res> {
-  factory _$$_CheckLoginModelCopyWith(
-          _$_CheckLoginModel value, $Res Function(_$_CheckLoginModel) then) =
-      __$$_CheckLoginModelCopyWithImpl<$Res>;
+  factory _$$CheckLoginModelImplCopyWith(_$CheckLoginModelImpl value,
+          $Res Function(_$CheckLoginModelImpl) then) =
+      __$$CheckLoginModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -227,11 +227,11 @@ abstract class _$$_CheckLoginModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CheckLoginModelCopyWithImpl<$Res>
-    extends _$CheckLoginModelCopyWithImpl<$Res, _$_CheckLoginModel>
-    implements _$$_CheckLoginModelCopyWith<$Res> {
-  __$$_CheckLoginModelCopyWithImpl(
-      _$_CheckLoginModel _value, $Res Function(_$_CheckLoginModel) _then)
+class __$$CheckLoginModelImplCopyWithImpl<$Res>
+    extends _$CheckLoginModelCopyWithImpl<$Res, _$CheckLoginModelImpl>
+    implements _$$CheckLoginModelImplCopyWith<$Res> {
+  __$$CheckLoginModelImplCopyWithImpl(
+      _$CheckLoginModelImpl _value, $Res Function(_$CheckLoginModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -258,7 +258,7 @@ class __$$_CheckLoginModelCopyWithImpl<$Res>
     Object? object_version_number = null,
     Object? rawdata_app_id = null,
   }) {
-    return _then(_$_CheckLoginModel(
+    return _then(_$CheckLoginModelImpl(
       empcode: null == empcode
           ? _value.empcode
           : empcode // ignore: cast_nullable_to_non_nullable
@@ -345,8 +345,8 @@ class __$$_CheckLoginModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CheckLoginModel implements _CheckLoginModel {
-  const _$_CheckLoginModel(
+class _$CheckLoginModelImpl implements _CheckLoginModel {
+  const _$CheckLoginModelImpl(
       {this.empcode = '',
       this.officepunch = '',
       this.address = '',
@@ -368,8 +368,8 @@ class _$_CheckLoginModel implements _CheckLoginModel {
       this.object_version_number = 0,
       this.rawdata_app_id = 0});
 
-  factory _$_CheckLoginModel.fromJson(Map<String, dynamic> json) =>
-      _$$_CheckLoginModelFromJson(json);
+  factory _$CheckLoginModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CheckLoginModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -438,10 +438,10 @@ class _$_CheckLoginModel implements _CheckLoginModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CheckLoginModel &&
+            other is _$CheckLoginModelImpl &&
             (identical(other.empcode, empcode) || other.empcode == empcode) &&
             (identical(other.officepunch, officepunch) ||
                 other.officepunch == officepunch) &&
@@ -507,12 +507,13 @@ class _$_CheckLoginModel implements _CheckLoginModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CheckLoginModelCopyWith<_$_CheckLoginModel> get copyWith =>
-      __$$_CheckLoginModelCopyWithImpl<_$_CheckLoginModel>(this, _$identity);
+  _$$CheckLoginModelImplCopyWith<_$CheckLoginModelImpl> get copyWith =>
+      __$$CheckLoginModelImplCopyWithImpl<_$CheckLoginModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CheckLoginModelToJson(
+    return _$$CheckLoginModelImplToJson(
       this,
     );
   }
@@ -539,10 +540,10 @@ abstract class _CheckLoginModel implements CheckLoginModel {
       final String last_updated_by,
       final String updated_at,
       final int object_version_number,
-      final int rawdata_app_id}) = _$_CheckLoginModel;
+      final int rawdata_app_id}) = _$CheckLoginModelImpl;
 
   factory _CheckLoginModel.fromJson(Map<String, dynamic> json) =
-      _$_CheckLoginModel.fromJson;
+      _$CheckLoginModelImpl.fromJson;
 
   @override
   String get empcode;
@@ -586,6 +587,6 @@ abstract class _CheckLoginModel implements CheckLoginModel {
   int get rawdata_app_id;
   @override
   @JsonKey(ignore: true)
-  _$$_CheckLoginModelCopyWith<_$_CheckLoginModel> get copyWith =>
+  _$$CheckLoginModelImplCopyWith<_$CheckLoginModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

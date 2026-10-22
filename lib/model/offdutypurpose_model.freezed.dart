@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'offdutypurpose_model.dart';
 
@@ -12,7 +12,7 @@ part of 'offdutypurpose_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 OffdutyPurposeModel _$OffdutyPurposeModelFromJson(Map<String, dynamic> json) {
   return _OffdutyPurposeModel.fromJson(json);
@@ -72,11 +72,11 @@ class _$OffdutyPurposeModelCopyWithImpl<$Res, $Val extends OffdutyPurposeModel>
 }
 
 /// @nodoc
-abstract class _$$_OffdutyPurposeModelCopyWith<$Res>
+abstract class _$$OffdutyPurposeModelImplCopyWith<$Res>
     implements $OffdutyPurposeModelCopyWith<$Res> {
-  factory _$$_OffdutyPurposeModelCopyWith(_$_OffdutyPurposeModel value,
-          $Res Function(_$_OffdutyPurposeModel) then) =
-      __$$_OffdutyPurposeModelCopyWithImpl<$Res>;
+  factory _$$OffdutyPurposeModelImplCopyWith(_$OffdutyPurposeModelImpl value,
+          $Res Function(_$OffdutyPurposeModelImpl) then) =
+      __$$OffdutyPurposeModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -85,11 +85,11 @@ abstract class _$$_OffdutyPurposeModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_OffdutyPurposeModelCopyWithImpl<$Res>
-    extends _$OffdutyPurposeModelCopyWithImpl<$Res, _$_OffdutyPurposeModel>
-    implements _$$_OffdutyPurposeModelCopyWith<$Res> {
-  __$$_OffdutyPurposeModelCopyWithImpl(_$_OffdutyPurposeModel _value,
-      $Res Function(_$_OffdutyPurposeModel) _then)
+class __$$OffdutyPurposeModelImplCopyWithImpl<$Res>
+    extends _$OffdutyPurposeModelCopyWithImpl<$Res, _$OffdutyPurposeModelImpl>
+    implements _$$OffdutyPurposeModelImplCopyWith<$Res> {
+  __$$OffdutyPurposeModelImplCopyWithImpl(_$OffdutyPurposeModelImpl _value,
+      $Res Function(_$OffdutyPurposeModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_OffdutyPurposeModelCopyWithImpl<$Res>
     Object? code = null,
     Object? description = null,
   }) {
-    return _then(_$_OffdutyPurposeModel(
+    return _then(_$OffdutyPurposeModelImpl(
       code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -113,13 +113,13 @@ class __$$_OffdutyPurposeModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_OffdutyPurposeModel implements _OffdutyPurposeModel {
-  const _$_OffdutyPurposeModel(
+class _$OffdutyPurposeModelImpl implements _OffdutyPurposeModel {
+  const _$OffdutyPurposeModelImpl(
       {@JsonKey(name: "code") this.code = "",
       @JsonKey(name: "desc") this.description = ""});
 
-  factory _$_OffdutyPurposeModel.fromJson(Map<String, dynamic> json) =>
-      _$$_OffdutyPurposeModelFromJson(json);
+  factory _$OffdutyPurposeModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OffdutyPurposeModelImplFromJson(json);
 
   @override
   @JsonKey(name: "code")
@@ -134,10 +134,10 @@ class _$_OffdutyPurposeModel implements _OffdutyPurposeModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OffdutyPurposeModel &&
+            other is _$OffdutyPurposeModelImpl &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.description, description) ||
                 other.description == description));
@@ -150,13 +150,13 @@ class _$_OffdutyPurposeModel implements _OffdutyPurposeModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OffdutyPurposeModelCopyWith<_$_OffdutyPurposeModel> get copyWith =>
-      __$$_OffdutyPurposeModelCopyWithImpl<_$_OffdutyPurposeModel>(
+  _$$OffdutyPurposeModelImplCopyWith<_$OffdutyPurposeModelImpl> get copyWith =>
+      __$$OffdutyPurposeModelImplCopyWithImpl<_$OffdutyPurposeModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_OffdutyPurposeModelToJson(
+    return _$$OffdutyPurposeModelImplToJson(
       this,
     );
   }
@@ -166,10 +166,10 @@ abstract class _OffdutyPurposeModel implements OffdutyPurposeModel {
   const factory _OffdutyPurposeModel(
           {@JsonKey(name: "code") final String code,
           @JsonKey(name: "desc") final String description}) =
-      _$_OffdutyPurposeModel;
+      _$OffdutyPurposeModelImpl;
 
   factory _OffdutyPurposeModel.fromJson(Map<String, dynamic> json) =
-      _$_OffdutyPurposeModel.fromJson;
+      _$OffdutyPurposeModelImpl.fromJson;
 
   @override
   @JsonKey(name: "code")
@@ -179,6 +179,6 @@ abstract class _OffdutyPurposeModel implements OffdutyPurposeModel {
   String get description;
   @override
   @JsonKey(ignore: true)
-  _$$_OffdutyPurposeModelCopyWith<_$_OffdutyPurposeModel> get copyWith =>
+  _$$OffdutyPurposeModelImplCopyWith<_$OffdutyPurposeModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

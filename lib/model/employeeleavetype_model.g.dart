@@ -6,9 +6,9 @@ part of 'employeeleavetype_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EmployeeLeavetypeModel _$$_EmployeeLeavetypeModelFromJson(
+_$EmployeeLeavetypeModelImpl _$$EmployeeLeavetypeModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_EmployeeLeavetypeModel(
+    _$EmployeeLeavetypeModelImpl(
       balanceLeave: (json['balance_leave'] as num?)?.toDouble() ?? 0.0,
       leaveTaken: (json['leave_taken'] as num?)?.toDouble() ?? 0.0,
       emp_leave_list: (json['emp_leave_list'] as List<dynamic>?)
@@ -23,8 +23,8 @@ _$_EmployeeLeavetypeModel _$$_EmployeeLeavetypeModelFromJson(
           const <EmployeeleaveListModel>[],
     );
 
-Map<String, dynamic> _$$_EmployeeLeavetypeModelToJson(
-        _$_EmployeeLeavetypeModel instance) =>
+Map<String, dynamic> _$$EmployeeLeavetypeModelImplToJson(
+        _$EmployeeLeavetypeModelImpl instance) =>
     <String, dynamic>{
       'balance_leave': instance.balanceLeave,
       'leave_taken': instance.leaveTaken,

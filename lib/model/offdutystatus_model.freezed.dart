@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'offdutystatus_model.dart';
 
@@ -12,7 +12,7 @@ part of 'offdutystatus_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 OffdutyStatusModel _$OffdutyStatusModelFromJson(Map<String, dynamic> json) {
   return _OffdutyStatusModel.fromJson(json);
@@ -72,11 +72,11 @@ class _$OffdutyStatusModelCopyWithImpl<$Res, $Val extends OffdutyStatusModel>
 }
 
 /// @nodoc
-abstract class _$$_OffdutyStatusModelCopyWith<$Res>
+abstract class _$$OffdutyStatusModelImplCopyWith<$Res>
     implements $OffdutyStatusModelCopyWith<$Res> {
-  factory _$$_OffdutyStatusModelCopyWith(_$_OffdutyStatusModel value,
-          $Res Function(_$_OffdutyStatusModel) then) =
-      __$$_OffdutyStatusModelCopyWithImpl<$Res>;
+  factory _$$OffdutyStatusModelImplCopyWith(_$OffdutyStatusModelImpl value,
+          $Res Function(_$OffdutyStatusModelImpl) then) =
+      __$$OffdutyStatusModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -85,11 +85,11 @@ abstract class _$$_OffdutyStatusModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_OffdutyStatusModelCopyWithImpl<$Res>
-    extends _$OffdutyStatusModelCopyWithImpl<$Res, _$_OffdutyStatusModel>
-    implements _$$_OffdutyStatusModelCopyWith<$Res> {
-  __$$_OffdutyStatusModelCopyWithImpl(
-      _$_OffdutyStatusModel _value, $Res Function(_$_OffdutyStatusModel) _then)
+class __$$OffdutyStatusModelImplCopyWithImpl<$Res>
+    extends _$OffdutyStatusModelCopyWithImpl<$Res, _$OffdutyStatusModelImpl>
+    implements _$$OffdutyStatusModelImplCopyWith<$Res> {
+  __$$OffdutyStatusModelImplCopyWithImpl(_$OffdutyStatusModelImpl _value,
+      $Res Function(_$OffdutyStatusModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_OffdutyStatusModelCopyWithImpl<$Res>
     Object? code = null,
     Object? description = null,
   }) {
-    return _then(_$_OffdutyStatusModel(
+    return _then(_$OffdutyStatusModelImpl(
       code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -113,13 +113,13 @@ class __$$_OffdutyStatusModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_OffdutyStatusModel implements _OffdutyStatusModel {
-  const _$_OffdutyStatusModel(
+class _$OffdutyStatusModelImpl implements _OffdutyStatusModel {
+  const _$OffdutyStatusModelImpl(
       {@JsonKey(name: "code") this.code = "",
       @JsonKey(name: "desc") this.description = ""});
 
-  factory _$_OffdutyStatusModel.fromJson(Map<String, dynamic> json) =>
-      _$$_OffdutyStatusModelFromJson(json);
+  factory _$OffdutyStatusModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OffdutyStatusModelImplFromJson(json);
 
   @override
   @JsonKey(name: "code")
@@ -134,10 +134,10 @@ class _$_OffdutyStatusModel implements _OffdutyStatusModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OffdutyStatusModel &&
+            other is _$OffdutyStatusModelImpl &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.description, description) ||
                 other.description == description));
@@ -150,13 +150,13 @@ class _$_OffdutyStatusModel implements _OffdutyStatusModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OffdutyStatusModelCopyWith<_$_OffdutyStatusModel> get copyWith =>
-      __$$_OffdutyStatusModelCopyWithImpl<_$_OffdutyStatusModel>(
+  _$$OffdutyStatusModelImplCopyWith<_$OffdutyStatusModelImpl> get copyWith =>
+      __$$OffdutyStatusModelImplCopyWithImpl<_$OffdutyStatusModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_OffdutyStatusModelToJson(
+    return _$$OffdutyStatusModelImplToJson(
       this,
     );
   }
@@ -164,11 +164,12 @@ class _$_OffdutyStatusModel implements _OffdutyStatusModel {
 
 abstract class _OffdutyStatusModel implements OffdutyStatusModel {
   const factory _OffdutyStatusModel(
-      {@JsonKey(name: "code") final String code,
-      @JsonKey(name: "desc") final String description}) = _$_OffdutyStatusModel;
+          {@JsonKey(name: "code") final String code,
+          @JsonKey(name: "desc") final String description}) =
+      _$OffdutyStatusModelImpl;
 
   factory _OffdutyStatusModel.fromJson(Map<String, dynamic> json) =
-      _$_OffdutyStatusModel.fromJson;
+      _$OffdutyStatusModelImpl.fromJson;
 
   @override
   @JsonKey(name: "code")
@@ -178,6 +179,6 @@ abstract class _OffdutyStatusModel implements OffdutyStatusModel {
   String get description;
   @override
   @JsonKey(ignore: true)
-  _$$_OffdutyStatusModelCopyWith<_$_OffdutyStatusModel> get copyWith =>
+  _$$OffdutyStatusModelImplCopyWith<_$OffdutyStatusModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

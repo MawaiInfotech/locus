@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'appliedto_model.dart';
 
@@ -12,7 +12,7 @@ part of 'appliedto_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 AppliedToModel _$AppliedToModelFromJson(Map<String, dynamic> json) {
   return _AppliedToModel.fromJson(json);
@@ -80,11 +80,11 @@ class _$AppliedToModelCopyWithImpl<$Res, $Val extends AppliedToModel>
 }
 
 /// @nodoc
-abstract class _$$_AppliedToModelCopyWith<$Res>
+abstract class _$$AppliedToModelImplCopyWith<$Res>
     implements $AppliedToModelCopyWith<$Res> {
-  factory _$$_AppliedToModelCopyWith(
-          _$_AppliedToModel value, $Res Function(_$_AppliedToModel) then) =
-      __$$_AppliedToModelCopyWithImpl<$Res>;
+  factory _$$AppliedToModelImplCopyWith(_$AppliedToModelImpl value,
+          $Res Function(_$AppliedToModelImpl) then) =
+      __$$AppliedToModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -94,11 +94,11 @@ abstract class _$$_AppliedToModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AppliedToModelCopyWithImpl<$Res>
-    extends _$AppliedToModelCopyWithImpl<$Res, _$_AppliedToModel>
-    implements _$$_AppliedToModelCopyWith<$Res> {
-  __$$_AppliedToModelCopyWithImpl(
-      _$_AppliedToModel _value, $Res Function(_$_AppliedToModel) _then)
+class __$$AppliedToModelImplCopyWithImpl<$Res>
+    extends _$AppliedToModelCopyWithImpl<$Res, _$AppliedToModelImpl>
+    implements _$$AppliedToModelImplCopyWith<$Res> {
+  __$$AppliedToModelImplCopyWithImpl(
+      _$AppliedToModelImpl _value, $Res Function(_$AppliedToModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +108,7 @@ class __$$_AppliedToModelCopyWithImpl<$Res>
     Object? employeeFirstName = null,
     Object? employeelastName = null,
   }) {
-    return _then(_$_AppliedToModel(
+    return _then(_$AppliedToModelImpl(
       employeeNumber: null == employeeNumber
           ? _value.employeeNumber
           : employeeNumber // ignore: cast_nullable_to_non_nullable
@@ -127,14 +127,14 @@ class __$$_AppliedToModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AppliedToModel implements _AppliedToModel {
-  const _$_AppliedToModel(
+class _$AppliedToModelImpl implements _AppliedToModel {
+  const _$AppliedToModelImpl(
       {@JsonKey(name: "emp_number") this.employeeNumber = "",
       @JsonKey(name: "emp_first_name") this.employeeFirstName = "",
       @JsonKey(name: "emp_last_name") this.employeelastName = ""});
 
-  factory _$_AppliedToModel.fromJson(Map<String, dynamic> json) =>
-      _$$_AppliedToModelFromJson(json);
+  factory _$AppliedToModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AppliedToModelImplFromJson(json);
 
   @override
   @JsonKey(name: "emp_number")
@@ -152,10 +152,10 @@ class _$_AppliedToModel implements _AppliedToModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AppliedToModel &&
+            other is _$AppliedToModelImpl &&
             (identical(other.employeeNumber, employeeNumber) ||
                 other.employeeNumber == employeeNumber) &&
             (identical(other.employeeFirstName, employeeFirstName) ||
@@ -172,12 +172,13 @@ class _$_AppliedToModel implements _AppliedToModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AppliedToModelCopyWith<_$_AppliedToModel> get copyWith =>
-      __$$_AppliedToModelCopyWithImpl<_$_AppliedToModel>(this, _$identity);
+  _$$AppliedToModelImplCopyWith<_$AppliedToModelImpl> get copyWith =>
+      __$$AppliedToModelImplCopyWithImpl<_$AppliedToModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AppliedToModelToJson(
+    return _$$AppliedToModelImplToJson(
       this,
     );
   }
@@ -188,10 +189,10 @@ abstract class _AppliedToModel implements AppliedToModel {
           {@JsonKey(name: "emp_number") final String employeeNumber,
           @JsonKey(name: "emp_first_name") final String employeeFirstName,
           @JsonKey(name: "emp_last_name") final String employeelastName}) =
-      _$_AppliedToModel;
+      _$AppliedToModelImpl;
 
   factory _AppliedToModel.fromJson(Map<String, dynamic> json) =
-      _$_AppliedToModel.fromJson;
+      _$AppliedToModelImpl.fromJson;
 
   @override
   @JsonKey(name: "emp_number")
@@ -204,6 +205,6 @@ abstract class _AppliedToModel implements AppliedToModel {
   String get employeelastName;
   @override
   @JsonKey(ignore: true)
-  _$$_AppliedToModelCopyWith<_$_AppliedToModel> get copyWith =>
+  _$$AppliedToModelImplCopyWith<_$AppliedToModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

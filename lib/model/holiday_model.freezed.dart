@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'holiday_model.dart';
 
@@ -12,7 +12,7 @@ part of 'holiday_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 HolidayModel _$HolidayModelFromJson(Map<String, dynamic> json) {
   return _HolidayModel.fromJson(json);
@@ -96,11 +96,11 @@ class _$HolidayModelCopyWithImpl<$Res, $Val extends HolidayModel>
 }
 
 /// @nodoc
-abstract class _$$_HolidayModelCopyWith<$Res>
+abstract class _$$HolidayModelImplCopyWith<$Res>
     implements $HolidayModelCopyWith<$Res> {
-  factory _$$_HolidayModelCopyWith(
-          _$_HolidayModel value, $Res Function(_$_HolidayModel) then) =
-      __$$_HolidayModelCopyWithImpl<$Res>;
+  factory _$$HolidayModelImplCopyWith(
+          _$HolidayModelImpl value, $Res Function(_$HolidayModelImpl) then) =
+      __$$HolidayModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -112,11 +112,11 @@ abstract class _$$_HolidayModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_HolidayModelCopyWithImpl<$Res>
-    extends _$HolidayModelCopyWithImpl<$Res, _$_HolidayModel>
-    implements _$$_HolidayModelCopyWith<$Res> {
-  __$$_HolidayModelCopyWithImpl(
-      _$_HolidayModel _value, $Res Function(_$_HolidayModel) _then)
+class __$$HolidayModelImplCopyWithImpl<$Res>
+    extends _$HolidayModelCopyWithImpl<$Res, _$HolidayModelImpl>
+    implements _$$HolidayModelImplCopyWith<$Res> {
+  __$$HolidayModelImplCopyWithImpl(
+      _$HolidayModelImpl _value, $Res Function(_$HolidayModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -128,7 +128,7 @@ class __$$_HolidayModelCopyWithImpl<$Res>
     Object? religionType = null,
     Object? day = null,
   }) {
-    return _then(_$_HolidayModel(
+    return _then(_$HolidayModelImpl(
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -155,16 +155,16 @@ class __$$_HolidayModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_HolidayModel implements _HolidayModel {
-  const _$_HolidayModel(
+class _$HolidayModelImpl implements _HolidayModel {
+  const _$HolidayModelImpl(
       {@JsonKey(name: "holiday_date") this.date = "",
       @JsonKey(name: "description") this.description = "",
       @JsonKey(name: "holiday_type") this.type = "",
       @JsonKey(name: "religion_type") this.religionType = "",
       @JsonKey(name: "day") this.day = ""});
 
-  factory _$_HolidayModel.fromJson(Map<String, dynamic> json) =>
-      _$$_HolidayModelFromJson(json);
+  factory _$HolidayModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$HolidayModelImplFromJson(json);
 
   @override
   @JsonKey(name: "holiday_date")
@@ -188,10 +188,10 @@ class _$_HolidayModel implements _HolidayModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HolidayModel &&
+            other is _$HolidayModelImpl &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -209,12 +209,12 @@ class _$_HolidayModel implements _HolidayModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HolidayModelCopyWith<_$_HolidayModel> get copyWith =>
-      __$$_HolidayModelCopyWithImpl<_$_HolidayModel>(this, _$identity);
+  _$$HolidayModelImplCopyWith<_$HolidayModelImpl> get copyWith =>
+      __$$HolidayModelImplCopyWithImpl<_$HolidayModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HolidayModelToJson(
+    return _$$HolidayModelImplToJson(
       this,
     );
   }
@@ -226,10 +226,10 @@ abstract class _HolidayModel implements HolidayModel {
       @JsonKey(name: "description") final String description,
       @JsonKey(name: "holiday_type") final String type,
       @JsonKey(name: "religion_type") final String religionType,
-      @JsonKey(name: "day") final String day}) = _$_HolidayModel;
+      @JsonKey(name: "day") final String day}) = _$HolidayModelImpl;
 
   factory _HolidayModel.fromJson(Map<String, dynamic> json) =
-      _$_HolidayModel.fromJson;
+      _$HolidayModelImpl.fromJson;
 
   @override
   @JsonKey(name: "holiday_date")
@@ -248,6 +248,6 @@ abstract class _HolidayModel implements HolidayModel {
   String get day;
   @override
   @JsonKey(ignore: true)
-  _$$_HolidayModelCopyWith<_$_HolidayModel> get copyWith =>
+  _$$HolidayModelImplCopyWith<_$HolidayModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

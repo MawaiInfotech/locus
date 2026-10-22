@@ -6,9 +6,9 @@ part of 'all_imprest_detail_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AllImprestDetailModel _$$_AllImprestDetailModelFromJson(
+_$AllImprestDetailModelImpl _$$AllImprestDetailModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_AllImprestDetailModel(
+    _$AllImprestDetailModelImpl(
       entryNo: json['entry_no'] as String? ?? "",
       projectCd: json['project_cd'] as String? ?? '',
       claimType: json['claim_type'] as String? ?? '',
@@ -39,8 +39,8 @@ _$_AllImprestDetailModel _$$_AllImprestDetailModelFromJson(
       fileLink: json['file_link'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$_AllImprestDetailModelToJson(
-        _$_AllImprestDetailModel instance) =>
+Map<String, dynamic> _$$AllImprestDetailModelImplToJson(
+        _$AllImprestDetailModelImpl instance) =>
     <String, dynamic>{
       'entry_no': instance.entryNo,
       'project_cd': instance.projectCd,

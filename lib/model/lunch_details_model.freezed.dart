@@ -35,12 +35,8 @@ mixin _$LunchDetailsModel {
   @JsonKey(name: "emp_last_name")
   String get lastName => throw _privateConstructorUsedError;
 
-  /// Serializes this LunchDetailsModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of LunchDetailsModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $LunchDetailsModelCopyWith<LunchDetailsModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -71,8 +67,6 @@ class _$LunchDetailsModelCopyWithImpl<$Res, $Val extends LunchDetailsModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of LunchDetailsModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -143,8 +137,6 @@ class __$$LunchDetailsModelImplCopyWithImpl<$Res>
       $Res Function(_$LunchDetailsModelImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of LunchDetailsModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -250,14 +242,12 @@ class _$LunchDetailsModelImpl implements _LunchDetailsModel {
                 other.lastName == lastName));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, emp_number, lunch_date, staus,
       lunch_detail_id, flag, firstName, lastName);
 
-  /// Create a copy of LunchDetailsModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$LunchDetailsModelImplCopyWith<_$LunchDetailsModelImpl> get copyWith =>
@@ -307,11 +297,8 @@ abstract class _LunchDetailsModel implements LunchDetailsModel {
   @override
   @JsonKey(name: "emp_last_name")
   String get lastName;
-
-  /// Create a copy of LunchDetailsModel
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$LunchDetailsModelImplCopyWith<_$LunchDetailsModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -679,7 +679,7 @@ class _AttendancePageState extends State<AttendancePage>
                   value: "O",
                   groupValue: selectedOutput,
                   activeColor: Colors.white,
-                  fillColor: MaterialStateProperty.all(AppColors.red),
+                  fillColor: WidgetStateProperty.all(AppColors.red),
                   onChanged: (value) {
                     setState(() {
                       selectedOutput = value!;
@@ -701,7 +701,7 @@ class _AttendancePageState extends State<AttendancePage>
                 Radio<String>(
                   value: "C",
                   groupValue: selectedOutput,
-                  fillColor: MaterialStateProperty.all(AppColors.red),
+                  fillColor: WidgetStateProperty.all(AppColors.red),
                   activeColor: Colors.white,
                   onChanged: (value) {
                     setState(() {
@@ -787,7 +787,7 @@ class _AttendancePageState extends State<AttendancePage>
                                     TextButton(
                                       style: ButtonStyle(
                                         backgroundColor:
-                                            MaterialStatePropertyAll(
+                                            WidgetStatePropertyAll(
                                                 AppColors.red),
                                       ),
                                       child: Text(
@@ -828,18 +828,105 @@ class _AttendancePageState extends State<AttendancePage>
                                             ),
                                             //SizedBox(height: 10),
                                             ElevatedButton(
+
                                                 onPressed: () async {
-                                                  final isGrantedPermission =
-                                                      await context
-                                                          .read<
-                                                              CheckLoginBloc>()
-                                                          .requestPermission();
+                                                  // First check mock location when Yes is clicked
+                                                  if (location.isMocked == true) {
+                                                    Navigator.of(context).pop(); // Close confirmation dialog
+
+                                                    showDialog(
+                                                      context: context,
+                                                      builder: (dialogContext) => AlertDialog(
+                                                        title: Center(
+                                                          child: Icon(
+                                                            Icons.warning_amber,
+                                                            size: 60,
+                                                            color: AppColors.red,
+                                                          ),
+                                                        ),
+                                                        content: Text(
+                                                          "Alert! You are using mock location!",
+                                                          style: TextStyle(
+                                                            color: AppColors.red,
+                                                            fontWeight: FontWeight.bold,
+                                                          ),
+                                                          textAlign: TextAlign.center,
+                                                        ),
+                                                        actions: [
+                                                          TextButton(
+                                                            style: ButtonStyle(
+                                                              backgroundColor:
+                                                              WidgetStatePropertyAll(AppColors.red),
+                                                            ),
+                                                            onPressed: () {
+                                                              Navigator.of(dialogContext).pop();
+                                                            },
+                                                            child: Text(
+                                                              'Close',
+                                                              style: TextStyle(color: AppColors.white),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+
+                                                    return; // Stop check-in if mock location is detected
+                                                  }
+
+                                                  // Check location permission only if location is not mocked
+                                                  final isGrantedPermission = await context
+                                                      .read<CheckLoginBloc>()
+                                                      .checkIfPermissionIsGiven();
+
                                                   if (isGrantedPermission) {
                                                     checkInCallback();
-                                                    Navigator.pop(context);
+                                                    Navigator.of(context).pop();
+                                                  } else {
+                                                    Navigator.of(context).pop();
+
+                                                    showDialog(
+                                                      context: context,
+                                                      builder: (dialogContext) => Dialog(
+                                                        backgroundColor: AppColors.white,
+                                                        shape: RoundedRectangleBorder(
+                                                          borderRadius: BorderRadius.circular(20.dw),
+                                                        ),
+                                                        child: SizedBox(
+                                                          height: 200.dh,
+                                                          child: Column(
+                                                            mainAxisAlignment: MainAxisAlignment.center,
+                                                            children: [
+                                                              Padding(
+                                                                padding: EdgeInsets.all(10.0.dh),
+                                                                child: const Text(
+                                                                  'Location permission is needed to use this feature.',
+                                                                  textAlign: TextAlign.center,
+                                                                ),
+                                                              ),
+                                                              ElevatedButton(
+                                                                onPressed: () async {
+                                                                  final permissionGranted = await context
+                                                                      .read<CheckLoginBloc>()
+                                                                      .requestPermission();
+
+                                                                  if (permissionGranted) {
+                                                                    Navigator.of(dialogContext).pop();
+                                                                    checkInCallback();
+                                                                  }
+                                                                },
+                                                                style: ElevatedButton.styleFrom(
+                                                                  backgroundColor: AppColors.brown,
+                                                                ),
+                                                                child: const Text('Check Permissions'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    );
                                                   }
-                                                  // showOptionsDialog(context);
                                                 },
+
                                                 style: ElevatedButton.styleFrom(
                                                     backgroundColor:
                                                         AppColors.brown),
@@ -929,7 +1016,7 @@ class _AttendancePageState extends State<AttendancePage>
                                     TextButton(
                                       style: ButtonStyle(
                                         backgroundColor:
-                                            MaterialStatePropertyAll(
+                                            WidgetStatePropertyAll(
                                                 AppColors.red),
                                       ),
                                       child: Text(

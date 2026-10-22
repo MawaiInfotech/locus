@@ -6,9 +6,9 @@ part of 'attendancedetail_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AttendanceDetailModel _$$_AttendanceDetailModelFromJson(
+_$AttendanceDetailModelImpl _$$AttendanceDetailModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_AttendanceDetailModel(
+    _$AttendanceDetailModelImpl(
       employeeCode: json['empcode'] as String? ?? "",
       card_no: json['card_no'] as String? ?? "",
       reporting_to: json['reporting_to'] as String? ?? "",
@@ -29,8 +29,8 @@ _$_AttendanceDetailModel _$$_AttendanceDetailModelFromJson(
       misPunch: json['mispunch'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_AttendanceDetailModelToJson(
-        _$_AttendanceDetailModel instance) =>
+Map<String, dynamic> _$$AttendanceDetailModelImplToJson(
+        _$AttendanceDetailModelImpl instance) =>
     <String, dynamic>{
       'empcode': instance.employeeCode,
       'card_no': instance.card_no,

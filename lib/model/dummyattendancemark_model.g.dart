@@ -6,9 +6,9 @@ part of 'dummyattendancemark_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DummyAttendanceModel _$$_DummyAttendanceModelFromJson(
+_$DummyAttendanceModelImpl _$$DummyAttendanceModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_DummyAttendanceModel(
+    _$DummyAttendanceModelImpl(
       status: json['status'] as String? ?? "",
       message: json['message'] as String? ?? "",
       address: json['address'] as String? ?? "",
@@ -16,8 +16,8 @@ _$_DummyAttendanceModel _$$_DummyAttendanceModelFromJson(
       punchout: json['punchout'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_DummyAttendanceModelToJson(
-        _$_DummyAttendanceModel instance) =>
+Map<String, dynamic> _$$DummyAttendanceModelImplToJson(
+        _$DummyAttendanceModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,

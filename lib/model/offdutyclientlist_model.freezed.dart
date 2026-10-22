@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'offdutyclientlist_model.dart';
 
@@ -12,7 +12,7 @@ part of 'offdutyclientlist_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 OffdutyClientListModel _$OffdutyClientListModelFromJson(
     Map<String, dynamic> json) {
@@ -74,11 +74,12 @@ class _$OffdutyClientListModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_OffdutyClientListModelCopyWith<$Res>
+abstract class _$$OffdutyClientListModelImplCopyWith<$Res>
     implements $OffdutyClientListModelCopyWith<$Res> {
-  factory _$$_OffdutyClientListModelCopyWith(_$_OffdutyClientListModel value,
-          $Res Function(_$_OffdutyClientListModel) then) =
-      __$$_OffdutyClientListModelCopyWithImpl<$Res>;
+  factory _$$OffdutyClientListModelImplCopyWith(
+          _$OffdutyClientListModelImpl value,
+          $Res Function(_$OffdutyClientListModelImpl) then) =
+      __$$OffdutyClientListModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -87,12 +88,13 @@ abstract class _$$_OffdutyClientListModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_OffdutyClientListModelCopyWithImpl<$Res>
+class __$$OffdutyClientListModelImplCopyWithImpl<$Res>
     extends _$OffdutyClientListModelCopyWithImpl<$Res,
-        _$_OffdutyClientListModel>
-    implements _$$_OffdutyClientListModelCopyWith<$Res> {
-  __$$_OffdutyClientListModelCopyWithImpl(_$_OffdutyClientListModel _value,
-      $Res Function(_$_OffdutyClientListModel) _then)
+        _$OffdutyClientListModelImpl>
+    implements _$$OffdutyClientListModelImplCopyWith<$Res> {
+  __$$OffdutyClientListModelImplCopyWithImpl(
+      _$OffdutyClientListModelImpl _value,
+      $Res Function(_$OffdutyClientListModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +103,7 @@ class __$$_OffdutyClientListModelCopyWithImpl<$Res>
     Object? clientCode = null,
     Object? clientName = null,
   }) {
-    return _then(_$_OffdutyClientListModel(
+    return _then(_$OffdutyClientListModelImpl(
       clientCode: null == clientCode
           ? _value.clientCode
           : clientCode // ignore: cast_nullable_to_non_nullable
@@ -116,13 +118,13 @@ class __$$_OffdutyClientListModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_OffdutyClientListModel implements _OffdutyClientListModel {
-  const _$_OffdutyClientListModel(
+class _$OffdutyClientListModelImpl implements _OffdutyClientListModel {
+  const _$OffdutyClientListModelImpl(
       {@JsonKey(name: "client_cd") this.clientCode = "",
       @JsonKey(name: "client_name") this.clientName = ""});
 
-  factory _$_OffdutyClientListModel.fromJson(Map<String, dynamic> json) =>
-      _$$_OffdutyClientListModelFromJson(json);
+  factory _$OffdutyClientListModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OffdutyClientListModelImplFromJson(json);
 
   @override
   @JsonKey(name: "client_cd")
@@ -137,10 +139,10 @@ class _$_OffdutyClientListModel implements _OffdutyClientListModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OffdutyClientListModel &&
+            other is _$OffdutyClientListModelImpl &&
             (identical(other.clientCode, clientCode) ||
                 other.clientCode == clientCode) &&
             (identical(other.clientName, clientName) ||
@@ -154,13 +156,13 @@ class _$_OffdutyClientListModel implements _OffdutyClientListModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OffdutyClientListModelCopyWith<_$_OffdutyClientListModel> get copyWith =>
-      __$$_OffdutyClientListModelCopyWithImpl<_$_OffdutyClientListModel>(
-          this, _$identity);
+  _$$OffdutyClientListModelImplCopyWith<_$OffdutyClientListModelImpl>
+      get copyWith => __$$OffdutyClientListModelImplCopyWithImpl<
+          _$OffdutyClientListModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_OffdutyClientListModelToJson(
+    return _$$OffdutyClientListModelImplToJson(
       this,
     );
   }
@@ -170,10 +172,10 @@ abstract class _OffdutyClientListModel implements OffdutyClientListModel {
   const factory _OffdutyClientListModel(
           {@JsonKey(name: "client_cd") final String clientCode,
           @JsonKey(name: "client_name") final String clientName}) =
-      _$_OffdutyClientListModel;
+      _$OffdutyClientListModelImpl;
 
   factory _OffdutyClientListModel.fromJson(Map<String, dynamic> json) =
-      _$_OffdutyClientListModel.fromJson;
+      _$OffdutyClientListModelImpl.fromJson;
 
   @override
   @JsonKey(name: "client_cd")
@@ -183,6 +185,6 @@ abstract class _OffdutyClientListModel implements OffdutyClientListModel {
   String get clientName;
   @override
   @JsonKey(ignore: true)
-  _$$_OffdutyClientListModelCopyWith<_$_OffdutyClientListModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$OffdutyClientListModelImplCopyWith<_$OffdutyClientListModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

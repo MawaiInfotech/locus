@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'imprest_list_model.dart';
 
@@ -12,7 +12,7 @@ part of 'imprest_list_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ImprestListModel _$ImprestListModelFromJson(Map<String, dynamic> json) {
   return _ImprestListModel.fromJson(json);
@@ -104,11 +104,11 @@ class _$ImprestListModelCopyWithImpl<$Res, $Val extends ImprestListModel>
 }
 
 /// @nodoc
-abstract class _$$_ImprestListModelCopyWith<$Res>
+abstract class _$$ImprestListModelImplCopyWith<$Res>
     implements $ImprestListModelCopyWith<$Res> {
-  factory _$$_ImprestListModelCopyWith(
-          _$_ImprestListModel value, $Res Function(_$_ImprestListModel) then) =
-      __$$_ImprestListModelCopyWithImpl<$Res>;
+  factory _$$ImprestListModelImplCopyWith(_$ImprestListModelImpl value,
+          $Res Function(_$ImprestListModelImpl) then) =
+      __$$ImprestListModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -121,11 +121,11 @@ abstract class _$$_ImprestListModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ImprestListModelCopyWithImpl<$Res>
-    extends _$ImprestListModelCopyWithImpl<$Res, _$_ImprestListModel>
-    implements _$$_ImprestListModelCopyWith<$Res> {
-  __$$_ImprestListModelCopyWithImpl(
-      _$_ImprestListModel _value, $Res Function(_$_ImprestListModel) _then)
+class __$$ImprestListModelImplCopyWithImpl<$Res>
+    extends _$ImprestListModelCopyWithImpl<$Res, _$ImprestListModelImpl>
+    implements _$$ImprestListModelImplCopyWith<$Res> {
+  __$$ImprestListModelImplCopyWithImpl(_$ImprestListModelImpl _value,
+      $Res Function(_$ImprestListModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -138,7 +138,7 @@ class __$$_ImprestListModelCopyWithImpl<$Res>
     Object? id = null,
     Object? empName = null,
   }) {
-    return _then(_$_ImprestListModel(
+    return _then(_$ImprestListModelImpl(
       entryNo: null == entryNo
           ? _value.entryNo
           : entryNo // ignore: cast_nullable_to_non_nullable
@@ -169,8 +169,8 @@ class __$$_ImprestListModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ImprestListModel implements _ImprestListModel {
-  const _$_ImprestListModel(
+class _$ImprestListModelImpl implements _ImprestListModel {
+  const _$ImprestListModelImpl(
       {@JsonKey(name: "entry_no") this.entryNo = "",
       @JsonKey(name: "entry_date") this.entryDate = "",
       @JsonKey(name: "eng_cd") this.engCd = "",
@@ -178,8 +178,8 @@ class _$_ImprestListModel implements _ImprestListModel {
       @JsonKey(name: "conv_imp_claim_hd_id") this.id = 0,
       @JsonKey(name: "emp_name") this.empName = ""});
 
-  factory _$_ImprestListModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ImprestListModelFromJson(json);
+  factory _$ImprestListModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ImprestListModelImplFromJson(json);
 
   @override
   @JsonKey(name: "entry_no")
@@ -206,10 +206,10 @@ class _$_ImprestListModel implements _ImprestListModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ImprestListModel &&
+            other is _$ImprestListModelImpl &&
             (identical(other.entryNo, entryNo) || other.entryNo == entryNo) &&
             (identical(other.entryDate, entryDate) ||
                 other.entryDate == entryDate) &&
@@ -227,12 +227,13 @@ class _$_ImprestListModel implements _ImprestListModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ImprestListModelCopyWith<_$_ImprestListModel> get copyWith =>
-      __$$_ImprestListModelCopyWithImpl<_$_ImprestListModel>(this, _$identity);
+  _$$ImprestListModelImplCopyWith<_$ImprestListModelImpl> get copyWith =>
+      __$$ImprestListModelImplCopyWithImpl<_$ImprestListModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ImprestListModelToJson(
+    return _$$ImprestListModelImplToJson(
       this,
     );
   }
@@ -240,15 +241,16 @@ class _$_ImprestListModel implements _ImprestListModel {
 
 abstract class _ImprestListModel implements ImprestListModel {
   const factory _ImprestListModel(
-      {@JsonKey(name: "entry_no") final String entryNo,
-      @JsonKey(name: "entry_date") final String entryDate,
-      @JsonKey(name: "eng_cd") final String engCd,
-      @JsonKey(name: "status") final String status,
-      @JsonKey(name: "conv_imp_claim_hd_id") final int id,
-      @JsonKey(name: "emp_name") final String empName}) = _$_ImprestListModel;
+          {@JsonKey(name: "entry_no") final String entryNo,
+          @JsonKey(name: "entry_date") final String entryDate,
+          @JsonKey(name: "eng_cd") final String engCd,
+          @JsonKey(name: "status") final String status,
+          @JsonKey(name: "conv_imp_claim_hd_id") final int id,
+          @JsonKey(name: "emp_name") final String empName}) =
+      _$ImprestListModelImpl;
 
   factory _ImprestListModel.fromJson(Map<String, dynamic> json) =
-      _$_ImprestListModel.fromJson;
+      _$ImprestListModelImpl.fromJson;
 
   @override
   @JsonKey(name: "entry_no")
@@ -270,6 +272,6 @@ abstract class _ImprestListModel implements ImprestListModel {
   String get empName;
   @override
   @JsonKey(ignore: true)
-  _$$_ImprestListModelCopyWith<_$_ImprestListModel> get copyWith =>
+  _$$ImprestListModelImplCopyWith<_$ImprestListModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

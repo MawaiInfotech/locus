@@ -6,16 +6,16 @@ part of 'forgetpassword_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ForgetpasswordModel _$$_ForgetpasswordModelFromJson(
+_$ForgetpasswordModelImpl _$$ForgetpasswordModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ForgetpasswordModel(
+    _$ForgetpasswordModelImpl(
       status: json['status'] as String? ?? "",
       msg: json['msg'] as String? ?? "",
       data: json['data'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_ForgetpasswordModelToJson(
-        _$_ForgetpasswordModel instance) =>
+Map<String, dynamic> _$$ForgetpasswordModelImplToJson(
+        _$ForgetpasswordModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'msg': instance.msg,

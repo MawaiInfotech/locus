@@ -6,9 +6,9 @@ part of 'requestreffral_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RequestReffralModel _$$_RequestReffralModelFromJson(
+_$RequestReffralModelImpl _$$RequestReffralModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_RequestReffralModel(
+    _$RequestReffralModelImpl(
       designations: (json['designations'] as List<dynamic>?)
               ?.map((e) => DesignationModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -19,8 +19,8 @@ _$_RequestReffralModel _$$_RequestReffralModelFromJson(
           const <DepartmentModel>[],
     );
 
-Map<String, dynamic> _$$_RequestReffralModelToJson(
-        _$_RequestReffralModel instance) =>
+Map<String, dynamic> _$$RequestReffralModelImplToJson(
+        _$RequestReffralModelImpl instance) =>
     <String, dynamic>{
       'designations': instance.designations,
       'departments': instance.departments,

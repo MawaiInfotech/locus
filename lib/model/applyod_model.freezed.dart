@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'applyod_model.dart';
 
@@ -12,7 +12,7 @@ part of 'applyod_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ApplyOdModel _$ApplyOdModelFromJson(Map<String, dynamic> json) {
   return _ApplyOdModel.fromJson(json);
@@ -68,22 +68,22 @@ class _$ApplyOdModelCopyWithImpl<$Res, $Val extends ApplyOdModel>
 }
 
 /// @nodoc
-abstract class _$$_ApplyOdModelCopyWith<$Res>
+abstract class _$$ApplyOdModelImplCopyWith<$Res>
     implements $ApplyOdModelCopyWith<$Res> {
-  factory _$$_ApplyOdModelCopyWith(
-          _$_ApplyOdModel value, $Res Function(_$_ApplyOdModel) then) =
-      __$$_ApplyOdModelCopyWithImpl<$Res>;
+  factory _$$ApplyOdModelImplCopyWith(
+          _$ApplyOdModelImpl value, $Res Function(_$ApplyOdModelImpl) then) =
+      __$$ApplyOdModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String status, String message});
 }
 
 /// @nodoc
-class __$$_ApplyOdModelCopyWithImpl<$Res>
-    extends _$ApplyOdModelCopyWithImpl<$Res, _$_ApplyOdModel>
-    implements _$$_ApplyOdModelCopyWith<$Res> {
-  __$$_ApplyOdModelCopyWithImpl(
-      _$_ApplyOdModel _value, $Res Function(_$_ApplyOdModel) _then)
+class __$$ApplyOdModelImplCopyWithImpl<$Res>
+    extends _$ApplyOdModelCopyWithImpl<$Res, _$ApplyOdModelImpl>
+    implements _$$ApplyOdModelImplCopyWith<$Res> {
+  __$$ApplyOdModelImplCopyWithImpl(
+      _$ApplyOdModelImpl _value, $Res Function(_$ApplyOdModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_ApplyOdModelCopyWithImpl<$Res>
     Object? status = null,
     Object? message = null,
   }) {
-    return _then(_$_ApplyOdModel(
+    return _then(_$ApplyOdModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,11 @@ class __$$_ApplyOdModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApplyOdModel implements _ApplyOdModel {
-  const _$_ApplyOdModel({this.status = "", this.message = ""});
+class _$ApplyOdModelImpl implements _ApplyOdModel {
+  const _$ApplyOdModelImpl({this.status = "", this.message = ""});
 
-  factory _$_ApplyOdModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ApplyOdModelFromJson(json);
+  factory _$ApplyOdModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ApplyOdModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -126,10 +126,10 @@ class _$_ApplyOdModel implements _ApplyOdModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApplyOdModel &&
+            other is _$ApplyOdModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -141,12 +141,12 @@ class _$_ApplyOdModel implements _ApplyOdModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApplyOdModelCopyWith<_$_ApplyOdModel> get copyWith =>
-      __$$_ApplyOdModelCopyWithImpl<_$_ApplyOdModel>(this, _$identity);
+  _$$ApplyOdModelImplCopyWith<_$ApplyOdModelImpl> get copyWith =>
+      __$$ApplyOdModelImplCopyWithImpl<_$ApplyOdModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApplyOdModelToJson(
+    return _$$ApplyOdModelImplToJson(
       this,
     );
   }
@@ -154,10 +154,10 @@ class _$_ApplyOdModel implements _ApplyOdModel {
 
 abstract class _ApplyOdModel implements ApplyOdModel {
   const factory _ApplyOdModel({final String status, final String message}) =
-      _$_ApplyOdModel;
+      _$ApplyOdModelImpl;
 
   factory _ApplyOdModel.fromJson(Map<String, dynamic> json) =
-      _$_ApplyOdModel.fromJson;
+      _$ApplyOdModelImpl.fromJson;
 
   @override
   String get status;
@@ -165,6 +165,6 @@ abstract class _ApplyOdModel implements ApplyOdModel {
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_ApplyOdModelCopyWith<_$_ApplyOdModel> get copyWith =>
+  _$$ApplyOdModelImplCopyWith<_$ApplyOdModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

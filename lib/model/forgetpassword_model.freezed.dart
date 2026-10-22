@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'forgetpassword_model.dart';
 
@@ -12,7 +12,7 @@ part of 'forgetpassword_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ForgetpasswordModel _$ForgetpasswordModelFromJson(Map<String, dynamic> json) {
   return _ForgetpasswordModel.fromJson(json);
@@ -74,22 +74,22 @@ class _$ForgetpasswordModelCopyWithImpl<$Res, $Val extends ForgetpasswordModel>
 }
 
 /// @nodoc
-abstract class _$$_ForgetpasswordModelCopyWith<$Res>
+abstract class _$$ForgetpasswordModelImplCopyWith<$Res>
     implements $ForgetpasswordModelCopyWith<$Res> {
-  factory _$$_ForgetpasswordModelCopyWith(_$_ForgetpasswordModel value,
-          $Res Function(_$_ForgetpasswordModel) then) =
-      __$$_ForgetpasswordModelCopyWithImpl<$Res>;
+  factory _$$ForgetpasswordModelImplCopyWith(_$ForgetpasswordModelImpl value,
+          $Res Function(_$ForgetpasswordModelImpl) then) =
+      __$$ForgetpasswordModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String status, String msg, String data});
 }
 
 /// @nodoc
-class __$$_ForgetpasswordModelCopyWithImpl<$Res>
-    extends _$ForgetpasswordModelCopyWithImpl<$Res, _$_ForgetpasswordModel>
-    implements _$$_ForgetpasswordModelCopyWith<$Res> {
-  __$$_ForgetpasswordModelCopyWithImpl(_$_ForgetpasswordModel _value,
-      $Res Function(_$_ForgetpasswordModel) _then)
+class __$$ForgetpasswordModelImplCopyWithImpl<$Res>
+    extends _$ForgetpasswordModelCopyWithImpl<$Res, _$ForgetpasswordModelImpl>
+    implements _$$ForgetpasswordModelImplCopyWith<$Res> {
+  __$$ForgetpasswordModelImplCopyWithImpl(_$ForgetpasswordModelImpl _value,
+      $Res Function(_$ForgetpasswordModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_ForgetpasswordModelCopyWithImpl<$Res>
     Object? msg = null,
     Object? data = null,
   }) {
-    return _then(_$_ForgetpasswordModel(
+    return _then(_$ForgetpasswordModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -118,12 +118,12 @@ class __$$_ForgetpasswordModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ForgetpasswordModel implements _ForgetpasswordModel {
-  const _$_ForgetpasswordModel(
+class _$ForgetpasswordModelImpl implements _ForgetpasswordModel {
+  const _$ForgetpasswordModelImpl(
       {this.status = "", this.msg = "", this.data = ""});
 
-  factory _$_ForgetpasswordModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ForgetpasswordModelFromJson(json);
+  factory _$ForgetpasswordModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ForgetpasswordModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -141,10 +141,10 @@ class _$_ForgetpasswordModel implements _ForgetpasswordModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ForgetpasswordModel &&
+            other is _$ForgetpasswordModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.msg, msg) || other.msg == msg) &&
             (identical(other.data, data) || other.data == data));
@@ -157,13 +157,13 @@ class _$_ForgetpasswordModel implements _ForgetpasswordModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ForgetpasswordModelCopyWith<_$_ForgetpasswordModel> get copyWith =>
-      __$$_ForgetpasswordModelCopyWithImpl<_$_ForgetpasswordModel>(
+  _$$ForgetpasswordModelImplCopyWith<_$ForgetpasswordModelImpl> get copyWith =>
+      __$$ForgetpasswordModelImplCopyWithImpl<_$ForgetpasswordModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ForgetpasswordModelToJson(
+    return _$$ForgetpasswordModelImplToJson(
       this,
     );
   }
@@ -173,10 +173,10 @@ abstract class _ForgetpasswordModel implements ForgetpasswordModel {
   const factory _ForgetpasswordModel(
       {final String status,
       final String msg,
-      final String data}) = _$_ForgetpasswordModel;
+      final String data}) = _$ForgetpasswordModelImpl;
 
   factory _ForgetpasswordModel.fromJson(Map<String, dynamic> json) =
-      _$_ForgetpasswordModel.fromJson;
+      _$ForgetpasswordModelImpl.fromJson;
 
   @override
   String get status;
@@ -186,6 +186,6 @@ abstract class _ForgetpasswordModel implements ForgetpasswordModel {
   String get data;
   @override
   @JsonKey(ignore: true)
-  _$$_ForgetpasswordModelCopyWith<_$_ForgetpasswordModel> get copyWith =>
+  _$$ForgetpasswordModelImplCopyWith<_$ForgetpasswordModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

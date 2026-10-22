@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'referraldetails_model.dart';
 
@@ -12,7 +12,7 @@ part of 'referraldetails_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ReferralDetailModel _$ReferralDetailModelFromJson(Map<String, dynamic> json) {
   return _ReferralDetailModel.fromJson(json);
@@ -112,11 +112,11 @@ class _$ReferralDetailModelCopyWithImpl<$Res, $Val extends ReferralDetailModel>
 }
 
 /// @nodoc
-abstract class _$$_ReferralDetailModelCopyWith<$Res>
+abstract class _$$ReferralDetailModelImplCopyWith<$Res>
     implements $ReferralDetailModelCopyWith<$Res> {
-  factory _$$_ReferralDetailModelCopyWith(_$_ReferralDetailModel value,
-          $Res Function(_$_ReferralDetailModel) then) =
-      __$$_ReferralDetailModelCopyWithImpl<$Res>;
+  factory _$$ReferralDetailModelImplCopyWith(_$ReferralDetailModelImpl value,
+          $Res Function(_$ReferralDetailModelImpl) then) =
+      __$$ReferralDetailModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -130,11 +130,11 @@ abstract class _$$_ReferralDetailModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ReferralDetailModelCopyWithImpl<$Res>
-    extends _$ReferralDetailModelCopyWithImpl<$Res, _$_ReferralDetailModel>
-    implements _$$_ReferralDetailModelCopyWith<$Res> {
-  __$$_ReferralDetailModelCopyWithImpl(_$_ReferralDetailModel _value,
-      $Res Function(_$_ReferralDetailModel) _then)
+class __$$ReferralDetailModelImplCopyWithImpl<$Res>
+    extends _$ReferralDetailModelCopyWithImpl<$Res, _$ReferralDetailModelImpl>
+    implements _$$ReferralDetailModelImplCopyWith<$Res> {
+  __$$ReferralDetailModelImplCopyWithImpl(_$ReferralDetailModelImpl _value,
+      $Res Function(_$ReferralDetailModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -148,7 +148,7 @@ class __$$_ReferralDetailModelCopyWithImpl<$Res>
     Object? employeeNumber = null,
     Object? fileName = null,
   }) {
-    return _then(_$_ReferralDetailModel(
+    return _then(_$ReferralDetailModelImpl(
       referenceDate: null == referenceDate
           ? _value.referenceDate
           : referenceDate // ignore: cast_nullable_to_non_nullable
@@ -183,8 +183,8 @@ class __$$_ReferralDetailModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ReferralDetailModel implements _ReferralDetailModel {
-  const _$_ReferralDetailModel(
+class _$ReferralDetailModelImpl implements _ReferralDetailModel {
+  const _$ReferralDetailModelImpl(
       {@JsonKey(name: "Reference_Date") this.referenceDate = "",
       @JsonKey(name: "candidate_name") this.candidateName = "",
       @JsonKey(name: "email_of_candidate") this.candidateEmail = "",
@@ -193,8 +193,8 @@ class _$_ReferralDetailModel implements _ReferralDetailModel {
       @JsonKey(name: "emp_number") this.employeeNumber = "",
       @JsonKey(name: "file_name") this.fileName = ""});
 
-  factory _$_ReferralDetailModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ReferralDetailModelFromJson(json);
+  factory _$ReferralDetailModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ReferralDetailModelImplFromJson(json);
 
   @override
   @JsonKey(name: "Reference_Date")
@@ -224,10 +224,10 @@ class _$_ReferralDetailModel implements _ReferralDetailModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ReferralDetailModel &&
+            other is _$ReferralDetailModelImpl &&
             (identical(other.referenceDate, referenceDate) ||
                 other.referenceDate == referenceDate) &&
             (identical(other.candidateName, candidateName) ||
@@ -252,13 +252,13 @@ class _$_ReferralDetailModel implements _ReferralDetailModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ReferralDetailModelCopyWith<_$_ReferralDetailModel> get copyWith =>
-      __$$_ReferralDetailModelCopyWithImpl<_$_ReferralDetailModel>(
+  _$$ReferralDetailModelImplCopyWith<_$ReferralDetailModelImpl> get copyWith =>
+      __$$ReferralDetailModelImplCopyWithImpl<_$ReferralDetailModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ReferralDetailModelToJson(
+    return _$$ReferralDetailModelImplToJson(
       this,
     );
   }
@@ -273,10 +273,10 @@ abstract class _ReferralDetailModel implements ReferralDetailModel {
           @JsonKey(name: "dept_code") final String departmentCode,
           @JsonKey(name: "emp_number") final String employeeNumber,
           @JsonKey(name: "file_name") final String fileName}) =
-      _$_ReferralDetailModel;
+      _$ReferralDetailModelImpl;
 
   factory _ReferralDetailModel.fromJson(Map<String, dynamic> json) =
-      _$_ReferralDetailModel.fromJson;
+      _$ReferralDetailModelImpl.fromJson;
 
   @override
   @JsonKey(name: "Reference_Date")
@@ -301,6 +301,6 @@ abstract class _ReferralDetailModel implements ReferralDetailModel {
   String get fileName;
   @override
   @JsonKey(ignore: true)
-  _$$_ReferralDetailModelCopyWith<_$_ReferralDetailModel> get copyWith =>
+  _$$ReferralDetailModelImplCopyWith<_$ReferralDetailModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

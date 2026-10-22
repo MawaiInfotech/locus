@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'approveoffduty_model.dart';
 
@@ -12,7 +12,7 @@ part of 'approveoffduty_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ApproveoffdutyModel _$ApproveoffdutyModelFromJson(Map<String, dynamic> json) {
   return _ApproveoffdutyModel.fromJson(json);
@@ -248,11 +248,11 @@ class _$ApproveoffdutyModelCopyWithImpl<$Res, $Val extends ApproveoffdutyModel>
 }
 
 /// @nodoc
-abstract class _$$_ApproveoffdutyModelCopyWith<$Res>
+abstract class _$$ApproveoffdutyModelImplCopyWith<$Res>
     implements $ApproveoffdutyModelCopyWith<$Res> {
-  factory _$$_ApproveoffdutyModelCopyWith(_$_ApproveoffdutyModel value,
-          $Res Function(_$_ApproveoffdutyModel) then) =
-      __$$_ApproveoffdutyModelCopyWithImpl<$Res>;
+  factory _$$ApproveoffdutyModelImplCopyWith(_$ApproveoffdutyModelImpl value,
+          $Res Function(_$ApproveoffdutyModelImpl) then) =
+      __$$ApproveoffdutyModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -283,11 +283,11 @@ abstract class _$$_ApproveoffdutyModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ApproveoffdutyModelCopyWithImpl<$Res>
-    extends _$ApproveoffdutyModelCopyWithImpl<$Res, _$_ApproveoffdutyModel>
-    implements _$$_ApproveoffdutyModelCopyWith<$Res> {
-  __$$_ApproveoffdutyModelCopyWithImpl(_$_ApproveoffdutyModel _value,
-      $Res Function(_$_ApproveoffdutyModel) _then)
+class __$$ApproveoffdutyModelImplCopyWithImpl<$Res>
+    extends _$ApproveoffdutyModelCopyWithImpl<$Res, _$ApproveoffdutyModelImpl>
+    implements _$$ApproveoffdutyModelImplCopyWith<$Res> {
+  __$$ApproveoffdutyModelImplCopyWithImpl(_$ApproveoffdutyModelImpl _value,
+      $Res Function(_$ApproveoffdutyModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -318,7 +318,7 @@ class __$$_ApproveoffdutyModelCopyWithImpl<$Res>
     Object? departmentCode = null,
     Object? departmentName = null,
   }) {
-    return _then(_$_ApproveoffdutyModel(
+    return _then(_$ApproveoffdutyModelImpl(
       employeeCode: null == employeeCode
           ? _value.employeeCode
           : employeeCode // ignore: cast_nullable_to_non_nullable
@@ -421,8 +421,8 @@ class __$$_ApproveoffdutyModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApproveoffdutyModel implements _ApproveoffdutyModel {
-  const _$_ApproveoffdutyModel(
+class _$ApproveoffdutyModelImpl implements _ApproveoffdutyModel {
+  const _$ApproveoffdutyModelImpl(
       {@JsonKey(name: "emp_code") this.employeeCode = "",
       @JsonKey(name: "emp_name") this.employeeName = "",
       @JsonKey(name: "gp_od_no") this.appNumber = "",
@@ -448,8 +448,8 @@ class _$_ApproveoffdutyModel implements _ApproveoffdutyModel {
       @JsonKey(name: "dept_code") this.departmentCode = "",
       @JsonKey(name: "dept_name") this.departmentName = ""});
 
-  factory _$_ApproveoffdutyModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ApproveoffdutyModelFromJson(json);
+  factory _$ApproveoffdutyModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ApproveoffdutyModelImplFromJson(json);
 
   @override
   @JsonKey(name: "emp_code")
@@ -530,10 +530,10 @@ class _$_ApproveoffdutyModel implements _ApproveoffdutyModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApproveoffdutyModel &&
+            other is _$ApproveoffdutyModelImpl &&
             (identical(other.employeeCode, employeeCode) ||
                 other.employeeCode == employeeCode) &&
             (identical(other.employeeName, employeeName) ||
@@ -612,13 +612,13 @@ class _$_ApproveoffdutyModel implements _ApproveoffdutyModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApproveoffdutyModelCopyWith<_$_ApproveoffdutyModel> get copyWith =>
-      __$$_ApproveoffdutyModelCopyWithImpl<_$_ApproveoffdutyModel>(
+  _$$ApproveoffdutyModelImplCopyWith<_$ApproveoffdutyModelImpl> get copyWith =>
+      __$$ApproveoffdutyModelImplCopyWithImpl<_$ApproveoffdutyModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApproveoffdutyModelToJson(
+    return _$$ApproveoffdutyModelImplToJson(
       this,
     );
   }
@@ -650,10 +650,10 @@ abstract class _ApproveoffdutyModel implements ApproveoffdutyModel {
           @JsonKey(name: "od_hours") final String odHours,
           @JsonKey(name: "dept_code") final String departmentCode,
           @JsonKey(name: "dept_name") final String departmentName}) =
-      _$_ApproveoffdutyModel;
+      _$ApproveoffdutyModelImpl;
 
   factory _ApproveoffdutyModel.fromJson(Map<String, dynamic> json) =
-      _$_ApproveoffdutyModel.fromJson;
+      _$ApproveoffdutyModelImpl.fromJson;
 
   @override
   @JsonKey(name: "emp_code")
@@ -729,6 +729,6 @@ abstract class _ApproveoffdutyModel implements ApproveoffdutyModel {
   String get departmentName;
   @override
   @JsonKey(ignore: true)
-  _$$_ApproveoffdutyModelCopyWith<_$_ApproveoffdutyModel> get copyWith =>
+  _$$ApproveoffdutyModelImplCopyWith<_$ApproveoffdutyModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

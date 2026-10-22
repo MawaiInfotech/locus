@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'offdutyemployee_model.dart';
 
@@ -12,7 +12,7 @@ part of 'offdutyemployee_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 OffdutyEmployeeModel _$OffdutyEmployeeModelFromJson(Map<String, dynamic> json) {
   return _OffdutyEmployeeModel.fromJson(json);
@@ -81,11 +81,11 @@ class _$OffdutyEmployeeModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_OffdutyEmployeeModelCopyWith<$Res>
+abstract class _$$OffdutyEmployeeModelImplCopyWith<$Res>
     implements $OffdutyEmployeeModelCopyWith<$Res> {
-  factory _$$_OffdutyEmployeeModelCopyWith(_$_OffdutyEmployeeModel value,
-          $Res Function(_$_OffdutyEmployeeModel) then) =
-      __$$_OffdutyEmployeeModelCopyWithImpl<$Res>;
+  factory _$$OffdutyEmployeeModelImplCopyWith(_$OffdutyEmployeeModelImpl value,
+          $Res Function(_$OffdutyEmployeeModelImpl) then) =
+      __$$OffdutyEmployeeModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -95,11 +95,11 @@ abstract class _$$_OffdutyEmployeeModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_OffdutyEmployeeModelCopyWithImpl<$Res>
-    extends _$OffdutyEmployeeModelCopyWithImpl<$Res, _$_OffdutyEmployeeModel>
-    implements _$$_OffdutyEmployeeModelCopyWith<$Res> {
-  __$$_OffdutyEmployeeModelCopyWithImpl(_$_OffdutyEmployeeModel _value,
-      $Res Function(_$_OffdutyEmployeeModel) _then)
+class __$$OffdutyEmployeeModelImplCopyWithImpl<$Res>
+    extends _$OffdutyEmployeeModelCopyWithImpl<$Res, _$OffdutyEmployeeModelImpl>
+    implements _$$OffdutyEmployeeModelImplCopyWith<$Res> {
+  __$$OffdutyEmployeeModelImplCopyWithImpl(_$OffdutyEmployeeModelImpl _value,
+      $Res Function(_$OffdutyEmployeeModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -109,7 +109,7 @@ class __$$_OffdutyEmployeeModelCopyWithImpl<$Res>
     Object? employeeFirstName = null,
     Object? employeeLastName = null,
   }) {
-    return _then(_$_OffdutyEmployeeModel(
+    return _then(_$OffdutyEmployeeModelImpl(
       employeeNumber: null == employeeNumber
           ? _value.employeeNumber
           : employeeNumber // ignore: cast_nullable_to_non_nullable
@@ -128,14 +128,14 @@ class __$$_OffdutyEmployeeModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_OffdutyEmployeeModel implements _OffdutyEmployeeModel {
-  const _$_OffdutyEmployeeModel(
+class _$OffdutyEmployeeModelImpl implements _OffdutyEmployeeModel {
+  const _$OffdutyEmployeeModelImpl(
       {@JsonKey(name: "emp_number") this.employeeNumber = "",
       @JsonKey(name: "emp_first_name") this.employeeFirstName = "",
       @JsonKey(name: "emp_last_name") this.employeeLastName = ""});
 
-  factory _$_OffdutyEmployeeModel.fromJson(Map<String, dynamic> json) =>
-      _$$_OffdutyEmployeeModelFromJson(json);
+  factory _$OffdutyEmployeeModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OffdutyEmployeeModelImplFromJson(json);
 
   @override
   @JsonKey(name: "emp_number")
@@ -153,10 +153,10 @@ class _$_OffdutyEmployeeModel implements _OffdutyEmployeeModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OffdutyEmployeeModel &&
+            other is _$OffdutyEmployeeModelImpl &&
             (identical(other.employeeNumber, employeeNumber) ||
                 other.employeeNumber == employeeNumber) &&
             (identical(other.employeeFirstName, employeeFirstName) ||
@@ -173,13 +173,14 @@ class _$_OffdutyEmployeeModel implements _OffdutyEmployeeModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OffdutyEmployeeModelCopyWith<_$_OffdutyEmployeeModel> get copyWith =>
-      __$$_OffdutyEmployeeModelCopyWithImpl<_$_OffdutyEmployeeModel>(
-          this, _$identity);
+  _$$OffdutyEmployeeModelImplCopyWith<_$OffdutyEmployeeModelImpl>
+      get copyWith =>
+          __$$OffdutyEmployeeModelImplCopyWithImpl<_$OffdutyEmployeeModelImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_OffdutyEmployeeModelToJson(
+    return _$$OffdutyEmployeeModelImplToJson(
       this,
     );
   }
@@ -190,10 +191,10 @@ abstract class _OffdutyEmployeeModel implements OffdutyEmployeeModel {
           {@JsonKey(name: "emp_number") final String employeeNumber,
           @JsonKey(name: "emp_first_name") final String employeeFirstName,
           @JsonKey(name: "emp_last_name") final String employeeLastName}) =
-      _$_OffdutyEmployeeModel;
+      _$OffdutyEmployeeModelImpl;
 
   factory _OffdutyEmployeeModel.fromJson(Map<String, dynamic> json) =
-      _$_OffdutyEmployeeModel.fromJson;
+      _$OffdutyEmployeeModelImpl.fromJson;
 
   @override
   @JsonKey(name: "emp_number")
@@ -206,6 +207,6 @@ abstract class _OffdutyEmployeeModel implements OffdutyEmployeeModel {
   String get employeeLastName;
   @override
   @JsonKey(ignore: true)
-  _$$_OffdutyEmployeeModelCopyWith<_$_OffdutyEmployeeModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$OffdutyEmployeeModelImplCopyWith<_$OffdutyEmployeeModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

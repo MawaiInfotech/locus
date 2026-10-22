@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'all_imprest_detail_model.dart';
 
@@ -12,7 +12,7 @@ part of 'all_imprest_detail_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 AllImprestDetailModel _$AllImprestDetailModelFromJson(
     Map<String, dynamic> json) {
@@ -89,60 +89,34 @@ abstract class $AllImprestDetailModelCopyWith<$Res> {
       _$AllImprestDetailModelCopyWithImpl<$Res, AllImprestDetailModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'entry_no')
-          String entryNo,
-      @JsonKey(name: 'project_cd')
-          String projectCd,
-      @JsonKey(name: 'claim_type')
-          String claimType,
-      @JsonKey(name: 'visit_mode')
-          String visitMode,
-      @JsonKey(name: 'visit_through')
-          String visitThrough,
-      @JsonKey(name: 'claim_amt')
-          String claimAmt,
-      @JsonKey(name: 'app_amt')
-          String appAmt,
-      @JsonKey(name: 'remark')
-          String remark,
-      @JsonKey(name: 'id')
-          String id,
-      @JsonKey(name: 'visit_date')
-          String visitDate,
-      @JsonKey(name: 'to_date')
-          String toDate,
-      @JsonKey(name: 'place_from')
-          String placeFrom,
-      @JsonKey(name: 'place_to')
-          String placeTo,
-      @JsonKey(name: 'convapplyno')
-          String convApplyNo,
-      @JsonKey(name: 'created_by')
-          String createdBy,
-      @JsonKey(name: 'created_at')
-          String createdAt,
-      @JsonKey(name: 'last_updated_by')
-          String lastUpdatedBy,
-      @JsonKey(name: 'updated_at')
-          String updatedAt,
-      @JsonKey(name: 'object_version_number')
-          int objectVersionNumber,
-      @JsonKey(name: 'conv_imp_claim_dtl_id')
-          int conv_imp_claim_dtl_id,
+      {@JsonKey(name: 'entry_no') String entryNo,
+      @JsonKey(name: 'project_cd') String projectCd,
+      @JsonKey(name: 'claim_type') String claimType,
+      @JsonKey(name: 'visit_mode') String visitMode,
+      @JsonKey(name: 'visit_through') String visitThrough,
+      @JsonKey(name: 'claim_amt') String claimAmt,
+      @JsonKey(name: 'app_amt') String appAmt,
+      @JsonKey(name: 'remark') String remark,
+      @JsonKey(name: 'id') String id,
+      @JsonKey(name: 'visit_date') String visitDate,
+      @JsonKey(name: 'to_date') String toDate,
+      @JsonKey(name: 'place_from') String placeFrom,
+      @JsonKey(name: 'place_to') String placeTo,
+      @JsonKey(name: 'convapplyno') String convApplyNo,
+      @JsonKey(name: 'created_by') String createdBy,
+      @JsonKey(name: 'created_at') String createdAt,
+      @JsonKey(name: 'last_updated_by') String lastUpdatedBy,
+      @JsonKey(name: 'updated_at') String updatedAt,
+      @JsonKey(name: 'object_version_number') int objectVersionNumber,
+      @JsonKey(name: 'conv_imp_claim_dtl_id') int conv_imp_claim_dtl_id,
       @JsonKey(name: 'conv_imp_claim_dtl_line_id')
-          int conv_imp_claim_dtl_line_id,
-      @JsonKey(name: 'km')
-          String km,
-      @JsonKey(name: 'rate_per_km')
-          String ratePerKm,
-      @JsonKey(name: 'project_name')
-          String projectName,
-      @JsonKey(name: 'types_name')
-          String typesName,
-      @JsonKey(name: 'visit_name')
-          String visitName,
-      @JsonKey(name: 'file_link')
-          String fileLink});
+      int conv_imp_claim_dtl_line_id,
+      @JsonKey(name: 'km') String km,
+      @JsonKey(name: 'rate_per_km') String ratePerKm,
+      @JsonKey(name: 'project_name') String projectName,
+      @JsonKey(name: 'types_name') String typesName,
+      @JsonKey(name: 'visit_name') String visitName,
+      @JsonKey(name: 'file_link') String fileLink});
 }
 
 /// @nodoc
@@ -301,76 +275,52 @@ class _$AllImprestDetailModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_AllImprestDetailModelCopyWith<$Res>
+abstract class _$$AllImprestDetailModelImplCopyWith<$Res>
     implements $AllImprestDetailModelCopyWith<$Res> {
-  factory _$$_AllImprestDetailModelCopyWith(_$_AllImprestDetailModel value,
-          $Res Function(_$_AllImprestDetailModel) then) =
-      __$$_AllImprestDetailModelCopyWithImpl<$Res>;
+  factory _$$AllImprestDetailModelImplCopyWith(
+          _$AllImprestDetailModelImpl value,
+          $Res Function(_$AllImprestDetailModelImpl) then) =
+      __$$AllImprestDetailModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'entry_no')
-          String entryNo,
-      @JsonKey(name: 'project_cd')
-          String projectCd,
-      @JsonKey(name: 'claim_type')
-          String claimType,
-      @JsonKey(name: 'visit_mode')
-          String visitMode,
-      @JsonKey(name: 'visit_through')
-          String visitThrough,
-      @JsonKey(name: 'claim_amt')
-          String claimAmt,
-      @JsonKey(name: 'app_amt')
-          String appAmt,
-      @JsonKey(name: 'remark')
-          String remark,
-      @JsonKey(name: 'id')
-          String id,
-      @JsonKey(name: 'visit_date')
-          String visitDate,
-      @JsonKey(name: 'to_date')
-          String toDate,
-      @JsonKey(name: 'place_from')
-          String placeFrom,
-      @JsonKey(name: 'place_to')
-          String placeTo,
-      @JsonKey(name: 'convapplyno')
-          String convApplyNo,
-      @JsonKey(name: 'created_by')
-          String createdBy,
-      @JsonKey(name: 'created_at')
-          String createdAt,
-      @JsonKey(name: 'last_updated_by')
-          String lastUpdatedBy,
-      @JsonKey(name: 'updated_at')
-          String updatedAt,
-      @JsonKey(name: 'object_version_number')
-          int objectVersionNumber,
-      @JsonKey(name: 'conv_imp_claim_dtl_id')
-          int conv_imp_claim_dtl_id,
+      {@JsonKey(name: 'entry_no') String entryNo,
+      @JsonKey(name: 'project_cd') String projectCd,
+      @JsonKey(name: 'claim_type') String claimType,
+      @JsonKey(name: 'visit_mode') String visitMode,
+      @JsonKey(name: 'visit_through') String visitThrough,
+      @JsonKey(name: 'claim_amt') String claimAmt,
+      @JsonKey(name: 'app_amt') String appAmt,
+      @JsonKey(name: 'remark') String remark,
+      @JsonKey(name: 'id') String id,
+      @JsonKey(name: 'visit_date') String visitDate,
+      @JsonKey(name: 'to_date') String toDate,
+      @JsonKey(name: 'place_from') String placeFrom,
+      @JsonKey(name: 'place_to') String placeTo,
+      @JsonKey(name: 'convapplyno') String convApplyNo,
+      @JsonKey(name: 'created_by') String createdBy,
+      @JsonKey(name: 'created_at') String createdAt,
+      @JsonKey(name: 'last_updated_by') String lastUpdatedBy,
+      @JsonKey(name: 'updated_at') String updatedAt,
+      @JsonKey(name: 'object_version_number') int objectVersionNumber,
+      @JsonKey(name: 'conv_imp_claim_dtl_id') int conv_imp_claim_dtl_id,
       @JsonKey(name: 'conv_imp_claim_dtl_line_id')
-          int conv_imp_claim_dtl_line_id,
-      @JsonKey(name: 'km')
-          String km,
-      @JsonKey(name: 'rate_per_km')
-          String ratePerKm,
-      @JsonKey(name: 'project_name')
-          String projectName,
-      @JsonKey(name: 'types_name')
-          String typesName,
-      @JsonKey(name: 'visit_name')
-          String visitName,
-      @JsonKey(name: 'file_link')
-          String fileLink});
+      int conv_imp_claim_dtl_line_id,
+      @JsonKey(name: 'km') String km,
+      @JsonKey(name: 'rate_per_km') String ratePerKm,
+      @JsonKey(name: 'project_name') String projectName,
+      @JsonKey(name: 'types_name') String typesName,
+      @JsonKey(name: 'visit_name') String visitName,
+      @JsonKey(name: 'file_link') String fileLink});
 }
 
 /// @nodoc
-class __$$_AllImprestDetailModelCopyWithImpl<$Res>
-    extends _$AllImprestDetailModelCopyWithImpl<$Res, _$_AllImprestDetailModel>
-    implements _$$_AllImprestDetailModelCopyWith<$Res> {
-  __$$_AllImprestDetailModelCopyWithImpl(_$_AllImprestDetailModel _value,
-      $Res Function(_$_AllImprestDetailModel) _then)
+class __$$AllImprestDetailModelImplCopyWithImpl<$Res>
+    extends _$AllImprestDetailModelCopyWithImpl<$Res,
+        _$AllImprestDetailModelImpl>
+    implements _$$AllImprestDetailModelImplCopyWith<$Res> {
+  __$$AllImprestDetailModelImplCopyWithImpl(_$AllImprestDetailModelImpl _value,
+      $Res Function(_$AllImprestDetailModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -404,7 +354,7 @@ class __$$_AllImprestDetailModelCopyWithImpl<$Res>
     Object? visitName = null,
     Object? fileLink = null,
   }) {
-    return _then(_$_AllImprestDetailModel(
+    return _then(_$AllImprestDetailModelImpl(
       entryNo: null == entryNo
           ? _value.entryNo
           : entryNo // ignore: cast_nullable_to_non_nullable
@@ -519,65 +469,39 @@ class __$$_AllImprestDetailModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AllImprestDetailModel implements _AllImprestDetailModel {
-  const _$_AllImprestDetailModel(
-      {@JsonKey(name: 'entry_no')
-          this.entryNo = "",
-      @JsonKey(name: 'project_cd')
-          this.projectCd = '',
-      @JsonKey(name: 'claim_type')
-          this.claimType = '',
-      @JsonKey(name: 'visit_mode')
-          this.visitMode = '',
-      @JsonKey(name: 'visit_through')
-          this.visitThrough = '',
-      @JsonKey(name: 'claim_amt')
-          this.claimAmt = '',
-      @JsonKey(name: 'app_amt')
-          this.appAmt = '',
-      @JsonKey(name: 'remark')
-          this.remark = '',
-      @JsonKey(name: 'id')
-          this.id = '',
-      @JsonKey(name: 'visit_date')
-          this.visitDate = '',
-      @JsonKey(name: 'to_date')
-          this.toDate = '',
-      @JsonKey(name: 'place_from')
-          this.placeFrom = '',
-      @JsonKey(name: 'place_to')
-          this.placeTo = '',
-      @JsonKey(name: 'convapplyno')
-          this.convApplyNo = '',
-      @JsonKey(name: 'created_by')
-          this.createdBy = '',
-      @JsonKey(name: 'created_at')
-          this.createdAt = '',
-      @JsonKey(name: 'last_updated_by')
-          this.lastUpdatedBy = '',
-      @JsonKey(name: 'updated_at')
-          this.updatedAt = '',
-      @JsonKey(name: 'object_version_number')
-          this.objectVersionNumber = 0,
-      @JsonKey(name: 'conv_imp_claim_dtl_id')
-          this.conv_imp_claim_dtl_id = 0,
+class _$AllImprestDetailModelImpl implements _AllImprestDetailModel {
+  const _$AllImprestDetailModelImpl(
+      {@JsonKey(name: 'entry_no') this.entryNo = "",
+      @JsonKey(name: 'project_cd') this.projectCd = '',
+      @JsonKey(name: 'claim_type') this.claimType = '',
+      @JsonKey(name: 'visit_mode') this.visitMode = '',
+      @JsonKey(name: 'visit_through') this.visitThrough = '',
+      @JsonKey(name: 'claim_amt') this.claimAmt = '',
+      @JsonKey(name: 'app_amt') this.appAmt = '',
+      @JsonKey(name: 'remark') this.remark = '',
+      @JsonKey(name: 'id') this.id = '',
+      @JsonKey(name: 'visit_date') this.visitDate = '',
+      @JsonKey(name: 'to_date') this.toDate = '',
+      @JsonKey(name: 'place_from') this.placeFrom = '',
+      @JsonKey(name: 'place_to') this.placeTo = '',
+      @JsonKey(name: 'convapplyno') this.convApplyNo = '',
+      @JsonKey(name: 'created_by') this.createdBy = '',
+      @JsonKey(name: 'created_at') this.createdAt = '',
+      @JsonKey(name: 'last_updated_by') this.lastUpdatedBy = '',
+      @JsonKey(name: 'updated_at') this.updatedAt = '',
+      @JsonKey(name: 'object_version_number') this.objectVersionNumber = 0,
+      @JsonKey(name: 'conv_imp_claim_dtl_id') this.conv_imp_claim_dtl_id = 0,
       @JsonKey(name: 'conv_imp_claim_dtl_line_id')
-          this.conv_imp_claim_dtl_line_id = 0,
-      @JsonKey(name: 'km')
-          this.km = '',
-      @JsonKey(name: 'rate_per_km')
-          this.ratePerKm = '',
-      @JsonKey(name: 'project_name')
-          this.projectName = '',
-      @JsonKey(name: 'types_name')
-          this.typesName = '',
-      @JsonKey(name: 'visit_name')
-          this.visitName = '',
-      @JsonKey(name: 'file_link')
-          this.fileLink = ''});
+      this.conv_imp_claim_dtl_line_id = 0,
+      @JsonKey(name: 'km') this.km = '',
+      @JsonKey(name: 'rate_per_km') this.ratePerKm = '',
+      @JsonKey(name: 'project_name') this.projectName = '',
+      @JsonKey(name: 'types_name') this.typesName = '',
+      @JsonKey(name: 'visit_name') this.visitName = '',
+      @JsonKey(name: 'file_link') this.fileLink = ''});
 
-  factory _$_AllImprestDetailModel.fromJson(Map<String, dynamic> json) =>
-      _$$_AllImprestDetailModelFromJson(json);
+  factory _$AllImprestDetailModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AllImprestDetailModelImplFromJson(json);
 
   @override
   @JsonKey(name: 'entry_no')
@@ -667,10 +591,10 @@ class _$_AllImprestDetailModel implements _AllImprestDetailModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AllImprestDetailModel &&
+            other is _$AllImprestDetailModelImpl &&
             (identical(other.entryNo, entryNo) || other.entryNo == entryNo) &&
             (identical(other.projectCd, projectCd) ||
                 other.projectCd == projectCd) &&
@@ -758,13 +682,13 @@ class _$_AllImprestDetailModel implements _AllImprestDetailModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AllImprestDetailModelCopyWith<_$_AllImprestDetailModel> get copyWith =>
-      __$$_AllImprestDetailModelCopyWithImpl<_$_AllImprestDetailModel>(
-          this, _$identity);
+  _$$AllImprestDetailModelImplCopyWith<_$AllImprestDetailModelImpl>
+      get copyWith => __$$AllImprestDetailModelImplCopyWithImpl<
+          _$AllImprestDetailModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AllImprestDetailModelToJson(
+    return _$$AllImprestDetailModelImplToJson(
       this,
     );
   }
@@ -772,63 +696,38 @@ class _$_AllImprestDetailModel implements _AllImprestDetailModel {
 
 abstract class _AllImprestDetailModel implements AllImprestDetailModel {
   const factory _AllImprestDetailModel(
-      {@JsonKey(name: 'entry_no')
-          final String entryNo,
-      @JsonKey(name: 'project_cd')
-          final String projectCd,
-      @JsonKey(name: 'claim_type')
-          final String claimType,
-      @JsonKey(name: 'visit_mode')
-          final String visitMode,
-      @JsonKey(name: 'visit_through')
-          final String visitThrough,
-      @JsonKey(name: 'claim_amt')
-          final String claimAmt,
-      @JsonKey(name: 'app_amt')
-          final String appAmt,
-      @JsonKey(name: 'remark')
-          final String remark,
-      @JsonKey(name: 'id')
-          final String id,
-      @JsonKey(name: 'visit_date')
-          final String visitDate,
-      @JsonKey(name: 'to_date')
-          final String toDate,
-      @JsonKey(name: 'place_from')
-          final String placeFrom,
-      @JsonKey(name: 'place_to')
-          final String placeTo,
-      @JsonKey(name: 'convapplyno')
-          final String convApplyNo,
-      @JsonKey(name: 'created_by')
-          final String createdBy,
-      @JsonKey(name: 'created_at')
-          final String createdAt,
-      @JsonKey(name: 'last_updated_by')
-          final String lastUpdatedBy,
-      @JsonKey(name: 'updated_at')
-          final String updatedAt,
-      @JsonKey(name: 'object_version_number')
-          final int objectVersionNumber,
-      @JsonKey(name: 'conv_imp_claim_dtl_id')
-          final int conv_imp_claim_dtl_id,
+      {@JsonKey(name: 'entry_no') final String entryNo,
+      @JsonKey(name: 'project_cd') final String projectCd,
+      @JsonKey(name: 'claim_type') final String claimType,
+      @JsonKey(name: 'visit_mode') final String visitMode,
+      @JsonKey(name: 'visit_through') final String visitThrough,
+      @JsonKey(name: 'claim_amt') final String claimAmt,
+      @JsonKey(name: 'app_amt') final String appAmt,
+      @JsonKey(name: 'remark') final String remark,
+      @JsonKey(name: 'id') final String id,
+      @JsonKey(name: 'visit_date') final String visitDate,
+      @JsonKey(name: 'to_date') final String toDate,
+      @JsonKey(name: 'place_from') final String placeFrom,
+      @JsonKey(name: 'place_to') final String placeTo,
+      @JsonKey(name: 'convapplyno') final String convApplyNo,
+      @JsonKey(name: 'created_by') final String createdBy,
+      @JsonKey(name: 'created_at') final String createdAt,
+      @JsonKey(name: 'last_updated_by') final String lastUpdatedBy,
+      @JsonKey(name: 'updated_at') final String updatedAt,
+      @JsonKey(name: 'object_version_number') final int objectVersionNumber,
+      @JsonKey(name: 'conv_imp_claim_dtl_id') final int conv_imp_claim_dtl_id,
       @JsonKey(name: 'conv_imp_claim_dtl_line_id')
-          final int conv_imp_claim_dtl_line_id,
-      @JsonKey(name: 'km')
-          final String km,
-      @JsonKey(name: 'rate_per_km')
-          final String ratePerKm,
-      @JsonKey(name: 'project_name')
-          final String projectName,
-      @JsonKey(name: 'types_name')
-          final String typesName,
-      @JsonKey(name: 'visit_name')
-          final String visitName,
+      final int conv_imp_claim_dtl_line_id,
+      @JsonKey(name: 'km') final String km,
+      @JsonKey(name: 'rate_per_km') final String ratePerKm,
+      @JsonKey(name: 'project_name') final String projectName,
+      @JsonKey(name: 'types_name') final String typesName,
+      @JsonKey(name: 'visit_name') final String visitName,
       @JsonKey(name: 'file_link')
-          final String fileLink}) = _$_AllImprestDetailModel;
+      final String fileLink}) = _$AllImprestDetailModelImpl;
 
   factory _AllImprestDetailModel.fromJson(Map<String, dynamic> json) =
-      _$_AllImprestDetailModel.fromJson;
+      _$AllImprestDetailModelImpl.fromJson;
 
   @override
   @JsonKey(name: 'entry_no')
@@ -913,6 +812,6 @@ abstract class _AllImprestDetailModel implements AllImprestDetailModel {
   String get fileLink;
   @override
   @JsonKey(ignore: true)
-  _$$_AllImprestDetailModelCopyWith<_$_AllImprestDetailModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$AllImprestDetailModelImplCopyWith<_$AllImprestDetailModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

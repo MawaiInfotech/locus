@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'sendwishes_model.dart';
 
@@ -12,7 +12,7 @@ part of 'sendwishes_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SendwishesModel _$SendwishesModelFromJson(Map<String, dynamic> json) {
   return _SendwishesModel.fromJson(json);
@@ -68,22 +68,22 @@ class _$SendwishesModelCopyWithImpl<$Res, $Val extends SendwishesModel>
 }
 
 /// @nodoc
-abstract class _$$_SendwishesModelCopyWith<$Res>
+abstract class _$$SendwishesModelImplCopyWith<$Res>
     implements $SendwishesModelCopyWith<$Res> {
-  factory _$$_SendwishesModelCopyWith(
-          _$_SendwishesModel value, $Res Function(_$_SendwishesModel) then) =
-      __$$_SendwishesModelCopyWithImpl<$Res>;
+  factory _$$SendwishesModelImplCopyWith(_$SendwishesModelImpl value,
+          $Res Function(_$SendwishesModelImpl) then) =
+      __$$SendwishesModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String status, String message});
 }
 
 /// @nodoc
-class __$$_SendwishesModelCopyWithImpl<$Res>
-    extends _$SendwishesModelCopyWithImpl<$Res, _$_SendwishesModel>
-    implements _$$_SendwishesModelCopyWith<$Res> {
-  __$$_SendwishesModelCopyWithImpl(
-      _$_SendwishesModel _value, $Res Function(_$_SendwishesModel) _then)
+class __$$SendwishesModelImplCopyWithImpl<$Res>
+    extends _$SendwishesModelCopyWithImpl<$Res, _$SendwishesModelImpl>
+    implements _$$SendwishesModelImplCopyWith<$Res> {
+  __$$SendwishesModelImplCopyWithImpl(
+      _$SendwishesModelImpl _value, $Res Function(_$SendwishesModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_SendwishesModelCopyWithImpl<$Res>
     Object? status = null,
     Object? message = null,
   }) {
-    return _then(_$_SendwishesModel(
+    return _then(_$SendwishesModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,11 @@ class __$$_SendwishesModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SendwishesModel implements _SendwishesModel {
-  const _$_SendwishesModel({this.status = "", this.message = ""});
+class _$SendwishesModelImpl implements _SendwishesModel {
+  const _$SendwishesModelImpl({this.status = "", this.message = ""});
 
-  factory _$_SendwishesModel.fromJson(Map<String, dynamic> json) =>
-      _$$_SendwishesModelFromJson(json);
+  factory _$SendwishesModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SendwishesModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -126,10 +126,10 @@ class _$_SendwishesModel implements _SendwishesModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SendwishesModel &&
+            other is _$SendwishesModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -141,12 +141,13 @@ class _$_SendwishesModel implements _SendwishesModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SendwishesModelCopyWith<_$_SendwishesModel> get copyWith =>
-      __$$_SendwishesModelCopyWithImpl<_$_SendwishesModel>(this, _$identity);
+  _$$SendwishesModelImplCopyWith<_$SendwishesModelImpl> get copyWith =>
+      __$$SendwishesModelImplCopyWithImpl<_$SendwishesModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SendwishesModelToJson(
+    return _$$SendwishesModelImplToJson(
       this,
     );
   }
@@ -154,10 +155,10 @@ class _$_SendwishesModel implements _SendwishesModel {
 
 abstract class _SendwishesModel implements SendwishesModel {
   const factory _SendwishesModel({final String status, final String message}) =
-      _$_SendwishesModel;
+      _$SendwishesModelImpl;
 
   factory _SendwishesModel.fromJson(Map<String, dynamic> json) =
-      _$_SendwishesModel.fromJson;
+      _$SendwishesModelImpl.fromJson;
 
   @override
   String get status;
@@ -165,6 +166,6 @@ abstract class _SendwishesModel implements SendwishesModel {
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_SendwishesModelCopyWith<_$_SendwishesModel> get copyWith =>
+  _$$SendwishesModelImplCopyWith<_$SendwishesModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'requestleave_model.dart';
 
@@ -12,7 +12,7 @@ part of 'requestleave_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 RequestLeaveModel _$RequestLeaveModelFromJson(Map<String, dynamic> json) {
   return _RequestLeaveModel.fromJson(json);
@@ -91,11 +91,11 @@ class _$RequestLeaveModelCopyWithImpl<$Res, $Val extends RequestLeaveModel>
 }
 
 /// @nodoc
-abstract class _$$_RequestLeaveModelCopyWith<$Res>
+abstract class _$$RequestLeaveModelImplCopyWith<$Res>
     implements $RequestLeaveModelCopyWith<$Res> {
-  factory _$$_RequestLeaveModelCopyWith(_$_RequestLeaveModel value,
-          $Res Function(_$_RequestLeaveModel) then) =
-      __$$_RequestLeaveModelCopyWithImpl<$Res>;
+  factory _$$RequestLeaveModelImplCopyWith(_$RequestLeaveModelImpl value,
+          $Res Function(_$RequestLeaveModelImpl) then) =
+      __$$RequestLeaveModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -107,11 +107,11 @@ abstract class _$$_RequestLeaveModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_RequestLeaveModelCopyWithImpl<$Res>
-    extends _$RequestLeaveModelCopyWithImpl<$Res, _$_RequestLeaveModel>
-    implements _$$_RequestLeaveModelCopyWith<$Res> {
-  __$$_RequestLeaveModelCopyWithImpl(
-      _$_RequestLeaveModel _value, $Res Function(_$_RequestLeaveModel) _then)
+class __$$RequestLeaveModelImplCopyWithImpl<$Res>
+    extends _$RequestLeaveModelCopyWithImpl<$Res, _$RequestLeaveModelImpl>
+    implements _$$RequestLeaveModelImplCopyWith<$Res> {
+  __$$RequestLeaveModelImplCopyWithImpl(_$RequestLeaveModelImpl _value,
+      $Res Function(_$RequestLeaveModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +123,7 @@ class __$$_RequestLeaveModelCopyWithImpl<$Res>
     Object? leave_list = null,
     Object? reporting_to = null,
   }) {
-    return _then(_$_RequestLeaveModel(
+    return _then(_$RequestLeaveModelImpl(
       leave_type: null == leave_type
           ? _value._leave_type
           : leave_type // ignore: cast_nullable_to_non_nullable
@@ -150,8 +150,8 @@ class __$$_RequestLeaveModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RequestLeaveModel implements _RequestLeaveModel {
-  const _$_RequestLeaveModel(
+class _$RequestLeaveModelImpl implements _RequestLeaveModel {
+  const _$RequestLeaveModelImpl(
       {final List<LeavetypeModel> leave_type = const <LeavetypeModel>[],
       final List<CClistModel> cc_list = const <CClistModel>[],
       final List<EmployeeDetailModel> emp_dtl = const <EmployeeDetailModel>[],
@@ -163,13 +163,14 @@ class _$_RequestLeaveModel implements _RequestLeaveModel {
         _leave_list = leave_list,
         _reporting_to = reporting_to;
 
-  factory _$_RequestLeaveModel.fromJson(Map<String, dynamic> json) =>
-      _$$_RequestLeaveModelFromJson(json);
+  factory _$RequestLeaveModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RequestLeaveModelImplFromJson(json);
 
   final List<LeavetypeModel> _leave_type;
   @override
   @JsonKey()
   List<LeavetypeModel> get leave_type {
+    if (_leave_type is EqualUnmodifiableListView) return _leave_type;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_leave_type);
   }
@@ -178,6 +179,7 @@ class _$_RequestLeaveModel implements _RequestLeaveModel {
   @override
   @JsonKey()
   List<CClistModel> get cc_list {
+    if (_cc_list is EqualUnmodifiableListView) return _cc_list;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_cc_list);
   }
@@ -186,6 +188,7 @@ class _$_RequestLeaveModel implements _RequestLeaveModel {
   @override
   @JsonKey()
   List<EmployeeDetailModel> get emp_dtl {
+    if (_emp_dtl is EqualUnmodifiableListView) return _emp_dtl;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_emp_dtl);
   }
@@ -194,6 +197,7 @@ class _$_RequestLeaveModel implements _RequestLeaveModel {
   @override
   @JsonKey()
   List<LeavelistModel> get leave_list {
+    if (_leave_list is EqualUnmodifiableListView) return _leave_list;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_leave_list);
   }
@@ -202,6 +206,7 @@ class _$_RequestLeaveModel implements _RequestLeaveModel {
   @override
   @JsonKey()
   List<ReportingtoModel> get reporting_to {
+    if (_reporting_to is EqualUnmodifiableListView) return _reporting_to;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_reporting_to);
   }
@@ -212,10 +217,10 @@ class _$_RequestLeaveModel implements _RequestLeaveModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RequestLeaveModel &&
+            other is _$RequestLeaveModelImpl &&
             const DeepCollectionEquality()
                 .equals(other._leave_type, _leave_type) &&
             const DeepCollectionEquality().equals(other._cc_list, _cc_list) &&
@@ -239,13 +244,13 @@ class _$_RequestLeaveModel implements _RequestLeaveModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RequestLeaveModelCopyWith<_$_RequestLeaveModel> get copyWith =>
-      __$$_RequestLeaveModelCopyWithImpl<_$_RequestLeaveModel>(
+  _$$RequestLeaveModelImplCopyWith<_$RequestLeaveModelImpl> get copyWith =>
+      __$$RequestLeaveModelImplCopyWithImpl<_$RequestLeaveModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RequestLeaveModelToJson(
+    return _$$RequestLeaveModelImplToJson(
       this,
     );
   }
@@ -257,10 +262,10 @@ abstract class _RequestLeaveModel implements RequestLeaveModel {
       final List<CClistModel> cc_list,
       final List<EmployeeDetailModel> emp_dtl,
       final List<LeavelistModel> leave_list,
-      final List<ReportingtoModel> reporting_to}) = _$_RequestLeaveModel;
+      final List<ReportingtoModel> reporting_to}) = _$RequestLeaveModelImpl;
 
   factory _RequestLeaveModel.fromJson(Map<String, dynamic> json) =
-      _$_RequestLeaveModel.fromJson;
+      _$RequestLeaveModelImpl.fromJson;
 
   @override
   List<LeavetypeModel> get leave_type;
@@ -274,6 +279,6 @@ abstract class _RequestLeaveModel implements RequestLeaveModel {
   List<ReportingtoModel> get reporting_to;
   @override
   @JsonKey(ignore: true)
-  _$$_RequestLeaveModelCopyWith<_$_RequestLeaveModel> get copyWith =>
+  _$$RequestLeaveModelImplCopyWith<_$RequestLeaveModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

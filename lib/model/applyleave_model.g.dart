@@ -6,13 +6,15 @@ part of 'applyleave_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApplyyLeaveModel _$$_ApplyyLeaveModelFromJson(Map<String, dynamic> json) =>
-    _$_ApplyyLeaveModel(
+_$ApplyyLeaveModelImpl _$$ApplyyLeaveModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ApplyyLeaveModelImpl(
       status: json['status'] as String? ?? "",
       message: json['message'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_ApplyyLeaveModelToJson(_$_ApplyyLeaveModel instance) =>
+Map<String, dynamic> _$$ApplyyLeaveModelImplToJson(
+        _$ApplyyLeaveModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,

@@ -6,9 +6,9 @@ part of 'approveoffduty_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApproveoffdutyModel _$$_ApproveoffdutyModelFromJson(
+_$ApproveoffdutyModelImpl _$$ApproveoffdutyModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ApproveoffdutyModel(
+    _$ApproveoffdutyModelImpl(
       employeeCode: json['emp_code'] as String? ?? "",
       employeeName: json['emp_name'] as String? ?? "",
       appNumber: json['gp_od_no'] as String? ?? "",
@@ -35,8 +35,8 @@ _$_ApproveoffdutyModel _$$_ApproveoffdutyModelFromJson(
       departmentName: json['dept_name'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_ApproveoffdutyModelToJson(
-        _$_ApproveoffdutyModel instance) =>
+Map<String, dynamic> _$$ApproveoffdutyModelImplToJson(
+        _$ApproveoffdutyModelImpl instance) =>
     <String, dynamic>{
       'emp_code': instance.employeeCode,
       'emp_name': instance.employeeName,

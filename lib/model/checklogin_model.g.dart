@@ -6,8 +6,9 @@ part of 'checklogin_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CheckLoginModel _$$_CheckLoginModelFromJson(Map<String, dynamic> json) =>
-    _$_CheckLoginModel(
+_$CheckLoginModelImpl _$$CheckLoginModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$CheckLoginModelImpl(
       empcode: json['empcode'] as String? ?? '',
       officepunch: json['officepunch'] as String? ?? '',
       address: json['address'] as String? ?? '',
@@ -30,7 +31,8 @@ _$_CheckLoginModel _$$_CheckLoginModelFromJson(Map<String, dynamic> json) =>
       rawdata_app_id: json['rawdata_app_id'] as int? ?? 0,
     );
 
-Map<String, dynamic> _$$_CheckLoginModelToJson(_$_CheckLoginModel instance) =>
+Map<String, dynamic> _$$CheckLoginModelImplToJson(
+        _$CheckLoginModelImpl instance) =>
     <String, dynamic>{
       'empcode': instance.empcode,
       'officepunch': instance.officepunch,

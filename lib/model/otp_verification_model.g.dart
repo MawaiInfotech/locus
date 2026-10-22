@@ -6,16 +6,16 @@ part of 'otp_verification_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_OTPVerificationModel _$$_OTPVerificationModelFromJson(
+_$OTPVerificationModelImpl _$$OTPVerificationModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_OTPVerificationModel(
+    _$OTPVerificationModelImpl(
       status: json['status'] as String? ?? "",
       msg: json['msg'] as String? ?? "",
       data: json['data'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_OTPVerificationModelToJson(
-        _$_OTPVerificationModel instance) =>
+Map<String, dynamic> _$$OTPVerificationModelImplToJson(
+        _$OTPVerificationModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'msg': instance.msg,

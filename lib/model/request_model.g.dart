@@ -6,14 +6,14 @@ part of 'request_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RequestModel _$$_RequestModelFromJson(Map<String, dynamic> json) =>
-    _$_RequestModel(
+_$RequestModelImpl _$$RequestModelImplFromJson(Map<String, dynamic> json) =>
+    _$RequestModelImpl(
       status: json['status'] as String? ?? "",
       message: json['message'] as String? ?? "",
       result: json['result'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_RequestModelToJson(_$_RequestModel instance) =>
+Map<String, dynamic> _$$RequestModelImplToJson(_$RequestModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,

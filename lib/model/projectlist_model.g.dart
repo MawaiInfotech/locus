@@ -6,8 +6,9 @@ part of 'projectlist_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ProjectListModel _$$_ProjectListModelFromJson(Map<String, dynamic> json) =>
-    _$_ProjectListModel(
+_$ProjectListModelImpl _$$ProjectListModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ProjectListModelImpl(
       travel_mode: (json['travel_mode'] as List<dynamic>?)
               ?.map((e) => TravelModeModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -19,7 +20,8 @@ _$_ProjectListModel _$$_ProjectListModelFromJson(Map<String, dynamic> json) =>
           const <ClientDetailsModel>[],
     );
 
-Map<String, dynamic> _$$_ProjectListModelToJson(_$_ProjectListModel instance) =>
+Map<String, dynamic> _$$ProjectListModelImplToJson(
+        _$ProjectListModelImpl instance) =>
     <String, dynamic>{
       'travel_mode': instance.travel_mode,
       'client': instance.client,

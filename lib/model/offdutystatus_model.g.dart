@@ -6,15 +6,15 @@ part of 'offdutystatus_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_OffdutyStatusModel _$$_OffdutyStatusModelFromJson(
+_$OffdutyStatusModelImpl _$$OffdutyStatusModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_OffdutyStatusModel(
+    _$OffdutyStatusModelImpl(
       code: json['code'] as String? ?? "",
       description: json['desc'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_OffdutyStatusModelToJson(
-        _$_OffdutyStatusModel instance) =>
+Map<String, dynamic> _$$OffdutyStatusModelImplToJson(
+        _$OffdutyStatusModelImpl instance) =>
     <String, dynamic>{
       'code': instance.code,
       'desc': instance.description,

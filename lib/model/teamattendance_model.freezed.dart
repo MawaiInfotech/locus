@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'teamattendance_model.dart';
 
@@ -12,7 +12,7 @@ part of 'teamattendance_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 TeamAttendanceModel _$TeamAttendanceModelFromJson(Map<String, dynamic> json) {
   return _TeamAttendanceModel.fromJson(json);
@@ -200,11 +200,11 @@ class _$TeamAttendanceModelCopyWithImpl<$Res, $Val extends TeamAttendanceModel>
 }
 
 /// @nodoc
-abstract class _$$_TeamAttendanceModelCopyWith<$Res>
+abstract class _$$TeamAttendanceModelImplCopyWith<$Res>
     implements $TeamAttendanceModelCopyWith<$Res> {
-  factory _$$_TeamAttendanceModelCopyWith(_$_TeamAttendanceModel value,
-          $Res Function(_$_TeamAttendanceModel) then) =
-      __$$_TeamAttendanceModelCopyWithImpl<$Res>;
+  factory _$$TeamAttendanceModelImplCopyWith(_$TeamAttendanceModelImpl value,
+          $Res Function(_$TeamAttendanceModelImpl) then) =
+      __$$TeamAttendanceModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -229,11 +229,11 @@ abstract class _$$_TeamAttendanceModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TeamAttendanceModelCopyWithImpl<$Res>
-    extends _$TeamAttendanceModelCopyWithImpl<$Res, _$_TeamAttendanceModel>
-    implements _$$_TeamAttendanceModelCopyWith<$Res> {
-  __$$_TeamAttendanceModelCopyWithImpl(_$_TeamAttendanceModel _value,
-      $Res Function(_$_TeamAttendanceModel) _then)
+class __$$TeamAttendanceModelImplCopyWithImpl<$Res>
+    extends _$TeamAttendanceModelCopyWithImpl<$Res, _$TeamAttendanceModelImpl>
+    implements _$$TeamAttendanceModelImplCopyWith<$Res> {
+  __$$TeamAttendanceModelImplCopyWithImpl(_$TeamAttendanceModelImpl _value,
+      $Res Function(_$TeamAttendanceModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -258,7 +258,7 @@ class __$$_TeamAttendanceModelCopyWithImpl<$Res>
     Object? unitCode = null,
     Object? employeeName = null,
   }) {
-    return _then(_$_TeamAttendanceModel(
+    return _then(_$TeamAttendanceModelImpl(
       employeeNumber: null == employeeNumber
           ? _value.employeeNumber
           : employeeNumber // ignore: cast_nullable_to_non_nullable
@@ -337,8 +337,8 @@ class __$$_TeamAttendanceModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TeamAttendanceModel implements _TeamAttendanceModel {
-  const _$_TeamAttendanceModel(
+class _$TeamAttendanceModelImpl implements _TeamAttendanceModel {
+  const _$TeamAttendanceModelImpl(
       {@JsonKey(name: "emp_number") this.employeeNumber = "",
       @JsonKey(name: "card_no") this.cardNumber = "",
       @JsonKey(name: "reporting_to") this.reportingTo = "",
@@ -358,8 +358,8 @@ class _$_TeamAttendanceModel implements _TeamAttendanceModel {
       @JsonKey(name: "unit_cd") this.unitCode = "",
       @JsonKey(name: "emp_name") this.employeeName = ""});
 
-  factory _$_TeamAttendanceModel.fromJson(Map<String, dynamic> json) =>
-      _$$_TeamAttendanceModelFromJson(json);
+  factory _$TeamAttendanceModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TeamAttendanceModelImplFromJson(json);
 
   @override
   @JsonKey(name: "emp_number")
@@ -422,10 +422,10 @@ class _$_TeamAttendanceModel implements _TeamAttendanceModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TeamAttendanceModel &&
+            other is _$TeamAttendanceModelImpl &&
             (identical(other.employeeNumber, employeeNumber) ||
                 other.employeeNumber == employeeNumber) &&
             (identical(other.cardNumber, cardNumber) ||
@@ -483,13 +483,13 @@ class _$_TeamAttendanceModel implements _TeamAttendanceModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TeamAttendanceModelCopyWith<_$_TeamAttendanceModel> get copyWith =>
-      __$$_TeamAttendanceModelCopyWithImpl<_$_TeamAttendanceModel>(
+  _$$TeamAttendanceModelImplCopyWith<_$TeamAttendanceModelImpl> get copyWith =>
+      __$$TeamAttendanceModelImplCopyWithImpl<_$TeamAttendanceModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TeamAttendanceModelToJson(
+    return _$$TeamAttendanceModelImplToJson(
       this,
     );
   }
@@ -515,10 +515,10 @@ abstract class _TeamAttendanceModel implements TeamAttendanceModel {
           @JsonKey(name: "shift_cd") final String shiftCode,
           @JsonKey(name: "unit_cd") final String unitCode,
           @JsonKey(name: "emp_name") final String employeeName}) =
-      _$_TeamAttendanceModel;
+      _$TeamAttendanceModelImpl;
 
   factory _TeamAttendanceModel.fromJson(Map<String, dynamic> json) =
-      _$_TeamAttendanceModel.fromJson;
+      _$TeamAttendanceModelImpl.fromJson;
 
   @override
   @JsonKey(name: "emp_number")
@@ -576,6 +576,6 @@ abstract class _TeamAttendanceModel implements TeamAttendanceModel {
   String get employeeName;
   @override
   @JsonKey(ignore: true)
-  _$$_TeamAttendanceModelCopyWith<_$_TeamAttendanceModel> get copyWith =>
+  _$$TeamAttendanceModelImplCopyWith<_$TeamAttendanceModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -6,9 +6,9 @@ part of 'employeeoffdutylist_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EmployeeoffdutyListModel _$$_EmployeeoffdutyListModelFromJson(
+_$EmployeeoffdutyListModelImpl _$$EmployeeoffdutyListModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_EmployeeoffdutyListModel(
+    _$EmployeeoffdutyListModelImpl(
       employeeCode: json['emp_code'] as String? ?? "",
       employeeName: json['emp_name'] as String? ?? "",
       appNumber: json['gp_od_no'] as String? ?? "",
@@ -32,8 +32,8 @@ _$_EmployeeoffdutyListModel _$$_EmployeeoffdutyListModelFromJson(
       placetovisitName: json['place_visit_name'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_EmployeeoffdutyListModelToJson(
-        _$_EmployeeoffdutyListModel instance) =>
+Map<String, dynamic> _$$EmployeeoffdutyListModelImplToJson(
+        _$EmployeeoffdutyListModelImpl instance) =>
     <String, dynamic>{
       'emp_code': instance.employeeCode,
       'emp_name': instance.employeeName,

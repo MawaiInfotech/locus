@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'traveldetailslist_model.dart';
 
@@ -12,7 +12,7 @@ part of 'traveldetailslist_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 TravelDetailsListModel _$TravelDetailsListModelFromJson(
     Map<String, dynamic> json) {
@@ -73,11 +73,12 @@ class _$TravelDetailsListModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_TravelDetailsListModelCopyWith<$Res>
+abstract class _$$TravelDetailsListModelImplCopyWith<$Res>
     implements $TravelDetailsListModelCopyWith<$Res> {
-  factory _$$_TravelDetailsListModelCopyWith(_$_TravelDetailsListModel value,
-          $Res Function(_$_TravelDetailsListModel) then) =
-      __$$_TravelDetailsListModelCopyWithImpl<$Res>;
+  factory _$$TravelDetailsListModelImplCopyWith(
+          _$TravelDetailsListModelImpl value,
+          $Res Function(_$TravelDetailsListModelImpl) then) =
+      __$$TravelDetailsListModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -86,12 +87,13 @@ abstract class _$$_TravelDetailsListModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TravelDetailsListModelCopyWithImpl<$Res>
+class __$$TravelDetailsListModelImplCopyWithImpl<$Res>
     extends _$TravelDetailsListModelCopyWithImpl<$Res,
-        _$_TravelDetailsListModel>
-    implements _$$_TravelDetailsListModelCopyWith<$Res> {
-  __$$_TravelDetailsListModelCopyWithImpl(_$_TravelDetailsListModel _value,
-      $Res Function(_$_TravelDetailsListModel) _then)
+        _$TravelDetailsListModelImpl>
+    implements _$$TravelDetailsListModelImplCopyWith<$Res> {
+  __$$TravelDetailsListModelImplCopyWithImpl(
+      _$TravelDetailsListModelImpl _value,
+      $Res Function(_$TravelDetailsListModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +102,7 @@ class __$$_TravelDetailsListModelCopyWithImpl<$Res>
     Object? emp_dtls = null,
     Object? emp_rep_dtls = null,
   }) {
-    return _then(_$_TravelDetailsListModel(
+    return _then(_$TravelDetailsListModelImpl(
       emp_dtls: null == emp_dtls
           ? _value._emp_dtls
           : emp_dtls // ignore: cast_nullable_to_non_nullable
@@ -115,20 +117,21 @@ class __$$_TravelDetailsListModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TravelDetailsListModel implements _TravelDetailsListModel {
-  const _$_TravelDetailsListModel(
+class _$TravelDetailsListModelImpl implements _TravelDetailsListModel {
+  const _$TravelDetailsListModelImpl(
       {final List<TravelDetailsModel> emp_dtls = const <TravelDetailsModel>[],
       final List<TravelReportModel> emp_rep_dtls = const <TravelReportModel>[]})
       : _emp_dtls = emp_dtls,
         _emp_rep_dtls = emp_rep_dtls;
 
-  factory _$_TravelDetailsListModel.fromJson(Map<String, dynamic> json) =>
-      _$$_TravelDetailsListModelFromJson(json);
+  factory _$TravelDetailsListModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TravelDetailsListModelImplFromJson(json);
 
   final List<TravelDetailsModel> _emp_dtls;
   @override
   @JsonKey()
   List<TravelDetailsModel> get emp_dtls {
+    if (_emp_dtls is EqualUnmodifiableListView) return _emp_dtls;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_emp_dtls);
   }
@@ -137,6 +140,7 @@ class _$_TravelDetailsListModel implements _TravelDetailsListModel {
   @override
   @JsonKey()
   List<TravelReportModel> get emp_rep_dtls {
+    if (_emp_rep_dtls is EqualUnmodifiableListView) return _emp_rep_dtls;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_emp_rep_dtls);
   }
@@ -147,10 +151,10 @@ class _$_TravelDetailsListModel implements _TravelDetailsListModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TravelDetailsListModel &&
+            other is _$TravelDetailsListModelImpl &&
             const DeepCollectionEquality().equals(other._emp_dtls, _emp_dtls) &&
             const DeepCollectionEquality()
                 .equals(other._emp_rep_dtls, _emp_rep_dtls));
@@ -166,13 +170,13 @@ class _$_TravelDetailsListModel implements _TravelDetailsListModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TravelDetailsListModelCopyWith<_$_TravelDetailsListModel> get copyWith =>
-      __$$_TravelDetailsListModelCopyWithImpl<_$_TravelDetailsListModel>(
-          this, _$identity);
+  _$$TravelDetailsListModelImplCopyWith<_$TravelDetailsListModelImpl>
+      get copyWith => __$$TravelDetailsListModelImplCopyWithImpl<
+          _$TravelDetailsListModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TravelDetailsListModelToJson(
+    return _$$TravelDetailsListModelImplToJson(
       this,
     );
   }
@@ -180,11 +184,12 @@ class _$_TravelDetailsListModel implements _TravelDetailsListModel {
 
 abstract class _TravelDetailsListModel implements TravelDetailsListModel {
   const factory _TravelDetailsListModel(
-      {final List<TravelDetailsModel> emp_dtls,
-      final List<TravelReportModel> emp_rep_dtls}) = _$_TravelDetailsListModel;
+          {final List<TravelDetailsModel> emp_dtls,
+          final List<TravelReportModel> emp_rep_dtls}) =
+      _$TravelDetailsListModelImpl;
 
   factory _TravelDetailsListModel.fromJson(Map<String, dynamic> json) =
-      _$_TravelDetailsListModel.fromJson;
+      _$TravelDetailsListModelImpl.fromJson;
 
   @override
   List<TravelDetailsModel> get emp_dtls;
@@ -192,6 +197,6 @@ abstract class _TravelDetailsListModel implements TravelDetailsListModel {
   List<TravelReportModel> get emp_rep_dtls;
   @override
   @JsonKey(ignore: true)
-  _$$_TravelDetailsListModelCopyWith<_$_TravelDetailsListModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$TravelDetailsListModelImplCopyWith<_$TravelDetailsListModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
