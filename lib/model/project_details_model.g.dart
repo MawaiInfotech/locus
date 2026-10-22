@@ -6,15 +6,15 @@ part of 'project_details_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ProjectDetailsModel _$$_ProjectDetailsModelFromJson(
+_$ProjectDetailsModelImpl _$$ProjectDetailsModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ProjectDetailsModel(
+    _$ProjectDetailsModelImpl(
       clientCode: json['client_cd'] as String? ?? '',
       clientName: json['client_name'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$_ProjectDetailsModelToJson(
-        _$_ProjectDetailsModel instance) =>
+Map<String, dynamic> _$$ProjectDetailsModelImplToJson(
+        _$ProjectDetailsModelImpl instance) =>
     <String, dynamic>{
       'client_cd': instance.clientCode,
       'client_name': instance.clientName,

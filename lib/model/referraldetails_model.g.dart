@@ -6,9 +6,9 @@ part of 'referraldetails_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ReferralDetailModel _$$_ReferralDetailModelFromJson(
+_$ReferralDetailModelImpl _$$ReferralDetailModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ReferralDetailModel(
+    _$ReferralDetailModelImpl(
       referenceDate: json['Reference_Date'] as String? ?? "",
       candidateName: json['candidate_name'] as String? ?? "",
       candidateEmail: json['email_of_candidate'] as String? ?? "",
@@ -18,8 +18,8 @@ _$_ReferralDetailModel _$$_ReferralDetailModelFromJson(
       fileName: json['file_name'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_ReferralDetailModelToJson(
-        _$_ReferralDetailModel instance) =>
+Map<String, dynamic> _$$ReferralDetailModelImplToJson(
+        _$ReferralDetailModelImpl instance) =>
     <String, dynamic>{
       'Reference_Date': instance.referenceDate,
       'candidate_name': instance.candidateName,

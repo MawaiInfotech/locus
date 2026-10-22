@@ -28,7 +28,7 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
 
   late final AttendanceDetailBloc attendanceDetailBloc;
 
-  var selectedMonth = "";
+  var selectedMonth = DateFormat('MMM').format(DateTime.now()).toUpperCase();
 
   final date = DateFormat("dd-MM-yyyy").format(DateTime.now());
 
@@ -36,7 +36,7 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
   void initState(){
   final attendanceService = Provider.of<AttendanceService>(context, listen: false);
   attendanceDetailBloc = AttendanceDetailBloc(attendanceService);
-  attendanceDetailBloc.init();
+  attendanceDetailBloc.init(selectedMonth);
   super.initState();
   }
 
@@ -102,12 +102,12 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
     return Expanded(
       child: ListView(
         shrinkWrap: true,
-        children: attendanceDetailList.attendance.map((model) => _buildListCard(model)).toList(),
+        children: attendanceDetailList.attendance.map((model) => _buildListCard(model,attendanceDetailList.useMissPunch.toString(),attendanceDetailList.limit.toString())).toList(),
       ),
     );
   }
 
-  Widget _buildListCard(AttendanceDetailModel model){
+  Widget _buildListCard(AttendanceDetailModel model, String useMissPunch, String limit){
     return Card(
       margin: EdgeInsets.all(10.dw),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.dw)),
@@ -132,9 +132,9 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              if(model.attendanceDate == date && model.inTime.isEmpty)_buildRequestButton(model),
-              if(model.outTime.isEmpty && model.inTime.isNotEmpty) _buildRequestButton(model),
-              if(model.outTime.isEmpty && model.inTime.isEmpty && model.attendanceDate != date) _buildNotCheckedInandChekedOut(model)
+              if(model.attendanceDate == date && model.inTime.isEmpty)_buildRequestButton(model,useMissPunch,limit),
+              if(model.outTime.isEmpty && model.inTime.isNotEmpty) _buildRequestButton(model,useMissPunch,limit),
+              if(model.outTime.isEmpty && model.inTime.isEmpty && model.attendanceDate != date) _buildNotCheckedInandChekedOut(model,useMissPunch,limit)
             ],
           )
         ],
@@ -223,11 +223,11 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
     );
   }
 
-  _buildRequestButton(AttendanceDetailModel model){
+  _buildRequestButton(AttendanceDetailModel model, String useMissPunch,String limit){
     return ElevatedButton(
         onPressed: (){
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => RequestMisspunchPage(model)));
+              MaterialPageRoute(builder: (context) => RequestMisspunchPage(model, useMissPunch, limit,)));
           attendanceDetailBloc.init();
         },
         style: ElevatedButton.styleFrom(
@@ -308,12 +308,12 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
         false;
   }
 
-  _buildNotCheckedInandChekedOut(AttendanceDetailModel model){
+  _buildNotCheckedInandChekedOut(AttendanceDetailModel model, String useMissPunch,String limit){
     return Padding(
       padding:EdgeInsets.only(bottom: 10.dw),
       child: ElevatedButton(onPressed: (){
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => RequestMisspunchPage(model)));
+            MaterialPageRoute(builder: (context) => RequestMisspunchPage(model, useMissPunch,limit)));
         attendanceDetailBloc.init();
       },
           style: ElevatedButton.styleFrom(
@@ -327,3 +327,5 @@ class _AttendanceDetailPageState extends State<AttendanceDetailPage> {
   }
 
 }
+
+

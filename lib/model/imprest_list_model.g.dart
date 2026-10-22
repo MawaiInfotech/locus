@@ -6,8 +6,9 @@ part of 'imprest_list_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ImprestListModel _$$_ImprestListModelFromJson(Map<String, dynamic> json) =>
-    _$_ImprestListModel(
+_$ImprestListModelImpl _$$ImprestListModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ImprestListModelImpl(
       entryNo: json['entry_no'] as String? ?? "",
       entryDate: json['entry_date'] as String? ?? "",
       engCd: json['eng_cd'] as String? ?? "",
@@ -16,7 +17,8 @@ _$_ImprestListModel _$$_ImprestListModelFromJson(Map<String, dynamic> json) =>
       empName: json['emp_name'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_ImprestListModelToJson(_$_ImprestListModel instance) =>
+Map<String, dynamic> _$$ImprestListModelImplToJson(
+        _$ImprestListModelImpl instance) =>
     <String, dynamic>{
       'entry_no': instance.entryNo,
       'entry_date': instance.entryDate,

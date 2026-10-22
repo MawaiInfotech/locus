@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'pendingwfh_model.dart';
 
@@ -12,7 +12,7 @@ part of 'pendingwfh_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 PendingWfhModel _$PendingWfhModelFromJson(Map<String, dynamic> json) {
   return _PendingWfhModel.fromJson(json);
@@ -136,11 +136,11 @@ class _$PendingWfhModelCopyWithImpl<$Res, $Val extends PendingWfhModel>
 }
 
 /// @nodoc
-abstract class _$$_PendingWfhModelCopyWith<$Res>
+abstract class _$$PendingWfhModelImplCopyWith<$Res>
     implements $PendingWfhModelCopyWith<$Res> {
-  factory _$$_PendingWfhModelCopyWith(
-          _$_PendingWfhModel value, $Res Function(_$_PendingWfhModel) then) =
-      __$$_PendingWfhModelCopyWithImpl<$Res>;
+  factory _$$PendingWfhModelImplCopyWith(_$PendingWfhModelImpl value,
+          $Res Function(_$PendingWfhModelImpl) then) =
+      __$$PendingWfhModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -157,11 +157,11 @@ abstract class _$$_PendingWfhModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PendingWfhModelCopyWithImpl<$Res>
-    extends _$PendingWfhModelCopyWithImpl<$Res, _$_PendingWfhModel>
-    implements _$$_PendingWfhModelCopyWith<$Res> {
-  __$$_PendingWfhModelCopyWithImpl(
-      _$_PendingWfhModel _value, $Res Function(_$_PendingWfhModel) _then)
+class __$$PendingWfhModelImplCopyWithImpl<$Res>
+    extends _$PendingWfhModelCopyWithImpl<$Res, _$PendingWfhModelImpl>
+    implements _$$PendingWfhModelImplCopyWith<$Res> {
+  __$$PendingWfhModelImplCopyWithImpl(
+      _$PendingWfhModelImpl _value, $Res Function(_$PendingWfhModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -178,7 +178,7 @@ class __$$_PendingWfhModelCopyWithImpl<$Res>
     Object? departmentCode = null,
     Object? appNumber = null,
   }) {
-    return _then(_$_PendingWfhModel(
+    return _then(_$PendingWfhModelImpl(
       empNumber: null == empNumber
           ? _value.empNumber
           : empNumber // ignore: cast_nullable_to_non_nullable
@@ -225,8 +225,8 @@ class __$$_PendingWfhModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PendingWfhModel implements _PendingWfhModel {
-  const _$_PendingWfhModel(
+class _$PendingWfhModelImpl implements _PendingWfhModel {
+  const _$PendingWfhModelImpl(
       {@JsonKey(name: "empmemb_emp_master_emp_number") this.empNumber = "",
       @JsonKey(name: "from_date") this.fromDate = "",
       @JsonKey(name: "end_date") this.endDate = "",
@@ -238,8 +238,8 @@ class _$_PendingWfhModel implements _PendingWfhModel {
       @JsonKey(name: "area_mast_department_code") this.departmentCode = "",
       @JsonKey(name: "app_no") this.appNumber = ""});
 
-  factory _$_PendingWfhModel.fromJson(Map<String, dynamic> json) =>
-      _$$_PendingWfhModelFromJson(json);
+  factory _$PendingWfhModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PendingWfhModelImplFromJson(json);
 
   @override
   @JsonKey(name: "empmemb_emp_master_emp_number")
@@ -278,10 +278,10 @@ class _$_PendingWfhModel implements _PendingWfhModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PendingWfhModel &&
+            other is _$PendingWfhModelImpl &&
             (identical(other.empNumber, empNumber) ||
                 other.empNumber == empNumber) &&
             (identical(other.fromDate, fromDate) ||
@@ -307,12 +307,13 @@ class _$_PendingWfhModel implements _PendingWfhModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PendingWfhModelCopyWith<_$_PendingWfhModel> get copyWith =>
-      __$$_PendingWfhModelCopyWithImpl<_$_PendingWfhModel>(this, _$identity);
+  _$$PendingWfhModelImplCopyWith<_$PendingWfhModelImpl> get copyWith =>
+      __$$PendingWfhModelImplCopyWithImpl<_$PendingWfhModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PendingWfhModelToJson(
+    return _$$PendingWfhModelImplToJson(
       this,
     );
   }
@@ -329,10 +330,10 @@ abstract class _PendingWfhModel implements PendingWfhModel {
       @JsonKey(name: "name") final String name,
       @JsonKey(name: "reporting_to") final String reportingTo,
       @JsonKey(name: "area_mast_department_code") final String departmentCode,
-      @JsonKey(name: "app_no") final String appNumber}) = _$_PendingWfhModel;
+      @JsonKey(name: "app_no") final String appNumber}) = _$PendingWfhModelImpl;
 
   factory _PendingWfhModel.fromJson(Map<String, dynamic> json) =
-      _$_PendingWfhModel.fromJson;
+      _$PendingWfhModelImpl.fromJson;
 
   @override
   @JsonKey(name: "empmemb_emp_master_emp_number")
@@ -366,6 +367,6 @@ abstract class _PendingWfhModel implements PendingWfhModel {
   String get appNumber;
   @override
   @JsonKey(ignore: true)
-  _$$_PendingWfhModelCopyWith<_$_PendingWfhModel> get copyWith =>
+  _$$PendingWfhModelImplCopyWith<_$PendingWfhModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

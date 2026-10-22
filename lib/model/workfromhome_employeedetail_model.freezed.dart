@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'workfromhome_employeedetail_model.dart';
 
@@ -12,7 +12,7 @@ part of 'workfromhome_employeedetail_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 WFHEmployeeDetailModel _$WFHEmployeeDetailModelFromJson(
     Map<String, dynamic> json) {
@@ -106,11 +106,12 @@ class _$WFHEmployeeDetailModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_WFHEmployeeDetailModelCopyWith<$Res>
+abstract class _$$WFHEmployeeDetailModelImplCopyWith<$Res>
     implements $WFHEmployeeDetailModelCopyWith<$Res> {
-  factory _$$_WFHEmployeeDetailModelCopyWith(_$_WFHEmployeeDetailModel value,
-          $Res Function(_$_WFHEmployeeDetailModel) then) =
-      __$$_WFHEmployeeDetailModelCopyWithImpl<$Res>;
+  factory _$$WFHEmployeeDetailModelImplCopyWith(
+          _$WFHEmployeeDetailModelImpl value,
+          $Res Function(_$WFHEmployeeDetailModelImpl) then) =
+      __$$WFHEmployeeDetailModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -123,12 +124,13 @@ abstract class _$$_WFHEmployeeDetailModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_WFHEmployeeDetailModelCopyWithImpl<$Res>
+class __$$WFHEmployeeDetailModelImplCopyWithImpl<$Res>
     extends _$WFHEmployeeDetailModelCopyWithImpl<$Res,
-        _$_WFHEmployeeDetailModel>
-    implements _$$_WFHEmployeeDetailModelCopyWith<$Res> {
-  __$$_WFHEmployeeDetailModelCopyWithImpl(_$_WFHEmployeeDetailModel _value,
-      $Res Function(_$_WFHEmployeeDetailModel) _then)
+        _$WFHEmployeeDetailModelImpl>
+    implements _$$WFHEmployeeDetailModelImplCopyWith<$Res> {
+  __$$WFHEmployeeDetailModelImplCopyWithImpl(
+      _$WFHEmployeeDetailModelImpl _value,
+      $Res Function(_$WFHEmployeeDetailModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -141,7 +143,7 @@ class __$$_WFHEmployeeDetailModelCopyWithImpl<$Res>
     Object? permamnentNumber = null,
     Object? reportingTo = null,
   }) {
-    return _then(_$_WFHEmployeeDetailModel(
+    return _then(_$WFHEmployeeDetailModelImpl(
       employeeNumber: null == employeeNumber
           ? _value.employeeNumber
           : employeeNumber // ignore: cast_nullable_to_non_nullable
@@ -172,8 +174,8 @@ class __$$_WFHEmployeeDetailModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WFHEmployeeDetailModel implements _WFHEmployeeDetailModel {
-  const _$_WFHEmployeeDetailModel(
+class _$WFHEmployeeDetailModelImpl implements _WFHEmployeeDetailModel {
+  const _$WFHEmployeeDetailModelImpl(
       {@JsonKey(name: "emp_number") this.employeeNumber = "",
       @JsonKey(name: "emp_last_name") this.employeeLastName = "",
       @JsonKey(name: "emp_first_name") this.employeeFirstName = "",
@@ -181,8 +183,8 @@ class _$_WFHEmployeeDetailModel implements _WFHEmployeeDetailModel {
       @JsonKey(name: "permanent_phone") this.permamnentNumber = "",
       @JsonKey(name: "reporting_to") this.reportingTo = ""});
 
-  factory _$_WFHEmployeeDetailModel.fromJson(Map<String, dynamic> json) =>
-      _$$_WFHEmployeeDetailModelFromJson(json);
+  factory _$WFHEmployeeDetailModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WFHEmployeeDetailModelImplFromJson(json);
 
   @override
   @JsonKey(name: "emp_number")
@@ -209,10 +211,10 @@ class _$_WFHEmployeeDetailModel implements _WFHEmployeeDetailModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WFHEmployeeDetailModel &&
+            other is _$WFHEmployeeDetailModelImpl &&
             (identical(other.employeeNumber, employeeNumber) ||
                 other.employeeNumber == employeeNumber) &&
             (identical(other.employeeLastName, employeeLastName) ||
@@ -235,13 +237,13 @@ class _$_WFHEmployeeDetailModel implements _WFHEmployeeDetailModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WFHEmployeeDetailModelCopyWith<_$_WFHEmployeeDetailModel> get copyWith =>
-      __$$_WFHEmployeeDetailModelCopyWithImpl<_$_WFHEmployeeDetailModel>(
-          this, _$identity);
+  _$$WFHEmployeeDetailModelImplCopyWith<_$WFHEmployeeDetailModelImpl>
+      get copyWith => __$$WFHEmployeeDetailModelImplCopyWithImpl<
+          _$WFHEmployeeDetailModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WFHEmployeeDetailModelToJson(
+    return _$$WFHEmployeeDetailModelImplToJson(
       this,
     );
   }
@@ -255,10 +257,10 @@ abstract class _WFHEmployeeDetailModel implements WFHEmployeeDetailModel {
           @JsonKey(name: "present_phone") final String presentNumber,
           @JsonKey(name: "permanent_phone") final String permamnentNumber,
           @JsonKey(name: "reporting_to") final String reportingTo}) =
-      _$_WFHEmployeeDetailModel;
+      _$WFHEmployeeDetailModelImpl;
 
   factory _WFHEmployeeDetailModel.fromJson(Map<String, dynamic> json) =
-      _$_WFHEmployeeDetailModel.fromJson;
+      _$WFHEmployeeDetailModelImpl.fromJson;
 
   @override
   @JsonKey(name: "emp_number")
@@ -280,6 +282,6 @@ abstract class _WFHEmployeeDetailModel implements WFHEmployeeDetailModel {
   String get reportingTo;
   @override
   @JsonKey(ignore: true)
-  _$$_WFHEmployeeDetailModelCopyWith<_$_WFHEmployeeDetailModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$WFHEmployeeDetailModelImplCopyWith<_$WFHEmployeeDetailModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

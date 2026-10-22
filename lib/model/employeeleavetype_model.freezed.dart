@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'employeeleavetype_model.dart';
 
@@ -12,7 +12,7 @@ part of 'employeeleavetype_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 EmployeeLeavetypeModel _$EmployeeLeavetypeModelFromJson(
     Map<String, dynamic> json) {
@@ -90,11 +90,12 @@ class _$EmployeeLeavetypeModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_EmployeeLeavetypeModelCopyWith<$Res>
+abstract class _$$EmployeeLeavetypeModelImplCopyWith<$Res>
     implements $EmployeeLeavetypeModelCopyWith<$Res> {
-  factory _$$_EmployeeLeavetypeModelCopyWith(_$_EmployeeLeavetypeModel value,
-          $Res Function(_$_EmployeeLeavetypeModel) then) =
-      __$$_EmployeeLeavetypeModelCopyWithImpl<$Res>;
+  factory _$$EmployeeLeavetypeModelImplCopyWith(
+          _$EmployeeLeavetypeModelImpl value,
+          $Res Function(_$EmployeeLeavetypeModelImpl) then) =
+      __$$EmployeeLeavetypeModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -105,12 +106,13 @@ abstract class _$$_EmployeeLeavetypeModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EmployeeLeavetypeModelCopyWithImpl<$Res>
+class __$$EmployeeLeavetypeModelImplCopyWithImpl<$Res>
     extends _$EmployeeLeavetypeModelCopyWithImpl<$Res,
-        _$_EmployeeLeavetypeModel>
-    implements _$$_EmployeeLeavetypeModelCopyWith<$Res> {
-  __$$_EmployeeLeavetypeModelCopyWithImpl(_$_EmployeeLeavetypeModel _value,
-      $Res Function(_$_EmployeeLeavetypeModel) _then)
+        _$EmployeeLeavetypeModelImpl>
+    implements _$$EmployeeLeavetypeModelImplCopyWith<$Res> {
+  __$$EmployeeLeavetypeModelImplCopyWithImpl(
+      _$EmployeeLeavetypeModelImpl _value,
+      $Res Function(_$EmployeeLeavetypeModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -121,7 +123,7 @@ class __$$_EmployeeLeavetypeModelCopyWithImpl<$Res>
     Object? emp_leave_list = null,
     Object? leave_list = null,
   }) {
-    return _then(_$_EmployeeLeavetypeModel(
+    return _then(_$EmployeeLeavetypeModelImpl(
       balanceLeave: null == balanceLeave
           ? _value.balanceLeave
           : balanceLeave // ignore: cast_nullable_to_non_nullable
@@ -144,8 +146,8 @@ class __$$_EmployeeLeavetypeModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EmployeeLeavetypeModel implements _EmployeeLeavetypeModel {
-  const _$_EmployeeLeavetypeModel(
+class _$EmployeeLeavetypeModelImpl implements _EmployeeLeavetypeModel {
+  const _$EmployeeLeavetypeModelImpl(
       {@JsonKey(name: "balance_leave") this.balanceLeave = 0.0,
       @JsonKey(name: "leave_taken") this.leaveTaken = 0.0,
       final List<EmployeeLeaveModel> emp_leave_list =
@@ -155,8 +157,8 @@ class _$_EmployeeLeavetypeModel implements _EmployeeLeavetypeModel {
       : _emp_leave_list = emp_leave_list,
         _leave_list = leave_list;
 
-  factory _$_EmployeeLeavetypeModel.fromJson(Map<String, dynamic> json) =>
-      _$$_EmployeeLeavetypeModelFromJson(json);
+  factory _$EmployeeLeavetypeModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmployeeLeavetypeModelImplFromJson(json);
 
   @override
   @JsonKey(name: "balance_leave")
@@ -168,6 +170,7 @@ class _$_EmployeeLeavetypeModel implements _EmployeeLeavetypeModel {
   @override
   @JsonKey()
   List<EmployeeLeaveModel> get emp_leave_list {
+    if (_emp_leave_list is EqualUnmodifiableListView) return _emp_leave_list;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_emp_leave_list);
   }
@@ -176,6 +179,7 @@ class _$_EmployeeLeavetypeModel implements _EmployeeLeavetypeModel {
   @override
   @JsonKey()
   List<EmployeeleaveListModel> get leave_list {
+    if (_leave_list is EqualUnmodifiableListView) return _leave_list;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_leave_list);
   }
@@ -186,10 +190,10 @@ class _$_EmployeeLeavetypeModel implements _EmployeeLeavetypeModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmployeeLeavetypeModel &&
+            other is _$EmployeeLeavetypeModelImpl &&
             (identical(other.balanceLeave, balanceLeave) ||
                 other.balanceLeave == balanceLeave) &&
             (identical(other.leaveTaken, leaveTaken) ||
@@ -212,13 +216,13 @@ class _$_EmployeeLeavetypeModel implements _EmployeeLeavetypeModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmployeeLeavetypeModelCopyWith<_$_EmployeeLeavetypeModel> get copyWith =>
-      __$$_EmployeeLeavetypeModelCopyWithImpl<_$_EmployeeLeavetypeModel>(
-          this, _$identity);
+  _$$EmployeeLeavetypeModelImplCopyWith<_$EmployeeLeavetypeModelImpl>
+      get copyWith => __$$EmployeeLeavetypeModelImplCopyWithImpl<
+          _$EmployeeLeavetypeModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmployeeLeavetypeModelToJson(
+    return _$$EmployeeLeavetypeModelImplToJson(
       this,
     );
   }
@@ -230,10 +234,10 @@ abstract class _EmployeeLeavetypeModel implements EmployeeLeavetypeModel {
           @JsonKey(name: "leave_taken") final double leaveTaken,
           final List<EmployeeLeaveModel> emp_leave_list,
           final List<EmployeeleaveListModel> leave_list}) =
-      _$_EmployeeLeavetypeModel;
+      _$EmployeeLeavetypeModelImpl;
 
   factory _EmployeeLeavetypeModel.fromJson(Map<String, dynamic> json) =
-      _$_EmployeeLeavetypeModel.fromJson;
+      _$EmployeeLeavetypeModelImpl.fromJson;
 
   @override
   @JsonKey(name: "balance_leave")
@@ -247,6 +251,6 @@ abstract class _EmployeeLeavetypeModel implements EmployeeLeavetypeModel {
   List<EmployeeleaveListModel> get leave_list;
   @override
   @JsonKey(ignore: true)
-  _$$_EmployeeLeavetypeModelCopyWith<_$_EmployeeLeavetypeModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$EmployeeLeavetypeModelImplCopyWith<_$EmployeeLeavetypeModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

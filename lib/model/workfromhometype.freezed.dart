@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'workfromhometype.dart';
 
@@ -12,7 +12,7 @@ part of 'workfromhometype.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 WorkfromHomeTypeModel _$WorkfromHomeTypeModelFromJson(
     Map<String, dynamic> json) {
@@ -74,11 +74,12 @@ class _$WorkfromHomeTypeModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_WorkfromHomeTypeModelCopyWith<$Res>
+abstract class _$$WorkfromHomeTypeModelImplCopyWith<$Res>
     implements $WorkfromHomeTypeModelCopyWith<$Res> {
-  factory _$$_WorkfromHomeTypeModelCopyWith(_$_WorkfromHomeTypeModel value,
-          $Res Function(_$_WorkfromHomeTypeModel) then) =
-      __$$_WorkfromHomeTypeModelCopyWithImpl<$Res>;
+  factory _$$WorkfromHomeTypeModelImplCopyWith(
+          _$WorkfromHomeTypeModelImpl value,
+          $Res Function(_$WorkfromHomeTypeModelImpl) then) =
+      __$$WorkfromHomeTypeModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -87,11 +88,12 @@ abstract class _$$_WorkfromHomeTypeModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_WorkfromHomeTypeModelCopyWithImpl<$Res>
-    extends _$WorkfromHomeTypeModelCopyWithImpl<$Res, _$_WorkfromHomeTypeModel>
-    implements _$$_WorkfromHomeTypeModelCopyWith<$Res> {
-  __$$_WorkfromHomeTypeModelCopyWithImpl(_$_WorkfromHomeTypeModel _value,
-      $Res Function(_$_WorkfromHomeTypeModel) _then)
+class __$$WorkfromHomeTypeModelImplCopyWithImpl<$Res>
+    extends _$WorkfromHomeTypeModelCopyWithImpl<$Res,
+        _$WorkfromHomeTypeModelImpl>
+    implements _$$WorkfromHomeTypeModelImplCopyWith<$Res> {
+  __$$WorkfromHomeTypeModelImplCopyWithImpl(_$WorkfromHomeTypeModelImpl _value,
+      $Res Function(_$WorkfromHomeTypeModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +102,7 @@ class __$$_WorkfromHomeTypeModelCopyWithImpl<$Res>
     Object? controlCode = null,
     Object? meaning = null,
   }) {
-    return _then(_$_WorkfromHomeTypeModel(
+    return _then(_$WorkfromHomeTypeModelImpl(
       controlCode: null == controlCode
           ? _value.controlCode
           : controlCode // ignore: cast_nullable_to_non_nullable
@@ -115,13 +117,13 @@ class __$$_WorkfromHomeTypeModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WorkfromHomeTypeModel implements _WorkfromHomeTypeModel {
-  const _$_WorkfromHomeTypeModel(
+class _$WorkfromHomeTypeModelImpl implements _WorkfromHomeTypeModel {
+  const _$WorkfromHomeTypeModelImpl(
       {@JsonKey(name: "control_code") this.controlCode = "",
       @JsonKey(name: "meaning") this.meaning = ""});
 
-  factory _$_WorkfromHomeTypeModel.fromJson(Map<String, dynamic> json) =>
-      _$$_WorkfromHomeTypeModelFromJson(json);
+  factory _$WorkfromHomeTypeModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WorkfromHomeTypeModelImplFromJson(json);
 
   @override
   @JsonKey(name: "control_code")
@@ -136,10 +138,10 @@ class _$_WorkfromHomeTypeModel implements _WorkfromHomeTypeModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WorkfromHomeTypeModel &&
+            other is _$WorkfromHomeTypeModelImpl &&
             (identical(other.controlCode, controlCode) ||
                 other.controlCode == controlCode) &&
             (identical(other.meaning, meaning) || other.meaning == meaning));
@@ -152,13 +154,13 @@ class _$_WorkfromHomeTypeModel implements _WorkfromHomeTypeModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WorkfromHomeTypeModelCopyWith<_$_WorkfromHomeTypeModel> get copyWith =>
-      __$$_WorkfromHomeTypeModelCopyWithImpl<_$_WorkfromHomeTypeModel>(
-          this, _$identity);
+  _$$WorkfromHomeTypeModelImplCopyWith<_$WorkfromHomeTypeModelImpl>
+      get copyWith => __$$WorkfromHomeTypeModelImplCopyWithImpl<
+          _$WorkfromHomeTypeModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WorkfromHomeTypeModelToJson(
+    return _$$WorkfromHomeTypeModelImplToJson(
       this,
     );
   }
@@ -168,10 +170,10 @@ abstract class _WorkfromHomeTypeModel implements WorkfromHomeTypeModel {
   const factory _WorkfromHomeTypeModel(
           {@JsonKey(name: "control_code") final String controlCode,
           @JsonKey(name: "meaning") final String meaning}) =
-      _$_WorkfromHomeTypeModel;
+      _$WorkfromHomeTypeModelImpl;
 
   factory _WorkfromHomeTypeModel.fromJson(Map<String, dynamic> json) =
-      _$_WorkfromHomeTypeModel.fromJson;
+      _$WorkfromHomeTypeModelImpl.fromJson;
 
   @override
   @JsonKey(name: "control_code")
@@ -181,6 +183,6 @@ abstract class _WorkfromHomeTypeModel implements WorkfromHomeTypeModel {
   String get meaning;
   @override
   @JsonKey(ignore: true)
-  _$$_WorkfromHomeTypeModelCopyWith<_$_WorkfromHomeTypeModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$WorkfromHomeTypeModelImplCopyWith<_$WorkfromHomeTypeModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

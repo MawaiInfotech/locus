@@ -6,9 +6,9 @@ part of 'requestoffduty_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RequestoffdutyModel _$$_RequestoffdutyModelFromJson(
+_$RequestoffdutyModelImpl _$$RequestoffdutyModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_RequestoffdutyModel(
+    _$RequestoffdutyModelImpl(
       od_data: (json['od_data'] as List<dynamic>?)
               ?.map((e) => OffdutyDataModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -46,8 +46,8 @@ _$_RequestoffdutyModel _$$_RequestoffdutyModelFromJson(
           : AppliedToModel.fromJson(json['applied_to'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_RequestoffdutyModelToJson(
-        _$_RequestoffdutyModel instance) =>
+Map<String, dynamic> _$$RequestoffdutyModelImplToJson(
+        _$RequestoffdutyModelImpl instance) =>
     <String, dynamic>{
       'od_data': instance.od_data,
       'od_type': instance.od_type,

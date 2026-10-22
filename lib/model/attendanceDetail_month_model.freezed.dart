@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'attendanceDetail_month_model.dart';
 
@@ -12,7 +12,7 @@ part of 'attendanceDetail_month_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 AttendanceDetailMonthModel _$AttendanceDetailMonthModelFromJson(
     Map<String, dynamic> json) {
@@ -143,12 +143,12 @@ class _$AttendanceDetailMonthModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_AttendanceDetailMonthModelCopyWith<$Res>
+abstract class _$$AttendanceDetailMonthModelImplCopyWith<$Res>
     implements $AttendanceDetailMonthModelCopyWith<$Res> {
-  factory _$$_AttendanceDetailMonthModelCopyWith(
-          _$_AttendanceDetailMonthModel value,
-          $Res Function(_$_AttendanceDetailMonthModel) then) =
-      __$$_AttendanceDetailMonthModelCopyWithImpl<$Res>;
+  factory _$$AttendanceDetailMonthModelImplCopyWith(
+          _$AttendanceDetailMonthModelImpl value,
+          $Res Function(_$AttendanceDetailMonthModelImpl) then) =
+      __$$AttendanceDetailMonthModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -167,13 +167,13 @@ abstract class _$$_AttendanceDetailMonthModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AttendanceDetailMonthModelCopyWithImpl<$Res>
+class __$$AttendanceDetailMonthModelImplCopyWithImpl<$Res>
     extends _$AttendanceDetailMonthModelCopyWithImpl<$Res,
-        _$_AttendanceDetailMonthModel>
-    implements _$$_AttendanceDetailMonthModelCopyWith<$Res> {
-  __$$_AttendanceDetailMonthModelCopyWithImpl(
-      _$_AttendanceDetailMonthModel _value,
-      $Res Function(_$_AttendanceDetailMonthModel) _then)
+        _$AttendanceDetailMonthModelImpl>
+    implements _$$AttendanceDetailMonthModelImplCopyWith<$Res> {
+  __$$AttendanceDetailMonthModelImplCopyWithImpl(
+      _$AttendanceDetailMonthModelImpl _value,
+      $Res Function(_$AttendanceDetailMonthModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -192,7 +192,7 @@ class __$$_AttendanceDetailMonthModelCopyWithImpl<$Res>
     Object? Novemebr = null,
     Object? December = null,
   }) {
-    return _then(_$_AttendanceDetailMonthModel(
+    return _then(_$AttendanceDetailMonthModelImpl(
       January: null == January
           ? _value.January
           : January // ignore: cast_nullable_to_non_nullable
@@ -247,8 +247,8 @@ class __$$_AttendanceDetailMonthModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AttendanceDetailMonthModel implements _AttendanceDetailMonthModel {
-  const _$_AttendanceDetailMonthModel(
+class _$AttendanceDetailMonthModelImpl implements _AttendanceDetailMonthModel {
+  const _$AttendanceDetailMonthModelImpl(
       {this.January = "",
       this.February = "",
       this.March = "",
@@ -262,8 +262,9 @@ class _$_AttendanceDetailMonthModel implements _AttendanceDetailMonthModel {
       this.Novemebr = "",
       this.December = ""});
 
-  factory _$_AttendanceDetailMonthModel.fromJson(Map<String, dynamic> json) =>
-      _$$_AttendanceDetailMonthModelFromJson(json);
+  factory _$AttendanceDetailMonthModelImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$AttendanceDetailMonthModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -308,10 +309,10 @@ class _$_AttendanceDetailMonthModel implements _AttendanceDetailMonthModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AttendanceDetailMonthModel &&
+            other is _$AttendanceDetailMonthModelImpl &&
             (identical(other.January, January) || other.January == January) &&
             (identical(other.February, February) ||
                 other.February == February) &&
@@ -338,13 +339,13 @@ class _$_AttendanceDetailMonthModel implements _AttendanceDetailMonthModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AttendanceDetailMonthModelCopyWith<_$_AttendanceDetailMonthModel>
-      get copyWith => __$$_AttendanceDetailMonthModelCopyWithImpl<
-          _$_AttendanceDetailMonthModel>(this, _$identity);
+  _$$AttendanceDetailMonthModelImplCopyWith<_$AttendanceDetailMonthModelImpl>
+      get copyWith => __$$AttendanceDetailMonthModelImplCopyWithImpl<
+          _$AttendanceDetailMonthModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AttendanceDetailMonthModelToJson(
+    return _$$AttendanceDetailMonthModelImplToJson(
       this,
     );
   }
@@ -364,10 +365,10 @@ abstract class _AttendanceDetailMonthModel
       final String September,
       final String October,
       final String Novemebr,
-      final String December}) = _$_AttendanceDetailMonthModel;
+      final String December}) = _$AttendanceDetailMonthModelImpl;
 
   factory _AttendanceDetailMonthModel.fromJson(Map<String, dynamic> json) =
-      _$_AttendanceDetailMonthModel.fromJson;
+      _$AttendanceDetailMonthModelImpl.fromJson;
 
   @override
   String get January;
@@ -395,6 +396,6 @@ abstract class _AttendanceDetailMonthModel
   String get December;
   @override
   @JsonKey(ignore: true)
-  _$$_AttendanceDetailMonthModelCopyWith<_$_AttendanceDetailMonthModel>
+  _$$AttendanceDetailMonthModelImplCopyWith<_$AttendanceDetailMonthModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'teamleader_attendanceapproverejection_state.dart';
 
@@ -12,7 +12,7 @@ part of 'teamleader_attendanceapproverejection_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TeamLeaderAttendanceApproveRejectionState {
@@ -156,11 +156,11 @@ class _$TeamLeaderAttendanceApproveRejectionStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LoadingCopyWith<$Res>
+abstract class _$$LoadingImplCopyWith<$Res>
     implements $TeamLeaderAttendanceApproveRejectionStateCopyWith<$Res> {
-  factory _$$_LoadingCopyWith(
-          _$_Loading value, $Res Function(_$_Loading) then) =
-      __$$_LoadingCopyWithImpl<$Res>;
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel});
@@ -171,10 +171,11 @@ abstract class _$$_LoadingCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res>
+class __$$LoadingImplCopyWithImpl<$Res>
     extends _$TeamLeaderAttendanceApproveRejectionStateCopyWithImpl<$Res,
-        _$_Loading> implements _$$_LoadingCopyWith<$Res> {
-  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+        _$LoadingImpl> implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -182,7 +183,7 @@ class __$$_LoadingCopyWithImpl<$Res>
   $Res call({
     Object? approvalRejectionModel = null,
   }) {
-    return _then(_$_Loading(
+    return _then(_$LoadingImpl(
       null == approvalRejectionModel
           ? _value.approvalRejectionModel
           : approvalRejectionModel // ignore: cast_nullable_to_non_nullable
@@ -193,8 +194,8 @@ class __$$_LoadingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Loading implements _Loading {
-  const _$_Loading(this.approvalRejectionModel);
+class _$LoadingImpl implements _Loading {
+  const _$LoadingImpl(this.approvalRejectionModel);
 
   @override
   final TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel;
@@ -205,10 +206,10 @@ class _$_Loading implements _Loading {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Loading &&
+            other is _$LoadingImpl &&
             (identical(other.approvalRejectionModel, approvalRejectionModel) ||
                 other.approvalRejectionModel == approvalRejectionModel));
   }
@@ -219,8 +220,8 @@ class _$_Loading implements _Loading {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
-      __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
+  _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
+      __$$LoadingImplCopyWithImpl<_$LoadingImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -330,22 +331,22 @@ class _$_Loading implements _Loading {
 abstract class _Loading implements TeamLeaderAttendanceApproveRejectionState {
   const factory _Loading(
       final TeamLeaderAttendanceApproveRejectionModel
-          approvalRejectionModel) = _$_Loading;
+          approvalRejectionModel) = _$LoadingImpl;
 
   @override
   TeamLeaderAttendanceApproveRejectionModel get approvalRejectionModel;
   @override
   @JsonKey(ignore: true)
-  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
+  _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ContentCopyWith<$Res>
+abstract class _$$ContentImplCopyWith<$Res>
     implements $TeamLeaderAttendanceApproveRejectionStateCopyWith<$Res> {
-  factory _$$_ContentCopyWith(
-          _$_Content value, $Res Function(_$_Content) then) =
-      __$$_ContentCopyWithImpl<$Res>;
+  factory _$$ContentImplCopyWith(
+          _$ContentImpl value, $Res Function(_$ContentImpl) then) =
+      __$$ContentImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel});
@@ -356,10 +357,11 @@ abstract class _$$_ContentCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ContentCopyWithImpl<$Res>
+class __$$ContentImplCopyWithImpl<$Res>
     extends _$TeamLeaderAttendanceApproveRejectionStateCopyWithImpl<$Res,
-        _$_Content> implements _$$_ContentCopyWith<$Res> {
-  __$$_ContentCopyWithImpl(_$_Content _value, $Res Function(_$_Content) _then)
+        _$ContentImpl> implements _$$ContentImplCopyWith<$Res> {
+  __$$ContentImplCopyWithImpl(
+      _$ContentImpl _value, $Res Function(_$ContentImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -367,7 +369,7 @@ class __$$_ContentCopyWithImpl<$Res>
   $Res call({
     Object? approvalRejectionModel = null,
   }) {
-    return _then(_$_Content(
+    return _then(_$ContentImpl(
       null == approvalRejectionModel
           ? _value.approvalRejectionModel
           : approvalRejectionModel // ignore: cast_nullable_to_non_nullable
@@ -378,8 +380,8 @@ class __$$_ContentCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Content implements _Content {
-  const _$_Content(this.approvalRejectionModel);
+class _$ContentImpl implements _Content {
+  const _$ContentImpl(this.approvalRejectionModel);
 
   @override
   final TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel;
@@ -390,10 +392,10 @@ class _$_Content implements _Content {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Content &&
+            other is _$ContentImpl &&
             (identical(other.approvalRejectionModel, approvalRejectionModel) ||
                 other.approvalRejectionModel == approvalRejectionModel));
   }
@@ -404,8 +406,8 @@ class _$_Content implements _Content {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ContentCopyWith<_$_Content> get copyWith =>
-      __$$_ContentCopyWithImpl<_$_Content>(this, _$identity);
+  _$$ContentImplCopyWith<_$ContentImpl> get copyWith =>
+      __$$ContentImplCopyWithImpl<_$ContentImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -515,22 +517,22 @@ class _$_Content implements _Content {
 abstract class _Content implements TeamLeaderAttendanceApproveRejectionState {
   const factory _Content(
       final TeamLeaderAttendanceApproveRejectionModel
-          approvalRejectionModel) = _$_Content;
+          approvalRejectionModel) = _$ContentImpl;
 
   @override
   TeamLeaderAttendanceApproveRejectionModel get approvalRejectionModel;
   @override
   @JsonKey(ignore: true)
-  _$$_ContentCopyWith<_$_Content> get copyWith =>
+  _$$ContentImplCopyWith<_$ContentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SuccessCopyWith<$Res>
+abstract class _$$SuccessImplCopyWith<$Res>
     implements $TeamLeaderAttendanceApproveRejectionStateCopyWith<$Res> {
-  factory _$$_SuccessCopyWith(
-          _$_Success value, $Res Function(_$_Success) then) =
-      __$$_SuccessCopyWithImpl<$Res>;
+  factory _$$SuccessImplCopyWith(
+          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -543,10 +545,11 @@ abstract class _$$_SuccessCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res>
+class __$$SuccessImplCopyWithImpl<$Res>
     extends _$TeamLeaderAttendanceApproveRejectionStateCopyWithImpl<$Res,
-        _$_Success> implements _$$_SuccessCopyWith<$Res> {
-  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+        _$SuccessImpl> implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(
+      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -555,7 +558,7 @@ class __$$_SuccessCopyWithImpl<$Res>
     Object? approvalRejectionModel = null,
     Object? message = freezed,
   }) {
-    return _then(_$_Success(
+    return _then(_$SuccessImpl(
       null == approvalRejectionModel
           ? _value.approvalRejectionModel
           : approvalRejectionModel // ignore: cast_nullable_to_non_nullable
@@ -570,8 +573,8 @@ class __$$_SuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Success implements _Success {
-  const _$_Success(this.approvalRejectionModel, this.message);
+class _$SuccessImpl implements _Success {
+  const _$SuccessImpl(this.approvalRejectionModel, this.message);
 
   @override
   final TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel;
@@ -584,10 +587,10 @@ class _$_Success implements _Success {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Success &&
+            other is _$SuccessImpl &&
             (identical(other.approvalRejectionModel, approvalRejectionModel) ||
                 other.approvalRejectionModel == approvalRejectionModel) &&
             (identical(other.message, message) || other.message == message));
@@ -599,8 +602,8 @@ class _$_Success implements _Success {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
-      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -710,22 +713,23 @@ class _$_Success implements _Success {
 abstract class _Success implements TeamLeaderAttendanceApproveRejectionState {
   const factory _Success(
       final TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel,
-      final String? message) = _$_Success;
+      final String? message) = _$SuccessImpl;
 
   @override
   TeamLeaderAttendanceApproveRejectionModel get approvalRejectionModel;
   String? get message;
   @override
   @JsonKey(ignore: true)
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FailedCopyWith<$Res>
+abstract class _$$FailedImplCopyWith<$Res>
     implements $TeamLeaderAttendanceApproveRejectionStateCopyWith<$Res> {
-  factory _$$_FailedCopyWith(_$_Failed value, $Res Function(_$_Failed) then) =
-      __$$_FailedCopyWithImpl<$Res>;
+  factory _$$FailedImplCopyWith(
+          _$FailedImpl value, $Res Function(_$FailedImpl) then) =
+      __$$FailedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -738,10 +742,11 @@ abstract class _$$_FailedCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FailedCopyWithImpl<$Res>
+class __$$FailedImplCopyWithImpl<$Res>
     extends _$TeamLeaderAttendanceApproveRejectionStateCopyWithImpl<$Res,
-        _$_Failed> implements _$$_FailedCopyWith<$Res> {
-  __$$_FailedCopyWithImpl(_$_Failed _value, $Res Function(_$_Failed) _then)
+        _$FailedImpl> implements _$$FailedImplCopyWith<$Res> {
+  __$$FailedImplCopyWithImpl(
+      _$FailedImpl _value, $Res Function(_$FailedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -750,7 +755,7 @@ class __$$_FailedCopyWithImpl<$Res>
     Object? approvalRejectionModel = null,
     Object? message = null,
   }) {
-    return _then(_$_Failed(
+    return _then(_$FailedImpl(
       null == approvalRejectionModel
           ? _value.approvalRejectionModel
           : approvalRejectionModel // ignore: cast_nullable_to_non_nullable
@@ -765,8 +770,8 @@ class __$$_FailedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Failed implements _Failed {
-  const _$_Failed(this.approvalRejectionModel, this.message);
+class _$FailedImpl implements _Failed {
+  const _$FailedImpl(this.approvalRejectionModel, this.message);
 
   @override
   final TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel;
@@ -779,10 +784,10 @@ class _$_Failed implements _Failed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Failed &&
+            other is _$FailedImpl &&
             (identical(other.approvalRejectionModel, approvalRejectionModel) ||
                 other.approvalRejectionModel == approvalRejectionModel) &&
             (identical(other.message, message) || other.message == message));
@@ -794,8 +799,8 @@ class _$_Failed implements _Failed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FailedCopyWith<_$_Failed> get copyWith =>
-      __$$_FailedCopyWithImpl<_$_Failed>(this, _$identity);
+  _$$FailedImplCopyWith<_$FailedImpl> get copyWith =>
+      __$$FailedImplCopyWithImpl<_$FailedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -905,13 +910,13 @@ class _$_Failed implements _Failed {
 abstract class _Failed implements TeamLeaderAttendanceApproveRejectionState {
   const factory _Failed(
       final TeamLeaderAttendanceApproveRejectionModel approvalRejectionModel,
-      final String message) = _$_Failed;
+      final String message) = _$FailedImpl;
 
   @override
   TeamLeaderAttendanceApproveRejectionModel get approvalRejectionModel;
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_FailedCopyWith<_$_Failed> get copyWith =>
+  _$$FailedImplCopyWith<_$FailedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

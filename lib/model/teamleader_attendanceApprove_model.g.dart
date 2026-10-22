@@ -6,9 +6,10 @@ part of 'teamleader_attendanceApprove_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TeamLeaderAttendanceApprovelModel
-    _$$_TeamLeaderAttendanceApprovelModelFromJson(Map<String, dynamic> json) =>
-        _$_TeamLeaderAttendanceApprovelModel(
+_$TeamLeaderAttendanceApprovelModelImpl
+    _$$TeamLeaderAttendanceApprovelModelImplFromJson(
+            Map<String, dynamic> json) =>
+        _$TeamLeaderAttendanceApprovelModelImpl(
           unitCode: json['unit_cd'] as String? ?? "",
           appNo: json['app_no'] as String? ?? "",
           appDate: json['app_date'] as String? ?? "",
@@ -28,8 +29,8 @@ _$_TeamLeaderAttendanceApprovelModel
           employeeName: json['emp_name'] as String? ?? "",
         );
 
-Map<String, dynamic> _$$_TeamLeaderAttendanceApprovelModelToJson(
-        _$_TeamLeaderAttendanceApprovelModel instance) =>
+Map<String, dynamic> _$$TeamLeaderAttendanceApprovelModelImplToJson(
+        _$TeamLeaderAttendanceApprovelModelImpl instance) =>
     <String, dynamic>{
       'unit_cd': instance.unitCode,
       'app_no': instance.appNo,

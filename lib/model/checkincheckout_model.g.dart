@@ -6,16 +6,16 @@ part of 'checkincheckout_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CheckinCheckoutModel _$$_CheckinCheckoutModelFromJson(
+_$CheckinCheckoutModelImpl _$$CheckinCheckoutModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_CheckinCheckoutModel(
+    _$CheckinCheckoutModelImpl(
       address: json['address'] as String? ?? '',
       punchin: json['punchin'] as String? ?? '',
       message: json['message'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$_CheckinCheckoutModelToJson(
-        _$_CheckinCheckoutModel instance) =>
+Map<String, dynamic> _$$CheckinCheckoutModelImplToJson(
+        _$CheckinCheckoutModelImpl instance) =>
     <String, dynamic>{
       'address': instance.address,
       'punchin': instance.punchin,

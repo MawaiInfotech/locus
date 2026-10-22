@@ -6,8 +6,8 @@ part of 'newjoinee_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_NewJoineeModel _$$_NewJoineeModelFromJson(Map<String, dynamic> json) =>
-    _$_NewJoineeModel(
+_$NewJoineeModelImpl _$$NewJoineeModelImplFromJson(Map<String, dynamic> json) =>
+    _$NewJoineeModelImpl(
       firstName: json['emp_first_name'] as String? ?? "",
       lastName: json['emp_last_name'] as String? ?? "",
       photo: json['photo_file'] as String? ?? "",
@@ -15,7 +15,8 @@ _$_NewJoineeModel _$$_NewJoineeModelFromJson(Map<String, dynamic> json) =>
       departName: json['dept_name'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_NewJoineeModelToJson(_$_NewJoineeModel instance) =>
+Map<String, dynamic> _$$NewJoineeModelImplToJson(
+        _$NewJoineeModelImpl instance) =>
     <String, dynamic>{
       'emp_first_name': instance.firstName,
       'emp_last_name': instance.lastName,

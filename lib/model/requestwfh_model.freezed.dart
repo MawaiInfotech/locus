@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'requestwfh_model.dart';
 
@@ -12,7 +12,7 @@ part of 'requestwfh_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 RequestWfhModel _$RequestWfhModelFromJson(Map<String, dynamic> json) {
   return _RequestWfhModel.fromJson(json);
@@ -78,11 +78,11 @@ class _$RequestWfhModelCopyWithImpl<$Res, $Val extends RequestWfhModel>
 }
 
 /// @nodoc
-abstract class _$$_RequestWfhModelCopyWith<$Res>
+abstract class _$$RequestWfhModelImplCopyWith<$Res>
     implements $RequestWfhModelCopyWith<$Res> {
-  factory _$$_RequestWfhModelCopyWith(
-          _$_RequestWfhModel value, $Res Function(_$_RequestWfhModel) then) =
-      __$$_RequestWfhModelCopyWithImpl<$Res>;
+  factory _$$RequestWfhModelImplCopyWith(_$RequestWfhModelImpl value,
+          $Res Function(_$RequestWfhModelImpl) then) =
+      __$$RequestWfhModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -92,11 +92,11 @@ abstract class _$$_RequestWfhModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_RequestWfhModelCopyWithImpl<$Res>
-    extends _$RequestWfhModelCopyWithImpl<$Res, _$_RequestWfhModel>
-    implements _$$_RequestWfhModelCopyWith<$Res> {
-  __$$_RequestWfhModelCopyWithImpl(
-      _$_RequestWfhModel _value, $Res Function(_$_RequestWfhModel) _then)
+class __$$RequestWfhModelImplCopyWithImpl<$Res>
+    extends _$RequestWfhModelCopyWithImpl<$Res, _$RequestWfhModelImpl>
+    implements _$$RequestWfhModelImplCopyWith<$Res> {
+  __$$RequestWfhModelImplCopyWithImpl(
+      _$RequestWfhModelImpl _value, $Res Function(_$RequestWfhModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -106,7 +106,7 @@ class __$$_RequestWfhModelCopyWithImpl<$Res>
     Object? wfh_condition = null,
     Object? cc_list = null,
   }) {
-    return _then(_$_RequestWfhModel(
+    return _then(_$RequestWfhModelImpl(
       wfh_day_type: null == wfh_day_type
           ? _value._wfh_day_type
           : wfh_day_type // ignore: cast_nullable_to_non_nullable
@@ -125,8 +125,8 @@ class __$$_RequestWfhModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RequestWfhModel implements _RequestWfhModel {
-  const _$_RequestWfhModel(
+class _$RequestWfhModelImpl implements _RequestWfhModel {
+  const _$RequestWfhModelImpl(
       {final List<WfhTypeModel> wfh_day_type = const <WfhTypeModel>[],
       final List<WfhConditionModel> wfh_condition = const <WfhConditionModel>[],
       final List<WfhCcListModel> cc_list = const <WfhCcListModel>[]})
@@ -134,13 +134,14 @@ class _$_RequestWfhModel implements _RequestWfhModel {
         _wfh_condition = wfh_condition,
         _cc_list = cc_list;
 
-  factory _$_RequestWfhModel.fromJson(Map<String, dynamic> json) =>
-      _$$_RequestWfhModelFromJson(json);
+  factory _$RequestWfhModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RequestWfhModelImplFromJson(json);
 
   final List<WfhTypeModel> _wfh_day_type;
   @override
   @JsonKey()
   List<WfhTypeModel> get wfh_day_type {
+    if (_wfh_day_type is EqualUnmodifiableListView) return _wfh_day_type;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_wfh_day_type);
   }
@@ -149,6 +150,7 @@ class _$_RequestWfhModel implements _RequestWfhModel {
   @override
   @JsonKey()
   List<WfhConditionModel> get wfh_condition {
+    if (_wfh_condition is EqualUnmodifiableListView) return _wfh_condition;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_wfh_condition);
   }
@@ -157,6 +159,7 @@ class _$_RequestWfhModel implements _RequestWfhModel {
   @override
   @JsonKey()
   List<WfhCcListModel> get cc_list {
+    if (_cc_list is EqualUnmodifiableListView) return _cc_list;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_cc_list);
   }
@@ -167,10 +170,10 @@ class _$_RequestWfhModel implements _RequestWfhModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RequestWfhModel &&
+            other is _$RequestWfhModelImpl &&
             const DeepCollectionEquality()
                 .equals(other._wfh_day_type, _wfh_day_type) &&
             const DeepCollectionEquality()
@@ -189,12 +192,13 @@ class _$_RequestWfhModel implements _RequestWfhModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RequestWfhModelCopyWith<_$_RequestWfhModel> get copyWith =>
-      __$$_RequestWfhModelCopyWithImpl<_$_RequestWfhModel>(this, _$identity);
+  _$$RequestWfhModelImplCopyWith<_$RequestWfhModelImpl> get copyWith =>
+      __$$RequestWfhModelImplCopyWithImpl<_$RequestWfhModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RequestWfhModelToJson(
+    return _$$RequestWfhModelImplToJson(
       this,
     );
   }
@@ -204,10 +208,10 @@ abstract class _RequestWfhModel implements RequestWfhModel {
   const factory _RequestWfhModel(
       {final List<WfhTypeModel> wfh_day_type,
       final List<WfhConditionModel> wfh_condition,
-      final List<WfhCcListModel> cc_list}) = _$_RequestWfhModel;
+      final List<WfhCcListModel> cc_list}) = _$RequestWfhModelImpl;
 
   factory _RequestWfhModel.fromJson(Map<String, dynamic> json) =
-      _$_RequestWfhModel.fromJson;
+      _$RequestWfhModelImpl.fromJson;
 
   @override
   List<WfhTypeModel> get wfh_day_type;
@@ -217,6 +221,6 @@ abstract class _RequestWfhModel implements RequestWfhModel {
   List<WfhCcListModel> get cc_list;
   @override
   @JsonKey(ignore: true)
-  _$$_RequestWfhModelCopyWith<_$_RequestWfhModel> get copyWith =>
+  _$$RequestWfhModelImplCopyWith<_$RequestWfhModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

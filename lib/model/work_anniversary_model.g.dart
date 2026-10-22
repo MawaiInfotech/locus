@@ -16,7 +16,7 @@ _$WorkAnniversaryModelImpl _$$WorkAnniversaryModelImplFromJson(
       year: json['year_part'] as String? ?? "",
       designationName: json['designation_name'] as String? ?? "",
       deptName: json['dept_name'] as String? ?? "",
-      emp_age: (json['emp_age'] as num?)?.toInt() ?? 0,
+      emp_age: json['emp_age'] as int? ?? 0,
       image: json['photo_file'] as String? ?? "",
     );
 

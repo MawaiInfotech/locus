@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'checkincheckout_model.dart';
 
@@ -12,7 +12,7 @@ part of 'checkincheckout_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 CheckinCheckoutModel _$CheckinCheckoutModelFromJson(Map<String, dynamic> json) {
   return _CheckinCheckoutModel.fromJson(json);
@@ -75,22 +75,22 @@ class _$CheckinCheckoutModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_CheckinCheckoutModelCopyWith<$Res>
+abstract class _$$CheckinCheckoutModelImplCopyWith<$Res>
     implements $CheckinCheckoutModelCopyWith<$Res> {
-  factory _$$_CheckinCheckoutModelCopyWith(_$_CheckinCheckoutModel value,
-          $Res Function(_$_CheckinCheckoutModel) then) =
-      __$$_CheckinCheckoutModelCopyWithImpl<$Res>;
+  factory _$$CheckinCheckoutModelImplCopyWith(_$CheckinCheckoutModelImpl value,
+          $Res Function(_$CheckinCheckoutModelImpl) then) =
+      __$$CheckinCheckoutModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String address, String punchin, String message});
 }
 
 /// @nodoc
-class __$$_CheckinCheckoutModelCopyWithImpl<$Res>
-    extends _$CheckinCheckoutModelCopyWithImpl<$Res, _$_CheckinCheckoutModel>
-    implements _$$_CheckinCheckoutModelCopyWith<$Res> {
-  __$$_CheckinCheckoutModelCopyWithImpl(_$_CheckinCheckoutModel _value,
-      $Res Function(_$_CheckinCheckoutModel) _then)
+class __$$CheckinCheckoutModelImplCopyWithImpl<$Res>
+    extends _$CheckinCheckoutModelCopyWithImpl<$Res, _$CheckinCheckoutModelImpl>
+    implements _$$CheckinCheckoutModelImplCopyWith<$Res> {
+  __$$CheckinCheckoutModelImplCopyWithImpl(_$CheckinCheckoutModelImpl _value,
+      $Res Function(_$CheckinCheckoutModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +100,7 @@ class __$$_CheckinCheckoutModelCopyWithImpl<$Res>
     Object? punchin = null,
     Object? message = null,
   }) {
-    return _then(_$_CheckinCheckoutModel(
+    return _then(_$CheckinCheckoutModelImpl(
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -119,12 +119,12 @@ class __$$_CheckinCheckoutModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CheckinCheckoutModel implements _CheckinCheckoutModel {
-  const _$_CheckinCheckoutModel(
+class _$CheckinCheckoutModelImpl implements _CheckinCheckoutModel {
+  const _$CheckinCheckoutModelImpl(
       {this.address = '', this.punchin = '', this.message = ''});
 
-  factory _$_CheckinCheckoutModel.fromJson(Map<String, dynamic> json) =>
-      _$$_CheckinCheckoutModelFromJson(json);
+  factory _$CheckinCheckoutModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CheckinCheckoutModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -142,10 +142,10 @@ class _$_CheckinCheckoutModel implements _CheckinCheckoutModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CheckinCheckoutModel &&
+            other is _$CheckinCheckoutModelImpl &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.punchin, punchin) || other.punchin == punchin) &&
             (identical(other.message, message) || other.message == message));
@@ -158,13 +158,14 @@ class _$_CheckinCheckoutModel implements _CheckinCheckoutModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CheckinCheckoutModelCopyWith<_$_CheckinCheckoutModel> get copyWith =>
-      __$$_CheckinCheckoutModelCopyWithImpl<_$_CheckinCheckoutModel>(
-          this, _$identity);
+  _$$CheckinCheckoutModelImplCopyWith<_$CheckinCheckoutModelImpl>
+      get copyWith =>
+          __$$CheckinCheckoutModelImplCopyWithImpl<_$CheckinCheckoutModelImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CheckinCheckoutModelToJson(
+    return _$$CheckinCheckoutModelImplToJson(
       this,
     );
   }
@@ -174,10 +175,10 @@ abstract class _CheckinCheckoutModel implements CheckinCheckoutModel {
   const factory _CheckinCheckoutModel(
       {final String address,
       final String punchin,
-      final String message}) = _$_CheckinCheckoutModel;
+      final String message}) = _$CheckinCheckoutModelImpl;
 
   factory _CheckinCheckoutModel.fromJson(Map<String, dynamic> json) =
-      _$_CheckinCheckoutModel.fromJson;
+      _$CheckinCheckoutModelImpl.fromJson;
 
   @override
   String get address;
@@ -187,6 +188,6 @@ abstract class _CheckinCheckoutModel implements CheckinCheckoutModel {
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_CheckinCheckoutModelCopyWith<_$_CheckinCheckoutModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$CheckinCheckoutModelImplCopyWith<_$CheckinCheckoutModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

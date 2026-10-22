@@ -6,15 +6,15 @@ part of 'applyrefrral_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApplyReferralModel _$$_ApplyReferralModelFromJson(
+_$ApplyReferralModelImpl _$$ApplyReferralModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ApplyReferralModel(
+    _$ApplyReferralModelImpl(
       status: json['status'] as String? ?? "",
       message: json['message'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_ApplyReferralModelToJson(
-        _$_ApplyReferralModel instance) =>
+Map<String, dynamic> _$$ApplyReferralModelImplToJson(
+        _$ApplyReferralModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,

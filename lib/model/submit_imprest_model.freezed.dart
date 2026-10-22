@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'submit_imprest_model.dart';
 
@@ -12,7 +12,7 @@ part of 'submit_imprest_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SubmitImprestModel _$SubmitImprestModelFromJson(Map<String, dynamic> json) {
   return _SubmitImprestModel.fromJson(json);
@@ -68,22 +68,22 @@ class _$SubmitImprestModelCopyWithImpl<$Res, $Val extends SubmitImprestModel>
 }
 
 /// @nodoc
-abstract class _$$_SubmitImprestModelCopyWith<$Res>
+abstract class _$$SubmitImprestModelImplCopyWith<$Res>
     implements $SubmitImprestModelCopyWith<$Res> {
-  factory _$$_SubmitImprestModelCopyWith(_$_SubmitImprestModel value,
-          $Res Function(_$_SubmitImprestModel) then) =
-      __$$_SubmitImprestModelCopyWithImpl<$Res>;
+  factory _$$SubmitImprestModelImplCopyWith(_$SubmitImprestModelImpl value,
+          $Res Function(_$SubmitImprestModelImpl) then) =
+      __$$SubmitImprestModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int status, String message});
 }
 
 /// @nodoc
-class __$$_SubmitImprestModelCopyWithImpl<$Res>
-    extends _$SubmitImprestModelCopyWithImpl<$Res, _$_SubmitImprestModel>
-    implements _$$_SubmitImprestModelCopyWith<$Res> {
-  __$$_SubmitImprestModelCopyWithImpl(
-      _$_SubmitImprestModel _value, $Res Function(_$_SubmitImprestModel) _then)
+class __$$SubmitImprestModelImplCopyWithImpl<$Res>
+    extends _$SubmitImprestModelCopyWithImpl<$Res, _$SubmitImprestModelImpl>
+    implements _$$SubmitImprestModelImplCopyWith<$Res> {
+  __$$SubmitImprestModelImplCopyWithImpl(_$SubmitImprestModelImpl _value,
+      $Res Function(_$SubmitImprestModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_SubmitImprestModelCopyWithImpl<$Res>
     Object? status = null,
     Object? message = null,
   }) {
-    return _then(_$_SubmitImprestModel(
+    return _then(_$SubmitImprestModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,11 @@ class __$$_SubmitImprestModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SubmitImprestModel implements _SubmitImprestModel {
-  const _$_SubmitImprestModel({this.status = 0, this.message = ""});
+class _$SubmitImprestModelImpl implements _SubmitImprestModel {
+  const _$SubmitImprestModelImpl({this.status = 0, this.message = ""});
 
-  factory _$_SubmitImprestModel.fromJson(Map<String, dynamic> json) =>
-      _$$_SubmitImprestModelFromJson(json);
+  factory _$SubmitImprestModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SubmitImprestModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -126,10 +126,10 @@ class _$_SubmitImprestModel implements _SubmitImprestModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SubmitImprestModel &&
+            other is _$SubmitImprestModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -141,13 +141,13 @@ class _$_SubmitImprestModel implements _SubmitImprestModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SubmitImprestModelCopyWith<_$_SubmitImprestModel> get copyWith =>
-      __$$_SubmitImprestModelCopyWithImpl<_$_SubmitImprestModel>(
+  _$$SubmitImprestModelImplCopyWith<_$SubmitImprestModelImpl> get copyWith =>
+      __$$SubmitImprestModelImplCopyWithImpl<_$SubmitImprestModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SubmitImprestModelToJson(
+    return _$$SubmitImprestModelImplToJson(
       this,
     );
   }
@@ -155,10 +155,10 @@ class _$_SubmitImprestModel implements _SubmitImprestModel {
 
 abstract class _SubmitImprestModel implements SubmitImprestModel {
   const factory _SubmitImprestModel({final int status, final String message}) =
-      _$_SubmitImprestModel;
+      _$SubmitImprestModelImpl;
 
   factory _SubmitImprestModel.fromJson(Map<String, dynamic> json) =
-      _$_SubmitImprestModel.fromJson;
+      _$SubmitImprestModelImpl.fromJson;
 
   @override
   int get status;
@@ -166,6 +166,6 @@ abstract class _SubmitImprestModel implements SubmitImprestModel {
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_SubmitImprestModelCopyWith<_$_SubmitImprestModel> get copyWith =>
+  _$$SubmitImprestModelImplCopyWith<_$SubmitImprestModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

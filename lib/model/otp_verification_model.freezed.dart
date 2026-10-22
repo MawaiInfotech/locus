@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'otp_verification_model.dart';
 
@@ -12,7 +12,7 @@ part of 'otp_verification_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 OTPVerificationModel _$OTPVerificationModelFromJson(Map<String, dynamic> json) {
   return _OTPVerificationModel.fromJson(json);
@@ -75,22 +75,22 @@ class _$OTPVerificationModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_OTPVerificationModelCopyWith<$Res>
+abstract class _$$OTPVerificationModelImplCopyWith<$Res>
     implements $OTPVerificationModelCopyWith<$Res> {
-  factory _$$_OTPVerificationModelCopyWith(_$_OTPVerificationModel value,
-          $Res Function(_$_OTPVerificationModel) then) =
-      __$$_OTPVerificationModelCopyWithImpl<$Res>;
+  factory _$$OTPVerificationModelImplCopyWith(_$OTPVerificationModelImpl value,
+          $Res Function(_$OTPVerificationModelImpl) then) =
+      __$$OTPVerificationModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String status, String msg, String data});
 }
 
 /// @nodoc
-class __$$_OTPVerificationModelCopyWithImpl<$Res>
-    extends _$OTPVerificationModelCopyWithImpl<$Res, _$_OTPVerificationModel>
-    implements _$$_OTPVerificationModelCopyWith<$Res> {
-  __$$_OTPVerificationModelCopyWithImpl(_$_OTPVerificationModel _value,
-      $Res Function(_$_OTPVerificationModel) _then)
+class __$$OTPVerificationModelImplCopyWithImpl<$Res>
+    extends _$OTPVerificationModelCopyWithImpl<$Res, _$OTPVerificationModelImpl>
+    implements _$$OTPVerificationModelImplCopyWith<$Res> {
+  __$$OTPVerificationModelImplCopyWithImpl(_$OTPVerificationModelImpl _value,
+      $Res Function(_$OTPVerificationModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +100,7 @@ class __$$_OTPVerificationModelCopyWithImpl<$Res>
     Object? msg = null,
     Object? data = null,
   }) {
-    return _then(_$_OTPVerificationModel(
+    return _then(_$OTPVerificationModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -119,12 +119,12 @@ class __$$_OTPVerificationModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_OTPVerificationModel implements _OTPVerificationModel {
-  const _$_OTPVerificationModel(
+class _$OTPVerificationModelImpl implements _OTPVerificationModel {
+  const _$OTPVerificationModelImpl(
       {this.status = "", this.msg = "", this.data = ""});
 
-  factory _$_OTPVerificationModel.fromJson(Map<String, dynamic> json) =>
-      _$$_OTPVerificationModelFromJson(json);
+  factory _$OTPVerificationModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OTPVerificationModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -142,10 +142,10 @@ class _$_OTPVerificationModel implements _OTPVerificationModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OTPVerificationModel &&
+            other is _$OTPVerificationModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.msg, msg) || other.msg == msg) &&
             (identical(other.data, data) || other.data == data));
@@ -158,13 +158,14 @@ class _$_OTPVerificationModel implements _OTPVerificationModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OTPVerificationModelCopyWith<_$_OTPVerificationModel> get copyWith =>
-      __$$_OTPVerificationModelCopyWithImpl<_$_OTPVerificationModel>(
-          this, _$identity);
+  _$$OTPVerificationModelImplCopyWith<_$OTPVerificationModelImpl>
+      get copyWith =>
+          __$$OTPVerificationModelImplCopyWithImpl<_$OTPVerificationModelImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_OTPVerificationModelToJson(
+    return _$$OTPVerificationModelImplToJson(
       this,
     );
   }
@@ -174,10 +175,10 @@ abstract class _OTPVerificationModel implements OTPVerificationModel {
   const factory _OTPVerificationModel(
       {final String status,
       final String msg,
-      final String data}) = _$_OTPVerificationModel;
+      final String data}) = _$OTPVerificationModelImpl;
 
   factory _OTPVerificationModel.fromJson(Map<String, dynamic> json) =
-      _$_OTPVerificationModel.fromJson;
+      _$OTPVerificationModelImpl.fromJson;
 
   @override
   String get status;
@@ -187,6 +188,6 @@ abstract class _OTPVerificationModel implements OTPVerificationModel {
   String get data;
   @override
   @JsonKey(ignore: true)
-  _$$_OTPVerificationModelCopyWith<_$_OTPVerificationModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$OTPVerificationModelImplCopyWith<_$OTPVerificationModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

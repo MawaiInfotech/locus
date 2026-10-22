@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'requestoffduty_model.dart';
 
@@ -12,7 +12,7 @@ part of 'requestoffduty_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 RequestoffdutyModel _$RequestoffdutyModelFromJson(Map<String, dynamic> json) {
   return _RequestoffdutyModel.fromJson(json);
@@ -124,11 +124,11 @@ class _$RequestoffdutyModelCopyWithImpl<$Res, $Val extends RequestoffdutyModel>
 }
 
 /// @nodoc
-abstract class _$$_RequestoffdutyModelCopyWith<$Res>
+abstract class _$$RequestoffdutyModelImplCopyWith<$Res>
     implements $RequestoffdutyModelCopyWith<$Res> {
-  factory _$$_RequestoffdutyModelCopyWith(_$_RequestoffdutyModel value,
-          $Res Function(_$_RequestoffdutyModel) then) =
-      __$$_RequestoffdutyModelCopyWithImpl<$Res>;
+  factory _$$RequestoffdutyModelImplCopyWith(_$RequestoffdutyModelImpl value,
+          $Res Function(_$RequestoffdutyModelImpl) then) =
+      __$$RequestoffdutyModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -146,11 +146,11 @@ abstract class _$$_RequestoffdutyModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_RequestoffdutyModelCopyWithImpl<$Res>
-    extends _$RequestoffdutyModelCopyWithImpl<$Res, _$_RequestoffdutyModel>
-    implements _$$_RequestoffdutyModelCopyWith<$Res> {
-  __$$_RequestoffdutyModelCopyWithImpl(_$_RequestoffdutyModel _value,
-      $Res Function(_$_RequestoffdutyModel) _then)
+class __$$RequestoffdutyModelImplCopyWithImpl<$Res>
+    extends _$RequestoffdutyModelCopyWithImpl<$Res, _$RequestoffdutyModelImpl>
+    implements _$$RequestoffdutyModelImplCopyWith<$Res> {
+  __$$RequestoffdutyModelImplCopyWithImpl(_$RequestoffdutyModelImpl _value,
+      $Res Function(_$RequestoffdutyModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -165,7 +165,7 @@ class __$$_RequestoffdutyModelCopyWithImpl<$Res>
     Object? org_list = null,
     Object? applied_to = null,
   }) {
-    return _then(_$_RequestoffdutyModel(
+    return _then(_$RequestoffdutyModelImpl(
       od_data: null == od_data
           ? _value._od_data
           : od_data // ignore: cast_nullable_to_non_nullable
@@ -204,8 +204,8 @@ class __$$_RequestoffdutyModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RequestoffdutyModel implements _RequestoffdutyModel {
-  const _$_RequestoffdutyModel(
+class _$RequestoffdutyModelImpl implements _RequestoffdutyModel {
+  const _$RequestoffdutyModelImpl(
       {final List<OffdutyDataModel> od_data = const <OffdutyDataModel>[],
       final List<OffdutyTypeModel> od_type = const <OffdutyTypeModel>[],
       final List<OffdutyStatusModel> gp_od_status =
@@ -224,13 +224,14 @@ class _$_RequestoffdutyModel implements _RequestoffdutyModel {
         _emp_lov = emp_lov,
         _org_list = org_list;
 
-  factory _$_RequestoffdutyModel.fromJson(Map<String, dynamic> json) =>
-      _$$_RequestoffdutyModelFromJson(json);
+  factory _$RequestoffdutyModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RequestoffdutyModelImplFromJson(json);
 
   final List<OffdutyDataModel> _od_data;
   @override
   @JsonKey()
   List<OffdutyDataModel> get od_data {
+    if (_od_data is EqualUnmodifiableListView) return _od_data;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_od_data);
   }
@@ -239,6 +240,7 @@ class _$_RequestoffdutyModel implements _RequestoffdutyModel {
   @override
   @JsonKey()
   List<OffdutyTypeModel> get od_type {
+    if (_od_type is EqualUnmodifiableListView) return _od_type;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_od_type);
   }
@@ -247,6 +249,7 @@ class _$_RequestoffdutyModel implements _RequestoffdutyModel {
   @override
   @JsonKey()
   List<OffdutyStatusModel> get gp_od_status {
+    if (_gp_od_status is EqualUnmodifiableListView) return _gp_od_status;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_gp_od_status);
   }
@@ -255,6 +258,7 @@ class _$_RequestoffdutyModel implements _RequestoffdutyModel {
   @override
   @JsonKey()
   List<OffdutyForModel> get od_for {
+    if (_od_for is EqualUnmodifiableListView) return _od_for;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_od_for);
   }
@@ -263,6 +267,7 @@ class _$_RequestoffdutyModel implements _RequestoffdutyModel {
   @override
   @JsonKey()
   List<OffdutyPurposeModel> get purpose {
+    if (_purpose is EqualUnmodifiableListView) return _purpose;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_purpose);
   }
@@ -271,6 +276,7 @@ class _$_RequestoffdutyModel implements _RequestoffdutyModel {
   @override
   @JsonKey()
   List<OffdutyEmployeeModel> get emp_lov {
+    if (_emp_lov is EqualUnmodifiableListView) return _emp_lov;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_emp_lov);
   }
@@ -279,6 +285,7 @@ class _$_RequestoffdutyModel implements _RequestoffdutyModel {
   @override
   @JsonKey()
   List<OffdutyClientListModel> get org_list {
+    if (_org_list is EqualUnmodifiableListView) return _org_list;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_org_list);
   }
@@ -293,10 +300,10 @@ class _$_RequestoffdutyModel implements _RequestoffdutyModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RequestoffdutyModel &&
+            other is _$RequestoffdutyModelImpl &&
             const DeepCollectionEquality().equals(other._od_data, _od_data) &&
             const DeepCollectionEquality().equals(other._od_type, _od_type) &&
             const DeepCollectionEquality()
@@ -325,13 +332,13 @@ class _$_RequestoffdutyModel implements _RequestoffdutyModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RequestoffdutyModelCopyWith<_$_RequestoffdutyModel> get copyWith =>
-      __$$_RequestoffdutyModelCopyWithImpl<_$_RequestoffdutyModel>(
+  _$$RequestoffdutyModelImplCopyWith<_$RequestoffdutyModelImpl> get copyWith =>
+      __$$RequestoffdutyModelImplCopyWithImpl<_$RequestoffdutyModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RequestoffdutyModelToJson(
+    return _$$RequestoffdutyModelImplToJson(
       this,
     );
   }
@@ -346,10 +353,10 @@ abstract class _RequestoffdutyModel implements RequestoffdutyModel {
       final List<OffdutyPurposeModel> purpose,
       final List<OffdutyEmployeeModel> emp_lov,
       final List<OffdutyClientListModel> org_list,
-      final AppliedToModel applied_to}) = _$_RequestoffdutyModel;
+      final AppliedToModel applied_to}) = _$RequestoffdutyModelImpl;
 
   factory _RequestoffdutyModel.fromJson(Map<String, dynamic> json) =
-      _$_RequestoffdutyModel.fromJson;
+      _$RequestoffdutyModelImpl.fromJson;
 
   @override
   List<OffdutyDataModel> get od_data;
@@ -369,6 +376,6 @@ abstract class _RequestoffdutyModel implements RequestoffdutyModel {
   AppliedToModel get applied_to;
   @override
   @JsonKey(ignore: true)
-  _$$_RequestoffdutyModelCopyWith<_$_RequestoffdutyModel> get copyWith =>
+  _$$RequestoffdutyModelImplCopyWith<_$RequestoffdutyModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

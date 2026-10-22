@@ -6,14 +6,16 @@ part of 'dummysignup_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DummySignupModel _$$_DummySignupModelFromJson(Map<String, dynamic> json) =>
-    _$_DummySignupModel(
+_$DummySignupModelImpl _$$DummySignupModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$DummySignupModelImpl(
       status: json['status'] as String? ?? "",
       msg: json['msg'] as String? ?? "",
       user: json['user'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_DummySignupModelToJson(_$_DummySignupModel instance) =>
+Map<String, dynamic> _$$DummySignupModelImplToJson(
+        _$DummySignupModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'msg': instance.msg,

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'travelemode_model.dart';
 
@@ -12,7 +12,7 @@ part of 'travelemode_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 TravelModeModel _$TravelModeModelFromJson(Map<String, dynamic> json) {
   return _TravelModeModel.fromJson(json);
@@ -72,11 +72,11 @@ class _$TravelModeModelCopyWithImpl<$Res, $Val extends TravelModeModel>
 }
 
 /// @nodoc
-abstract class _$$_TravelModeModelCopyWith<$Res>
+abstract class _$$TravelModeModelImplCopyWith<$Res>
     implements $TravelModeModelCopyWith<$Res> {
-  factory _$$_TravelModeModelCopyWith(
-          _$_TravelModeModel value, $Res Function(_$_TravelModeModel) then) =
-      __$$_TravelModeModelCopyWithImpl<$Res>;
+  factory _$$TravelModeModelImplCopyWith(_$TravelModeModelImpl value,
+          $Res Function(_$TravelModeModelImpl) then) =
+      __$$TravelModeModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -85,11 +85,11 @@ abstract class _$$_TravelModeModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TravelModeModelCopyWithImpl<$Res>
-    extends _$TravelModeModelCopyWithImpl<$Res, _$_TravelModeModel>
-    implements _$$_TravelModeModelCopyWith<$Res> {
-  __$$_TravelModeModelCopyWithImpl(
-      _$_TravelModeModel _value, $Res Function(_$_TravelModeModel) _then)
+class __$$TravelModeModelImplCopyWithImpl<$Res>
+    extends _$TravelModeModelCopyWithImpl<$Res, _$TravelModeModelImpl>
+    implements _$$TravelModeModelImplCopyWith<$Res> {
+  __$$TravelModeModelImplCopyWithImpl(
+      _$TravelModeModelImpl _value, $Res Function(_$TravelModeModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_TravelModeModelCopyWithImpl<$Res>
     Object? controlCode = null,
     Object? description = null,
   }) {
-    return _then(_$_TravelModeModel(
+    return _then(_$TravelModeModelImpl(
       controlCode: null == controlCode
           ? _value.controlCode
           : controlCode // ignore: cast_nullable_to_non_nullable
@@ -113,13 +113,13 @@ class __$$_TravelModeModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TravelModeModel implements _TravelModeModel {
-  const _$_TravelModeModel(
+class _$TravelModeModelImpl implements _TravelModeModel {
+  const _$TravelModeModelImpl(
       {@JsonKey(name: 'control_code') this.controlCode = '',
       @JsonKey(name: 'description') this.description = ''});
 
-  factory _$_TravelModeModel.fromJson(Map<String, dynamic> json) =>
-      _$$_TravelModeModelFromJson(json);
+  factory _$TravelModeModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TravelModeModelImplFromJson(json);
 
   @override
   @JsonKey(name: 'control_code')
@@ -134,10 +134,10 @@ class _$_TravelModeModel implements _TravelModeModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TravelModeModel &&
+            other is _$TravelModeModelImpl &&
             (identical(other.controlCode, controlCode) ||
                 other.controlCode == controlCode) &&
             (identical(other.description, description) ||
@@ -151,12 +151,13 @@ class _$_TravelModeModel implements _TravelModeModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TravelModeModelCopyWith<_$_TravelModeModel> get copyWith =>
-      __$$_TravelModeModelCopyWithImpl<_$_TravelModeModel>(this, _$identity);
+  _$$TravelModeModelImplCopyWith<_$TravelModeModelImpl> get copyWith =>
+      __$$TravelModeModelImplCopyWithImpl<_$TravelModeModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TravelModeModelToJson(
+    return _$$TravelModeModelImplToJson(
       this,
     );
   }
@@ -166,10 +167,10 @@ abstract class _TravelModeModel implements TravelModeModel {
   const factory _TravelModeModel(
           {@JsonKey(name: 'control_code') final String controlCode,
           @JsonKey(name: 'description') final String description}) =
-      _$_TravelModeModel;
+      _$TravelModeModelImpl;
 
   factory _TravelModeModel.fromJson(Map<String, dynamic> json) =
-      _$_TravelModeModel.fromJson;
+      _$TravelModeModelImpl.fromJson;
 
   @override
   @JsonKey(name: 'control_code')
@@ -179,6 +180,6 @@ abstract class _TravelModeModel implements TravelModeModel {
   String get description;
   @override
   @JsonKey(ignore: true)
-  _$$_TravelModeModelCopyWith<_$_TravelModeModel> get copyWith =>
+  _$$TravelModeModelImplCopyWith<_$TravelModeModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

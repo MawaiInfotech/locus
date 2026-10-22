@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'employeedetail_model.dart';
 
@@ -12,7 +12,7 @@ part of 'employeedetail_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 EmployeeDetailModel _$EmployeeDetailModelFromJson(Map<String, dynamic> json) {
   return _EmployeedetailModel.fromJson(json);
@@ -104,11 +104,11 @@ class _$EmployeeDetailModelCopyWithImpl<$Res, $Val extends EmployeeDetailModel>
 }
 
 /// @nodoc
-abstract class _$$_EmployeedetailModelCopyWith<$Res>
+abstract class _$$EmployeedetailModelImplCopyWith<$Res>
     implements $EmployeeDetailModelCopyWith<$Res> {
-  factory _$$_EmployeedetailModelCopyWith(_$_EmployeedetailModel value,
-          $Res Function(_$_EmployeedetailModel) then) =
-      __$$_EmployeedetailModelCopyWithImpl<$Res>;
+  factory _$$EmployeedetailModelImplCopyWith(_$EmployeedetailModelImpl value,
+          $Res Function(_$EmployeedetailModelImpl) then) =
+      __$$EmployeedetailModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -121,11 +121,11 @@ abstract class _$$_EmployeedetailModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EmployeedetailModelCopyWithImpl<$Res>
-    extends _$EmployeeDetailModelCopyWithImpl<$Res, _$_EmployeedetailModel>
-    implements _$$_EmployeedetailModelCopyWith<$Res> {
-  __$$_EmployeedetailModelCopyWithImpl(_$_EmployeedetailModel _value,
-      $Res Function(_$_EmployeedetailModel) _then)
+class __$$EmployeedetailModelImplCopyWithImpl<$Res>
+    extends _$EmployeeDetailModelCopyWithImpl<$Res, _$EmployeedetailModelImpl>
+    implements _$$EmployeedetailModelImplCopyWith<$Res> {
+  __$$EmployeedetailModelImplCopyWithImpl(_$EmployeedetailModelImpl _value,
+      $Res Function(_$EmployeedetailModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -138,7 +138,7 @@ class __$$_EmployeedetailModelCopyWithImpl<$Res>
     Object? permamnentNumber = null,
     Object? reportingTo = null,
   }) {
-    return _then(_$_EmployeedetailModel(
+    return _then(_$EmployeedetailModelImpl(
       employeeNumber: null == employeeNumber
           ? _value.employeeNumber
           : employeeNumber // ignore: cast_nullable_to_non_nullable
@@ -169,8 +169,8 @@ class __$$_EmployeedetailModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EmployeedetailModel implements _EmployeedetailModel {
-  const _$_EmployeedetailModel(
+class _$EmployeedetailModelImpl implements _EmployeedetailModel {
+  const _$EmployeedetailModelImpl(
       {@JsonKey(name: "emp_number") this.employeeNumber = "",
       @JsonKey(name: "emp_last_name") this.employeeLastName = "",
       @JsonKey(name: "emp_first_name") this.employeeFirstName = "",
@@ -178,8 +178,8 @@ class _$_EmployeedetailModel implements _EmployeedetailModel {
       @JsonKey(name: "permanent_phone") this.permamnentNumber = "",
       @JsonKey(name: "reporting_to") this.reportingTo = ""});
 
-  factory _$_EmployeedetailModel.fromJson(Map<String, dynamic> json) =>
-      _$$_EmployeedetailModelFromJson(json);
+  factory _$EmployeedetailModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmployeedetailModelImplFromJson(json);
 
   @override
   @JsonKey(name: "emp_number")
@@ -206,10 +206,10 @@ class _$_EmployeedetailModel implements _EmployeedetailModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmployeedetailModel &&
+            other is _$EmployeedetailModelImpl &&
             (identical(other.employeeNumber, employeeNumber) ||
                 other.employeeNumber == employeeNumber) &&
             (identical(other.employeeLastName, employeeLastName) ||
@@ -232,13 +232,13 @@ class _$_EmployeedetailModel implements _EmployeedetailModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmployeedetailModelCopyWith<_$_EmployeedetailModel> get copyWith =>
-      __$$_EmployeedetailModelCopyWithImpl<_$_EmployeedetailModel>(
+  _$$EmployeedetailModelImplCopyWith<_$EmployeedetailModelImpl> get copyWith =>
+      __$$EmployeedetailModelImplCopyWithImpl<_$EmployeedetailModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmployeedetailModelToJson(
+    return _$$EmployeedetailModelImplToJson(
       this,
     );
   }
@@ -252,10 +252,10 @@ abstract class _EmployeedetailModel implements EmployeeDetailModel {
           @JsonKey(name: "present_phone") final String presentNumber,
           @JsonKey(name: "permanent_phone") final String permamnentNumber,
           @JsonKey(name: "reporting_to") final String reportingTo}) =
-      _$_EmployeedetailModel;
+      _$EmployeedetailModelImpl;
 
   factory _EmployeedetailModel.fromJson(Map<String, dynamic> json) =
-      _$_EmployeedetailModel.fromJson;
+      _$EmployeedetailModelImpl.fromJson;
 
   @override
   @JsonKey(name: "emp_number")
@@ -277,6 +277,6 @@ abstract class _EmployeedetailModel implements EmployeeDetailModel {
   String get reportingTo;
   @override
   @JsonKey(ignore: true)
-  _$$_EmployeedetailModelCopyWith<_$_EmployeedetailModel> get copyWith =>
+  _$$EmployeedetailModelImplCopyWith<_$EmployeedetailModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

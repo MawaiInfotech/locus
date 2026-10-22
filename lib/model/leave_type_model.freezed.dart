@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'leave_type_model.dart';
 
@@ -12,7 +12,7 @@ part of 'leave_type_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LeavetypeModel _$LeavetypeModelFromJson(Map<String, dynamic> json) {
   return _LeavetypeModel.fromJson(json);
@@ -72,11 +72,11 @@ class _$LeavetypeModelCopyWithImpl<$Res, $Val extends LeavetypeModel>
 }
 
 /// @nodoc
-abstract class _$$_LeavetypeModelCopyWith<$Res>
+abstract class _$$LeavetypeModelImplCopyWith<$Res>
     implements $LeavetypeModelCopyWith<$Res> {
-  factory _$$_LeavetypeModelCopyWith(
-          _$_LeavetypeModel value, $Res Function(_$_LeavetypeModel) then) =
-      __$$_LeavetypeModelCopyWithImpl<$Res>;
+  factory _$$LeavetypeModelImplCopyWith(_$LeavetypeModelImpl value,
+          $Res Function(_$LeavetypeModelImpl) then) =
+      __$$LeavetypeModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -85,11 +85,11 @@ abstract class _$$_LeavetypeModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LeavetypeModelCopyWithImpl<$Res>
-    extends _$LeavetypeModelCopyWithImpl<$Res, _$_LeavetypeModel>
-    implements _$$_LeavetypeModelCopyWith<$Res> {
-  __$$_LeavetypeModelCopyWithImpl(
-      _$_LeavetypeModel _value, $Res Function(_$_LeavetypeModel) _then)
+class __$$LeavetypeModelImplCopyWithImpl<$Res>
+    extends _$LeavetypeModelCopyWithImpl<$Res, _$LeavetypeModelImpl>
+    implements _$$LeavetypeModelImplCopyWith<$Res> {
+  __$$LeavetypeModelImplCopyWithImpl(
+      _$LeavetypeModelImpl _value, $Res Function(_$LeavetypeModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_LeavetypeModelCopyWithImpl<$Res>
     Object? controlCode = null,
     Object? meaning = null,
   }) {
-    return _then(_$_LeavetypeModel(
+    return _then(_$LeavetypeModelImpl(
       controlCode: null == controlCode
           ? _value.controlCode
           : controlCode // ignore: cast_nullable_to_non_nullable
@@ -113,13 +113,13 @@ class __$$_LeavetypeModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LeavetypeModel implements _LeavetypeModel {
-  const _$_LeavetypeModel(
+class _$LeavetypeModelImpl implements _LeavetypeModel {
+  const _$LeavetypeModelImpl(
       {@JsonKey(name: "control_code") this.controlCode = "",
       @JsonKey(name: "meaning") this.meaning = ""});
 
-  factory _$_LeavetypeModel.fromJson(Map<String, dynamic> json) =>
-      _$$_LeavetypeModelFromJson(json);
+  factory _$LeavetypeModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LeavetypeModelImplFromJson(json);
 
   @override
   @JsonKey(name: "control_code")
@@ -134,10 +134,10 @@ class _$_LeavetypeModel implements _LeavetypeModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LeavetypeModel &&
+            other is _$LeavetypeModelImpl &&
             (identical(other.controlCode, controlCode) ||
                 other.controlCode == controlCode) &&
             (identical(other.meaning, meaning) || other.meaning == meaning));
@@ -150,12 +150,13 @@ class _$_LeavetypeModel implements _LeavetypeModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LeavetypeModelCopyWith<_$_LeavetypeModel> get copyWith =>
-      __$$_LeavetypeModelCopyWithImpl<_$_LeavetypeModel>(this, _$identity);
+  _$$LeavetypeModelImplCopyWith<_$LeavetypeModelImpl> get copyWith =>
+      __$$LeavetypeModelImplCopyWithImpl<_$LeavetypeModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LeavetypeModelToJson(
+    return _$$LeavetypeModelImplToJson(
       this,
     );
   }
@@ -164,10 +165,10 @@ class _$_LeavetypeModel implements _LeavetypeModel {
 abstract class _LeavetypeModel implements LeavetypeModel {
   const factory _LeavetypeModel(
       {@JsonKey(name: "control_code") final String controlCode,
-      @JsonKey(name: "meaning") final String meaning}) = _$_LeavetypeModel;
+      @JsonKey(name: "meaning") final String meaning}) = _$LeavetypeModelImpl;
 
   factory _LeavetypeModel.fromJson(Map<String, dynamic> json) =
-      _$_LeavetypeModel.fromJson;
+      _$LeavetypeModelImpl.fromJson;
 
   @override
   @JsonKey(name: "control_code")
@@ -177,6 +178,6 @@ abstract class _LeavetypeModel implements LeavetypeModel {
   String get meaning;
   @override
   @JsonKey(ignore: true)
-  _$$_LeavetypeModelCopyWith<_$_LeavetypeModel> get copyWith =>
+  _$$LeavetypeModelImplCopyWith<_$LeavetypeModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

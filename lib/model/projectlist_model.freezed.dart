@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'projectlist_model.dart';
 
@@ -12,7 +12,7 @@ part of 'projectlist_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ProjectListModel _$ProjectListModelFromJson(Map<String, dynamic> json) {
   return _ProjectListModel.fromJson(json);
@@ -69,11 +69,11 @@ class _$ProjectListModelCopyWithImpl<$Res, $Val extends ProjectListModel>
 }
 
 /// @nodoc
-abstract class _$$_ProjectListModelCopyWith<$Res>
+abstract class _$$ProjectListModelImplCopyWith<$Res>
     implements $ProjectListModelCopyWith<$Res> {
-  factory _$$_ProjectListModelCopyWith(
-          _$_ProjectListModel value, $Res Function(_$_ProjectListModel) then) =
-      __$$_ProjectListModelCopyWithImpl<$Res>;
+  factory _$$ProjectListModelImplCopyWith(_$ProjectListModelImpl value,
+          $Res Function(_$ProjectListModelImpl) then) =
+      __$$ProjectListModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -81,11 +81,11 @@ abstract class _$$_ProjectListModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ProjectListModelCopyWithImpl<$Res>
-    extends _$ProjectListModelCopyWithImpl<$Res, _$_ProjectListModel>
-    implements _$$_ProjectListModelCopyWith<$Res> {
-  __$$_ProjectListModelCopyWithImpl(
-      _$_ProjectListModel _value, $Res Function(_$_ProjectListModel) _then)
+class __$$ProjectListModelImplCopyWithImpl<$Res>
+    extends _$ProjectListModelCopyWithImpl<$Res, _$ProjectListModelImpl>
+    implements _$$ProjectListModelImplCopyWith<$Res> {
+  __$$ProjectListModelImplCopyWithImpl(_$ProjectListModelImpl _value,
+      $Res Function(_$ProjectListModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,7 +94,7 @@ class __$$_ProjectListModelCopyWithImpl<$Res>
     Object? travel_mode = null,
     Object? client = null,
   }) {
-    return _then(_$_ProjectListModel(
+    return _then(_$ProjectListModelImpl(
       travel_mode: null == travel_mode
           ? _value._travel_mode
           : travel_mode // ignore: cast_nullable_to_non_nullable
@@ -109,20 +109,21 @@ class __$$_ProjectListModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProjectListModel implements _ProjectListModel {
-  const _$_ProjectListModel(
+class _$ProjectListModelImpl implements _ProjectListModel {
+  const _$ProjectListModelImpl(
       {final List<TravelModeModel> travel_mode = const <TravelModeModel>[],
       final List<ClientDetailsModel> client = const <ClientDetailsModel>[]})
       : _travel_mode = travel_mode,
         _client = client;
 
-  factory _$_ProjectListModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ProjectListModelFromJson(json);
+  factory _$ProjectListModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProjectListModelImplFromJson(json);
 
   final List<TravelModeModel> _travel_mode;
   @override
   @JsonKey()
   List<TravelModeModel> get travel_mode {
+    if (_travel_mode is EqualUnmodifiableListView) return _travel_mode;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_travel_mode);
   }
@@ -131,6 +132,7 @@ class _$_ProjectListModel implements _ProjectListModel {
   @override
   @JsonKey()
   List<ClientDetailsModel> get client {
+    if (_client is EqualUnmodifiableListView) return _client;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_client);
   }
@@ -141,10 +143,10 @@ class _$_ProjectListModel implements _ProjectListModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProjectListModel &&
+            other is _$ProjectListModelImpl &&
             const DeepCollectionEquality()
                 .equals(other._travel_mode, _travel_mode) &&
             const DeepCollectionEquality().equals(other._client, _client));
@@ -160,12 +162,13 @@ class _$_ProjectListModel implements _ProjectListModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProjectListModelCopyWith<_$_ProjectListModel> get copyWith =>
-      __$$_ProjectListModelCopyWithImpl<_$_ProjectListModel>(this, _$identity);
+  _$$ProjectListModelImplCopyWith<_$ProjectListModelImpl> get copyWith =>
+      __$$ProjectListModelImplCopyWithImpl<_$ProjectListModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProjectListModelToJson(
+    return _$$ProjectListModelImplToJson(
       this,
     );
   }
@@ -174,10 +177,10 @@ class _$_ProjectListModel implements _ProjectListModel {
 abstract class _ProjectListModel implements ProjectListModel {
   const factory _ProjectListModel(
       {final List<TravelModeModel> travel_mode,
-      final List<ClientDetailsModel> client}) = _$_ProjectListModel;
+      final List<ClientDetailsModel> client}) = _$ProjectListModelImpl;
 
   factory _ProjectListModel.fromJson(Map<String, dynamic> json) =
-      _$_ProjectListModel.fromJson;
+      _$ProjectListModelImpl.fromJson;
 
   @override
   List<TravelModeModel> get travel_mode;
@@ -185,6 +188,6 @@ abstract class _ProjectListModel implements ProjectListModel {
   List<ClientDetailsModel> get client;
   @override
   @JsonKey(ignore: true)
-  _$$_ProjectListModelCopyWith<_$_ProjectListModel> get copyWith =>
+  _$$ProjectListModelImplCopyWith<_$ProjectListModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

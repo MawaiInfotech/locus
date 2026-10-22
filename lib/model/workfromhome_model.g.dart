@@ -6,8 +6,9 @@ part of 'workfromhome_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_WorkfromHomeModel _$$_WorkfromHomeModelFromJson(Map<String, dynamic> json) =>
-    _$_WorkfromHomeModel(
+_$WorkfromHomeModelImpl _$$WorkfromHomeModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$WorkfromHomeModelImpl(
       day_type: (json['day_type'] as List<dynamic>?)
               ?.map((e) =>
                   WorkfromHomeTypeModel.fromJson(e as Map<String, dynamic>))
@@ -25,8 +26,8 @@ _$_WorkfromHomeModel _$$_WorkfromHomeModelFromJson(Map<String, dynamic> json) =>
           const <WFHEmployeeDetailModel>[],
     );
 
-Map<String, dynamic> _$$_WorkfromHomeModelToJson(
-        _$_WorkfromHomeModel instance) =>
+Map<String, dynamic> _$$WorkfromHomeModelImplToJson(
+        _$WorkfromHomeModelImpl instance) =>
     <String, dynamic>{
       'day_type': instance.day_type,
       'cc_list': instance.cc_list,

@@ -6,13 +6,15 @@ part of 'applylunch_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApplyLunchModel _$$_ApplyLunchModelFromJson(Map<String, dynamic> json) =>
-    _$_ApplyLunchModel(
+_$ApplyLunchModelImpl _$$ApplyLunchModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ApplyLunchModelImpl(
       message: json['msg'] as String? ?? "",
       status: json['status'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_ApplyLunchModelToJson(_$_ApplyLunchModel instance) =>
+Map<String, dynamic> _$$ApplyLunchModelImplToJson(
+        _$ApplyLunchModelImpl instance) =>
     <String, dynamic>{
       'msg': instance.message,
       'status': instance.status,

@@ -6,8 +6,8 @@ part of 'holiday_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_HolidayModel _$$_HolidayModelFromJson(Map<String, dynamic> json) =>
-    _$_HolidayModel(
+_$HolidayModelImpl _$$HolidayModelImplFromJson(Map<String, dynamic> json) =>
+    _$HolidayModelImpl(
       date: json['holiday_date'] as String? ?? "",
       description: json['description'] as String? ?? "",
       type: json['holiday_type'] as String? ?? "",
@@ -15,7 +15,7 @@ _$_HolidayModel _$$_HolidayModelFromJson(Map<String, dynamic> json) =>
       day: json['day'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_HolidayModelToJson(_$_HolidayModel instance) =>
+Map<String, dynamic> _$$HolidayModelImplToJson(_$HolidayModelImpl instance) =>
     <String, dynamic>{
       'holiday_date': instance.date,
       'description': instance.description,

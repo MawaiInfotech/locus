@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'misspunch_model.dart';
 
@@ -12,7 +12,7 @@ part of 'misspunch_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 MisspunchModel _$MisspunchModelFromJson(Map<String, dynamic> json) {
   return _MisspunchModel.fromJson(json);
@@ -96,11 +96,11 @@ class _$MisspunchModelCopyWithImpl<$Res, $Val extends MisspunchModel>
 }
 
 /// @nodoc
-abstract class _$$_MisspunchModelCopyWith<$Res>
+abstract class _$$MisspunchModelImplCopyWith<$Res>
     implements $MisspunchModelCopyWith<$Res> {
-  factory _$$_MisspunchModelCopyWith(
-          _$_MisspunchModel value, $Res Function(_$_MisspunchModel) then) =
-      __$$_MisspunchModelCopyWithImpl<$Res>;
+  factory _$$MisspunchModelImplCopyWith(_$MisspunchModelImpl value,
+          $Res Function(_$MisspunchModelImpl) then) =
+      __$$MisspunchModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -112,11 +112,11 @@ abstract class _$$_MisspunchModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_MisspunchModelCopyWithImpl<$Res>
-    extends _$MisspunchModelCopyWithImpl<$Res, _$_MisspunchModel>
-    implements _$$_MisspunchModelCopyWith<$Res> {
-  __$$_MisspunchModelCopyWithImpl(
-      _$_MisspunchModel _value, $Res Function(_$_MisspunchModel) _then)
+class __$$MisspunchModelImplCopyWithImpl<$Res>
+    extends _$MisspunchModelCopyWithImpl<$Res, _$MisspunchModelImpl>
+    implements _$$MisspunchModelImplCopyWith<$Res> {
+  __$$MisspunchModelImplCopyWithImpl(
+      _$MisspunchModelImpl _value, $Res Function(_$MisspunchModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -128,7 +128,7 @@ class __$$_MisspunchModelCopyWithImpl<$Res>
     Object? reason = null,
     Object? status = null,
   }) {
-    return _then(_$_MisspunchModel(
+    return _then(_$MisspunchModelImpl(
       punchDate: null == punchDate
           ? _value.punchDate
           : punchDate // ignore: cast_nullable_to_non_nullable
@@ -155,16 +155,16 @@ class __$$_MisspunchModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MisspunchModel implements _MisspunchModel {
-  const _$_MisspunchModel(
+class _$MisspunchModelImpl implements _MisspunchModel {
+  const _$MisspunchModelImpl(
       {@JsonKey(name: "punch_in_dt") this.punchDate = "",
       @JsonKey(name: "in_time") this.inTime = "",
       @JsonKey(name: "out_time") this.outTime = "",
       @JsonKey(name: "reason") this.reason = "",
       @JsonKey(name: "status") this.status = ""});
 
-  factory _$_MisspunchModel.fromJson(Map<String, dynamic> json) =>
-      _$$_MisspunchModelFromJson(json);
+  factory _$MisspunchModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MisspunchModelImplFromJson(json);
 
   @override
   @JsonKey(name: "punch_in_dt")
@@ -188,10 +188,10 @@ class _$_MisspunchModel implements _MisspunchModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MisspunchModel &&
+            other is _$MisspunchModelImpl &&
             (identical(other.punchDate, punchDate) ||
                 other.punchDate == punchDate) &&
             (identical(other.inTime, inTime) || other.inTime == inTime) &&
@@ -208,12 +208,13 @@ class _$_MisspunchModel implements _MisspunchModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MisspunchModelCopyWith<_$_MisspunchModel> get copyWith =>
-      __$$_MisspunchModelCopyWithImpl<_$_MisspunchModel>(this, _$identity);
+  _$$MisspunchModelImplCopyWith<_$MisspunchModelImpl> get copyWith =>
+      __$$MisspunchModelImplCopyWithImpl<_$MisspunchModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MisspunchModelToJson(
+    return _$$MisspunchModelImplToJson(
       this,
     );
   }
@@ -225,10 +226,10 @@ abstract class _MisspunchModel implements MisspunchModel {
       @JsonKey(name: "in_time") final String inTime,
       @JsonKey(name: "out_time") final String outTime,
       @JsonKey(name: "reason") final String reason,
-      @JsonKey(name: "status") final String status}) = _$_MisspunchModel;
+      @JsonKey(name: "status") final String status}) = _$MisspunchModelImpl;
 
   factory _MisspunchModel.fromJson(Map<String, dynamic> json) =
-      _$_MisspunchModel.fromJson;
+      _$MisspunchModelImpl.fromJson;
 
   @override
   @JsonKey(name: "punch_in_dt")
@@ -247,6 +248,6 @@ abstract class _MisspunchModel implements MisspunchModel {
   String get status;
   @override
   @JsonKey(ignore: true)
-  _$$_MisspunchModelCopyWith<_$_MisspunchModel> get copyWith =>
+  _$$MisspunchModelImplCopyWith<_$MisspunchModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

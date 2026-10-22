@@ -40,9 +40,7 @@ class LoginService {
           .timeout(const Duration(seconds: 15));
 
       final body = json.decode(response.body);
-
-      print("🔹 Response status: ${response.statusCode}");
-      print("🔹 Raw response: $body");
+      print(body);
 
       if (response.statusCode == 200 && body['status'] == true) {
         // Save token
@@ -80,13 +78,4 @@ class LoginService {
   }
 
 
-  _handleError(dynamic e) {
-    if (e is String) throw e;
-    if (e is SocketException) throw ApiError.internet();
-    if (e is TimeoutException) throw ApiError.timeOut();
-    if (e is ApiError) throw e;
-
-    // Instead of generic unknown, include error details
-    throw ApiError.fromResponse("Unexpected error: ${e.toString()}");
-  }
 }

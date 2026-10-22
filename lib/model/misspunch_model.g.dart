@@ -6,8 +6,8 @@ part of 'misspunch_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_MisspunchModel _$$_MisspunchModelFromJson(Map<String, dynamic> json) =>
-    _$_MisspunchModel(
+_$MisspunchModelImpl _$$MisspunchModelImplFromJson(Map<String, dynamic> json) =>
+    _$MisspunchModelImpl(
       punchDate: json['punch_in_dt'] as String? ?? "",
       inTime: json['in_time'] as String? ?? "",
       outTime: json['out_time'] as String? ?? "",
@@ -15,7 +15,8 @@ _$_MisspunchModel _$$_MisspunchModelFromJson(Map<String, dynamic> json) =>
       status: json['status'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_MisspunchModelToJson(_$_MisspunchModel instance) =>
+Map<String, dynamic> _$$MisspunchModelImplToJson(
+        _$MisspunchModelImpl instance) =>
     <String, dynamic>{
       'punch_in_dt': instance.punchDate,
       'in_time': instance.inTime,

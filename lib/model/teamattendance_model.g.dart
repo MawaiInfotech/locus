@@ -6,9 +6,9 @@ part of 'teamattendance_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TeamAttendanceModel _$$_TeamAttendanceModelFromJson(
+_$TeamAttendanceModelImpl _$$TeamAttendanceModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_TeamAttendanceModel(
+    _$TeamAttendanceModelImpl(
       employeeNumber: json['emp_number'] as String? ?? "",
       cardNumber: json['card_no'] as String? ?? "",
       reportingTo: json['reporting_to'] as String? ?? "",
@@ -29,8 +29,8 @@ _$_TeamAttendanceModel _$$_TeamAttendanceModelFromJson(
       employeeName: json['emp_name'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_TeamAttendanceModelToJson(
-        _$_TeamAttendanceModel instance) =>
+Map<String, dynamic> _$$TeamAttendanceModelImplToJson(
+        _$TeamAttendanceModelImpl instance) =>
     <String, dynamic>{
       'emp_number': instance.employeeNumber,
       'card_no': instance.cardNumber,

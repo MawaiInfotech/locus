@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'request_model.dart';
 
@@ -12,7 +12,7 @@ part of 'request_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 RequestModel _$RequestModelFromJson(Map<String, dynamic> json) {
   return _RequestModel.fromJson(json);
@@ -74,22 +74,22 @@ class _$RequestModelCopyWithImpl<$Res, $Val extends RequestModel>
 }
 
 /// @nodoc
-abstract class _$$_RequestModelCopyWith<$Res>
+abstract class _$$RequestModelImplCopyWith<$Res>
     implements $RequestModelCopyWith<$Res> {
-  factory _$$_RequestModelCopyWith(
-          _$_RequestModel value, $Res Function(_$_RequestModel) then) =
-      __$$_RequestModelCopyWithImpl<$Res>;
+  factory _$$RequestModelImplCopyWith(
+          _$RequestModelImpl value, $Res Function(_$RequestModelImpl) then) =
+      __$$RequestModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String status, String message, String result});
 }
 
 /// @nodoc
-class __$$_RequestModelCopyWithImpl<$Res>
-    extends _$RequestModelCopyWithImpl<$Res, _$_RequestModel>
-    implements _$$_RequestModelCopyWith<$Res> {
-  __$$_RequestModelCopyWithImpl(
-      _$_RequestModel _value, $Res Function(_$_RequestModel) _then)
+class __$$RequestModelImplCopyWithImpl<$Res>
+    extends _$RequestModelCopyWithImpl<$Res, _$RequestModelImpl>
+    implements _$$RequestModelImplCopyWith<$Res> {
+  __$$RequestModelImplCopyWithImpl(
+      _$RequestModelImpl _value, $Res Function(_$RequestModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_RequestModelCopyWithImpl<$Res>
     Object? message = null,
     Object? result = null,
   }) {
-    return _then(_$_RequestModel(
+    return _then(_$RequestModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -118,12 +118,12 @@ class __$$_RequestModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RequestModel implements _RequestModel {
-  const _$_RequestModel(
+class _$RequestModelImpl implements _RequestModel {
+  const _$RequestModelImpl(
       {this.status = "", this.message = "", this.result = ""});
 
-  factory _$_RequestModel.fromJson(Map<String, dynamic> json) =>
-      _$$_RequestModelFromJson(json);
+  factory _$RequestModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RequestModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -141,10 +141,10 @@ class _$_RequestModel implements _RequestModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RequestModel &&
+            other is _$RequestModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.result, result) || other.result == result));
@@ -157,12 +157,12 @@ class _$_RequestModel implements _RequestModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RequestModelCopyWith<_$_RequestModel> get copyWith =>
-      __$$_RequestModelCopyWithImpl<_$_RequestModel>(this, _$identity);
+  _$$RequestModelImplCopyWith<_$RequestModelImpl> get copyWith =>
+      __$$RequestModelImplCopyWithImpl<_$RequestModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RequestModelToJson(
+    return _$$RequestModelImplToJson(
       this,
     );
   }
@@ -172,10 +172,10 @@ abstract class _RequestModel implements RequestModel {
   const factory _RequestModel(
       {final String status,
       final String message,
-      final String result}) = _$_RequestModel;
+      final String result}) = _$RequestModelImpl;
 
   factory _RequestModel.fromJson(Map<String, dynamic> json) =
-      _$_RequestModel.fromJson;
+      _$RequestModelImpl.fromJson;
 
   @override
   String get status;
@@ -185,6 +185,6 @@ abstract class _RequestModel implements RequestModel {
   String get result;
   @override
   @JsonKey(ignore: true)
-  _$$_RequestModelCopyWith<_$_RequestModel> get copyWith =>
+  _$$RequestModelImplCopyWith<_$RequestModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

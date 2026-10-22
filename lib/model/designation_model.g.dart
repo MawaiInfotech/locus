@@ -6,13 +6,15 @@ part of 'designation_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DesignationModel _$$_DesignationModelFromJson(Map<String, dynamic> json) =>
-    _$_DesignationModel(
+_$DesignationModelImpl _$$DesignationModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$DesignationModelImpl(
       code: json['code'] as String? ?? "",
       description: json['description'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_DesignationModelToJson(_$_DesignationModel instance) =>
+Map<String, dynamic> _$$DesignationModelImplToJson(
+        _$DesignationModelImpl instance) =>
     <String, dynamic>{
       'code': instance.code,
       'description': instance.description,

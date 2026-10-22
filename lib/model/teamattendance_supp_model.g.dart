@@ -6,9 +6,9 @@ part of 'teamattendance_supp_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TeamAttendanceSuppModel _$$_TeamAttendanceSuppModelFromJson(
+_$TeamAttendanceSuppModelImpl _$$TeamAttendanceSuppModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_TeamAttendanceSuppModel(
+    _$TeamAttendanceSuppModelImpl(
       team_atten: (json['team_atten'] as List<dynamic>?)
               ?.map((e) =>
                   TeamAttendanceModel.fromJson(e as Map<String, dynamic>))
@@ -24,8 +24,8 @@ _$_TeamAttendanceSuppModel _$$_TeamAttendanceSuppModelFromJson(
               const <String>[],
     );
 
-Map<String, dynamic> _$$_TeamAttendanceSuppModelToJson(
-        _$_TeamAttendanceSuppModel instance) =>
+Map<String, dynamic> _$$TeamAttendanceSuppModelImplToJson(
+        _$TeamAttendanceSuppModelImpl instance) =>
     <String, dynamic>{
       'team_atten': instance.team_atten,
       'employee': instance.employee,

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'applytravel_model.dart';
 
@@ -12,7 +12,7 @@ part of 'applytravel_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ApplyTravelModel _$ApplyTravelModelFromJson(Map<String, dynamic> json) {
   return _ApplyTravelModel.fromJson(json);
@@ -68,22 +68,22 @@ class _$ApplyTravelModelCopyWithImpl<$Res, $Val extends ApplyTravelModel>
 }
 
 /// @nodoc
-abstract class _$$_ApplyTravelModelCopyWith<$Res>
+abstract class _$$ApplyTravelModelImplCopyWith<$Res>
     implements $ApplyTravelModelCopyWith<$Res> {
-  factory _$$_ApplyTravelModelCopyWith(
-          _$_ApplyTravelModel value, $Res Function(_$_ApplyTravelModel) then) =
-      __$$_ApplyTravelModelCopyWithImpl<$Res>;
+  factory _$$ApplyTravelModelImplCopyWith(_$ApplyTravelModelImpl value,
+          $Res Function(_$ApplyTravelModelImpl) then) =
+      __$$ApplyTravelModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String status, String message});
 }
 
 /// @nodoc
-class __$$_ApplyTravelModelCopyWithImpl<$Res>
-    extends _$ApplyTravelModelCopyWithImpl<$Res, _$_ApplyTravelModel>
-    implements _$$_ApplyTravelModelCopyWith<$Res> {
-  __$$_ApplyTravelModelCopyWithImpl(
-      _$_ApplyTravelModel _value, $Res Function(_$_ApplyTravelModel) _then)
+class __$$ApplyTravelModelImplCopyWithImpl<$Res>
+    extends _$ApplyTravelModelCopyWithImpl<$Res, _$ApplyTravelModelImpl>
+    implements _$$ApplyTravelModelImplCopyWith<$Res> {
+  __$$ApplyTravelModelImplCopyWithImpl(_$ApplyTravelModelImpl _value,
+      $Res Function(_$ApplyTravelModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_ApplyTravelModelCopyWithImpl<$Res>
     Object? status = null,
     Object? message = null,
   }) {
-    return _then(_$_ApplyTravelModel(
+    return _then(_$ApplyTravelModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,11 @@ class __$$_ApplyTravelModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApplyTravelModel implements _ApplyTravelModel {
-  const _$_ApplyTravelModel({this.status = "", this.message = ""});
+class _$ApplyTravelModelImpl implements _ApplyTravelModel {
+  const _$ApplyTravelModelImpl({this.status = "", this.message = ""});
 
-  factory _$_ApplyTravelModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ApplyTravelModelFromJson(json);
+  factory _$ApplyTravelModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ApplyTravelModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -126,10 +126,10 @@ class _$_ApplyTravelModel implements _ApplyTravelModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApplyTravelModel &&
+            other is _$ApplyTravelModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -141,12 +141,13 @@ class _$_ApplyTravelModel implements _ApplyTravelModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApplyTravelModelCopyWith<_$_ApplyTravelModel> get copyWith =>
-      __$$_ApplyTravelModelCopyWithImpl<_$_ApplyTravelModel>(this, _$identity);
+  _$$ApplyTravelModelImplCopyWith<_$ApplyTravelModelImpl> get copyWith =>
+      __$$ApplyTravelModelImplCopyWithImpl<_$ApplyTravelModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApplyTravelModelToJson(
+    return _$$ApplyTravelModelImplToJson(
       this,
     );
   }
@@ -154,10 +155,10 @@ class _$_ApplyTravelModel implements _ApplyTravelModel {
 
 abstract class _ApplyTravelModel implements ApplyTravelModel {
   const factory _ApplyTravelModel({final String status, final String message}) =
-      _$_ApplyTravelModel;
+      _$ApplyTravelModelImpl;
 
   factory _ApplyTravelModel.fromJson(Map<String, dynamic> json) =
-      _$_ApplyTravelModel.fromJson;
+      _$ApplyTravelModelImpl.fromJson;
 
   @override
   String get status;
@@ -165,6 +166,6 @@ abstract class _ApplyTravelModel implements ApplyTravelModel {
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_ApplyTravelModelCopyWith<_$_ApplyTravelModel> get copyWith =>
+  _$$ApplyTravelModelImplCopyWith<_$ApplyTravelModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

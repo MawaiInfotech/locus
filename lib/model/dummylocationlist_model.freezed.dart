@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'dummylocationlist_model.dart';
 
@@ -12,7 +12,7 @@ part of 'dummylocationlist_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 DummyLocationlistModel _$DummyLocationlistModelFromJson(
     Map<String, dynamic> json) {
@@ -205,11 +205,12 @@ class _$DummyLocationlistModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DummyLocationlistModelCopyWith<$Res>
+abstract class _$$DummyLocationlistModelImplCopyWith<$Res>
     implements $DummyLocationlistModelCopyWith<$Res> {
-  factory _$$_DummyLocationlistModelCopyWith(_$_DummyLocationlistModel value,
-          $Res Function(_$_DummyLocationlistModel) then) =
-      __$$_DummyLocationlistModelCopyWithImpl<$Res>;
+  factory _$$DummyLocationlistModelImplCopyWith(
+          _$DummyLocationlistModelImpl value,
+          $Res Function(_$DummyLocationlistModelImpl) then) =
+      __$$DummyLocationlistModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -237,12 +238,13 @@ abstract class _$$_DummyLocationlistModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DummyLocationlistModelCopyWithImpl<$Res>
+class __$$DummyLocationlistModelImplCopyWithImpl<$Res>
     extends _$DummyLocationlistModelCopyWithImpl<$Res,
-        _$_DummyLocationlistModel>
-    implements _$$_DummyLocationlistModelCopyWith<$Res> {
-  __$$_DummyLocationlistModelCopyWithImpl(_$_DummyLocationlistModel _value,
-      $Res Function(_$_DummyLocationlistModel) _then)
+        _$DummyLocationlistModelImpl>
+    implements _$$DummyLocationlistModelImplCopyWith<$Res> {
+  __$$DummyLocationlistModelImplCopyWithImpl(
+      _$DummyLocationlistModelImpl _value,
+      $Res Function(_$DummyLocationlistModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -270,7 +272,7 @@ class __$$_DummyLocationlistModelCopyWithImpl<$Res>
     Object? apple_rawdata_app_id = null,
     Object? loc_type = null,
   }) {
-    return _then(_$_DummyLocationlistModel(
+    return _then(_$DummyLocationlistModelImpl(
       empcode: null == empcode
           ? _value.empcode
           : empcode // ignore: cast_nullable_to_non_nullable
@@ -361,8 +363,8 @@ class __$$_DummyLocationlistModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DummyLocationlistModel implements _DummyLocationlistModel {
-  const _$_DummyLocationlistModel(
+class _$DummyLocationlistModelImpl implements _DummyLocationlistModel {
+  const _$DummyLocationlistModelImpl(
       {this.empcode = "",
       this.officepunch = "",
       this.address = "",
@@ -385,8 +387,8 @@ class _$_DummyLocationlistModel implements _DummyLocationlistModel {
       this.apple_rawdata_app_id = 0,
       this.loc_type = ""});
 
-  factory _$_DummyLocationlistModel.fromJson(Map<String, dynamic> json) =>
-      _$$_DummyLocationlistModelFromJson(json);
+  factory _$DummyLocationlistModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DummyLocationlistModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -458,10 +460,10 @@ class _$_DummyLocationlistModel implements _DummyLocationlistModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DummyLocationlistModel &&
+            other is _$DummyLocationlistModelImpl &&
             (identical(other.empcode, empcode) || other.empcode == empcode) &&
             (identical(other.officepunch, officepunch) ||
                 other.officepunch == officepunch) &&
@@ -530,13 +532,13 @@ class _$_DummyLocationlistModel implements _DummyLocationlistModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DummyLocationlistModelCopyWith<_$_DummyLocationlistModel> get copyWith =>
-      __$$_DummyLocationlistModelCopyWithImpl<_$_DummyLocationlistModel>(
-          this, _$identity);
+  _$$DummyLocationlistModelImplCopyWith<_$DummyLocationlistModelImpl>
+      get copyWith => __$$DummyLocationlistModelImplCopyWithImpl<
+          _$DummyLocationlistModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DummyLocationlistModelToJson(
+    return _$$DummyLocationlistModelImplToJson(
       this,
     );
   }
@@ -564,10 +566,10 @@ abstract class _DummyLocationlistModel implements DummyLocationlistModel {
       final String updated_at,
       final int object_version_number,
       final int apple_rawdata_app_id,
-      final String loc_type}) = _$_DummyLocationlistModel;
+      final String loc_type}) = _$DummyLocationlistModelImpl;
 
   factory _DummyLocationlistModel.fromJson(Map<String, dynamic> json) =
-      _$_DummyLocationlistModel.fromJson;
+      _$DummyLocationlistModelImpl.fromJson;
 
   @override
   String get empcode;
@@ -613,6 +615,6 @@ abstract class _DummyLocationlistModel implements DummyLocationlistModel {
   String get loc_type;
   @override
   @JsonKey(ignore: true)
-  _$$_DummyLocationlistModelCopyWith<_$_DummyLocationlistModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$DummyLocationlistModelImplCopyWith<_$DummyLocationlistModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -12,7 +12,7 @@ _$LunchDetailsModelImpl _$$LunchDetailsModelImplFromJson(
       emp_number: json['emp_number'] as String? ?? "",
       lunch_date: json['lunch_date'] as String? ?? "",
       staus: json['staus'] as String? ?? "",
-      lunch_detail_id: (json['lunch_detail_id'] as num?)?.toInt() ?? 0,
+      lunch_detail_id: json['lunch_detail_id'] as int? ?? 0,
       flag: json['flag'] as String? ?? "",
       firstName: json['emp_first_name'] as String? ?? "",
       lastName: json['emp_last_name'] as String? ?? "",

@@ -116,6 +116,7 @@ class AttendanceService {
             " " +
             address.postalCode,
       };
+      print(body);
       final response = await http.post(Uri.parse(url), body: json.encode(body), headers: getHeaders());
 
       final responseBody = json.decode(response.body);
@@ -136,7 +137,7 @@ class AttendanceService {
   }
 
   Future<AttendanceDetailSuppModel> getAttendanceDetail(String month) async {
-    const url = root + 'get-attendance';
+    const url = '${root}get-attendance';
     final body = {
       "month" : month
     };
@@ -152,7 +153,7 @@ class AttendanceService {
 
   Future<String?> getRequestData(String employerCode, String unitCode,
       String cardNumber, String reason, String missPunchDate, String missPunchType, String misspunchIn, String misspunchOut) async {
-    const url = root + 'miss-punch-update';
+    const url = '${root}miss-punch-update';
     final body = {
       'emp_cd': employerCode,
       'unit_cd': unitCode,
@@ -163,10 +164,12 @@ class AttendanceService {
       'miss_punch_intime': misspunchIn,
       'miss_check_out_time': misspunchOut,
     };
+    print(body);
     try {
       final response = await http.post(Uri.parse(url),
           body: json.encode(body), headers: getHeaders());
       final responseBody = json.decode(response.body);
+      print(responseBody);
       if (responseBody['status'] == true) {
         return responseBody ['message'];
       }else{
@@ -175,6 +178,7 @@ class AttendanceService {
     } catch (e) {
       _handleError(e);
     }
+    return null;
     // return null;
   }
 

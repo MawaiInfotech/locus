@@ -6,15 +6,16 @@ part of 'leavelist_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LeavelistModel _$$_LeavelistModelFromJson(Map<String, dynamic> json) =>
-    _$_LeavelistModel(
+_$LeavelistModelImpl _$$LeavelistModelImplFromJson(Map<String, dynamic> json) =>
+    _$LeavelistModelImpl(
       code: json['code'] as String? ?? "",
       description: json['description'] as String? ?? "",
       unitCode: json['unit_cd'] as String? ?? "",
       leaveBalance: json['leave_balance'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_LeavelistModelToJson(_$_LeavelistModel instance) =>
+Map<String, dynamic> _$$LeavelistModelImplToJson(
+        _$LeavelistModelImpl instance) =>
     <String, dynamic>{
       'code': instance.code,
       'description': instance.description,

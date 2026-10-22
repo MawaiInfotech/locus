@@ -6,8 +6,9 @@ part of 'requestwfh_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RequestWfhModel _$$_RequestWfhModelFromJson(Map<String, dynamic> json) =>
-    _$_RequestWfhModel(
+_$RequestWfhModelImpl _$$RequestWfhModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$RequestWfhModelImpl(
       wfh_day_type: (json['wfh_day_type'] as List<dynamic>?)
               ?.map((e) => WfhTypeModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -23,7 +24,8 @@ _$_RequestWfhModel _$$_RequestWfhModelFromJson(Map<String, dynamic> json) =>
           const <WfhCcListModel>[],
     );
 
-Map<String, dynamic> _$$_RequestWfhModelToJson(_$_RequestWfhModel instance) =>
+Map<String, dynamic> _$$RequestWfhModelImplToJson(
+        _$RequestWfhModelImpl instance) =>
     <String, dynamic>{
       'wfh_day_type': instance.wfh_day_type,
       'wfh_condition': instance.wfh_condition,

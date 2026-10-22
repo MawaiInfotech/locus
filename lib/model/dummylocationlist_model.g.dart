@@ -6,9 +6,9 @@ part of 'dummylocationlist_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DummyLocationlistModel _$$_DummyLocationlistModelFromJson(
+_$DummyLocationlistModelImpl _$$DummyLocationlistModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_DummyLocationlistModel(
+    _$DummyLocationlistModelImpl(
       empcode: json['empcode'] as String? ?? "",
       officepunch: json['officepunch'] as String? ?? "",
       address: json['address'] as String? ?? "",
@@ -32,8 +32,8 @@ _$_DummyLocationlistModel _$$_DummyLocationlistModelFromJson(
       loc_type: json['loc_type'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_DummyLocationlistModelToJson(
-        _$_DummyLocationlistModel instance) =>
+Map<String, dynamic> _$$DummyLocationlistModelImplToJson(
+        _$DummyLocationlistModelImpl instance) =>
     <String, dynamic>{
       'empcode': instance.empcode,
       'officepunch': instance.officepunch,

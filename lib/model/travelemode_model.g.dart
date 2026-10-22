@@ -6,13 +6,15 @@ part of 'travelemode_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TravelModeModel _$$_TravelModeModelFromJson(Map<String, dynamic> json) =>
-    _$_TravelModeModel(
+_$TravelModeModelImpl _$$TravelModeModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$TravelModeModelImpl(
       controlCode: json['control_code'] as String? ?? '',
       description: json['description'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$_TravelModeModelToJson(_$_TravelModeModel instance) =>
+Map<String, dynamic> _$$TravelModeModelImplToJson(
+        _$TravelModeModelImpl instance) =>
     <String, dynamic>{
       'control_code': instance.controlCode,
       'description': instance.description,

@@ -6,9 +6,9 @@ part of 'employeeleavelist_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EmployeeleavelistModel _$$_EmployeeleavelistModelFromJson(
+_$EmployeeleavelistModelImpl _$$EmployeeleavelistModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_EmployeeleavelistModel(
+    _$EmployeeleavelistModelImpl(
       fromDate: json['from_date'] as String? ?? "",
       endDate: json['end_date'] as String? ?? "",
       leaveType: json['leave_type'] as String? ?? "",
@@ -21,8 +21,8 @@ _$_EmployeeleavelistModel _$$_EmployeeleavelistModelFromJson(
       reason: json['reason'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_EmployeeleavelistModelToJson(
-        _$_EmployeeleavelistModel instance) =>
+Map<String, dynamic> _$$EmployeeleavelistModelImplToJson(
+        _$EmployeeleavelistModelImpl instance) =>
     <String, dynamic>{
       'from_date': instance.fromDate,
       'end_date': instance.endDate,

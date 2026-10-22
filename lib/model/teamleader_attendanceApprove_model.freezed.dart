@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'teamleader_attendanceApprove_model.dart';
 
@@ -12,7 +12,7 @@ part of 'teamleader_attendanceApprove_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 TeamLeaderAttendanceApprovelModel _$TeamLeaderAttendanceApprovelModelFromJson(
     Map<String, dynamic> json) {
@@ -196,12 +196,12 @@ class _$TeamLeaderAttendanceApprovelModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_TeamLeaderAttendanceApprovelModelCopyWith<$Res>
+abstract class _$$TeamLeaderAttendanceApprovelModelImplCopyWith<$Res>
     implements $TeamLeaderAttendanceApprovelModelCopyWith<$Res> {
-  factory _$$_TeamLeaderAttendanceApprovelModelCopyWith(
-          _$_TeamLeaderAttendanceApprovelModel value,
-          $Res Function(_$_TeamLeaderAttendanceApprovelModel) then) =
-      __$$_TeamLeaderAttendanceApprovelModelCopyWithImpl<$Res>;
+  factory _$$TeamLeaderAttendanceApprovelModelImplCopyWith(
+          _$TeamLeaderAttendanceApprovelModelImpl value,
+          $Res Function(_$TeamLeaderAttendanceApprovelModelImpl) then) =
+      __$$TeamLeaderAttendanceApprovelModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -225,13 +225,13 @@ abstract class _$$_TeamLeaderAttendanceApprovelModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TeamLeaderAttendanceApprovelModelCopyWithImpl<$Res>
+class __$$TeamLeaderAttendanceApprovelModelImplCopyWithImpl<$Res>
     extends _$TeamLeaderAttendanceApprovelModelCopyWithImpl<$Res,
-        _$_TeamLeaderAttendanceApprovelModel>
-    implements _$$_TeamLeaderAttendanceApprovelModelCopyWith<$Res> {
-  __$$_TeamLeaderAttendanceApprovelModelCopyWithImpl(
-      _$_TeamLeaderAttendanceApprovelModel _value,
-      $Res Function(_$_TeamLeaderAttendanceApprovelModel) _then)
+        _$TeamLeaderAttendanceApprovelModelImpl>
+    implements _$$TeamLeaderAttendanceApprovelModelImplCopyWith<$Res> {
+  __$$TeamLeaderAttendanceApprovelModelImplCopyWithImpl(
+      _$TeamLeaderAttendanceApprovelModelImpl _value,
+      $Res Function(_$TeamLeaderAttendanceApprovelModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -255,7 +255,7 @@ class __$$_TeamLeaderAttendanceApprovelModelCopyWithImpl<$Res>
     Object? mispunchId = null,
     Object? employeeName = null,
   }) {
-    return _then(_$_TeamLeaderAttendanceApprovelModel(
+    return _then(_$TeamLeaderAttendanceApprovelModelImpl(
       unitCode: null == unitCode
           ? _value.unitCode
           : unitCode // ignore: cast_nullable_to_non_nullable
@@ -330,9 +330,9 @@ class __$$_TeamLeaderAttendanceApprovelModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TeamLeaderAttendanceApprovelModel
+class _$TeamLeaderAttendanceApprovelModelImpl
     implements _TeamLeaderAttendanceApprovelModel {
-  const _$_TeamLeaderAttendanceApprovelModel(
+  const _$TeamLeaderAttendanceApprovelModelImpl(
       {@JsonKey(name: "unit_cd") this.unitCode = "",
       @JsonKey(name: "app_no") this.appNo = "",
       @JsonKey(name: "app_date") this.appDate = "",
@@ -351,9 +351,9 @@ class _$_TeamLeaderAttendanceApprovelModel
       @JsonKey(name: "mis_punch_id") this.mispunchId = 0,
       @JsonKey(name: "emp_name") this.employeeName = ""});
 
-  factory _$_TeamLeaderAttendanceApprovelModel.fromJson(
+  factory _$TeamLeaderAttendanceApprovelModelImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$_TeamLeaderAttendanceApprovelModelFromJson(json);
+      _$$TeamLeaderAttendanceApprovelModelImplFromJson(json);
 
   @override
   @JsonKey(name: "unit_cd")
@@ -413,10 +413,10 @@ class _$_TeamLeaderAttendanceApprovelModel
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TeamLeaderAttendanceApprovelModel &&
+            other is _$TeamLeaderAttendanceApprovelModelImpl &&
             (identical(other.unitCode, unitCode) ||
                 other.unitCode == unitCode) &&
             (identical(other.appNo, appNo) || other.appNo == appNo) &&
@@ -471,14 +471,14 @@ class _$_TeamLeaderAttendanceApprovelModel
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TeamLeaderAttendanceApprovelModelCopyWith<
-          _$_TeamLeaderAttendanceApprovelModel>
-      get copyWith => __$$_TeamLeaderAttendanceApprovelModelCopyWithImpl<
-          _$_TeamLeaderAttendanceApprovelModel>(this, _$identity);
+  _$$TeamLeaderAttendanceApprovelModelImplCopyWith<
+          _$TeamLeaderAttendanceApprovelModelImpl>
+      get copyWith => __$$TeamLeaderAttendanceApprovelModelImplCopyWithImpl<
+          _$TeamLeaderAttendanceApprovelModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TeamLeaderAttendanceApprovelModelToJson(
+    return _$$TeamLeaderAttendanceApprovelModelImplToJson(
       this,
     );
   }
@@ -487,44 +487,28 @@ class _$_TeamLeaderAttendanceApprovelModel
 abstract class _TeamLeaderAttendanceApprovelModel
     implements TeamLeaderAttendanceApprovelModel {
   const factory _TeamLeaderAttendanceApprovelModel(
-      {@JsonKey(name: "unit_cd")
-          final String unitCode,
-      @JsonKey(name: "app_no")
-          final String appNo,
-      @JsonKey(name: "app_date")
-          final String appDate,
-      @JsonKey(name: "app_time")
-          final String appTime,
-      @JsonKey(name: "empmemb_emp_master_emp_number")
-          final String empNumber,
-      @JsonKey(name: "card_no")
-          final String cardNumber,
-      @JsonKey(name: "dept_head")
-          final String departmentHead,
-      @JsonKey(name: "mis_punch_date")
-          final String mispunchDate,
-      @JsonKey(name: "mis_punch_name")
-          final String mispunchName,
-      @JsonKey(name: "mis_punch_type")
-          final String mispunchType,
-      @JsonKey(name: "in_time")
-          final String inTime,
-      @JsonKey(name: "out_time")
-          final String outTime,
-      @JsonKey(name: "reason")
-          final String reason,
-      @JsonKey(name: "status")
-          final String status,
-      @JsonKey(name: "status_name")
-          final String statusName,
-      @JsonKey(name: "mis_punch_id")
-          final int mispunchId,
+      {@JsonKey(name: "unit_cd") final String unitCode,
+      @JsonKey(name: "app_no") final String appNo,
+      @JsonKey(name: "app_date") final String appDate,
+      @JsonKey(name: "app_time") final String appTime,
+      @JsonKey(name: "empmemb_emp_master_emp_number") final String empNumber,
+      @JsonKey(name: "card_no") final String cardNumber,
+      @JsonKey(name: "dept_head") final String departmentHead,
+      @JsonKey(name: "mis_punch_date") final String mispunchDate,
+      @JsonKey(name: "mis_punch_name") final String mispunchName,
+      @JsonKey(name: "mis_punch_type") final String mispunchType,
+      @JsonKey(name: "in_time") final String inTime,
+      @JsonKey(name: "out_time") final String outTime,
+      @JsonKey(name: "reason") final String reason,
+      @JsonKey(name: "status") final String status,
+      @JsonKey(name: "status_name") final String statusName,
+      @JsonKey(name: "mis_punch_id") final int mispunchId,
       @JsonKey(name: "emp_name")
-          final String employeeName}) = _$_TeamLeaderAttendanceApprovelModel;
+      final String employeeName}) = _$TeamLeaderAttendanceApprovelModelImpl;
 
   factory _TeamLeaderAttendanceApprovelModel.fromJson(
           Map<String, dynamic> json) =
-      _$_TeamLeaderAttendanceApprovelModel.fromJson;
+      _$TeamLeaderAttendanceApprovelModelImpl.fromJson;
 
   @override
   @JsonKey(name: "unit_cd")
@@ -579,7 +563,7 @@ abstract class _TeamLeaderAttendanceApprovelModel
   String get employeeName;
   @override
   @JsonKey(ignore: true)
-  _$$_TeamLeaderAttendanceApprovelModelCopyWith<
-          _$_TeamLeaderAttendanceApprovelModel>
+  _$$TeamLeaderAttendanceApprovelModelImplCopyWith<
+          _$TeamLeaderAttendanceApprovelModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

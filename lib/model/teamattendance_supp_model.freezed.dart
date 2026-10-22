@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'teamattendance_supp_model.dart';
 
@@ -12,7 +12,7 @@ part of 'teamattendance_supp_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 TeamAttendanceSuppModel _$TeamAttendanceSuppModelFromJson(
     Map<String, dynamic> json) {
@@ -81,11 +81,12 @@ class _$TeamAttendanceSuppModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_TeamAttendanceSuppModelCopyWith<$Res>
+abstract class _$$TeamAttendanceSuppModelImplCopyWith<$Res>
     implements $TeamAttendanceSuppModelCopyWith<$Res> {
-  factory _$$_TeamAttendanceSuppModelCopyWith(_$_TeamAttendanceSuppModel value,
-          $Res Function(_$_TeamAttendanceSuppModel) then) =
-      __$$_TeamAttendanceSuppModelCopyWithImpl<$Res>;
+  factory _$$TeamAttendanceSuppModelImplCopyWith(
+          _$TeamAttendanceSuppModelImpl value,
+          $Res Function(_$TeamAttendanceSuppModelImpl) then) =
+      __$$TeamAttendanceSuppModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -95,12 +96,13 @@ abstract class _$$_TeamAttendanceSuppModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TeamAttendanceSuppModelCopyWithImpl<$Res>
+class __$$TeamAttendanceSuppModelImplCopyWithImpl<$Res>
     extends _$TeamAttendanceSuppModelCopyWithImpl<$Res,
-        _$_TeamAttendanceSuppModel>
-    implements _$$_TeamAttendanceSuppModelCopyWith<$Res> {
-  __$$_TeamAttendanceSuppModelCopyWithImpl(_$_TeamAttendanceSuppModel _value,
-      $Res Function(_$_TeamAttendanceSuppModel) _then)
+        _$TeamAttendanceSuppModelImpl>
+    implements _$$TeamAttendanceSuppModelImplCopyWith<$Res> {
+  __$$TeamAttendanceSuppModelImplCopyWithImpl(
+      _$TeamAttendanceSuppModelImpl _value,
+      $Res Function(_$TeamAttendanceSuppModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +112,7 @@ class __$$_TeamAttendanceSuppModelCopyWithImpl<$Res>
     Object? employee = null,
     Object? month = null,
   }) {
-    return _then(_$_TeamAttendanceSuppModel(
+    return _then(_$TeamAttendanceSuppModelImpl(
       team_atten: null == team_atten
           ? _value._team_atten
           : team_atten // ignore: cast_nullable_to_non_nullable
@@ -129,8 +131,8 @@ class __$$_TeamAttendanceSuppModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TeamAttendanceSuppModel implements _TeamAttendanceSuppModel {
-  const _$_TeamAttendanceSuppModel(
+class _$TeamAttendanceSuppModelImpl implements _TeamAttendanceSuppModel {
+  const _$TeamAttendanceSuppModelImpl(
       {final List<TeamAttendanceModel> team_atten =
           const <TeamAttendanceModel>[],
       final List<TeamEmployeeListModel> employee =
@@ -140,13 +142,14 @@ class _$_TeamAttendanceSuppModel implements _TeamAttendanceSuppModel {
         _employee = employee,
         _month = month;
 
-  factory _$_TeamAttendanceSuppModel.fromJson(Map<String, dynamic> json) =>
-      _$$_TeamAttendanceSuppModelFromJson(json);
+  factory _$TeamAttendanceSuppModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TeamAttendanceSuppModelImplFromJson(json);
 
   final List<TeamAttendanceModel> _team_atten;
   @override
   @JsonKey()
   List<TeamAttendanceModel> get team_atten {
+    if (_team_atten is EqualUnmodifiableListView) return _team_atten;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_team_atten);
   }
@@ -155,6 +158,7 @@ class _$_TeamAttendanceSuppModel implements _TeamAttendanceSuppModel {
   @override
   @JsonKey()
   List<TeamEmployeeListModel> get employee {
+    if (_employee is EqualUnmodifiableListView) return _employee;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_employee);
   }
@@ -163,6 +167,7 @@ class _$_TeamAttendanceSuppModel implements _TeamAttendanceSuppModel {
   @override
   @JsonKey()
   List<String> get month {
+    if (_month is EqualUnmodifiableListView) return _month;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_month);
   }
@@ -173,10 +178,10 @@ class _$_TeamAttendanceSuppModel implements _TeamAttendanceSuppModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TeamAttendanceSuppModel &&
+            other is _$TeamAttendanceSuppModelImpl &&
             const DeepCollectionEquality()
                 .equals(other._team_atten, _team_atten) &&
             const DeepCollectionEquality().equals(other._employee, _employee) &&
@@ -194,14 +199,13 @@ class _$_TeamAttendanceSuppModel implements _TeamAttendanceSuppModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TeamAttendanceSuppModelCopyWith<_$_TeamAttendanceSuppModel>
-      get copyWith =>
-          __$$_TeamAttendanceSuppModelCopyWithImpl<_$_TeamAttendanceSuppModel>(
-              this, _$identity);
+  _$$TeamAttendanceSuppModelImplCopyWith<_$TeamAttendanceSuppModelImpl>
+      get copyWith => __$$TeamAttendanceSuppModelImplCopyWithImpl<
+          _$TeamAttendanceSuppModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TeamAttendanceSuppModelToJson(
+    return _$$TeamAttendanceSuppModelImplToJson(
       this,
     );
   }
@@ -211,10 +215,10 @@ abstract class _TeamAttendanceSuppModel implements TeamAttendanceSuppModel {
   const factory _TeamAttendanceSuppModel(
       {final List<TeamAttendanceModel> team_atten,
       final List<TeamEmployeeListModel> employee,
-      final List<String> month}) = _$_TeamAttendanceSuppModel;
+      final List<String> month}) = _$TeamAttendanceSuppModelImpl;
 
   factory _TeamAttendanceSuppModel.fromJson(Map<String, dynamic> json) =
-      _$_TeamAttendanceSuppModel.fromJson;
+      _$TeamAttendanceSuppModelImpl.fromJson;
 
   @override
   List<TeamAttendanceModel> get team_atten;
@@ -224,6 +228,6 @@ abstract class _TeamAttendanceSuppModel implements TeamAttendanceSuppModel {
   List<String> get month;
   @override
   @JsonKey(ignore: true)
-  _$$_TeamAttendanceSuppModelCopyWith<_$_TeamAttendanceSuppModel>
+  _$$TeamAttendanceSuppModelImplCopyWith<_$TeamAttendanceSuppModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

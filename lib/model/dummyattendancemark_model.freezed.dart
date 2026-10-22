@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'dummyattendancemark_model.dart';
 
@@ -12,7 +12,7 @@ part of 'dummyattendancemark_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 DummyAttendanceModel _$DummyAttendanceModelFromJson(Map<String, dynamic> json) {
   return _DummyAttendanceModel.fromJson(json);
@@ -92,11 +92,11 @@ class _$DummyAttendanceModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DummyAttendanceModelCopyWith<$Res>
+abstract class _$$DummyAttendanceModelImplCopyWith<$Res>
     implements $DummyAttendanceModelCopyWith<$Res> {
-  factory _$$_DummyAttendanceModelCopyWith(_$_DummyAttendanceModel value,
-          $Res Function(_$_DummyAttendanceModel) then) =
-      __$$_DummyAttendanceModelCopyWithImpl<$Res>;
+  factory _$$DummyAttendanceModelImplCopyWith(_$DummyAttendanceModelImpl value,
+          $Res Function(_$DummyAttendanceModelImpl) then) =
+      __$$DummyAttendanceModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -108,11 +108,11 @@ abstract class _$$_DummyAttendanceModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DummyAttendanceModelCopyWithImpl<$Res>
-    extends _$DummyAttendanceModelCopyWithImpl<$Res, _$_DummyAttendanceModel>
-    implements _$$_DummyAttendanceModelCopyWith<$Res> {
-  __$$_DummyAttendanceModelCopyWithImpl(_$_DummyAttendanceModel _value,
-      $Res Function(_$_DummyAttendanceModel) _then)
+class __$$DummyAttendanceModelImplCopyWithImpl<$Res>
+    extends _$DummyAttendanceModelCopyWithImpl<$Res, _$DummyAttendanceModelImpl>
+    implements _$$DummyAttendanceModelImplCopyWith<$Res> {
+  __$$DummyAttendanceModelImplCopyWithImpl(_$DummyAttendanceModelImpl _value,
+      $Res Function(_$DummyAttendanceModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -124,7 +124,7 @@ class __$$_DummyAttendanceModelCopyWithImpl<$Res>
     Object? punchin = null,
     Object? punchout = null,
   }) {
-    return _then(_$_DummyAttendanceModel(
+    return _then(_$DummyAttendanceModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -151,16 +151,16 @@ class __$$_DummyAttendanceModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DummyAttendanceModel implements _DummyAttendanceModel {
-  const _$_DummyAttendanceModel(
+class _$DummyAttendanceModelImpl implements _DummyAttendanceModel {
+  const _$DummyAttendanceModelImpl(
       {this.status = "",
       this.message = "",
       this.address = "",
       this.punchin = "",
       this.punchout = ""});
 
-  factory _$_DummyAttendanceModel.fromJson(Map<String, dynamic> json) =>
-      _$$_DummyAttendanceModelFromJson(json);
+  factory _$DummyAttendanceModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DummyAttendanceModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -184,10 +184,10 @@ class _$_DummyAttendanceModel implements _DummyAttendanceModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DummyAttendanceModel &&
+            other is _$DummyAttendanceModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.address, address) || other.address == address) &&
@@ -204,13 +204,14 @@ class _$_DummyAttendanceModel implements _DummyAttendanceModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DummyAttendanceModelCopyWith<_$_DummyAttendanceModel> get copyWith =>
-      __$$_DummyAttendanceModelCopyWithImpl<_$_DummyAttendanceModel>(
-          this, _$identity);
+  _$$DummyAttendanceModelImplCopyWith<_$DummyAttendanceModelImpl>
+      get copyWith =>
+          __$$DummyAttendanceModelImplCopyWithImpl<_$DummyAttendanceModelImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DummyAttendanceModelToJson(
+    return _$$DummyAttendanceModelImplToJson(
       this,
     );
   }
@@ -222,10 +223,10 @@ abstract class _DummyAttendanceModel implements DummyAttendanceModel {
       final String message,
       final String address,
       final String punchin,
-      final String punchout}) = _$_DummyAttendanceModel;
+      final String punchout}) = _$DummyAttendanceModelImpl;
 
   factory _DummyAttendanceModel.fromJson(Map<String, dynamic> json) =
-      _$_DummyAttendanceModel.fromJson;
+      _$DummyAttendanceModelImpl.fromJson;
 
   @override
   String get status;
@@ -239,6 +240,6 @@ abstract class _DummyAttendanceModel implements DummyAttendanceModel {
   String get punchout;
   @override
   @JsonKey(ignore: true)
-  _$$_DummyAttendanceModelCopyWith<_$_DummyAttendanceModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$DummyAttendanceModelImplCopyWith<_$DummyAttendanceModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

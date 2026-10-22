@@ -6,16 +6,16 @@ part of 'approvetravel_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApproveTravelModel _$$_ApproveTravelModelFromJson(
+_$ApproveTravelModelImpl _$$ApproveTravelModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ApproveTravelModel(
+    _$ApproveTravelModelImpl(
       status: json['status'] as String? ?? "",
       message: json['message'] as String? ?? "",
       data: json['data'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_ApproveTravelModelToJson(
-        _$_ApproveTravelModel instance) =>
+Map<String, dynamic> _$$ApproveTravelModelImplToJson(
+        _$ApproveTravelModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,

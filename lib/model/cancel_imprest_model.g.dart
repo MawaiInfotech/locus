@@ -6,15 +6,15 @@ part of 'cancel_imprest_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CancelImprestModel _$$_CancelImprestModelFromJson(
+_$CancelImprestModelImpl _$$CancelImprestModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_CancelImprestModel(
+    _$CancelImprestModelImpl(
       status: json['status'] as bool? ?? false,
       message: json['message'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_CancelImprestModelToJson(
-        _$_CancelImprestModel instance) =>
+Map<String, dynamic> _$$CancelImprestModelImplToJson(
+        _$CancelImprestModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,

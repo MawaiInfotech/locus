@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'approvewfh_model.dart';
 
@@ -12,7 +12,7 @@ part of 'approvewfh_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ApproveWfhModel _$ApproveWfhModelFromJson(Map<String, dynamic> json) {
   return _ApproveWfhModel.fromJson(json);
@@ -72,11 +72,11 @@ class _$ApproveWfhModelCopyWithImpl<$Res, $Val extends ApproveWfhModel>
 }
 
 /// @nodoc
-abstract class _$$_ApproveWfhModelCopyWith<$Res>
+abstract class _$$ApproveWfhModelImplCopyWith<$Res>
     implements $ApproveWfhModelCopyWith<$Res> {
-  factory _$$_ApproveWfhModelCopyWith(
-          _$_ApproveWfhModel value, $Res Function(_$_ApproveWfhModel) then) =
-      __$$_ApproveWfhModelCopyWithImpl<$Res>;
+  factory _$$ApproveWfhModelImplCopyWith(_$ApproveWfhModelImpl value,
+          $Res Function(_$ApproveWfhModelImpl) then) =
+      __$$ApproveWfhModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -85,11 +85,11 @@ abstract class _$$_ApproveWfhModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ApproveWfhModelCopyWithImpl<$Res>
-    extends _$ApproveWfhModelCopyWithImpl<$Res, _$_ApproveWfhModel>
-    implements _$$_ApproveWfhModelCopyWith<$Res> {
-  __$$_ApproveWfhModelCopyWithImpl(
-      _$_ApproveWfhModel _value, $Res Function(_$_ApproveWfhModel) _then)
+class __$$ApproveWfhModelImplCopyWithImpl<$Res>
+    extends _$ApproveWfhModelCopyWithImpl<$Res, _$ApproveWfhModelImpl>
+    implements _$$ApproveWfhModelImplCopyWith<$Res> {
+  __$$ApproveWfhModelImplCopyWithImpl(
+      _$ApproveWfhModelImpl _value, $Res Function(_$ApproveWfhModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_ApproveWfhModelCopyWithImpl<$Res>
     Object? status = null,
     Object? message = null,
   }) {
-    return _then(_$_ApproveWfhModel(
+    return _then(_$ApproveWfhModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -113,13 +113,13 @@ class __$$_ApproveWfhModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ApproveWfhModel implements _ApproveWfhModel {
-  const _$_ApproveWfhModel(
+class _$ApproveWfhModelImpl implements _ApproveWfhModel {
+  const _$ApproveWfhModelImpl(
       {@JsonKey(name: "status") this.status = "",
       @JsonKey(name: "message") this.message = ""});
 
-  factory _$_ApproveWfhModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ApproveWfhModelFromJson(json);
+  factory _$ApproveWfhModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ApproveWfhModelImplFromJson(json);
 
   @override
   @JsonKey(name: "status")
@@ -134,10 +134,10 @@ class _$_ApproveWfhModel implements _ApproveWfhModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApproveWfhModel &&
+            other is _$ApproveWfhModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -149,12 +149,13 @@ class _$_ApproveWfhModel implements _ApproveWfhModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApproveWfhModelCopyWith<_$_ApproveWfhModel> get copyWith =>
-      __$$_ApproveWfhModelCopyWithImpl<_$_ApproveWfhModel>(this, _$identity);
+  _$$ApproveWfhModelImplCopyWith<_$ApproveWfhModelImpl> get copyWith =>
+      __$$ApproveWfhModelImplCopyWithImpl<_$ApproveWfhModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ApproveWfhModelToJson(
+    return _$$ApproveWfhModelImplToJson(
       this,
     );
   }
@@ -163,10 +164,10 @@ class _$_ApproveWfhModel implements _ApproveWfhModel {
 abstract class _ApproveWfhModel implements ApproveWfhModel {
   const factory _ApproveWfhModel(
       {@JsonKey(name: "status") final String status,
-      @JsonKey(name: "message") final String message}) = _$_ApproveWfhModel;
+      @JsonKey(name: "message") final String message}) = _$ApproveWfhModelImpl;
 
   factory _ApproveWfhModel.fromJson(Map<String, dynamic> json) =
-      _$_ApproveWfhModel.fromJson;
+      _$ApproveWfhModelImpl.fromJson;
 
   @override
   @JsonKey(name: "status")
@@ -176,6 +177,6 @@ abstract class _ApproveWfhModel implements ApproveWfhModel {
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_ApproveWfhModelCopyWith<_$_ApproveWfhModel> get copyWith =>
+  _$$ApproveWfhModelImplCopyWith<_$ApproveWfhModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

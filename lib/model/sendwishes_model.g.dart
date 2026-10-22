@@ -6,13 +6,15 @@ part of 'sendwishes_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SendwishesModel _$$_SendwishesModelFromJson(Map<String, dynamic> json) =>
-    _$_SendwishesModel(
+_$SendwishesModelImpl _$$SendwishesModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SendwishesModelImpl(
       status: json['status'] as String? ?? "",
       message: json['message'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_SendwishesModelToJson(_$_SendwishesModel instance) =>
+Map<String, dynamic> _$$SendwishesModelImplToJson(
+        _$SendwishesModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,

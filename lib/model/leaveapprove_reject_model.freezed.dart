@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'leaveapprove_reject_model.dart';
 
@@ -12,7 +12,7 @@ part of 'leaveapprove_reject_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LeaveApproveRejectModel _$LeaveApproveRejectModelFromJson(
     Map<String, dynamic> json) {
@@ -60,20 +60,20 @@ class _$LeaveApproveRejectModelCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? message = null,
-    Object? result = null,
+    Object? status = freezed,
+    Object? message = freezed,
+    Object? result = freezed,
   }) {
     return _then(_value.copyWith(
-      status: null == status
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      message: null == message
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      result: null == result
+      result: freezed == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -82,11 +82,12 @@ class _$LeaveApproveRejectModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LeaveApproveRejectModelCopyWith<$Res>
+abstract class _$$LeaveApproveRejectModelImplCopyWith<$Res>
     implements $LeaveApproveRejectModelCopyWith<$Res> {
-  factory _$$_LeaveApproveRejectModelCopyWith(_$_LeaveApproveRejectModel value,
-          $Res Function(_$_LeaveApproveRejectModel) then) =
-      __$$_LeaveApproveRejectModelCopyWithImpl<$Res>;
+  factory _$$LeaveApproveRejectModelImplCopyWith(
+          _$LeaveApproveRejectModelImpl value,
+          $Res Function(_$LeaveApproveRejectModelImpl) then) =
+      __$$LeaveApproveRejectModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -96,39 +97,40 @@ abstract class _$$_LeaveApproveRejectModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LeaveApproveRejectModelCopyWithImpl<$Res>
+class __$$LeaveApproveRejectModelImplCopyWithImpl<$Res>
     extends _$LeaveApproveRejectModelCopyWithImpl<$Res,
-        _$_LeaveApproveRejectModel>
-    implements _$$_LeaveApproveRejectModelCopyWith<$Res> {
-  __$$_LeaveApproveRejectModelCopyWithImpl(_$_LeaveApproveRejectModel _value,
-      $Res Function(_$_LeaveApproveRejectModel) _then)
+        _$LeaveApproveRejectModelImpl>
+    implements _$$LeaveApproveRejectModelImplCopyWith<$Res> {
+  __$$LeaveApproveRejectModelImplCopyWithImpl(
+      _$LeaveApproveRejectModelImpl _value,
+      $Res Function(_$LeaveApproveRejectModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? message = null,
-    Object? result = null,
+    Object? status = freezed,
+    Object? message = freezed,
+    Object? result = freezed,
   }) {
-    return _then(_$_LeaveApproveRejectModel(
-      status: null == status ? _value.status : status,
-      message: null == message ? _value.message : message,
-      result: null == result ? _value.result : result,
+    return _then(_$LeaveApproveRejectModelImpl(
+      status: freezed == status ? _value.status! : status,
+      message: freezed == message ? _value.message! : message,
+      result: freezed == result ? _value.result! : result,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_LeaveApproveRejectModel implements _LeaveApproveRejectModel {
-  const _$_LeaveApproveRejectModel(
+class _$LeaveApproveRejectModelImpl implements _LeaveApproveRejectModel {
+  const _$LeaveApproveRejectModelImpl(
       {@JsonKey(name: "status") this.status = "",
       @JsonKey(name: "message") this.message = "",
       @JsonKey(name: "result") this.result = ""});
 
-  factory _$_LeaveApproveRejectModel.fromJson(Map<String, dynamic> json) =>
-      _$$_LeaveApproveRejectModelFromJson(json);
+  factory _$LeaveApproveRejectModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LeaveApproveRejectModelImplFromJson(json);
 
   @override
   @JsonKey(name: "status")
@@ -146,10 +148,10 @@ class _$_LeaveApproveRejectModel implements _LeaveApproveRejectModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LeaveApproveRejectModel &&
+            other is _$LeaveApproveRejectModelImpl &&
             const DeepCollectionEquality().equals(other.status, status) &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality().equals(other.result, result));
@@ -166,14 +168,13 @@ class _$_LeaveApproveRejectModel implements _LeaveApproveRejectModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LeaveApproveRejectModelCopyWith<_$_LeaveApproveRejectModel>
-      get copyWith =>
-          __$$_LeaveApproveRejectModelCopyWithImpl<_$_LeaveApproveRejectModel>(
-              this, _$identity);
+  _$$LeaveApproveRejectModelImplCopyWith<_$LeaveApproveRejectModelImpl>
+      get copyWith => __$$LeaveApproveRejectModelImplCopyWithImpl<
+          _$LeaveApproveRejectModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LeaveApproveRejectModelToJson(
+    return _$$LeaveApproveRejectModelImplToJson(
       this,
     );
   }
@@ -184,10 +185,10 @@ abstract class _LeaveApproveRejectModel implements LeaveApproveRejectModel {
           {@JsonKey(name: "status") final dynamic status,
           @JsonKey(name: "message") final dynamic message,
           @JsonKey(name: "result") final dynamic result}) =
-      _$_LeaveApproveRejectModel;
+      _$LeaveApproveRejectModelImpl;
 
   factory _LeaveApproveRejectModel.fromJson(Map<String, dynamic> json) =
-      _$_LeaveApproveRejectModel.fromJson;
+      _$LeaveApproveRejectModelImpl.fromJson;
 
   @override
   @JsonKey(name: "status")
@@ -200,6 +201,6 @@ abstract class _LeaveApproveRejectModel implements LeaveApproveRejectModel {
   dynamic get result;
   @override
   @JsonKey(ignore: true)
-  _$$_LeaveApproveRejectModelCopyWith<_$_LeaveApproveRejectModel>
+  _$$LeaveApproveRejectModelImplCopyWith<_$LeaveApproveRejectModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

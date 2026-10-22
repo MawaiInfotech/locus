@@ -6,13 +6,13 @@ part of 'applyod_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApplyOdModel _$$_ApplyOdModelFromJson(Map<String, dynamic> json) =>
-    _$_ApplyOdModel(
+_$ApplyOdModelImpl _$$ApplyOdModelImplFromJson(Map<String, dynamic> json) =>
+    _$ApplyOdModelImpl(
       status: json['status'] as String? ?? "",
       message: json['message'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_ApplyOdModelToJson(_$_ApplyOdModel instance) =>
+Map<String, dynamic> _$$ApplyOdModelImplToJson(_$ApplyOdModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,

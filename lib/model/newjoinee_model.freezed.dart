@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'newjoinee_model.dart';
 
@@ -12,7 +12,7 @@ part of 'newjoinee_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 NewJoineeModel _$NewJoineeModelFromJson(Map<String, dynamic> json) {
   return _NewJoineeModel.fromJson(json);
@@ -96,11 +96,11 @@ class _$NewJoineeModelCopyWithImpl<$Res, $Val extends NewJoineeModel>
 }
 
 /// @nodoc
-abstract class _$$_NewJoineeModelCopyWith<$Res>
+abstract class _$$NewJoineeModelImplCopyWith<$Res>
     implements $NewJoineeModelCopyWith<$Res> {
-  factory _$$_NewJoineeModelCopyWith(
-          _$_NewJoineeModel value, $Res Function(_$_NewJoineeModel) then) =
-      __$$_NewJoineeModelCopyWithImpl<$Res>;
+  factory _$$NewJoineeModelImplCopyWith(_$NewJoineeModelImpl value,
+          $Res Function(_$NewJoineeModelImpl) then) =
+      __$$NewJoineeModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -112,11 +112,11 @@ abstract class _$$_NewJoineeModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_NewJoineeModelCopyWithImpl<$Res>
-    extends _$NewJoineeModelCopyWithImpl<$Res, _$_NewJoineeModel>
-    implements _$$_NewJoineeModelCopyWith<$Res> {
-  __$$_NewJoineeModelCopyWithImpl(
-      _$_NewJoineeModel _value, $Res Function(_$_NewJoineeModel) _then)
+class __$$NewJoineeModelImplCopyWithImpl<$Res>
+    extends _$NewJoineeModelCopyWithImpl<$Res, _$NewJoineeModelImpl>
+    implements _$$NewJoineeModelImplCopyWith<$Res> {
+  __$$NewJoineeModelImplCopyWithImpl(
+      _$NewJoineeModelImpl _value, $Res Function(_$NewJoineeModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -128,7 +128,7 @@ class __$$_NewJoineeModelCopyWithImpl<$Res>
     Object? joiningDate = null,
     Object? departName = null,
   }) {
-    return _then(_$_NewJoineeModel(
+    return _then(_$NewJoineeModelImpl(
       firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -155,16 +155,16 @@ class __$$_NewJoineeModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_NewJoineeModel implements _NewJoineeModel {
-  const _$_NewJoineeModel(
+class _$NewJoineeModelImpl implements _NewJoineeModel {
+  const _$NewJoineeModelImpl(
       {@JsonKey(name: "emp_first_name") this.firstName = "",
       @JsonKey(name: "emp_last_name") this.lastName = "",
       @JsonKey(name: "photo_file") this.photo = "",
       @JsonKey(name: "join_date") this.joiningDate = "",
       @JsonKey(name: "dept_name") this.departName = ""});
 
-  factory _$_NewJoineeModel.fromJson(Map<String, dynamic> json) =>
-      _$$_NewJoineeModelFromJson(json);
+  factory _$NewJoineeModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NewJoineeModelImplFromJson(json);
 
   @override
   @JsonKey(name: "emp_first_name")
@@ -188,10 +188,10 @@ class _$_NewJoineeModel implements _NewJoineeModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NewJoineeModel &&
+            other is _$NewJoineeModelImpl &&
             (identical(other.firstName, firstName) ||
                 other.firstName == firstName) &&
             (identical(other.lastName, lastName) ||
@@ -211,12 +211,13 @@ class _$_NewJoineeModel implements _NewJoineeModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NewJoineeModelCopyWith<_$_NewJoineeModel> get copyWith =>
-      __$$_NewJoineeModelCopyWithImpl<_$_NewJoineeModel>(this, _$identity);
+  _$$NewJoineeModelImplCopyWith<_$NewJoineeModelImpl> get copyWith =>
+      __$$NewJoineeModelImplCopyWithImpl<_$NewJoineeModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NewJoineeModelToJson(
+    return _$$NewJoineeModelImplToJson(
       this,
     );
   }
@@ -224,14 +225,15 @@ class _$_NewJoineeModel implements _NewJoineeModel {
 
 abstract class _NewJoineeModel implements NewJoineeModel {
   const factory _NewJoineeModel(
-      {@JsonKey(name: "emp_first_name") final String firstName,
-      @JsonKey(name: "emp_last_name") final String lastName,
-      @JsonKey(name: "photo_file") final String photo,
-      @JsonKey(name: "join_date") final String joiningDate,
-      @JsonKey(name: "dept_name") final String departName}) = _$_NewJoineeModel;
+          {@JsonKey(name: "emp_first_name") final String firstName,
+          @JsonKey(name: "emp_last_name") final String lastName,
+          @JsonKey(name: "photo_file") final String photo,
+          @JsonKey(name: "join_date") final String joiningDate,
+          @JsonKey(name: "dept_name") final String departName}) =
+      _$NewJoineeModelImpl;
 
   factory _NewJoineeModel.fromJson(Map<String, dynamic> json) =
-      _$_NewJoineeModel.fromJson;
+      _$NewJoineeModelImpl.fromJson;
 
   @override
   @JsonKey(name: "emp_first_name")
@@ -250,6 +252,6 @@ abstract class _NewJoineeModel implements NewJoineeModel {
   String get departName;
   @override
   @JsonKey(ignore: true)
-  _$$_NewJoineeModelCopyWith<_$_NewJoineeModel> get copyWith =>
+  _$$NewJoineeModelImplCopyWith<_$NewJoineeModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

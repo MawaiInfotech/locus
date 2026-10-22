@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'noticeboard_model.dart';
 
@@ -12,7 +12,7 @@ part of 'noticeboard_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 NoticeboardModel _$NoticeboardModelFromJson(Map<String, dynamic> json) {
   return _NoticeboardModel.fromJson(json);
@@ -96,11 +96,11 @@ class _$NoticeboardModelCopyWithImpl<$Res, $Val extends NoticeboardModel>
 }
 
 /// @nodoc
-abstract class _$$_NoticeboardModelCopyWith<$Res>
+abstract class _$$NoticeboardModelImplCopyWith<$Res>
     implements $NoticeboardModelCopyWith<$Res> {
-  factory _$$_NoticeboardModelCopyWith(
-          _$_NoticeboardModel value, $Res Function(_$_NoticeboardModel) then) =
-      __$$_NoticeboardModelCopyWithImpl<$Res>;
+  factory _$$NoticeboardModelImplCopyWith(_$NoticeboardModelImpl value,
+          $Res Function(_$NoticeboardModelImpl) then) =
+      __$$NoticeboardModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -112,11 +112,11 @@ abstract class _$$_NoticeboardModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_NoticeboardModelCopyWithImpl<$Res>
-    extends _$NoticeboardModelCopyWithImpl<$Res, _$_NoticeboardModel>
-    implements _$$_NoticeboardModelCopyWith<$Res> {
-  __$$_NoticeboardModelCopyWithImpl(
-      _$_NoticeboardModel _value, $Res Function(_$_NoticeboardModel) _then)
+class __$$NoticeboardModelImplCopyWithImpl<$Res>
+    extends _$NoticeboardModelCopyWithImpl<$Res, _$NoticeboardModelImpl>
+    implements _$$NoticeboardModelImplCopyWith<$Res> {
+  __$$NoticeboardModelImplCopyWithImpl(_$NoticeboardModelImpl _value,
+      $Res Function(_$NoticeboardModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -128,7 +128,7 @@ class __$$_NoticeboardModelCopyWithImpl<$Res>
     Object? createdBy = null,
     Object? department = null,
   }) {
-    return _then(_$_NoticeboardModel(
+    return _then(_$NoticeboardModelImpl(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -155,16 +155,16 @@ class __$$_NoticeboardModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_NoticeboardModel implements _NoticeboardModel {
-  const _$_NoticeboardModel(
+class _$NoticeboardModelImpl implements _NoticeboardModel {
+  const _$NoticeboardModelImpl(
       {@JsonKey(name: "title") this.title = "",
       @JsonKey(name: "description") this.description = "",
       @JsonKey(name: "created_at") this.date = "",
       @JsonKey(name: "created_by") this.createdBy = "",
       @JsonKey(name: "department") this.department = ""});
 
-  factory _$_NoticeboardModel.fromJson(Map<String, dynamic> json) =>
-      _$$_NoticeboardModelFromJson(json);
+  factory _$NoticeboardModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NoticeboardModelImplFromJson(json);
 
   @override
   @JsonKey(name: "title")
@@ -188,10 +188,10 @@ class _$_NoticeboardModel implements _NoticeboardModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NoticeboardModel &&
+            other is _$NoticeboardModelImpl &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -210,12 +210,13 @@ class _$_NoticeboardModel implements _NoticeboardModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NoticeboardModelCopyWith<_$_NoticeboardModel> get copyWith =>
-      __$$_NoticeboardModelCopyWithImpl<_$_NoticeboardModel>(this, _$identity);
+  _$$NoticeboardModelImplCopyWith<_$NoticeboardModelImpl> get copyWith =>
+      __$$NoticeboardModelImplCopyWithImpl<_$NoticeboardModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NoticeboardModelToJson(
+    return _$$NoticeboardModelImplToJson(
       this,
     );
   }
@@ -228,10 +229,10 @@ abstract class _NoticeboardModel implements NoticeboardModel {
           @JsonKey(name: "created_at") final String date,
           @JsonKey(name: "created_by") final String createdBy,
           @JsonKey(name: "department") final String department}) =
-      _$_NoticeboardModel;
+      _$NoticeboardModelImpl;
 
   factory _NoticeboardModel.fromJson(Map<String, dynamic> json) =
-      _$_NoticeboardModel.fromJson;
+      _$NoticeboardModelImpl.fromJson;
 
   @override
   @JsonKey(name: "title")
@@ -250,6 +251,6 @@ abstract class _NoticeboardModel implements NoticeboardModel {
   String get department;
   @override
   @JsonKey(ignore: true)
-  _$$_NoticeboardModelCopyWith<_$_NoticeboardModel> get copyWith =>
+  _$$NoticeboardModelImplCopyWith<_$NoticeboardModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

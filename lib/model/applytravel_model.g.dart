@@ -6,13 +6,15 @@ part of 'applytravel_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ApplyTravelModel _$$_ApplyTravelModelFromJson(Map<String, dynamic> json) =>
-    _$_ApplyTravelModel(
+_$ApplyTravelModelImpl _$$ApplyTravelModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ApplyTravelModelImpl(
       status: json['status'] as String? ?? "",
       message: json['message'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_ApplyTravelModelToJson(_$_ApplyTravelModel instance) =>
+Map<String, dynamic> _$$ApplyTravelModelImplToJson(
+        _$ApplyTravelModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'employeeleavelist_model.dart';
 
@@ -12,7 +12,7 @@ part of 'employeeleavelist_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 EmployeeleaveListModel _$EmployeeleaveListModelFromJson(
     Map<String, dynamic> json) {
@@ -138,11 +138,12 @@ class _$EmployeeleaveListModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_EmployeeleavelistModelCopyWith<$Res>
+abstract class _$$EmployeeleavelistModelImplCopyWith<$Res>
     implements $EmployeeleaveListModelCopyWith<$Res> {
-  factory _$$_EmployeeleavelistModelCopyWith(_$_EmployeeleavelistModel value,
-          $Res Function(_$_EmployeeleavelistModel) then) =
-      __$$_EmployeeleavelistModelCopyWithImpl<$Res>;
+  factory _$$EmployeeleavelistModelImplCopyWith(
+          _$EmployeeleavelistModelImpl value,
+          $Res Function(_$EmployeeleavelistModelImpl) then) =
+      __$$EmployeeleavelistModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -159,12 +160,13 @@ abstract class _$$_EmployeeleavelistModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EmployeeleavelistModelCopyWithImpl<$Res>
+class __$$EmployeeleavelistModelImplCopyWithImpl<$Res>
     extends _$EmployeeleaveListModelCopyWithImpl<$Res,
-        _$_EmployeeleavelistModel>
-    implements _$$_EmployeeleavelistModelCopyWith<$Res> {
-  __$$_EmployeeleavelistModelCopyWithImpl(_$_EmployeeleavelistModel _value,
-      $Res Function(_$_EmployeeleavelistModel) _then)
+        _$EmployeeleavelistModelImpl>
+    implements _$$EmployeeleavelistModelImplCopyWith<$Res> {
+  __$$EmployeeleavelistModelImplCopyWithImpl(
+      _$EmployeeleavelistModelImpl _value,
+      $Res Function(_$EmployeeleavelistModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -181,7 +183,7 @@ class __$$_EmployeeleavelistModelCopyWithImpl<$Res>
     Object? leaveGrantedDescription = null,
     Object? reason = null,
   }) {
-    return _then(_$_EmployeeleavelistModel(
+    return _then(_$EmployeeleavelistModelImpl(
       fromDate: null == fromDate
           ? _value.fromDate
           : fromDate // ignore: cast_nullable_to_non_nullable
@@ -228,8 +230,8 @@ class __$$_EmployeeleavelistModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EmployeeleavelistModel implements _EmployeeleavelistModel {
-  const _$_EmployeeleavelistModel(
+class _$EmployeeleavelistModelImpl implements _EmployeeleavelistModel {
+  const _$EmployeeleavelistModelImpl(
       {@JsonKey(name: "from_date") this.fromDate = "",
       @JsonKey(name: "end_date") this.endDate = "",
       @JsonKey(name: "leave_type") this.leaveType = "",
@@ -241,8 +243,8 @@ class _$_EmployeeleavelistModel implements _EmployeeleavelistModel {
       @JsonKey(name: "leave_granted_desc") this.leaveGrantedDescription = "",
       @JsonKey(name: "reason") this.reason = ""});
 
-  factory _$_EmployeeleavelistModel.fromJson(Map<String, dynamic> json) =>
-      _$$_EmployeeleavelistModelFromJson(json);
+  factory _$EmployeeleavelistModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmployeeleavelistModelImplFromJson(json);
 
   @override
   @JsonKey(name: "from_date")
@@ -281,10 +283,10 @@ class _$_EmployeeleavelistModel implements _EmployeeleavelistModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmployeeleavelistModel &&
+            other is _$EmployeeleavelistModelImpl &&
             (identical(other.fromDate, fromDate) ||
                 other.fromDate == fromDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
@@ -324,13 +326,13 @@ class _$_EmployeeleavelistModel implements _EmployeeleavelistModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmployeeleavelistModelCopyWith<_$_EmployeeleavelistModel> get copyWith =>
-      __$$_EmployeeleavelistModelCopyWithImpl<_$_EmployeeleavelistModel>(
-          this, _$identity);
+  _$$EmployeeleavelistModelImplCopyWith<_$EmployeeleavelistModelImpl>
+      get copyWith => __$$EmployeeleavelistModelImplCopyWithImpl<
+          _$EmployeeleavelistModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EmployeeleavelistModelToJson(
+    return _$$EmployeeleavelistModelImplToJson(
       this,
     );
   }
@@ -338,29 +340,20 @@ class _$_EmployeeleavelistModel implements _EmployeeleavelistModel {
 
 abstract class _EmployeeleavelistModel implements EmployeeleaveListModel {
   const factory _EmployeeleavelistModel(
-      {@JsonKey(name: "from_date")
-          final String fromDate,
-      @JsonKey(name: "end_date")
-          final String endDate,
-      @JsonKey(name: "leave_type")
-          final String leaveType,
-      @JsonKey(name: "emp_cd")
-          final String employeeCode,
-      @JsonKey(name: "leave_granted")
-          final String leaveGranted,
-      @JsonKey(name: "leave_days")
-          final String leaveDays,
-      @JsonKey(name: "leave_desc")
-          final String leaveDescription,
-      @JsonKey(name: "leave_pk_id")
-          final int leavePkId,
-      @JsonKey(name: "leave_granted_desc")
-          final String leaveGrantedDescription,
+      {@JsonKey(name: "from_date") final String fromDate,
+      @JsonKey(name: "end_date") final String endDate,
+      @JsonKey(name: "leave_type") final String leaveType,
+      @JsonKey(name: "emp_cd") final String employeeCode,
+      @JsonKey(name: "leave_granted") final String leaveGranted,
+      @JsonKey(name: "leave_days") final String leaveDays,
+      @JsonKey(name: "leave_desc") final String leaveDescription,
+      @JsonKey(name: "leave_pk_id") final int leavePkId,
+      @JsonKey(name: "leave_granted_desc") final String leaveGrantedDescription,
       @JsonKey(name: "reason")
-          final String reason}) = _$_EmployeeleavelistModel;
+      final String reason}) = _$EmployeeleavelistModelImpl;
 
   factory _EmployeeleavelistModel.fromJson(Map<String, dynamic> json) =
-      _$_EmployeeleavelistModel.fromJson;
+      _$EmployeeleavelistModelImpl.fromJson;
 
   @override
   @JsonKey(name: "from_date")
@@ -394,6 +387,6 @@ abstract class _EmployeeleavelistModel implements EmployeeleaveListModel {
   String get reason;
   @override
   @JsonKey(ignore: true)
-  _$$_EmployeeleavelistModelCopyWith<_$_EmployeeleavelistModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$EmployeeleavelistModelImplCopyWith<_$EmployeeleavelistModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

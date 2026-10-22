@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'offdutytype_model.dart';
 
@@ -12,7 +12,7 @@ part of 'offdutytype_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 OffdutyTypeModel _$OffdutyTypeModelFromJson(Map<String, dynamic> json) {
   return _OffdutyTypeModel.fromJson(json);
@@ -72,11 +72,11 @@ class _$OffdutyTypeModelCopyWithImpl<$Res, $Val extends OffdutyTypeModel>
 }
 
 /// @nodoc
-abstract class _$$_OffdutyTypeModelCopyWith<$Res>
+abstract class _$$OffdutyTypeModelImplCopyWith<$Res>
     implements $OffdutyTypeModelCopyWith<$Res> {
-  factory _$$_OffdutyTypeModelCopyWith(
-          _$_OffdutyTypeModel value, $Res Function(_$_OffdutyTypeModel) then) =
-      __$$_OffdutyTypeModelCopyWithImpl<$Res>;
+  factory _$$OffdutyTypeModelImplCopyWith(_$OffdutyTypeModelImpl value,
+          $Res Function(_$OffdutyTypeModelImpl) then) =
+      __$$OffdutyTypeModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -85,11 +85,11 @@ abstract class _$$_OffdutyTypeModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_OffdutyTypeModelCopyWithImpl<$Res>
-    extends _$OffdutyTypeModelCopyWithImpl<$Res, _$_OffdutyTypeModel>
-    implements _$$_OffdutyTypeModelCopyWith<$Res> {
-  __$$_OffdutyTypeModelCopyWithImpl(
-      _$_OffdutyTypeModel _value, $Res Function(_$_OffdutyTypeModel) _then)
+class __$$OffdutyTypeModelImplCopyWithImpl<$Res>
+    extends _$OffdutyTypeModelCopyWithImpl<$Res, _$OffdutyTypeModelImpl>
+    implements _$$OffdutyTypeModelImplCopyWith<$Res> {
+  __$$OffdutyTypeModelImplCopyWithImpl(_$OffdutyTypeModelImpl _value,
+      $Res Function(_$OffdutyTypeModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_OffdutyTypeModelCopyWithImpl<$Res>
     Object? code = null,
     Object? description = null,
   }) {
-    return _then(_$_OffdutyTypeModel(
+    return _then(_$OffdutyTypeModelImpl(
       code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -113,13 +113,13 @@ class __$$_OffdutyTypeModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_OffdutyTypeModel implements _OffdutyTypeModel {
-  const _$_OffdutyTypeModel(
+class _$OffdutyTypeModelImpl implements _OffdutyTypeModel {
+  const _$OffdutyTypeModelImpl(
       {@JsonKey(name: "code") this.code = "",
       @JsonKey(name: "desc") this.description = ""});
 
-  factory _$_OffdutyTypeModel.fromJson(Map<String, dynamic> json) =>
-      _$$_OffdutyTypeModelFromJson(json);
+  factory _$OffdutyTypeModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OffdutyTypeModelImplFromJson(json);
 
   @override
   @JsonKey(name: "code")
@@ -134,10 +134,10 @@ class _$_OffdutyTypeModel implements _OffdutyTypeModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OffdutyTypeModel &&
+            other is _$OffdutyTypeModelImpl &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.description, description) ||
                 other.description == description));
@@ -150,12 +150,13 @@ class _$_OffdutyTypeModel implements _OffdutyTypeModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OffdutyTypeModelCopyWith<_$_OffdutyTypeModel> get copyWith =>
-      __$$_OffdutyTypeModelCopyWithImpl<_$_OffdutyTypeModel>(this, _$identity);
+  _$$OffdutyTypeModelImplCopyWith<_$OffdutyTypeModelImpl> get copyWith =>
+      __$$OffdutyTypeModelImplCopyWithImpl<_$OffdutyTypeModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_OffdutyTypeModelToJson(
+    return _$$OffdutyTypeModelImplToJson(
       this,
     );
   }
@@ -163,11 +164,12 @@ class _$_OffdutyTypeModel implements _OffdutyTypeModel {
 
 abstract class _OffdutyTypeModel implements OffdutyTypeModel {
   const factory _OffdutyTypeModel(
-      {@JsonKey(name: "code") final String code,
-      @JsonKey(name: "desc") final String description}) = _$_OffdutyTypeModel;
+          {@JsonKey(name: "code") final String code,
+          @JsonKey(name: "desc") final String description}) =
+      _$OffdutyTypeModelImpl;
 
   factory _OffdutyTypeModel.fromJson(Map<String, dynamic> json) =
-      _$_OffdutyTypeModel.fromJson;
+      _$OffdutyTypeModelImpl.fromJson;
 
   @override
   @JsonKey(name: "code")
@@ -177,6 +179,6 @@ abstract class _OffdutyTypeModel implements OffdutyTypeModel {
   String get description;
   @override
   @JsonKey(ignore: true)
-  _$$_OffdutyTypeModelCopyWith<_$_OffdutyTypeModel> get copyWith =>
+  _$$OffdutyTypeModelImplCopyWith<_$OffdutyTypeModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'changepassword_model.dart';
 
@@ -12,7 +12,7 @@ part of 'changepassword_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ChangepasswordModel _$ChangepasswordModelFromJson(Map<String, dynamic> json) {
   return _ChangepasswordModel.fromJson(json);
@@ -74,22 +74,22 @@ class _$ChangepasswordModelCopyWithImpl<$Res, $Val extends ChangepasswordModel>
 }
 
 /// @nodoc
-abstract class _$$_ChangepasswordModelCopyWith<$Res>
+abstract class _$$ChangepasswordModelImplCopyWith<$Res>
     implements $ChangepasswordModelCopyWith<$Res> {
-  factory _$$_ChangepasswordModelCopyWith(_$_ChangepasswordModel value,
-          $Res Function(_$_ChangepasswordModel) then) =
-      __$$_ChangepasswordModelCopyWithImpl<$Res>;
+  factory _$$ChangepasswordModelImplCopyWith(_$ChangepasswordModelImpl value,
+          $Res Function(_$ChangepasswordModelImpl) then) =
+      __$$ChangepasswordModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String status, String msg, String data});
 }
 
 /// @nodoc
-class __$$_ChangepasswordModelCopyWithImpl<$Res>
-    extends _$ChangepasswordModelCopyWithImpl<$Res, _$_ChangepasswordModel>
-    implements _$$_ChangepasswordModelCopyWith<$Res> {
-  __$$_ChangepasswordModelCopyWithImpl(_$_ChangepasswordModel _value,
-      $Res Function(_$_ChangepasswordModel) _then)
+class __$$ChangepasswordModelImplCopyWithImpl<$Res>
+    extends _$ChangepasswordModelCopyWithImpl<$Res, _$ChangepasswordModelImpl>
+    implements _$$ChangepasswordModelImplCopyWith<$Res> {
+  __$$ChangepasswordModelImplCopyWithImpl(_$ChangepasswordModelImpl _value,
+      $Res Function(_$ChangepasswordModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_ChangepasswordModelCopyWithImpl<$Res>
     Object? msg = null,
     Object? data = null,
   }) {
-    return _then(_$_ChangepasswordModel(
+    return _then(_$ChangepasswordModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -118,12 +118,12 @@ class __$$_ChangepasswordModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ChangepasswordModel implements _ChangepasswordModel {
-  const _$_ChangepasswordModel(
+class _$ChangepasswordModelImpl implements _ChangepasswordModel {
+  const _$ChangepasswordModelImpl(
       {this.status = "", this.msg = "", this.data = ""});
 
-  factory _$_ChangepasswordModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ChangepasswordModelFromJson(json);
+  factory _$ChangepasswordModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChangepasswordModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -141,10 +141,10 @@ class _$_ChangepasswordModel implements _ChangepasswordModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChangepasswordModel &&
+            other is _$ChangepasswordModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.msg, msg) || other.msg == msg) &&
             (identical(other.data, data) || other.data == data));
@@ -157,13 +157,13 @@ class _$_ChangepasswordModel implements _ChangepasswordModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChangepasswordModelCopyWith<_$_ChangepasswordModel> get copyWith =>
-      __$$_ChangepasswordModelCopyWithImpl<_$_ChangepasswordModel>(
+  _$$ChangepasswordModelImplCopyWith<_$ChangepasswordModelImpl> get copyWith =>
+      __$$ChangepasswordModelImplCopyWithImpl<_$ChangepasswordModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ChangepasswordModelToJson(
+    return _$$ChangepasswordModelImplToJson(
       this,
     );
   }
@@ -173,10 +173,10 @@ abstract class _ChangepasswordModel implements ChangepasswordModel {
   const factory _ChangepasswordModel(
       {final String status,
       final String msg,
-      final String data}) = _$_ChangepasswordModel;
+      final String data}) = _$ChangepasswordModelImpl;
 
   factory _ChangepasswordModel.fromJson(Map<String, dynamic> json) =
-      _$_ChangepasswordModel.fromJson;
+      _$ChangepasswordModelImpl.fromJson;
 
   @override
   String get status;
@@ -186,6 +186,6 @@ abstract class _ChangepasswordModel implements ChangepasswordModel {
   String get data;
   @override
   @JsonKey(ignore: true)
-  _$$_ChangepasswordModelCopyWith<_$_ChangepasswordModel> get copyWith =>
+  _$$ChangepasswordModelImplCopyWith<_$ChangepasswordModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

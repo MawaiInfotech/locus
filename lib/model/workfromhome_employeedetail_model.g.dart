@@ -6,9 +6,9 @@ part of 'workfromhome_employeedetail_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_WFHEmployeeDetailModel _$$_WFHEmployeeDetailModelFromJson(
+_$WFHEmployeeDetailModelImpl _$$WFHEmployeeDetailModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_WFHEmployeeDetailModel(
+    _$WFHEmployeeDetailModelImpl(
       employeeNumber: json['emp_number'] as String? ?? "",
       employeeLastName: json['emp_last_name'] as String? ?? "",
       employeeFirstName: json['emp_first_name'] as String? ?? "",
@@ -17,8 +17,8 @@ _$_WFHEmployeeDetailModel _$$_WFHEmployeeDetailModelFromJson(
       reportingTo: json['reporting_to'] as String? ?? "",
     );
 
-Map<String, dynamic> _$$_WFHEmployeeDetailModelToJson(
-        _$_WFHEmployeeDetailModel instance) =>
+Map<String, dynamic> _$$WFHEmployeeDetailModelImplToJson(
+        _$WFHEmployeeDetailModelImpl instance) =>
     <String, dynamic>{
       'emp_number': instance.employeeNumber,
       'emp_last_name': instance.employeeLastName,
